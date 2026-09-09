@@ -12,7 +12,7 @@ function escapeXml(value: string) {
 }
 
 export async function GET({ site }: { site: URL }) {
-  const origin = site?.origin ?? 'https://joylab-publishing-os.ohbeopseok.workers.dev';
+  const origin = site?.origin ?? 'https://aijoylab.kr';
   const articles = (await getCollection('articles'))
     .filter((article) => !article.data.draft)
     .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
