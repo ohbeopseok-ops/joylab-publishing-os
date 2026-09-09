@@ -90,6 +90,10 @@ jobs:
           grep -Fq 'SK하이닉스 주가 전망' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/sk-hynix-outlook' /tmp/body
 
+          check_200 https://aijoylab.kr/articles/samsung-vs-sk-hynix-ai-memory
+          grep -Fq '삼성전자 vs SK하이닉스' /tmp/body
+          grep -Fq 'https://aijoylab.kr/articles/samsung-vs-sk-hynix-ai-memory' /tmp/body
+
           check_200 https://aijoylab.kr/about
           grep -Fq 'ABOUT JOYLAB' /tmp/body
 
@@ -112,16 +116,17 @@ jobs:
           grep -Fq 'https://aijoylab.kr/articles/foreign-investor-flow' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/samsung-electronics-outlook' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/sk-hynix-outlook' /tmp/body
+          grep -Fq 'https://aijoylab.kr/articles/samsung-vs-sk-hynix-ai-memory' /tmp/body
 
           check_200 https://aijoylab.kr/rss.xml
           grep -Fq '<link>https://aijoylab.kr</link>' /tmp/body
-          grep -Fq 'SK하이닉스 주가 전망' /tmp/body
+          grep -Fq '삼성전자 vs SK하이닉스' /tmp/body
 
-          www_url='https://www.aijoylab.kr/articles/sk-hynix-outlook'
+          www_url='https://www.aijoylab.kr/articles/samsung-vs-sk-hynix-ai-memory'
           www_code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "$www_url")
           www_location=$(curl -sSI --max-time 20 "$www_url" | tr -d '\r' | awk 'tolower($1)=="location:" {$1=""; sub(/^ /,""); print; exit}')
           echo "$www_code $www_url -> $www_location"
           test "$www_code" = "301"
-          test "$www_location" = "https://aijoylab.kr/articles/sk-hynix-outlook"
+          test "$www_location" = "https://aijoylab.kr/articles/samsung-vs-sk-hynix-ai-memory"
 
           echo 'Production smoke test passed.'
