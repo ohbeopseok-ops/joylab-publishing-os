@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://joylab-publishing-os.ohbeopseok.workers.dev',
+  site: 'https://aijoylab.kr',
   output: 'static',
   trailingSlash: 'never'
 });
