@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/interactive.css';
 import { getCollection } from 'astro:content';
 const articles = (await getCollection('articles')).filter((item) => !item.data.draft).sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 const featured = articles.find((item) => item.data.featured) ?? articles[0];
 const investmentCount = articles.filter((item) => item.data.category === '투자·경제').length;
+const tags = Array.from(new Set(articles.flatMap((item) => item.data.tags))).sort((a,b) => a.localeCompare(b, 'ko'));
+const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더십'];
 ---
 <BaseLayout title="JoyLab｜생각 → 분석 → 실행 → 성장">
   <section class="hero hero-premium">
@@ -52,9 +55,35 @@ const investmentCount = articles.filter((item) => item.data.category === '투자
   <section id="latest" class="section">
     <div id="investment" class="container">
       <div class="section-head"><div><div class="eyebrow">Latest Research</div><h2>최신 콘텐츠</h2></div><span class="kicker">새 글부터 핵심 리서치까지</span></div>
-      <div class="grid">
-        {articles.slice(0,6).map((article, index) => (
-          <a class={`card ${index === 0 ? 'card-accent' : ''}`} href={`/articles/${article.id}`}>
+
+      <div class="content-finder" aria-label="콘텐츠 검색 및 필터">
+        <div class="content-finder__top">
+          <input id="content-search" class="content-search" type="search" placeholder="삼성전자, HBM, 외국인 수급 검색" autocomplete="off" aria-label="콘텐츠 검색" />
+          <select id="tag-filter" class="content-select" aria-label="종목 또는 주제 태그 선택">
+            <option value="">모든 종목·주제</option>
+            {tags.map((tag) => <option value={tag}>{tag}</option>)}
+          </select>
+        </div>
+        <div class="filter-chips" role="group" aria-label="카테고리 필터">
+          {categories.map((category, index) => (
+            <button type="button" class={`filter-chip ${index === 0 ? 'is-active' : ''}`} data-category={category === '전체' ? '' : category}>{category}</button>
+          ))}
+        </div>
+        <div class="content-finder__foot">
+          <span><strong id="result-count">{articles.length}</strong>개의 콘텐츠</span>
+          <button id="clear-filter" class="clear-filter" type="button">필터 초기화</button>
+        </div>
+      </div>
+
+      <div id="article-grid" class="grid">
+        {articles.map((article, index) => (
+          <a
+            class={`card article-card ${index === 0 ? 'card-accent' : ''}`}
+            href={`/articles/${article.id}`}
+            data-category={article.data.category}
+            data-tags={article.data.tags.join('|')}
+            data-search={`${article.data.title} ${article.data.description} ${article.data.category} ${article.data.tags.join(' ')} ${article.data.series ?? ''}`}
+          >
             <div class="card-top"><div class="meta">{article.data.category}</div><span>{article.data.readingTime ?? '약 6분'}</span></div>
             <h3>{article.data.title}</h3>
             <p>{article.data.description}</p>
@@ -62,6 +91,8 @@ const investmentCount = articles.filter((item) => item.data.category === '투자
           </a>
         ))}
       </div>
+      <div id="empty-results" class="empty-results">조건에 맞는 콘텐츠가 없습니다. 검색어 또는 필터를 바꿔보세요.</div>
+      <div class="load-more-wrap"><button id="load-more" class="load-more" type="button">콘텐츠 더 보기</button></div>
     </div>
   </section>
 
@@ -82,4 +113,71 @@ const investmentCount = articles.filter((item) => item.data.category === '투자
       <p>JoyLab은 단기 뉴스 요약에 그치지 않고 오래 검색되고 다시 활용되는 콘텐츠 자산을 만듭니다. 하나의 리서치를 블로그, 네이버, SNS, 영상으로 확장할 수 있는 Publishing OS를 지향합니다.</p>
     </div>
   </section>
+
+  <script is:inline>
+    (() => {
+      const cards = Array.from(document.querySelectorAll('.article-card'));
+      const search = document.getElementById('content-search');
+      const tag = document.getElementById('tag-filter');
+      const categoryButtons = Array.from(document.querySelectorAll('[data-category]'));
+      const count = document.getElementById('result-count');
+      const clear = document.getElementById('clear-filter');
+      const loadMore = document.getElementById('load-more');
+      const empty = document.getElementById('empty-results');
+      if (!search || !tag || !count || !clear || !loadMore || !empty) return;
+
+      const PAGE_SIZE = 9;
+      let activeCategory = '';
+      let visibleLimit = PAGE_SIZE;
+      const normalize = (value) => String(value || '').trim().toLocaleLowerCase('ko-KR');
+
+      const applyFilters = (resetPage = true) => {
+        if (resetPage) visibleLimit = PAGE_SIZE;
+        const query = normalize(search.value);
+        const selectedTag = tag.value;
+        const matches = cards.filter((card) => {
+          const matchesQuery = !query || normalize(card.dataset.search).includes(query);
+          const matchesCategory = !activeCategory || card.dataset.category === activeCategory;
+          const tagList = (card.dataset.tags || '').split('|');
+          const matchesTag = !selectedTag || tagList.includes(selectedTag);
+          return matchesQuery && matchesCategory && matchesTag;
+        });
+
+        cards.forEach((card) => {
+          const matchIndex = matches.indexOf(card);
+          const matchesCurrent = matchIndex !== -1;
+          card.classList.toggle('is-filtered-out', !matchesCurrent);
+          card.classList.toggle('is-page-hidden', matchesCurrent && matchIndex >= visibleLimit);
+        });
+
+        count.textContent = String(matches.length);
+        empty.classList.toggle('is-visible', matches.length === 0);
+        loadMore.hidden = matches.length <= visibleLimit;
+      };
+
+      search.addEventListener('input', () => applyFilters(true));
+      tag.addEventListener('change', () => applyFilters(true));
+      categoryButtons.forEach((button) => button.addEventListener('click', () => {
+        activeCategory = button.dataset.category || '';
+        categoryButtons.forEach((item) => item.classList.toggle('is-active', item === button));
+        applyFilters(true);
+      }));
+
+      clear.addEventListener('click', () => {
+        search.value = '';
+        tag.value = '';
+        activeCategory = '';
+        categoryButtons.forEach((button) => button.classList.toggle('is-active', !button.dataset.category));
+        applyFilters(true);
+        search.focus();
+      });
+
+      loadMore.addEventListener('click', () => {
+        visibleLimit += PAGE_SIZE;
+        applyFilters(false);
+      });
+
+      applyFilters(true);
+    })();
+  </script>
 </BaseLayout>
