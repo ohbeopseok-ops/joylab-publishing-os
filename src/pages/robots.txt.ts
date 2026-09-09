@@ -1,7 +1,7 @@
 export const prerender = true;
 
 export function GET({ site }: { site: URL }) {
-  const origin = site?.origin ?? 'https://joylab-publishing-os.ohbeopseok.workers.dev';
+  const origin = site?.origin ?? 'https://aijoylab.kr';
   const body = [
     'User-agent: *',
     'Allow: /',
