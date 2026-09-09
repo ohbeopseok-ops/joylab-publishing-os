@@ -30,6 +30,7 @@ const { Content } = await render(article);
 const title = article.data.seoTitle ?? article.data.title;
 ---
 <BaseLayout title={`${title} | JoyLab`} description={article.data.description} canonical={article.data.canonical} type="article">
+  <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
   <article class="article-shell">
     <header class="article-header">
       <div class="eyebrow">{article.data.category}</div>
@@ -38,7 +39,13 @@ const title = article.data.seoTitle ?? article.data.title;
       <div class="kicker">{article.data.author} · {article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</div>
       <div class="tag-row">{article.data.tags.map((tag) => <span class="tag">#{tag}</span>)}</div>
     </header>
-    <div class="article-body"><Content /></div>
+
+    <details class="article-toc" open>
+      <summary>이 글의 목차</summary>
+      <nav id="article-toc-list" aria-label="문서 목차"></nav>
+    </details>
+
+    <div id="article-content" class="article-body"><Content /></div>
     {related.length > 0 && (
       <aside class="article-body" aria-label="관련 글">
         <h2>관련 글</h2>
@@ -50,6 +57,76 @@ const title = article.data.seoTitle ?? article.data.title;
       </aside>
     )}
   </article>
+
+  <button id="back-to-top" class="back-to-top" type="button" aria-label="맨 위로 이동" title="맨 위로 이동">↑</button>
+
+  <script is:inline>
+    (() => {
+      const article = document.querySelector('.article-shell');
+      const content = document.getElementById('article-content');
+      const progressBar = document.getElementById('reading-progress-bar');
+      const toc = document.getElementById('article-toc-list');
+      const backToTop = document.getElementById('back-to-top');
+      if (!article || !content || !progressBar || !toc || !backToTop) return;
+
+      const headings = Array.from(content.querySelectorAll('h2'));
+      const tocLinks = [];
+
+      headings.forEach((heading, index) => {
+        if (!heading.id) heading.id = `section-${index + 1}`;
+        const link = document.createElement('a');
+        link.href = `#${heading.id}`;
+        link.textContent = heading.textContent || `섹션 ${index + 1}`;
+        toc.appendChild(link);
+        tocLinks.push(link);
+      });
+
+      if (headings.length === 0) {
+        const tocBox = toc.closest('.article-toc');
+        if (tocBox) tocBox.hidden = true;
+      }
+
+      const updateProgress = () => {
+        const articleTop = article.getBoundingClientRect().top + window.scrollY;
+        const articleEnd = articleTop + article.offsetHeight - window.innerHeight;
+        const range = Math.max(articleEnd - articleTop, 1);
+        const progress = Math.min(1, Math.max(0, (window.scrollY - articleTop) / range));
+        progressBar.style.transform = `scaleX(${progress})`;
+        backToTop.classList.toggle('is-visible', window.scrollY > 700);
+      };
+
+      let ticking = false;
+      const onScroll = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          updateProgress();
+          ticking = false;
+        });
+      };
+
+      if ('IntersectionObserver' in window && headings.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+          if (!visible) return;
+          tocLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${visible.target.id}`));
+        }, { rootMargin: '-18% 0px -68% 0px', threshold: 0 });
+        headings.forEach((heading) => observer.observe(heading));
+      }
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+      });
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', updateProgress);
+      updateProgress();
+    })();
+  </script>
+
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
