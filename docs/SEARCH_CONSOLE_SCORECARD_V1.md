@@ -1,8 +1,21 @@
-# JoyLab Search Console Scorecard V1.0
+# JoyLab Search Console Scorecard V1.1
 
 기준 도메인: `https://aijoylab.kr`
 
 목적: 새 사이트의 초기 색인 안정성과 검색 유입 성장 여부를 7일·30일 단위로 같은 기준에서 확인한다.
+
+기준일: **2026-09-10**
+
+현재 Launch Cohort는 아래 6개 Gold Case다.
+
+- `/articles/what-is-hbm`
+- `/articles/semiconductor-cycle`
+- `/articles/foreign-investor-flow`
+- `/articles/samsung-electronics-outlook`
+- `/articles/sk-hynix-outlook`
+- `/articles/samsung-vs-sk-hynix-ai-memory`
+
+6개 URL 모두 Search Console 색인 생성 요청을 완료했다. 다만 **색인 요청 완료와 실제 색인 완료는 구분**한다. 이후 판정은 Search Console의 실제 색인 상태와 검색 노출 데이터를 기준으로 한다.
 
 ## 1. 7일 Launch Health
 
@@ -25,7 +38,69 @@
 
 신규 사이트의 첫 7일에는 클릭 수를 핵심 KPI로 사용하지 않는다. 노출과 색인 안정화가 먼저다.
 
-## 2. 30일 Growth Scorecard
+## 2. D0 → D7 운영 체크리스트
+
+### D0 · 2026-09-10
+
+- [x] Search Console 도메인 소유권 확인
+- [x] sitemap 제출 성공 확인
+- [x] Launch Cohort 6개 URL 색인 생성 요청 완료
+- [x] HTTPS·apex 도메인·www 301 정상 확인
+- [ ] Search Console에서 6개 URL의 현재 상태를 기준값으로 기록
+
+**원칙:** 색인 요청 직후 결과가 바뀌지 않아도 추가 요청을 반복하지 않는다.
+
+### D1~D2
+
+- [ ] 6개 URL의 `페이지 색인 생성` 상태만 확인
+- [ ] `가져오기 실패`, `서버 오류`, `리디렉션 오류`가 있는지 확인
+- [ ] sitemap 상태가 계속 `성공`인지 확인
+- [ ] 오류가 없으면 콘텐츠·코드 수정 없이 대기
+
+**PASS:** 기술 오류 0건.  
+**WATCH:** 색인 대기 상태만 존재.  
+**FIX:** 5xx·redirect·robots·canonical 오류 발생.
+
+### D3~D4
+
+- [ ] 실제 색인 완료 URL 수 기록
+- [ ] Search Console 실적에서 최초 노출 발생 여부 확인
+- [ ] 노출이 발생한 페이지와 쿼리를 기록
+- [ ] 11~20위 쿼리가 보이면 별도 Opportunity 후보로 표시
+
+이 시점의 노출 0은 실패로 판정하지 않는다. 기술 상태가 정상이라면 D7까지 기다린다.
+
+### D7 · 첫 판정일
+
+아래 운영판을 채우고 PASS / WATCH / FIX 중 하나로 확정한다.
+
+```text
+[JoyLab Search 7D]
+Published: 6
+Index requested: 6 / 6
+Indexed: __ / 6 (__%)
+Impressions: __
+Clicks: __
+CTR: __%
+Avg Position: __
+Queries with impressions: __
+Pages with impressions: __
+Sitemap: PASS / WATCH / FIX
+Crawl errors: __
+Top query: ____________________
+Top page: _____________________
+Action: _______________________
+```
+
+### D7 액션 룰
+
+- **6/6 또는 5/6 색인 + 오류 0:** PASS. 제목·본문을 성급하게 바꾸지 않는다.
+- **색인은 정상인데 노출 0:** WATCH. 다음 7일 동안 검색 의도 후보와 내부링크를 점검한다.
+- **특정 글만 미색인:** 해당 URL의 canonical·robots·중복성·본문 품질을 개별 점검한다.
+- **가져오기/서버 오류:** 콘텐츠보다 배포·Cloudflare·redirect를 먼저 수정한다.
+- **노출 쿼리 발생:** 신규 글보다 실제 쿼리와 기존 후보 Backlog의 일치도를 먼저 본다.
+
+## 3. 30일 Growth Scorecard
 
 30일 구간부터는 기술 상태와 함께 **검색 수요와 클릭 전환**을 본다.
 
@@ -68,7 +143,7 @@
 - 평균 순위만 개선: 5
 - 악화: 0
 
-## 3. JoyLab 운영 액션 룰
+## 4. JoyLab 운영 액션 룰
 
 ### A. 색인은 됐지만 노출이 없다
 
@@ -100,25 +175,7 @@
 - 더 구체적인 롱테일 키워드로 재포지셔닝
 - 투자형 글이라면 검색형 기초 글을 앞단에 추가
 
-## 4. 7D / 30D 운영판
-
-매주 아래 형식으로 기록한다.
-
-```text
-[JoyLab Search 7D]
-Published: __
-Indexed: __ / __ (__%)
-Impressions: __
-Clicks: __
-CTR: __%
-Avg Position: __
-Queries with impressions: __
-Pages with impressions: __
-Sitemap: PASS / WATCH / FIX
-Action: ____________________
-```
-
-월말에는 아래를 추가한다.
+## 5. 30D 운영판
 
 ```text
 [JoyLab Search 30D]
@@ -133,13 +190,13 @@ Top opportunity page: _____________________
 Next content cluster: ______________________
 ```
 
-## 5. 초기 Gold Case 기준
+## 6. 초기 Gold Case 기준
 
 첫 10개 글까지는 절대 트래픽 목표보다 아래 네 가지를 우선한다.
 
 1. 모든 게시 글이 sitemap에 포함된다.
 2. 게시 후 7일 이내 색인 여부를 확인한다.
-3. 각 글에 최소 2개의 문맥형 내부링크를 만든다.
-4. 30일 데이터가 쌓이면 노출 쿼리를 기준으로 다음 글을 결정한다.
+3. 각 글에 최소 2개의 문맥형 내부링크 또는 관련 글 경로를 만든다.
+4. 7일 데이터가 생기면 후보 우선순위를 조정하고, 30일 데이터가 쌓이면 노출 쿼리를 기준으로 다음 클러스터를 결정한다.
 
-초기 콘텐츠 계획은 `3개 → 10개 → 30개` 순서로 검증하며, 검색 데이터 없이 대량 생산하지 않는다.
+초기 콘텐츠 계획은 `6개 → 10개 → 30개` 순서로 검증하며, 검색 데이터 없이 대량 생산하지 않는다.
