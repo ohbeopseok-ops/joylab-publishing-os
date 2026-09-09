@@ -14,21 +14,25 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 24
+          package-manager-cache: false
 
       - name: Install dependencies
         run: npm install
+
+      - name: Production dependency audit
+        run: npm audit --omit=dev
 
       - name: Build Astro site
         run: npm run build
 
       - name: Deploy to Cloudflare Workers
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -82,6 +86,10 @@ jobs:
           grep -Fq '삼성전자 주가 전망' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/samsung-electronics-outlook' /tmp/body
 
+          check_200 https://aijoylab.kr/articles/sk-hynix-outlook
+          grep -Fq 'SK하이닉스 주가 전망' /tmp/body
+          grep -Fq 'https://aijoylab.kr/articles/sk-hynix-outlook' /tmp/body
+
           check_200 https://aijoylab.kr/about
           grep -Fq 'ABOUT JOYLAB' /tmp/body
 
@@ -103,16 +111,17 @@ jobs:
           grep -Fq 'https://aijoylab.kr/articles/semiconductor-cycle' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/foreign-investor-flow' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/samsung-electronics-outlook' /tmp/body
+          grep -Fq 'https://aijoylab.kr/articles/sk-hynix-outlook' /tmp/body
 
           check_200 https://aijoylab.kr/rss.xml
           grep -Fq '<link>https://aijoylab.kr</link>' /tmp/body
-          grep -Fq '삼성전자 주가 전망' /tmp/body
+          grep -Fq 'SK하이닉스 주가 전망' /tmp/body
 
-          www_url='https://www.aijoylab.kr/articles/samsung-electronics-outlook'
+          www_url='https://www.aijoylab.kr/articles/sk-hynix-outlook'
           www_code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "$www_url")
           www_location=$(curl -sSI --max-time 20 "$www_url" | tr -d '\r' | awk 'tolower($1)=="location:" {$1=""; sub(/^ /,""); print; exit}')
           echo "$www_code $www_url -> $www_location"
           test "$www_code" = "301"
-          test "$www_location" = "https://aijoylab.kr/articles/samsung-electronics-outlook"
+          test "$www_location" = "https://aijoylab.kr/articles/sk-hynix-outlook"
 
           echo 'Production smoke test passed.'
