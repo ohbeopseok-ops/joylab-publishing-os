@@ -33,3 +33,61 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
+
+      - name: Wait for custom domain
+        shell: bash
+        run: |
+          set -euo pipefail
+          for i in {1..18}; do
+            if curl -fsS --max-time 15 https://aijoylab.kr/ >/dev/null; then
+              echo "aijoylab.kr is reachable"
+              exit 0
+            fi
+            echo "Waiting for DNS/TLS propagation ($i/18)..."
+            sleep 10
+          done
+          echo "aijoylab.kr did not become reachable in time"
+          exit 1
+
+      - name: Production smoke test
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          check_200() {
+            url="$1"
+            code=$(curl -sS -o /tmp/body -w '%{http_code}' --max-time 20 "$url")
+            echo "$code $url"
+            test "$code" = "200"
+            test -s /tmp/body
+          }
+
+          check_200 https://aijoylab.kr/
+          grep -Fq 'JoyLab' /tmp/body
+          grep -Fq 'https://aijoylab.kr/' /tmp/body
+
+          check_200 https://aijoylab.kr/articles/what-is-hbm
+          grep -Fq 'HBM' /tmp/body
+          grep -Fq 'https://aijoylab.kr/articles/what-is-hbm' /tmp/body
+
+          check_200 https://aijoylab.kr/articles/semiconductor-cycle
+          grep -Fq '반도체' /tmp/body
+          grep -Fq 'https://aijoylab.kr/articles/semiconductor-cycle' /tmp/body
+
+          check_200 https://aijoylab.kr/robots.txt
+          grep -Fq 'Sitemap: https://aijoylab.kr/sitemap.xml' /tmp/body
+
+          check_200 https://aijoylab.kr/sitemap.xml
+          grep -Fq '<loc>https://aijoylab.kr/</loc>' /tmp/body
+          grep -Fq 'https://aijoylab.kr/articles/what-is-hbm' /tmp/body
+          grep -Fq 'https://aijoylab.kr/articles/semiconductor-cycle' /tmp/body
+
+          check_200 https://aijoylab.kr/rss.xml
+          grep -Fq '<link>https://aijoylab.kr</link>' /tmp/body
+
+          headers=$(curl -sS -D - -o /dev/null --max-time 20 https://www.aijoylab.kr/articles/what-is-hbm)
+          echo "$headers"
+          echo "$headers" | grep -Eq '^HTTP/[^ ]+ 301'
+          echo "$headers" | grep -Eqi '^location: https://aijoylab\.kr/articles/what-is-hbm([?#].*)?\r?$'
+
+          echo 'Production smoke test passed.'
