@@ -73,6 +73,9 @@ jobs:
           check_200 https://aijoylab.kr/articles/what-is-hbm
           grep -Fq 'HBM' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/what-is-hbm' /tmp/body
+          grep -Fq 'reading-progress' /tmp/body
+          grep -Fq 'article-toc-list' /tmp/body
+          grep -Fq 'back-to-top' /tmp/body
 
           check_200 https://aijoylab.kr/articles/semiconductor-cycle
           grep -Fq '반도체' /tmp/body
