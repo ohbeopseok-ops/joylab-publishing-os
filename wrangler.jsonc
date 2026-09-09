@@ -1,15 +1,24 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "joylab-publishing-os",
+  "main": "./worker/index.js",
   "compatibility_date": "2026-09-09",
+  "workers_dev": false,
+  "preview_urls": false,
   "routes": [
     {
       "pattern": "aijoylab.kr",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.aijoylab.kr",
       "custom_domain": true
     }
   ],
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": true,
     "not_found_handling": "404-page"
   }
 }
