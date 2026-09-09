@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const sequence = [
+  { id: 'what-is-hbm', step: '01', role: '기초 개념', note: 'AI 메모리의 핵심인 HBM 구조와 투자 체크포인트를 이해합니다.' },
+  { id: 'semiconductor-cycle', step: '02', role: '업황 판단', note: 'D램 가격·재고·CAPEX로 반도체 사이클의 위치를 판단합니다.' },
+  { id: 'foreign-investor-flow', step: '03', role: '시장 수급', note: '외국인 순매수를 환율·지속성·가격 반응과 함께 해석합니다.' },
+  { id: 'samsung-electronics-outlook', step: '04', role: '종목 허브', note: '실적·HBM·수급을 삼성전자 투자 판단으로 연결합니다.' },
+  { id: 'sk-hynix-outlook', step: '05', role: '종목 허브', note: 'HBM4·실적·CAPEX·수급을 SK하이닉스 관점에서 연결합니다.' },
+  { id: 'samsung-vs-sk-hynix-ai-memory', step: '06', role: '비교 판단', note: '두 종목의 AI 메모리 투자 논리와 리스크를 같은 기준으로 비교합니다.' }
+];
+
+const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
+const byId = new Map(collection.map((item) => [item.id, item]));
+const articles = sequence
+  .map((entry) => ({ ...entry, article: byId.get(entry.id) }))
+  .filter((entry) => entry.article);
+---
+<BaseLayout
+  title="반도체 투자 가이드｜HBM부터 삼성전자·SK하이닉스 비교까지 | JoyLab"
+  description="HBM, 반도체 사이클, 외국인 수급, 삼성전자, SK하이닉스, 두 종목 비교까지 JoyLab의 반도체 투자 핵심 글 6개를 한 흐름으로 연결합니다."
+>
+  <section class="guide-hero">
+    <div class="guide-wrap">
+      <div class="guide-eyebrow">JOYLAB PILLAR GUIDE</div>
+      <h1>반도체 투자 가이드</h1>
+      <p>뉴스 하나가 아니라 <strong>기술 → 업황 → 수급 → 종목 → 비교</strong> 순서로 읽습니다. 아래 6개 글은 JoyLab 반도체 투자 클러스터의 기준 경로입니다.</p>
+      <div class="guide-flow" aria-label="가이드 흐름">
+        <span>HBM</span><b>→</b><span>사이클</span><b>→</b><span>외국인 수급</span><b>→</b><span>삼성전자</span><b>→</b><span>SK하이닉스</span><b>→</b><span>비교</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="guide-main">
+    <div class="guide-wrap">
+      <div class="guide-intro">
+        <div>
+          <div class="guide-eyebrow">WHY THIS ORDER</div>
+          <h2>종목부터 보지 않고 판단 근거부터 쌓습니다</h2>
+        </div>
+        <p>HBM이 무엇인지 이해하고, 업황이 어느 위치인지 확인한 뒤, 실제 자금이 들어오는지 보고, 마지막에 개별 종목과 상대 비교로 넘어갑니다. 이 순서를 지키면 한 줄 뉴스에 투자 판단이 흔들리는 것을 줄일 수 있습니다.</p>
+      </div>
+
+      <div class="guide-grid">
+        {articles.map(({ article, step, role, note }) => (
+          <article class="guide-card">
+            <div class="guide-card__top">
+              <span class="guide-step">{step}</span>
+              <span class="guide-role">{role}</span>
+            </div>
+            <h2><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h2>
+            <p>{note}</p>
+            <div class="guide-tags">
+              {article!.data.tags.slice(0, 3).map((tag) => <span>#{tag}</span>)}
+            </div>
+            <a class="guide-link" href={`/articles/${article!.id}`}>이 글 읽기 →</a>
+          </article>
+        ))}
+      </div>
+
+      <aside class="guide-rule">
+        <div class="guide-eyebrow">JOYLAB RULE</div>
+        <h2>Fact → Interpretation → Scenario → Action</h2>
+        <p>사실을 확인하고, 의미를 해석하고, 상승·기준·하락 시나리오를 나눈 뒤, 마지막에 행동을 결정합니다. 이 페이지는 매수·매도 추천이 아니라 투자 판단 구조를 제공하는 Pillar입니다.</p>
+      </aside>
+    </div>
+  </section>
+
+  <style>
+    .guide-hero{padding:78px 20px 54px;background:linear-gradient(135deg,#071633 0%,#0b1f4d 62%,#103b82 100%);color:#fff}
+    .guide-wrap{max-width:1080px;margin:0 auto}
+    .guide-eyebrow{font-size:.76rem;font-weight:900;letter-spacing:.16em;color:#6fa8ff}
+    .guide-hero h1{margin:14px 0 18px;font-size:clamp(2.4rem,6vw,4.8rem);line-height:1;letter-spacing:-.055em}
+    .guide-hero p{max-width:760px;margin:0;color:#dce7f8;font-size:1.08rem;line-height:1.8}
+    .guide-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:28px}
+    .guide-flow span{padding:8px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.06);font-size:.84rem;font-weight:800}
+    .guide-flow b{color:#6fa8ff}
+    .guide-main{padding:56px 20px 80px;background:#f7f9fc}
+    .guide-intro{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:end;margin-bottom:30px}
+    .guide-intro h2,.guide-rule h2{margin:8px 0 0;color:#0b1f4d;font-size:clamp(1.6rem,3vw,2.25rem);letter-spacing:-.045em}
+    .guide-intro p,.guide-rule p{margin:0;color:#59677b;line-height:1.8}
+    .guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .guide-card{padding:24px;border:1px solid #dfe7f2;border-radius:20px;background:#fff;box-shadow:0 12px 34px rgba(11,31,77,.05)}
+    .guide-card__top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+    .guide-step{font-size:1.45rem;font-weight:900;color:#1677ff}
+    .guide-role{padding:6px 9px;border-radius:999px;background:#eef4ff;color:#3767a5;font-size:.74rem;font-weight:900}
+    .guide-card h2{margin:0;font-size:1.28rem;line-height:1.45;letter-spacing:-.035em}
+    .guide-card h2 a{color:#152b4a;text-decoration:none}
+    .guide-card h2 a:hover{color:#1677ff}
+    .guide-card p{margin:12px 0;color:#657286;font-size:.92rem;line-height:1.7}
+    .guide-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+    .guide-tags span{font-size:.74rem;color:#69788c}
+    .guide-link{font-size:.86rem;font-weight:900;color:#1677ff;text-decoration:none}
+    .guide-rule{margin-top:28px;padding:30px;border:1px solid #d6e4f8;border-radius:22px;background:#fff}
+    .guide-rule p{margin-top:12px;max-width:850px}
+    @media(max-width:760px){
+      .guide-hero{padding-top:52px}
+      .guide-intro,.guide-grid{grid-template-columns:1fr}
+      .guide-intro{gap:16px}
+      .guide-card{padding:20px}
+    }
+  </style>
+</BaseLayout>
