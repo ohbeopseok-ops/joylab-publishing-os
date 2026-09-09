@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+const articles = (await getCollection('articles')).filter((item) => !item.data.draft).sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const featured = articles.find((item) => item.data.featured) ?? articles[0];
+---
+<BaseLayout title="JoyLab｜생각 → 분석 → 실행 → 성장">
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Independent Research & Publishing</div>
+      <h1>생각을 분석하고,<br />분석을 실행으로.</h1>
+      <p>JoyLab은 투자·경제, AI·생산성, 성장·리더십을 연결해 복잡한 정보를 실행 가능한 판단으로 바꾸는 독립 콘텐츠 플랫폼입니다.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#latest">최신 글 보기</a>
+        <a class="button" href="#about">JoyLab 소개</a>
+      </div>
+    </div>
+  </section>
+
+  {featured && (
+    <section class="section">
+      <div class="container featured">
+        <a class="featured-main" href={`/articles/${featured.id}`}>
+          <div class="meta">FEATURED · {featured.data.category}</div>
+          <h3>{featured.data.title}</h3>
+          <p>{featured.data.description}</p>
+        </a>
+        <div class="featured-side">
+          <small>JOYLAB PRINCIPLE</small>
+          <h4>Fact → Interpretation → Scenario → Action</h4>
+          <p class="kicker">사실과 해석을 분리하고, 시나리오와 행동 기준까지 연결합니다.</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section id="latest" class="section">
+    <div class="container">
+      <div class="section-head"><h2>최신 콘텐츠</h2><span class="kicker">Latest Research</span></div>
+      <div class="grid">
+        {articles.slice(0,6).map((article) => (
+          <a class="card" href={`/articles/${article.id}`}>
+            <div class="meta">{article.data.category}</div>
+            <h3>{article.data.title}</h3>
+            <p>{article.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="investment">
+    <div class="container">
+      <div class="section-head"><h2>JoyLab Pillars</h2></div>
+      <div class="topic-grid">
+        <div class="topic"><strong>투자·경제</strong><span class="kicker">시장·기업·정책을 투자 판단으로 연결합니다.</span></div>
+        <div class="topic" id="ai"><strong>AI·생산성</strong><span class="kicker">도구보다 프로세스와 실행 구조를 다룹니다.</span></div>
+        <div class="topic" id="growth"><strong>성장·리더십</strong><span class="kicker">성과·공정성·피드백·성장을 함께 봅니다.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="featured-side">
+        <small>ABOUT JOYLAB</small>
+        <h2>좋은 정보보다, 좋은 판단을 남깁니다.</h2>
+        <p class="kicker">JoyLab은 단기 뉴스 요약에 그치지 않고 오래 검색되고 다시 활용되는 콘텐츠 자산을 만듭니다.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
