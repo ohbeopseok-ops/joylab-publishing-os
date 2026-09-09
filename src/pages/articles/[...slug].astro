@@ -4,10 +4,28 @@ import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const articles = (await getCollection('articles')).filter((item) => !item.data.draft);
-  return articles.map((article) => ({ params: { slug: article.id }, props: { article } }));
+
+  return articles.map((article) => {
+    const tags = new Set(article.data.tags);
+    const related = articles
+      .filter((item) => item.id !== article.id)
+      .map((item) => ({
+        item,
+        score:
+          item.data.tags.filter((tag) => tags.has(tag)).length * 3 +
+          (item.data.category === article.data.category ? 1 : 0) +
+          (item.data.series && item.data.series === article.data.series ? 2 : 0)
+      }))
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => b.score - a.score || b.item.data.publishedAt.getTime() - a.item.data.publishedAt.getTime())
+      .slice(0, 3)
+      .map(({ item }) => item);
+
+    return { params: { slug: article.id }, props: { article, related } };
+  });
 }
 
-const { article } = Astro.props;
+const { article, related } = Astro.props;
 const { Content } = await render(article);
 const title = article.data.seoTitle ?? article.data.title;
 ---
@@ -21,6 +39,16 @@ const title = article.data.seoTitle ?? article.data.title;
       <div class="tag-row">{article.data.tags.map((tag) => <span class="tag">#{tag}</span>)}</div>
     </header>
     <div class="article-body"><Content /></div>
+    {related.length > 0 && (
+      <aside class="article-body" aria-label="관련 글">
+        <h2>관련 글</h2>
+        <ul>
+          {related.map((item) => (
+            <li><a href={`/articles/${item.id}`}>{item.data.title}</a></li>
+          ))}
+        </ul>
+      </aside>
+    )}
   </article>
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
