@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/interactive.css';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -28,6 +29,14 @@ export async function getStaticPaths() {
 const { article, related } = Astro.props;
 const { Content } = await render(article);
 const title = article.data.seoTitle ?? article.data.title;
+const isCompareHub = article.id === 'samsung-vs-sk-hynix-ai-memory';
+const scoreCriteria = [
+  { label: 'AI 메모리 집중도', note: 'AI·HBM 성장 노출을 얼마나 중요하게 보는지', samsung: 3, hynix: 5 },
+  { label: '사업 다각화', note: '메모리 외 사업 포트폴리오 분산을 얼마나 선호하는지', samsung: 5, hynix: 2 },
+  { label: 'HBM 실행 민감도', note: 'HBM 인증·양산 모멘텀에 직접 베팅하는 성향', samsung: 3, hynix: 5 },
+  { label: '메모리 사이클 레버리지', note: '업황 개선 시 이익 민감도가 큰 구조를 선호하는지', samsung: 3, hynix: 5 },
+  { label: '모멘텀 투자 성향', note: '높은 변동성을 감수하고 추세를 중시하는지', samsung: 3, hynix: 5 }
+];
 ---
 <BaseLayout title={`${title} | JoyLab`} description={article.data.description} canonical={article.data.canonical} type="article">
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
@@ -39,6 +48,58 @@ const title = article.data.seoTitle ?? article.data.title;
       <div class="kicker">{article.data.author} · {article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</div>
       <div class="tag-row">{article.data.tags.map((tag) => <span class="tag">#{tag}</span>)}</div>
     </header>
+
+    <div class="reader-toolbar" aria-label="읽기 설정">
+      <span class="reader-toolbar__label">읽기 설정</span>
+      <button class="reader-control" type="button" data-reader-size="small" aria-pressed="false" title="글자 작게">A−</button>
+      <button class="reader-control" type="button" data-reader-size="default" aria-pressed="true" title="기본 글자 크기">A</button>
+      <button class="reader-control" type="button" data-reader-size="large" aria-pressed="false" title="글자 크게">A+</button>
+      <button id="focus-reading" class="reader-control reader-focus" type="button" aria-pressed="false">집중 읽기</button>
+    </div>
+
+    {isCompareHub && (
+      <section id="compare-scorecard" class="compare-scorecard" aria-labelledby="compare-scorecard-title">
+        <div class="compare-scorecard__head">
+          <div>
+            <h2 id="compare-scorecard-title">나에게 맞는 AI 메모리 투자 성향 Scorecard</h2>
+            <p>중요도를 직접 조절하면 삼성전자와 SK하이닉스 중 어떤 투자 논리가 현재 선호와 더 가까운지 계산합니다.</p>
+          </div>
+          <div class="score-summary" aria-live="polite">
+            <div class="score-total" data-total-box="samsung">
+              <span>삼성전자 적합도</span><strong data-total="samsung">0<em>/100</em></strong>
+            </div>
+            <div class="score-total" data-total-box="hynix">
+              <span>SK하이닉스 적합도</span><strong data-total="hynix">0<em>/100</em></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="score-presets" aria-label="투자 성향 프리셋">
+          <button class="score-preset is-active" type="button" data-weights="3,3,3,3,3">균형</button>
+          <button class="score-preset" type="button" data-weights="5,1,5,4,5">AI 성장 우선</button>
+          <button class="score-preset" type="button" data-weights="2,5,2,2,1">안정성 우선</button>
+          <button class="score-preset" type="button" data-weights="5,1,5,5,5">모멘텀 우선</button>
+        </div>
+
+        <div class="score-criteria">
+          {scoreCriteria.map((criterion, index) => (
+            <div class="score-row" data-score-row data-samsung={criterion.samsung} data-hynix={criterion.hynix}>
+              <div class="score-row__title">
+                <strong>{criterion.label}</strong>
+                <small>{criterion.note}</small>
+              </div>
+              <label class="score-weight">
+                <input type="range" min="1" max="5" value="3" step="1" data-weight aria-label={`${criterion.label} 중요도`} />
+                <output data-weight-output>3</output>
+              </label>
+              <span class="score-fit">삼성전자<b>{criterion.samsung}/5</b></span>
+              <span class="score-fit">SK하이닉스<b>{criterion.hynix}/5</b></span>
+            </div>
+          ))}
+        </div>
+        <p class="score-note">이 점수는 수익률 전망이나 매수 추천이 아니라 JoyLab의 구조 비교 프레임에 사용자의 우선순위를 적용한 성향 도구입니다.</p>
+      </section>
+    )}
 
     <details class="article-toc" open>
       <summary>이 글의 목차</summary>
@@ -68,6 +129,26 @@ const title = article.data.seoTitle ?? article.data.title;
       const toc = document.getElementById('article-toc-list');
       const backToTop = document.getElementById('back-to-top');
       if (!article || !content || !progressBar || !toc || !backToTop) return;
+
+      const sizeButtons = Array.from(document.querySelectorAll('[data-reader-size]'));
+      const focusButton = document.getElementById('focus-reading');
+      const allowedSizes = new Set(['small', 'default', 'large']);
+      const storedSize = localStorage.getItem('joylab-reader-size');
+      const initialSize = allowedSizes.has(storedSize) ? storedSize : 'default';
+
+      const applyReaderSize = (size) => {
+        document.documentElement.dataset.readerSize = size;
+        sizeButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.readerSize === size)));
+        localStorage.setItem('joylab-reader-size', size);
+      };
+      applyReaderSize(initialSize);
+      sizeButtons.forEach((button) => button.addEventListener('click', () => applyReaderSize(button.dataset.readerSize || 'default')));
+
+      focusButton?.addEventListener('click', () => {
+        const enabled = document.body.classList.toggle('focus-reading');
+        focusButton.setAttribute('aria-pressed', String(enabled));
+        focusButton.textContent = enabled ? '집중 모드 해제' : '집중 읽기';
+      });
 
       const headings = Array.from(content.querySelectorAll('h2'));
       const tocLinks = [];
@@ -114,6 +195,57 @@ const title = article.data.seoTitle ?? article.data.title;
           tocLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${visible.target.id}`));
         }, { rootMargin: '-18% 0px -68% 0px', threshold: 0 });
         headings.forEach((heading) => observer.observe(heading));
+      }
+
+      const scorecard = document.getElementById('compare-scorecard');
+      if (scorecard) {
+        const rows = Array.from(scorecard.querySelectorAll('[data-score-row]'));
+        const totalSamsung = scorecard.querySelector('[data-total="samsung"]');
+        const totalHynix = scorecard.querySelector('[data-total="hynix"]');
+        const boxSamsung = scorecard.querySelector('[data-total-box="samsung"]');
+        const boxHynix = scorecard.querySelector('[data-total-box="hynix"]');
+        const presetButtons = Array.from(scorecard.querySelectorAll('[data-weights]'));
+
+        const calculateScore = () => {
+          let weightSum = 0;
+          let samsung = 0;
+          let hynix = 0;
+          rows.forEach((row) => {
+            const input = row.querySelector('[data-weight]');
+            const output = row.querySelector('[data-weight-output]');
+            if (!input) return;
+            const weight = Number(input.value);
+            const samsungFit = Number(row.dataset.samsung || 0);
+            const hynixFit = Number(row.dataset.hynix || 0);
+            weightSum += weight;
+            samsung += weight * samsungFit;
+            hynix += weight * hynixFit;
+            if (output) output.textContent = String(weight);
+          });
+          const max = Math.max(weightSum * 5, 1);
+          const samsungScore = Math.round((samsung / max) * 100);
+          const hynixScore = Math.round((hynix / max) * 100);
+          if (totalSamsung) totalSamsung.firstChild.textContent = String(samsungScore);
+          if (totalHynix) totalHynix.firstChild.textContent = String(hynixScore);
+          boxSamsung?.classList.toggle('is-leading', samsungScore > hynixScore);
+          boxHynix?.classList.toggle('is-leading', hynixScore > samsungScore);
+        };
+
+        rows.forEach((row) => row.querySelector('[data-weight]')?.addEventListener('input', () => {
+          presetButtons.forEach((button) => button.classList.remove('is-active'));
+          calculateScore();
+        }));
+
+        presetButtons.forEach((button) => button.addEventListener('click', () => {
+          const weights = (button.dataset.weights || '').split(',').map(Number);
+          rows.forEach((row, index) => {
+            const input = row.querySelector('[data-weight]');
+            if (input && weights[index]) input.value = String(weights[index]);
+          });
+          presetButtons.forEach((item) => item.classList.toggle('is-active', item === button));
+          calculateScore();
+        }));
+        calculateScore();
       }
 
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
