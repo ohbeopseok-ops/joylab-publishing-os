@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+const {
+  title = 'JoyLab',
+  description = '생각 → 분석 → 실행 → 성장. 투자·경제, AI·생산성, 성장·리더십을 연결하는 독립 콘텐츠 플랫폼.',
+  canonical,
+  type = 'website'
+} = Astro.props;
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="/">Joy<span>Lab</span></a>
+        <nav class="nav-links" aria-label="주요 메뉴">
+          <a href="/#investment">투자·경제</a>
+          <a href="/#ai">AI·생산성</a>
+          <a href="/#growth">성장·리더십</a>
+          <a href="/#series">시리즈</a>
+          <a href="/#about">About</a>
+        </nav>
+      </div>
+    </header>
+    <main><slot /></main>
+    <footer class="footer">
+      <div class="container">© 2026 JoyLab · 생각 → 분석 → 실행 → 성장</div>
+    </footer>
+  </body>
+</html>
