@@ -8,6 +8,9 @@ export async function GET({ site }: { site: URL }) {
 
   const urls = [
     `${origin}/`,
+    `${origin}/about`,
+    `${origin}/contact`,
+    `${origin}/privacy`,
     ...articles.map((article) => `${origin}/articles/${article.id.replace(/\.mdx?$/, '')}`)
   ];
 
