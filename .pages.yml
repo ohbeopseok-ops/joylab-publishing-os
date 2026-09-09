@@ -1,0 +1,70 @@
+media:
+  input: public/media
+  output: /media
+
+content:
+  - name: articles
+    label: JoyLab Articles
+    type: collection
+    path: src/data/articles
+    filename: '{primary}.md'
+    view:
+      fields: [title, category, publishedAt, draft]
+      primary: title
+      sort: [publishedAt, title]
+      default:
+        sort: publishedAt
+        order: desc
+    fields:
+      - name: title
+        label: 제목
+        type: string
+        required: true
+      - name: description
+        label: 설명
+        type: text
+        required: true
+      - name: category
+        label: 카테고리
+        type: select
+        required: true
+        options:
+          values: [투자·경제, AI·생산성, 성장·리더십]
+      - name: tags
+        label: 태그
+        type: string
+        list: true
+      - name: publishedAt
+        label: 발행일
+        type: date
+        required: true
+      - name: updatedAt
+        label: 수정일
+        type: date
+      - name: author
+        label: 작성자
+        type: string
+        default: JoyLab
+      - name: featured
+        label: 대표 글
+        type: boolean
+        default: false
+      - name: draft
+        label: 초안
+        type: boolean
+        default: true
+      - name: seoTitle
+        label: SEO 제목
+        type: string
+      - name: canonical
+        label: Canonical URL
+        type: string
+      - name: series
+        label: 시리즈
+        type: string
+      - name: readingTime
+        label: 읽는 시간
+        type: string
+      - name: body
+        label: 본문
+        type: rich-text
