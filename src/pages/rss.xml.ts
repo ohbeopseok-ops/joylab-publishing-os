@@ -14,15 +14,15 @@ function escapeXml(value: string) {
 export async function GET({ site }: { site: URL }) {
   const origin = site?.origin ?? 'https://joylab-publishing-os.ohbeopseok.workers.dev';
   const articles = (await getCollection('articles'))
-    .filter((article) => article.data.status !== 'draft')
-    .sort((a, b) => new Date(b.data.publishedAt).getTime() - new Date(a.data.publishedAt).getTime());
+    .filter((article) => !article.data.draft)
+    .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
   const items = articles.map((article) => {
     const slug = article.id.replace(/\.mdx?$/, '');
     const link = `${origin}/articles/${slug}`;
     const title = escapeXml(article.data.title);
-    const description = escapeXml(article.data.description ?? article.data.excerpt ?? '');
-    const pubDate = new Date(article.data.publishedAt).toUTCString();
+    const description = escapeXml(article.data.description);
+    const pubDate = article.data.publishedAt.toUTCString();
 
     return `    <item>\n      <title>${title}</title>\n      <link>${link}</link>\n      <guid>${link}</guid>\n      <description>${description}</description>\n      <pubDate>${pubDate}</pubDate>\n    </item>`;
   }).join('\n');
