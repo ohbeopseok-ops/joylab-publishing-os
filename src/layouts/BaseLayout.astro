@@ -33,13 +33,21 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? Astr
           <a href="/#ai">AI·생산성</a>
           <a href="/#growth">성장·리더십</a>
           <a href="/#series">시리즈</a>
-          <a href="/#about">About</a>
+          <a href="/about">About</a>
         </nav>
       </div>
     </header>
     <main><slot /></main>
     <footer class="footer">
-      <div class="container">© 2026 JoyLab · 생각 → 분석 → 실행 → 성장</div>
+      <div class="container footer-inner">
+        <div>© 2026 JoyLab · 생각 → 분석 → 실행 → 성장</div>
+        <nav class="footer-links" aria-label="하단 메뉴">
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/rss.xml">RSS</a>
+        </nav>
+      </div>
     </footer>
   </body>
 </html>
