@@ -72,10 +72,21 @@ jobs:
           grep -Fq 'content-search' /tmp/body
           grep -Fq 'tag-filter' /tmp/body
           grep -Fq 'load-more' /tmp/body
+          grep -Fq '/guides/semiconductor-investing' /tmp/body
+
+          check_200 https://aijoylab.kr/guides/semiconductor-investing
+          grep -Fq '반도체 투자 가이드' /tmp/body
+          grep -Fq '/articles/what-is-hbm' /tmp/body
+          grep -Fq '/articles/semiconductor-cycle' /tmp/body
+          grep -Fq '/articles/foreign-investor-flow' /tmp/body
+          grep -Fq '/articles/samsung-electronics-outlook' /tmp/body
+          grep -Fq '/articles/sk-hynix-outlook' /tmp/body
+          grep -Fq '/articles/samsung-vs-sk-hynix-ai-memory' /tmp/body
 
           check_200 https://aijoylab.kr/articles/what-is-hbm
           grep -Fq 'HBM' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/what-is-hbm' /tmp/body
+          grep -Fq '/guides/semiconductor-investing' /tmp/body
           grep -Fq 'reading-progress' /tmp/body
           grep -Fq 'article-toc-list' /tmp/body
           grep -Fq 'back-to-top' /tmp/body
@@ -122,6 +133,7 @@ jobs:
           grep -Fq 'https://aijoylab.kr/about' /tmp/body
           grep -Fq 'https://aijoylab.kr/contact' /tmp/body
           grep -Fq 'https://aijoylab.kr/privacy' /tmp/body
+          grep -Fq 'https://aijoylab.kr/guides/semiconductor-investing' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/what-is-hbm' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/semiconductor-cycle' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/foreign-investor-flow' /tmp/body
