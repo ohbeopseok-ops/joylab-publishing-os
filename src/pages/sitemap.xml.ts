@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 export const prerender = true;
 
 export async function GET({ site }: { site: URL }) {
-  const origin = site?.origin ?? 'https://joylab-publishing-os.ohbeopseok.workers.dev';
+  const origin = site?.origin ?? 'https://aijoylab.kr';
   const articles = await getCollection('articles');
 
   const urls = [
