@@ -74,22 +74,45 @@ jobs:
           grep -Fq '반도체' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/semiconductor-cycle' /tmp/body
 
+          check_200 https://aijoylab.kr/articles/foreign-investor-flow
+          grep -Fq '외국인 수급' /tmp/body
+          grep -Fq 'https://aijoylab.kr/articles/foreign-investor-flow' /tmp/body
+
+          check_200 https://aijoylab.kr/articles/samsung-electronics-outlook
+          grep -Fq '삼성전자 주가 전망' /tmp/body
+          grep -Fq 'https://aijoylab.kr/articles/samsung-electronics-outlook' /tmp/body
+
+          check_200 https://aijoylab.kr/about
+          grep -Fq 'ABOUT JOYLAB' /tmp/body
+
+          check_200 https://aijoylab.kr/contact
+          grep -Fq 'CONTACT' /tmp/body
+
+          check_200 https://aijoylab.kr/privacy
+          grep -Fq '개인정보처리 안내' /tmp/body
+
           check_200 https://aijoylab.kr/robots.txt
           grep -Fq 'Sitemap: https://aijoylab.kr/sitemap.xml' /tmp/body
 
           check_200 https://aijoylab.kr/sitemap.xml
           grep -Fq '<loc>https://aijoylab.kr/</loc>' /tmp/body
+          grep -Fq 'https://aijoylab.kr/about' /tmp/body
+          grep -Fq 'https://aijoylab.kr/contact' /tmp/body
+          grep -Fq 'https://aijoylab.kr/privacy' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/what-is-hbm' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/semiconductor-cycle' /tmp/body
+          grep -Fq 'https://aijoylab.kr/articles/foreign-investor-flow' /tmp/body
+          grep -Fq 'https://aijoylab.kr/articles/samsung-electronics-outlook' /tmp/body
 
           check_200 https://aijoylab.kr/rss.xml
           grep -Fq '<link>https://aijoylab.kr</link>' /tmp/body
+          grep -Fq '삼성전자 주가 전망' /tmp/body
 
-          www_url='https://www.aijoylab.kr/articles/what-is-hbm'
+          www_url='https://www.aijoylab.kr/articles/samsung-electronics-outlook'
           www_code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "$www_url")
           www_location=$(curl -sSI --max-time 20 "$www_url" | tr -d '\r' | awk 'tolower($1)=="location:" {$1=""; sub(/^ /,""); print; exit}')
           echo "$www_code $www_url -> $www_location"
           test "$www_code" = "301"
-          test "$www_location" = "https://aijoylab.kr/articles/what-is-hbm"
+          test "$www_location" = "https://aijoylab.kr/articles/samsung-electronics-outlook"
 
           echo 'Production smoke test passed.'
