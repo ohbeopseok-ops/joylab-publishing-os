@@ -28,4 +28,8 @@ npm run build
 npm run preview
 ```
 
+## 배포
+
+GitHub Actions를 통해 Cloudflare Workers로 자동 배포합니다.
+
 브랜드: **생각 → 분석 → 실행 → 성장**
