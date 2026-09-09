@@ -17,10 +17,18 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install dependencies
         run: npm install
+
+      - name: Security audit snapshot
+        shell: bash
+        run: |
+          echo '=== production dependencies ==='
+          npm audit --omit=dev || true
+          echo '=== full dependency tree ==='
+          npm audit || true
 
       - name: Build Astro site
         run: npm run build
