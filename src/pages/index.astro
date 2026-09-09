@@ -3,32 +3,47 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 const articles = (await getCollection('articles')).filter((item) => !item.data.draft).sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 const featured = articles.find((item) => item.data.featured) ?? articles[0];
+const investmentCount = articles.filter((item) => item.data.category === '투자·경제').length;
 ---
 <BaseLayout title="JoyLab｜생각 → 분석 → 실행 → 성장">
-  <section class="hero">
-    <div class="container">
-      <div class="eyebrow">Independent Research & Publishing</div>
-      <h1>생각을 분석하고,<br />분석을 실행으로.</h1>
-      <p>JoyLab은 투자·경제, AI·생산성, 성장·리더십을 연결해 복잡한 정보를 실행 가능한 판단으로 바꾸는 독립 콘텐츠 플랫폼입니다.</p>
-      <div class="hero-actions">
-        <a class="button primary" href="#latest">최신 글 보기</a>
-        <a class="button" href="#about">JoyLab 소개</a>
+  <section class="hero hero-premium">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Independent Research & Publishing</div>
+        <h1>생각을 분석하고,<br /><span>분석을 실행으로.</span></h1>
+        <p>JoyLab은 투자·경제, AI·생산성, 성장·리더십을 연결해 복잡한 정보를 실행 가능한 판단으로 바꾸는 독립 콘텐츠 플랫폼입니다.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#latest">최신 글 보기</a>
+          <a class="button" href="#pillars">주제 둘러보기</a>
+        </div>
+        <div class="trust-row">
+          <span>Fact</span><i>→</i><span>Interpretation</span><i>→</i><span>Scenario</span><i>→</i><span>Action</span>
+        </div>
       </div>
+      <aside class="hero-panel">
+        <div class="panel-label">JOYLAB RESEARCH SYSTEM</div>
+        <div class="metric-row"><strong>{articles.length}</strong><span>Published Articles</span></div>
+        <div class="metric-row"><strong>{investmentCount}</strong><span>Investment Research</span></div>
+        <div class="metric-row"><strong>3</strong><span>Core Pillars</span></div>
+        <div class="panel-foot">생각 → 분석 → 실행 → 성장</div>
+      </aside>
     </div>
   </section>
 
   {featured && (
-    <section class="section">
+    <section class="section featured-section">
       <div class="container featured">
         <a class="featured-main" href={`/articles/${featured.id}`}>
           <div class="meta">FEATURED · {featured.data.category}</div>
           <h3>{featured.data.title}</h3>
           <p>{featured.data.description}</p>
+          <div class="read-link">리서치 읽기 →</div>
         </a>
         <div class="featured-side">
-          <small>JOYLAB PRINCIPLE</small>
-          <h4>Fact → Interpretation → Scenario → Action</h4>
-          <p class="kicker">사실과 해석을 분리하고, 시나리오와 행동 기준까지 연결합니다.</p>
+          <small>WHY JOYLAB</small>
+          <h4>뉴스를 소비하지 않고, 판단 기준을 축적합니다.</h4>
+          <p class="kicker">단기 이슈보다 오래 검색되고 다시 활용되는 콘텐츠 자산을 만듭니다.</p>
+          <div class="mini-list"><span>01. 사실과 해석 분리</span><span>02. 시나리오 기반 판단</span><span>03. 실행 조건까지 연결</span></div>
         </div>
       </div>
     </section>
@@ -36,37 +51,35 @@ const featured = articles.find((item) => item.data.featured) ?? articles[0];
 
   <section id="latest" class="section">
     <div class="container">
-      <div class="section-head"><h2>최신 콘텐츠</h2><span class="kicker">Latest Research</span></div>
+      <div class="section-head"><div><div class="eyebrow">Latest Research</div><h2>최신 콘텐츠</h2></div><span class="kicker">새 글부터 핵심 리서치까지</span></div>
       <div class="grid">
-        {articles.slice(0,6).map((article) => (
-          <a class="card" href={`/articles/${article.id}`}>
-            <div class="meta">{article.data.category}</div>
+        {articles.slice(0,6).map((article, index) => (
+          <a class={`card ${index === 0 ? 'card-accent' : ''}`} href={`/articles/${article.id}`}>
+            <div class="card-top"><div class="meta">{article.data.category}</div><span>{article.data.readingTime ?? '약 6분'}</span></div>
             <h3>{article.data.title}</h3>
             <p>{article.data.description}</p>
+            <div class="card-footer"><span>{article.data.series ?? 'JoyLab Research'}</span><b>→</b></div>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="section" id="investment">
+  <section class="section pillar-section" id="pillars">
     <div class="container">
-      <div class="section-head"><h2>JoyLab Pillars</h2></div>
+      <div class="section-head"><div><div class="eyebrow">Explore by Pillar</div><h2>JoyLab Pillars</h2></div></div>
       <div class="topic-grid">
-        <div class="topic"><strong>투자·경제</strong><span class="kicker">시장·기업·정책을 투자 판단으로 연결합니다.</span></div>
-        <div class="topic" id="ai"><strong>AI·생산성</strong><span class="kicker">도구보다 프로세스와 실행 구조를 다룹니다.</span></div>
-        <div class="topic" id="growth"><strong>성장·리더십</strong><span class="kicker">성과·공정성·피드백·성장을 함께 봅니다.</span></div>
+        <div class="topic"><span class="topic-no">01</span><strong>투자·경제</strong><span class="kicker">시장·기업·정책을 투자 판단으로 연결합니다.</span></div>
+        <div class="topic" id="ai"><span class="topic-no">02</span><strong>AI·생산성</strong><span class="kicker">도구보다 프로세스와 실행 구조를 다룹니다.</span></div>
+        <div class="topic" id="growth"><span class="topic-no">03</span><strong>성장·리더십</strong><span class="kicker">성과·공정성·피드백·성장을 함께 봅니다.</span></div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="about">
-    <div class="container">
-      <div class="featured-side">
-        <small>ABOUT JOYLAB</small>
-        <h2>좋은 정보보다, 좋은 판단을 남깁니다.</h2>
-        <p class="kicker">JoyLab은 단기 뉴스 요약에 그치지 않고 오래 검색되고 다시 활용되는 콘텐츠 자산을 만듭니다.</p>
-      </div>
+  <section class="section about-strip" id="about">
+    <div class="container about-inner">
+      <div><small>ABOUT JOYLAB</small><h2>좋은 정보보다,<br />좋은 판단을 남깁니다.</h2></div>
+      <p>JoyLab은 단기 뉴스 요약에 그치지 않고 오래 검색되고 다시 활용되는 콘텐츠 자산을 만듭니다. 하나의 리서치를 블로그, 네이버, SNS, 영상으로 확장할 수 있는 Publishing OS를 지향합니다.</p>
     </div>
   </section>
 </BaseLayout>
