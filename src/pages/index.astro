@@ -31,7 +31,7 @@ const investmentCount = articles.filter((item) => item.data.category === '투자
   </section>
 
   {featured && (
-    <section class="section featured-section">
+    <section id="series" class="section featured-section">
       <div class="container featured">
         <a class="featured-main" href={`/articles/${featured.id}`}>
           <div class="meta">FEATURED · {featured.data.category}</div>
@@ -50,7 +50,7 @@ const investmentCount = articles.filter((item) => item.data.category === '투자
   )}
 
   <section id="latest" class="section">
-    <div class="container">
+    <div id="investment" class="container">
       <div class="section-head"><div><div class="eyebrow">Latest Research</div><h2>최신 콘텐츠</h2></div><span class="kicker">새 글부터 핵심 리서치까지</span></div>
       <div class="grid">
         {articles.slice(0,6).map((article, index) => (
