@@ -1,0 +1,123 @@
+/* JoyLab Interactive UX v2: reader controls, comparison scorecard, content finder */
+
+.reader-toolbar{
+  position:sticky;
+  top:84px;
+  z-index:12;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:0 0 18px;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.94);
+  box-shadow:0 10px 28px rgba(11,31,77,.06);
+  backdrop-filter:blur(12px);
+}
+.reader-toolbar__label{margin-right:auto;font-size:.82rem;font-weight:800;color:#475467}
+.reader-control{
+  min-width:38px;
+  min-height:38px;
+  border:1px solid #d9e2ef;
+  border-radius:9px;
+  background:#fff;
+  color:var(--navy);
+  font-weight:800;
+  cursor:pointer;
+  transition:border-color .16s ease,background .16s ease,color .16s ease,transform .16s ease;
+}
+.reader-control:hover{border-color:#a9c9ff;background:#f7faff;transform:translateY(-1px)}
+.reader-control[aria-pressed="true"]{border-color:var(--blue);background:var(--blue);color:#fff}
+.reader-focus{min-width:auto;padding:0 12px}
+
+html[data-reader-size="small"] .article-body p,
+html[data-reader-size="small"] .article-body li{font-size:1.02rem}
+html[data-reader-size="large"] .article-body p,
+html[data-reader-size="large"] .article-body li{font-size:1.22rem;line-height:1.9}
+html[data-reader-size="large"] .article-body{max-width:760px;margin-inline:auto}
+
+body.focus-reading{background:#f7f9fc}
+body.focus-reading .site-header,
+body.focus-reading .footer{display:none}
+body.focus-reading .article-shell{max-width:740px;padding-top:34px}
+body.focus-reading .article-header{margin-bottom:22px}
+body.focus-reading .reader-toolbar{top:12px}
+body.focus-reading .article-toc{background:#fff}
+
+.compare-scorecard{
+  margin:28px 0 34px;
+  padding:26px;
+  border:1px solid #dce8fb;
+  border-radius:22px;
+  background:linear-gradient(180deg,#f7faff 0%,#fff 100%);
+  box-shadow:0 18px 48px rgba(11,31,77,.07);
+}
+.compare-scorecard__head{display:flex;gap:20px;justify-content:space-between;align-items:flex-start;margin-bottom:18px}
+.compare-scorecard h2{margin:0 0 8px;font-size:1.5rem;color:var(--navy);letter-spacing:-.035em}
+.compare-scorecard p{margin:0;color:#5c6b80;font-size:.94rem;line-height:1.65}
+.score-summary{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-width:260px}
+.score-total{padding:14px;border:1px solid #dbe5f2;border-radius:14px;background:#fff}
+.score-total span{display:block;font-size:.76rem;color:#667085;font-weight:800}
+.score-total strong{display:block;margin-top:4px;font-size:1.65rem;line-height:1;color:var(--navy)}
+.score-total strong em{font-style:normal;font-size:.78rem;color:#98a2b3;margin-left:2px}
+.score-total.is-leading{border-color:#9fc3ff;box-shadow:inset 0 0 0 1px #cfe0ff}
+.score-presets{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.score-preset{border:1px solid #dbe5f2;background:#fff;color:#344054;border-radius:999px;padding:8px 12px;font-size:.82rem;font-weight:800;cursor:pointer}
+.score-preset:hover,.score-preset.is-active{border-color:var(--blue);color:var(--blue);background:#eef4ff}
+.score-criteria{display:grid;gap:10px}
+.score-row{display:grid;grid-template-columns:minmax(170px,1.4fr) minmax(140px,1fr) 74px 74px;gap:14px;align-items:center;padding:13px 0;border-top:1px solid #e8eef7}
+.score-row:first-child{border-top:0}
+.score-row__title strong{display:block;color:#24364f;font-size:.92rem}
+.score-row__title small{display:block;margin-top:3px;color:#7b8798;font-size:.76rem;line-height:1.45}
+.score-weight{display:grid;grid-template-columns:1fr 22px;align-items:center;gap:8px}
+.score-weight input{width:100%;accent-color:var(--blue)}
+.score-weight output{font-size:.8rem;font-weight:900;color:var(--blue);text-align:right}
+.score-fit{text-align:center;font-size:.78rem;font-weight:900;color:#475467}
+.score-fit b{display:block;font-size:1.05rem;color:var(--navy)}
+.score-note{margin-top:16px!important;padding-top:14px;border-top:1px solid #e8eef7;font-size:.78rem!important;color:#7b8798!important}
+
+.content-finder{margin:6px 0 26px;padding:18px;border:1px solid var(--line);border-radius:18px;background:#fbfcfe}
+.content-finder__top{display:grid;grid-template-columns:minmax(240px,1fr) 180px;gap:10px}
+.content-search,.content-select{
+  width:100%;height:46px;border:1px solid #dbe3ef;border-radius:11px;background:#fff;color:#24364f;padding:0 13px;font:inherit;
+}
+.content-search:focus,.content-select:focus{outline:3px solid rgba(22,119,255,.14);border-color:var(--blue)}
+.filter-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.filter-chip{border:1px solid #dbe5f2;background:#fff;color:#475467;border-radius:999px;padding:7px 11px;font-size:.8rem;font-weight:800;cursor:pointer}
+.filter-chip:hover,.filter-chip.is-active{border-color:var(--blue);background:#eef4ff;color:var(--blue)}
+.content-finder__foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;font-size:.8rem;color:#667085}
+.clear-filter{border:0;background:transparent;color:var(--blue);font-weight:800;cursor:pointer;padding:4px}
+.article-card.is-filtered-out{display:none}
+.article-card.is-page-hidden{display:none}
+.load-more-wrap{display:flex;justify-content:center;margin-top:24px}
+.load-more{border:1px solid #cdd9e8;background:#fff;color:var(--navy);border-radius:11px;padding:11px 18px;font-weight:800;cursor:pointer}
+.load-more:hover{border-color:var(--blue);color:var(--blue);background:#f7faff}
+.empty-results{display:none;padding:28px 0;text-align:center;color:#667085}
+.empty-results.is-visible{display:block}
+
+@media(max-width:760px){
+  .reader-toolbar{top:112px;overflow-x:auto;scrollbar-width:none}
+  .reader-toolbar::-webkit-scrollbar{display:none}
+  .reader-toolbar__label{display:none}
+  .compare-scorecard{padding:20px 16px;border-radius:18px}
+  .compare-scorecard__head{display:block}
+  .score-summary{margin-top:16px;min-width:0}
+  .score-row{grid-template-columns:1fr 1fr;gap:10px}
+  .score-row__title{grid-column:1/-1}
+  .score-weight{grid-column:1/-1}
+  .score-fit{text-align:left;border:1px solid #e4eaf3;border-radius:10px;padding:8px 10px;background:#fff}
+  .content-finder__top{grid-template-columns:1fr}
+}
+
+@media(max-width:480px){
+  .reader-toolbar{top:108px;margin-inline:-4px;padding:8px}
+  .reader-focus{font-size:.78rem}
+  .score-summary{grid-template-columns:1fr}
+  .content-finder{padding:14px}
+  .content-finder__foot{align-items:flex-start;flex-direction:column}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .reader-control,.load-more{transition:none}
+}
