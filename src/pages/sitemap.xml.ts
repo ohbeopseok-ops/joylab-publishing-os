@@ -12,6 +12,7 @@ export async function GET({ site }: { site: URL }) {
     `${origin}/contact`,
     `${origin}/privacy`,
     `${origin}/guides/semiconductor-investing`,
+    `${origin}/guides/ai-power`,
     ...articles.map((article) => `${origin}/articles/${article.id.replace(/\.mdx?$/, '')}`)
   ];
 
