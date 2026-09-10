@@ -1,61 +1,113 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/interactive.css';
+import '../styles/homepage-v2.css';
 import { getCollection } from 'astro:content';
-const articles = (await getCollection('articles')).filter((item) => !item.data.draft).sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-const featured = articles.find((item) => item.data.featured) ?? articles[0];
-const investmentCount = articles.filter((item) => item.data.category === '투자·경제').length;
+
+const articles = (await getCollection('articles'))
+  .filter((item) => !item.data.draft)
+  .sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const today = articles.slice(0, 3);
+const majorResearch = articles.slice(0, 4);
+const latestResearch = articles.slice(0, 5);
 const tags = Array.from(new Set(articles.flatMap((item) => item.data.tags))).sort((a,b) => a.localeCompare(b, 'ko'));
 const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더십'];
+const investmentCount = articles.filter((item) => item.data.category === '투자·경제').length;
 ---
-<BaseLayout title="JoyLab｜생각 → 분석 → 실행 → 성장">
-  <section class="hero hero-premium">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow">Independent Research & Publishing</div>
-        <h1>생각을 분석하고,<br /><span>분석을 실행으로.</span></h1>
-        <p>JoyLab은 투자·경제, AI·생산성, 성장·리더십을 연결해 복잡한 정보를 실행 가능한 판단으로 바꾸는 독립 콘텐츠 플랫폼입니다.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#latest">최신 글 보기</a>
-          <a class="button" href="#pillars">주제 둘러보기</a>
-        </div>
-        <div class="trust-row">
-          <span>Fact</span><i>→</i><span>Interpretation</span><i>→</i><span>Scenario</span><i>→</i><span>Action</span>
+<BaseLayout title="JoyLab｜생각을 분석하고, 분석을 실행으로." bodyClass="homepage-v2">
+  <div class="home-v2">
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="home-hero__lead">
+        <div class="home-eyebrow">JOYLAB RESEARCH SYSTEM</div>
+        <h1 id="home-title">생각을 분석하고,<br /><span>분석을 실행으로.</span></h1>
+        <p class="home-hero__desc">투자·경제, AI·생산성, 성장·리더십을 연결해 복잡한 정보를 실행 가능한 판단으로 바꾸는 독립 리서치 미디어입니다.</p>
+        <a class="home-hero__cta" href="#today-research">오늘의 리서치 보기 <span aria-hidden="true">→</span></a>
+        <div class="home-hero__stats" aria-label="JoyLab 현황">
+          <div class="home-stat"><strong>3</strong><span>Pillars</span></div>
+          <div class="home-stat"><strong>{articles.length}</strong><span>Research</span></div>
+          <div class="home-stat"><strong>{investmentCount}</strong><span>Investment</span></div>
         </div>
       </div>
-      <aside class="hero-panel">
-        <div class="panel-label">JOYLAB RESEARCH SYSTEM</div>
-        <div class="metric-row"><strong>{articles.length}</strong><span>Published Articles</span></div>
-        <div class="metric-row"><strong>{investmentCount}</strong><span>Investment Research</span></div>
-        <div class="metric-row"><strong>3</strong><span>Core Pillars</span></div>
-        <div class="panel-foot">생각 → 분석 → 실행 → 성장</div>
+      <aside class="home-hero__today" aria-label="오늘의 핵심 리서치">
+        <div class="home-today-head"><h2>오늘의 핵심 리서치</h2><span>TOP 3</span></div>
+        <div class="home-today-list">
+          {today.map((article, index) => (
+            <a class="home-today-item" href={`/articles/${article.id}`}>
+              <span class="home-today-no">{index + 1}</span>
+              <span><b>{article.data.title}</b><small>{article.data.category} · {article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</small></span>
+            </a>
+          ))}
+        </div>
       </aside>
-    </div>
-  </section>
+    </section>
 
-  {featured && (
-    <section id="series" class="section featured-section">
-      <div class="container featured">
-        <a class="featured-main" href={`/articles/${featured.id}`}>
-          <div class="meta">FEATURED · {featured.data.category}</div>
-          <h3>{featured.data.title}</h3>
-          <p>{featured.data.description}</p>
-          <div class="read-link">리서치 읽기 →</div>
-        </a>
-        <div class="featured-side">
-          <small>WHY JOYLAB</small>
-          <h4>뉴스를 소비하지 않고, 판단 기준을 축적합니다.</h4>
-          <p class="kicker">단기 이슈보다 오래 검색되고 다시 활용되는 콘텐츠 자산을 만듭니다.</p>
-          <div class="mini-list"><span>01. 사실과 해석 분리</span><span>02. 시나리오 기반 판단</span><span>03. 실행 조건까지 연결</span></div>
+    <section class="home-section" id="pillars">
+      <div class="home-section-head">
+        <div class="home-section-title"><div><h2>3개의 Pillar, 하나의 시선</h2><p>복잡한 정보를 실행 가능한 판단으로 연결합니다.</p></div></div>
+        <a class="home-section-link" href="#archive">전체 보기 →</a>
+      </div>
+      <div class="home-pillars">
+        <a class="home-pillar" href="#investment"><small>INVESTMENT & ECONOMY</small><strong>투자·경제</strong><p>시장·기업·정책을 읽고 투자 판단으로 연결합니다.</p></a>
+        <a class="home-pillar" href="#ai"><small>AI & PRODUCTIVITY</small><strong>AI·생산성</strong><p>AI가 바꾸는 산업과 일하는 방식을 분석합니다.</p></a>
+        <a class="home-pillar" href="#growth"><small>GROWTH & LEADERSHIP</small><strong>성장·리더십</strong><p>성과·공정성·피드백·성장을 하나의 프레임으로 봅니다.</p></a>
+      </div>
+    </section>
+
+    <section class="home-section" id="today-research">
+      <div class="home-section-head">
+        <div class="home-section-title"><div><h2>오늘의 주요 리서치</h2><p>지금 가장 주목해야 할 분석입니다.</p></div></div>
+        <a class="home-section-link" href="#archive">전체 보기 →</a>
+      </div>
+      <div class="home-research-grid">
+        {majorResearch.map((article) => (
+          <a class="home-research-card" href={`/articles/${article.id}`}>
+            <div class="home-research-thumb" aria-hidden="true"></div>
+            <div class="home-research-copy">
+              <small>{article.data.category}</small>
+              <h3>{article.data.title}</h3>
+              <p>{article.data.description}</p>
+              <div class="home-research-meta">{article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="home-section" aria-labelledby="guide-title">
+      <div class="home-guide">
+        <div class="home-guide-head"><div><div class="home-eyebrow" style="color:var(--home-yellow)">START HERE</div><h2 id="guide-title">반도체 투자 가이드</h2></div><span>처음부터 제대로, 한 번에 보기</span></div>
+        <div class="home-guide-map">
+          <a class="home-guide-step is-start" href="/articles/what-is-hbm"><em>01</em><b>HBM이란?</b><span>AI 메모리의 출발점</span></a>
+          <a class="home-guide-step" href="/articles/semiconductor-cycle"><em>02</em><b>Cycle</b><span>반도체 사이클 읽기</span></a>
+          <a class="home-guide-step" href="/articles/foreign-flow"><em>03</em><b>Flow</b><span>외국인 수급 해석</span></a>
+          <a class="home-guide-step" href="/articles/samsung-electronics-outlook"><em>04</em><b>Samsung</b><span>삼성전자 분석</span></a>
+          <a class="home-guide-step" href="/articles/sk-hynix-outlook"><em>05</em><b>SK hynix</b><span>SK하이닉스 분석</span></a>
+          <a class="home-guide-step" href="/articles/samsung-vs-sk-hynix-ai-memory"><em>06</em><b>Compare</b><span>두 종목 비교</span></a>
         </div>
       </div>
     </section>
-  )}
 
-  <section id="latest" class="section">
-    <div id="investment" class="container">
-      <div class="section-head"><div><div class="eyebrow">Latest Research</div><h2>최신 콘텐츠</h2></div><span class="kicker">새 글부터 핵심 리서치까지</span></div>
+    <section class="home-section">
+      <div class="home-latest-row">
+        <div class="home-list-card">
+          <div class="home-section-title"><div><h2>최신 리서치</h2></div></div>
+          <ol>{latestResearch.map((article, index) => <li><b>0{index + 1}</b><a href={`/articles/${article.id}`}>{article.data.title}</a></li>)}</ol>
+        </div>
+        <div class="home-category-card">
+          <div class="home-section-title"><div><h2>전체 카테고리</h2></div></div>
+          <a href="#investment"><span>투자·경제</span><span>→</span></a>
+          <a href="#ai"><span>AI·생산성</span><span>→</span></a>
+          <a href="#growth"><span>성장·리더십</span><span>→</span></a>
+          <a href="/guides/semiconductor-investing"><span>반도체 투자 가이드</span><span>→</span></a>
+        </div>
+        <div class="home-quote-card"><strong>좋은 정보보다,<br/>더 나은 판단을 남깁니다.</strong><p>Fact → Interpretation → Scenario → Action</p></div>
+      </div>
+    </section>
 
+    <section class="home-archive" id="archive">
+      <div id="investment" class="home-section-head">
+        <div class="home-section-title"><div><h2>전체 리서치</h2><p>검색과 필터로 필요한 분석을 찾을 수 있습니다.</p></div></div>
+      </div>
       <div class="content-finder" aria-label="콘텐츠 검색 및 필터">
         <div class="content-finder__top">
           <input id="content-search" class="content-search" type="search" placeholder="삼성전자, HBM, 외국인 수급 검색" autocomplete="off" aria-label="콘텐츠 검색" />
@@ -65,54 +117,24 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
           </select>
         </div>
         <div class="filter-chips" role="group" aria-label="카테고리 필터">
-          {categories.map((category, index) => (
-            <button type="button" class={`filter-chip ${index === 0 ? 'is-active' : ''}`} data-category={category === '전체' ? '' : category}>{category}</button>
-          ))}
+          {categories.map((category, index) => <button type="button" class={`filter-chip ${index === 0 ? 'is-active' : ''}`} data-category={category === '전체' ? '' : category}>{category}</button>)}
         </div>
-        <div class="content-finder__foot">
-          <span><strong id="result-count">{articles.length}</strong>개의 콘텐츠</span>
-          <button id="clear-filter" class="clear-filter" type="button">필터 초기화</button>
-        </div>
+        <div class="content-finder__foot"><span><strong id="result-count">{articles.length}</strong>개의 콘텐츠</span><button id="clear-filter" class="clear-filter" type="button">필터 초기화</button></div>
       </div>
-
       <div id="article-grid" class="grid">
         {articles.map((article, index) => (
-          <a
-            class={`card article-card ${index === 0 ? 'card-accent' : ''}`}
-            href={`/articles/${article.id}`}
-            data-category={article.data.category}
-            data-tags={article.data.tags.join('|')}
-            data-search={`${article.data.title} ${article.data.description} ${article.data.category} ${article.data.tags.join(' ')} ${article.data.series ?? ''}`}
-          >
+          <a class={`card article-card ${index === 0 ? 'card-accent' : ''}`} href={`/articles/${article.id}`} data-category={article.data.category} data-tags={article.data.tags.join('|')} data-search={`${article.data.title} ${article.data.description} ${article.data.category} ${article.data.tags.join(' ')} ${article.data.series ?? ''}`}>
             <div class="card-top"><div class="meta">{article.data.category}</div><span>{article.data.readingTime ?? '약 6분'}</span></div>
-            <h3>{article.data.title}</h3>
-            <p>{article.data.description}</p>
+            <h3>{article.data.title}</h3><p>{article.data.description}</p>
             <div class="card-footer"><span>{article.data.series ?? 'JoyLab Research'}</span><b>→</b></div>
           </a>
         ))}
       </div>
       <div id="empty-results" class="empty-results">조건에 맞는 콘텐츠가 없습니다. 검색어 또는 필터를 바꿔보세요.</div>
       <div class="load-more-wrap"><button id="load-more" class="load-more" type="button">콘텐츠 더 보기</button></div>
-    </div>
-  </section>
-
-  <section class="section pillar-section" id="pillars">
-    <div class="container">
-      <div class="section-head"><div><div class="eyebrow">Explore by Pillar</div><h2>JoyLab Pillars</h2></div></div>
-      <div class="topic-grid">
-        <div class="topic"><span class="topic-no">01</span><strong>투자·경제</strong><span class="kicker">시장·기업·정책을 투자 판단으로 연결합니다.</span></div>
-        <div class="topic" id="ai"><span class="topic-no">02</span><strong>AI·생산성</strong><span class="kicker">도구보다 프로세스와 실행 구조를 다룹니다.</span></div>
-        <div class="topic" id="growth"><span class="topic-no">03</span><strong>성장·리더십</strong><span class="kicker">성과·공정성·피드백·성장을 함께 봅니다.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section about-strip" id="about">
-    <div class="container about-inner">
-      <div><small>ABOUT JOYLAB</small><h2>좋은 정보보다,<br />좋은 판단을 남깁니다.</h2></div>
-      <p>JoyLab은 단기 뉴스 요약에 그치지 않고 오래 검색되고 다시 활용되는 콘텐츠 자산을 만듭니다. 하나의 리서치를 블로그, 네이버, SNS, 영상으로 확장할 수 있는 Publishing OS를 지향합니다.</p>
-    </div>
-  </section>
+      <span id="ai"></span><span id="growth"></span>
+    </section>
+  </div>
 
   <script is:inline>
     (() => {
@@ -125,12 +147,10 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
       const loadMore = document.getElementById('load-more');
       const empty = document.getElementById('empty-results');
       if (!search || !tag || !count || !clear || !loadMore || !empty) return;
-
       const PAGE_SIZE = 9;
       let activeCategory = '';
       let visibleLimit = PAGE_SIZE;
       const normalize = (value) => String(value || '').trim().toLocaleLowerCase('ko-KR');
-
       const applyFilters = (resetPage = true) => {
         if (resetPage) visibleLimit = PAGE_SIZE;
         const query = normalize(search.value);
@@ -142,19 +162,16 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
           const matchesTag = !selectedTag || tagList.includes(selectedTag);
           return matchesQuery && matchesCategory && matchesTag;
         });
-
         cards.forEach((card) => {
           const matchIndex = matches.indexOf(card);
           const matchesCurrent = matchIndex !== -1;
           card.classList.toggle('is-filtered-out', !matchesCurrent);
           card.classList.toggle('is-page-hidden', matchesCurrent && matchIndex >= visibleLimit);
         });
-
         count.textContent = String(matches.length);
         empty.classList.toggle('is-visible', matches.length === 0);
         loadMore.hidden = matches.length <= visibleLimit;
       };
-
       search.addEventListener('input', () => applyFilters(true));
       tag.addEventListener('change', () => applyFilters(true));
       categoryButtons.forEach((button) => button.addEventListener('click', () => {
@@ -162,21 +179,8 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
         categoryButtons.forEach((item) => item.classList.toggle('is-active', item === button));
         applyFilters(true);
       }));
-
-      clear.addEventListener('click', () => {
-        search.value = '';
-        tag.value = '';
-        activeCategory = '';
-        categoryButtons.forEach((button) => button.classList.toggle('is-active', !button.dataset.category));
-        applyFilters(true);
-        search.focus();
-      });
-
-      loadMore.addEventListener('click', () => {
-        visibleLimit += PAGE_SIZE;
-        applyFilters(false);
-      });
-
+      clear.addEventListener('click', () => {search.value='';tag.value='';activeCategory='';categoryButtons.forEach((button)=>button.classList.toggle('is-active',!button.dataset.category));applyFilters(true);search.focus();});
+      loadMore.addEventListener('click', () => {visibleLimit += PAGE_SIZE;applyFilters(false);});
       applyFilters(true);
     })();
   </script>
