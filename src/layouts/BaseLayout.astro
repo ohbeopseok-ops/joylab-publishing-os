@@ -28,9 +28,9 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? Astr
   </head>
   <body class={bodyClass}>
     <header class="site-header">
-      <div class="container nav">
+      <div class="container nav" id="site-nav-shell">
         <a class="brand" href="/">Joy<span>Lab</span></a>
-        <nav class="nav-links" aria-label="주요 메뉴">
+        <nav class="nav-links" id="site-primary-nav" aria-label="주요 메뉴">
           <a href="/#investment">투자·경제</a>
           <a href="/guides/semiconductor-investing">반도체 가이드</a>
           <a href="/#ai">AI·생산성</a>
@@ -38,6 +38,10 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? Astr
           <a href="/#series">시리즈</a>
           <a href="/about">About</a>
         </nav>
+        <a class="homepage-nav-cta" href="/#today-research">오늘의 리서치 →</a>
+        <button class="homepage-nav-toggle" type="button" aria-expanded="false" aria-controls="site-primary-nav" aria-label="메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </header>
     <main><slot /></main>
@@ -53,5 +57,26 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? Astr
         </nav>
       </div>
     </footer>
+    <script is:inline>
+      (() => {
+        const shell = document.getElementById('site-nav-shell');
+        const toggle = shell?.querySelector('.homepage-nav-toggle');
+        const links = shell?.querySelectorAll('.nav-links a');
+        if (!shell || !toggle) return;
+        const close = () => {
+          shell.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', '메뉴 열기');
+        };
+        toggle.addEventListener('click', () => {
+          const open = !shell.classList.contains('is-open');
+          shell.classList.toggle('is-open', open);
+          toggle.setAttribute('aria-expanded', String(open));
+          toggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+        });
+        links?.forEach((link) => link.addEventListener('click', close));
+        window.addEventListener('resize', () => { if (window.innerWidth > 640) close(); });
+      })();
+    </script>
   </body>
 </html>
