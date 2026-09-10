@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/interactive.css';
 import '../styles/homepage-v2.css';
+import '../styles/homepage-v2-fidelity.css';
 import { getCollection } from 'astro:content';
 
 const articles = (await getCollection('articles'))
@@ -79,7 +80,7 @@ const investmentCount = articles.filter((item) => item.data.category === '투자
         <div class="home-guide-map">
           <a class="home-guide-step is-start" href="/articles/what-is-hbm"><em>01</em><b>HBM이란?</b><span>AI 메모리의 출발점</span></a>
           <a class="home-guide-step" href="/articles/semiconductor-cycle"><em>02</em><b>Cycle</b><span>반도체 사이클 읽기</span></a>
-          <a class="home-guide-step" href="/articles/foreign-flow"><em>03</em><b>Flow</b><span>외국인 수급 해석</span></a>
+          <a class="home-guide-step" href="/articles/foreign-investor-flow"><em>03</em><b>Flow</b><span>외국인 수급 해석</span></a>
           <a class="home-guide-step" href="/articles/samsung-electronics-outlook"><em>04</em><b>Samsung</b><span>삼성전자 분석</span></a>
           <a class="home-guide-step" href="/articles/sk-hynix-outlook"><em>05</em><b>SK hynix</b><span>SK하이닉스 분석</span></a>
           <a class="home-guide-step" href="/articles/samsung-vs-sk-hynix-ai-memory"><em>06</em><b>Compare</b><span>두 종목 비교</span></a>
