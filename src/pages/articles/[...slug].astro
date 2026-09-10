@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/interactive.css';
+import '../../styles/research-v2.css';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -19,7 +20,7 @@ export async function getStaticPaths() {
       }))
       .filter(({ score }) => score > 0)
       .sort((a, b) => b.score - a.score || b.item.data.publishedAt.getTime() - a.item.data.publishedAt.getTime())
-      .slice(0, 3)
+      .slice(0, 4)
       .map(({ item }) => item);
 
     return { params: { slug: article.id }, props: { article, related } };
@@ -30,6 +31,18 @@ const { article, related } = Astro.props;
 const { Content } = await render(article);
 const title = article.data.seoTitle ?? article.data.title;
 const isCompareHub = article.id === 'samsung-vs-sk-hynix-ai-memory';
+const isSamsung = article.id === 'samsung-electronics-outlook';
+const takeaways = isSamsung
+  ? [
+      ['실적 추정치', '현재 실적보다 다음 분기와 연간 EPS 추정치의 방향을 먼저 봅니다.'],
+      ['HBM 실행력', '기술 발표보다 인증·양산·수율·공급 물량이 이익으로 연결되는지 확인합니다.'],
+      ['외국인 수급', '하루 순매수보다 5일·20일 지속성과 실제 가격 반응을 함께 봅니다.']
+    ]
+  : [
+      ['핵심 변수', `${article.data.tags.slice(0, 2).join('·')}를 중심으로 구조적 변화를 봅니다.`],
+      ['판단 순서', '사실과 해석을 분리하고 시나리오별로 조건을 확인합니다.'],
+      ['실행 기준', '한 줄 뉴스보다 데이터의 방향과 가격 반응을 함께 확인합니다.']
+    ];
 const scoreCriteria = [
   { label: 'AI 메모리 집중도', note: 'AI·HBM 성장 노출을 얼마나 중요하게 보는지', samsung: 3, hynix: 5 },
   { label: '사업 다각화', note: '메모리 외 사업 포트폴리오 분산을 얼마나 선호하는지', samsung: 5, hynix: 2 },
@@ -38,85 +51,128 @@ const scoreCriteria = [
   { label: '모멘텀 투자 성향', note: '높은 변동성을 감수하고 추세를 중시하는지', samsung: 3, hynix: 5 }
 ];
 ---
-<BaseLayout title={`${title} | JoyLab`} description={article.data.description} canonical={article.data.canonical} type="article">
+<BaseLayout title={`${title} | JoyLab`} description={article.data.description} canonical={article.data.canonical} type="article" bodyClass="research-article-page">
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
-  <article class="article-shell">
-    <header class="article-header">
-      <div class="eyebrow">{article.data.category}</div>
-      <h1>{article.data.title}</h1>
-      <p class="desc">{article.data.description}</p>
-      <div class="kicker">{article.data.author} · {article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</div>
-      <div class="tag-row">{article.data.tags.map((tag) => <span class="tag">#{tag}</span>)}</div>
+
+  <article class="research-v2-shell article-shell">
+    <header class="research-cover">
+      <div class="research-cover__copy">
+        <div class="research-kicker">JOYLAB RESEARCH · {article.data.category}</div>
+        <h1>{article.data.title}</h1>
+        <p class="research-cover__desc">{article.data.description}</p>
+        <div class="research-cover__meta">
+          <span>{article.data.author}</span>
+          <span>{article.data.publishedAt.toLocaleDateString('ko-KR')}</span>
+          <span>{article.data.readingTime ?? '약 6분'}</span>
+          {article.data.series && <span>{article.data.series}</span>}
+        </div>
+        <div class="research-cover__tags">{article.data.tags.map((tag) => <span>#{tag}</span>)}</div>
+      </div>
+      <div class="research-cover__art" aria-hidden="true">
+        <div class="research-mark">JoyLab<br/>Research<small>FACT · INTERPRETATION<br/>SCENARIO · ACTION</small></div>
+      </div>
     </header>
 
-    <div class="reader-toolbar" aria-label="읽기 설정">
-      <span class="reader-toolbar__label">읽기 설정</span>
-      <button class="reader-control" type="button" data-reader-size="small" aria-pressed="false" title="글자 작게">A−</button>
-      <button class="reader-control" type="button" data-reader-size="default" aria-pressed="true" title="기본 글자 크기">A</button>
-      <button class="reader-control" type="button" data-reader-size="large" aria-pressed="false" title="글자 크게">A+</button>
-      <button id="focus-reading" class="reader-control reader-focus" type="button" aria-pressed="false">집중 읽기</button>
+    <div class="research-quote">
+      <strong>좋은 정보보다, 더 나은 판단을 남깁니다.</strong>
+      <span>Fact → Interpretation → Scenario → Action</span>
     </div>
 
-    {isCompareHub && (
-      <section id="compare-scorecard" class="compare-scorecard" aria-labelledby="compare-scorecard-title">
-        <div class="compare-scorecard__head">
-          <div>
-            <h2 id="compare-scorecard-title">나에게 맞는 AI 메모리 투자 성향 Scorecard</h2>
-            <p>중요도를 직접 조절하면 삼성전자와 SK하이닉스 중 어떤 투자 논리가 현재 선호와 더 가까운지 계산합니다.</p>
-          </div>
-          <div class="score-summary" aria-live="polite">
-            <div class="score-total" data-total-box="samsung">
-              <span>삼성전자 적합도</span><strong data-total="samsung">0<em>/100</em></strong>
-            </div>
-            <div class="score-total" data-total-box="hynix">
-              <span>SK하이닉스 적합도</span><strong data-total="hynix">0<em>/100</em></strong>
-            </div>
-          </div>
-        </div>
+    <div class="research-layout">
+      <div class="research-main">
+        <section class="research-panel research-brief" aria-labelledby="brief-title">
+          <h2 class="research-panel__title" id="brief-title">Research Brief</h2>
+          <ul>
+            <li>{article.data.description}</li>
+            <li>JoyLab은 단일 뉴스보다 여러 변수를 한 흐름으로 연결해 판단합니다.</li>
+            <li>이 글은 매수·매도 지시가 아니라 판단 기준과 재점검 조건을 제공하는 리서치입니다.</li>
+          </ul>
+        </section>
 
-        <div class="score-presets" aria-label="투자 성향 프리셋">
-          <button class="score-preset is-active" type="button" data-weights="3,3,3,3,3">균형</button>
-          <button class="score-preset" type="button" data-weights="5,1,5,4,5">AI 성장 우선</button>
-          <button class="score-preset" type="button" data-weights="2,5,2,2,1">안정성 우선</button>
-          <button class="score-preset" type="button" data-weights="5,1,5,5,5">모멘텀 우선</button>
-        </div>
+        <section class="research-panel" aria-labelledby="takeaways-title">
+          <h2 class="research-panel__title" id="takeaways-title">Key Takeaways</h2>
+          <div class="takeaway-grid">
+            {takeaways.map(([label, note], index) => (
+              <div class="takeaway"><b>0{index + 1}</b><strong>{label}</strong><p>{note}</p></div>
+            ))}
+          </div>
+        </section>
 
-        <div class="score-criteria">
-          {scoreCriteria.map((criterion, index) => (
-            <div class="score-row" data-score-row data-samsung={criterion.samsung} data-hynix={criterion.hynix}>
-              <div class="score-row__title">
-                <strong>{criterion.label}</strong>
-                <small>{criterion.note}</small>
+        <section class="research-panel" aria-labelledby="framework-title">
+          <h2 class="research-panel__title" id="framework-title">JoyLab 투자 프레임워크</h2>
+          <div class="framework-grid">
+            <div class="framework-step"><em>FACT</em><strong>무엇이 사실인가?</strong><p>데이터와 공시, 확인 가능한 사건을 먼저 분리합니다.</p></div>
+            <div class="framework-step"><em>INTERPRETATION</em><strong>무엇을 의미하는가?</strong><p>변수의 방향과 구조적 의미를 연결합니다.</p></div>
+            <div class="framework-step"><em>SCENARIO</em><strong>어떤 가능성이 있는가?</strong><p>Bull·Base·Bear 조건을 나누어 봅니다.</p></div>
+            <div class="framework-step"><em>ACTION</em><strong>무엇을 확인할 것인가?</strong><p>다음 판단 전 반드시 확인할 체크포인트를 남깁니다.</p></div>
+          </div>
+        </section>
+
+        {isCompareHub && (
+          <section id="compare-scorecard" class="compare-scorecard" aria-labelledby="compare-scorecard-title">
+            <div class="compare-scorecard__head">
+              <div>
+                <h2 id="compare-scorecard-title">나에게 맞는 AI 메모리 투자 성향 Scorecard</h2>
+                <p>중요도를 직접 조절하면 삼성전자와 SK하이닉스 중 어떤 투자 논리가 현재 선호와 더 가까운지 계산합니다.</p>
               </div>
-              <label class="score-weight">
-                <input type="range" min="1" max="5" value="3" step="1" data-weight aria-label={`${criterion.label} 중요도`} />
-                <output data-weight-output>3</output>
-              </label>
-              <span class="score-fit">삼성전자<b>{criterion.samsung}/5</b></span>
-              <span class="score-fit">SK하이닉스<b>{criterion.hynix}/5</b></span>
+              <div class="score-summary" aria-live="polite">
+                <div class="score-total" data-total-box="samsung"><span>삼성전자 적합도</span><strong data-total="samsung">0<em>/100</em></strong></div>
+                <div class="score-total" data-total-box="hynix"><span>SK하이닉스 적합도</span><strong data-total="hynix">0<em>/100</em></strong></div>
+              </div>
             </div>
-          ))}
+            <div class="score-presets" aria-label="투자 성향 프리셋">
+              <button class="score-preset is-active" type="button" data-weights="3,3,3,3,3">균형</button>
+              <button class="score-preset" type="button" data-weights="5,1,5,4,5">AI 성장 우선</button>
+              <button class="score-preset" type="button" data-weights="2,5,2,2,1">안정성 우선</button>
+              <button class="score-preset" type="button" data-weights="5,1,5,5,5">모멘텀 우선</button>
+            </div>
+            <div class="score-criteria">
+              {scoreCriteria.map((criterion) => (
+                <div class="score-row" data-score-row data-samsung={criterion.samsung} data-hynix={criterion.hynix}>
+                  <div class="score-row__title"><strong>{criterion.label}</strong><small>{criterion.note}</small></div>
+                  <label class="score-weight"><input type="range" min="1" max="5" value="3" step="1" data-weight aria-label={`${criterion.label} 중요도`} /><output data-weight-output>3</output></label>
+                  <span class="score-fit">삼성전자<b>{criterion.samsung}/5</b></span>
+                  <span class="score-fit">SK하이닉스<b>{criterion.hynix}/5</b></span>
+                </div>
+              ))}
+            </div>
+            <p class="score-note">이 점수는 수익률 전망이나 매수 추천이 아니라 JoyLab의 구조 비교 프레임에 사용자의 우선순위를 적용한 성향 도구입니다.</p>
+          </section>
+        )}
+
+        <div class="reader-toolbar research-reader" aria-label="읽기 설정">
+          <span class="reader-toolbar__label">읽기 설정</span>
+          <button class="reader-control" type="button" data-reader-size="small" aria-pressed="false" title="글자 작게">A−</button>
+          <button class="reader-control" type="button" data-reader-size="default" aria-pressed="true" title="기본 글자 크기">A</button>
+          <button class="reader-control" type="button" data-reader-size="large" aria-pressed="false" title="글자 크게">A+</button>
+          <button id="focus-reading" class="reader-control reader-focus" type="button" aria-pressed="false">집중 읽기</button>
         </div>
-        <p class="score-note">이 점수는 수익률 전망이나 매수 추천이 아니라 JoyLab의 구조 비교 프레임에 사용자의 우선순위를 적용한 성향 도구입니다.</p>
-      </section>
-    )}
 
-    <details class="article-toc" open>
-      <summary>이 글의 목차</summary>
-      <nav id="article-toc-list" aria-label="문서 목차"></nav>
-    </details>
+        <div class="research-v2-content">
+          <div id="article-content" class="article-body"><Content /></div>
+        </div>
+      </div>
 
-    <div id="article-content" class="article-body"><Content /></div>
-    {related.length > 0 && (
-      <aside class="article-body" aria-label="관련 글">
-        <h2>관련 글</h2>
-        <ul>
-          {related.map((item) => (
-            <li><a href={`/articles/${item.id}`}>{item.data.title}</a></li>
-          ))}
-        </ul>
+      <aside class="research-rail" aria-label="리서치 보조 정보">
+        <div class="research-rail__card toc-card">
+          <h3>Table of Contents</h3>
+          <details class="article-toc" open><summary>이 글의 목차</summary><nav id="article-toc-list" aria-label="문서 목차"></nav></details>
+        </div>
+        <div class="research-guide-cta">
+          <small>START HERE</small>
+          <strong>반도체 투자 가이드</strong>
+          <a href="/guides/semiconductor-investing">HBM부터 비교까지 한 번에 보기 →</a>
+        </div>
+        {related.length > 0 && (
+          <div class="research-rail__card related-card">
+            <h3>Related Research</h3>
+            <div class="research-related">
+              {related.map((item) => <a href={`/articles/${item.id}`}><b>{item.data.title}</b><span>{item.data.category} · {item.data.readingTime ?? '약 6분'}</span></a>)}
+            </div>
+          </div>
+        )}
       </aside>
-    )}
+    </div>
   </article>
 
   <button id="back-to-top" class="back-to-top" type="button" aria-label="맨 위로 이동" title="맨 위로 이동">↑</button>
@@ -135,7 +191,6 @@ const scoreCriteria = [
       const allowedSizes = new Set(['small', 'default', 'large']);
       const storedSize = localStorage.getItem('joylab-reader-size');
       const initialSize = allowedSizes.has(storedSize) ? storedSize : 'default';
-
       const applyReaderSize = (size) => {
         document.documentElement.dataset.readerSize = size;
         sizeButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.readerSize === size)));
@@ -143,7 +198,6 @@ const scoreCriteria = [
       };
       applyReaderSize(initialSize);
       sizeButtons.forEach((button) => button.addEventListener('click', () => applyReaderSize(button.dataset.readerSize || 'default')));
-
       focusButton?.addEventListener('click', () => {
         const enabled = document.body.classList.toggle('focus-reading');
         focusButton.setAttribute('aria-pressed', String(enabled));
@@ -152,7 +206,6 @@ const scoreCriteria = [
 
       const headings = Array.from(content.querySelectorAll('h2'));
       const tocLinks = [];
-
       headings.forEach((heading, index) => {
         if (!heading.id) heading.id = `section-${index + 1}`;
         const link = document.createElement('a');
@@ -162,11 +215,6 @@ const scoreCriteria = [
         tocLinks.push(link);
       });
 
-      if (headings.length === 0) {
-        const tocBox = toc.closest('.article-toc');
-        if (tocBox) tocBox.hidden = true;
-      }
-
       const updateProgress = () => {
         const articleTop = article.getBoundingClientRect().top + window.scrollY;
         const articleEnd = articleTop + article.offsetHeight - window.innerHeight;
@@ -175,22 +223,16 @@ const scoreCriteria = [
         progressBar.style.transform = `scaleX(${progress})`;
         backToTop.classList.toggle('is-visible', window.scrollY > 700);
       };
-
       let ticking = false;
       const onScroll = () => {
         if (ticking) return;
         ticking = true;
-        requestAnimationFrame(() => {
-          updateProgress();
-          ticking = false;
-        });
+        requestAnimationFrame(() => { updateProgress(); ticking = false; });
       };
 
       if ('IntersectionObserver' in window && headings.length > 0) {
         const observer = new IntersectionObserver((entries) => {
-          const visible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+          const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
           if (!visible) return;
           tocLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${visible.target.id}`));
         }, { rootMargin: '-18% 0px -68% 0px', threshold: 0 });
@@ -205,21 +247,16 @@ const scoreCriteria = [
         const boxSamsung = scorecard.querySelector('[data-total-box="samsung"]');
         const boxHynix = scorecard.querySelector('[data-total-box="hynix"]');
         const presetButtons = Array.from(scorecard.querySelectorAll('[data-weights]'));
-
         const calculateScore = () => {
-          let weightSum = 0;
-          let samsung = 0;
-          let hynix = 0;
+          let weightSum = 0, samsung = 0, hynix = 0;
           rows.forEach((row) => {
             const input = row.querySelector('[data-weight]');
             const output = row.querySelector('[data-weight-output]');
             if (!input) return;
             const weight = Number(input.value);
-            const samsungFit = Number(row.dataset.samsung || 0);
-            const hynixFit = Number(row.dataset.hynix || 0);
             weightSum += weight;
-            samsung += weight * samsungFit;
-            hynix += weight * hynixFit;
+            samsung += weight * Number(row.dataset.samsung || 0);
+            hynix += weight * Number(row.dataset.hynix || 0);
             if (output) output.textContent = String(weight);
           });
           const max = Math.max(weightSum * 5, 1);
@@ -230,18 +267,10 @@ const scoreCriteria = [
           boxSamsung?.classList.toggle('is-leading', samsungScore > hynixScore);
           boxHynix?.classList.toggle('is-leading', hynixScore > samsungScore);
         };
-
-        rows.forEach((row) => row.querySelector('[data-weight]')?.addEventListener('input', () => {
-          presetButtons.forEach((button) => button.classList.remove('is-active'));
-          calculateScore();
-        }));
-
+        rows.forEach((row) => row.querySelector('[data-weight]')?.addEventListener('input', () => { presetButtons.forEach((button) => button.classList.remove('is-active')); calculateScore(); }));
         presetButtons.forEach((button) => button.addEventListener('click', () => {
           const weights = (button.dataset.weights || '').split(',').map(Number);
-          rows.forEach((row, index) => {
-            const input = row.querySelector('[data-weight]');
-            if (input && weights[index]) input.value = String(weights[index]);
-          });
+          rows.forEach((row, index) => { const input = row.querySelector('[data-weight]'); if (input && weights[index]) input.value = String(weights[index]); });
           presetButtons.forEach((item) => item.classList.toggle('is-active', item === button));
           calculateScore();
         }));
@@ -249,10 +278,7 @@ const scoreCriteria = [
       }
 
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-      });
-
+      backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' }));
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('resize', updateProgress);
       updateProgress();
