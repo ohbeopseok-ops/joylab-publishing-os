@@ -25,15 +25,33 @@ const articles = sequence
 >
   <section class="sg-hero">
     <div class="sg-wrap sg-hero__inner">
-      <div class="sg-eyebrow">JOYLAB RESEARCH MAP · SEMICONDUCTOR</div>
-      <h1>반도체 투자 가이드</h1>
-      <p class="sg-hero__lead">종목부터 보지 않습니다. <strong>기술 → 업황 → 수급 → 종목 → 비교</strong> 순서로 판단 근거를 쌓습니다. 아래 6개 리서치는 JoyLab 반도체 투자 클러스터의 기준 경로입니다.</p>
-      <div class="sg-hero__meta" aria-label="가이드 정보">
-        <span><strong>6</strong> Research</span>
-        <span><strong>5</strong> Decision Layers</span>
-        <span><strong>1</strong> Research Map</span>
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">SEMICONDUCTOR RESEARCH · JOYLAB</div>
+          <h1>반도체,<br /><span>더 깊이 더 명확하게.</span></h1>
+          <p class="sg-hero__lead">HBM부터 메모리 사이클, 외국인 수급, 삼성전자와 SK하이닉스 비교까지. 반도체 산업을 뉴스가 아니라 <strong>연결된 판단 구조</strong>로 읽습니다.</p>
+          <div class="sg-hero__chips" aria-label="핵심 주제">
+            <span>#HBM</span><span>#메모리사이클</span><span>#외국인수급</span><span>#삼성전자</span><span>#SK하이닉스</span>
+          </div>
+          <div class="sg-hero__meta" aria-label="가이드 정보">
+            <span><strong>6</strong> Research</span>
+            <span><strong>5</strong> Decision Layers</span>
+            <span><strong>1</strong> Research Map</span>
+          </div>
+        </div>
+
+        <aside class="sg-lens" aria-label="JoyLab 반도체 리서치 관점">
+          <div class="sg-lens__brand">JOYLAB<br /><b>SEMICONDUCTOR</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>데이터로 보는 산업 사이클</b><span>가격·재고·CAPEX로 업황을 확인합니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>기술이 만드는 경쟁력</b><span>HBM·공정·양산 실행력을 함께 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>투자 판단으로 연결</b><span>실적·밸류에이션·수급을 한 흐름으로 봅니다.</span></div></div>
+        </aside>
       </div>
 
+      <div class="sg-map-head">
+        <div><span>START HERE</span><b>반도체 투자 가이드</b></div>
+        <a href="#research-path">6개 리서치 전체 보기 →</a>
+      </div>
       <nav class="sg-map" aria-label="반도체 리서치 경로">
         {articles.map(({ article, step, short, role }, index) => (
           <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={`/articles/${article!.id}`}>
@@ -48,13 +66,13 @@ const articles = sequence
 
   <main class="sg-main">
     <div class="sg-wrap sg-layout">
-      <section>
+      <section id="research-path">
         <div class="sg-section-head">
           <div>
             <div class="sg-eyebrow">RESEARCH PATH</div>
             <h2>판단 근거를 순서대로 쌓습니다</h2>
           </div>
-          <p>HBM을 이해하고 업황을 확인한 뒤, 실제 자금의 방향을 보고, 마지막에 삼성전자와 SK하이닉스를 같은 기준으로 비교합니다.</p>
+          <p>기술을 이해하고 업황을 확인한 뒤 실제 자금의 방향을 봅니다. 마지막에는 삼성전자와 SK하이닉스를 같은 기준으로 비교합니다.</p>
         </div>
 
         <div class="sg-path">
@@ -73,6 +91,17 @@ const articles = sequence
             </article>
           ))}
         </div>
+
+        <section class="sg-insights" aria-labelledby="sg-insights-title">
+          <div class="sg-section-head sg-section-head--compact">
+            <div><div class="sg-eyebrow">SEMICONDUCTOR INSIGHTS</div><h2 id="sg-insights-title">세 가지 축으로 다시 봅니다</h2></div>
+          </div>
+          <div class="sg-insights__grid">
+            <div><em>DATA</em><b>데이터로 보는 사이클</b><p>메모리 가격, 재고, CAPEX를 연결해 업황의 위치를 판단합니다.</p></div>
+            <div><em>TECH</em><b>기술이 만드는 게임</b><p>HBM, AI 메모리, 공정과 양산 실행력이 경쟁 구도를 바꿉니다.</p></div>
+            <div><em>DECISION</em><b>투자 관점에서 본 반도체</b><p>실적, 밸류에이션, 외국인 수급을 실제 판단 조건으로 연결합니다.</p></div>
+          </div>
+        </section>
 
         <section class="sg-rule" aria-labelledby="sg-rule-title">
           <div class="sg-eyebrow">JOYLAB METHOD</div>
@@ -93,17 +122,11 @@ const articles = sequence
           <p>HBM 개념 → 사이클 → 수급까지 먼저 읽은 뒤 종목 분석으로 넘어가면 뉴스 한 줄에 판단이 흔들리는 것을 줄일 수 있습니다.</p>
           <a href="/articles/what-is-hbm">HBM부터 시작하기 →</a>
         </section>
-
         <section class="sg-rail-card">
           <small>HOW TO USE</small>
           <h3>세 번 나눠 읽기</h3>
-          <ol>
-            <li>01~02: 기술과 업황</li>
-            <li>03: 자금의 방향</li>
-            <li>04~06: 종목과 비교</li>
-          </ol>
+          <ol><li>01~02: 기술과 업황</li><li>03: 자금의 방향</li><li>04~06: 종목과 비교</li></ol>
         </section>
-
         <section class="sg-rail-card">
           <small>DECISION RULE</small>
           <h3>종목보다 조건을 먼저</h3>
