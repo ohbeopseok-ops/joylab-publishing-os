@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import '../../styles/ai-power-guide-v2.css';
+import { getCollection } from 'astro:content';
+
+const sequence = [
+  { id: 'ai-power-next-bottleneck', step: '01', role: '발전·허브', short: 'Generation', note: 'AI 데이터센터 전력 수요가 발전부터 냉각까지 어떤 병목을 만드는지 전체 지도로 봅니다.' },
+  { id: 'ai-power-grid-transformer-distribution', step: '02', role: '전력기기', short: 'Grid', note: '송전·변압·배전에서 공급 탄력성이 낮은 구간과 수주 전환을 확인합니다.' },
+  { id: 'bess-ups-bbu-data-center', step: '03', role: '전력 안정성', short: 'Resilience', note: 'BESS·UPS·BBU가 서로 다른 시간축에서 데이터센터 가동률을 지키는 구조를 봅니다.' },
+  { id: null, step: '04', role: '발전 심화', short: 'Gas Turbine', note: '가스터빈과 복합화력이 AI 전력 수요에서 다시 중요해지는 이유를 다룰 예정입니다.' },
+  { id: null, step: '05', role: '냉각', short: 'Cooling', note: '고밀도 AI 랙의 전력밀도와 액체냉각 병목을 다룰 예정입니다.' },
+  { id: null, step: '06', role: '최종 비교', short: 'Compare', note: '발전→송전→변압→배전→백업→냉각을 같은 기준으로 비교할 예정입니다.' }
+];
+
+const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
+const byId = new Map(collection.map((item) => [item.id, item]));
+const steps = sequence.map((entry) => ({ ...entry, article: entry.id ? byId.get(entry.id) : undefined }));
+const published = steps.filter((entry) => entry.article);
+---
+<BaseLayout
+  title="AI 전력 가이드｜GPU 다음 병목은 발전소다 | JoyLab"
+  description="AI 데이터센터 전력을 발전·송전·변압·배전·BESS·UPS·BBU·냉각까지 하나의 Research Map으로 연결해 투자 판단하는 JoyLab AI 전력 가이드입니다."
+  bodyClass="semiconductor-guide-v2 ai-power-guide-v2"
+>
+  <section class="sg-hero ap-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">AI POWER RESEARCH · JOYLAB</div>
+          <h1>AI의 다음 병목은<br /><span>전력입니다.</span></h1>
+          <p class="sg-hero__lead">GPU와 HBM만으로 AI 데이터센터는 작동하지 않습니다. <strong>발전 → 송전 → 변압 → 배전 → 백업전원 → 냉각</strong>까지, 전력이 실제 컴퓨팅 성능으로 전환되는 전 과정을 하나의 판단 구조로 읽습니다.</p>
+          <div class="sg-hero__chips" aria-label="AI 전력 핵심 주제">
+            <span>#AI전력</span><span>#데이터센터</span><span>#전력기기</span><span>#BESS</span><span>#냉각</span>
+          </div>
+          <div class="sg-hero__meta" aria-label="가이드 정보">
+            <span><strong>{published.length}</strong> Published</span>
+            <span><strong>6</strong> Decision Layers</span>
+            <span><strong>1</strong> Power Map</span>
+          </div>
+        </div>
+
+        <aside class="sg-lens" aria-label="AI 전력 판단 축">
+          <div class="sg-lens__brand">JOYLAB<br /><b>AI POWER</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>전력 공급 능력</b><span>발전 용량·연료·계통 접속·프로젝트 일정을 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>병목의 이동</b><span>발전에서 송전·변압·배전·냉각으로 병목이 어디로 움직이는지 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>투자 수혜 연결</b><span>수주·CAPEX·납기·가격결정력·마진으로 실적 전환을 확인합니다.</span></div></div>
+        </aside>
+      </div>
+
+      <div class="sg-map-head">
+        <div><span>START HERE</span><b>AI 전력 투자 가이드</b></div>
+        <a href="#research-path">{published.length}개 리서치부터 읽기 →</a>
+      </div>
+
+      <nav class="sg-map" aria-label="AI 전력 리서치 경로">
+        {steps.map(({ article, step, short, role }, index) => (
+          article ? (
+            <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={`/articles/${article.id}`}>
+              <em>{step}</em><b>{short}</b><span>{role}</span>
+            </a>
+          ) : (
+            <span class="sg-map__step ap-map__coming" aria-label={`${short} 준비 중`}>
+              <em>{step}</em><b>{short}</b><span>{role} · NEXT</span>
+            </span>
+          )
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <main class="sg-main" id="research-path">
+    <div class="sg-wrap sg-layout">
+      <section>
+        <div class="sg-section-head">
+          <div><div class="sg-eyebrow">RESEARCH PATH</div><h2>전력이 흐르는 순서대로 봅니다</h2></div>
+          <p>수요 전망만 보지 않고, 실제 전력을 만들고 이동시키고 안정화하는 각 구간의 병목이 기업 실적으로 어떻게 전달되는지 확인합니다.</p>
+        </div>
+
+        <div class="sg-path">
+          {published.map(({ article, step, role, note }, index) => (
+            <article class={`sg-card ${index === 0 ? 'is-key' : ''}`}>
+              <div class="sg-card__no">{step}</div>
+              <div>
+                <div class="sg-card__role">{role}</div>
+                <h3><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h3>
+                <p>{note}</p>
+                <div class="sg-card__foot">
+                  {article!.data.tags.slice(0, 3).map((tag) => <span>#{tag}</span>)}
+                  <a class="sg-card__cta" href={`/articles/${article!.id}`}>리서치 읽기 →</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <section class="sg-insights" aria-labelledby="ap-insights-title">
+          <div class="sg-section-head sg-section-head--compact">
+            <div><div class="sg-eyebrow">AI POWER INSIGHTS</div><h2 id="ap-insights-title">세 가지 축으로 다시 봅니다</h2></div>
+          </div>
+          <div class="sg-insights__grid">
+            <div><em>SUPPLY</em><b>전력은 만들어져야 합니다</b><p>AI 수요가 늘어도 발전 프로젝트가 늦어지면 데이터센터 증설 일정도 밀립니다.</p></div>
+            <div><em>FLOW</em><b>전력은 이동해야 합니다</b><p>송전망·변전소·변압기·배전 설비가 부족하면 발전 용량이 있어도 전달되지 않습니다.</p></div>
+            <div><em>STABILITY</em><b>전력은 끊기면 안 됩니다</b><p>BESS·UPS·BBU와 냉각은 AI 연산의 연속성과 데이터센터 가동률을 좌우합니다.</p></div>
+          </div>
+        </section>
+
+        <section class="sg-rule" aria-labelledby="ap-rule-title">
+          <div class="sg-eyebrow">JOYLAB METHOD</div>
+          <h2 id="ap-rule-title">Fact → Interpretation → Scenario → Action</h2>
+          <div class="sg-rule__grid">
+            <div class="sg-rule__step"><b>FACT</b><span>전력수요·발주·수주·CAPEX·납기를 확인합니다.</span></div>
+            <div class="sg-rule__step"><b>INTERPRETATION</b><span>병목이 어느 전력 레이어에 있는지 연결합니다.</span></div>
+            <div class="sg-rule__step"><b>SCENARIO</b><span>공급확대와 병목지속 조건을 나눠 봅니다.</span></div>
+            <div class="sg-rule__step"><b>ACTION</b><span>수주·마진·프로젝트 일정의 다음 확인 조건을 남깁니다.</span></div>
+          </div>
+        </section>
+      </section>
+
+      <aside class="sg-rail" aria-label="AI 전력 가이드 사용법">
+        <section class="sg-rail-card sg-rail-card--dark">
+          <small>START HERE</small>
+          <h3>처음이라면 전체 지도부터</h3>
+          <p>발전에서 냉각까지 전체 구조를 먼저 이해한 뒤 전력기기와 백업전원으로 내려가면 개별 테마에 흔들리지 않습니다.</p>
+          <a href="/articles/ai-power-next-bottleneck">GC-01부터 시작하기 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>LIVE NOW</small>
+          <h3>3개 Gold Case 공개</h3>
+          <ol><li>전체 AI 전력 지도</li><li>송전·변압·배전</li><li>BESS·UPS·BBU</li></ol>
+        </section>
+        <section class="sg-rail-card">
+          <small>NEXT</small>
+          <h3>04~06 확장 예정</h3>
+          <p>가스터빈, 냉각, 전체 밸류체인 비교까지 채워 6단 Research Map을 완성합니다.</p>
+        </section>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>
