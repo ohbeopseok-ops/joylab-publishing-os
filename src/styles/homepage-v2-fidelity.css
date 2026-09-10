@@ -1,0 +1,29 @@
+/* Homepage V2 final fidelity pass — scoped, screenshot-driven */
+@media (max-width:640px){
+  body.homepage-v2 .home-hero__lead{min-height:320px;padding:24px 18px 20px}
+  body.homepage-v2 .home-hero h1{font-size:2.06rem;line-height:1.04;margin:9px 0 15px}
+  body.homepage-v2 .home-hero__desc{font-size:.86rem;line-height:1.58}
+  body.homepage-v2 .home-hero__cta{margin-top:16px;padding:10px 14px;font-size:.84rem}
+  body.homepage-v2 .home-hero__stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:20px}
+  body.homepage-v2 .home-stat{padding:0 12px;border-right:1px solid rgba(255,255,255,.18)}
+  body.homepage-v2 .home-stat:first-child{padding-left:0}
+  body.homepage-v2 .home-stat:last-child{padding-right:0;border-right:0}
+  body.homepage-v2 .home-stat strong{font-size:1rem}
+  body.homepage-v2 .home-stat span{margin-top:5px;font-size:.62rem}
+  body.homepage-v2 .home-hero__today{padding:18px 16px}
+  body.homepage-v2 .home-today-head{margin-bottom:8px}
+  body.homepage-v2 .home-today-head h2{font-size:.94rem}
+  body.homepage-v2 .home-today-item{grid-template-columns:30px 1fr;gap:10px;padding:11px 0}
+  body.homepage-v2 .home-today-no{width:26px;height:26px;font-size:.74rem}
+  body.homepage-v2 .home-today-item b{font-size:.80rem;line-height:1.42}
+  body.homepage-v2 .home-today-item small{margin-top:4px;font-size:.64rem}
+  body.homepage-v2 .home-section{padding-top:26px}
+  body.homepage-v2 .home-section-head{margin-bottom:14px}
+  body.homepage-v2 .home-section-title h2{font-size:1.16rem;line-height:1.25}
+  body.homepage-v2 .home-section-link{font-size:.73rem}
+  body.homepage-v2 .home-pillars{gap:8px}
+  body.homepage-v2 .home-pillar{min-height:96px;padding:15px 16px}
+  body.homepage-v2 .home-pillar small{font-size:.64rem}
+  body.homepage-v2 .home-pillar strong{margin-top:8px;font-size:.98rem}
+  body.homepage-v2 .home-pillar p{margin-top:5px;font-size:.71rem;line-height:1.5}
+}
