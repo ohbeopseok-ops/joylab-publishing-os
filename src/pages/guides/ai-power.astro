@@ -13,14 +13,23 @@ const sequence = [
   { id: 'ai-power-value-chain-compare', step: '06', role: '최종 비교', short: 'Compare', note: '발전→송전→변압→배전→백업→냉각을 병목·공급탄력성·수주가시성 기준으로 비교합니다.' }
 ];
 
+const companySequence = [
+  { id: 'doosan-enerbility-ai-power', step: 'C01', role: 'Generation', note: '미국 데이터센터용 가스터빈 수주와 장기 서비스가 본체 이익으로 전환되는 구조를 봅니다.' },
+  { id: 'hyosung-heavy-industries-ai-power', step: 'C02', role: 'Grid · Transformer', note: '미국 초고압 변압기·차단기 수주와 생산능력, 중공업 마진을 분리해서 봅니다.' },
+  { id: 'hd-hyundai-electric-ai-power', step: 'C03', role: 'Transformer · Distribution', note: '84.9억달러 수주잔고와 20%대 중반 마진, 북미 증설의 질을 확인합니다.' },
+  { id: 'ls-electric-ai-power', step: 'C04', role: 'Distribution · DC Power', note: '북미 빅테크 데이터센터 배전 수주와 부산 증설이 매출·마진으로 전환되는지 봅니다.' },
+  { id: 'korea-ai-power-companies-compare', step: 'C05', role: 'Company Compare', note: '발전·변압·배전 4사를 같은 6개 Lens로 비교해 병목별 수혜의 질과 밸류 리스크를 봅니다.' }
+];
+
 const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
 const byId = new Map(collection.map((item) => [item.id, item]));
-const steps = sequence.map((entry) => ({ ...entry, article: entry.id ? byId.get(entry.id) : undefined }));
+const steps = sequence.map((entry) => ({ ...entry, article: byId.get(entry.id) }));
 const published = steps.filter((entry) => entry.article);
+const companies = companySequence.map((entry) => ({ ...entry, article: byId.get(entry.id) })).filter((entry) => entry.article);
 ---
 <BaseLayout
   title="AI 전력 가이드｜GPU 다음 병목은 발전소다 | JoyLab"
-  description="AI 데이터센터 전력을 발전·송전·변압·배전·BESS·UPS·BBU·냉각까지 하나의 Research Map으로 연결해 투자 판단하는 JoyLab AI 전력 가이드입니다."
+  description="AI 데이터센터 전력을 발전·송전·변압·배전·BESS·UPS·BBU·냉각까지 하나의 Research Map으로 연결하고, 두산에너빌리티·효성중공업·HD현대일렉트릭·LS ELECTRIC 기업 분석까지 이어지는 JoyLab AI 전력 가이드입니다."
   bodyClass="semiconductor-guide-v2 ai-power-guide-v2"
 >
   <section class="sg-hero ap-hero">
@@ -34,8 +43,8 @@ const published = steps.filter((entry) => entry.article);
             <span>#AI전력</span><span>#데이터센터</span><span>#전력기기</span><span>#BESS</span><span>#냉각</span>
           </div>
           <div class="sg-hero__meta" aria-label="가이드 정보">
-            <span><strong>{published.length}</strong> Research</span>
-            <span><strong>6</strong> Decision Layers</span>
+            <span><strong>{published.length}</strong> Core Research</span>
+            <span><strong>{companies.length}</strong> Company Deep Dive</span>
             <span><strong>1</strong> Power Map</span>
           </div>
         </div>
@@ -50,7 +59,7 @@ const published = steps.filter((entry) => entry.article);
 
       <div class="sg-map-head">
         <div><span>START HERE</span><b>AI 전력 투자 가이드</b></div>
-        <a href="#research-path">{published.length}개 리서치 전체 보기 →</a>
+        <a href="#research-path">{published.length}개 코어 리서치 보기 →</a>
       </div>
 
       <nav class="sg-map" aria-label="AI 전력 리서치 경로">
@@ -59,11 +68,7 @@ const published = steps.filter((entry) => entry.article);
             <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={`/articles/${article.id}`}>
               <em>{step}</em><b>{short}</b><span>{role}</span>
             </a>
-          ) : (
-            <span class="sg-map__step ap-map__coming" aria-label={`${short} 준비 중`}>
-              <em>{step}</em><b>{short}</b><span>{role} · NEXT</span>
-            </span>
-          )
+          ) : null
         ))}
       </nav>
     </div>
@@ -94,6 +99,29 @@ const published = steps.filter((entry) => entry.article);
           ))}
         </div>
 
+        <section class="sg-insights" aria-labelledby="company-deep-dive-title">
+          <div class="sg-section-head">
+            <div><div class="sg-eyebrow">COMPANY DEEP DIVE</div><h2 id="company-deep-dive-title">병목을 한국 상장사 실적으로 연결합니다</h2></div>
+            <p>같은 AI 전력 테마라도 발전·변압·배전의 수주 구조와 마진은 다릅니다. 네 기업을 같은 6개 Lens로 읽고 마지막 비교 글에서 한 번에 정리합니다.</p>
+          </div>
+          <div class="sg-path">
+            {companies.map(({ article, step, role, note }, index) => (
+              <article class={`sg-card ${index === 4 ? 'is-key' : ''}`}>
+                <div class="sg-card__no">{step}</div>
+                <div>
+                  <div class="sg-card__role">{role}</div>
+                  <h3><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h3>
+                  <p>{note}</p>
+                  <div class="sg-card__foot">
+                    {article!.data.tags.slice(0, 3).map((tag) => <span>#{tag}</span>)}
+                    <a class="sg-card__cta" href={`/articles/${article!.id}`}>기업 리서치 →</a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section class="sg-insights" aria-labelledby="ap-insights-title">
           <div class="sg-section-head sg-section-head--compact">
             <div><div class="sg-eyebrow">AI POWER INSIGHTS</div><h2 id="ap-insights-title">세 가지 축으로 다시 봅니다</h2></div>
@@ -121,18 +149,19 @@ const published = steps.filter((entry) => entry.article);
         <section class="sg-rail-card sg-rail-card--dark">
           <small>START HERE</small>
           <h3>처음이라면 전체 지도부터</h3>
-          <p>발전에서 냉각까지 전체 구조를 먼저 이해한 뒤 전력기기와 백업전원으로 내려가면 개별 테마에 흔들리지 않습니다.</p>
+          <p>발전에서 냉각까지 전체 구조를 먼저 이해한 뒤 기업별 수주와 마진으로 내려가면 개별 테마에 흔들리지 않습니다.</p>
           <a href="/articles/ai-power-next-bottleneck">GC-01부터 시작하기 →</a>
         </section>
         <section class="sg-rail-card">
-          <small>COMPLETE</small>
+          <small>CORE COMPLETE</small>
           <h3>6개 Gold Case 공개</h3>
           <ol><li>전체 AI 전력 지도</li><li>송전·변압·배전</li><li>BESS·UPS·BBU</li><li>가스터빈</li><li>냉각</li><li>전체 밸류체인 비교</li></ol>
         </section>
         <section class="sg-rail-card">
-          <small>NEXT CLUSTER</small>
-          <h3>기업·섹터 심화로 확장</h3>
-          <p>이제 6단 지도를 기준으로 발전·전력기기·냉각 기업을 같은 평가 기준에서 비교할 수 있습니다.</p>
+          <small>COMPANY COMPLETE</small>
+          <h3>5개 Company Deep Dive</h3>
+          <ol><li>두산에너빌리티</li><li>효성중공업</li><li>HD현대일렉트릭</li><li>LS ELECTRIC</li><li>AI 전력 4사 비교</li></ol>
+          <a href="/articles/korea-ai-power-companies-compare">4사 비교 바로가기 →</a>
         </section>
       </aside>
     </div>
