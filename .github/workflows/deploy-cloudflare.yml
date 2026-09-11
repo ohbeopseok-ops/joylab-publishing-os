@@ -102,11 +102,11 @@ jobs:
           grep -Fq 'https://aijoylab.kr/articles/foreign-investor-flow' /tmp/body
 
           check_200 https://aijoylab.kr/articles/samsung-electronics-outlook
-          grep -Fq '삼성전자 주가 전망' /tmp/body
+          grep -Fq '삼성전자 AI 메모리 수혜 보는 법' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/samsung-electronics-outlook' /tmp/body
 
           check_200 https://aijoylab.kr/articles/sk-hynix-outlook
-          grep -Fq 'SK하이닉스 주가 전망' /tmp/body
+          grep -Fq 'SK하이닉스 AI 메모리 수혜 보는 법' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/sk-hynix-outlook' /tmp/body
 
           check_200 https://aijoylab.kr/articles/samsung-vs-sk-hynix-ai-memory
