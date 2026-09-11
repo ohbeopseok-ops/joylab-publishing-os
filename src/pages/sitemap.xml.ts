@@ -13,6 +13,7 @@ export async function GET({ site }: { site: URL }) {
     `${origin}/privacy`,
     `${origin}/guides/semiconductor-investing`,
     `${origin}/guides/ai-power`,
+    `${origin}/guides/shipbuilding`,
     ...articles.map((article) => `${origin}/articles/${article.id.replace(/\.mdx?$/, '')}`)
   ];
 
