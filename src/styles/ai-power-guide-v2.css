@@ -2,6 +2,10 @@
 .ai-power-guide-v2 .ap-hero{background:linear-gradient(135deg,#061632 0%,#0a2b5d 58%,#0d3e7f 100%)}
 .ai-power-guide-v2 .sg-hero__inner:before{background:radial-gradient(circle at 68% 44%,rgba(22,119,255,.48),transparent 22%),linear-gradient(154deg,transparent 0 54%,rgba(255,216,61,.05) 55%,transparent 56%)}
 .ai-power-guide-v2 .sg-hero__inner:after{border-color:rgba(255,216,61,.12)}
+.ai-power-guide-v2 .sg-hero__lead{max-width:620px;text-wrap:pretty}
+.ai-power-guide-v2 .sg-map-head{margin-top:30px}
+.ai-power-guide-v2 .sg-map__step.is-start{background:linear-gradient(180deg,rgba(255,216,61,.07),rgba(255,255,255,.015));box-shadow:inset 0 3px 0 var(--sg-yellow),inset 0 0 0 1px rgba(255,216,61,.14)}
+.ai-power-guide-v2 .sg-map__step.is-start b{color:#fff}
 .ai-power-guide-v2 .ap-map__coming{opacity:.58;cursor:default}
 .ai-power-guide-v2 .ap-map__coming b{color:#c5d2e6}
 .ai-power-guide-v2 .ap-map__coming span{color:#7f91ab}
@@ -10,6 +14,7 @@
 .ai-power-guide-v2 .sg-insights__grid>div:nth-child(3){box-shadow:inset 0 3px 0 rgba(255,216,61,.88)}
 @media(max-width:640px){
   .ai-power-guide-v2 .sg-hero h1{font-size:2.32rem}
-  .ai-power-guide-v2 .sg-hero__lead{font-size:.87rem}
+  .ai-power-guide-v2 .sg-hero__lead{max-width:none;font-size:.87rem}
+  .ai-power-guide-v2 .sg-map-head{margin-top:22px}
   .ai-power-guide-v2 .sg-map__step{min-width:130px}
 }
