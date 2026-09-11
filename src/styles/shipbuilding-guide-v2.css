@@ -1,0 +1,19 @@
+/* JoyLab Shipbuilding Pillar V2 — extends Semiconductor Pillar V2 */
+.shipbuilding-guide-v2 .ship-hero{background:linear-gradient(135deg,#07172f 0%,#0a3158 58%,#0a4c73 100%)}
+.shipbuilding-guide-v2 .sg-hero__inner:before{background:radial-gradient(circle at 69% 43%,rgba(22,119,255,.38),transparent 22%),linear-gradient(154deg,transparent 0 54%,rgba(255,216,61,.045) 55%,transparent 56%)}
+.shipbuilding-guide-v2 .sg-hero__inner:after{border-color:rgba(255,216,61,.13)}
+.shipbuilding-guide-v2 .sg-hero__lead{max-width:640px;text-wrap:pretty}
+.shipbuilding-guide-v2 .sg-map-head{margin-top:30px}
+.shipbuilding-guide-v2 .sg-map{grid-template-columns:repeat(5,minmax(0,1fr))}
+.shipbuilding-guide-v2 .sg-map__step.is-start{background:linear-gradient(180deg,rgba(255,216,61,.07),rgba(255,255,255,.015));box-shadow:inset 0 3px 0 var(--sg-yellow),inset 0 0 0 1px rgba(255,216,61,.14)}
+.shipbuilding-guide-v2 .sg-map__step.is-compare{background:linear-gradient(180deg,rgba(22,119,255,.09),rgba(255,255,255,.015));box-shadow:inset 0 3px 0 var(--sg-blue)}
+.shipbuilding-guide-v2 .sg-insights__grid>div:first-child{box-shadow:inset 0 3px 0 rgba(22,119,255,.88)}
+.shipbuilding-guide-v2 .sg-insights__grid>div:nth-child(2){box-shadow:inset 0 3px 0 rgba(22,119,255,.56)}
+.shipbuilding-guide-v2 .sg-insights__grid>div:nth-child(3){box-shadow:inset 0 3px 0 rgba(255,216,61,.88)}
+@media(max-width:640px){
+  .shipbuilding-guide-v2 .sg-hero h1{font-size:2.28rem}
+  .shipbuilding-guide-v2 .sg-hero__lead{max-width:none;font-size:.87rem}
+  .shipbuilding-guide-v2 .sg-map-head{margin-top:22px}
+  .shipbuilding-guide-v2 .sg-map{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+  .shipbuilding-guide-v2 .sg-map__step{min-width:144px;scroll-snap-align:start}
+}
