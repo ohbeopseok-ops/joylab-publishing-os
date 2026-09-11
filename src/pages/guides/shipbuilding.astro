@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import '../../styles/shipbuilding-guide-v2.css';
+import { getCollection } from 'astro:content';
+
+const sequence = [
+  { id: 'hd-hyundai-heavy-industries-shipbuilding', step: '01', role: '상선 · 엔진 · 함정', short: 'HD HHI', note: '고선가 상선과 엔진, 특수선 확장이 실제 수익성으로 얼마나 이어지는지 봅니다.' },
+  { id: 'hanwha-ocean-shipbuilding', step: '02', role: 'LNG · 방산', short: 'Hanwha Ocean', note: 'LNG선과 특수선, 미국 조선 협력이 수주 가시성과 마진에 어떤 변화를 만드는지 봅니다.' },
+  { id: 'samsung-heavy-industries-shipbuilding', step: '03', role: 'LNG · FLNG', short: 'Samsung HI', note: 'LNG선과 FLNG 중심의 고부가 믹스, 자동화 투자와 생산성 개선을 확인합니다.' },
+  { id: 'hd-ksoe-shipbuilding', step: '04', role: '그룹 포트폴리오', short: 'HD KSOE', note: '그룹 수주 배분과 조선 자회사 포트폴리오를 지주 구조와 함께 읽습니다.' },
+  { id: 'korea-shipbuilding-companies-compare', step: '05', role: '최종 비교', short: 'Compare', note: '수주잔고·선종 믹스·인도연도·마진·생산성·밸류에이션으로 4사를 같은 기준에서 비교합니다.' }
+];
+
+const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
+const byId = new Map(collection.map((item) => [item.id, item]));
+const steps = sequence.map((entry) => ({ ...entry, article: byId.get(entry.id) }));
+const published = steps.filter((entry) => entry.article);
+---
+<BaseLayout
+  title="조선 투자 가이드｜수주잔고보다 선종 믹스와 마진을 봅니다 | JoyLab"
+  description="HD현대중공업·한화오션·삼성중공업·HD한국조선해양을 수주잔고·선종 믹스·인도연도·생산능력·마진·밸류에이션으로 연결해 읽는 JoyLab 조선 투자 가이드입니다."
+  bodyClass="semiconductor-guide-v2 shipbuilding-guide-v2"
+>
+  <section class="sg-hero ship-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">SHIPBUILDING RESEARCH · JOYLAB</div>
+          <h1>조선은 수주보다<br /><span>수주의 질입니다.</span></h1>
+          <p class="sg-hero__lead">조선업은 수주잔고만 크다고 좋은 산업이 아닙니다. <strong>선종 믹스 → 인도연도 → 생산성 → 마진 → 밸류에이션</strong>까지, 수주가 실제 이익으로 전환되는 과정을 하나의 판단 구조로 읽습니다.</p>
+          <div class="sg-hero__chips" aria-label="조선 핵심 주제">
+            <span>#조선</span><span>#LNG선</span><span>#함정</span><span>#수주잔고</span><span>#마진</span>
+          </div>
+          <div class="sg-hero__meta" aria-label="가이드 정보">
+            <span><strong>{Math.max(published.length - 1, 0)}</strong> Company Research</span>
+            <span><strong>1</strong> Compare Hub</span>
+            <span><strong>1</strong> Research Map</span>
+          </div>
+        </div>
+
+        <aside class="sg-lens" aria-label="조선 투자 판단 축">
+          <div class="sg-lens__brand">JOYLAB<br /><b>SHIPBUILDING</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>수주의 질</b><span>수주잔고의 크기보다 선종 믹스·가격·인도 시점을 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>마진 전환</b><span>고선가 물량과 생산성이 영업이익률로 얼마나 전달되는지 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>다음 사이클</b><span>LNG·함정·해양플랜트와 밸류에이션 기대를 함께 확인합니다.</span></div></div>
+        </aside>
+      </div>
+
+      <div class="sg-map-head">
+        <div><span>START HERE</span><b>조선 투자 Research Map</b></div>
+        <a href="#research-path">{published.length}개 리서치 보기 →</a>
+      </div>
+
+      <nav class="sg-map" aria-label="조선 리서치 경로">
+        {steps.map(({ article, step, short, role }, index) => (
+          article ? (
+            <a class={`sg-map__step ${index === 0 ? 'is-start' : ''} ${index === 4 ? 'is-compare' : ''}`} href={`/articles/${article.id}`}>
+              <em>{step}</em><b>{short}</b><span>{role}</span>
+            </a>
+          ) : null
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <main class="sg-main" id="research-path">
+    <div class="sg-wrap sg-layout">
+      <section>
+        <div class="sg-section-head">
+          <div><div class="sg-eyebrow">RESEARCH PATH</div><h2>기업을 하나씩 읽고 마지막에 비교합니다</h2></div>
+          <p>같은 조선 업황을 타도 수주 구성·선종·생산성·방산 노출·지주 구조가 다릅니다. 기업별 Company Research를 먼저 읽고 마지막 Compare Hub에서 같은 Lens로 비교합니다.</p>
+        </div>
+
+        <div class="sg-path">
+          {published.map(({ article, step, role, note }, index) => (
+            <article class={`sg-card ${index === published.length - 1 ? 'is-key' : ''}`}>
+              <div class="sg-card__no">{step}</div>
+              <div>
+                <div class="sg-card__role">{role}</div>
+                <h3><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h3>
+                <p>{note}</p>
+                <div class="sg-card__foot">
+                  {article!.data.tags.slice(0, 3).map((tag) => <span>#{tag}</span>)}
+                  <a class="sg-card__cta" href={`/articles/${article!.id}`}>{index === published.length - 1 ? '4사 비교 보기 →' : '기업 리서치 →'}</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <section class="sg-insights" aria-labelledby="ship-insights-title">
+          <div class="sg-section-head sg-section-head--compact">
+            <div><div class="sg-eyebrow">SHIPBUILDING INSIGHTS</div><h2 id="ship-insights-title">세 가지 축으로 다시 봅니다</h2></div>
+          </div>
+          <div class="sg-insights__grid">
+            <div><em>MIX</em><b>같은 수주잔고가 아닙니다</b><p>LNG선·컨테이너선·함정·해양플랜트는 가격과 마진 구조가 다릅니다.</p></div>
+            <div><em>TIME</em><b>인도연도가 실적을 만듭니다</b><p>고선가 선박이 실제 매출에 반영되는 시점과 도크 슬롯을 함께 봅니다.</p></div>
+            <div><em>MARGIN</em><b>수주가 이익으로 전환돼야 합니다</b><p>생산성·원가·자동화·환율이 고선가 수주를 실제 마진으로 바꾸는지 확인합니다.</p></div>
+          </div>
+        </section>
+
+        <section class="sg-rule" aria-labelledby="ship-rule-title">
+          <div class="sg-eyebrow">JOYLAB METHOD</div>
+          <h2 id="ship-rule-title">Fact → Interpretation → Scenario → Action</h2>
+          <div class="sg-rule__grid">
+            <div class="sg-rule__step"><b>FACT</b><span>수주·잔고·선가·실적·도크·CAPEX를 확인합니다.</span></div>
+            <div class="sg-rule__step"><b>INTERPRETATION</b><span>선종 믹스와 인도 시점이 마진에 미치는 구조를 연결합니다.</span></div>
+            <div class="sg-rule__step"><b>SCENARIO</b><span>LNG·함정·해양플랜트 수요와 공급 확대 조건을 나눠 봅니다.</span></div>
+            <div class="sg-rule__step"><b>ACTION</b><span>신규수주·마진·밸류에이션의 다음 확인 조건을 남깁니다.</span></div>
+          </div>
+        </section>
+      </section>
+
+      <aside class="sg-rail" aria-label="조선 투자 가이드 사용법">
+        <section class="sg-rail-card sg-rail-card--dark">
+          <small>START HERE</small>
+          <h3>먼저 HD현대중공업부터</h3>
+          <p>고선가 상선·엔진·함정을 함께 보유한 대표 사업자부터 읽으면 조선 사이클의 수익 전환 구조를 잡기 쉽습니다.</p>
+          <a href="/articles/hd-hyundai-heavy-industries-shipbuilding">GC-S01부터 시작하기 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>COMPANY RESEARCH</small>
+          <h3>4개 기업을 같은 Lens로</h3>
+          <ol><li>HD현대중공업</li><li>한화오션</li><li>삼성중공업</li><li>HD한국조선해양</li></ol>
+        </section>
+        <section class="sg-rail-card">
+          <small>COMPARE HUB</small>
+          <h3>마지막은 4사 비교</h3>
+          <p>수주잔고의 절대 규모보다 선종 믹스·인도연도·생산성·마진·밸류에이션을 같은 기준으로 비교합니다.</p>
+          <a href="/articles/korea-shipbuilding-companies-compare">조선 4사 비교 바로가기 →</a>
+        </section>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>
