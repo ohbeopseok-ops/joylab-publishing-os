@@ -32,6 +32,18 @@ const { Content } = await render(article);
 const title = article.data.seoTitle ?? article.data.title;
 const isCompareHub = article.id === 'samsung-vs-sk-hynix-ai-memory';
 const isSamsung = article.id === 'samsung-electronics-outlook';
+const isAiPowerSeries = article.data.series?.startsWith('AI 전력');
+const guideCta = isAiPowerSeries
+  ? {
+      title: 'AI 전력 가이드',
+      href: '/guides/ai-power',
+      label: '발전부터 기업 비교까지 한 번에 보기 →'
+    }
+  : {
+      title: '반도체 투자 가이드',
+      href: '/guides/semiconductor-investing',
+      label: 'HBM부터 비교까지 한 번에 보기 →'
+    };
 const takeaways = isSamsung
   ? [
       ['실적 추정치', '현재 실적보다 다음 분기와 연간 EPS 추정치의 방향을 먼저 봅니다.'],
@@ -160,8 +172,8 @@ const scoreCriteria = [
         </div>
         <div class="research-guide-cta">
           <small>START HERE</small>
-          <strong>반도체 투자 가이드</strong>
-          <a href="/guides/semiconductor-investing">HBM부터 비교까지 한 번에 보기 →</a>
+          <strong>{guideCta.title}</strong>
+          <a href={guideCta.href}>{guideCta.label}</a>
         </div>
         {related.length > 0 && (
           <div class="research-rail__card related-card">
