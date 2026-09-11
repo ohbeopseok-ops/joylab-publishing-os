@@ -8,9 +8,9 @@ const sequence = [
   { id: 'ai-power-next-bottleneck', step: '01', role: '발전·허브', short: 'Generation', note: 'AI 데이터센터 전력 수요가 발전부터 냉각까지 어떤 병목을 만드는지 전체 지도로 봅니다.' },
   { id: 'ai-power-grid-transformer-distribution', step: '02', role: '전력기기', short: 'Grid', note: '송전·변압·배전에서 공급 탄력성이 낮은 구간과 수주 전환을 확인합니다.' },
   { id: 'bess-ups-bbu-data-center', step: '03', role: '전력 안정성', short: 'Resilience', note: 'BESS·UPS·BBU가 서로 다른 시간축에서 데이터센터 가동률을 지키는 구조를 봅니다.' },
-  { id: null, step: '04', role: '발전 심화', short: 'Gas Turbine', note: '가스터빈과 복합화력이 AI 전력 수요에서 다시 중요해지는 이유를 다룰 예정입니다.' },
-  { id: null, step: '05', role: '냉각', short: 'Cooling', note: '고밀도 AI 랙의 전력밀도와 액체냉각 병목을 다룰 예정입니다.' },
-  { id: null, step: '06', role: '최종 비교', short: 'Compare', note: '발전→송전→변압→배전→백업→냉각을 같은 기준으로 비교할 예정입니다.' }
+  { id: 'ai-power-gas-turbine-return', step: '04', role: '발전 심화', short: 'Gas Turbine', note: '가스터빈과 복합화력이 AI 전력 수요에서 다시 중요해지는 이유를 생산 슬롯과 서비스 매출까지 연결해 봅니다.' },
+  { id: 'ai-data-center-cooling-bottleneck', step: '05', role: '냉각', short: 'Cooling', note: '고밀도 AI 랙의 전력밀도와 액체냉각 전환이 만드는 마지막 물리적 병목을 봅니다.' },
+  { id: 'ai-power-value-chain-compare', step: '06', role: '최종 비교', short: 'Compare', note: '발전→송전→변압→배전→백업→냉각을 병목·공급탄력성·수주가시성 기준으로 비교합니다.' }
 ];
 
 const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
@@ -50,7 +50,7 @@ const published = steps.filter((entry) => entry.article);
 
       <div class="sg-map-head">
         <div><span>START HERE</span><b>AI 전력 투자 가이드</b></div>
-        <a href="#research-path">{published.length}개 리서치부터 읽기 →</a>
+        <a href="#research-path">{published.length}개 리서치 전체 보기 →</a>
       </div>
 
       <nav class="sg-map" aria-label="AI 전력 리서치 경로">
@@ -125,14 +125,14 @@ const published = steps.filter((entry) => entry.article);
           <a href="/articles/ai-power-next-bottleneck">GC-01부터 시작하기 →</a>
         </section>
         <section class="sg-rail-card">
-          <small>LIVE NOW</small>
-          <h3>3개 Gold Case 공개</h3>
-          <ol><li>전체 AI 전력 지도</li><li>송전·변압·배전</li><li>BESS·UPS·BBU</li></ol>
+          <small>COMPLETE</small>
+          <h3>6개 Gold Case 공개</h3>
+          <ol><li>전체 AI 전력 지도</li><li>송전·변압·배전</li><li>BESS·UPS·BBU</li><li>가스터빈</li><li>냉각</li><li>전체 밸류체인 비교</li></ol>
         </section>
         <section class="sg-rail-card">
-          <small>NEXT</small>
-          <h3>04~06 확장 예정</h3>
-          <p>가스터빈, 냉각, 전체 밸류체인 비교까지 채워 6단 Research Map을 완성합니다.</p>
+          <small>NEXT CLUSTER</small>
+          <h3>기업·섹터 심화로 확장</h3>
+          <p>이제 6단 지도를 기준으로 발전·전력기기·냉각 기업을 같은 평가 기준에서 비교할 수 있습니다.</p>
         </section>
       </aside>
     </div>
