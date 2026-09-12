@@ -129,9 +129,18 @@ jobs:
 
           check_200 https://aijoylab.kr/contact
           grep -Fq 'CONTACT' /tmp/body
+          grep -Fq 'id="contact-form"' /tmp/body
+          grep -Fq '콘텐츠 협업' /tmp/body
+          grep -Fq '리서치·기업 분석' /tmp/body
+          grep -Fq '강의·교육' /tmp/body
+          grep -Fq '제휴·기타' /tmp/body
+          grep -Fq 'id="contact-copy"' /tmp/body
+          grep -Fq 'github.com/ohbeopseok-ops/joylab-publishing-os/issues' /tmp/body
+          grep -Fq '개별 종목 매수·매도 상담이나 개인 맞춤형 투자자문을 제공하지 않습니다' /tmp/body
 
           check_200 https://aijoylab.kr/privacy
           grep -Fq '개인정보처리 안내' /tmp/body
+          grep -Fq 'Contact 문의 작성 방식' /tmp/body
 
           check_200 https://aijoylab.kr/robots.txt
           grep -Fq 'Sitemap: https://aijoylab.kr/sitemap.xml' /tmp/body
