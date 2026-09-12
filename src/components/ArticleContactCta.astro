@@ -6,7 +6,13 @@
       <p id="article-contact-description">JoyLab은 콘텐츠, 리서치, 교육, 제휴 프로젝트 제안을 받고 있습니다.</p>
     </div>
     <div class="article-contact-cta__action">
-      <a id="article-contact-link" href="/contact#contact-form">프로젝트 문의하기 →</a>
+      <a
+        id="article-contact-link"
+        href="/contact#contact-form"
+        data-analytics-event="article_contact_click"
+        data-analytics-target="generic"
+        data-analytics-placement="article"
+      >프로젝트 문의하기 →</a>
       <span>입력 내용은 JoyLab 서버에 저장하지 않습니다.</span>
     </div>
   </div>
@@ -30,19 +36,22 @@
         kicker: 'RESEARCH COLLABORATION',
         title: '이 산업을 더 깊게 함께 보고 싶으신가요?',
         description: '기업·산업 리서치, 투자·경제 콘텐츠 협업, 자료 제안을 받고 있습니다.',
-        label: '리서치·콘텐츠 협업 문의 →'
+        label: '리서치·콘텐츠 협업 문의 →',
+        analyticsTarget: 'investing'
       },
       'AI·생산성': {
         kicker: 'AI · PRODUCTIVITY COLLABORATION',
         title: 'AI를 실제 업무에 연결하고 싶으신가요?',
         description: 'AI 활용 교육, 업무자동화, 생산성 콘텐츠와 프로젝트 협업 제안을 받고 있습니다.',
-        label: 'AI·생산성 협업 문의 →'
+        label: 'AI·생산성 협업 문의 →',
+        analyticsTarget: 'ai-productivity'
       },
       '성장·리더십': {
         kicker: 'GROWTH · LEADERSHIP COLLABORATION',
         title: '팀의 실행 시스템을 함께 설계할까요?',
         description: '조직 운영, 리더십, 교육 콘텐츠와 현장 프로젝트 제안을 받고 있습니다.',
-        label: '성장·리더십 협업 문의 →'
+        label: '성장·리더십 협업 문의 →',
+        analyticsTarget: 'growth-leadership'
       }
     };
 
@@ -52,6 +61,7 @@
     title.textContent = variant.title;
     description.textContent = variant.description;
     link.textContent = variant.label;
+    link.dataset.analyticsTarget = variant.analyticsTarget;
   })();
 </script>
 
