@@ -22,8 +22,8 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Install dependencies
-        run: npm install
+      - name: Install locked dependencies
+        run: npm ci
 
       - name: Production dependency audit
         run: npm audit --omit=dev
@@ -73,6 +73,14 @@ jobs:
           grep -Fq 'tag-filter' /tmp/body
           grep -Fq 'load-more' /tmp/body
           grep -Fq '/guides/semiconductor-investing' /tmp/body
+
+          headers=$(curl -sSI --max-time 20 https://aijoylab.kr/ | tr -d '\r')
+          echo "$headers"
+          grep -Fqi 'strict-transport-security: max-age=31536000; includeSubDomains' <<< "$headers"
+          grep -Fqi 'x-content-type-options: nosniff' <<< "$headers"
+          grep -Fqi 'x-frame-options: DENY' <<< "$headers"
+          grep -Fqi 'referrer-policy: strict-origin-when-cross-origin' <<< "$headers"
+          grep -Fqi 'permissions-policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()' <<< "$headers"
 
           check_200 https://aijoylab.kr/guides/semiconductor-investing
           grep -Fq '반도체 투자 가이드' /tmp/body
