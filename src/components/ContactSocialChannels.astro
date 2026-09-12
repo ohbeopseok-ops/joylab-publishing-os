@@ -8,19 +8,19 @@ const channels = [
   },
   {
     label: 'Threads',
-    href: '',
+    href: 'https://www.threads.com/@ohbeopseok',
     mark: '@',
     description: '짧은 인사이트·대화'
   },
   {
     label: 'Instagram',
-    href: '',
+    href: 'https://www.instagram.com/aijoylab/',
     mark: '◎',
     description: '비주얼·카드 콘텐츠'
   },
   {
     label: 'LinkedIn',
-    href: '',
+    href: 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/',
     mark: 'in',
     description: '기업·교육·B2B 네트워크'
   }
@@ -30,7 +30,7 @@ const channels = [
   <small>OFFICIAL CHANNELS</small>
   <h3 id="contact-social-title">JoyLab 공식 채널</h3>
   <div class="contact-social-list">
-    {channels.map((channel) => channel.href ? (
+    {channels.map((channel) => (
       <a
         class="contact-social-link"
         href={channel.href}
@@ -45,14 +45,6 @@ const channels = [
         </span>
         <span class="contact-social-arrow" aria-hidden="true">↗</span>
       </a>
-    ) : (
-      <div class="contact-social-link is-pending" aria-label={`${channel.label} 공식 주소 확인 전`}>
-        <span class="contact-social-mark" aria-hidden="true">{channel.mark}</span>
-        <span class="contact-social-copy">
-          <strong>{channel.label}</strong>
-          <em>공식 주소 확인 전</em>
-        </span>
-      </div>
     ))}
   </div>
 </section>
@@ -69,7 +61,5 @@ const channels = [
   .contact-social-copy strong{color:#243951;font-size:.86rem;line-height:1.35}
   .contact-social-copy em{overflow:hidden;color:#7a899b;font-size:.73rem;font-style:normal;line-height:1.45;text-overflow:ellipsis;white-space:nowrap}
   .contact-social-arrow{color:var(--blue);font-size:.9rem;font-weight:900}
-  .contact-social-link.is-pending{opacity:.52;background:#f8fafc}
-  .contact-social-link.is-pending .contact-social-mark{background:#8190a4}
   @media(max-width:640px){.contact-social{padding:18px}.contact-social-link{padding:11px}}
 </style>
