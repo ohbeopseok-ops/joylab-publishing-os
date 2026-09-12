@@ -118,7 +118,13 @@ if (inActions) {
       assert(prRule?.parameters?.required_review_thread_resolution === true, 'Protect main requires conversation resolution');
       assert(types.has('required_status_checks'), 'Protect main requires status checks');
       assert(checks.some((check) => check.context === 'build'), 'Protect main requires the build status check');
-      assert(Array.isArray(detail.bypass_actors) && detail.bypass_actors.length === 0, 'Protect main has no bypass actors');
+      assert(detail.current_user_can_bypass === 'never', 'Gold guard token cannot bypass Protect main');
+
+      if (Array.isArray(detail.bypass_actors)) {
+        assert(detail.bypass_actors.length === 0, 'Protect main exposes no bypass actors');
+      } else {
+        console.log('INFO: bypass actor list is not exposed to the GitHub Actions token; baseline establishment/controller review remains authoritative for that field.');
+      }
     }
   } catch (error) {
     fail(`GitHub ruleset verification: ${error.message}`);
