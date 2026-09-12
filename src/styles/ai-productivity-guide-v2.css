@@ -1,0 +1,23 @@
+/* JoyLab AI Productivity Pillar V2 — extends Semiconductor Pillar V2 */
+.ai-productivity-guide-v2 .ai-prod-hero{background:linear-gradient(135deg,#07172f 0%,#0b2455 58%,#113e76 100%)}
+.ai-productivity-guide-v2 .sg-hero__inner:before{background:radial-gradient(circle at 72% 42%,rgba(22,119,255,.42),transparent 23%),linear-gradient(154deg,transparent 0 54%,rgba(255,216,61,.04) 55%,transparent 56%)}
+.ai-productivity-guide-v2 .sg-hero__inner:after{border-color:rgba(22,119,255,.16)}
+.ai-productivity-guide-v2 .sg-hero__lead{max-width:660px;text-wrap:pretty}
+.ai-productivity-guide-v2 .sg-map-head{margin-top:30px}
+.ai-productivity-guide-v2 .sg-map{grid-template-columns:repeat(6,minmax(0,1fr))}
+.ai-productivity-guide-v2 .sg-map__step.is-start{background:linear-gradient(180deg,rgba(255,216,61,.07),rgba(255,255,255,.015));box-shadow:inset 0 3px 0 var(--sg-yellow),inset 0 0 0 1px rgba(255,216,61,.14)}
+.ai-productivity-guide-v2 .sg-map__step.is-next{opacity:.52;cursor:default;background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.01))}
+.ai-productivity-guide-v2 .sg-map__step.is-next b,.ai-productivity-guide-v2 .sg-map__step.is-next span{color:rgba(255,255,255,.62)}
+.ai-productivity-guide-v2 .sg-insights__grid>div:first-child{box-shadow:inset 0 3px 0 rgba(22,119,255,.88)}
+.ai-productivity-guide-v2 .sg-insights__grid>div:nth-child(2){box-shadow:inset 0 3px 0 rgba(22,119,255,.56)}
+.ai-productivity-guide-v2 .sg-insights__grid>div:nth-child(3){box-shadow:inset 0 3px 0 rgba(255,216,61,.88)}
+.ai-productivity-guide-v2 .ai-prod-rule-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.ai-productivity-guide-v2 .ai-prod-rule-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){
+  .ai-productivity-guide-v2 .sg-hero h1{font-size:2.28rem}
+  .ai-productivity-guide-v2 .sg-hero__lead{max-width:none;font-size:.87rem}
+  .ai-productivity-guide-v2 .sg-map-head{margin-top:22px}
+  .ai-productivity-guide-v2 .sg-map{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+  .ai-productivity-guide-v2 .sg-map__step{min-width:144px;scroll-snap-align:start}
+  .ai-productivity-guide-v2 .ai-prod-rule-grid{grid-template-columns:1fr}
+}
