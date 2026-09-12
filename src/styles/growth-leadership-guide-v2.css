@@ -1,0 +1,23 @@
+/* JoyLab Growth & Leadership Pillar V2 — extends Semiconductor Pillar V2 */
+.growth-leadership-guide-v2 .growth-hero{background:linear-gradient(135deg,#07172f 0%,#0b2455 56%,#17385d 100%)}
+.growth-leadership-guide-v2 .sg-hero__inner:before{background:radial-gradient(circle at 72% 42%,rgba(22,119,255,.34),transparent 24%),radial-gradient(circle at 82% 78%,rgba(255,216,61,.10),transparent 30%),linear-gradient(154deg,transparent 0 54%,rgba(255,216,61,.04) 55%,transparent 56%)}
+.growth-leadership-guide-v2 .sg-hero__inner:after{border-color:rgba(255,216,61,.12)}
+.growth-leadership-guide-v2 .sg-hero__lead{max-width:670px;text-wrap:pretty}
+.growth-leadership-guide-v2 .sg-map-head{margin-top:30px}
+.growth-leadership-guide-v2 .sg-map{grid-template-columns:repeat(6,minmax(0,1fr))}
+.growth-leadership-guide-v2 .sg-map__step.is-start{background:linear-gradient(180deg,rgba(255,216,61,.08),rgba(255,255,255,.015));box-shadow:inset 0 3px 0 var(--sg-yellow),inset 0 0 0 1px rgba(255,216,61,.14)}
+.growth-leadership-guide-v2 .sg-map__step.is-next{opacity:.50;cursor:default;background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.01))}
+.growth-leadership-guide-v2 .sg-map__step.is-next b,.growth-leadership-guide-v2 .sg-map__step.is-next span{color:rgba(255,255,255,.60)}
+.growth-leadership-guide-v2 .sg-insights__grid>div:first-child{box-shadow:inset 0 3px 0 rgba(22,119,255,.88)}
+.growth-leadership-guide-v2 .sg-insights__grid>div:nth-child(2){box-shadow:inset 0 3px 0 rgba(255,216,61,.80)}
+.growth-leadership-guide-v2 .sg-insights__grid>div:nth-child(3){box-shadow:inset 0 3px 0 rgba(22,119,255,.50)}
+.growth-leadership-guide-v2 .growth-rule-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.growth-leadership-guide-v2 .growth-rule-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){
+  .growth-leadership-guide-v2 .sg-hero h1{font-size:2.24rem}
+  .growth-leadership-guide-v2 .sg-hero__lead{max-width:none;font-size:.87rem}
+  .growth-leadership-guide-v2 .sg-map-head{margin-top:22px}
+  .growth-leadership-guide-v2 .sg-map{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+  .growth-leadership-guide-v2 .sg-map__step{min-width:144px;scroll-snap-align:start}
+  .growth-leadership-guide-v2 .growth-rule-grid{grid-template-columns:1fr}
+}
