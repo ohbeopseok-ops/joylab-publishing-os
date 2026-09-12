@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import '../../styles/ai-productivity-guide-v2.css';
+import { getCollection } from 'astro:content';
+
+const sequence = [
+  { id: 'what-is-ai-agent', step: '01', role: 'AGENT', short: 'Agent', note: '챗봇과 에이전트의 차이를 위임·도구·완료조건·통제 구조로 이해합니다.' },
+  { id: 'ai-workflow-automation', step: '02', role: 'WORKFLOW', short: 'Workflow', note: 'Model → Tool → Workflow → Human Approval로 실제 업무자동화 구조를 설계합니다.' },
+  { id: 'ai-productivity-roi', step: '03', role: 'MEASUREMENT', short: 'ROI', note: '사용량이 아니라 Task Completion·Quality·Cost·Rework로 AI 성과를 측정합니다.' },
+  { id: null, step: '04', role: 'GOVERNANCE · NEXT', short: 'Governance', note: '권한·보안·승인·로그·실패 복구를 운영체계로 묶습니다.' },
+  { id: null, step: '05', role: 'OPERATING MODEL · NEXT', short: 'Operating', note: '개인 생산성을 팀·조직의 운영모델로 확장합니다.' },
+  { id: null, step: '06', role: 'COMPARE · NEXT', short: 'Compare', note: '주요 AI 업무 플랫폼을 기능 수가 아니라 업무 구조 기준으로 비교합니다.' }
+];
+
+const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
+const byId = new Map(collection.map((item) => [item.id, item]));
+const steps = sequence.map((entry) => ({ ...entry, article: entry.id ? byId.get(entry.id) : undefined }));
+const published = steps.filter((entry) => entry.article);
+---
+<BaseLayout
+  title="AI·생산성 가이드｜에이전트부터 ROI까지 업무를 다시 설계합니다 | JoyLab"
+  description="AI 에이전트·업무자동화·ROI·거버넌스·운영모델을 하나의 Research Map으로 연결해, AI를 실제 업무 성과로 전환하는 JoyLab AI·생산성 가이드입니다."
+  bodyClass="semiconductor-guide-v2 ai-productivity-guide-v2"
+>
+  <section class="sg-hero ai-prod-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">AI PRODUCTIVITY RESEARCH · JOYLAB</div>
+          <h1>AI는 도구보다<br /><span>업무 구조입니다.</span></h1>
+          <p class="sg-hero__lead">AI를 더 많이 쓰는 것이 목표가 아닙니다. <strong>Agent → Workflow → Measurement → Governance → Operating Model</strong>로 연결해, 어떤 일을 어디까지 위임하고 어떻게 통제·측정할지 하나의 판단 구조로 읽습니다.</p>
+          <div class="sg-hero__chips" aria-label="AI 생산성 핵심 주제">
+            <span>#AI에이전트</span><span>#업무자동화</span><span>#ROI</span><span>#거버넌스</span><span>#생산성</span>
+          </div>
+          <div class="sg-hero__meta" aria-label="가이드 정보">
+            <span><strong>{published.length}</strong> Core Research</span>
+            <span><strong>8</strong> Decision Lenses</span>
+            <span><strong>1</strong> Research Map</span>
+          </div>
+        </div>
+
+        <aside class="sg-lens" aria-label="AI 생산성 판단 축">
+          <div class="sg-lens__brand">JOYLAB<br /><b>AI PRODUCTIVITY</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>업무 적합성</b><span>무엇을 자동화할지가 아니라 어떤 업무에 AI가 맞는지 먼저 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>통제 가능성</b><span>권한·승인·예외·복구를 포함해 사람이 남아야 할 지점을 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>성과 측정</b><span>사용량보다 완료율·품질·비용·재작업으로 실제 생산성을 봅니다.</span></div></div>
+        </aside>
+      </div>
+
+      <div class="sg-map-head">
+        <div><span>START HERE</span><b>AI·생산성 Research Map</b></div>
+        <a href="#research-path">{published.length}개 리서치부터 읽기 →</a>
+      </div>
+
+      <nav class="sg-map" aria-label="AI 생산성 리서치 경로">
+        {steps.map(({ article, step, short, role }, index) => (
+          article ? (
+            <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={`/articles/${article.id}`}>
+              <em>{step}</em><b>{short}</b><span>{role}</span>
+            </a>
+          ) : (
+            <div class="sg-map__step is-next" aria-label={`${short} 준비 중`}>
+              <em>{step}</em><b>{short}</b><span>{role}</span>
+            </div>
+          )
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <main class="sg-main" id="research-path">
+    <div class="sg-wrap sg-layout">
+      <section>
+        <div class="sg-section-head">
+          <div><div class="sg-eyebrow">RESEARCH PATH</div><h2>AI 기능이 아니라 업무 결과까지 읽습니다</h2></div>
+          <p>에이전트 개념부터 워크플로우 설계와 ROI까지 먼저 읽고, 이후 거버넌스와 운영모델로 확장합니다. JoyLab은 제품 기능보다 업무의 시작조건·완료조건·통제·성과를 봅니다.</p>
+        </div>
+
+        <div class="sg-path">
+          {published.map(({ article, step, role, note }) => (
+            <article class="sg-card">
+              <div class="sg-card__no">{step}</div>
+              <div>
+                <div class="sg-card__role">{role}</div>
+                <h3><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h3>
+                <p>{note}</p>
+                <div class="sg-card__foot">
+                  {article!.data.tags.slice(0, 3).map((tag) => <span>#{tag}</span>)}
+                  <a class="sg-card__cta" href={`/articles/${article!.id}`}>리서치 읽기 →</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <section class="sg-insights" aria-labelledby="ai-prod-insights-title">
+          <div class="sg-section-head sg-section-head--compact">
+            <div><div class="sg-eyebrow">AI PRODUCTIVITY INSIGHTS</div><h2 id="ai-prod-insights-title">세 가지 기준으로 다시 봅니다</h2></div>
+          </div>
+          <div class="sg-insights__grid">
+            <div><em>FIT</em><b>모든 업무를 에이전트화하지 않습니다</b><p>규칙·예외·비정형 입력·도구 이동을 보고 AI가 실제로 필요한 업무인지 판단합니다.</p></div>
+            <div><em>CONTROL</em><b>자율성보다 통제 설계가 먼저입니다</b><p>최소권한·Human Approval·로그·중단·복구를 업무 흐름 안에 넣습니다.</p></div>
+            <div><em>OUTCOME</em><b>사용량보다 완료된 일을 봅니다</b><p>Task Completion·Quality·Cost per Success·Rework를 같은 화면에서 확인합니다.</p></div>
+          </div>
+        </section>
+
+        <section class="sg-rule" aria-labelledby="ai-prod-rule-title">
+          <div class="sg-eyebrow">JOYLAB METHOD</div>
+          <h2 id="ai-prod-rule-title">Problem → Capability → Workflow Fit → Human Control → Measurement → Risk → Scenario → Action</h2>
+          <div class="sg-rule__grid ai-prod-rule-grid">
+            <div class="sg-rule__step"><b>PROBLEM</b><span>어떤 업무 문제를 해결하려는지 먼저 정의합니다.</span></div>
+            <div class="sg-rule__step"><b>CAPABILITY</b><span>모델·도구·에이전트가 실제로 가능한 범위를 확인합니다.</span></div>
+            <div class="sg-rule__step"><b>WORKFLOW FIT</b><span>기존 프로세스 어디에 넣을지 설계합니다.</span></div>
+            <div class="sg-rule__step"><b>HUMAN CONTROL</b><span>승인·검토·예외처리를 어디에 남길지 정합니다.</span></div>
+            <div class="sg-rule__step"><b>MEASUREMENT</b><span>완료율·품질·비용·재작업을 측정합니다.</span></div>
+            <div class="sg-rule__step"><b>RISK</b><span>권한·보안·환각·운영 리스크를 점검합니다.</span></div>
+            <div class="sg-rule__step"><b>SCENARIO</b><span>성공·부분 성공·실패 조건을 나눠 봅니다.</span></div>
+            <div class="sg-rule__step"><b>ACTION</b><span>다음에 설계·측정·검증할 조건을 남깁니다.</span></div>
+          </div>
+        </section>
+      </section>
+
+      <aside class="sg-rail" aria-label="AI 생산성 가이드 사용법">
+        <section class="sg-rail-card sg-rail-card--dark">
+          <small>START HERE</small>
+          <h3>먼저 AI 에이전트부터</h3>
+          <p>챗봇과 에이전트의 차이를 이해하면 이후 Workflow와 ROI 글을 훨씬 쉽게 연결할 수 있습니다.</p>
+          <a href="/articles/what-is-ai-agent">GC-A01부터 시작하기 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>CORE RESEARCH</small>
+          <h3>현재 3개 Gold Case</h3>
+          <ol><li>AI 에이전트</li><li>AI 업무자동화 구조</li><li>AI 도입 ROI</li></ol>
+        </section>
+        <section class="sg-rail-card">
+          <small>NEXT LAYERS</small>
+          <h3>다음은 Governance와 Operating Model</h3>
+          <p>권한·보안·승인·로그·복구를 먼저 고정한 뒤 개인 생산성을 팀과 조직의 운영모델로 확장합니다.</p>
+        </section>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>
