@@ -8,19 +8,19 @@ const sequence = [
   { id: 'performance-system-leading-indicators', step: '01', role: 'PERFORMANCE', short: 'Performance', note: '결과 KPI를 Driver·Behavior로 내려 운영 가능한 선행지표를 설계합니다.' },
   { id: 'feedback-system-behavior-change', step: '02', role: 'FEEDBACK', short: 'Feedback', note: '평가가 아니라 관찰·설명·연습·재확인으로 행동 변화를 만드는 피드백 루프를 봅니다.' },
   { id: 'recognition-system-fair-performance', step: '03', role: 'RECOGNITION', short: 'Recognition', note: '성과·성장·팀 기여·고객 가치를 공정한 기준으로 보이게 만드는 인정 구조를 설계합니다.' },
-  { id: null, step: '04', role: 'FAIRNESS · NEXT', short: 'Fairness', note: '기회·규칙·판정의 공정성을 분리해 설명 가능한 운영 기준을 만듭니다.' },
-  { id: null, step: '05', role: 'LEARNING · NEXT', short: 'Learning', note: '실수와 미달을 개인 평가가 아니라 재학습·재실행 시스템으로 바꿉니다.' },
-  { id: null, step: '06', role: 'OPERATING SYSTEM · NEXT', short: 'Operating', note: '성과·피드백·인정·공정성·학습을 팀 운영 주기로 통합합니다.' }
+  { id: 'fairness-system-explainable-standards', step: '04', role: 'FAIRNESS', short: 'Fairness', note: '기회·기준·판정·설명을 분리해 같은 기준을 설명 가능하게 적용하는 운영 구조를 만듭니다.' },
+  { id: 'learning-system-reexecution-loop', step: '05', role: 'LEARNING', short: 'Learning', note: '실수와 미달을 원인 분류·재학습·재실행·재확인으로 연결해 반복 학습 속도를 높입니다.' },
+  { id: 'growth-leadership-operating-system', step: '06', role: 'OPERATING SYSTEM', short: 'Operating', note: '성과·피드백·인정·공정성·학습을 주간·월간·분기 운영 리듬으로 통합합니다.' }
 ];
 
 const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
 const byId = new Map(collection.map((item) => [item.id, item]));
-const steps = sequence.map((entry) => ({ ...entry, article: entry.id ? byId.get(entry.id) : undefined }));
+const steps = sequence.map((entry) => ({ ...entry, article: byId.get(entry.id) }));
 const published = steps.filter((entry) => entry.article);
 ---
 <BaseLayout
-  title="성장·리더십 가이드｜성과·피드백·인정 시스템을 설계하는 법 | JoyLab"
-  description="성과관리·피드백·Recognition·공정성·학습·운영모델을 하나의 Research Map으로 연결해 사람과 팀의 성장을 운영 시스템으로 바꾸는 JoyLab 성장·리더십 가이드입니다."
+  title="성장·리더십 가이드｜성과·피드백·공정성·학습·운영시스템 | JoyLab"
+  description="성과관리·피드백·Recognition·공정성·학습·운영시스템을 하나의 6단 Research Map으로 연결해 사람과 팀의 성장을 반복 가능한 운영 구조로 바꾸는 JoyLab 성장·리더십 가이드입니다."
   bodyClass="semiconductor-guide-v2 growth-leadership-guide-v2"
 >
   <section class="sg-hero growth-hero">
@@ -50,20 +50,14 @@ const published = steps.filter((entry) => entry.article);
 
       <div class="sg-map-head">
         <div><span>START HERE</span><b>성장·리더십 Research Map</b></div>
-        <a href="#research-path">{published.length}개 리서치부터 읽기 →</a>
+        <a href="#research-path">{published.length}개 리서치 한 번에 보기 →</a>
       </div>
 
       <nav class="sg-map" aria-label="성장 리더십 리서치 경로">
-        {steps.map(({ article, step, short, role }, index) => (
-          article ? (
-            <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={`/articles/${article.id}`}>
-              <em>{step}</em><b>{short}</b><span>{role}</span>
-            </a>
-          ) : (
-            <div class="sg-map__step is-next" aria-label={`${short} 준비 중`}>
-              <em>{step}</em><b>{short}</b><span>{role}</span>
-            </div>
-          )
+        {published.map(({ article, step, short, role }, index) => (
+          <a class={`sg-map__step ${index === 0 ? 'is-start' : ''} ${index === published.length - 1 ? 'is-compare' : ''}`} href={`/articles/${article!.id}`}>
+            <em>{step}</em><b>{short}</b><span>{role}</span>
+          </a>
         ))}
       </nav>
     </div>
@@ -74,12 +68,12 @@ const published = steps.filter((entry) => entry.article);
       <section>
         <div class="sg-section-head">
           <div><div class="sg-eyebrow">RESEARCH PATH</div><h2>사람을 평가하기보다 시스템을 읽습니다</h2></div>
-          <p>성과관리에서 시작해 피드백과 Recognition으로 확장하고, 이후 공정성·학습·운영시스템까지 연결합니다. JoyLab은 리더의 감각보다 기준·행동·피드백·재실행을 봅니다.</p>
+          <p>성과관리에서 시작해 피드백과 Recognition, 공정성, 학습으로 확장한 뒤 마지막 Operating System에서 주간·월간·분기 운영 리듬으로 통합합니다.</p>
         </div>
 
         <div class="sg-path">
-          {published.map(({ article, step, role, note }) => (
-            <article class="sg-card">
+          {published.map(({ article, step, role, note }, index) => (
+            <article class={`sg-card ${index === published.length - 1 ? 'is-key' : ''}`}>
               <div class="sg-card__no">{step}</div>
               <div>
                 <div class="sg-card__role">{role}</div>
@@ -87,7 +81,7 @@ const published = steps.filter((entry) => entry.article);
                 <p>{note}</p>
                 <div class="sg-card__foot">
                   {article!.data.tags.slice(0, 3).map((tag) => <span>#{tag}</span>)}
-                  <a class="sg-card__cta" href={`/articles/${article!.id}`}>리서치 읽기 →</a>
+                  <a class="sg-card__cta" href={`/articles/${article!.id}`}>{index === published.length - 1 ? '운영시스템 보기 →' : '리서치 읽기 →'}</a>
                 </div>
               </div>
             </article>
@@ -101,7 +95,7 @@ const published = steps.filter((entry) => entry.article);
           <div class="sg-insights__grid">
             <div><em>DRIVER</em><b>결과보다 결과를 만드는 변수를 봅니다</b><p>후행 KPI 아래 통제 가능한 선행지표와 행동을 분리합니다.</p></div>
             <div><em>LOOP</em><b>평가보다 짧은 학습 루프를 만듭니다</b><p>관찰 → 피드백 → 연습 → 재확인으로 행동 변화 속도를 높입니다.</p></div>
-            <div><em>FAIRNESS</em><b>같은 대우보다 같은 기준을 봅니다</b><p>기회·규칙·판정을 나눠 설명 가능한 공정성을 설계합니다.</p></div>
+            <div><em>FAIRNESS</em><b>같은 대우보다 같은 기준을 봅니다</b><p>기회·기준·판정·설명을 나눠 설명 가능한 공정성을 설계합니다.</p></div>
           </div>
         </section>
 
@@ -114,7 +108,7 @@ const published = steps.filter((entry) => entry.article);
             <div class="sg-rule__step"><b>BEHAVIOR</b><span>숫자 아래 관찰 가능한 행동을 정의합니다.</span></div>
             <div class="sg-rule__step"><b>FEEDBACK</b><span>다음 행동을 바꾸는 짧은 피드백 루프를 만듭니다.</span></div>
             <div class="sg-rule__step"><b>RECOGNITION</b><span>잘한 행동과 성장을 조직 안에 보이게 합니다.</span></div>
-            <div class="sg-rule__step"><b>FAIRNESS</b><span>기회·규칙·판정이 설명 가능한지 확인합니다.</span></div>
+            <div class="sg-rule__step"><b>FAIRNESS</b><span>기회·기준·판정이 설명 가능한지 확인합니다.</span></div>
             <div class="sg-rule__step"><b>LEARNING</b><span>실패와 미달을 재학습·재실행으로 연결합니다.</span></div>
             <div class="sg-rule__step"><b>ACTION</b><span>다음 운영 주기에서 유지·수정·중단할 것을 정합니다.</span></div>
           </div>
@@ -125,18 +119,19 @@ const published = steps.filter((entry) => entry.article);
         <section class="sg-rail-card sg-rail-card--dark">
           <small>START HERE</small>
           <h3>먼저 성과관리 시스템부터</h3>
-          <p>결과 KPI와 Driver·Behavior를 구분하면 이후 Feedback과 Recognition을 같은 구조로 연결하기 쉬워집니다.</p>
+          <p>결과 KPI와 Driver·Behavior를 구분하면 이후 Feedback·Recognition·Fairness·Learning을 같은 구조로 연결하기 쉬워집니다.</p>
           <a href="/articles/performance-system-leading-indicators">GC-G01부터 시작하기 →</a>
         </section>
         <section class="sg-rail-card">
           <small>CORE RESEARCH</small>
-          <h3>현재 3개 Gold Case</h3>
-          <ol><li>Performance System</li><li>Feedback System</li><li>Recognition System</li></ol>
+          <h3>6개 Gold Case 완성</h3>
+          <ol><li>Performance System</li><li>Feedback System</li><li>Recognition System</li><li>Fairness System</li><li>Learning System</li><li>Operating System</li></ol>
         </section>
         <section class="sg-rail-card">
-          <small>NEXT LAYERS</small>
-          <h3>다음은 Fairness와 Learning</h3>
-          <p>공정성 기준을 기회·규칙·판정으로 나누고, 실패를 재실행으로 연결한 뒤 팀 Operating System으로 확장합니다.</p>
+          <small>OPERATING SYSTEM</small>
+          <h3>마지막은 운영 리듬 통합</h3>
+          <p>성과·피드백·인정·공정성·학습을 주간 실행, 월간 Calibration, 분기 구조개선의 하나의 리듬으로 묶습니다.</p>
+          <a href="/articles/growth-leadership-operating-system">GC-G06 Operating System →</a>
         </section>
       </aside>
     </div>
