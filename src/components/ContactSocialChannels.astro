@@ -1,0 +1,75 @@
+---
+const channels = [
+  {
+    label: 'Naver Blog',
+    href: 'https://blog.naver.com/joy014',
+    mark: 'N',
+    description: '검색형·장문 콘텐츠'
+  },
+  {
+    label: 'Threads',
+    href: '',
+    mark: '@',
+    description: '짧은 인사이트·대화'
+  },
+  {
+    label: 'Instagram',
+    href: '',
+    mark: '◎',
+    description: '비주얼·카드 콘텐츠'
+  },
+  {
+    label: 'LinkedIn',
+    href: '',
+    mark: 'in',
+    description: '기업·교육·B2B 네트워크'
+  }
+];
+---
+<section class="contact-social" aria-labelledby="contact-social-title">
+  <small>OFFICIAL CHANNELS</small>
+  <h3 id="contact-social-title">JoyLab 공식 채널</h3>
+  <div class="contact-social-list">
+    {channels.map((channel) => channel.href ? (
+      <a
+        class="contact-social-link"
+        href={channel.href}
+        target="_blank"
+        rel="me noreferrer"
+        aria-label={`JoyLab ${channel.label} 새 창에서 열기`}
+      >
+        <span class="contact-social-mark" aria-hidden="true">{channel.mark}</span>
+        <span class="contact-social-copy">
+          <strong>{channel.label}</strong>
+          <em>{channel.description}</em>
+        </span>
+        <span class="contact-social-arrow" aria-hidden="true">↗</span>
+      </a>
+    ) : (
+      <div class="contact-social-link is-pending" aria-label={`${channel.label} 공식 주소 확인 전`}>
+        <span class="contact-social-mark" aria-hidden="true">{channel.mark}</span>
+        <span class="contact-social-copy">
+          <strong>{channel.label}</strong>
+          <em>공식 주소 확인 전</em>
+        </span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .contact-social{padding:22px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 12px 34px rgba(11,31,77,.045)}
+  .contact-social>small{display:block;margin-bottom:8px;color:var(--blue);font-weight:900;letter-spacing:.08em}
+  .contact-social>h3{margin:0 0 14px;color:var(--navy);font-size:1.06rem;letter-spacing:-.02em}
+  .contact-social-list{display:grid;gap:8px}
+  .contact-social-link{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:center;padding:10px 11px;border:1px solid #e1e8f1;border-radius:12px;background:#fbfdff;transition:border-color .18s ease,background .18s ease,transform .18s ease}
+  a.contact-social-link:hover{border-color:#bdd4f5;background:#f6f9ff;transform:translateY(-1px)}
+  .contact-social-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--navy);color:#fff;font-size:.78rem;font-weight:900;letter-spacing:-.02em}
+  .contact-social-copy{display:grid;min-width:0}
+  .contact-social-copy strong{color:#243951;font-size:.86rem;line-height:1.35}
+  .contact-social-copy em{overflow:hidden;color:#7a899b;font-size:.73rem;font-style:normal;line-height:1.45;text-overflow:ellipsis;white-space:nowrap}
+  .contact-social-arrow{color:var(--blue);font-size:.9rem;font-weight:900}
+  .contact-social-link.is-pending{opacity:.52;background:#f8fafc}
+  .contact-social-link.is-pending .contact-social-mark{background:#8190a4}
+  @media(max-width:640px){.contact-social{padding:18px}.contact-social-link{padding:11px}}
+</style>
