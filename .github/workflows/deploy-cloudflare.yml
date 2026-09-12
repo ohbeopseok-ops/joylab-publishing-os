@@ -137,6 +137,11 @@ jobs:
           grep -Fq 'id="contact-copy"' /tmp/body
           grep -Fq '메일 앱에서 문의하기' /tmp/body
           grep -Fq 'ohbeopseok@gmail.com' /tmp/body
+          grep -Fq 'OFFICIAL CHANNELS' /tmp/body
+          grep -Fq 'https://blog.naver.com/joy014' /tmp/body
+          grep -Fq 'https://www.threads.com/@ohbeopseok' /tmp/body
+          grep -Fq 'https://www.instagram.com/aijoylab/' /tmp/body
+          grep -Fq 'linkedin.com/in/' /tmp/body
           grep -Fq 'github.com/ohbeopseok-ops/joylab-publishing-os/issues' /tmp/body
           grep -Fq '개별 종목 매수·매도 상담이나 개인 맞춤형 투자자문을 제공하지 않습니다' /tmp/body
 
