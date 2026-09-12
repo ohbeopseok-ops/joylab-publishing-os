@@ -1,0 +1,41 @@
+---
+const identityGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://aijoylab.kr/#organization',
+      name: 'JoyLab',
+      alternateName: 'AIJoyLab',
+      url: 'https://aijoylab.kr/',
+      email: 'ohbeopseok@gmail.com',
+      sameAs: [
+        'https://blog.naver.com/joy014',
+        'https://www.instagram.com/aijoylab/'
+      ],
+      founder: {
+        '@id': 'https://aijoylab.kr/#founder'
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'business inquiries',
+        email: 'ohbeopseok@gmail.com',
+        url: 'https://aijoylab.kr/contact'
+      }
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://aijoylab.kr/#founder',
+      name: '오법석',
+      sameAs: [
+        'https://www.threads.com/@ohbeopseok',
+        'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/'
+      ],
+      worksFor: {
+        '@id': 'https://aijoylab.kr/#organization'
+      }
+    }
+  ]
+};
+---
+<script id="joylab-identity-schema" type="application/ld+json" set:html={JSON.stringify(identityGraph)}></script>
