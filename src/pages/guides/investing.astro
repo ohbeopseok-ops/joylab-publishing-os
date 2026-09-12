@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import '../../styles/investment-hub-v2.css';
+
+const clusters = [
+  {
+    step: '01',
+    eyebrow: 'SEMICONDUCTOR',
+    title: '반도체',
+    href: '/guides/semiconductor-investing',
+    thesis: 'HBM → 메모리 사이클 → 수급 → 삼성전자·SK하이닉스 → 비교',
+    note: 'AI 메모리와 업황 사이클을 기술·실적·수급으로 연결합니다.',
+    meta: '6 Core Research'
+  },
+  {
+    step: '02',
+    eyebrow: 'AI POWER',
+    title: 'AI 전력',
+    href: '/guides/ai-power',
+    thesis: '발전 → 송전 → 변압 → 배전 → 백업전원 → 냉각 → 기업 비교',
+    note: 'AI 데이터센터의 전력 병목을 물리적 밸류체인과 한국 상장사 실적으로 연결합니다.',
+    meta: '6 Core + 5 Company'
+  },
+  {
+    step: '03',
+    eyebrow: 'SHIPBUILDING',
+    title: '조선',
+    href: '/guides/shipbuilding',
+    thesis: '선종 믹스 → 인도연도 → 생산성 → 마진 → 밸류에이션 → 4사 비교',
+    note: '수주잔고의 크기보다 수주의 질과 마진 전환 속도를 비교합니다.',
+    meta: '4 Company + 1 Compare'
+  }
+];
+---
+<BaseLayout
+  title="투자 리서치 클러스터｜반도체·AI 전력·조선 | JoyLab"
+  description="JoyLab의 투자 리서치를 반도체, AI 전력, 조선 세 개의 Research Cluster로 연결해 산업 구조부터 기업 비교까지 한눈에 탐색합니다."
+  bodyClass="semiconductor-guide-v2 investment-hub-v2"
+>
+  <section class="sg-hero ih-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">INVESTMENT RESEARCH · JOYLAB</div>
+          <h1>투자 리서치를<br /><span>클러스터로 읽습니다.</span></h1>
+          <p class="sg-hero__lead">뉴스와 종목을 흩어 보지 않습니다. <strong>반도체 / AI 전력 / 조선</strong> 세 축을 산업 구조 → 기업 실적 → 비교 판단으로 연결해, 어디서 시작하고 무엇을 다음에 확인할지 보여줍니다.</p>
+          <div class="sg-hero__chips" aria-label="투자 리서치 클러스터">
+            <span>#반도체</span><span>#AI전력</span><span>#조선</span><span>#CompanyResearch</span><span>#CompareHub</span>
+          </div>
+          <div class="sg-hero__meta" aria-label="투자 리서치 구조">
+            <span><strong>3</strong> Research Clusters</span>
+            <span><strong>1</strong> Decision System</span>
+            <span><strong>4</strong> Step Method</span>
+          </div>
+        </div>
+
+        <aside class="sg-lens" aria-label="JoyLab 투자 리서치 읽는 법">
+          <div class="sg-lens__brand">JOYLAB<br /><b>INVESTING</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>산업 구조</b><span>병목·사이클·수요의 출발점을 먼저 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>기업 실적</b><span>수주·가격·CAPEX·마진으로 실제 수혜를 확인합니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>상대 비교</b><span>같은 Lens로 기업을 비교해 프리미엄과 리스크를 나눕니다.</span></div></div>
+        </aside>
+      </div>
+
+      <div class="sg-map-head">
+        <div><span>START HERE</span><b>투자 Research Cluster</b></div>
+        <a href="#clusters">3개 클러스터 보기 →</a>
+      </div>
+      <nav class="sg-map ih-map" aria-label="투자 리서치 클러스터">
+        {clusters.map((cluster, index) => (
+          <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={cluster.href}>
+            <em>{cluster.step}</em><b>{cluster.title}</b><span>{cluster.eyebrow}</span>
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <main class="sg-main" id="clusters">
+    <div class="sg-wrap sg-layout">
+      <section>
+        <div class="sg-section-head">
+          <div><div class="sg-eyebrow">RESEARCH CLUSTERS</div><h2>세 산업을 같은 판단 문법으로 읽습니다</h2></div>
+          <p>Pillar Guide에서 산업 구조를 잡고, Company Research에서 실적을 확인한 뒤, Compare Hub에서 상대 매력도를 정리합니다.</p>
+        </div>
+
+        <div class="sg-path ih-path">
+          {clusters.map((cluster, index) => (
+            <article class={`sg-card ${index === 0 ? 'is-key' : ''}`}>
+              <div class="sg-card__no">{cluster.step}</div>
+              <div>
+                <div class="sg-card__role">{cluster.eyebrow}</div>
+                <h3><a href={cluster.href}>{cluster.title} 투자 리서치</a></h3>
+                <p>{cluster.note}</p>
+                <div class="ih-thesis">{cluster.thesis}</div>
+                <div class="sg-card__foot"><span>{cluster.meta}</span><a class="sg-card__cta" href={cluster.href}>클러스터 열기 →</a></div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <section class="sg-insights" aria-labelledby="ih-system-title">
+          <div class="sg-section-head sg-section-head--compact">
+            <div><div class="sg-eyebrow">JOYLAB INVESTMENT SYSTEM</div><h2 id="ih-system-title">Pillar → Company → Compare</h2></div>
+          </div>
+          <div class="sg-insights__grid">
+            <div><em>PILLAR</em><b>산업을 먼저 읽습니다</b><p>밸류체인·사이클·병목을 Research Map으로 연결합니다.</p></div>
+            <div><em>COMPANY</em><b>기업 실적으로 내려갑니다</b><p>수요 노출·수주 가시성·생산능력·마진·밸류에이션을 봅니다.</p></div>
+            <div><em>COMPARE</em><b>마지막에 상대 비교합니다</b><p>같은 Lens로 기업을 놓고 어떤 프리미엄이 정당한지 판단합니다.</p></div>
+          </div>
+        </section>
+
+        <section class="sg-rule" aria-labelledby="ih-method-title">
+          <div class="sg-eyebrow">JOYLAB METHOD</div>
+          <h2 id="ih-method-title">Fact → Interpretation → Scenario → Action</h2>
+          <div class="sg-rule__grid">
+            <div class="sg-rule__step"><b>FACT</b><span>공시·실적·수주·가격을 확인합니다.</span></div>
+            <div class="sg-rule__step"><b>INTERPRETATION</b><span>숫자가 산업 구조에서 무엇을 뜻하는지 봅니다.</span></div>
+            <div class="sg-rule__step"><b>SCENARIO</b><span>Bull·Base·Bear 조건을 나눕니다.</span></div>
+            <div class="sg-rule__step"><b>ACTION</b><span>다음 재점검 조건을 남깁니다.</span></div>
+          </div>
+        </section>
+      </section>
+
+      <aside class="sg-rail" aria-label="투자 리서치 시작점">
+        <section class="sg-rail-card sg-rail-card--dark"><small>START HERE</small><h3>처음이라면 반도체부터</h3><p>산업 사이클과 기업 비교가 가장 완성된 클러스터에서 JoyLab 투자 리서치 문법을 익힐 수 있습니다.</p><a href="/guides/semiconductor-investing">반도체 가이드 →</a></section>
+        <section class="sg-rail-card"><small>PHYSICAL BOTTLENECK</small><h3>AI 전력</h3><p>GPU 이후 병목이 발전·전력망·냉각으로 이동하는 흐름을 봅니다.</p><a href="/guides/ai-power">AI 전력 가이드 →</a></section>
+        <section class="sg-rail-card"><small>ORDER CYCLE</small><h3>조선</h3><p>고선가 수주가 인도와 마진으로 전환되는 시간축을 봅니다.</p><a href="/guides/shipbuilding">조선 가이드 →</a></section>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>
