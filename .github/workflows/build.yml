@@ -40,6 +40,16 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      - name: Verify JoyLab identity schema
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -Fq 'id="joylab-identity-schema"' dist/index.html
+          grep -Fq '"@id":"https://aijoylab.kr/#organization"' dist/index.html
+          grep -Fq '"@id":"https://aijoylab.kr/#founder"' dist/index.html
+          grep -Fq '"sameAs":["https://blog.naver.com/joy014","https://www.instagram.com/aijoylab/"]' dist/index.html
+          grep -Fq '"sameAs":["https://www.threads.com/@ohbeopseok","https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/"]' dist/index.html
+
       - name: Upload dist artifact
         uses: actions/upload-artifact@v6
         with:
