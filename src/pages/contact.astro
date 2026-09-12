@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactSocialChannels from '../components/ContactSocialChannels.astro';
 import '../styles/contact-v2.css';
 
 const contactEmail = 'ohbeopseok@gmail.com';
@@ -35,6 +36,8 @@ const hasContactEmail = contactEmail.length > 0;
             <h3>공식 문의 이메일</h3>
             <p><a href="mailto:ohbeopseok@gmail.com">ohbeopseok@gmail.com</a></p>
           </div>
+
+          <ContactSocialChannels />
 
           <div class="contact-aside-card">
             <small>CORRECTION</small>
