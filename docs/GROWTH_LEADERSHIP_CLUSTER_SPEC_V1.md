@@ -1,6 +1,6 @@
 # JoyLab Growth · Leadership Cluster Spec V1
 
-Status: Candidate → Gold after GC-G01~G03 + Pillar validation
+Status: Gold
 Updated: 2026-09-12
 
 ## Purpose
@@ -13,15 +13,18 @@ JoyLab의 세 번째 Pillar인 `성장·리더십`을 감성적인 리더십 조
 
 ## Research Map
 
-**Goal → Measurement → Feedback → Recognition → Fairness → Operating System**
+**Performance → Feedback → Recognition → Fairness → Learning → Operating System**
 
-초기 Gold Case는 다음 3편으로 시작한다.
+Gold Case 6편:
 
 1. GC-G01 Performance System — 결과 KPI보다 Leading Indicator를 먼저 설계하는 법
 2. GC-G02 Feedback System — 평가가 아니라 행동 변화를 만드는 피드백 구조
 3. GC-G03 Recognition System — 인정·보상이 성과를 강화하려면 무엇이 필요한가
+4. GC-G04 Fairness System — 기회·기준·판정·설명을 분리해 공정성을 운영하는 법
+5. GC-G05 Learning System — 실패를 원인 분류·재학습·재실행·재확인으로 바꾸는 법
+6. GC-G06 Operating System — 성과·피드백·인정·공정성·학습을 하나의 운영 리듬으로 통합하는 법
 
-3편 확보 후 `/guides/growth-leadership` Pillar V2를 구현한다.
+`/guides/growth-leadership` Pillar V2는 위 6편을 하나의 Research Map으로 연결한다.
 
 ## JoyLab Growth Leadership Lens
 
@@ -59,6 +62,8 @@ JoyLab의 세 번째 Pillar인 `성장·리더십`을 감성적인 리더십 조
 - 피드백은 성격 평가가 아니라 관찰 가능한 행동과 다음 행동을 중심으로 쓴다.
 - 인정·보상은 단순 인기투표가 아니라 명시된 기준과 증거에 연결한다.
 - 공정성은 모두를 똑같이 대하는 것이 아니라 **같은 기준을 설명 가능하게 적용하는 것**으로 본다.
+- 학습은 교육 이수가 아니라 **재실행 성공과 재발 감소**로 본다.
+- Operating System은 주간 실행·월간 Calibration·분기 구조개선을 분리한다.
 - 모든 글은 마지막에 `Scenario / Action` 또는 다음 실행 조건을 남긴다.
 
 ## Gold Gate
@@ -72,12 +77,13 @@ JoyLab의 세 번째 Pillar인 `성장·리더십`을 감성적인 리더십 조
 - Astro build / dependency audit success
 - canonical / sitemap / RSS 유지
 
-## Pillar Gate
+## Gold State
 
-`/guides/growth-leadership`는 GC-G01~G03가 모두 발행된 뒤 만든다.
+Growth·Leadership V1은 다음 조건을 충족한 상태를 Gold로 본다.
 
-Pillar V2 초기 Map:
-
-**Performance → Feedback → Recognition → Fairness · NEXT → Learning · NEXT → Operating System · NEXT**
-
-이후 GC-G04~G06를 채워 6단 Map을 완성한다.
+- GC-G01~G06 모두 published
+- `/guides/growth-leadership` 6단 Map 모두 실제 article link
+- NEXT placeholder 0개
+- START HERE → Research Path → Operating System까지 연결
+- Header / Homepage / Footer / Sitemap routing 유지
+- Production smoke test success
