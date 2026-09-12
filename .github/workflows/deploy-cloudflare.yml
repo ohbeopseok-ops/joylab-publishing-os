@@ -135,6 +135,8 @@ jobs:
           grep -Fq '강의·교육' /tmp/body
           grep -Fq '제휴·기타' /tmp/body
           grep -Fq 'id="contact-copy"' /tmp/body
+          grep -Fq '메일 앱에서 문의하기' /tmp/body
+          grep -Fq 'ohbeopseok@gmail.com' /tmp/body
           grep -Fq 'github.com/ohbeopseok-ops/joylab-publishing-os/issues' /tmp/body
           grep -Fq '개별 종목 매수·매도 상담이나 개인 맞춤형 투자자문을 제공하지 않습니다' /tmp/body
 
