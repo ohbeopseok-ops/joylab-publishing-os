@@ -35,6 +35,8 @@ function contains(haystack, needle, message) {
 
 const build = await text('.github/workflows/build.yml');
 const deploy = await text('.github/workflows/deploy-cloudflare.yml');
+const healthWorkflow = await text('.github/workflows/production-health.yml');
+const healthScript = await text('scripts/check-production-health.mjs');
 const worker = await text('worker/index.js');
 const wrangler = await text('wrangler.jsonc');
 const packageJson = await text('package.json');
@@ -50,6 +52,7 @@ contains(build, 'branches: [main]', 'Build targets main');
 contains(build, 'run: npm ci', 'Build uses deterministic npm ci');
 contains(build, 'run: npm audit --omit=dev', 'Build blocks production dependency vulnerabilities');
 contains(build, 'run: npm run build', 'Build produces the Astro site');
+contains(build, 'node --check scripts/check-production-health.mjs', 'Build syntax-checks Production Health');
 
 contains(deploy, 'permissions:\n  contents: read', 'Deploy workflow keeps read-only repository permissions');
 contains(deploy, 'push:\n    branches: [main]', 'Production deploy only follows main pushes');
@@ -66,6 +69,28 @@ contains(deploy, 'x-content-type-options: nosniff', 'X-Content-Type-Options is v
 contains(deploy, 'x-frame-options: DENY', 'X-Frame-Options is verified in production');
 contains(deploy, 'referrer-policy: strict-origin-when-cross-origin', 'Referrer-Policy is verified in production');
 contains(deploy, 'permissions-policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()', 'Permissions-Policy is verified in production');
+
+contains(healthWorkflow, "cron: '17 * * * *'", 'Production Health runs hourly at minute 17');
+contains(healthWorkflow, 'workflow_dispatch:', 'Production Health supports manual dispatch');
+contains(healthWorkflow, 'permissions:\n  contents: read', 'Production Health keeps read-only repository permissions');
+contains(healthWorkflow, 'node-version: 24', 'Production Health uses Node 24');
+contains(healthWorkflow, 'run: node scripts/check-production-health.mjs', 'Production Health runs the canonical checker');
+contains(healthWorkflow, 'group: production-health', 'Production Health has concurrency control');
+
+contains(healthScript, "resolve4(HOSTNAME)", 'Production Health checks DNS A records');
+contains(healthScript, "resolve6(HOSTNAME)", 'Production Health checks DNS AAAA records');
+contains(healthScript, 'tls.connect', 'Production Health validates TLS');
+contains(healthScript, "['/robots.txt'", 'Production Health checks robots.txt');
+contains(healthScript, "['/sitemap.xml'", 'Production Health checks sitemap.xml');
+contains(healthScript, "['/rss.xml'", 'Production Health checks RSS');
+contains(healthScript, "['/about'", 'Production Health checks About');
+contains(healthScript, "['/contact'", 'Production Health checks Contact');
+contains(healthScript, "['/guides/semiconductor-investing'", 'Production Health checks a core guide');
+contains(healthScript, "['/articles/what-is-hbm'", 'Production Health checks a representative article');
+contains(healthScript, "'strict-transport-security'", 'Production Health checks HSTS');
+contains(healthScript, "'x-content-type-options'", 'Production Health checks X-Content-Type-Options');
+contains(healthScript, "expectedStatus: 301", 'Production Health checks permanent www redirect');
+contains(healthScript, 'SOFT_LATENCY_MS = 1_500', 'Production Health records soft latency threshold');
 
 contains(worker, "'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'", 'Worker sets HSTS');
 contains(worker, "'X-Content-Type-Options': 'nosniff'", 'Worker sets X-Content-Type-Options');
