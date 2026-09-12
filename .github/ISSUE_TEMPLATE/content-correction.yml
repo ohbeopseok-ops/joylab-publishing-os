@@ -1,0 +1,35 @@
+name: 콘텐츠 정정·오류 제보
+description: 사실관계, 링크, 표현 또는 공개 페이지 표시 오류를 제보합니다.
+title: "[Correction] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        공개 Issue입니다. 비밀번호, API 키, 액세스 토큰, 쿠키, 개인 연락처, 관리자 전용 URL, 비공개 화면 캡처는 올리지 마세요.
+        보안 취약점은 공개 Issue가 아니라 저장소의 Security 기능을 이용해 주세요.
+  - type: input
+    id: page
+    attributes:
+      label: 대상 글 또는 URL
+      placeholder: https://aijoylab.kr/articles/...
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 문제 내용
+      description: 무엇이 잘못됐는지 간단히 적어주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 근거 또는 참고자료
+      description: 공개 가능한 출처만 적어주세요. 개인정보나 인증정보는 포함하지 마세요.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: 공개 정보 확인
+      options:
+        - label: 이 Issue에 비밀번호·토큰·쿠키·개인정보·비공개 링크를 포함하지 않았습니다.
+          required: true
