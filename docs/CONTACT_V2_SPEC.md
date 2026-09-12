@@ -1,8 +1,9 @@
 # JoyLab Contact V2 SPEC
 
-Status: **IMPLEMENTATION READY / RECIPIENT PENDING**  
+Status: **PRODUCTION CANDIDATE**  
 Created: **2026-09-12 KST**  
-Target route: **/contact**
+Target route: **/contact**  
+Official recipient: **ohbeopseok@gmail.com**
 
 ## 1. Goal
 
@@ -22,7 +23,7 @@ The page must also preserve a separate public path for content corrections and t
 - No server-side form database in V2.
 - No third-party form backend in V2.
 - Inquiry content is composed locally in the visitor browser.
-- The primary delivery method is the visitor's mail app (`mailto:`) once the official JoyLab recipient address is configured.
+- The primary delivery method is the visitor's mail app (`mailto:`) to the explicitly approved JoyLab recipient address.
 - A copy-to-clipboard action is always available as fallback.
 - Public GitHub Issues remain limited to corrections and technical reports; business inquiries must not be routed to public Issues.
 - Do not invite individual stock buy/sell consultation or personalized investment advice.
@@ -65,7 +66,7 @@ Optional:
 - Primary: `메일 앱에서 문의하기 →`
 - Secondary: `문의 내용 복사`
 
-Until the official recipient email is explicitly configured, the primary mail action remains visibly disabled and the page explains why. This prevents accidental publication of a personal or inferred email address.
+The primary mail action targets the operator-approved public inquiry recipient `ohbeopseok@gmail.com`. The page also exposes the same address as the official business contact.
 
 ## 4. Secondary correction channel
 
@@ -151,7 +152,7 @@ Contact V2 is ready for production only when:
 
 - SPEC merged implementation matches this document
 - official recipient email is explicitly provided by the JoyLab operator
-- no personal/inferred email is published without approval
+- approved recipient is `ohbeopseok@gmail.com`
 - required `build` check is green
 - protected-main merge succeeds
 - post-merge Cloudflare deploy succeeds
