@@ -37,6 +37,9 @@ jobs:
       - name: Full dependency audit snapshot
         run: npm audit || true
 
+      - name: Test Click Analytics V1 Worker contract
+        run: node scripts/test-click-analytics.mjs
+
       - name: Build Astro site
         run: npm run build
 
