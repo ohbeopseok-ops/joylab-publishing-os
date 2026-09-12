@@ -226,16 +226,28 @@ const hasContactEmail = contactEmail.length > 0;
         if (!validate()) return;
         const { subject, body } = buildInquiry();
         const text = `${subject}\n\n${body}`;
-        try {
-          if (navigator.clipboard?.writeText) {
+        let copied = false;
+
+        if (navigator.clipboard?.writeText) {
+          try {
             await navigator.clipboard.writeText(text);
-          } else if (!fallbackCopy(text)) {
-            throw new Error('copy failed');
+            copied = true;
+          } catch {
+            copied = false;
           }
-          status.textContent = '문의 내용을 복사했습니다. 메일이나 메신저에 붙여넣을 수 있습니다.';
-        } catch {
-          status.textContent = '자동 복사가 되지 않았습니다. 입력 내용을 직접 선택해 복사해 주세요.';
         }
+
+        if (!copied) {
+          try {
+            copied = fallbackCopy(text);
+          } catch {
+            copied = false;
+          }
+        }
+
+        status.textContent = copied
+          ? '문의 내용을 복사했습니다. 메일이나 메신저에 붙여넣을 수 있습니다.'
+          : '자동 복사가 되지 않았습니다. 입력 내용을 직접 선택해 복사해 주세요.';
       });
 
       form.addEventListener('submit', (event) => {
