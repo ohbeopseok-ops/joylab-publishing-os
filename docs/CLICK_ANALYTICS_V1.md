@@ -1,10 +1,19 @@
 # JoyLab Click Analytics V1
 
-Status: ACTIVE AFTER PRODUCTION DEPLOY
+Status: GOLD — production verified 2026-09-12 KST
 
 Dataset: `joylab_events_v1`
 Binding: `JOYLAB_ANALYTICS`
 Endpoint: `POST /__analytics/event`
+
+## Gold evidence
+
+- protected-main activation PR merged
+- post-merge Build passed
+- Cloudflare Worker deployed with `env.JOYLAB_ANALYTICS (joylab_events_v1)` binding
+- custom domain remained healthy
+- Production smoke received HTTP `204` from the analytics endpoint using the reserved `smoke_test` event
+- existing homepage, article, Contact, Privacy, robots, sitemap, RSS, redirect, and security-header smoke checks remained green
 
 ## Purpose
 
@@ -125,12 +134,12 @@ curl "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/analy
 
 ## V1 completion gate
 
-Click Analytics V1 is complete only when:
+Click Analytics V1 is GOLD only while all of these remain true:
 
 1. Gold baseline / Build is green.
 2. Analytics Engine binding is present.
 3. Generated HTML contains the event client and tracked CTA attributes.
-4. Protected-main merge succeeds.
+4. Protected-main merge path remains enforced.
 5. Cloudflare deployment succeeds.
 6. Production smoke receives HTTP `204` from the event endpoint using `smoke_test`.
 7. Existing production smoke checks remain green.
