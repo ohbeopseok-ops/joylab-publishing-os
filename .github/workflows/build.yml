@@ -40,6 +40,9 @@ jobs:
       - name: Test Click Analytics V1 Worker contract
         run: node scripts/test-click-analytics.mjs
 
+      - name: Check Production Health script syntax
+        run: node --check scripts/check-production-health.mjs
+
       - name: Build Astro site
         run: npm run build
 
