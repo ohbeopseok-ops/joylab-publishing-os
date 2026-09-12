@@ -34,11 +34,11 @@ Cloudflare access must use a dedicated read-only token supplied as `CF_AUDIT_API
 
 Required GitHub Actions secrets:
 
-- `CF_AUDIT_API_TOKEN`
-- `CF_ACCOUNT_ID`
-- `CF_ZONE_ID`
+- `CF_AUDIT_API_TOKEN` — new dedicated read-only audit token;
+- `CLOUDFLARE_ACCOUNT_ID` — existing canonical account identifier already used by deployment;
+- `CF_ZONE_ID` — Cloudflare zone identifier for `aijoylab.kr`.
 
-The checker never prints secret values.
+The checker receives `CLOUDFLARE_ACCOUNT_ID` as `CF_ACCOUNT_ID` at runtime and never prints secret values.
 
 ## Status model
 
