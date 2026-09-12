@@ -1,6 +1,7 @@
 ---
 import SiteFooter from '../components/SiteFooter.astro';
 import ArticleContactCta from '../components/ArticleContactCta.astro';
+import IdentitySchema from '../components/IdentitySchema.astro';
 import '../styles/global.css';
 import '../styles/info.css';
 import '../styles/homepage-v2-fidelity.css';
@@ -28,6 +29,7 @@ const showArticleContactCta = String(bodyClass).split(/\s+/).includes('research-
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta name="twitter:card" content="summary_large_image" />
+    <IdentitySchema />
     <title>{title}</title>
   </head>
   <body class={bodyClass}>
