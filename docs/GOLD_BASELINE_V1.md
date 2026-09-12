@@ -10,6 +10,7 @@ This document is the durable release/security baseline for `joylab-publishing-os
 
 - `Security Fidelity Pass 01 = GOLD`
 - `Release Fidelity Pass 01 = GOLD`
+- `Observability Fidelity Pass 01 = GOLD`
 
 Baseline evidence at establishment:
 
@@ -102,20 +103,42 @@ The post-deploy smoke test must keep validating, at minimum:
 
 This list may be expanded as the product grows. Removing a check requires an explicit replacement rationale in the PR.
 
-## 8. Automated PR Gold guard
+## 8. Observability baseline
+
+Production Health is part of the durable JoyLab Gold floor.
+
+Required invariants:
+
+- hourly schedule remains `17 * * * *`;
+- manual workflow dispatch remains available for diagnostics;
+- repository permission remains `contents: read`;
+- `scripts/check-production-health.mjs` remains the canonical checker;
+- DNS A/AAAA resolution remains covered;
+- TLS and certificate validation remain covered;
+- canonical production availability remains covered;
+- security headers remain covered;
+- robots.txt, sitemap.xml and RSS remain covered;
+- About, Contact, core guide and representative article remain covered;
+- `www.aijoylab.kr` remains a permanent HTTP 301 redirect to the canonical root domain.
+
+Observability Fidelity Pass 01 qualified for GOLD after at least three consecutive hourly runs triggered by `schedule` completed successfully.
+
+Manual `workflow_dispatch` executions do not count toward that qualification requirement.
+
+## 9. Automated PR Gold guard
 
 Every pull request to `main` runs `scripts/check-gold-baseline.mjs` through the required `build` workflow.
 
 The guard checks two classes of invariants:
 
-1. **Repository invariants** — lockfile, CI/deploy hardening, canonical-domain configuration, Worker security headers, production smoke-test coverage.
+1. **Repository invariants** — lockfile, CI/deploy hardening, canonical-domain configuration, Worker security headers, production smoke-test coverage, and Production Health workflow/checker coverage.
 2. **GitHub governance invariants** — live `Protect main` ruleset status and its required PR/status/deletion/force-push/conversation configuration, plus confirmation that the CI actor cannot bypass the ruleset.
 
 GitHub may omit the administrator-only `bypass_actors` list from the Actions token response. When GitHub exposes that list the guard requires it to be empty; when it is not exposed, the guard still requires `current_user_can_bypass = never`. The authoritative no-bypass configuration is controller-verified when the Gold baseline is established or materially revised.
 
 If any automatically observable baseline invariant drifts, the `build` check fails and the main ruleset blocks merge.
 
-## 9. Gold invalidation rule
+## 10. Gold invalidation rule
 
 Gold is considered broken when any of the following occurs:
 
@@ -128,10 +151,11 @@ Gold is considered broken when any of the following occurs:
 - canonical redirect regresses
 - a required production security header disappears
 - robots/sitemap/RSS canonical host fidelity regresses
+- a confirmed production invariant regression causes Production Health to fail
 
-Do not relabel a failed release as Gold because the site appears visually usable.
+A single transient runner/network failure should be investigated before declaring the baseline broken. Do not relabel a failed release as Gold because the site appears visually usable.
 
-## 10. Gold restoration rule
+## 11. Gold restoration rule
 
 To restore Gold after a regression:
 
@@ -141,8 +165,9 @@ To restore Gold after a regression:
 4. merge through the protected PR path
 5. require a green Cloudflare deploy
 6. require a green post-deploy production smoke test
-7. record the new canonical main SHA when the baseline itself materially changes
+7. require Production Health to return to green when the regression affected an observable production invariant
+8. record the new canonical main SHA when the baseline itself materially changes
 
-## 11. Change-control principle
+## 12. Change-control principle
 
 `GOLD_BASELINE_V1` is a minimum floor, not a frozen architecture. Stronger controls may be added without creating a new baseline version. A new major baseline version is warranted when canonical domain strategy, deployment platform, release architecture, or governance model materially changes.
