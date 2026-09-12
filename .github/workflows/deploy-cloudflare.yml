@@ -73,6 +73,12 @@ jobs:
           grep -Fq 'tag-filter' /tmp/body
           grep -Fq 'load-more' /tmp/body
           grep -Fq '/guides/semiconductor-investing' /tmp/body
+          grep -Fq 'id="site-footer-v2"' /tmp/body
+          grep -Fq 'https://blog.naver.com/joy014' /tmp/body
+          grep -Fq 'https://www.threads.com/@ohbeopseok' /tmp/body
+          grep -Fq 'https://www.instagram.com/aijoylab/' /tmp/body
+          grep -Fq 'linkedin.com/in/' /tmp/body
+          grep -Fq 'ohbeopseok@gmail.com' /tmp/body
 
           headers=$(curl -sSI --max-time 20 https://aijoylab.kr/ | tr -d '\r')
           echo "$headers"

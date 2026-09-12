@@ -1,0 +1,79 @@
+---
+const officialChannels = [
+  { label: 'Naver Blog', href: 'https://blog.naver.com/joy014', mark: 'N' },
+  { label: 'Threads', href: 'https://www.threads.com/@ohbeopseok', mark: '@' },
+  { label: 'Instagram', href: 'https://www.instagram.com/aijoylab/', mark: '◎' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/', mark: 'in' }
+];
+---
+<footer class="site-footer-v2" id="site-footer-v2">
+  <div class="container site-footer-v2__grid">
+    <section class="site-footer-v2__brand" aria-label="JoyLab 소개">
+      <a class="site-footer-v2__logo" href="/">Joy<span>Lab</span></a>
+      <p class="site-footer-v2__positioning">생각을 분석하고, 분석을 실행으로.</p>
+      <p class="site-footer-v2__desc">투자·경제, AI·생산성, 성장·리더십을 연결해 복잡한 정보를 실행 가능한 판단으로 바꾸는 독립 콘텐츠 플랫폼입니다.</p>
+      <div class="site-footer-v2__pillars" aria-label="JoyLab 핵심 분야">
+        <a href="/guides/investing">투자·경제</a>
+        <a href="/guides/ai-productivity">AI·생산성</a>
+        <a href="/guides/growth-leadership">성장·리더십</a>
+      </div>
+    </section>
+
+    <nav class="site-footer-v2__column" aria-label="JoyLab 공식 채널">
+      <strong>OFFICIAL</strong>
+      <div class="site-footer-v2__socials">
+        {officialChannels.map((channel) => (
+          <a href={channel.href} target="_blank" rel="me noreferrer" aria-label={`JoyLab ${channel.label} 새 창에서 열기`}>
+            <span class="site-footer-v2__mark" aria-hidden="true">{channel.mark}</span>
+            <span>{channel.label}</span>
+            <i aria-hidden="true">↗</i>
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <nav class="site-footer-v2__column" aria-label="비즈니스 메뉴">
+      <strong>BUSINESS</strong>
+      <a href="/about">About JoyLab</a>
+      <a href="/contact">프로젝트 문의</a>
+      <a href="mailto:ohbeopseok@gmail.com">ohbeopseok@gmail.com</a>
+    </nav>
+
+    <nav class="site-footer-v2__column" aria-label="정책 및 리소스 메뉴">
+      <strong>LEGAL & RESOURCES</strong>
+      <a href="/privacy">Privacy</a>
+      <a href="/rss.xml">RSS</a>
+      <a href="https://github.com/ohbeopseok-ops/joylab-publishing-os/issues" target="_blank" rel="noreferrer">오류 제보</a>
+    </nav>
+  </div>
+
+  <div class="container site-footer-v2__bottom">
+    <span>© 2026 JoyLab · Independent Research Media</span>
+    <span>생각 → 분석 → 실행 → 성장</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer-v2{margin-top:24px;padding:58px 0 24px;background:#071a40;color:#dce6f5;border-top:1px solid rgba(255,255,255,.08)}
+  .site-footer-v2__grid{display:grid;grid-template-columns:minmax(280px,1.5fr) repeat(3,minmax(150px,.72fr));gap:46px;align-items:start}
+  .site-footer-v2__logo{display:inline-flex;color:#fff;font-size:1.65rem;font-weight:950;letter-spacing:-.05em}
+  .site-footer-v2__logo span{color:#4c9aff}
+  .site-footer-v2__positioning{margin:14px 0 8px;color:#fff;font-size:1rem;font-weight:850;letter-spacing:-.02em}
+  .site-footer-v2__desc{max-width:430px;margin:0;color:#9fb0c9;font-size:.84rem;line-height:1.75;word-break:keep-all}
+  .site-footer-v2__pillars{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+  .site-footer-v2__pillars a{padding:6px 9px;border:1px solid rgba(142,187,255,.22);border-radius:999px;color:#b9c9df;font-size:.72rem;font-weight:800;transition:.18s ease}
+  .site-footer-v2__pillars a:hover{border-color:#4c9aff;color:#fff;background:rgba(22,119,255,.12)}
+  .site-footer-v2__column{display:grid;gap:10px;align-content:start}
+  .site-footer-v2__column>strong{margin-bottom:4px;color:#74aaff;font-size:.71rem;font-weight:950;letter-spacing:.11em}
+  .site-footer-v2__column>a{color:#c4d0e1;font-size:.82rem;line-height:1.5;transition:color .18s ease}
+  .site-footer-v2__column>a:hover{color:#fff}
+  .site-footer-v2__socials{display:grid;gap:7px}
+  .site-footer-v2__socials a{display:grid;grid-template-columns:27px minmax(0,1fr) auto;gap:8px;align-items:center;padding:7px 8px;border:1px solid rgba(255,255,255,.09);border-radius:10px;color:#d4deeb;font-size:.79rem;font-weight:750;transition:border-color .18s ease,background .18s ease,color .18s ease}
+  .site-footer-v2__socials a:hover{border-color:rgba(76,154,255,.5);background:rgba(22,119,255,.10);color:#fff}
+  .site-footer-v2__mark{display:grid;place-items:center;width:27px;height:27px;border-radius:8px;background:rgba(255,255,255,.08);color:#fff;font-size:.69rem;font-weight:950}
+  .site-footer-v2__socials i{color:#6f9ee2;font-size:.76rem;font-style:normal}
+  .site-footer-v2__bottom{display:flex;justify-content:space-between;gap:18px;margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);color:#7588a5;font-size:.72rem}
+  @media(max-width:980px){.site-footer-v2__grid{grid-template-columns:1.3fr 1fr 1fr}.site-footer-v2__brand{grid-column:1/-1}.site-footer-v2__desc{max-width:620px}}
+  @media(max-width:640px){.site-footer-v2{padding:42px 0 22px}.site-footer-v2__grid{grid-template-columns:1fr;gap:32px}.site-footer-v2__brand{grid-column:auto}.site-footer-v2__column{padding-top:4px}.site-footer-v2__socials{grid-template-columns:1fr 1fr}.site-footer-v2__bottom{align-items:flex-start;flex-direction:column;margin-top:34px;gap:6px}.site-footer-v2__desc{font-size:.81rem}.site-footer-v2__socials a{padding:8px}}
+  @media(max-width:400px){.site-footer-v2__socials{grid-template-columns:1fr}}
+</style>
