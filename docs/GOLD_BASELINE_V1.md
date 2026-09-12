@@ -42,7 +42,7 @@ The `Protect main` repository ruleset must remain active and must preserve all o
 - conversation resolution required
 - non-fast-forward/force-push blocked
 - branch deletion blocked
-- no bypass actors
+- no bypass actors (controller-confirmed when this baseline was established)
 
 Required approvals may remain `0` while the repository is operated by one maintainer. Raising the count is allowed; removing the PR gate is not.
 
@@ -109,9 +109,11 @@ Every pull request to `main` runs `scripts/check-gold-baseline.mjs` through the 
 The guard checks two classes of invariants:
 
 1. **Repository invariants** — lockfile, CI/deploy hardening, canonical-domain configuration, Worker security headers, production smoke-test coverage.
-2. **GitHub governance invariants** — live `Protect main` ruleset status and its required PR/status/deletion/force-push/conversation/bypass configuration.
+2. **GitHub governance invariants** — live `Protect main` ruleset status and its required PR/status/deletion/force-push/conversation configuration, plus confirmation that the CI actor cannot bypass the ruleset.
 
-If any baseline invariant drifts, the `build` check fails and the main ruleset blocks merge.
+GitHub may omit the administrator-only `bypass_actors` list from the Actions token response. When GitHub exposes that list the guard requires it to be empty; when it is not exposed, the guard still requires `current_user_can_bypass = never`. The authoritative no-bypass configuration is controller-verified when the Gold baseline is established or materially revised.
+
+If any automatically observable baseline invariant drifts, the `build` check fails and the main ruleset blocks merge.
 
 ## 9. Gold invalidation rule
 
