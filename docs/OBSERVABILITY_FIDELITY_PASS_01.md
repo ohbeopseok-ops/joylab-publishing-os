@@ -54,14 +54,14 @@ The normal Build workflow syntax-checks the health script so a JavaScript syntax
 
 ## Status model
 
-`PASS / SOAKING` means the implementation, protected merge path, and manual production run have passed, but the scheduled monitor has not yet accumulated enough independent hourly evidence.
+`PASS / SOAKING` means the implementation, protected merge path, post-merge Build, and Cloudflare Deploy have passed, while independent Production Health runtime evidence is still accumulating.
 
 Promote to `GOLD` only after all of the following are observed:
 
 1. protected-main PR Build passes;
 2. merge to main succeeds;
 3. post-merge Build and Cloudflare Deploy stay green;
-4. one manual Production Health run passes on main;
+4. at least one Production Health run on main passes, whether scheduled or manually dispatched;
 5. at least three consecutive scheduled hourly Production Health runs pass.
 
 ## V1 exclusions
