@@ -12,6 +12,7 @@ export async function GET({ site }: { site: URL }) {
     `${origin}/contact`,
     `${origin}/privacy`,
     `${origin}/guides/investing`,
+    `${origin}/guides/ai-productivity`,
     `${origin}/guides/semiconductor-investing`,
     `${origin}/guides/ai-power`,
     `${origin}/guides/shipbuilding`,
