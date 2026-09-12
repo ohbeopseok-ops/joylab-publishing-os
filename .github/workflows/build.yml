@@ -43,6 +43,12 @@ jobs:
       - name: Check Production Health script syntax
         run: node --check scripts/check-production-health.mjs
 
+      - name: Check Configuration Drift script syntax
+        run: node --check scripts/check-configuration-drift.mjs
+
+      - name: Validate production configuration baseline JSON
+        run: node -e "JSON.parse(require('node:fs').readFileSync('config/production-baseline.json','utf8'))"
+
       - name: Build Astro site
         run: npm run build
 
