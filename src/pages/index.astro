@@ -8,12 +8,18 @@ import { getCollection } from 'astro:content';
 const articles = (await getCollection('articles'))
   .filter((item) => !item.data.draft)
   .sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-const today = articles.slice(0, 3);
+
+const editorialCategories = ['투자·경제', 'AI·생산성', '성장·리더십'];
+const editorialPicks = editorialCategories
+  .map((category) => articles.find((item) => item.data.category === category))
+  .filter((item): item is (typeof articles)[number] => Boolean(item));
+const editorialIds = new Set(editorialPicks.map((item) => item.id));
+const today = [...editorialPicks, ...articles.filter((item) => !editorialIds.has(item.id))].slice(0, 3);
+
 const majorResearch = articles.slice(0, 4);
 const latestResearch = articles.slice(0, 5);
 const tags = Array.from(new Set(articles.flatMap((item) => item.data.tags))).sort((a,b) => a.localeCompare(b, 'ko'));
 const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더십'];
-const investmentCount = articles.filter((item) => item.data.category === '투자·경제').length;
 ---
 <BaseLayout title="JoyLab｜생각을 분석하고, 분석을 실행으로." bodyClass="homepage-v2">
   <div class="home-v2">
@@ -23,14 +29,14 @@ const investmentCount = articles.filter((item) => item.data.category === '투자
         <h1 id="home-title">생각을 분석하고,<br /><span>분석을 실행으로.</span></h1>
         <p class="home-hero__desc">투자·경제, AI·생산성, 성장·리더십을 연결해 복잡한 정보를 실행 가능한 판단으로 바꾸는 독립 리서치 미디어입니다.</p>
         <a class="home-hero__cta" href="#today-research">오늘의 리서치 보기 <span aria-hidden="true">→</span></a>
-        <div class="home-hero__stats" aria-label="JoyLab 현황">
+        <div class="home-hero__stats" aria-label="JoyLab Research System">
           <div class="home-stat"><strong>3</strong><span>Pillars</span></div>
-          <div class="home-stat"><strong>{articles.length}</strong><span>Research</span></div>
-          <div class="home-stat"><strong>{investmentCount}</strong><span>Investment</span></div>
+          <div class="home-stat"><strong>4</strong><span>Step Method</span></div>
+          <div class="home-stat"><strong>1</strong><span>Research System</span></div>
         </div>
       </div>
       <aside class="home-hero__today" aria-label="오늘의 핵심 리서치">
-        <div class="home-today-head"><h2>오늘의 핵심 리서치</h2><span>TOP 3</span></div>
+        <div class="home-today-head"><h2>오늘의 핵심 리서치</h2><span>EDITORIAL TOP 3</span></div>
         <div class="home-today-list">
           {today.map((article, index) => (
             <a class="home-today-item" href={`/articles/${article.id}`}>
@@ -49,7 +55,7 @@ const investmentCount = articles.filter((item) => item.data.category === '투자
       </div>
       <div class="home-pillars">
         <a class="home-pillar" href="/guides/investing"><small>INVESTMENT & ECONOMY</small><strong>투자·경제</strong><p>시장·기업·정책을 읽고 투자 판단으로 연결합니다.</p></a>
-        <a class="home-pillar" href="#ai"><small>AI & PRODUCTIVITY</small><strong>AI·생산성</strong><p>AI가 바꾸는 산업과 일하는 방식을 분석합니다.</p></a>
+        <a class="home-pillar" href="/guides/ai-productivity"><small>AI & PRODUCTIVITY</small><strong>AI·생산성</strong><p>AI가 바꾸는 산업과 일하는 방식을 분석합니다.</p></a>
         <a class="home-pillar" href="#growth"><small>GROWTH & LEADERSHIP</small><strong>성장·리더십</strong><p>성과·공정성·피드백·성장을 하나의 프레임으로 봅니다.</p></a>
       </div>
     </section>
@@ -97,7 +103,7 @@ const investmentCount = articles.filter((item) => item.data.category === '투자
         <div class="home-category-card">
           <div class="home-section-title"><div><h2>전체 카테고리</h2></div></div>
           <a href="/guides/investing"><span>투자·경제</span><span>→</span></a>
-          <a href="#ai"><span>AI·생산성</span><span>→</span></a>
+          <a href="/guides/ai-productivity"><span>AI·생산성</span><span>→</span></a>
           <a href="#growth"><span>성장·리더십</span><span>→</span></a>
           <a href="/guides/semiconductor-investing"><span>반도체 투자 가이드</span><span>→</span></a>
         </div>
