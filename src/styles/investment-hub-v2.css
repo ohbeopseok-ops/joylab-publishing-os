@@ -1,0 +1,19 @@
+/* JoyLab Investment Research Hub V2 — extends Semiconductor Pillar V2 */
+.investment-hub-v2 .ih-hero{background:linear-gradient(135deg,#061632 0%,#0a2b5d 56%,#0b3976 100%)}
+.investment-hub-v2 .sg-hero__inner:before{background:radial-gradient(circle at 68% 42%,rgba(22,119,255,.42),transparent 22%),linear-gradient(154deg,transparent 0 54%,rgba(255,216,61,.05) 55%,transparent 56%)}
+.investment-hub-v2 .sg-hero__inner:after{border-color:rgba(255,216,61,.12)}
+.investment-hub-v2 .sg-hero__lead{max-width:650px;text-wrap:pretty}
+.investment-hub-v2 .sg-map{grid-template-columns:repeat(3,1fr)}
+.investment-hub-v2 .sg-map__step.is-start{background:linear-gradient(180deg,rgba(255,216,61,.07),rgba(255,255,255,.015));box-shadow:inset 0 3px 0 var(--sg-yellow),inset 0 0 0 1px rgba(255,216,61,.14)}
+.investment-hub-v2 .ih-path .sg-card{min-height:220px}
+.investment-hub-v2 .ih-thesis{margin-top:12px;padding:12px 14px;border-left:3px solid #1677ff;background:#f5f8fc;color:#38506f;font-size:.82rem;line-height:1.6}
+.investment-hub-v2 .sg-insights__grid>div:first-child{box-shadow:inset 0 3px 0 rgba(22,119,255,.9)}
+.investment-hub-v2 .sg-insights__grid>div:nth-child(2){box-shadow:inset 0 3px 0 rgba(22,119,255,.58)}
+.investment-hub-v2 .sg-insights__grid>div:nth-child(3){box-shadow:inset 0 3px 0 rgba(255,216,61,.88)}
+@media(max-width:640px){
+  .investment-hub-v2 .sg-hero h1{font-size:2.3rem}
+  .investment-hub-v2 .sg-hero__lead{max-width:none;font-size:.87rem}
+  .investment-hub-v2 .sg-map{display:flex;overflow-x:auto}
+  .investment-hub-v2 .sg-map__step{min-width:145px}
+  .investment-hub-v2 .ih-thesis{font-size:.76rem}
+}
