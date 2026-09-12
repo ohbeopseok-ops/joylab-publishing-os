@@ -1,29 +1,18 @@
 # JoyLab Click Analytics V1
 
-Status: DORMANT — Cloudflare Analytics Engine account activation required
+Status: ACTIVE AFTER PRODUCTION DEPLOY
 
-Dataset (planned): `joylab_events_v1`
-Binding (planned): `JOYLAB_ANALYTICS`
-Endpoint implementation: `POST /__analytics/event`
-
-## Current gate
-
-The first production deployment attempt on 2026-09-12 was rejected by Cloudflare with API code `10089` because Analytics Engine is not enabled for the account. The live production site stayed on the previous healthy deployment.
-
-Until account activation is confirmed:
-
-- the Wrangler Analytics Engine binding is intentionally absent;
-- the browser analytics client is intentionally not rendered;
-- no JoyLab click events are sent or written;
-- event attributes, Worker endpoint code, contract tests, and this operating specification remain staged in the repository for a small activation PR later.
+Dataset: `joylab_events_v1`
+Binding: `JOYLAB_ANALYTICS`
+Endpoint: `POST /__analytics/event`
 
 ## Purpose
 
 Measure the small set of conversion actions that connect JoyLab content to official channels and business inquiries without adding third-party browser analytics, cookies, user IDs, form contents, or advertising profiles.
 
-## Event schema after activation
+## Event schema
 
-Workers Analytics Engine fields will be written in this fixed order:
+Workers Analytics Engine fields are written in this fixed order:
 
 - `blob1` = event
 - `blob2` = target
@@ -46,9 +35,9 @@ Allowed production events:
 
 The Worker rejects unknown event / target / placement combinations.
 
-## Privacy contract after activation
+## Privacy contract
 
-The click analytics dataset will **not** write:
+The click analytics dataset does **not** write:
 
 - name
 - email address
@@ -60,7 +49,7 @@ The click analytics dataset will **not** write:
 - user ID
 - query string
 
-Only the allowlisted event dimensions and URL pathname will be written. The browser client will not send JoyLab analytics events when Global Privacy Control or Do Not Track is enabled.
+Only the allowlisted event dimensions and URL pathname are written. The browser client does not send JoyLab analytics events when Global Privacy Control or Do Not Track is enabled.
 
 Cloudflare infrastructure may independently process normal request metadata under its service operation; that is separate from the JoyLab Analytics Engine event payload.
 
@@ -134,18 +123,14 @@ curl "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/analy
   --data "SELECT blob1 AS event, SUM(_sample_interval) AS events FROM joylab_events_v1 WHERE timestamp > NOW() - INTERVAL '7' DAY GROUP BY event ORDER BY events DESC"
 ```
 
-## Activation gate
+## V1 completion gate
 
-Click Analytics V1 becomes active only when:
+Click Analytics V1 is complete only when:
 
-1. Cloudflare Analytics Engine is enabled for the account.
-2. The `JOYLAB_ANALYTICS` binding is restored.
-3. The browser event client is rendered site-wide.
-4. Privacy disclosure is switched from dormant to active wording.
-5. Gold baseline / Build is green.
-6. Protected-main merge succeeds.
-7. Cloudflare deployment succeeds.
-8. Production smoke receives HTTP `204` from the event endpoint using `smoke_test`.
-9. Existing production smoke checks remain green.
-
-Only after all nine checks pass should the status change from `DORMANT` to `GOLD`.
+1. Gold baseline / Build is green.
+2. Analytics Engine binding is present.
+3. Generated HTML contains the event client and tracked CTA attributes.
+4. Protected-main merge succeeds.
+5. Cloudflare deployment succeeds.
+6. Production smoke receives HTTP `204` from the event endpoint using `smoke_test`.
+7. Existing production smoke checks remain green.
