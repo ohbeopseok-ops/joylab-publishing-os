@@ -4,25 +4,29 @@ const channels = [
     label: 'Naver Blog',
     href: 'https://blog.naver.com/joy014',
     mark: 'N',
-    description: '검색형·장문 콘텐츠'
+    description: '검색형·장문 콘텐츠',
+    analyticsKey: 'naver'
   },
   {
     label: 'Threads',
     href: 'https://www.threads.com/@ohbeopseok',
     mark: '@',
-    description: '짧은 인사이트·대화'
+    description: '짧은 인사이트·대화',
+    analyticsKey: 'threads'
   },
   {
     label: 'Instagram',
     href: 'https://www.instagram.com/aijoylab/',
     mark: '◎',
-    description: '비주얼·카드 콘텐츠'
+    description: '비주얼·카드 콘텐츠',
+    analyticsKey: 'instagram'
   },
   {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/',
     mark: 'in',
-    description: '기업·교육·B2B 네트워크'
+    description: '기업·교육·B2B 네트워크',
+    analyticsKey: 'linkedin'
   }
 ];
 ---
@@ -37,6 +41,9 @@ const channels = [
         target="_blank"
         rel="me noreferrer"
         aria-label={`JoyLab ${channel.label} 새 창에서 열기`}
+        data-analytics-event="social_click"
+        data-analytics-target={channel.analyticsKey}
+        data-analytics-placement="contact"
       >
         <span class="contact-social-mark" aria-hidden="true">{channel.mark}</span>
         <span class="contact-social-copy">

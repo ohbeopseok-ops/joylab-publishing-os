@@ -1,9 +1,9 @@
 ---
 const officialChannels = [
-  { label: 'Naver Blog', href: 'https://blog.naver.com/joy014', mark: 'N' },
-  { label: 'Threads', href: 'https://www.threads.com/@ohbeopseok', mark: '@' },
-  { label: 'Instagram', href: 'https://www.instagram.com/aijoylab/', mark: '◎' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/', mark: 'in' }
+  { label: 'Naver Blog', href: 'https://blog.naver.com/joy014', mark: 'N', analyticsKey: 'naver' },
+  { label: 'Threads', href: 'https://www.threads.com/@ohbeopseok', mark: '@', analyticsKey: 'threads' },
+  { label: 'Instagram', href: 'https://www.instagram.com/aijoylab/', mark: '◎', analyticsKey: 'instagram' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/', mark: 'in', analyticsKey: 'linkedin' }
 ];
 ---
 <footer class="site-footer-v2" id="site-footer-v2">
@@ -23,7 +23,15 @@ const officialChannels = [
       <strong>OFFICIAL</strong>
       <div class="site-footer-v2__socials">
         {officialChannels.map((channel) => (
-          <a href={channel.href} target="_blank" rel="me noreferrer" aria-label={`JoyLab ${channel.label} 새 창에서 열기`}>
+          <a
+            href={channel.href}
+            target="_blank"
+            rel="me noreferrer"
+            aria-label={`JoyLab ${channel.label} 새 창에서 열기`}
+            data-analytics-event="social_click"
+            data-analytics-target={channel.analyticsKey}
+            data-analytics-placement="footer"
+          >
             <span class="site-footer-v2__mark" aria-hidden="true">{channel.mark}</span>
             <span>{channel.label}</span>
             <i aria-hidden="true">↗</i>
@@ -35,7 +43,7 @@ const officialChannels = [
     <nav class="site-footer-v2__column" aria-label="비즈니스 메뉴">
       <strong>BUSINESS</strong>
       <a href="/about">About JoyLab</a>
-      <a href="/contact">프로젝트 문의</a>
+      <a href="/contact" data-analytics-event="footer_contact_click" data-analytics-target="contact" data-analytics-placement="footer">프로젝트 문의</a>
       <a href="mailto:ohbeopseok@gmail.com">ohbeopseok@gmail.com</a>
     </nav>
 
