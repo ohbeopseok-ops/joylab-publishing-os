@@ -2,7 +2,6 @@
 import SiteFooter from '../components/SiteFooter.astro';
 import ArticleContactCta from '../components/ArticleContactCta.astro';
 import IdentitySchema from '../components/IdentitySchema.astro';
-import AnalyticsEvents from '../components/AnalyticsEvents.astro';
 import '../styles/global.css';
 import '../styles/info.css';
 import '../styles/homepage-v2-fidelity.css';
@@ -56,7 +55,6 @@ const showArticleContactCta = String(bodyClass).split(/\s+/).includes('research-
       {showArticleContactCta && <ArticleContactCta />}
     </main>
     <SiteFooter />
-    <AnalyticsEvents />
     <script is:inline>
       (() => {
         const shell = document.getElementById('site-nav-shell');

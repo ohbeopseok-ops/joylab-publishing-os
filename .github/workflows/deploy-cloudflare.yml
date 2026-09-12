@@ -79,8 +79,6 @@ jobs:
           grep -Fq 'https://www.instagram.com/aijoylab/' /tmp/body
           grep -Fq 'linkedin.com/in/' /tmp/body
           grep -Fq 'ohbeopseok@gmail.com' /tmp/body
-          grep -Fq '/__analytics/event' /tmp/body
-          grep -Fq 'data-analytics-event="social_click"' /tmp/body
           ! grep -Fq 'id="article-contact-cta"' /tmp/body
 
           headers=$(curl -sSI --max-time 20 https://aijoylab.kr/ | tr -d '\r')
@@ -90,16 +88,6 @@ jobs:
           grep -Fqi 'x-frame-options: DENY' <<< "$headers"
           grep -Fqi 'referrer-policy: strict-origin-when-cross-origin' <<< "$headers"
           grep -Fqi 'permissions-policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()' <<< "$headers"
-
-          analytics_code=$(curl -sS -o /tmp/analytics-body -w '%{http_code}' --max-time 20 \
-            -X POST \
-            -H 'Content-Type: text/plain;charset=UTF-8' \
-            -H 'Origin: https://aijoylab.kr' \
-            -H 'Sec-Fetch-Site: same-origin' \
-            --data '{"event":"smoke_test","target":"deploy","placement":"production_smoke","path":"/"}' \
-            https://aijoylab.kr/__analytics/event)
-          echo "$analytics_code https://aijoylab.kr/__analytics/event"
-          test "$analytics_code" = "204"
 
           check_200 https://aijoylab.kr/guides/semiconductor-investing
           grep -Fq '반도체 투자 가이드' /tmp/body
@@ -123,8 +111,6 @@ jobs:
           grep -Fq '/contact#contact-form' /tmp/body
           grep -Fq 'RESEARCH COLLABORATION' /tmp/body
           grep -Fq '리서치·콘텐츠 협업 문의' /tmp/body
-          grep -Fq 'data-analytics-event="article_contact_click"' /tmp/body
-          grep -Fq 'data-analytics-placement="article"' /tmp/body
 
           check_200 https://aijoylab.kr/articles/ai-productivity-roi
           grep -Fq 'JOYLAB RESEARCH · AI·생산성' /tmp/body
@@ -179,15 +165,12 @@ jobs:
           grep -Fq 'https://www.threads.com/@ohbeopseok' /tmp/body
           grep -Fq 'https://www.instagram.com/aijoylab/' /tmp/body
           grep -Fq 'linkedin.com/in/' /tmp/body
-          grep -Fq 'data-analytics-placement="contact"' /tmp/body
           grep -Fq 'github.com/ohbeopseok-ops/joylab-publishing-os/issues' /tmp/body
           grep -Fq '개별 종목 매수·매도 상담이나 개인 맞춤형 투자자문을 제공하지 않습니다' /tmp/body
 
           check_200 https://aijoylab.kr/privacy
           grep -Fq '개인정보처리 안내' /tmp/body
           grep -Fq 'Contact 문의 작성 방식' /tmp/body
-          grep -Fq '클릭·전환 측정' /tmp/body
-          grep -Fq 'Workers Analytics Engine' /tmp/body
 
           check_200 https://aijoylab.kr/robots.txt
           grep -Fq 'Sitemap: https://aijoylab.kr/sitemap.xml' /tmp/body

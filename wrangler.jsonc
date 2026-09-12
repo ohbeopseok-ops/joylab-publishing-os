@@ -15,12 +15,6 @@
       "custom_domain": true
     }
   ],
-  "analytics_engine_datasets": [
-    {
-      "binding": "JOYLAB_ANALYTICS",
-      "dataset": "joylab_events_v1"
-    }
-  ],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
