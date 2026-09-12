@@ -1,6 +1,6 @@
 # JoyLab Research Media Operating System V1
 
-Status: Gold Candidate
+Status: Gold
 Updated: 2026-09-12
 
 ## Purpose
@@ -33,11 +33,16 @@ JoyLab을 더 이상 페이지를 추가하는 프로젝트가 아니라 **Resea
 Research Map:
 HBM → Cycle → Flow → Samsung → SK hynix → Compare
 
-우선 점검:
-- HBM4 / HBM4E / eSSD 수요와 제품 전환
-- 삼성전자·SK하이닉스 최신 실적/IR
-- 장기계약·공급제약·CAPEX 변화
-- Compare Hub 밸류에이션 기준일 갱신
+Current status:
+- 2026-09-12 freshness audit PASS
+- Company / Compare official fact base remains current
+- valuation base date 2026-09-10 retained
+
+Re-open triggers:
+- 3Q26 earnings/guidance
+- HBM4E mass-production milestone
+- material memory-price regime change
+- major CAPEX / capacity revision
 
 ### AI Power — REFRESH Lane
 Research Map:
@@ -69,7 +74,7 @@ Agent → Workflow → ROI → Governance → Operating Model → Compare
 - Outcome ROI / Task Completion 관련 공식 프레임 변화
 - ChatGPT·Claude·Gemini·Copilot Compare Hub 최신성
 
-### Growth & Leadership — EXPAND Lane
+### Growth & Leadership — Gold / Maintenance Lane
 Research Map:
 Performance → Feedback → Recognition → Fairness → Learning → Operating System
 
@@ -77,9 +82,12 @@ Performance → Feedback → Recognition → Fairness → Learning → Operating
 - GC-G01 Performance — published
 - GC-G02 Feedback — published
 - GC-G03 Recognition — published
-- GC-G04 Fairness — NEXT
-- GC-G05 Learning — NEXT
-- GC-G06 Operating System — NEXT
+- GC-G04 Fairness — published
+- GC-G05 Learning — published
+- GC-G06 Operating System — published
+- `/guides/growth-leadership` 6단 Map complete
+
+다음부터는 신규 확장보다 분기 Evidence 보강과 운영 사례 업데이트를 우선한다.
 
 ## 3. Freshness Policy
 
@@ -197,19 +205,20 @@ Homepage의 `EDITORIAL TOP 3`는 단순 최신 3개가 아니다.
 
 모든 Sprint에서 세 작업을 반드시 할 필요는 없지만, 신규 글만 계속 쌓는 방식은 피한다.
 
-## 10. Initial Queue
+Growth·Leadership 6단 Map 완성 이후에는 EXPAND보다 기존 Cluster의 REFRESH / COMPARE 품질을 우선한다.
 
-우선순위는 다음과 같다.
+## 10. Active Queue
 
+완료:
 1. Growth·Leadership GC-G04 Fairness
 2. Growth·Leadership GC-G05 Learning
 3. Growth·Leadership GC-G06 Operating System
-4. Semiconductor Company / Compare 최신 데이터 점검
-5. AI Power Company Compare 최신 IR·수주·마진 점검
-6. Shipbuilding orderbook·mix·margin 점검
-7. AI Productivity Platform Compare 기능·거버넌스 점검
+4. Semiconductor Company / Compare freshness audit — PASS 2026-09-12
 
-Growth 6단 Map이 완성되면 이후부터 신규 Cluster보다 **기존 5개 Cluster의 Refresh/Compare 품질**을 우선한다.
+다음 실행:
+1. AI Power Company Compare 최신 IR·수주·마진 점검
+2. Shipbuilding orderbook·mix·margin 점검
+3. AI Productivity Platform Compare 기능·거버넌스 점검
 
 ## 11. Definition of Operating System Done
 
@@ -222,4 +231,4 @@ JoyLab Research Media Operating System V1은 다음 상태를 의미한다.
 - 기존 콘텐츠가 Freshness Policy에 따라 재점검된다
 - Gold Gate에 V2 Design System과 production smoke가 항상 포함된다
 
-이 시점부터 JoyLab의 핵심 산출물은 **페이지 수가 아니라 갱신 가능한 Research Cluster**다.
+현재 이 정의를 충족한다. 이후 JoyLab의 핵심 산출물은 **페이지 수가 아니라 갱신 가능한 Research Cluster**다.
