@@ -79,6 +79,7 @@ jobs:
           grep -Fq 'https://www.instagram.com/aijoylab/' /tmp/body
           grep -Fq 'linkedin.com/in/' /tmp/body
           grep -Fq 'ohbeopseok@gmail.com' /tmp/body
+          ! grep -Fq 'id="article-contact-cta"' /tmp/body
 
           headers=$(curl -sSI --max-time 20 https://aijoylab.kr/ | tr -d '\r')
           echo "$headers"
@@ -106,6 +107,22 @@ jobs:
           grep -Fq 'back-to-top' /tmp/body
           grep -Fq 'data-reader-size="large"' /tmp/body
           grep -Fq 'focus-reading' /tmp/body
+          grep -Fq 'id="article-contact-cta"' /tmp/body
+          grep -Fq '/contact#contact-form' /tmp/body
+          grep -Fq 'RESEARCH COLLABORATION' /tmp/body
+          grep -Fq '리서치·콘텐츠 협업 문의' /tmp/body
+
+          check_200 https://aijoylab.kr/articles/ai-productivity-roi
+          grep -Fq 'JOYLAB RESEARCH · AI·생산성' /tmp/body
+          grep -Fq 'id="article-contact-cta"' /tmp/body
+          grep -Fq 'AI · PRODUCTIVITY COLLABORATION' /tmp/body
+          grep -Fq 'AI·생산성 협업 문의' /tmp/body
+
+          check_200 https://aijoylab.kr/articles/growth-leadership-operating-system
+          grep -Fq 'JOYLAB RESEARCH · 성장·리더십' /tmp/body
+          grep -Fq 'id="article-contact-cta"' /tmp/body
+          grep -Fq 'GROWTH · LEADERSHIP COLLABORATION' /tmp/body
+          grep -Fq '성장·리더십 협업 문의' /tmp/body
 
           check_200 https://aijoylab.kr/articles/semiconductor-cycle
           grep -Fq '반도체' /tmp/body

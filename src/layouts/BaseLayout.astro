@@ -1,5 +1,6 @@
 ---
 import SiteFooter from '../components/SiteFooter.astro';
+import ArticleContactCta from '../components/ArticleContactCta.astro';
 import '../styles/global.css';
 import '../styles/info.css';
 import '../styles/homepage-v2-fidelity.css';
@@ -11,6 +12,7 @@ const {
   bodyClass = ''
 } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
+const showArticleContactCta = String(bodyClass).split(/\s+/).includes('research-article-page');
 ---
 <!doctype html>
 <html lang="ko">
@@ -46,7 +48,10 @@ const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? Astr
         </button>
       </div>
     </header>
-    <main><slot /></main>
+    <main>
+      <slot />
+      {showArticleContactCta && <ArticleContactCta />}
+    </main>
     <SiteFooter />
     <script is:inline>
       (() => {
