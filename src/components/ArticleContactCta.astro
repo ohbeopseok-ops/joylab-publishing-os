@@ -1,0 +1,70 @@
+<section class="article-contact-cta" id="article-contact-cta" aria-labelledby="article-contact-title">
+  <div class="article-contact-cta__inner">
+    <div class="article-contact-cta__copy">
+      <small id="article-contact-kicker">JOYLAB COLLABORATION</small>
+      <h2 id="article-contact-title">이 주제로 함께할 일이 있나요?</h2>
+      <p id="article-contact-description">JoyLab은 콘텐츠, 리서치, 교육, 제휴 프로젝트 제안을 받고 있습니다.</p>
+    </div>
+    <div class="article-contact-cta__action">
+      <a id="article-contact-link" href="/contact#contact-form">프로젝트 문의하기 →</a>
+      <span>입력 내용은 JoyLab 서버에 저장하지 않습니다.</span>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.getElementById('article-contact-cta');
+    const kicker = document.getElementById('article-contact-kicker');
+    const title = document.getElementById('article-contact-title');
+    const description = document.getElementById('article-contact-description');
+    const link = document.getElementById('article-contact-link');
+    const researchKicker = document.querySelector('.research-kicker');
+    if (!root || !kicker || !title || !description || !link || !researchKicker) return;
+
+    const category = researchKicker.textContent?.split('·').pop()?.trim() || '';
+    root.dataset.category = category;
+
+    const variants = {
+      '투자·경제': {
+        kicker: 'RESEARCH COLLABORATION',
+        title: '이 산업을 더 깊게 함께 보고 싶으신가요?',
+        description: '기업·산업 리서치, 투자·경제 콘텐츠 협업, 자료 제안을 받고 있습니다.',
+        label: '리서치·콘텐츠 협업 문의 →'
+      },
+      'AI·생산성': {
+        kicker: 'AI · PRODUCTIVITY COLLABORATION',
+        title: 'AI를 실제 업무에 연결하고 싶으신가요?',
+        description: 'AI 활용 교육, 업무자동화, 생산성 콘텐츠와 프로젝트 협업 제안을 받고 있습니다.',
+        label: 'AI·생산성 협업 문의 →'
+      },
+      '성장·리더십': {
+        kicker: 'GROWTH · LEADERSHIP COLLABORATION',
+        title: '팀의 실행 시스템을 함께 설계할까요?',
+        description: '조직 운영, 리더십, 교육 콘텐츠와 현장 프로젝트 제안을 받고 있습니다.',
+        label: '성장·리더십 협업 문의 →'
+      }
+    };
+
+    const variant = variants[category];
+    if (!variant) return;
+    kicker.textContent = variant.kicker;
+    title.textContent = variant.title;
+    description.textContent = variant.description;
+    link.textContent = variant.label;
+  })();
+</script>
+
+<style>
+  .article-contact-cta{padding:0 20px 76px;background:#fff}
+  .article-contact-cta__inner{width:min(100%,1080px);margin:0 auto;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(240px,.65fr);gap:36px;align-items:center;padding:34px 38px;border:1px solid #dce7f6;border-radius:24px;background:radial-gradient(circle at 88% 18%,rgba(22,119,255,.13),transparent 28%),linear-gradient(135deg,#f7faff 0%,#fff 68%);box-shadow:0 18px 50px rgba(11,31,77,.07)}
+  .article-contact-cta__copy small{display:block;margin-bottom:9px;color:#1677ff;font-size:.73rem;font-weight:900;letter-spacing:.11em}
+  .article-contact-cta__copy h2{margin:0;color:#0b1f4d;font-size:clamp(1.45rem,3vw,2rem);line-height:1.28;letter-spacing:-.035em;word-break:keep-all}
+  .article-contact-cta__copy p{max-width:680px;margin:12px 0 0;color:#59677a;font-size:.96rem;line-height:1.72;word-break:keep-all}
+  .article-contact-cta__action{display:grid;gap:10px;justify-items:start}
+  .article-contact-cta__action a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:12px;background:#0b1f4d;color:#fff;font-size:.9rem;font-weight:900;transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
+  .article-contact-cta__action a:hover{background:#1677ff;transform:translateY(-1px);box-shadow:0 10px 24px rgba(22,119,255,.18)}
+  .article-contact-cta__action a:focus-visible{outline:3px solid rgba(22,119,255,.3);outline-offset:3px}
+  .article-contact-cta__action span{color:#7d8998;font-size:.72rem;line-height:1.5}
+  @media(max-width:760px){.article-contact-cta{padding:0 18px 56px}.article-contact-cta__inner{grid-template-columns:1fr;gap:24px;padding:26px 22px;border-radius:20px}.article-contact-cta__action a{width:100%}}
+</style>
