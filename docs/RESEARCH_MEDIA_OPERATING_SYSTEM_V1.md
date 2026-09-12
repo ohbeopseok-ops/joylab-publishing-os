@@ -48,11 +48,19 @@ Re-open triggers:
 Research Map:
 Generation → Grid → Resilience → Gas Turbine → Cooling → Compare
 
-우선 점검:
-- 데이터센터 전력 수요와 실제 프로젝트 진행
-- 전력기기 4사 수주잔고·증설·마진
-- 발전/송전/변압/배전/백업전원/냉각의 병목 이동
-- Company Deep Dive와 4사 Compare 데이터 정합성
+Current status:
+- 2026-09-12 freshness audit PASS
+- Doosan / Grid / Resilience / Gas Turbine / Cooling / 4-company Compare reviewed
+- no forced article rewrite required
+- valuation base date 2026-09-10 retained for the 4-company Compare
+
+Re-open triggers:
+- 3Q26 earnings from major AI Power companies
+- material order / backlog revision
+- production-capacity completion or delay
+- transformer / turbine lead-time normalization
+- liquid-cooling architecture or attachment-rate inflection
+- margin inflection large enough to change relative ranking
 
 ### Shipbuilding — REFRESH Lane
 Research Map:
@@ -214,11 +222,11 @@ Growth·Leadership 6단 Map 완성 이후에는 EXPAND보다 기존 Cluster의 R
 2. Growth·Leadership GC-G05 Learning
 3. Growth·Leadership GC-G06 Operating System
 4. Semiconductor Company / Compare freshness audit — PASS 2026-09-12
+5. AI Power cluster freshness audit — PASS 2026-09-12
 
 다음 실행:
-1. AI Power Company Compare 최신 IR·수주·마진 점검
-2. Shipbuilding orderbook·mix·margin 점검
-3. AI Productivity Platform Compare 기능·거버넌스 점검
+1. Shipbuilding orderbook·mix·margin 점검
+2. AI Productivity Platform Compare 기능·거버넌스 점검
 
 ## 11. Definition of Operating System Done
 
