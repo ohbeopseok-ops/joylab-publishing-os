@@ -1,0 +1,46 @@
+name: Materialize OpenAI Data Agent Hero
+
+on:
+  push:
+    branches:
+      - article-openai-data-agent-v2
+    paths:
+      - '.tmp/openai-data-agent-hero/**'
+      - '.github/workflows/materialize-openai-data-agent-hero.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild hero WebP
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p public/images/articles/openai-data-agent-chatgpt-work
+          cat .tmp/openai-data-agent-hero/part0.b64 \
+              .tmp/openai-data-agent-hero/part1.b64 \
+              .tmp/openai-data-agent-hero/part2.b64 \
+              .tmp/openai-data-agent-hero/part3.b64 \
+            | base64 --decode \
+            > public/images/articles/openai-data-agent-chatgpt-work/hero.webp
+          test "$(wc -c < public/images/articles/openai-data-agent-chatgpt-work/hero.webp)" -eq 35324
+          echo '084580ee933d2d20cdf95f311fd8b0df96dede1b5a3ef4d1384d9f4e598e1fda  public/images/articles/openai-data-agent-chatgpt-work/hero.webp' | sha256sum -c -
+
+      - name: Commit materialized asset and clean staging
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'Joy | JoyLab'
+          git config user.email 'ohbeopseok@gmail.com'
+          git add public/images/articles/openai-data-agent-chatgpt-work/hero.webp
+          git rm -r .tmp/openai-data-agent-hero
+          git rm .github/workflows/materialize-openai-data-agent-hero.yml
+          git commit -m 'Add OpenAI Data agent hero asset'
+          git push origin HEAD:article-openai-data-agent-v2
