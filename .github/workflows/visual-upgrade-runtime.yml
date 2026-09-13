@@ -72,26 +72,24 @@ jobs:
               continue
             fi
             reasons=$(jq -r '.reasons | map("- " + .) | join("\n")' <<< "$row")
-            body=$(cat <<EOF
-          ## Visual Upgrade Queue
-          - Article: \`${id}\`
-          - Title: ${title}
-          - Score: **${score}/100**
-          - Confidence: **${confidence}**
-          - Data coverage: **${coverage}%**
-
-          ## Why now
-          ${reasons}
-
-          ## Required output
-          - Article-specific Hero 1
-          - Supporting Visual 2 (compare/value-chain may use 3)
-          - Alt + caption
-          - Research Image Gate PASS
-          - Build → Deploy → Production Smoke PASS
-
-          Generated automatically by Visual Upgrade Runtime.
-          EOF
-          )
+            body=$(printf '%s\n' \
+              '## Visual Upgrade Queue' \
+              "- Article: \`${id}\`" \
+              "- Title: ${title}" \
+              "- Score: **${score}/100**" \
+              "- Confidence: **${confidence}**" \
+              "- Data coverage: **${coverage}%**" \
+              '' \
+              '## Why now' \
+              "$reasons" \
+              '' \
+              '## Required output' \
+              '- Article-specific Hero 1' \
+              '- Supporting Visual 2 (compare/value-chain may use 3)' \
+              '- Alt + caption' \
+              '- Research Image Gate PASS' \
+              '- Build → Deploy → Production Smoke PASS' \
+              '' \
+              'Generated automatically by Visual Upgrade Runtime.')
             gh issue create --repo "$GITHUB_REPOSITORY" --title "$issue_title" --body "$body"
           done
