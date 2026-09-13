@@ -93,5 +93,714 @@
         "caption": "이틀간 삼성전자·SK하이닉스 외국인 순매도 합계는 약 5.18조원입니다."
       }
     ]
+  },
+  "ai-agent-governance": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 에이전트 거버넌스｜권한·승인·로그·복구를 어떻게 설계할까 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 에이전트 거버넌스｜권한·승인·로그·복구를 어떻게 설계할까 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 에이전트 거버넌스｜권한·승인·로그·복구를 어떻게 설계할까 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ai-data-center-cooling-bottleneck": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 데이터센터 냉각이 전력 투자의 마지막 병목인 이유 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 데이터센터 냉각이 전력 투자의 마지막 병목인 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 데이터센터 냉각이 전력 투자의 마지막 병목인 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ai-power-gas-turbine-return": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "가스터빈이 다시 중요해진 이유｜AI 데이터센터와 복합화력 발전의 귀환 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "가스터빈이 다시 중요해진 이유｜AI 데이터센터와 복합화력 발전의 귀환 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "가스터빈이 다시 중요해진 이유｜AI 데이터센터와 복합화력 발전의 귀환 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ai-power-grid-transformer-distribution": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 전력기기 투자 가이드｜송전·변압·배전에서 병목을 찾는 법 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 전력기기 투자 가이드｜송전·변압·배전에서 병목을 찾는 법 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 전력기기 투자 가이드｜송전·변압·배전에서 병목을 찾는 법 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ai-power-next-bottleneck": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "GPU 다음 병목은 발전소다｜AI 데이터센터 전력 수요가 바꾸는 투자 지도 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "GPU 다음 병목은 발전소다｜AI 데이터센터 전력 수요가 바꾸는 투자 지도 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "GPU 다음 병목은 발전소다｜AI 데이터센터 전력 수요가 바꾸는 투자 지도 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ai-power-value-chain-compare": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 전력 밸류체인 비교｜발전→송전→변압→배전→백업→냉각 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 전력 밸류체인 비교｜발전→송전→변압→배전→백업→냉각 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 전력 밸류체인 비교｜발전→송전→변압→배전→백업→냉각 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-compare.svg",
+        "alt": "AI 전력 밸류체인 비교｜발전→송전→변압→배전→백업→냉각 — 비교형 또는 밸류체인형 리서치의 선택 기준을 정리한 JoyLab 비교 이미지",
+        "caption": "비교형·밸류체인형 글은 핵심 차이를 세 번째 보조 시각자료로 보완할 수 있습니다."
+      }
+    ]
+  },
+  "ai-productivity-operating-model": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 생산성 Operating Model｜개인 활용을 팀과 조직의 시스템으로 바꾸는 법 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 생산성 Operating Model｜개인 활용을 팀과 조직의 시스템으로 바꾸는 법 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 생산성 Operating Model｜개인 활용을 팀과 조직의 시스템으로 바꾸는 법 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ai-productivity-platforms-compare": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 업무 플랫폼 4종 비교｜ChatGPT·Claude·Gemini·Copilot, 무엇이 다른가 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 업무 플랫폼 4종 비교｜ChatGPT·Claude·Gemini·Copilot, 무엇이 다른가 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 업무 플랫폼 4종 비교｜ChatGPT·Claude·Gemini·Copilot, 무엇이 다른가 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-compare.svg",
+        "alt": "AI 업무 플랫폼 4종 비교｜ChatGPT·Claude·Gemini·Copilot, 무엇이 다른가 — 비교형 또는 밸류체인형 리서치의 선택 기준을 정리한 JoyLab 비교 이미지",
+        "caption": "비교형·밸류체인형 글은 핵심 차이를 세 번째 보조 시각자료로 보완할 수 있습니다."
+      }
+    ]
+  },
+  "ai-productivity-roi": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 도입 ROI 보는 법｜시간 절감보다 Task Completion이 먼저다 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 도입 ROI 보는 법｜시간 절감보다 Task Completion이 먼저다 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 도입 ROI 보는 법｜시간 절감보다 Task Completion이 먼저다 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ai-workflow-automation": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 업무자동화 구조｜Model → Tool → Workflow → Human Approval — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 업무자동화 구조｜Model → Tool → Workflow → Human Approval — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 업무자동화 구조｜Model → Tool → Workflow → Human Approval — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "bess-ups-bbu-data-center": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "BESS·UPS·BBU 차이｜AI 데이터센터가 정전에 대비하는 3중 안전망 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "BESS·UPS·BBU 차이｜AI 데이터센터가 정전에 대비하는 3중 안전망 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "BESS·UPS·BBU 차이｜AI 데이터센터가 정전에 대비하는 3중 안전망 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "doosan-enerbility-ai-power": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "두산에너빌리티 AI 전력 수혜 보는 법｜가스터빈·원전·수주잔고를 연결하는 방법 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "두산에너빌리티 AI 전력 수혜 보는 법｜가스터빈·원전·수주잔고를 연결하는 방법 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "두산에너빌리티 AI 전력 수혜 보는 법｜가스터빈·원전·수주잔고를 연결하는 방법 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "fairness-system-explainable-standards": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "공정한 성과관리란 무엇인가｜기회·기준·판정을 분리해 설계하는 법 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "공정한 성과관리란 무엇인가｜기회·기준·판정을 분리해 설계하는 법 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "공정한 성과관리란 무엇인가｜기회·기준·판정을 분리해 설계하는 법 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "feedback-system-behavior-change": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "피드백 시스템 설계법｜평가가 아니라 행동 변화를 만드는 구조 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "피드백 시스템 설계법｜평가가 아니라 행동 변화를 만드는 구조 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "피드백 시스템 설계법｜평가가 아니라 행동 변화를 만드는 구조 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "foreign-investor-flow": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "외국인 수급 보는 법｜순매수보다 중요한 5가지 신호 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "외국인 수급 보는 법｜순매수보다 중요한 5가지 신호 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "외국인 수급 보는 법｜순매수보다 중요한 5가지 신호 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "growth-leadership-operating-system": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "팀 운영시스템 만드는 법｜성과·피드백·인정·공정성·학습을 하나로 묶는다 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "팀 운영시스템 만드는 법｜성과·피드백·인정·공정성·학습을 하나로 묶는다 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "팀 운영시스템 만드는 법｜성과·피드백·인정·공정성·학습을 하나로 묶는다 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "hanwha-ocean-shipbuilding": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "한화오션 조선 수혜 보는 법｜LNG선·특수선·수주잔고의 질 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "한화오션 조선 수혜 보는 법｜LNG선·특수선·수주잔고의 질 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "한화오션 조선 수혜 보는 법｜LNG선·특수선·수주잔고의 질 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "hd-hyundai-electric-ai-power": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "HD현대일렉트릭 AI 전력 수혜 보는 법｜북미 수주·변압기·마진의 질 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "HD현대일렉트릭 AI 전력 수혜 보는 법｜북미 수주·변압기·마진의 질 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "HD현대일렉트릭 AI 전력 수혜 보는 법｜북미 수주·변압기·마진의 질 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "hd-hyundai-heavy-industries-shipbuilding": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "HD현대중공업 조선 수혜 보는 법｜LNG선·함정·엔진·수주의 질 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "HD현대중공업 조선 수혜 보는 법｜LNG선·함정·엔진·수주의 질 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "HD현대중공업 조선 수혜 보는 법｜LNG선·함정·엔진·수주의 질 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "hd-ksoe-shipbuilding": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "HD한국조선해양 조선 수혜 보는 법｜포트폴리오·선별수주·지주 할인 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "HD한국조선해양 조선 수혜 보는 법｜포트폴리오·선별수주·지주 할인 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "HD한국조선해양 조선 수혜 보는 법｜포트폴리오·선별수주·지주 할인 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "hyosung-heavy-industries-ai-power": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "효성중공업 AI 전력 수혜 보는 법｜초고압 변압기·수주잔고·미국 전력망 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "효성중공업 AI 전력 수혜 보는 법｜초고압 변압기·수주잔고·미국 전력망 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "효성중공업 AI 전력 수혜 보는 법｜초고압 변압기·수주잔고·미국 전력망 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "korea-ai-power-companies-compare": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 전력 4사 비교｜두산에너빌리티·효성중공업·HD현대일렉트릭·LS ELECTRIC — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 전력 4사 비교｜두산에너빌리티·효성중공업·HD현대일렉트릭·LS ELECTRIC — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 전력 4사 비교｜두산에너빌리티·효성중공업·HD현대일렉트릭·LS ELECTRIC — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-compare.svg",
+        "alt": "AI 전력 4사 비교｜두산에너빌리티·효성중공업·HD현대일렉트릭·LS ELECTRIC — 비교형 또는 밸류체인형 리서치의 선택 기준을 정리한 JoyLab 비교 이미지",
+        "caption": "비교형·밸류체인형 글은 핵심 차이를 세 번째 보조 시각자료로 보완할 수 있습니다."
+      }
+    ]
+  },
+  "korea-shipbuilding-companies-compare": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "조선 4사 비교｜HD현대중공업·한화오션·삼성중공업·HD한국조선해양 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "조선 4사 비교｜HD현대중공업·한화오션·삼성중공업·HD한국조선해양 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "조선 4사 비교｜HD현대중공업·한화오션·삼성중공업·HD한국조선해양 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-compare.svg",
+        "alt": "조선 4사 비교｜HD현대중공업·한화오션·삼성중공업·HD한국조선해양 — 비교형 또는 밸류체인형 리서치의 선택 기준을 정리한 JoyLab 비교 이미지",
+        "caption": "비교형·밸류체인형 글은 핵심 차이를 세 번째 보조 시각자료로 보완할 수 있습니다."
+      }
+    ]
+  },
+  "learning-system-reexecution-loop": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "학습하는 팀은 무엇이 다른가｜실패를 재학습·재실행 루프로 바꾸는 법 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "학습하는 팀은 무엇이 다른가｜실패를 재학습·재실행 루프로 바꾸는 법 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "학습하는 팀은 무엇이 다른가｜실패를 재학습·재실행 루프로 바꾸는 법 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ls-electric-ai-power": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "LS ELECTRIC AI 전력 수혜 보는 법｜배전·데이터센터 전력 인프라의 핵심 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "LS ELECTRIC AI 전력 수혜 보는 법｜배전·데이터센터 전력 인프라의 핵심 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "LS ELECTRIC AI 전력 수혜 보는 법｜배전·데이터센터 전력 인프라의 핵심 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "money-basics-7-economic-terms": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "돈 공부 시작 전에 꼭 알아야 할 7가지 경제 용어｜환율·금리·GDP부터 레버리지까지 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "돈 공부 시작 전에 꼭 알아야 할 7가지 경제 용어｜환율·금리·GDP부터 레버리지까지 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "돈 공부 시작 전에 꼭 알아야 할 7가지 경제 용어｜환율·금리·GDP부터 레버리지까지 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "openai-data-agent-chatgpt-work": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "OpenAI Data agent 공개｜회사 데이터에 질문하면 분석·대시보드·액션까지 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "OpenAI Data agent 공개｜회사 데이터에 질문하면 분석·대시보드·액션까지 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "OpenAI Data agent 공개｜회사 데이터에 질문하면 분석·대시보드·액션까지 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "performance-system-leading-indicators": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "성과관리 시스템 보는 법｜결과 KPI보다 Leading Indicator가 먼저다 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "성과관리 시스템 보는 법｜결과 KPI보다 Leading Indicator가 먼저다 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "성과관리 시스템 보는 법｜결과 KPI보다 Leading Indicator가 먼저다 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "recognition-system-fair-performance": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Recognition System 설계법｜칭찬보다 공정한 인정 구조가 먼저다 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Recognition System 설계법｜칭찬보다 공정한 인정 구조가 먼저다 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Recognition System 설계법｜칭찬보다 공정한 인정 구조가 먼저다 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "samsung-electronics-outlook": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "삼성전자 AI 메모리 수혜 보는 법｜HBM4·메모리 사이클·DS 이익을 연결하는 방법 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "삼성전자 AI 메모리 수혜 보는 법｜HBM4·메모리 사이클·DS 이익을 연결하는 방법 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "삼성전자 AI 메모리 수혜 보는 법｜HBM4·메모리 사이클·DS 이익을 연결하는 방법 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "samsung-heavy-industries-shipbuilding": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "삼성중공업 조선 수혜 보는 법｜LNG선·해양플랜트·생산성 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "삼성중공업 조선 수혜 보는 법｜LNG선·해양플랜트·생산성 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "삼성중공업 조선 수혜 보는 법｜LNG선·해양플랜트·생산성 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "samsung-vs-sk-hynix-ai-memory": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "삼성전자 vs SK하이닉스｜AI 메모리 투자자는 무엇이 다른가 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "삼성전자 vs SK하이닉스｜AI 메모리 투자자는 무엇이 다른가 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "삼성전자 vs SK하이닉스｜AI 메모리 투자자는 무엇이 다른가 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-compare.svg",
+        "alt": "삼성전자 vs SK하이닉스｜AI 메모리 투자자는 무엇이 다른가 — 비교형 또는 밸류체인형 리서치의 선택 기준을 정리한 JoyLab 비교 이미지",
+        "caption": "비교형·밸류체인형 글은 핵심 차이를 세 번째 보조 시각자료로 보완할 수 있습니다."
+      }
+    ]
+  },
+  "semiconductor-cycle": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "반도체 사이클 보는 법｜D램 가격·재고·CAPEX로 판단하기 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "반도체 사이클 보는 법｜D램 가격·재고·CAPEX로 판단하기 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "반도체 사이클 보는 법｜D램 가격·재고·CAPEX로 판단하기 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "sk-hynix-outlook": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "SK하이닉스 AI 메모리 수혜 보는 법｜HBM4·장기계약·CAPEX를 연결하는 방법 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "SK하이닉스 AI 메모리 수혜 보는 법｜HBM4·장기계약·CAPEX를 연결하는 방법 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "SK하이닉스 AI 메모리 수혜 보는 법｜HBM4·장기계약·CAPEX를 연결하는 방법 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "what-is-ai-agent": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 에이전트란 무엇인가｜챗봇과 다른 진짜 이유 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 에이전트란 무엇인가｜챗봇과 다른 진짜 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 에이전트란 무엇인가｜챗봇과 다른 진짜 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "what-is-hbm": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "HBM이란 무엇인가｜AI 시대 메모리 반도체가 중요한 이유 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "HBM이란 무엇인가｜AI 시대 메모리 반도체가 중요한 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "HBM이란 무엇인가｜AI 시대 메모리 반도체가 중요한 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
   }
 }
