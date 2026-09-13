@@ -1,0 +1,16 @@
+/* JoyLab Visual Placement Standard v1.0 */
+.home-hero__lead{position:relative;overflow:hidden}
+.home-hero__signature{position:absolute;right:-68px;bottom:-54px;width:min(54%,640px);opacity:.58;pointer-events:none;z-index:0;filter:saturate(1.02)}
+.home-hero__lead>*:not(.home-hero__signature){position:relative;z-index:1}
+.home-pillar{display:grid;grid-template-rows:118px auto;min-height:310px;padding:0;background:#071938}
+.home-pillar:after{display:none}
+.home-pillar__visual{width:100%;height:118px;object-fit:cover;display:block;border-bottom:1px solid rgba(255,255,255,.1)}
+.home-pillar__copy{padding:20px 22px 22px}
+.home-pillar__copy small,.home-pillar__copy strong,.home-pillar__copy p{position:relative;z-index:1}
+.home-pillar__copy small{color:#71aaff;font-weight:900;font-size:.7rem;letter-spacing:.10em}
+.home-pillar__copy strong{display:block;margin-top:10px;font-size:1.35rem}
+.home-pillar__copy p{max-width:260px;margin:7px 0 0;color:#cad7e9;font-size:.82rem;line-height:1.55}
+.home-research-thumb img{transition:transform .24s ease}
+.home-research-card:hover .home-research-thumb img{transform:scale(1.025)}
+@media(max-width:900px){.home-hero__signature{width:62%;right:-110px;bottom:-24px;opacity:.44}.home-pillar{grid-template-rows:150px auto;min-height:0}.home-pillar__visual{height:150px}}
+@media(max-width:640px){.home-hero__signature{width:88%;right:-180px;bottom:-40px;opacity:.3}.home-pillar{grid-template-columns:112px 1fr;grid-template-rows:auto;min-height:112px}.home-pillar__visual{width:112px;height:100%;min-height:112px}.home-pillar__copy{padding:16px}.home-pillar__copy strong{font-size:1.02rem}.home-pillar__copy p{font-size:.74rem}}
