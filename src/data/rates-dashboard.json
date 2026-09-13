@@ -1,0 +1,41 @@
+{
+  "asOf": "2026-09-11",
+  "updatedAt": "2026-09-13T19:48:00+09:00",
+  "series": {
+    "us10y": {
+      "label": "미국 10년물",
+      "value": 4.93,
+      "unit": "%",
+      "status": "warning",
+      "source": "Reuters / U.S. Treasury"
+    },
+    "us30y": {
+      "label": "미국 30년물",
+      "value": 5.38,
+      "unit": "%",
+      "status": "danger",
+      "source": "U.S. Treasury Daily Rates"
+    },
+    "foreignTreasuryHoldings": {
+      "label": "외국인 미 국채 보유",
+      "value": 9.299,
+      "unit": "조달러",
+      "status": "neutral",
+      "source": "U.S. Treasury TIC, June 2026",
+      "period": "2026-06"
+    },
+    "usdkrw": {
+      "label": "원·달러",
+      "value": 1345.9,
+      "unit": "원",
+      "status": "warning",
+      "source": "서울 외환시장 종가, 2026-09-11"
+    }
+  },
+  "thresholds": {
+    "us10yWarning": 5.0,
+    "us30yWarning": 5.3,
+    "usdkrwWarning": 1350
+  },
+  "nextTicRelease": "2026-09-16T16:00:00-04:00"
+}
