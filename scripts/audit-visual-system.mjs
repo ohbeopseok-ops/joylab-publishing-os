@@ -31,12 +31,17 @@ function parseFrontmatter(raw) {
   return out;
 }
 
+function normalize(value) {
+  return String(value || '').replace(/\s+/g, '').toLocaleLowerCase('ko-KR');
+}
+
 const articles = fs.readdirSync(articleDir)
   .filter((name) => name.endsWith('.md'))
   .map((name) => {
     const id = name.replace(/\.md$/, '');
     const raw = fs.readFileSync(path.join(articleDir, name), 'utf8');
     const fm = parseFrontmatter(raw);
+    const headings = [...raw.matchAll(/^##\s+(.+)$/gm)].map((match) => match[1].trim());
     return {
       id,
       title: fm.title || id,
@@ -44,7 +49,8 @@ const articles = fs.readdirSync(articleDir)
       series: fm.series || '',
       draft: fm.draft === true,
       featured: fm.featured === true,
-      publishedAt: fm.publishedAt || '1970-01-01'
+      publishedAt: fm.publishedAt || '1970-01-01',
+      headings
     };
   })
   .filter((article) => !article.draft)
@@ -84,6 +90,12 @@ const audit = publishedResearch.map((article) => {
   const genericSupportCount = supporting.filter((image) => GENERIC_SUPPORT.has(image?.src)).length;
   const missing = !hero?.src || supporting.length < 2 || supporting.some((image) => !image?.src || !image?.alt);
   const placementComplete = supporting.length > 0 && placements.length >= supporting.length;
+  const invalidAnchors = placements.filter((item) => {
+    if (!item?.afterHeading) return true;
+    const anchor = normalize(item.afterHeading);
+    return !article.headings.some((heading) => normalize(heading).includes(anchor));
+  });
+  const placementValid = placementComplete && invalidAnchors.length === 0;
 
   let verdict = 'GOOD';
   let reason = 'Dedicated Hero and semantic placement are both present.';
@@ -93,9 +105,11 @@ const audit = publishedResearch.map((article) => {
   } else if (defaultHero || genericSupportCount > 0) {
     verdict = 'REPLACE';
     reason = defaultHero ? 'Shared default Hero is still used.' : 'Generic supporting visual is still used.';
-  } else if (!placementComplete) {
+  } else if (!placementValid) {
     verdict = 'REPOSITION';
-    reason = `Dedicated visuals exist, but ${supporting.length - placements.length} supporting visual(s) remain unanchored.`;
+    reason = invalidAnchors.length > 0
+      ? `Semantic placement has ${invalidAnchors.length} unmatched anchor(s): ${invalidAnchors.map((item) => item.afterHeading).join(', ')}`
+      : `Dedicated visuals exist, but ${supporting.length - placements.length} supporting visual(s) remain unanchored.`;
   }
 
   return {
@@ -106,6 +120,7 @@ const audit = publishedResearch.map((article) => {
     hero: hero?.src || '',
     supporting: supporting.length,
     placed: placements.length,
+    invalidAnchors: invalidAnchors.map((item) => item.afterHeading),
     priority: priorityFor(article, mode)
   };
 });
@@ -163,6 +178,7 @@ for (const row of audit) {
     priority: row.priority,
     supporting: row.supporting,
     placed: row.placed,
+    invalidAnchors: row.invalidAnchors,
     reason: row.reason
   }));
 }
