@@ -22,9 +22,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </section>
 
     <section>
-      <h2>3. 클릭·전환 측정</h2>
-      <p>JoyLab은 콘텐츠와 공식 채널의 사용성을 개선하기 위해 Cloudflare Workers Analytics Engine에 제한된 이벤트를 집계합니다. 측정 대상은 Contact 페이지 방문, Article → Contact CTA, Footer Contact CTA, Contact의 메일·복사 버튼, Naver Blog·Threads·Instagram·LinkedIn 공식 채널 클릭입니다.</p>
-      <p>이 이벤트에는 이벤트 종류, 클릭 대상, 노출 위치, 현재 페이지 경로만 기록합니다. 이름, 이메일, 문의 내용, IP 주소, 브라우저 식별자, 쿠키 값, 사용자 ID는 JoyLab의 클릭 분석 데이터셋에 기록하지 않습니다. Global Privacy Control 또는 Do Not Track 신호가 활성화된 브라우저에서는 JoyLab의 클라이언트 이벤트 전송을 실행하지 않습니다.</p>
+      <h2>3. 콘텐츠 이용·전환 측정</h2>
+      <p>JoyLab은 콘텐츠와 정보 구조를 개선하기 위해 Cloudflare Workers Analytics Engine에 제한된 이벤트를 집계합니다. 측정 대상은 Contact 페이지 방문, Article → Contact CTA, Footer Contact CTA, 공식 채널 클릭과 함께 리서치 글 조회, 60초 이상 활성 체류 여부, 리서치 내부 링크 클릭입니다.</p>
+      <p>이 이벤트에는 이벤트 종류, 클릭 대상 또는 글 식별자, 노출 위치, 현재 페이지 경로만 기록합니다. 이름, 이메일, 문의 내용, 쿠키 값, 사용자 ID 같은 직접 식별 정보는 JoyLab의 자체 분석 데이터셋에 기록하지 않습니다. Global Privacy Control 또는 Do Not Track 신호가 활성화된 브라우저에서는 JoyLab의 클라이언트 이벤트 전송을 실행하지 않습니다.</p>
     </section>
 
     <section>
@@ -34,17 +34,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <section>
       <h2>5. 이용 목적</h2>
-      <p>기술 로그는 사이트 제공, 장애 분석, 보안 위협 대응, 성능 개선에 사용될 수 있습니다. 클릭·전환 이벤트는 어떤 콘텐츠와 공식 채널이 실제 행동으로 이어지는지 집계해 정보 구조와 사용자 경험을 개선하는 데 사용합니다.</p>
+      <p>기술 로그는 사이트 제공, 장애 분석, 보안 위협 대응, 성능 개선에 사용될 수 있습니다. 집계 이벤트는 어떤 리서치가 실제로 읽히고 다음 콘텐츠로 이어지는지 파악해 글 구조, 내부 링크, 대표 이미지와 시각자료의 우선 개선 순서를 정하는 데 사용합니다.</p>
     </section>
 
     <section>
       <h2>6. 외부 서비스</h2>
-      <p>사이트는 콘텐츠 전송·보안과 제한된 클릭 이벤트 집계를 위해 Cloudflare를 사용하며, 검색 노출 상태 확인을 위해 Google Search Console을 사용합니다. Search Console 소유권 확인 자체는 방문자 행동을 추적하는 사이트 분석 스크립트를 설치하지 않습니다.</p>
+      <p>사이트는 콘텐츠 전송·보안과 제한된 이벤트 집계를 위해 Cloudflare를 사용하며, 검색 성과 확인을 위해 Google Search Console을 사용합니다. Search Console 데이터는 페이지별 클릭·노출·CTR·평균 게재순위 같은 집계 검색 성과를 분석하는 데 사용하며, Search Console 소유권 확인 자체는 방문자 행동을 추적하는 사이트 분석 스크립트를 설치하지 않습니다.</p>
     </section>
 
     <section>
       <h2>7. 쿠키와 광고</h2>
-      <p>현재 JoyLab 클릭 분석은 쿠키를 사용하지 않으며 광고 개인화를 운영하지 않습니다. 향후 Google AdSense 또는 쿠키·개인 식별자를 사용하는 별도 측정 서비스를 도입할 경우 관련 처리 내용을 실제 적용 전에 이 정책에 반영합니다.</p>
+      <p>현재 JoyLab 자체 이벤트 분석은 쿠키를 사용하지 않으며 광고 개인화를 운영하지 않습니다. 향후 Google AdSense 또는 쿠키·개인 식별자를 사용하는 별도 측정 서비스를 도입할 경우 관련 처리 내용을 실제 적용 전에 이 정책에 반영합니다.</p>
     </section>
 
     <section>
@@ -55,7 +55,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <section>
       <h2>9. 정책 변경</h2>
       <p>서비스 기능이나 외부 처리자가 변경되면 이 문서를 수정할 수 있습니다. 중요한 변경은 적용 시점과 함께 이 페이지에 표시합니다.</p>
-      <p class="info-note">최종 업데이트: 2026-09-12</p>
+      <p class="info-note">최종 업데이트: 2026-09-13</p>
     </section>
   </article>
 </BaseLayout>

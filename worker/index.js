@@ -7,60 +7,29 @@ const securityHeaders = {
 };
 
 const analyticsContracts = {
-  contact_view: {
-    targets: new Set(['contact']),
-    placements: new Set(['page'])
-  },
-  social_click: {
-    targets: new Set(['naver', 'threads', 'instagram', 'linkedin']),
-    placements: new Set(['footer', 'contact'])
-  },
-  article_contact_click: {
-    targets: new Set(['generic', 'investing', 'ai-productivity', 'growth-leadership']),
-    placements: new Set(['article'])
-  },
-  footer_contact_click: {
-    targets: new Set(['contact']),
-    placements: new Set(['footer'])
-  },
-  contact_mail_click: {
-    targets: new Set(['mail']),
-    placements: new Set(['contact'])
-  },
-  contact_copy_click: {
-    targets: new Set(['copy']),
-    placements: new Set(['contact'])
-  },
-  smoke_test: {
-    targets: new Set(['deploy']),
-    placements: new Set(['production_smoke'])
-  }
+  contact_view: { targets: new Set(['contact']), placements: new Set(['page']) },
+  social_click: { targets: new Set(['naver', 'threads', 'instagram', 'linkedin']), placements: new Set(['footer', 'contact']) },
+  article_contact_click: { targets: new Set(['generic', 'investing', 'ai-productivity', 'growth-leadership']), placements: new Set(['article']) },
+  footer_contact_click: { targets: new Set(['contact']), placements: new Set(['footer']) },
+  contact_mail_click: { targets: new Set(['mail']), placements: new Set(['contact']) },
+  contact_copy_click: { targets: new Set(['copy']), placements: new Set(['contact']) },
+  smoke_test: { targets: new Set(['deploy']), placements: new Set(['production_smoke']) },
+  article_view: { targetPattern: /^[A-Za-z0-9_-]{1,100}$/, placements: new Set(['article_page']) },
+  article_dwell_60: { targetPattern: /^[A-Za-z0-9_-]{1,100}$/, placements: new Set(['article_page']) },
+  article_internal_link_click: { targetPattern: /^\/articles\/[A-Za-z0-9_-]{1,100}\/?$/, placements: new Set(['article_body', 'related_research', 'guide_cta']) }
 };
 
 function withSecurityHeaders(response) {
   const headers = new Headers(response.headers);
-
-  for (const [name, value] of Object.entries(securityHeaders)) {
-    headers.set(name, value);
-  }
-
-  return new Response(response.body, {
-    status: response.status,
-    statusText: response.statusText,
-    headers
-  });
+  for (const [name, value] of Object.entries(securityHeaders)) headers.set(name, value);
+  return new Response(response.body, { status: response.status, statusText: response.statusText, headers });
 }
 
 function analyticsResponse(status) {
-  return withSecurityHeaders(
-    new Response(null, {
-      status,
-      headers: {
-        'Cache-Control': 'no-store',
-        'Content-Type': 'text/plain; charset=utf-8'
-      }
-    })
-  );
+  return withSecurityHeaders(new Response(null, {
+    status,
+    headers: { 'Cache-Control': 'no-store', 'Content-Type': 'text/plain; charset=utf-8' }
+  }));
 }
 
 function normalizePath(value) {
@@ -69,13 +38,18 @@ function normalizePath(value) {
   return /^\/[A-Za-z0-9/_-]*$/.test(path) ? path : '/';
 }
 
+function matchesContract(contract, target, placement) {
+  if (!contract || !contract.placements?.has(placement)) return false;
+  if (contract.targets) return contract.targets.has(target);
+  if (contract.targetPattern) return contract.targetPattern.test(target);
+  return false;
+}
+
 async function collectAnalyticsEvent(request, env) {
   if (request.method !== 'POST') return analyticsResponse(405);
 
   const fetchSite = request.headers.get('Sec-Fetch-Site');
-  if (fetchSite && fetchSite !== 'same-origin' && fetchSite !== 'none') {
-    return analyticsResponse(403);
-  }
+  if (fetchSite && fetchSite !== 'same-origin' && fetchSite !== 'none') return analyticsResponse(403);
 
   const contentLength = Number(request.headers.get('Content-Length') || 0);
   if (contentLength > 2048) return analyticsResponse(413);
@@ -84,21 +58,14 @@ async function collectAnalyticsEvent(request, env) {
   if (!raw || raw.length > 2048) return analyticsResponse(400);
 
   let payload;
-  try {
-    payload = JSON.parse(raw);
-  } catch {
-    return analyticsResponse(400);
-  }
+  try { payload = JSON.parse(raw); } catch { return analyticsResponse(400); }
 
   const event = String(payload?.event ?? '').trim();
   const target = String(payload?.target ?? '').trim();
   const placement = String(payload?.placement ?? '').trim();
   const contract = analyticsContracts[event];
 
-  if (!contract || !contract.targets.has(target) || !contract.placements.has(placement)) {
-    return analyticsResponse(400);
-  }
-
+  if (!matchesContract(contract, target, placement)) return analyticsResponse(400);
   if (!env.JOYLAB_ANALYTICS?.writeDataPoint) return analyticsResponse(503);
 
   try {
@@ -121,17 +88,10 @@ export default {
     if (url.hostname === 'www.aijoylab.kr') {
       url.protocol = 'https:';
       url.hostname = 'aijoylab.kr';
-      return withSecurityHeaders(
-        new Response(null, {
-          status: 301,
-          headers: { Location: url.toString() }
-        })
-      );
+      return withSecurityHeaders(new Response(null, { status: 301, headers: { Location: url.toString() } }));
     }
 
-    if (url.pathname === '/__analytics/event') {
-      return collectAnalyticsEvent(request, env);
-    }
+    if (url.pathname === '/__analytics/event') return collectAnalyticsEvent(request, env);
 
     const response = await env.ASSETS.fetch(request);
     return withSecurityHeaders(response);

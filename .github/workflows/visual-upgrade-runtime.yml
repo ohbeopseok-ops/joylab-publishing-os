@@ -1,0 +1,95 @@
+name: Visual Upgrade Runtime
+
+on:
+  schedule:
+    - cron: '15 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  visual-upgrade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_ANALYTICS_READ_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_READ_TOKEN }}
+      GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      GSC_SITE_URL: sc-domain:aijoylab.kr
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Sync Search Console metrics
+        run: node scripts/sync-gsc-visual-metrics.mjs
+
+      - name: Sync Cloudflare article metrics
+        run: node scripts/sync-cloudflare-visual-metrics.mjs
+
+      - name: Score Visual Upgrade Queue
+        run: node scripts/visual-upgrade-runtime.mjs
+
+      - name: Persist refreshed metrics
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- src/data/visual-upgrade-input.json; then
+            echo 'No metric changes to commit.'
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add src/data/visual-upgrade-input.json
+            git commit -m 'data: refresh visual upgrade metrics'
+            git push origin HEAD:main
+          fi
+
+      - name: Create CURATE_NOW issues
+        shell: bash
+        run: |
+          set -euo pipefail
+          jq -c '.[] | select(.status == "CURATE_NOW" and .confidence != "LOW")' .visual-upgrade-runtime.json | while read -r row; do
+            id=$(jq -r '.id' <<< "$row")
+            title=$(jq -r '.title' <<< "$row")
+            score=$(jq -r '.score' <<< "$row")
+            confidence=$(jq -r '.confidence' <<< "$row")
+            coverage=$(jq -r '(.coverage * 100 | round)' <<< "$row")
+            issue_title="[CURATE_NOW] ${id}"
+            existing=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --limit 200 --json title --jq "map(select(.title == \"${issue_title}\")) | length")
+            if [ "$existing" != "0" ]; then
+              echo "Open CURATE_NOW issue already exists for ${id}."
+              continue
+            fi
+            reasons=$(jq -r '.reasons | map("- " + .) | join("\n")' <<< "$row")
+            body=$(printf '%s\n' \
+              '## Visual Upgrade Queue' \
+              "- Article: \`${id}\`" \
+              "- Title: ${title}" \
+              "- Score: **${score}/100**" \
+              "- Confidence: **${confidence}**" \
+              "- Data coverage: **${coverage}%**" \
+              '' \
+              '## Why now' \
+              "$reasons" \
+              '' \
+              '## Required output' \
+              '- Article-specific Hero 1' \
+              '- Supporting Visual 2 (compare/value-chain may use 3)' \
+              '- Alt + caption' \
+              '- Research Image Gate PASS' \
+              '- Build → Deploy → Production Smoke PASS' \
+              '' \
+              'Generated automatically by Visual Upgrade Runtime.')
+            gh issue create --repo "$GITHUB_REPOSITORY" --title "$issue_title" --body "$body"
+          done
