@@ -8,10 +8,13 @@ execFileSync(process.execPath, [path.join(root, 'scripts/generate-curated-resear
 
 const manifestPath = path.join(root, 'src/data/research-image-manifest.json');
 const curatedPath = path.join(root, 'src/data/curated-research-images.json');
+const generatedPath = path.join(root, 'src/data/curated-generated-heroes.json');
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const curated = JSON.parse(fs.readFileSync(curatedPath, 'utf8'));
+const generated = fs.existsSync(generatedPath) ? JSON.parse(fs.readFileSync(generatedPath, 'utf8')) : {};
+const overrides = { ...curated, ...generated };
 
-for (const [articleId, config] of Object.entries(curated)) {
+for (const [articleId, config] of Object.entries(overrides)) {
   const current = manifest[articleId] || {};
   manifest[articleId] = {
     ...current,
@@ -21,4 +24,4 @@ for (const [articleId, config] of Object.entries(curated)) {
 }
 
 fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
-console.log(`Applied ${Object.keys(curated).length} curated visual overrides.`);
+console.log(`Applied ${Object.keys(overrides).length} curated visual overrides.`);
