@@ -7,7 +7,8 @@
     "node": ">=22.19.0"
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "node scripts/apply-curated-research-images.mjs && astro dev",
+    "prebuild": "node scripts/apply-curated-research-images.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "deploy": "wrangler deploy"

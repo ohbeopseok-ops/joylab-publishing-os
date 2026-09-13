@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "maxScore": 100,
+  "weights": {
+    "traffic": 30,
+    "dwell": 25,
+    "ctr": 20,
+    "internalLink": 10,
+    "strategicPriority": 15
+  },
+  "normalization": {
+    "traffic": {"method":"cohort_max","cap":1},
+    "dwell": {"method":"target","targetSeconds":180,"cap":1},
+    "ctr": {"method":"target","targetPercent":8,"cap":1},
+    "internalLink": {"method":"target","targetPercent":20,"cap":1},
+    "strategicPriority": {"method":"percent","max":100}
+  },
+  "thresholds": {
+    "CURATE_NOW": 70,
+    "QUEUE": 50,
+    "MONITOR": 0
+  },
+  "dataQuality": {
+    "high": 0.8,
+    "medium": 0.6,
+    "low": 0,
+    "fallback": "strategic_priority_only",
+    "fallbackStatus": "PROVISIONAL"
+  },
+  "eligibility": {
+    "autoBaselineOnly": true,
+    "excludeCurated": true
+  }
+}
