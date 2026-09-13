@@ -20,14 +20,14 @@
   },
   "ai-power-next-bottleneck": {
     "supporting": [
-      {"index": 0, "afterHeading": "전력"},
-      {"index": 1, "afterHeading": "밸류체인"}
+      {"index": 0, "afterHeading": "발전소 다음 병목"},
+      {"index": 1, "afterHeading": "마지막 병목은 냉각"}
     ]
   },
   "china-us-treasury-holdings-2026": {
     "supporting": [
-      {"index": 0, "afterHeading": "보유"},
-      {"index": 1, "afterHeading": "매수자"}
+      {"index": 0, "afterHeading": "FACT CHECK"},
+      {"index": 1, "afterHeading": "BUYER REGIME"}
     ]
   },
   "how-to-read-us-treasury-auctions-2026": {
@@ -38,8 +38,8 @@
   },
   "us-rates-korea-semiconductor-transmission-2026": {
     "supporting": [
-      {"index": 0, "afterHeading": "전염경로"},
-      {"index": 1, "afterHeading": "외국인"}
+      {"index": 0, "afterHeading": "TRANSMISSION"},
+      {"index": 1, "afterHeading": "FLOW"}
     ]
   },
   "us-30y-treasury-5-percent-risk-2026": {
@@ -50,58 +50,58 @@
   },
   "who-buys-us-treasuries-2026": {
     "supporting": [
-      {"index": 0, "afterHeading": "보유국"},
-      {"index": 1, "afterHeading": "민간"}
+      {"index": 0, "afterHeading": "HOLDINGS"},
+      {"index": 1, "afterHeading": "OFFICIAL vs PRIVATE"}
     ]
   },
   "ai-data-center-cooling-bottleneck": {
     "supporting": [
-      {"index": 0, "afterHeading": "냉각"},
-      {"index": 1, "afterHeading": "병목"}
+      {"index": 0, "afterHeading": "냉각은 왜 전력 투자와 연결"},
+      {"index": 1, "afterHeading": "냉각 투자의 수혜"}
     ]
   },
   "ai-power-gas-turbine-return": {
     "supporting": [
-      {"index": 0, "afterHeading": "가스터빈"},
-      {"index": 1, "afterHeading": "기업"}
+      {"index": 0, "afterHeading": "가스터빈이 다시 중요"},
+      {"index": 1, "afterHeading": "한국 주식에서는 무엇"}
     ]
   },
   "ai-power-value-chain-compare": {
     "supporting": [
-      {"index": 0, "afterHeading": "밸류체인"},
-      {"index": 1, "afterHeading": "기업"},
-      {"index": 2, "afterHeading": "병목"}
+      {"index": 0, "afterHeading": "여섯 레이어를 한눈에"},
+      {"index": 1, "afterHeading": "한국 주식 연결"},
+      {"index": 2, "afterHeading": "투자 순서는 물리적 순서"}
     ]
   },
   "doosan-enerbility-ai-power": {
     "supporting": [
-      {"index": 0, "afterHeading": "두산에너빌리티"},
-      {"index": 1, "afterHeading": "발전"}
+      {"index": 0, "afterHeading": "VALUE CHAIN POSITION"},
+      {"index": 1, "afterHeading": "AI POWER EXPOSURE"}
     ]
   },
   "hd-hyundai-electric-ai-power": {
     "supporting": [
-      {"index": 0, "afterHeading": "HD현대일렉트릭"},
-      {"index": 1, "afterHeading": "변압기"}
+      {"index": 0, "afterHeading": "VALUE CHAIN POSITION"},
+      {"index": 1, "afterHeading": "AI POWER EXPOSURE"}
     ]
   },
   "hyosung-heavy-industries-ai-power": {
     "supporting": [
-      {"index": 0, "afterHeading": "효성중공업"},
-      {"index": 1, "afterHeading": "변압기"}
+      {"index": 0, "afterHeading": "VALUE CHAIN POSITION"},
+      {"index": 1, "afterHeading": "AI POWER EXPOSURE"}
     ]
   },
   "korea-ai-power-companies-compare": {
     "supporting": [
-      {"index": 0, "afterHeading": "4사"},
-      {"index": 1, "afterHeading": "밸류체인"},
-      {"index": 2, "afterHeading": "병목"}
+      {"index": 0, "afterHeading": "VALUE CHAIN POSITION"},
+      {"index": 1, "afterHeading": "AI / THEME EXPOSURE"},
+      {"index": 2, "afterHeading": "MARGIN TRANSMISSION"}
     ]
   },
   "ls-electric-ai-power": {
     "supporting": [
-      {"index": 0, "afterHeading": "LS ELECTRIC"},
-      {"index": 1, "afterHeading": "배전"}
+      {"index": 0, "afterHeading": "VALUE CHAIN POSITION"},
+      {"index": 1, "afterHeading": "AI POWER EXPOSURE"}
     ]
   },
   "ai-power-grid-transformer-distribution": {
@@ -118,14 +118,14 @@
   },
   "samsung-electronics-outlook": {
     "supporting": [
-      {"index": 0, "afterHeading": "HBM"},
-      {"index": 1, "afterHeading": "SK하이닉스"}
+      {"index": 0, "afterHeading": "AI / THEME EXPOSURE"},
+      {"index": 1, "afterHeading": "VALUE CHAIN POSITION"}
     ]
   },
   "sk-hynix-outlook": {
     "supporting": [
-      {"index": 0, "afterHeading": "HBM"},
-      {"index": 1, "afterHeading": "삼성전자"}
+      {"index": 0, "afterHeading": "AI / THEME EXPOSURE"},
+      {"index": 1, "afterHeading": "VALUE CHAIN POSITION"}
     ]
   }
 }
