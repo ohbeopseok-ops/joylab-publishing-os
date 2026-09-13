@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "referencePillar": "us-rates",
+  "pillars": {
+    "us-rates": {
+      "status": "pilot",
+      "route": "/guides/us-rates",
+      "framework": ["Supply", "Buyer", "Auction", "Yield", "FX", "Equity"],
+      "scores": ["Auction Score", "TIC Score", "Composite Rates Risk Score"],
+      "runtime": "TIC Monthly Research Runtime"
+    },
+    "semiconductor-investing": {
+      "status": "replication-ready",
+      "route": "/guides/semiconductor-investing",
+      "framework": ["Demand", "Memory Price", "Earnings Revision", "Valuation", "Foreign Flow", "Price"],
+      "scores": ["Fundamental Score", "Revision Score", "Flow Score", "Composite Semiconductor Score"],
+      "requiredSignals": ["HBM/server demand", "DRAM/NAND price", "Samsung EPS revision", "SK Hynix EPS revision", "Samsung foreign flow", "SK Hynix foreign flow", "relative strength vs KOSPI"]
+    },
+    "ai-power": {
+      "status": "replication-ready",
+      "route": "/guides/ai-power",
+      "framework": ["Compute Demand", "Power Demand", "Generation", "Grid", "Transformer/Distribution", "Cooling/Data Center"],
+      "scores": ["Demand Score", "Bottleneck Score", "Capex Conversion Score", "Composite AI Power Score"],
+      "requiredSignals": ["hyperscaler capex", "generation orders", "grid backlog", "transformer lead time/orders", "cooling/data-center capacity"]
+    }
+  }
+}
