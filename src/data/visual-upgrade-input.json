@@ -1,0 +1,10 @@
+[
+  {"id":"foreign-investor-flow","title":"외국인 수급 리서치","visualMode":"AUTO-BASELINE","views":null,"dwellSeconds":null,"ctrPercent":null,"internalLinkPercent":null,"strategicPriority":95},
+  {"id":"ai-productivity-platforms-compare","title":"AI 생산성 플랫폼 비교","visualMode":"AUTO-BASELINE","views":null,"dwellSeconds":null,"ctrPercent":null,"internalLinkPercent":null,"strategicPriority":88},
+  {"id":"korea-shipbuilding-companies-compare","title":"한국 조선 4사 비교","visualMode":"AUTO-BASELINE","views":null,"dwellSeconds":null,"ctrPercent":null,"internalLinkPercent":null,"strategicPriority":86},
+  {"id":"openai-data-agent-chatgpt-work","title":"OpenAI Data Agent·ChatGPT Work","visualMode":"AUTO-BASELINE","views":null,"dwellSeconds":null,"ctrPercent":null,"internalLinkPercent":null,"strategicPriority":84},
+  {"id":"samsung-vs-sk-hynix-ai-memory","title":"삼성전자 vs SK하이닉스 AI 메모리 비교","visualMode":"AUTO-BASELINE","views":null,"dwellSeconds":null,"ctrPercent":null,"internalLinkPercent":null,"strategicPriority":83},
+  {"id":"hd-hyundai-heavy-industries-shipbuilding","title":"HD현대중공업 조선 리서치","visualMode":"AUTO-BASELINE","views":null,"dwellSeconds":null,"ctrPercent":null,"internalLinkPercent":null,"strategicPriority":76},
+  {"id":"growth-leadership-operating-system","title":"성장·리더십 운영체계","visualMode":"AUTO-BASELINE","views":null,"dwellSeconds":null,"ctrPercent":null,"internalLinkPercent":null,"strategicPriority":70},
+  {"id":"ai-productivity-roi","title":"AI 생산성 ROI","visualMode":"AUTO-BASELINE","views":null,"dwellSeconds":null,"ctrPercent":null,"internalLinkPercent":null,"strategicPriority":68}
+]
