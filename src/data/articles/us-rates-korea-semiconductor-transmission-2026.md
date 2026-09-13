@@ -18,6 +18,8 @@ series: "미국 금리 리서치"
 readingTime: "약 12분"
 ---
 
+![미국 금리에서 원달러·KOSPI·삼성전자·SK하이닉스로 이어지는 전염경로](/images/research/us-rates-korea-transmission-hero.svg)
+
 ## Research Brief
 
 미국 장기금리가 오르면 한국 반도체주는 왜 흔들릴까.
@@ -45,6 +47,8 @@ readingTime: "약 12분"
 전염경로를 한 줄로 쓰면 다음과 같다.
 
 **미국 장기금리 상승 → 달러 강세 압력 → 원달러 상승 → 외국인 요구수익률 상승 → KOSPI 대형주 매도 → 삼성전자·SK하이닉스 변동성 확대**
+
+![미국 금리 충격이 한국 반도체까지 전달되는 7단계 전염경로](/images/research/us-rates-korea-transmission-infographic.svg)
 
 미국 10년물은 글로벌 무위험수익률의 기준에 가깝다. 금리가 오르면 주식의 미래 현금흐름을 할인하는 비율이 높아지고, 채권의 상대 매력도 커진다.
 
@@ -80,6 +84,8 @@ readingTime: "약 12분"
 | 9월 10일 | 1조4,061.9억원 | 1조7,797.0억원 | 3조1,858.9억원 |
 | 9월 11일 | 9,167.3억원 | 1조771.5억원 | 1조9,938.8억원 |
 | **2일 합계** | **2조3,229.2억원** | **2조8,568.5억원** | **5조1,797.7억원** |
+
+![2026년 9월 10~11일 삼성전자와 SK하이닉스 외국인 순매도 비교](/images/research/us-rates-korea-flow-chart.svg)
 
 9월 11일 KOSPI 전체에서도 외국인은 약 **2조2,900억원**을 순매도했다. 같은 날 KOSPI는 1.76% 하락해 6,909.91로 마감했고 원화도 약세를 보였다.
 
@@ -208,30 +214,27 @@ JoyLab에서는 한국 반도체의 매크로 리스크를 다음 순서로 본�
 
 9월 10~11일 이틀간 삼성전자와 SK하이닉스에서 발생한 약 5.18조원의 외국인 순매도는 중요한 사례다.
 
-AI와 메모리 펀더멘털이 무너졌기 때문에만 나타난 흐름으로 보기 어렵다.
+AI와 메모리 펀더멘털이 강하더라도 글로벌 할인율이 상승하고 원화가 약해지면 외국인 포트폴리오의 가격 판단은 달라질 수 있다.
 
-미국 금리, 유가, 달러, 한국 시장 전체의 위험회피가 동시에 작동했다.
+따라서 한국 반도체 투자자는 기업 실적과 거시환경 중 하나를 선택해서 보는 것이 아니라 두 축을 연결해야 한다.
 
-그래서 앞으로 한국 반도체 리서치는 두 문장을 동시에 유지해야 한다.
+**미국 금리는 한국 반도체의 실적을 바꾸기 전에, 외국인이 그 실적에 지불할 가격을 바꾼다.**
 
-**HBM이 좋다는 사실과 주식의 할인율이 올라간다는 사실은 동시에 참일 수 있다.**
-
-그리고 주가는 두 힘의 상대속도로 결정된다.
-
-> **미국 금리는 한국 반도체의 실적을 바꾸기 전에, 외국인이 그 실적에 지불할 가격을 바꾼다.**
+이 문장이 이번 리서치의 핵심이다.
 
 ---
 
 ## Sources
 
-- Yonhap / KRX·연합인포맥스, 거래소 외국인 순매수도 상위종목, 2026-09-09~11
-- Yonhap News Agency, Seoul shares dip 1.76 pct on rising oil prices, inflation woes, 2026-09-11
-- Reuters, Asian stocks draw foreign buyers after nine-month selloff, 2026-09-10
-- Reuters, Global market flows, 2026-09-11
+- 한국거래소·연합인포맥스 집계, 2026년 9월 10~11일 외국인 순매도 상위 종목
+- 연합뉴스, 2026년 9월 10일 및 11일 국내 증시 마감·투자자별 수급 보도
+- U.S. Treasury, Daily Treasury Par Yield Curve Rates
+- Federal Reserve Bank of St. Louis, FRED DGS10 / DGS30 / DEXKOUS
+- JoyLab Rates Dashboard, 2026년 9월 기준
 
 ---
 
-**Fact → Flow → Transmission → Scenario → Action**
+**Fact → Interpretation → Transmission → Scenario → Action**
 
 복잡한 정보를 실행 가능한 판단으로.
 
