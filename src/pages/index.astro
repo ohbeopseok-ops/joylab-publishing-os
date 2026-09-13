@@ -68,7 +68,11 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
       <div class="home-research-grid">
         {majorResearch.map((article) => (
           <a class="home-research-card" href={`/articles/${article.id}`}>
-            <div class="home-research-thumb" aria-hidden="true"></div>
+            {article.data.heroImage ? (
+              <div class="home-research-thumb"><img src={article.data.heroImage} alt={article.data.heroAlt ?? ''} width="1600" height="900" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover" /></div>
+            ) : (
+              <div class="home-research-thumb" aria-hidden="true"></div>
+            )}
             <div class="home-research-copy">
               <small>{article.data.category}</small>
               <h3>{article.data.title}</h3>

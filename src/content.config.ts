@@ -17,7 +17,11 @@ const articles = defineCollection({
     seoTitle: z.string().optional(),
     canonical: z.string().optional(),
     series: z.string().optional(),
-    readingTime: z.string().optional()
+    readingTime: z.string().optional(),
+    heroImage: z.string().optional(),
+    heroAlt: z.string().optional(),
+    heroCaption: z.string().optional(),
+    ogImage: z.string().optional()
   })
 });
 
