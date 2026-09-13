@@ -5,58 +5,29 @@ import '../../styles/investment-hub-v2.css';
 import rates from '../../data/rates-dashboard.json';
 
 const research = [
-  {
-    step: '01',
-    eyebrow: 'FACT CHECK',
-    title: '중국 미 국채 보유 2008년 이후 최저',
-    href: '/articles/china-us-treasury-holdings-2026',
-    thesis: '700억 달러 투매 주장 → 공식 TIC 검증 → 진짜 구조 변화',
-    note: '보유액 감소와 실제 순매도를 분리하고 10년물 5%의 의미를 연결합니다.'
-  },
-  {
-    step: '02',
-    eyebrow: 'BUYER MAP',
-    title: '미국 국채는 지금 누가 사고 누가 파나',
-    href: '/articles/who-buys-us-treasuries-2026',
-    thesis: '일본 → 영국 → 중국 → 금융센터 → 공식기관 → 민간 자금',
-    note: '국가별 보유액보다 매수자의 성격과 안정성을 봅니다.'
-  },
-  {
-    step: '03',
-    eyebrow: 'LONG END RISK',
-    title: '미국 30년물 5%대가 더 위험한 이유',
-    href: '/articles/us-30y-treasury-5-percent-risk-2026',
-    thesis: '30년물 → 기간 프리미엄 → 재정·공급 → 장기 자본비용',
-    note: '10년물과 달리 30년물이 장기 재정 신뢰와 자본비용을 어떻게 가격에 반영하는지 분석합니다.'
-  },
-  {
-    step: '04',
-    eyebrow: 'PRICE SIGNAL',
-    title: '미국 10년물 5% 경계',
-    href: '/articles/china-us-treasury-holdings-2026#5-price-signal--그래서-10년물-5가-중요하다',
-    thesis: '국채 공급 → 수익률 → 무위험금리 → PER → 성장주',
-    note: '5%가 채권 숫자가 아니라 글로벌 자산배분 기준이 되는 이유를 봅니다.'
-  },
-  {
-    step: '05',
-    eyebrow: 'KOREA TRANSMISSION',
-    title: '원달러·KOSPI·반도체 전염경로',
-    href: '/articles/china-us-treasury-holdings-2026#6-transmission--한국-증시로-어떻게-전염되는가',
-    thesis: '미 금리 → 달러 → 원달러 → 외국인 → KOSPI → 반도체',
-    note: '미국 장기금리 충격이 한국 투자자에게 전달되는 순서를 정리합니다.'
-  }
+  { step: '01', eyebrow: 'FACT CHECK', title: '중국 미 국채 보유 2008년 이후 최저', href: '/articles/china-us-treasury-holdings-2026', thesis: '700억 달러 투매 주장 → 공식 TIC 검증 → 진짜 구조 변화', note: '보유액 감소와 실제 순매도를 분리합니다.' },
+  { step: '02', eyebrow: 'BUYER MAP', title: '미국 국채는 지금 누가 사고 누가 파나', href: '/articles/who-buys-us-treasuries-2026', thesis: '일본 → 영국 → 중국 → 금융센터 → 공식기관 → 민간 자금', note: '국가별 보유액보다 매수자의 성격과 안정성을 봅니다.' },
+  { step: '03', eyebrow: 'LONG END RISK', title: '미국 30년물 5%대가 더 위험한 이유', href: '/articles/us-30y-treasury-5-percent-risk-2026', thesis: '30년물 → 기간 프리미엄 → 재정·공급 → 장기 자본비용', note: '30년물이 장기 재정 신뢰와 자본비용을 어떻게 가격에 반영하는지 봅니다.' },
+  { step: '04', eyebrow: 'AUCTION QUALITY', title: '미 국채 입찰 읽는 법', href: '/articles/how-to-read-us-treasury-auctions-2026', thesis: 'Tail → Indirect → Dealer → Bid-to-Cover → 사후 금리', note: 'Bid-to-Cover보다 수요의 질을 먼저 판독합니다.' },
+  { step: '05', eyebrow: 'PRICE SIGNAL', title: '미국 10년물 5% 경계', href: '/articles/china-us-treasury-holdings-2026#5-price-signal--그래서-10년물-5가-중요하다', thesis: '국채 공급 → 수익률 → 무위험금리 → PER → 성장주', note: '5%가 글로벌 자산배분 기준이 되는 이유를 봅니다.' },
+  { step: '06', eyebrow: 'KOREA TRANSMISSION', title: '원달러·KOSPI·반도체 전염경로', href: '/articles/china-us-treasury-holdings-2026#6-transmission--한국-증시로-어떻게-전염되는가', thesis: '미 금리 → 달러 → 원달러 → 외국인 → KOSPI → 반도체', note: '미국 장기금리 충격이 한국 투자자에게 전달되는 순서를 봅니다.' }
 ];
 
 const dashboard = [
   { key: '10Y', data: rates.series.us10y, note: '글로벌 할인율' },
   { key: '30Y', data: rates.series.us30y, note: '기간·재정 프리미엄' },
+  { key: '30Y-10Y', data: rates.series.spread30y10y, note: '장기 커브 경사' },
   { key: 'TIC', data: rates.series.foreignTreasuryHoldings, note: '해외 국채 수요' },
   { key: 'USD/KRW', data: rates.series.usdkrw, note: '한국 전염경로' }
 ];
+const auctions = [
+  { key: '10Y', data: rates.auctions.us10y },
+  { key: '30Y', data: rates.auctions.us30y }
+];
 ---
 <BaseLayout
-  title="미국 금리 리서치｜10년물·30년물·TIC·원달러·KOSPI | JoyLab"
-  description="JoyLab 미국 금리 리서치 허브. 미국 국채 TIC, 10년물·30년물 금리, 국채 매수자 구조, 원달러와 KOSPI 전염경로를 하나의 프레임으로 연결합니다."
+  title="미국 금리 리서치｜10년물·30년물·TIC·국채입찰·원달러 | JoyLab"
+  description="JoyLab 미국 금리 리서치 허브. 10년물·30년물, TIC, 국채 입찰 수요, 30Y-10Y 스프레드, 원달러와 KOSPI 전염경로를 하나의 프레임으로 연결합니다."
   bodyClass="semiconductor-guide-v2 investment-hub-v2"
 >
   <section class="sg-hero ih-hero">
@@ -65,20 +36,20 @@ const dashboard = [
         <div class="sg-hero__copy">
           <div class="sg-eyebrow">U.S. RATES RESEARCH · JOYLAB</div>
           <h1>미국 금리를<br /><span>전염경로로 읽습니다.</span></h1>
-          <p class="sg-hero__lead">10년물 숫자 하나만 보지 않습니다. <strong>국채 공급 → 매수자 → 금리 → 달러 → 한국 증시</strong>를 연결해 어떤 신호가 실제 위험인지 판단합니다.</p>
-          <div class="sg-hero__chips"><span>#미국10년물</span><span>#미국30년물</span><span>#TIC</span><span>#원달러</span><span>#KOSPI</span></div>
-          <div class="sg-hero__meta"><span><strong>5</strong> Research Layers</span><span><strong>4</strong> Auto-tracked Metrics</span><span><strong>1</strong> Decision System</span></div>
+          <p class="sg-hero__lead">숫자 하나가 아니라 <strong>국채 공급 → 매수자 → 입찰 → 금리 → 달러 → 한국 증시</strong>를 연결합니다.</p>
+          <div class="sg-hero__chips"><span>#미국10년물</span><span>#미국30년물</span><span>#국채입찰</span><span>#TIC</span><span>#원달러</span></div>
+          <div class="sg-hero__meta"><span><strong>6</strong> Research Layers</span><span><strong>5</strong> Auto Metrics</span><span><strong>{rates.risk.grade}</strong> Risk Grade</span></div>
         </div>
         <aside class="sg-lens">
           <div class="sg-lens__brand">JOYLAB<br /><b>RATES</b></div>
-          <div class="sg-lens__item"><em>01</em><div><b>FACT</b><span>TIC·입찰·금리를 먼저 확인합니다.</span></div></div>
-          <div class="sg-lens__item"><em>02</em><div><b>STRUCTURE</b><span>누가 사고 누가 파는지 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>01</em><div><b>FACT</b><span>TIC·입찰·금리를 검증합니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>QUALITY</b><span>수요의 양보다 질을 봅니다.</span></div></div>
           <div class="sg-lens__item"><em>03</em><div><b>TRANSMISSION</b><span>달러와 한국 증시까지 연결합니다.</span></div></div>
         </aside>
       </div>
       <div class="sg-map-head"><div><span>START HERE</span><b>미국 금리 Research Map</b></div><a href="#research">리서치 순서 보기 →</a></div>
       <nav class="sg-map ih-map">
-        {research.map((item, index) => <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={item.href}><em>{item.step}</em><b>{item.eyebrow}</b><span>{index === 0 ? '검증' : index === 1 ? '수요' : index === 2 ? '장기' : index === 3 ? '가격' : '전염'}</span></a>)}
+        {research.map((item, index) => <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={item.href}><em>{item.step}</em><b>{item.eyebrow}</b><span>{index === 0 ? '검증' : index === 1 ? '수요' : index === 2 ? '장기' : index === 3 ? '입찰' : index === 4 ? '가격' : '전염'}</span></a>)}
       </nav>
     </div>
   </section>
@@ -89,31 +60,39 @@ const dashboard = [
         <section class="sg-insights" aria-labelledby="rates-dashboard-title">
           <div class="sg-section-head sg-section-head--compact">
             <div><div class="sg-eyebrow">RATES DASHBOARD</div><h2 id="rates-dashboard-title">자동 추적 핵심 지표</h2></div>
-            <p>평일마다 검증 스크립트가 10년물·30년물·원달러와 최신 TIC 보유액을 갱신합니다. 데이터 기준일: {rates.asOf}</p>
+            <p>평일 검증 스크립트 기준일: {rates.asOf}</p>
           </div>
           <div class="sg-insights__grid">
-            {dashboard.map((item) => (
-              <div data-status={item.data.status}>
-                <em>{item.key}</em>
-                <b>{item.data.value}{item.data.unit}</b>
-                <p>{item.note}<br/><small>{item.data.source}</small></p>
-              </div>
-            ))}
+            {dashboard.map((item) => <div data-status={item.data.status}><em>{item.key}</em><b>{item.data.value}{item.data.unit}</b><p>{item.note}<br/><small>{item.data.source}</small></p></div>)}
           </div>
-          <p style="margin-top:12px;color:#6b7a90;font-size:.82rem">TIC 기준월: {rates.series.foreignTreasuryHoldings.period} · 다음 예정 발표: 2026-09-16 16:00 ET · 자동 갱신 데이터는 범위 검증과 Astro Build를 통과한 경우에만 반영합니다.</p>
         </section>
 
-        <div class="sg-section-head"><div><div class="sg-eyebrow">RESEARCH PATH</div><h2>국채 뉴스에서 투자 판단까지</h2></div><p>팩트체크 → 매수자 구조 → 30년물 장기 리스크 → 10년물 가격신호 → 한국 증시 전염 순서로 읽습니다.</p></div>
+        <section class="sg-rule" style="margin-top:20px">
+          <div class="sg-eyebrow">RISK ENGINE</div>
+          <h2>{rates.risk.grade} · Score {rates.risk.score}</h2>
+          <p>{rates.risk.summary}</p>
+          <div class="sg-rule__grid"><div class="sg-rule__step"><b>GREEN</b><span>0–1 · 안정</span></div><div class="sg-rule__step"><b>YELLOW</b><span>2–3 · 경계</span></div><div class="sg-rule__step"><b>RED</b><span>4+ · 스트레스</span></div></div>
+        </section>
+
+        <section class="sg-insights" style="margin-top:20px">
+          <div class="sg-section-head sg-section-head--compact"><div><div class="sg-eyebrow">LATEST AUCTIONS</div><h2>최근 장기물 입찰의 질</h2></div><p>Bid-to-Cover보다 Tail·Indirect·Dealer를 먼저 봅니다.</p></div>
+          <div class="sg-insights__grid">
+            {auctions.map((item) => <div><em>{item.key} · {item.data.date}</em><b>{item.data.quality}</b><p>Yield {item.data.highYield}% · B/C {item.data.bidToCover}<br/>Indirect {item.data.indirectPct}% · Dealer {item.data.dealerPct}%{typeof item.data.tailBp === 'number' ? ` · Tail ${item.data.tailBp}bp` : ''}</p></div>)}
+          </div>
+          <p style="margin-top:12px;color:#6b7a90;font-size:.82rem">TIC 기준월: {rates.series.foreignTreasuryHoldings.period} · 데이터 자동 갱신과 리서치 해석 업데이트는 분리 운영합니다.</p>
+        </section>
+
+        <div class="sg-section-head"><div><div class="sg-eyebrow">RESEARCH PATH</div><h2>국채 뉴스에서 투자 판단까지</h2></div><p>팩트 → 매수자 → 장기금리 → 입찰 → 가격 → 한국 전염 순서로 읽습니다.</p></div>
         <div class="sg-path ih-path">
           {research.map((item, index) => <article class={`sg-card ${index === 0 ? 'is-key' : ''}`}><div class="sg-card__no">{item.step}</div><div><div class="sg-card__role">{item.eyebrow}</div><h3><a href={item.href}>{item.title}</a></h3><p>{item.note}</p><div class="ih-thesis">{item.thesis}</div><div class="sg-card__foot"><span>미국 금리 리서치</span><a class="sg-card__cta" href={item.href}>읽기 →</a></div></div></article>)}
         </div>
 
-        <section class="sg-rule"><div class="sg-eyebrow">JOYLAB RATES FRAMEWORK</div><h2>Supply → Buyer → Yield → FX → Equity</h2><div class="sg-rule__grid"><div class="sg-rule__step"><b>SUPPLY</b><span>미 재정적자와 국채 발행량</span></div><div class="sg-rule__step"><b>BUYER</b><span>공식기관·민간·레버리지 자금</span></div><div class="sg-rule__step"><b>YIELD</b><span>10년물·30년물·입찰</span></div><div class="sg-rule__step"><b>TRANSMISSION</b><span>달러·원달러·KOSPI·반도체</span></div></div></section>
+        <section class="sg-rule"><div class="sg-eyebrow">JOYLAB RATES FRAMEWORK</div><h2>Supply → Buyer → Auction → Yield → FX → Equity</h2><div class="sg-rule__grid"><div class="sg-rule__step"><b>SUPPLY</b><span>재정적자와 발행량</span></div><div class="sg-rule__step"><b>BUYER</b><span>공식기관·민간·레버리지</span></div><div class="sg-rule__step"><b>AUCTION</b><span>Tail·Indirect·Dealer</span></div><div class="sg-rule__step"><b>TRANSMISSION</b><span>금리·달러·KOSPI</span></div></div></section>
       </section>
       <aside class="sg-rail">
-        <section class="sg-rail-card sg-rail-card--dark"><small>START HERE</small><h3>700억 달러 팩트체크</h3><p>과장된 숫자를 제거하고 구조적 위험부터 봅니다.</p><a href="/articles/china-us-treasury-holdings-2026">첫 리서치 →</a></section>
-        <section class="sg-rail-card"><small>LONG END</small><h3>30년물 5%대</h3><p>재정·공급·기간 프리미엄이 장기 자본비용을 어떻게 올리는지 봅니다.</p><a href="/articles/us-30y-treasury-5-percent-risk-2026">3편 리서치 →</a></section>
-        <section class="sg-rail-card"><small>AUTO UPDATE</small><h3>데이터와 해석을 분리</h3><p>시장 데이터는 자동 갱신하고, TIC 월간 변경 시 리서치 본문·차트는 검증 이슈를 생성해 PR로 업데이트합니다.</p></section>
+        <section class="sg-rail-card sg-rail-card--dark"><small>NEW</small><h3>미 국채 입찰 읽는 법</h3><p>수요의 양이 아니라 질을 판독합니다.</p><a href="/articles/how-to-read-us-treasury-auctions-2026">4편 리서치 →</a></section>
+        <section class="sg-rail-card"><small>RISK</small><h3>{rates.risk.grade} · {rates.risk.score}</h3><p>{rates.risk.summary}</p></section>
+        <section class="sg-rail-card"><small>RUNTIME</small><h3>TIC Monthly Research</h3><p>새 TIC 월이 감지되면 데이터 검증 → Editorial Issue → PR → Build → Deploy 순서로 갱신합니다.</p></section>
       </aside>
     </div>
   </main>

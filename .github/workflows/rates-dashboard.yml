@@ -59,15 +59,15 @@ jobs:
           git push origin HEAD:main
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Open TIC editorial update issue
+      - name: Open TIC Monthly Research Runtime issue
         if: steps.before.outputs.tic_period != steps.after.outputs.tic_period
         env:
           GH_TOKEN: ${{ github.token }}
           OLD_TIC: ${{ steps.before.outputs.tic_period }}
           NEW_TIC: ${{ steps.after.outputs.tic_period }}
         run: |
-          existing=$(gh issue list --state open --search "TIC editorial refresh ${NEW_TIC} in:title" --json number --jq '.[0].number // empty')
+          existing=$(gh issue list --state open --search "TIC Monthly Research ${NEW_TIC} in:title" --json number --jq '.[0].number // empty')
           if [ -n "$existing" ]; then exit 0; fi
           gh issue create \
-            --title "TIC editorial refresh ${NEW_TIC}" \
-            --body "## Trigger\nRates Dashboard detected a new U.S. Treasury TIC period: **${OLD_TIC} → ${NEW_TIC}**.\n\n## Required editorial update\n- [ ] Verify Major Foreign Holders Table 5 values\n- [ ] Update \`china-us-treasury-holdings-2026.md\`\n- [ ] Update \`who-buys-us-treasuries-2026.md\`\n- [ ] Regenerate major holders comparison chart / caption\n- [ ] Re-check China, Japan, UK and foreign-official deltas\n- [ ] Build green\n- [ ] Merge and production smoke test\n\n## Rule\nDashboard numbers may update automatically after plausibility checks. Research prose and editorial interpretation require source verification and PR review before publication."
+            --title "TIC Monthly Research ${NEW_TIC}" \
+            --body "## Trigger\nTIC Monthly Research Runtime detected a new U.S. Treasury TIC period: **${OLD_TIC} → ${NEW_TIC}**.\n\nRuntime spec: \`docs/operations/tic-monthly-research-runtime.md\`\n\n## Required validation\n- [ ] Verify Grand Total / Foreign Official holdings\n- [ ] Verify China / Japan / United Kingdom\n- [ ] Reconcile MoM and YoY deltas\n- [ ] Separate holdings change from monthly transaction flow\n- [ ] Update \`china-us-treasury-holdings-2026.md\`\n- [ ] Update \`who-buys-us-treasuries-2026.md\`\n- [ ] Regenerate comparison chart / captions\n- [ ] Re-evaluate Rates Dashboard risk grade\n- [ ] Build green\n- [ ] Merge → Cloudflare deploy → production smoke\n\n## Rule\nNumbers may refresh automatically after plausibility checks. Research prose, crisis language and investment interpretation require verified source review and PR approval."
