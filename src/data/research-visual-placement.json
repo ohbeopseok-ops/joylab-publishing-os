@@ -11,13 +11,6 @@
       {"index": 1, "afterHeading": "가동률과 CAPEX"}
     ]
   },
-  "samsung-vs-sk-hynix-ai-memory": {
-    "supporting": [
-      {"index": 0, "afterHeading": "삼성전자"},
-      {"index": 1, "afterHeading": "SK하이닉스"},
-      {"index": 2, "afterHeading": "비교"}
-    ]
-  },
   "ai-power-next-bottleneck": {
     "supporting": [
       {"index": 0, "afterHeading": "발전소 다음 병목"},
