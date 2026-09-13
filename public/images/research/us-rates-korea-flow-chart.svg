@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">삼성전자와 SK하이닉스 외국인 순매도 비교</title>
+  <desc id="desc">2026년 9월 10일과 11일 삼성전자와 SK하이닉스 외국인 순매도 규모를 비교한 JoyLab 데이터 차트</desc>
+  <rect width="1600" height="900" fill="#F7FAFE"/>
+  <text x="110" y="105" fill="#0B1F4D" font-family="Arial, sans-serif" font-size="30" font-weight="700">JOYLAB DATA CHART</text>
+  <text x="110" y="180" fill="#0B1F4D" font-family="Arial, sans-serif" font-size="54" font-weight="800">외국인은 반도체 대형주를 얼마나 팔았나</text>
+  <text x="110" y="235" fill="#5D718E" font-family="Arial, sans-serif" font-size="28">2026년 9월 10~11일 외국인 순매도 · 단위: 조원</text>
+
+  <g transform="translate(150 335)">
+    <line x1="0" y1="360" x2="1260" y2="360" stroke="#B9C7D8" stroke-width="2"/>
+    <line x1="0" y1="240" x2="1260" y2="240" stroke="#DFE7F1"/><line x1="0" y1="120" x2="1260" y2="120" stroke="#DFE7F1"/>
+    <text x="-30" y="368" text-anchor="end" fill="#71829A" font-size="24" font-family="Arial, sans-serif">0</text>
+    <text x="-30" y="248" text-anchor="end" fill="#71829A" font-size="24" font-family="Arial, sans-serif">1.0</text>
+    <text x="-30" y="128" text-anchor="end" fill="#71829A" font-size="24" font-family="Arial, sans-serif">2.0</text>
+    <text x="-30" y="8" text-anchor="end" fill="#71829A" font-size="24" font-family="Arial, sans-serif">3.0</text>
+
+    <rect x="180" y="191" width="180" height="169" rx="12" fill="#1677FF"/>
+    <rect x="400" y="146" width="180" height="214" rx="12" fill="#0B1F4D"/>
+    <rect x="760" y="250" width="180" height="110" rx="12" fill="#1677FF"/>
+    <rect x="980" y="231" width="180" height="129" rx="12" fill="#0B1F4D"/>
+
+    <text x="270" y="178" text-anchor="middle" fill="#1677FF" font-family="Arial, sans-serif" font-size="28" font-weight="800">1.406</text>
+    <text x="490" y="133" text-anchor="middle" fill="#0B1F4D" font-family="Arial, sans-serif" font-size="28" font-weight="800">1.780</text>
+    <text x="850" y="237" text-anchor="middle" fill="#1677FF" font-family="Arial, sans-serif" font-size="28" font-weight="800">0.917</text>
+    <text x="1070" y="218" text-anchor="middle" fill="#0B1F4D" font-family="Arial, sans-serif" font-size="28" font-weight="800">1.077</text>
+
+    <text x="380" y="425" text-anchor="middle" fill="#0B1F4D" font-family="Arial, sans-serif" font-size="30" font-weight="800">9월 10일</text>
+    <text x="960" y="425" text-anchor="middle" fill="#0B1F4D" font-family="Arial, sans-serif" font-size="30" font-weight="800">9월 11일</text>
+
+    <rect x="310" y="485" width="28" height="28" rx="4" fill="#1677FF"/><text x="352" y="507" fill="#425B7A" font-family="Arial, sans-serif" font-size="26">삼성전자</text>
+    <rect x="535" y="485" width="28" height="28" rx="4" fill="#0B1F4D"/><text x="577" y="507" fill="#425B7A" font-family="Arial, sans-serif" font-size="26">SK하이닉스</text>
+  </g>
+
+  <g transform="translate(110 775)">
+    <rect width="1380" height="82" rx="18" fill="#E8F1FF"/>
+    <text x="36" y="52" fill="#0B1F4D" font-family="Arial, sans-serif" font-size="28" font-weight="700">2일 합계</text>
+    <text x="220" y="52" fill="#1677FF" font-family="Arial, sans-serif" font-size="28" font-weight="800">삼성전자 2.323조원</text>
+    <text x="600" y="52" fill="#0B1F4D" font-family="Arial, sans-serif" font-size="28" font-weight="800">SK하이닉스 2.857조원</text>
+    <text x="1030" y="52" fill="#C2410C" font-family="Arial, sans-serif" font-size="30" font-weight="900">총 5.180조원</text>
+  </g>
+</svg>
