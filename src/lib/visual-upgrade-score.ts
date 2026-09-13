@@ -17,6 +17,8 @@ export type VisualUpgradeInput = {
   title: string;
   visualMode: 'AUTO-BASELINE'|'CURATED/EXISTING';
   views?: number | null;
+  searchClicks?: number | null;
+  searchImpressions?: number | null;
   dwellSeconds?: number | null;
   ctrPercent?: number | null;
   internalLinkPercent?: number | null;
@@ -39,18 +41,21 @@ export function scoreVisualUpgradeQueue(
   rules: VisualUpgradeRules
 ): VisualUpgradeResult[] {
   const eligible = rows.filter((row) => row.visualMode === 'AUTO-BASELINE');
-  const maxViews = Math.max(1, ...eligible.map((row) => present(row.views) ? row.views : 0));
+  const trafficValue = (row: VisualUpgradeInput) => present(row.views) ? row.views : (present(row.searchClicks) ? row.searchClicks : null);
+  const maxTraffic = Math.max(1, ...eligible.map((row) => trafficValue(row) ?? 0));
 
   return rows.map((row) => {
     if (row.visualMode !== 'AUTO-BASELINE') {
       return { ...row, score: 0, confidence: 'HIGH', coverage: 1, status: 'INELIGIBLE', reasons: ['이미 CURATED 상태'] };
     }
 
+    const traffic = trafficValue(row);
+    const trafficLabel = present(row.views) ? '사이트 조회수' : '검색 클릭';
     const components: Array<{ key: keyof VisualUpgradeRules['weights']; value: number | null; reason: string }> = [
-      { key: 'traffic', value: present(row.views) ? clamp01(row.views / maxViews) : null, reason: '조회수' },
-      { key: 'dwell', value: present(row.dwellSeconds) ? clamp01(row.dwellSeconds / rules.normalization.dwell.targetSeconds) : null, reason: '체류시간' },
+      { key: 'traffic', value: present(traffic) ? clamp01(traffic / maxTraffic) : null, reason: trafficLabel },
+      { key: 'dwell', value: present(row.dwellSeconds) ? clamp01(row.dwellSeconds / rules.normalization.dwell.targetSeconds) : null, reason: '60초 체류율' },
       { key: 'ctr', value: present(row.ctrPercent) ? clamp01(row.ctrPercent / rules.normalization.ctr.targetPercent) : null, reason: '검색 CTR' },
-      { key: 'internalLink', value: present(row.internalLinkPercent) ? clamp01(row.internalLinkPercent / rules.normalization.internalLink.targetPercent) : null, reason: '내부링크 유입률' },
+      { key: 'internalLink', value: present(row.internalLinkPercent) ? clamp01(row.internalLinkPercent / rules.normalization.internalLink.targetPercent) : null, reason: '내부링크 클릭률' },
       { key: 'strategicPriority', value: clamp01(row.strategicPriority / rules.normalization.strategicPriority.max), reason: '전략 중요도' }
     ];
 
