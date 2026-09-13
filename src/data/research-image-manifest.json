@@ -1,0 +1,97 @@
+{
+  "china-us-treasury-holdings-2026": {
+    "hero": {
+      "src": "/images/research/china-us-treasury-editorial-hero.svg",
+      "alt": "중국의 미국 국채 보유 감소와 6334억 달러 보유액을 보여주는 JoyLab 금융 에디토리얼 대표 이미지",
+      "caption": "중국 단독 매도보다 중요한 것은 미국 국채의 매수자 구조가 어떻게 바뀌는가입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/us-treasury-major-holders-jun-2026.svg",
+        "alt": "2026년 6월 일본 영국 중국의 미국 국채 보유액 비교 차트",
+        "caption": "2026년 6월 주요 해외 보유국 비교. Source: U.S. Treasury TIC."
+      },
+      {
+        "src": "/images/research/china-us-treasury-buyer-regime.svg",
+        "alt": "미국 국채 매수자가 중앙은행에서 민간과 레버리지 자금으로 이동하는 구조를 설명한 인포그래픽",
+        "caption": "핵심 변화는 중국 단독 매도가 아니라 Buyer Regime의 변화입니다."
+      }
+    ]
+  },
+  "who-buys-us-treasuries-2026": {
+    "hero": {
+      "src": "/images/research/us-treasury-buyers-editorial-hero.svg",
+      "alt": "일본 영국 중국과 글로벌 금융허브를 연결해 미국 국채 매수자 지형도를 표현한 JoyLab 대표 이미지",
+      "caption": "미국 국채는 국가별 보유액뿐 아니라 수탁·민간·레버리지 자금까지 함께 봐야 합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/us-treasury-major-holders-jun-2026.svg",
+        "alt": "2026년 6월 미국 국채 주요 해외 보유국 비교 차트",
+        "caption": "일본 1.1167조 달러, 영국 9399억 달러, 중국 6334억 달러."
+      },
+      {
+        "src": "/images/research/us-treasury-official-private-chart.svg",
+        "alt": "2026년 6월 외국 공식기관과 민간 투자자의 장기 미국 증권 순매수를 비교한 차트",
+        "caption": "잔액 변화와 거래 흐름을 분리해서 봐야 Buyer Map이 정확해집니다."
+      }
+    ]
+  },
+  "us-30y-treasury-5-percent-risk-2026": {
+    "hero": {
+      "src": "/images/research/us-30y-editorial-hero.svg",
+      "alt": "미국 30년물 5.38퍼센트와 장기 재정 리스크를 표현한 JoyLab 금융 에디토리얼 대표 이미지",
+      "caption": "10년물은 가격 경계선이고, 30년물 5.3%대는 구조 경계선입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/us-30y-vs-10y-compare.svg",
+        "alt": "미국 10년물과 30년물 금리의 역할과 시장 영향을 비교한 인포그래픽",
+        "caption": "같은 장기금리라도 10년물과 30년물이 전달하는 신호는 다릅니다."
+      },
+      {
+        "src": "/images/research/us-30y-fiscal-loop.svg",
+        "alt": "재정적자와 국채 공급 증가가 장기금리와 이자비용을 높이는 재정 루프 인포그래픽",
+        "caption": "적자 확대 → 공급 증가 → 장기금리 상승 → 이자비용 증가의 구조를 추적합니다."
+      }
+    ]
+  },
+  "how-to-read-us-treasury-auctions-2026": {
+    "hero": {
+      "src": "/images/research/treasury-auction-editorial-hero.svg",
+      "alt": "미국 국채 입찰에서 Tail Indirect Dealer 지표를 강조한 JoyLab 금융 에디토리얼 대표 이미지",
+      "caption": "Bid-to-Cover는 수요의 양을, Tail·Indirect·Dealer는 수요의 질을 보여줍니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/treasury-auction-reading-order.svg",
+        "alt": "미국 국채 입찰을 Tail Indirect Dealer Bid-to-Cover 사후금리 순으로 읽는 인포그래픽",
+        "caption": "입찰은 Tail → Indirect → Dealer → B/C → 사후 금리 반응 순으로 읽습니다."
+      },
+      {
+        "src": "/images/research/treasury-auction-sep2026-chart.svg",
+        "alt": "2026년 9월 미국 10년물과 30년물 국채 입찰 결과 비교 차트",
+        "caption": "9월 10Y·30Y 입찰은 높은 금리에서도 최종 실수요가 강했던 사례입니다."
+      }
+    ]
+  },
+  "us-rates-korea-semiconductor-transmission-2026": {
+    "hero": {
+      "src": "/images/research/us-rates-korea-transmission-hero.svg",
+      "alt": "미국 금리 상승이 원달러와 외국인 수급을 거쳐 삼성전자와 SK하이닉스에 전달되는 JoyLab 금융 에디토리얼 대표 이미지",
+      "caption": "미국 금리는 실적을 바꾸기 전에 외국인이 그 실적에 지불할 가격을 바꿉니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/us-rates-korea-transmission-infographic.svg",
+        "alt": "미국 10년물에서 EPS Revision까지 이어지는 7단계 한국 반도체 전염경로 인포그래픽",
+        "caption": "US 10Y → US 30Y → Auction → USD/KRW → KOSPI 외국인 → 반도체 수급 → EPS Revision."
+      },
+      {
+        "src": "/images/research/us-rates-korea-flow-chart.svg",
+        "alt": "2026년 9월 10일과 11일 삼성전자와 SK하이닉스 외국인 순매도 비교 차트",
+        "caption": "이틀간 삼성전자·SK하이닉스 외국인 순매도 합계는 약 5.18조원입니다."
+      }
+    ]
+  }
+}
