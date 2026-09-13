@@ -19,6 +19,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Diagnose staged hero chunks
+        shell: bash
+        run: |
+          set -euo pipefail
+          wc -c .tmp/openai-data-agent-hero/part*.b64
+          sha256sum .tmp/openai-data-agent-hero/part*.b64
+
       - name: Rebuild hero WebP
         shell: bash
         run: |
