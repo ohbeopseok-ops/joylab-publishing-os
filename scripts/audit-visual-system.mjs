@@ -182,3 +182,12 @@ for (const row of audit) {
     reason: row.reason
   }));
 }
+
+const invalidAnchorRows = audit.filter((row) => row.invalidAnchors.length > 0);
+if (invalidAnchorRows.length > 0) {
+  console.error(`\nVisual Audit FAILED: ${invalidAnchorRows.length} article(s) have unmatched semantic anchors.`);
+  for (const row of invalidAnchorRows) {
+    console.error(`- ${row.id}: ${row.invalidAnchors.join(', ')}`);
+  }
+  process.exitCode = 1;
+}
