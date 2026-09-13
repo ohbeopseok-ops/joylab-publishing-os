@@ -3,6 +3,7 @@ import path from 'node:path';
 import { execSync } from 'node:child_process';
 
 const root = process.cwd();
+execSync('node scripts/apply-curated-research-images.mjs', { stdio: 'inherit' });
 const articleDir = path.join(root, 'src/data/articles');
 const manifestPath = path.join(root, 'src/data/research-image-manifest.json');
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
@@ -63,7 +64,6 @@ for (const name of fs.readdirSync(articleDir).filter((name) => name.endsWith('.m
   }
 }
 
-// Forward gate: newly added published series research must satisfy the same contract in the PR.
 if (process.env.GITHUB_EVENT_NAME === 'pull_request' && process.env.GITHUB_BASE_REF) {
   try {
     execSync(`git fetch origin ${process.env.GITHUB_BASE_REF} --depth=1`, { stdio: 'ignore' });
