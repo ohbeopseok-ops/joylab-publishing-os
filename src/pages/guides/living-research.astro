@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import '../../styles/investment-hub-v2.css';
+import manifests from '../../data/living-research-pillars.json';
+
+const pillars = [
+  {
+    key: 'us-rates',
+    title: '미국 금리',
+    status: 'REFERENCE · PILOT',
+    route: '/guides/us-rates',
+    thesis: 'Supply → Buyer → Auction → Yield → FX → Equity',
+    note: '실제 자동 데이터·점수 엔진·월간 TIC Runtime까지 구현된 기준 Pillar.'
+  },
+  {
+    key: 'semiconductor-investing',
+    title: '반도체 투자',
+    status: 'REPLICATION READY',
+    route: '/guides/semiconductor-investing',
+    thesis: 'Demand → Memory Price → EPS Revision → Foreign Flow → Price',
+    note: 'HBM·메모리가격·EPS Revision·삼성전자/SK하이닉스 수급을 같은 구조로 연결.'
+  },
+  {
+    key: 'ai-power',
+    title: 'AI 전력',
+    status: 'REPLICATION READY',
+    route: '/guides/ai-power',
+    thesis: 'Compute → Power → Generation → Grid → Transformer → Cooling',
+    note: 'AI 데이터센터 전력 병목을 수요·수주·리드타임·Capex 전환으로 추적.'
+  }
+];
+---
+<BaseLayout
+  title="Living Research｜계속 업데이트되는 JoyLab 리서치 시스템"
+  description="JoyLab Living Research는 Source→Signal→Research→Transmission→Scenario→Runtime으로 이어지는 운영형 리서치 모델입니다."
+  bodyClass="semiconductor-guide-v2 investment-hub-v2"
+>
+  <section class="sg-hero ih-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__copy">
+        <div class="sg-eyebrow">JOYLAB RESEARCH SYSTEM · V{manifests.version}</div>
+        <h1>읽고 끝나는 리서치가 아니라<br/><span>계속 살아있는 판단 시스템.</span></h1>
+        <p class="sg-hero__lead"><strong>Source → Signal → Research → Transmission → Scenario → Runtime</strong>. 숫자는 검증 후 자동 갱신하고, 해석은 PR로 통제합니다.</p>
+        <div class="sg-hero__chips"><span>#LivingResearch</span><span>#DataDriven</span><span>#ScoreEngine</span><span>#EditorialRuntime</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="sg-main">
+    <div class="sg-wrap">
+      <div class="sg-section-head"><div><div class="sg-eyebrow">PILLARS</div><h2>Reference → Replication</h2></div><p>미국 금리에서 검증한 운영 구조를 반도체와 AI전력에 확장합니다.</p></div>
+      <div class="sg-path ih-path">
+        {pillars.map((p, index) => <article class={`sg-card ${index === 0 ? 'is-key' : ''}`}><div class="sg-card__no">0{index + 1}</div><div><div class="sg-card__role">{p.status}</div><h3><a href={p.route}>{p.title}</a></h3><p>{p.note}</p><div class="ih-thesis">{p.thesis}</div><div class="sg-card__foot"><span>Living Research</span><a class="sg-card__cta" href={p.route}>Pillar 열기 →</a></div></div></article>)}
+      </div>
+
+      <section class="sg-rule"><div class="sg-eyebrow">OPERATING CONTRACT</div><h2>숫자는 자동화하고, 해석은 검증한다</h2><div class="sg-rule__grid"><div class="sg-rule__step"><b>SOURCE</b><span>1차·권위 데이터</span></div><div class="sg-rule__step"><b>SIGNAL</b><span>검증·점수화</span></div><div class="sg-rule__step"><b>EDITORIAL</b><span>해석 변경 PR Gate</span></div><div class="sg-rule__step"><b>SHIP</b><span>Build→Deploy→Smoke</span></div></div></section>
+    </div>
+  </main>
+</BaseLayout>
