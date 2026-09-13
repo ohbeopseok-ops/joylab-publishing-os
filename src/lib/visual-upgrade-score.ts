@@ -9,7 +9,14 @@ export type VisualUpgradeRules = {
     strategicPriority: { method: 'percent'; max: number };
   };
   thresholds: { CURATE_NOW: number; QUEUE: number; MONITOR: number };
-  dataQuality: { high: number; medium: number; low: number; fallback: string; fallbackStatus: string };
+  dataQuality: {
+    high: number;
+    medium: number;
+    low: number;
+    minimumCtrImpressions: number;
+    fallback: string;
+    fallbackStatus: string;
+  };
 };
 
 export type VisualUpgradeInput = {
@@ -51,10 +58,14 @@ export function scoreVisualUpgradeQueue(
 
     const traffic = trafficValue(row);
     const trafficLabel = present(row.views) ? '사이트 조회수' : '검색 클릭';
+    const ctrEligible = present(row.ctrPercent)
+      && present(row.searchImpressions)
+      && row.searchImpressions >= rules.dataQuality.minimumCtrImpressions;
+
     const components: Array<{ key: keyof VisualUpgradeRules['weights']; value: number | null; reason: string }> = [
       { key: 'traffic', value: present(traffic) ? clamp01(traffic / maxTraffic) : null, reason: trafficLabel },
       { key: 'dwell', value: present(row.dwellSeconds) ? clamp01(row.dwellSeconds / rules.normalization.dwell.targetSeconds) : null, reason: '60초 체류율' },
-      { key: 'ctr', value: present(row.ctrPercent) ? clamp01(row.ctrPercent / rules.normalization.ctr.targetPercent) : null, reason: '검색 CTR' },
+      { key: 'ctr', value: ctrEligible ? clamp01((row.ctrPercent as number) / rules.normalization.ctr.targetPercent) : null, reason: ctrEligible ? '검색 CTR' : `검색 CTR 제외(<${rules.dataQuality.minimumCtrImpressions} impressions)` },
       { key: 'internalLink', value: present(row.internalLinkPercent) ? clamp01(row.internalLinkPercent / rules.normalization.internalLink.targetPercent) : null, reason: '내부링크 클릭률' },
       { key: 'strategicPriority', value: clamp01(row.strategicPriority / rules.normalization.strategicPriority.max), reason: '전략 중요도' }
     ];
@@ -81,6 +92,10 @@ export function scoreVisualUpgradeQueue(
       .sort((a,b) => (b.value * rules.weights[b.key]) - (a.value * rules.weights[a.key]))
       .slice(0, 3)
       .map((c) => `${c.reason} ${Math.round(c.value * 100)}%`);
+
+    if (present(row.ctrPercent) && !ctrEligible) {
+      rankedReasons.push(`CTR은 GSC 노출 ${row.searchImpressions ?? 0}회로 표본 부족`);
+    }
 
     return { ...row, score: normalized, confidence, coverage, status, reasons: rankedReasons };
   }).sort((a,b) => {
