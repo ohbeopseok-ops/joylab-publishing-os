@@ -3,6 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/semiconductor-guide-v2.css';
 import '../../styles/investment-hub-v2.css';
 import manifests from '../../data/living-research-pillars.json';
+import scoringRules from '../../data/visual-upgrade-scoring.json';
+import visualInputs from '../../data/visual-upgrade-input.json';
+import { scoreVisualUpgradeQueue } from '../../lib/visual-upgrade-score';
 
 const pillars = [
   {
@@ -16,20 +19,24 @@ const pillars = [
   {
     key: 'semiconductor-investing',
     title: '반도체 투자',
-    status: 'REPLICATION READY',
+    status: 'CURATED VISUALS',
     route: '/guides/semiconductor-investing',
     thesis: 'Demand → Memory Price → EPS Revision → Foreign Flow → Price',
-    note: 'HBM·메모리가격·EPS Revision·삼성전자/SK하이닉스 수급을 같은 구조로 연결.'
+    note: '삼성전자·SK하이닉스·HBM·반도체 사이클 4개 핵심 리서치를 CURATED 시각화로 승격.'
   },
   {
     key: 'ai-power',
     title: 'AI 전력',
-    status: 'REPLICATION READY',
+    status: 'CURATED VISUALS',
     route: '/guides/ai-power',
     thesis: 'Compute → Power → Generation → Grid → Transformer → Cooling',
-    note: 'AI 데이터센터 전력 병목을 수요·수주·리드타임·Capex 전환으로 추적.'
+    note: 'AI 전력 11개 리서치를 글별 Hero + 밸류체인·병목·기업 비교 시각화로 승격.'
   }
 ];
+
+const visualQueue = scoreVisualUpgradeQueue(visualInputs as any, scoringRules as any)
+  .filter((item) => item.status !== 'INELIGIBLE')
+  .slice(0, 6);
 ---
 <BaseLayout
   title="Living Research｜계속 업데이트되는 JoyLab 리서치 시스템"
@@ -55,6 +62,25 @@ const pillars = [
       </div>
 
       <section class="sg-rule"><div class="sg-eyebrow">OPERATING CONTRACT</div><h2>숫자는 자동화하고, 해석은 검증한다</h2><div class="sg-rule__grid"><div class="sg-rule__step"><b>SOURCE</b><span>1차·권위 데이터</span></div><div class="sg-rule__step"><b>SIGNAL</b><span>검증·점수화</span></div><div class="sg-rule__step"><b>EDITORIAL</b><span>해석 변경 PR Gate</span></div><div class="sg-rule__step"><b>SHIP</b><span>Build→Deploy→Smoke</span></div></div></section>
+
+      <section style="margin-top:48px">
+        <div class="sg-section-head"><div><div class="sg-eyebrow">VISUAL UPGRADE QUEUE · V{scoringRules.version}</div><h2>AUTO → CURATED 다음 승격 후보</h2></div><p>Traffic 30 · Dwell 25 · CTR 20 · Internal Link 10 · Strategic Priority 15. 데이터가 부족하면 PROVISIONAL로 표시합니다.</p></div>
+        <div class="sg-path ih-path">
+          {visualQueue.map((item, index) => (
+            <article class={`sg-card ${index === 0 ? 'is-key' : ''}`}>
+              <div class="sg-card__no">{String(index + 1).padStart(2,'0')}</div>
+              <div>
+                <div class="sg-card__role">{item.status} · {item.confidence} CONFIDENCE</div>
+                <h3><a href={`/articles/${item.id}`}>{item.title}</a></h3>
+                <p>Visual Upgrade Score <strong>{item.score}/100</strong> · 데이터 커버리지 {Math.round(item.coverage * 100)}%</p>
+                <div class="ih-thesis">{item.reasons.join(' · ')}</div>
+                <div class="sg-card__foot"><span>{item.visualMode}</span><a class="sg-card__cta" href={`/articles/${item.id}`}>리서치 보기 →</a></div>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p style="margin-top:18px;color:#6b7a90;font-size:.88rem;line-height:1.65">현재 Search Console·체류시간·내부링크 실측치가 연결되지 않은 후보는 전략 중요도 기반 PROVISIONAL 순위입니다. 실제 데이터가 들어오면 동일 엔진이 자동 재계산합니다.</p>
+      </section>
     </div>
   </main>
 </BaseLayout>
