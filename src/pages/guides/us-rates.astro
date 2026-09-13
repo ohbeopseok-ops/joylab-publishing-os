@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import '../../styles/investment-hub-v2.css';
+
+const research = [
+  {
+    step: '01',
+    eyebrow: 'FACT CHECK',
+    title: '중국 미 국채 보유 2008년 이후 최저',
+    href: '/articles/china-us-treasury-holdings-2026',
+    thesis: '700억 달러 투매 주장 → 공식 TIC 검증 → 진짜 구조 변화',
+    note: '보유액 감소와 실제 순매도를 분리하고 10년물 5%의 의미를 연결합니다.'
+  },
+  {
+    step: '02',
+    eyebrow: 'BUYER MAP',
+    title: '미국 국채는 지금 누가 사고 누가 파나',
+    href: '/articles/who-buys-us-treasuries-2026',
+    thesis: '일본 → 영국 → 중국 → 금융센터 → 공식기관 → 민간 자금',
+    note: '국가별 보유액보다 매수자의 성격과 안정성을 봅니다.'
+  },
+  {
+    step: '03',
+    eyebrow: 'PRICE SIGNAL',
+    title: '미국 10년물 5% 경계',
+    href: '/articles/china-us-treasury-holdings-2026#5-price-signal--그래서-10년물-5가-중요하다',
+    thesis: '국채 공급 → 수익률 → 무위험금리 → PER → 성장주',
+    note: '5%가 채권 숫자가 아니라 글로벌 자산배분 기준이 되는 이유를 봅니다.'
+  },
+  {
+    step: '04',
+    eyebrow: 'KOREA TRANSMISSION',
+    title: '원달러·KOSPI·반도체 전염경로',
+    href: '/articles/china-us-treasury-holdings-2026#6-transmission--한국-증시로-어떻게-전염되는가',
+    thesis: '미 금리 → 달러 → 원달러 → 외국인 → KOSPI → 반도체',
+    note: '미국 장기금리 충격이 한국 투자자에게 전달되는 순서를 정리합니다.'
+  }
+];
+---
+<BaseLayout
+  title="미국 금리 리서치｜10년물·30년물·TIC·원달러·KOSPI | JoyLab"
+  description="JoyLab 미국 금리 리서치 허브. 미국 국채 TIC, 10년물·30년물 금리, 국채 매수자 구조, 원달러와 KOSPI 전염경로를 하나의 프레임으로 연결합니다."
+  bodyClass="semiconductor-guide-v2 investment-hub-v2"
+>
+  <section class="sg-hero ih-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">U.S. RATES RESEARCH · JOYLAB</div>
+          <h1>미국 금리를<br /><span>전염경로로 읽습니다.</span></h1>
+          <p class="sg-hero__lead">10년물 숫자 하나만 보지 않습니다. <strong>국채 공급 → 매수자 → 금리 → 달러 → 한국 증시</strong>를 연결해 어떤 신호가 실제 위험인지 판단합니다.</p>
+          <div class="sg-hero__chips"><span>#미국10년물</span><span>#미국30년물</span><span>#TIC</span><span>#원달러</span><span>#KOSPI</span></div>
+          <div class="sg-hero__meta"><span><strong>4</strong> Research Layers</span><span><strong>5%</strong> Key Threshold</span><span><strong>5</strong> Watch Indicators</span></div>
+        </div>
+        <aside class="sg-lens">
+          <div class="sg-lens__brand">JOYLAB<br /><b>RATES</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>FACT</b><span>TIC·입찰·금리를 먼저 확인합니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>STRUCTURE</b><span>누가 사고 누가 파는지 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>TRANSMISSION</b><span>달러와 한국 증시까지 연결합니다.</span></div></div>
+        </aside>
+      </div>
+      <div class="sg-map-head"><div><span>START HERE</span><b>미국 금리 Research Map</b></div><a href="#research">리서치 순서 보기 →</a></div>
+      <nav class="sg-map ih-map">
+        {research.map((item, index) => <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={item.href}><em>{item.step}</em><b>{item.eyebrow}</b><span>{index === 0 ? '검증' : index === 1 ? '구조' : index === 2 ? '가격' : '전염'}</span></a>)}
+      </nav>
+    </div>
+  </section>
+
+  <main class="sg-main" id="research">
+    <div class="sg-wrap sg-layout">
+      <section>
+        <div class="sg-section-head"><div><div class="sg-eyebrow">RESEARCH PATH</div><h2>국채 뉴스에서 투자 판단까지</h2></div><p>팩트체크에서 시작해 매수자 구조, 금리 가격신호, 한국 증시 전염경로 순서로 읽습니다.</p></div>
+        <div class="sg-path ih-path">
+          {research.map((item, index) => <article class={`sg-card ${index === 0 ? 'is-key' : ''}`}><div class="sg-card__no">{item.step}</div><div><div class="sg-card__role">{item.eyebrow}</div><h3><a href={item.href}>{item.title}</a></h3><p>{item.note}</p><div class="ih-thesis">{item.thesis}</div><div class="sg-card__foot"><span>미국 금리 리서치</span><a class="sg-card__cta" href={item.href}>읽기 →</a></div></div></article>)}
+        </div>
+
+        <section class="sg-insights"><div class="sg-section-head sg-section-head--compact"><div><div class="sg-eyebrow">LIVE FRAME</div><h2>현재 핵심 숫자</h2></div></div><div class="sg-insights__grid"><div><em>10Y</em><b>5% 경계</b><p>9월 11일 장중 4.9915%. 5% 위 안착 여부가 핵심입니다.</p></div><div><em>CHINA</em><b>$633.4B</b><p>2026년 6월 중국 본토 미 국채 보유액입니다.</p></div><div><em>FOREIGN TOTAL</em><b>$9.299T</b><p>전체 외국인 보유액. 전월보다 약 721억 달러 감소했습니다.</p></div></div></section>
+
+        <section class="sg-rule"><div class="sg-eyebrow">JOYLAB RATES FRAMEWORK</div><h2>Supply → Buyer → Yield → FX → Equity</h2><div class="sg-rule__grid"><div class="sg-rule__step"><b>SUPPLY</b><span>미 재정적자와 국채 발행량</span></div><div class="sg-rule__step"><b>BUYER</b><span>공식기관·민간·레버리지 자금</span></div><div class="sg-rule__step"><b>YIELD</b><span>10년물·30년물·입찰</span></div><div class="sg-rule__step"><b>TRANSMISSION</b><span>달러·원달러·KOSPI·반도체</span></div></div></section>
+      </section>
+      <aside class="sg-rail">
+        <section class="sg-rail-card sg-rail-card--dark"><small>START HERE</small><h3>700억 달러 팩트체크</h3><p>과장된 숫자를 제거하고 구조적 위험부터 봅니다.</p><a href="/articles/china-us-treasury-holdings-2026">첫 리서치 →</a></section>
+        <section class="sg-rail-card"><small>BUYER MAP</small><h3>누가 미국 국채를 사나</h3><p>중국·일본·영국·금융센터와 민간 자금의 역할을 비교합니다.</p><a href="/articles/who-buys-us-treasuries-2026">매수자 지형도 →</a></section>
+        <section class="sg-rail-card"><small>WATCHLIST</small><h3>5개 지표만 추적</h3><p>10년물, 30년물, 국채 입찰, 외국 공식기관 TIC, Repo/Basis Trade를 봅니다.</p></section>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>
