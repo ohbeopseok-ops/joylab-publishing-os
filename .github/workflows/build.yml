@@ -33,6 +33,14 @@ jobs:
       - name: Research Image Gate
         run: node scripts/check-research-images.mjs
 
+      - name: Check Visual Runtime syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check scripts/sync-cloudflare-visual-metrics.mjs
+          node --check scripts/sync-gsc-visual-metrics.mjs
+          node --check scripts/visual-upgrade-runtime.mjs
+
       - name: Install locked dependencies
         run: npm ci
 
@@ -42,7 +50,7 @@ jobs:
       - name: Full dependency audit snapshot
         run: npm audit || true
 
-      - name: Test Click Analytics V1 Worker contract
+      - name: Test Click Analytics V2 Worker contract
         run: node scripts/test-click-analytics.mjs
 
       - name: Check Production Health script syntax
@@ -61,7 +69,7 @@ jobs:
           grep -Fq '"sameAs":["https://blog.naver.com/joy014","https://www.instagram.com/aijoylab/"]' dist/index.html
           grep -Fq '"sameAs":["https://www.threads.com/@ohbeopseok","https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/"]' dist/index.html
 
-      - name: Verify Click Analytics V1 contract
+      - name: Verify Click Analytics V2 contract
         shell: bash
         run: |
           set -euo pipefail
@@ -70,11 +78,16 @@ jobs:
           grep -Fq "url.pathname === '/__analytics/event'" worker/index.js
           grep -Fq "contact_mail_click" worker/index.js
           grep -Fq "social_click" worker/index.js
+          grep -Fq "article_view" worker/index.js
+          grep -Fq "article_dwell_60" worker/index.js
+          grep -Fq "article_internal_link_click" worker/index.js
           grep -Fq "smoke_test" worker/index.js
           grep -Fq "/__analytics/event" dist/index.html
           grep -Fq 'data-analytics-event="social_click"' dist/index.html
           grep -R -Fq 'data-analytics-event="article_contact_click"' dist/articles
+          grep -R -Fq "article_dwell_60" dist/articles
           grep -R -Fq 'Cloudflare Workers Analytics Engine' dist/privacy
+          grep -R -Fq '60초 이상 활성 체류' dist/privacy
 
       - name: Upload dist artifact
         uses: actions/upload-artifact@v6
