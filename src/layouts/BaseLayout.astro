@@ -11,9 +11,11 @@ const {
   description = '생각 → 분석 → 실행 → 성장. 투자·경제, AI·생산성, 성장·리더십을 연결하는 독립 콘텐츠 플랫폼.',
   canonical,
   type = 'website',
-  bodyClass = ''
+  bodyClass = '',
+  image
 } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
+const socialImageUrl = image ? new URL(image, Astro.site ?? Astro.url.origin).toString() : undefined;
 const showArticleContactCta = String(bodyClass).split(/\s+/).includes('research-article-page');
 ---
 <!doctype html>
@@ -29,7 +31,13 @@ const showArticleContactCta = String(bodyClass).split(/\s+/).includes('research-
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
+    {socialImageUrl && <meta property="og:image" content={socialImageUrl} />}
+    {socialImageUrl && <meta property="og:image:width" content="1600" />}
+    {socialImageUrl && <meta property="og:image:height" content="900" />}
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {socialImageUrl && <meta name="twitter:image" content={socialImageUrl} />}
     <IdentitySchema />
     <title>{title}</title>
   </head>

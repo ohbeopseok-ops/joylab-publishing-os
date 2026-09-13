@@ -30,20 +30,30 @@ export async function getStaticPaths() {
 const { article, related } = Astro.props;
 const { Content } = await render(article);
 const title = article.data.seoTitle ?? article.data.title;
+const heroImage = article.data.heroImage;
+const articleImage = article.data.ogImage ?? heroImage;
+const articleImageUrl = articleImage ? new URL(articleImage, Astro.site ?? Astro.url.origin).toString() : undefined;
 const isCompareHub = article.id === 'samsung-vs-sk-hynix-ai-memory';
 const isSamsung = article.id === 'samsung-electronics-outlook';
 const isAiPowerSeries = article.data.series?.startsWith('AI 전력');
+const isMoneyBasics = article.data.series === '돈 공부 기초';
 const guideCta = isAiPowerSeries
   ? {
       title: 'AI 전력 가이드',
       href: '/guides/ai-power',
       label: '발전부터 기업 비교까지 한 번에 보기 →'
     }
-  : {
-      title: '반도체 투자 가이드',
-      href: '/guides/semiconductor-investing',
-      label: 'HBM부터 비교까지 한 번에 보기 →'
-    };
+  : isMoneyBasics
+    ? {
+        title: '투자 리서치 가이드',
+        href: '/guides/investing',
+        label: '경제 기초에서 투자 리서치까지 이어서 보기 →'
+      }
+    : {
+        title: '반도체 투자 가이드',
+        href: '/guides/semiconductor-investing',
+        label: 'HBM부터 비교까지 한 번에 보기 →'
+      };
 const takeaways = isSamsung
   ? [
       ['실적 추정치', '현재 실적보다 다음 분기와 연간 EPS 추정치의 방향을 먼저 봅니다.'],
@@ -63,11 +73,11 @@ const scoreCriteria = [
   { label: '모멘텀 투자 성향', note: '높은 변동성을 감수하고 추세를 중시하는지', samsung: 3, hynix: 5 }
 ];
 ---
-<BaseLayout title={`${title} | JoyLab`} description={article.data.description} canonical={article.data.canonical} type="article" bodyClass="research-article-page">
+<BaseLayout title={`${title} | JoyLab`} description={article.data.description} canonical={article.data.canonical} type="article" bodyClass="research-article-page" image={articleImage}>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
 
   <article class="research-v2-shell article-shell">
-    <header class="research-cover">
+    <header class="research-cover" style={heroImage ? 'grid-template-columns:1fr' : undefined}>
       <div class="research-cover__copy">
         <div class="research-kicker">JOYLAB RESEARCH · {article.data.category}</div>
         <h1>{article.data.title}</h1>
@@ -80,10 +90,21 @@ const scoreCriteria = [
         </div>
         <div class="research-cover__tags">{article.data.tags.map((tag) => <span>#{tag}</span>)}</div>
       </div>
-      <div class="research-cover__art" aria-hidden="true">
-        <div class="research-mark">JoyLab<br/>Research<small>FACT · INTERPRETATION<br/>SCENARIO · ACTION</small></div>
-      </div>
+      {!heroImage && (
+        <div class="research-cover__art" aria-hidden="true">
+          <div class="research-mark">JoyLab<br/>Research<small>FACT · INTERPRETATION<br/>SCENARIO · ACTION</small></div>
+        </div>
+      )}
     </header>
+
+    {heroImage && (
+      <figure style="margin:0;background:#fff;border:1px solid var(--research-line);border-top:0;overflow:hidden">
+        <img src={heroImage} alt={article.data.heroAlt ?? article.data.title} width="1600" height="900" loading="eager" fetchpriority="high" style="display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover" />
+        {article.data.heroCaption && (
+          <figcaption style="padding:10px 16px;color:#6b7a90;font-size:.76rem;line-height:1.55;border-top:1px solid #edf1f6">{article.data.heroCaption}</figcaption>
+        )}
+      </figure>
+    )}
 
     <div class="research-quote">
       <strong>좋은 정보보다, 더 나은 판단을 남깁니다.</strong>
@@ -303,6 +324,7 @@ const scoreCriteria = [
     headline: article.data.title,
     description: article.data.description,
     datePublished: article.data.publishedAt.toISOString(),
+    ...(articleImageUrl ? { image: articleImageUrl } : {}),
     author: { '@type': 'Organization', name: article.data.author },
     publisher: { '@type': 'Organization', name: 'JoyLab' }
   })}></script>
