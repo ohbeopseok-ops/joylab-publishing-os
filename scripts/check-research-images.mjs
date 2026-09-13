@@ -17,7 +17,7 @@ const readFrontmatter = (file) => {
     const m = fm.match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+)["']?\\s*$`, 'm'));
     return m?.[1]?.trim();
   };
-  return { series: get('series'), draft: get('draft') === 'true' };
+  return { title: get('title') ?? '', series: get('series'), draft: get('draft') === 'true' };
 };
 
 for (const [articleId, visual] of Object.entries(manifest)) {
@@ -39,17 +39,31 @@ for (const [articleId, visual] of Object.entries(manifest)) {
   }
 }
 
-// The first Living Research reference implementation is the U.S. Rates pillar.
+let publishedResearchCount = 0;
 for (const name of fs.readdirSync(articleDir).filter((name) => name.endsWith('.md'))) {
   const file = path.join(articleDir, name);
-  const { series, draft } = readFrontmatter(file);
+  const { title, series, draft } = readFrontmatter(file);
   const articleId = name.replace(/\.md$/, '');
-  if (!draft && series === '미국 금리 리서치' && !manifest[articleId]) {
-    failures.push(`${articleId}: U.S. Rates research must be registered in research-image-manifest.json`);
+  if (draft || !series) continue;
+  publishedResearchCount += 1;
+
+  const visual = manifest[articleId];
+  if (!visual) {
+    failures.push(`${articleId}: every published series research article must be registered in research-image-manifest.json`);
+    continue;
+  }
+
+  const supportingCount = visual.supporting?.length ?? 0;
+  const isCompare = /compare|value-chain|-vs-/i.test(articleId) || /비교|밸류체인/.test(title);
+  if (!isCompare && supportingCount !== 2) {
+    failures.push(`${articleId}: standard research requires exactly 2 supporting visuals`);
+  }
+  if (isCompare && (supportingCount < 2 || supportingCount > 3)) {
+    failures.push(`${articleId}: compare/value-chain research requires 2 or 3 supporting visuals`);
   }
 }
 
-// Forward gate: every newly added, published series article must ship with the 3-image contract.
+// Forward gate: newly added published series research must satisfy the same contract in the PR.
 if (process.env.GITHUB_EVENT_NAME === 'pull_request' && process.env.GITHUB_BASE_REF) {
   try {
     execSync(`git fetch origin ${process.env.GITHUB_BASE_REF} --depth=1`, { stdio: 'ignore' });
@@ -60,7 +74,7 @@ if (process.env.GITHUB_EVENT_NAME === 'pull_request' && process.env.GITHUB_BASE_
       const { series, draft } = readFrontmatter(file);
       if (!draft && series) {
         const articleId = path.basename(rel, '.md');
-        if (!manifest[articleId]) failures.push(`${articleId}: new series research requires Hero + 2 supporting images`);
+        if (!manifest[articleId]) failures.push(`${articleId}: new research requires Hero + 2 supporting visuals before merge`);
       }
     }
   } catch (error) {
@@ -74,4 +88,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Research Image Gate PASS: ${Object.keys(manifest).length} research articles, 3-image contract verified.`);
+console.log(`Research Image Gate PASS: ${publishedResearchCount} published research articles verified.`);
