@@ -2,7 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/interactive.css';
 import '../../styles/research-v2.css';
+import '../../styles/visual-placement.css';
 import researchImageManifest from '../../data/research-image-manifest.json';
+import researchVisualPlacement from '../../data/research-visual-placement.json';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -32,10 +34,14 @@ const { article, related } = Astro.props;
 const { Content } = await render(article);
 const title = article.data.seoTitle ?? article.data.title;
 const researchVisual = researchImageManifest[article.id as keyof typeof researchImageManifest];
+const visualPlacement = researchVisualPlacement[article.id as keyof typeof researchVisualPlacement];
 const heroImage = researchVisual?.hero?.src ?? article.data.heroImage;
 const heroAlt = researchVisual?.hero?.alt ?? article.data.heroAlt ?? article.data.title;
 const heroCaption = researchVisual?.hero?.caption ?? article.data.heroCaption;
-const supportingImages = researchVisual?.supporting ?? [];
+const supportingImages = (researchVisual?.supporting ?? []).map((image, index) => ({
+  ...image,
+  afterHeading: visualPlacement?.supporting?.find((item) => item.index === index)?.afterHeading ?? null
+}));
 const articleImage = article.data.ogImage ?? heroImage;
 const articleImageUrl = articleImage ? new URL(articleImage, Astro.site ?? Astro.url.origin).toString() : undefined;
 const isCompareHub = article.id === 'samsung-vs-sk-hynix-ai-memory';
@@ -144,11 +150,11 @@ const scoreCriteria = [
         </section>
 
         {supportingImages.length > 0 && (
-          <section class="research-panel" aria-labelledby="visual-research-title">
+          <section id="visual-research" class="research-panel" aria-labelledby="visual-research-title">
             <h2 class="research-panel__title" id="visual-research-title">Visual Research</h2>
             <div style="display:grid;gap:20px">
               {supportingImages.map((image) => (
-                <figure style="margin:0;border:1px solid var(--research-line);border-radius:16px;overflow:hidden;background:#fff">
+                <figure data-visual-anchor={image.afterHeading ?? undefined} style="margin:0;border:1px solid var(--research-line);border-radius:16px;overflow:hidden;background:#fff">
                   <img src={image.src} alt={image.alt} width="1600" height="900" loading="lazy" style="display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover" />
                   {image.caption && <figcaption style="padding:10px 14px;color:#6b7a90;font-size:.78rem;line-height:1.55">{image.caption}</figcaption>}
                 </figure>
@@ -273,6 +279,21 @@ const scoreCriteria = [
         toc.appendChild(link);
         tocLinks.push(link);
       });
+
+      const normalizeHeading = (value) => String(value || '').replace(/\s+/g, '').toLocaleLowerCase('ko-KR');
+      const anchoredFigures = Array.from(document.querySelectorAll('[data-visual-anchor]'));
+      anchoredFigures.forEach((figure) => {
+        const anchor = normalizeHeading(figure.dataset.visualAnchor);
+        if (!anchor) return;
+        const target = headings.find((heading) => normalizeHeading(heading.textContent).includes(anchor));
+        if (!target) return;
+        let insertionPoint = target;
+        while (insertionPoint.nextElementSibling?.classList.contains('research-anchored-visual')) insertionPoint = insertionPoint.nextElementSibling;
+        insertionPoint.insertAdjacentElement('afterend', figure);
+        figure.classList.add('research-anchored-visual');
+      });
+      const visualSection = document.getElementById('visual-research');
+      if (visualSection && visualSection.querySelectorAll('figure').length === 0) visualSection.remove();
 
       const updateProgress = () => {
         const articleTop = article.getBoundingClientRect().top + window.scrollY;
