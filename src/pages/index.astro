@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/interactive.css';
 import '../styles/homepage-v2.css';
 import '../styles/homepage-v2-fidelity.css';
+import '../styles/homepage-visuals.css';
+import researchImageManifest from '../data/research-image-manifest.json';
 import { getCollection } from 'astro:content';
 
 const articles = (await getCollection('articles'))
@@ -25,6 +27,7 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
   <div class="home-v2">
     <section class="home-hero" aria-labelledby="home-title">
       <div class="home-hero__lead">
+        <img class="home-hero__signature" src="/images/home/joylab-signature-visual.svg" alt="" aria-hidden="true" width="1600" height="900" fetchpriority="high" />
         <div class="home-eyebrow">JOYLAB RESEARCH SYSTEM</div>
         <h1 id="home-title">생각을 분석하고,<br /><span>분석을 실행으로.</span></h1>
         <p class="home-hero__desc">투자·경제, AI·생산성, 성장·리더십을 연결해 복잡한 정보를 실행 가능한 판단으로 바꾸는 독립 리서치 미디어입니다.</p>
@@ -54,9 +57,18 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
         <a class="home-section-link" href="#archive">전체 보기 →</a>
       </div>
       <div class="home-pillars">
-        <a class="home-pillar" href="/guides/investing"><small>INVESTMENT & ECONOMY</small><strong>투자·경제</strong><p>시장·기업·정책을 읽고 투자 판단으로 연결합니다.</p></a>
-        <a class="home-pillar" href="/guides/ai-productivity"><small>AI & PRODUCTIVITY</small><strong>AI·생산성</strong><p>AI가 바꾸는 산업과 일하는 방식을 분석합니다.</p></a>
-        <a class="home-pillar" href="/guides/growth-leadership"><small>GROWTH & LEADERSHIP</small><strong>성장·리더십</strong><p>성과·공정성·피드백·성장을 하나의 프레임으로 봅니다.</p></a>
+        <a class="home-pillar" href="/guides/investing">
+          <img class="home-pillar__visual" src="/images/home/pillar-investment.svg" alt="시장 데이터와 자본 흐름을 표현한 투자·경제 Pillar 비주얼" width="1200" height="700" loading="lazy" />
+          <span class="home-pillar__copy"><small>INVESTMENT & ECONOMY</small><strong>투자·경제</strong><p>시장·기업·정책을 읽고 투자 판단으로 연결합니다.</p></span>
+        </a>
+        <a class="home-pillar" href="/guides/ai-productivity">
+          <img class="home-pillar__visual" src="/images/home/pillar-ai-productivity.svg" alt="AI Agent와 Workflow, ROI 흐름을 표현한 AI·생산성 Pillar 비주얼" width="1200" height="700" loading="lazy" />
+          <span class="home-pillar__copy"><small>AI & PRODUCTIVITY</small><strong>AI·생산성</strong><p>AI가 바꾸는 산업과 일하는 방식을 분석합니다.</p></span>
+        </a>
+        <a class="home-pillar" href="/guides/growth-leadership">
+          <img class="home-pillar__visual" src="/images/home/pillar-growth-leadership.svg" alt="성과와 피드백, 인정의 선순환을 표현한 성장·리더십 Pillar 비주얼" width="1200" height="700" loading="lazy" />
+          <span class="home-pillar__copy"><small>GROWTH & LEADERSHIP</small><strong>성장·리더십</strong><p>성과·공정성·피드백·성장을 하나의 프레임으로 봅니다.</p></span>
+        </a>
       </div>
     </section>
 
@@ -66,21 +78,26 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
         <a class="home-section-link" href="#archive">전체 보기 →</a>
       </div>
       <div class="home-research-grid">
-        {majorResearch.map((article) => (
-          <a class="home-research-card" href={`/articles/${article.id}`}>
-            {article.data.heroImage ? (
-              <div class="home-research-thumb"><img src={article.data.heroImage} alt={article.data.heroAlt ?? ''} width="1600" height="900" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover" /></div>
-            ) : (
-              <div class="home-research-thumb" aria-hidden="true"></div>
-            )}
-            <div class="home-research-copy">
-              <small>{article.data.category}</small>
-              <h3>{article.data.title}</h3>
-              <p>{article.data.description}</p>
-              <div class="home-research-meta">{article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</div>
-            </div>
-          </a>
-        ))}
+        {majorResearch.map((article) => {
+          const visual = researchImageManifest[article.id as keyof typeof researchImageManifest];
+          const cardHero = visual?.hero?.src ?? article.data.heroImage;
+          const cardAlt = visual?.hero?.alt ?? article.data.heroAlt ?? article.data.title;
+          return (
+            <a class="home-research-card" href={`/articles/${article.id}`}>
+              {cardHero ? (
+                <div class="home-research-thumb"><img src={cardHero} alt={cardAlt} width="1600" height="900" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover" /></div>
+              ) : (
+                <div class="home-research-thumb" aria-hidden="true"></div>
+              )}
+              <div class="home-research-copy">
+                <small>{article.data.category}</small>
+                <h3>{article.data.title}</h3>
+                <p>{article.data.description}</p>
+                <div class="home-research-meta">{article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</div>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </section>
 
