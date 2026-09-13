@@ -18,6 +18,10 @@ draft: false
 seoTitle: "돈 공부 필수 경제 용어 7가지｜환율 기준금리 GDP 유동성 레버리지"
 series: "돈 공부 기초"
 readingTime: "약 9분"
+heroImage: "/images/articles/money-basics-7-economic-terms/hero.webp"
+heroAlt: "GDP와 경기순환, 기준금리와 환율, 유동성과 신용, 레버리지로 이어지는 4단계 경제지표 대시보드"
+heroCaption: "이미지 속 수치는 개념 설명을 위한 예시이며 현재 시장 데이터가 아닙니다."
+ogImage: "/images/articles/money-basics-7-economic-terms/hero.webp"
 ---
 
 경제 뉴스를 보기 시작하면 낯선 단어가 한꺼번에 쏟아집니다.
