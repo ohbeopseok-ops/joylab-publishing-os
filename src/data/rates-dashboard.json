@@ -1,82 +1,47 @@
 {
   "asOf": "2026-09-11",
-  "updatedAt": "2026-09-13T20:05:00+09:00",
+  "updatedAt": "2026-09-13T20:18:00+09:00",
   "series": {
-    "us10y": {
-      "label": "미국 10년물",
-      "value": 4.93,
-      "unit": "%",
-      "status": "warning",
-      "source": "Reuters / U.S. Treasury"
-    },
-    "us30y": {
-      "label": "미국 30년물",
-      "value": 5.38,
-      "unit": "%",
-      "status": "danger",
-      "source": "U.S. Treasury Daily Rates"
-    },
-    "spread30y10y": {
-      "label": "30Y-10Y 스프레드",
-      "value": 45,
-      "unit": "bp",
-      "status": "warning",
-      "source": "Derived from US30Y - US10Y"
-    },
-    "foreignTreasuryHoldings": {
-      "label": "외국인 미 국채 보유",
-      "value": 9.299,
-      "unit": "조달러",
-      "status": "neutral",
-      "source": "U.S. Treasury TIC, June 2026",
-      "period": "2026-06"
-    },
-    "usdkrw": {
-      "label": "원·달러",
-      "value": 1345.9,
-      "unit": "원",
-      "status": "warning",
-      "source": "서울 외환시장 종가, 2026-09-11"
-    }
+    "us10y": { "label": "미국 10년물", "value": 4.93, "unit": "%", "status": "warning", "source": "Reuters / U.S. Treasury" },
+    "us30y": { "label": "미국 30년물", "value": 5.38, "unit": "%", "status": "danger", "source": "U.S. Treasury Daily Rates" },
+    "spread30y10y": { "label": "30Y-10Y 스프레드", "value": 45, "unit": "bp", "status": "warning", "source": "Derived from US30Y - US10Y" },
+    "foreignTreasuryHoldings": { "label": "외국인 미 국채 보유", "value": 9.299, "unit": "조달러", "status": "neutral", "source": "U.S. Treasury TIC, June 2026", "period": "2026-06" },
+    "usdkrw": { "label": "원·달러", "value": 1345.9, "unit": "원", "status": "warning", "source": "서울 외환시장 종가, 2026-09-11" }
   },
   "auctions": {
-    "us10y": {
-      "date": "2026-09-09",
-      "offeringBillionUsd": 39,
-      "highYield": 4.834,
-      "bidToCover": 2.71,
-      "indirectPct": 79.2,
-      "dealerPct": 4.3,
-      "quality": "STRONG",
-      "source": "TreasuryDirect / Barron's"
+    "us10y": { "date": "2026-09-09", "offeringBillionUsd": 39, "highYield": 4.834, "bidToCover": 2.71, "indirectPct": 79.2, "dealerPct": 4.3, "quality": "STRONG", "score": 85, "source": "TreasuryDirect / Barron's" },
+    "us30y": { "date": "2026-09-10", "offeringBillionUsd": 22, "highYield": 5.308, "tailBp": -2.7, "bidToCover": 2.61, "indirectPct": 79.5, "dealerPct": 2.2, "quality": "STRONG", "score": 100, "source": "TreasuryDirect / Helious" }
+  },
+  "scores": {
+    "auction": {
+      "value": 93,
+      "grade": "STRONG",
+      "higherIsBetter": true,
+      "method": "Tail/Stop-through 40 + Indirect 25 + Dealer 20 + Bid-to-Cover 15; 10Y missing tail uses neutral 25/40",
+      "period": "2026-09-09~10"
     },
-    "us30y": {
-      "date": "2026-09-10",
-      "offeringBillionUsd": 22,
-      "highYield": 5.308,
-      "tailBp": -2.7,
-      "bidToCover": 2.61,
-      "indirectPct": 79.5,
-      "dealerPct": 2.2,
-      "quality": "STRONG",
-      "source": "TreasuryDirect / Helious"
+    "tic": {
+      "value": 75,
+      "grade": "STABLE_WATCH",
+      "higherIsBetter": true,
+      "method": "Foreign total 25 + official holdings trend 20 + official transaction flow 20 + private transaction flow 20 + China trend 15",
+      "period": "2026-06",
+      "note": "전체 해외 수요와 거래흐름은 견조하지만 외국 공식기관 보유 감소와 중국 장기 감소는 경계 요소"
+    },
+    "compositeRatesRisk": {
+      "value": 41,
+      "grade": "YELLOW",
+      "higherIsWorse": true,
+      "method": "Rates 45% + Auction weakness 20% + TIC stress 20% + FX stress 15%",
+      "rules": { "GREEN": "0-34", "YELLOW": "35-64", "RED": "65-100" }
     }
   },
   "risk": {
     "score": 3,
     "grade": "YELLOW",
     "summary": "장기금리와 30Y-10Y 스프레드는 경계 구간이지만 최근 10년물·30년물 입찰 실수요는 강합니다.",
-    "rules": {
-      "GREEN": "0-1",
-      "YELLOW": "2-3",
-      "RED": "4+"
-    }
+    "rules": { "GREEN": "0-1", "YELLOW": "2-3", "RED": "4+" }
   },
-  "thresholds": {
-    "us10yWarning": 5.0,
-    "us30yWarning": 5.3,
-    "spread30y10yWarningBp": 35,
-    "usdkrwWarning": 1350
-  },
+  "thresholds": { "us10yWarning": 5.0, "us30yWarning": 5.3, "spread30y10yWarningBp": 35, "usdkrwWarning": 1350 },
   "nextTicRelease": "2026-09-16T16:00:00-04:00"
 }
