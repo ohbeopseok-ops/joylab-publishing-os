@@ -87,5 +87,65 @@ const showArticleContactCta = String(bodyClass).split(/\s+/).includes('research-
         window.addEventListener('resize', () => { if (window.innerWidth > 640) close(); });
       })();
     </script>
+    <script is:inline>
+      (() => {
+        if (!document.body.classList.contains('research-article-page')) return;
+
+        const content = document.getElementById('article-content');
+        if (content) {
+          const duplicateLabels = new Set(['Research Brief', 'Key Takeaways']);
+          const headings = Array.from(content.children).filter(
+            (node) => node.tagName === 'H2' && duplicateLabels.has(node.textContent?.trim() ?? '')
+          );
+          headings.forEach((heading) => {
+            let node = heading.nextElementSibling;
+            heading.remove();
+            while (node && node.tagName !== 'H2') {
+              const next = node.nextElementSibling;
+              node.remove();
+              node = next;
+            }
+          });
+        }
+
+        const header = document.querySelector('.site-header');
+        const shell = document.getElementById('site-nav-shell');
+        const mobileQuery = window.matchMedia('(max-width: 640px)');
+        if (!(header instanceof HTMLElement) || !shell) return;
+
+        header.style.transition = 'transform .22s ease';
+        header.style.willChange = 'transform';
+        let lastY = window.scrollY;
+        let ticking = false;
+
+        const showHeader = () => { header.style.transform = 'translateY(0)'; };
+        const updateHeader = () => {
+          const y = window.scrollY;
+          if (!mobileQuery.matches || y < 80 || shell.classList.contains('is-open')) {
+            showHeader();
+            lastY = y;
+            ticking = false;
+            return;
+          }
+
+          const delta = y - lastY;
+          if (delta > 8 && y > 120) header.style.transform = 'translateY(-100%)';
+          else if (delta < -8) showHeader();
+          lastY = y;
+          ticking = false;
+        };
+
+        window.addEventListener('scroll', () => {
+          if (ticking) return;
+          ticking = true;
+          window.requestAnimationFrame(updateHeader);
+        }, { passive: true });
+
+        mobileQuery.addEventListener?.('change', () => {
+          showHeader();
+          lastY = window.scrollY;
+        });
+      })();
+    </script>
   </body>
 </html>
