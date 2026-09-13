@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/interactive.css';
 import '../../styles/research-v2.css';
+import researchImageManifest from '../../data/research-image-manifest.json';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -30,30 +31,41 @@ export async function getStaticPaths() {
 const { article, related } = Astro.props;
 const { Content } = await render(article);
 const title = article.data.seoTitle ?? article.data.title;
-const heroImage = article.data.heroImage;
+const researchVisual = researchImageManifest[article.id as keyof typeof researchImageManifest];
+const heroImage = researchVisual?.hero?.src ?? article.data.heroImage;
+const heroAlt = researchVisual?.hero?.alt ?? article.data.heroAlt ?? article.data.title;
+const heroCaption = researchVisual?.hero?.caption ?? article.data.heroCaption;
+const supportingImages = researchVisual?.supporting ?? [];
 const articleImage = article.data.ogImage ?? heroImage;
 const articleImageUrl = articleImage ? new URL(articleImage, Astro.site ?? Astro.url.origin).toString() : undefined;
 const isCompareHub = article.id === 'samsung-vs-sk-hynix-ai-memory';
 const isSamsung = article.id === 'samsung-electronics-outlook';
 const isAiPowerSeries = article.data.series?.startsWith('AI 전력');
 const isMoneyBasics = article.data.series === '돈 공부 기초';
-const guideCta = isAiPowerSeries
+const isUsRatesSeries = article.data.series === '미국 금리 리서치';
+const guideCta = isUsRatesSeries
   ? {
-      title: 'AI 전력 가이드',
-      href: '/guides/ai-power',
-      label: '발전부터 기업 비교까지 한 번에 보기 →'
+      title: '미국 금리 리서치',
+      href: '/guides/us-rates',
+      label: '10년물·30년물·TIC·입찰·한국 전염경로 한 번에 보기 →'
     }
-  : isMoneyBasics
+  : isAiPowerSeries
     ? {
-        title: '투자 리서치 가이드',
-        href: '/guides/investing',
-        label: '경제 기초에서 투자 리서치까지 이어서 보기 →'
+        title: 'AI 전력 가이드',
+        href: '/guides/ai-power',
+        label: '발전부터 기업 비교까지 한 번에 보기 →'
       }
-    : {
-        title: '반도체 투자 가이드',
-        href: '/guides/semiconductor-investing',
-        label: 'HBM부터 비교까지 한 번에 보기 →'
-      };
+    : isMoneyBasics
+      ? {
+          title: '투자 리서치 가이드',
+          href: '/guides/investing',
+          label: '경제 기초에서 투자 리서치까지 이어서 보기 →'
+        }
+      : {
+          title: '반도체 투자 가이드',
+          href: '/guides/semiconductor-investing',
+          label: 'HBM부터 비교까지 한 번에 보기 →'
+        };
 const takeaways = isSamsung
   ? [
       ['실적 추정치', '현재 실적보다 다음 분기와 연간 EPS 추정치의 방향을 먼저 봅니다.'],
@@ -99,9 +111,9 @@ const scoreCriteria = [
 
     {heroImage && (
       <figure style="margin:0;background:#fff;border:1px solid var(--research-line);border-top:0;overflow:hidden">
-        <img src={heroImage} alt={article.data.heroAlt ?? article.data.title} width="1600" height="900" loading="eager" fetchpriority="high" style="display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover" />
-        {article.data.heroCaption && (
-          <figcaption style="padding:10px 16px;color:#6b7a90;font-size:.76rem;line-height:1.55;border-top:1px solid #edf1f6">{article.data.heroCaption}</figcaption>
+        <img src={heroImage} alt={heroAlt} width="1600" height="900" loading="eager" fetchpriority="high" style="display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover" />
+        {heroCaption && (
+          <figcaption style="padding:10px 16px;color:#6b7a90;font-size:.76rem;line-height:1.55;border-top:1px solid #edf1f6">{heroCaption}</figcaption>
         )}
       </figure>
     )}
@@ -130,6 +142,20 @@ const scoreCriteria = [
             ))}
           </div>
         </section>
+
+        {supportingImages.length > 0 && (
+          <section class="research-panel" aria-labelledby="visual-research-title">
+            <h2 class="research-panel__title" id="visual-research-title">Visual Research</h2>
+            <div style="display:grid;gap:20px">
+              {supportingImages.map((image) => (
+                <figure style="margin:0;border:1px solid var(--research-line);border-radius:16px;overflow:hidden;background:#fff">
+                  <img src={image.src} alt={image.alt} width="1600" height="900" loading="lazy" style="display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover" />
+                  {image.caption && <figcaption style="padding:10px 14px;color:#6b7a90;font-size:.78rem;line-height:1.55">{image.caption}</figcaption>}
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section class="research-panel" aria-labelledby="framework-title">
           <h2 class="research-panel__title" id="framework-title">JoyLab 투자 프레임워크</h2>
