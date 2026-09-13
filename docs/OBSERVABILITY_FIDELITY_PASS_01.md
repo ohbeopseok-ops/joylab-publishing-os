@@ -1,6 +1,7 @@
 # Observability Fidelity Pass 01
 
-Status: PASS / SOAKING
+Status: GOLD
+Promoted: 2026-09-13 KST
 
 Production target: `https://aijoylab.kr`
 Workflow: `.github/workflows/production-health.yml`
@@ -63,6 +64,23 @@ Promote to `GOLD` only after all of the following are observed:
 3. post-merge Build and Cloudflare Deploy stay green;
 4. at least one Production Health run on main passes, whether scheduled or manually dispatched;
 5. at least three consecutive scheduled hourly Production Health runs pass.
+
+## GOLD promotion evidence
+
+Observability Fidelity Pass 01 was promoted from `PASS / SOAKING` to `GOLD` after satisfying the runtime qualification gate.
+
+Verified conditions:
+
+1. the protected-main implementation PR passed the required Build;
+2. the implementation merged through the protected `main` path;
+3. post-merge Build and Cloudflare Deploy remained green;
+4. Production Health passed against `main`;
+5. at least three consecutive hourly Production Health runs triggered by `schedule` completed successfully;
+6. manual `workflow_dispatch` executions were excluded from the three-scheduled-run qualification requirement.
+
+Final verdict:
+
+`Observability Fidelity Pass 01 = GOLD`
 
 ## V1 exclusions
 
