@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "maxScore": 100,
   "weights": {
     "traffic": 30,
@@ -10,7 +10,7 @@
   },
   "normalization": {
     "traffic": {"method":"cohort_max","cap":1},
-    "dwell": {"method":"target","targetSeconds":180,"cap":1},
+    "dwell": {"method":"target","targetSeconds":60,"cap":1},
     "ctr": {"method":"target","targetPercent":8,"cap":1},
     "internalLink": {"method":"target","targetPercent":20,"cap":1},
     "strategicPriority": {"method":"percent","max":100}
