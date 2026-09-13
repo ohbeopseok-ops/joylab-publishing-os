@@ -19,19 +19,30 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Diagnose staged hero chunks
+      - name: Verify staged hero chunks
         shell: bash
         run: |
           set -euo pipefail
-          wc -c .tmp/openai-data-agent-hero/part0a.b64 .tmp/openai-data-agent-hero/part0b.b64 .tmp/openai-data-agent-hero/part1.b64 .tmp/openai-data-agent-hero/part2.b64 .tmp/openai-data-agent-hero/part3.b64
-          sha256sum .tmp/openai-data-agent-hero/part0a.b64 .tmp/openai-data-agent-hero/part0b.b64 .tmp/openai-data-agent-hero/part1.b64 .tmp/openai-data-agent-hero/part2.b64 .tmp/openai-data-agent-hero/part3.b64
+          test "$(wc -c < .tmp/openai-data-agent-hero/part0a1.b64)" -eq 3000
+          test "$(wc -c < .tmp/openai-data-agent-hero/part0a2.b64)" -eq 3000
+          test "$(wc -c < .tmp/openai-data-agent-hero/part0b.b64)" -eq 6000
+          test "$(wc -c < .tmp/openai-data-agent-hero/part1.b64)" -eq 12000
+          test "$(wc -c < .tmp/openai-data-agent-hero/part2.b64)" -eq 12000
+          test "$(wc -c < .tmp/openai-data-agent-hero/part3.b64)" -eq 11100
+          echo 'e03d2f7c70ed12fbb982f37d6c669cedad22b23a9f7d468fcb636392da374c78  .tmp/openai-data-agent-hero/part0a1.b64' | sha256sum -c -
+          echo '02b98416b3caf54262939452dfe85d894cc6cabeb584c936a9e2528276aa6488  .tmp/openai-data-agent-hero/part0a2.b64' | sha256sum -c -
+          echo '25fb3c3fdfa15a6c451d09f624acce6627916571fbe24d73b2f6f5fa87a5ca8b  .tmp/openai-data-agent-hero/part0b.b64' | sha256sum -c -
+          echo 'e9ef73ec4b98707737d733ebae88adde6acc53c0f31615236dc4ea02c428c765  .tmp/openai-data-agent-hero/part1.b64' | sha256sum -c -
+          echo '51a15fae933343a7662aa1a8b2974e9df1f51fea2c714055668003e6ff4c02ac  .tmp/openai-data-agent-hero/part2.b64' | sha256sum -c -
+          echo '35ec4aca8c5873449f99b8ca7a480a85baa90cd73fb015eccfb4ec8caa1f8022  .tmp/openai-data-agent-hero/part3.b64' | sha256sum -c -
 
       - name: Rebuild hero WebP
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p public/images/articles/openai-data-agent-chatgpt-work
-          cat .tmp/openai-data-agent-hero/part0a.b64 \
+          cat .tmp/openai-data-agent-hero/part0a1.b64 \
+              .tmp/openai-data-agent-hero/part0a2.b64 \
               .tmp/openai-data-agent-hero/part0b.b64 \
               .tmp/openai-data-agent-hero/part1.b64 \
               .tmp/openai-data-agent-hero/part2.b64 \
