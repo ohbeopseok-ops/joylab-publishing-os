@@ -1,0 +1,16 @@
+{
+  "money-basics-7-economic-terms": {
+    "hero": {
+      "src": "/images/research/generated/money-basics-7-economic-terms-hero.webp",
+      "alt": "환율·금리·GDP·인플레이션·레버리지 등 경제 기초 개념을 한 화면에 연결한 JoyLab 프리미엄 에디토리얼 Hero",
+      "caption": "경제 용어는 암기보다 서로 어떻게 연결되는지를 이해하는 것이 먼저입니다."
+    }
+  },
+  "openai-data-agent-chatgpt-work": {
+    "hero": {
+      "src": "/images/research/generated/openai-data-agent-chatgpt-work-hero.webp",
+      "alt": "기업 데이터가 질문·분석·대시보드·액션으로 이어지는 AI 업무 흐름을 표현한 JoyLab 프리미엄 에디토리얼 Hero",
+      "caption": "데이터 에이전트의 핵심은 답변이 아니라 회사 데이터를 분석과 실행으로 연결하는 흐름입니다."
+    }
+  }
+}
