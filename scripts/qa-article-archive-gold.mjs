@@ -37,6 +37,9 @@ async function runArticle(viewport) {
   const context = await browser.newContext({ viewport });
   const page = await context.newPage();
   const errors = [];
+  // Astro preview does not host the Cloudflare Worker analytics route used in production.
+  // Mock only this endpoint so unrelated 4xx/5xx and browser errors still fail the GOLD case.
+  await page.route('**/__analytics/event', (route) => route.fulfill({ status: 204, body: '' }));
   page.on('pageerror', (e) => errors.push(String(e)));
   page.on('console', (m) => { if (m.type() === 'error') errors.push(`console: ${m.text()}`); });
   const response = await page.goto(`${baseURL}${articlePath}`, { waitUntil: 'networkidle' });
