@@ -16,10 +16,10 @@ featured: false
 draft: false
 seoTitle: "Aside vs ChatGPT Work vs Playwright｜AI 브라우저 자동화 비교"
 readingTime: "약 12분"
-heroImage: "/images/research/generated/aside-vs-chatgpt-work-vs-playwright-hero.webp"
+heroImage: "/images/research/generated/aside-vs-chatgpt-work-vs-playwright-hero.svg"
 heroAlt: "Aside, ChatGPT Work, Playwright의 브라우저 실행·리서치·검증 역할을 비교한 JoyLab 이미지"
 heroCaption: "Aside는 Browser Execution, ChatGPT Work는 Research & Orchestration, Playwright는 Verification에 강점이 있습니다."
-ogImage: "/images/research/generated/aside-vs-chatgpt-work-vs-playwright-hero.webp"
+ogImage: "/images/research/generated/aside-vs-chatgpt-work-vs-playwright-hero.svg"
 ---
 
 AI 브라우저 시장을 볼 때 가장 흔한 실수는 제품 하나를 골라 모든 일을 맡기려는 것입니다.
