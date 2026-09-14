@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07152f"/><stop offset="1" stop-color="#0b1f4d"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <text x="96" y="110" fill="#fff" font-family="Arial,sans-serif" font-size="54" font-weight="700">Same browser, different roles</text>
+  <text x="98" y="160" fill="#8fb4ff" font-family="Arial,sans-serif" font-size="25">JoyLab role map · Acquire → Reason → Verify</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="80" y="235" width="430" height="500" rx="28" fill="#0d295c" stroke="#1677ff" stroke-width="2"/>
+    <circle cx="145" cy="310" r="28" fill="#1677ff" filter="url(#glow)"/>
+    <text x="195" y="326" fill="#fff" font-size="42" font-weight="700">Aside</text>
+    <text x="120" y="395" fill="#56c7ff" font-size="28" font-weight="700">BROWSER EXECUTION</text>
+    <text x="120" y="455" fill="#d9e6ff" font-size="25">• logged-in web tasks</text>
+    <text x="120" y="505" fill="#d9e6ff" font-size="25">• navigation & downloads</text>
+    <text x="120" y="555" fill="#d9e6ff" font-size="25">• forms & repetitive actions</text>
+    <text x="120" y="630" fill="#93a9cc" font-size="22">Best when the browser itself</text>
+    <text x="120" y="663" fill="#93a9cc" font-size="22">is the workplace.</text>
+
+    <rect x="585" y="235" width="430" height="500" rx="28" fill="#102a50" stroke="#4a9cff" stroke-width="2"/>
+    <circle cx="650" cy="310" r="28" fill="#4a9cff" filter="url(#glow)"/>
+    <text x="700" y="326" fill="#fff" font-size="42" font-weight="700">ChatGPT Work</text>
+    <text x="625" y="395" fill="#56c7ff" font-size="28" font-weight="700">RESEARCH & ORCHESTRATION</text>
+    <text x="625" y="455" fill="#d9e6ff" font-size="25">• multi-source research</text>
+    <text x="625" y="505" fill="#d9e6ff" font-size="25">• synthesis & analysis</text>
+    <text x="625" y="555" fill="#d9e6ff" font-size="25">• finished artifacts</text>
+    <text x="625" y="630" fill="#93a9cc" font-size="22">Best when the goal is clear</text>
+    <text x="625" y="663" fill="#93a9cc" font-size="22">but the path is uncertain.</text>
+
+    <rect x="1090" y="235" width="430" height="500" rx="28" fill="#0b2745" stroke="#39d4ff" stroke-width="2"/>
+    <circle cx="1155" cy="310" r="28" fill="#39d4ff" filter="url(#glow)"/>
+    <text x="1205" y="326" fill="#fff" font-size="42" font-weight="700">Playwright</text>
+    <text x="1130" y="395" fill="#56c7ff" font-size="28" font-weight="700">VERIFICATION</text>
+    <text x="1130" y="455" fill="#d9e6ff" font-size="25">• repeatable test steps</text>
+    <text x="1130" y="505" fill="#d9e6ff" font-size="25">• assertions & regression</text>
+    <text x="1130" y="555" fill="#d9e6ff" font-size="25">• CI-grade evidence</text>
+    <text x="1130" y="630" fill="#93a9cc" font-size="22">Best when the same result</text>
+    <text x="1130" y="663" fill="#93a9cc" font-size="22">must be proven repeatedly.</text>
+  </g>
+  <path d="M510 485 C545 485 550 485 585 485" stroke="#45b7ff" stroke-width="5" fill="none"/>
+  <path d="M1015 485 C1050 485 1055 485 1090 485" stroke="#45b7ff" stroke-width="5" fill="none"/>
+  <text x="800" y="820" text-anchor="middle" fill="#eef5ff" font-family="Arial,sans-serif" font-size="28">Do not pick one winner. Assign the right layer to the right tool.</text>
+</svg>
