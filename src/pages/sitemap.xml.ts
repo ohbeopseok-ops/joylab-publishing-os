@@ -8,6 +8,7 @@ export async function GET({ site }: { site: URL }) {
 
   const urls = [
     `${origin}/`,
+    `${origin}/research`,
     `${origin}/about`,
     `${origin}/contact`,
     `${origin}/privacy`,
