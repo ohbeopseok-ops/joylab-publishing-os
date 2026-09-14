@@ -26,6 +26,26 @@ async function triggerLazy(page) {
   await page.waitForTimeout(150);
 }
 
+async function ensureRenderedImagesLoaded(page, selector) {
+  const images = page.locator(selector);
+  const count = await images.count();
+  for (let i = 0; i < count; i += 1) {
+    const image = images.nth(i);
+    await image.scrollIntoViewIfNeeded();
+    await image.evaluate((img) => {
+      if (img.complete) return;
+      return new Promise((resolve) => {
+        const done = () => resolve();
+        img.addEventListener('load', done, { once: true });
+        img.addEventListener('error', done, { once: true });
+        setTimeout(done, 2500);
+      });
+    });
+  }
+  await page.waitForTimeout(100);
+  await page.evaluate(() => window.scrollTo(0, 0));
+}
+
 async function pageHealth(page, visibleImagesOnly = false) {
   return page.evaluate((onlyVisible) => {
     const images = [...document.images].filter((img) => !onlyVisible || img.getClientRects().length > 0);
@@ -123,7 +143,7 @@ async function runResearch(viewport) {
   }
 
   await triggerLazy(page);
-  await page.waitForFunction(() => [...document.images].filter((img) => img.getClientRects().length > 0).every((img) => img.complete), null, { timeout: 5000 }).catch(() => {});
+  await ensureRenderedImagesLoaded(page, '.research-hub-featured-card:visible img, .research-hub-card:visible img');
   const health = await pageHealth(page, true);
   const screenshot = path.join(outputDir, `research-${viewport.width}.png`);
   await page.screenshot({ path: screenshot, fullPage: true });
