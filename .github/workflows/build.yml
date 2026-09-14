@@ -50,6 +50,7 @@ jobs:
           node --check scripts/sync-cloudflare-visual-metrics.mjs
           node --check scripts/sync-gsc-visual-metrics.mjs
           node --check scripts/visual-upgrade-runtime.mjs
+          node --check scripts/qa-homepage-viewports.mjs
 
       - name: Production dependency audit
         run: npm audit --omit=dev
@@ -95,6 +96,33 @@ jobs:
           grep -R -Fq "article_dwell_60" dist/articles
           grep -R -Fq 'Cloudflare Workers Analytics Engine' dist/privacy
           grep -R -Fq '60초 이상 활성 체류' dist/privacy
+
+      - name: Install Playwright QA runtime
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Homepage viewport QA
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/joylab-preview.log 2>&1 &
+          PREVIEW_PID=$!
+          trap 'kill $PREVIEW_PID || true' EXIT
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4321/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:4321/ >/dev/null
+          node scripts/qa-homepage-viewports.mjs
+
+      - name: Upload Homepage GOLD QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: homepage-gold-qa
+          path: qa-artifacts/homepage
+          if-no-files-found: warn
 
       - name: Upload dist artifact
         uses: actions/upload-artifact@v6
