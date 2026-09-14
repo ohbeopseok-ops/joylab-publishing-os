@@ -51,6 +51,7 @@ jobs:
           node --check scripts/sync-gsc-visual-metrics.mjs
           node --check scripts/visual-upgrade-runtime.mjs
           node --check scripts/qa-homepage-viewports.mjs
+          node --check scripts/qa-article-archive-gold.mjs
 
       - name: Production dependency audit
         run: npm audit --omit=dev
@@ -102,19 +103,30 @@ jobs:
           npm install --no-save --package-lock=false playwright@1.55.0
           npx playwright install --with-deps chromium
 
-      - name: Homepage viewport QA
+      - name: Start Astro preview
         shell: bash
         run: |
           set -euo pipefail
           npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/joylab-preview.log 2>&1 &
-          PREVIEW_PID=$!
-          trap 'kill $PREVIEW_PID || true' EXIT
+          echo $! > /tmp/joylab-preview.pid
           for i in {1..30}; do
-            if curl -fsS http://127.0.0.1:4321/ >/dev/null; then break; fi
+            if curl -fsS http://127.0.0.1:4321/ >/dev/null; then exit 0; fi
             sleep 1
           done
-          curl -fsS http://127.0.0.1:4321/ >/dev/null
-          node scripts/qa-homepage-viewports.mjs
+          cat /tmp/joylab-preview.log
+          exit 1
+
+      - name: Homepage viewport QA
+        run: node scripts/qa-homepage-viewports.mjs
+
+      - name: Article Detail and Archive GOLD QA
+        run: node scripts/qa-article-archive-gold.mjs
+
+      - name: Stop Astro preview
+        if: always()
+        shell: bash
+        run: |
+          if [ -f /tmp/joylab-preview.pid ]; then kill "$(cat /tmp/joylab-preview.pid)" || true; fi
 
       - name: Upload Homepage GOLD QA screenshots
         if: always()
@@ -122,6 +134,14 @@ jobs:
         with:
           name: homepage-gold-qa
           path: qa-artifacts/homepage
+          if-no-files-found: warn
+
+      - name: Upload Article Archive GOLD QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: article-archive-gold-qa
+          path: qa-artifacts/article-archive
           if-no-files-found: warn
 
       - name: Upload dist artifact
