@@ -5,6 +5,7 @@ import path from 'node:path';
 const baseURL = process.env.QA_BASE_URL || 'http://127.0.0.1:4321';
 const outputDir = process.env.QA_OUTPUT_DIR || 'qa-artifacts/article-archive';
 const articlePath = '/articles/china-us-treasury-holdings-2026';
+const researchPath = '/research';
 const results = [];
 const failures = [];
 
@@ -36,8 +37,6 @@ async function runArticle(viewport) {
   const context = await browser.newContext({ viewport });
   const page = await context.newPage();
   const errors = [];
-  // Astro preview does not host the Cloudflare Worker analytics route used in production.
-  // Mock only this endpoint so unrelated 4xx/5xx and browser errors still fail the GOLD case.
   await page.route('**/__analytics/event', (route) => route.fulfill({ status: 204, body: '' }));
   page.on('pageerror', (e) => errors.push(String(e)));
   page.on('console', (m) => { if (m.type() === 'error') errors.push(`console: ${m.text()}`); });
@@ -58,6 +57,9 @@ async function runArticle(viewport) {
       layout: visible('.research-layout'),
       content: visible('.research-v2-content'),
       brief: visible('.research-brief'),
+      toc: visible('.toc-card'),
+      guideCta: visible('.research-guide-cta'),
+      related: visible('.related-card'),
       heroOk: Boolean(hero && hero.complete && hero.naturalWidth > 0),
     };
   });
@@ -71,6 +73,7 @@ async function runArticle(viewport) {
     noErrors: errors.length === 0,
     h1Present: structure.h1.length > 10,
     coreStructureVisible: structure.cover && structure.layout && structure.content && structure.brief,
+    decisionAidsVisible: structure.toc && structure.guideCta && structure.related,
     heroOk: structure.heroOk,
   };
   const passed = Object.values(checks).every(Boolean);
@@ -79,47 +82,45 @@ async function runArticle(viewport) {
   await context.close();
 }
 
-async function runArchive(viewport) {
+async function runResearch(viewport) {
   const context = await browser.newContext({ viewport });
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e)));
   page.on('console', (m) => { if (m.type() === 'error') errors.push(`console: ${m.text()}`); });
-  const response = await page.goto(`${baseURL}/#archive`, { waitUntil: 'networkidle' });
-  await page.locator('#archive').scrollIntoViewIfNeeded();
-  const initialCount = Number((await page.locator('#result-count').textContent())?.trim() || 0);
+  const response = await page.goto(`${baseURL}${researchPath}`, { waitUntil: 'networkidle' });
+  const initialCount = Number((await page.locator('#research-count').textContent())?.trim() || 0);
 
-  await page.locator('#content-search').fill('Aside');
+  await page.locator('#research-search').fill('Aside');
   await page.waitForTimeout(120);
-  const searchCount = Number((await page.locator('#result-count').textContent())?.trim() || 0);
-  const visibleAfterSearch = await page.locator('.article-card:visible').count();
+  const searchCount = Number((await page.locator('#research-count').textContent())?.trim() || 0);
+  const visibleAfterSearch = await page.locator('.research-hub-card:visible').count();
 
-  await page.locator('#clear-filter').click();
+  await page.locator('#research-clear').click();
   await page.waitForTimeout(100);
-  const aiChip = page.locator('.filter-chip', { hasText: 'AI·생산성' });
+  const aiChip = page.locator('[data-research-category]', { hasText: 'AI·생산성' });
   await aiChip.click();
   await page.waitForTimeout(120);
-  const aiVisibleCategories = await page.locator('.article-card:visible').evaluateAll((cards) => cards.map((c) => c.getAttribute('data-category')));
-  const aiCount = Number((await page.locator('#result-count').textContent())?.trim() || 0);
+  const aiVisibleCategories = await page.locator('.research-hub-card:visible').evaluateAll((cards) => cards.map((c) => c.getAttribute('data-category')));
+  const aiCount = Number((await page.locator('#research-count').textContent())?.trim() || 0);
 
-  await page.locator('#clear-filter').click();
+  await page.locator('#research-clear').click();
   await page.waitForTimeout(100);
-  const resetCount = Number((await page.locator('#result-count').textContent())?.trim() || 0);
-  const loadMore = page.locator('#load-more');
+  const resetCount = Number((await page.locator('#research-count').textContent())?.trim() || 0);
+  const loadMore = page.locator('#research-more');
   const loadMoreVisible = await loadMore.isVisible();
   let loadMoreWorked = true;
   if (loadMoreVisible) {
-    const before = await page.locator('.article-card:visible').count();
+    const before = await page.locator('.research-hub-card:visible').count();
     await loadMore.click();
     await page.waitForTimeout(100);
-    const after = await page.locator('.article-card:visible').count();
+    const after = await page.locator('.research-hub-card:visible').count();
     loadMoreWorked = after > before || !(await loadMore.isVisible());
   }
 
   await triggerLazy(page);
   const health = await pageHealth(page);
-  await page.locator('#archive').scrollIntoViewIfNeeded();
-  const screenshot = path.join(outputDir, `archive-${viewport.width}.png`);
+  const screenshot = path.join(outputDir, `research-${viewport.width}.png`);
   await page.screenshot({ path: screenshot, fullPage: true });
 
   const checks = {
@@ -134,18 +135,18 @@ async function runArchive(viewport) {
     noErrors: errors.length === 0,
   };
   const passed = Object.values(checks).every(Boolean);
-  results.push({ kind: 'archive', viewport, checks, counts: { initialCount, searchCount, aiCount, resetCount, visibleAfterSearch, aiVisible: aiVisibleCategories.length }, health, errors, passed, screenshot });
-  if (!passed) failures.push(`archive-${viewport.width}`);
+  results.push({ kind: 'research', viewport, checks, counts: { initialCount, searchCount, aiCount, resetCount, visibleAfterSearch, aiVisible: aiVisibleCategories.length }, health, errors, passed, screenshot });
+  if (!passed) failures.push(`research-${viewport.width}`);
   await context.close();
 }
 
 for (const viewport of [{ width: 390, height: 844 }, { width: 1366, height: 900 }]) await runArticle(viewport);
-for (const viewport of [{ width: 390, height: 844 }, { width: 1366, height: 900 }]) await runArchive(viewport);
+for (const viewport of [{ width: 390, height: 844 }, { width: 1366, height: 900 }]) await runResearch(viewport);
 
 await browser.close();
-await fs.writeFile(path.join(outputDir, 'report.json'), JSON.stringify({ baseURL, articlePath, generatedAt: new Date().toISOString(), results }, null, 2));
+await fs.writeFile(path.join(outputDir, 'report.json'), JSON.stringify({ baseURL, articlePath, researchPath, generatedAt: new Date().toISOString(), results }, null, 2));
 for (const r of results) console.log(`${r.passed ? 'PASS' : 'FAIL'} ${r.kind} ${r.viewport.width}px`);
 if (failures.length) {
-  console.error(`Article/Archive GOLD QA failed: ${failures.join(', ')}`);
+  console.error(`Article/Research GOLD QA failed: ${failures.join(', ')}`);
   process.exit(1);
 }
