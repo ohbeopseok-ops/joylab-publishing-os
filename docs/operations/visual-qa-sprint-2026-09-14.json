@@ -1,9 +1,9 @@
 {
-  "version": "1.1",
+  "version": "1.2",
   "total": 17,
   "summary": {
-    "KEEP": 14,
-    "TUNE": 3,
+    "KEEP": 17,
+    "TUNE": 0,
     "REGEN": 0
   },
   "items": [
@@ -58,20 +58,20 @@
     {
       "articleId": "hd-hyundai-heavy-industries-shipbuilding",
       "group": "SHIPBUILDING",
-      "status": "TUNE",
-      "reason": "대형 선박 이미지는 강하지만 LNG선·함정·엔진이라는 HD현대중공업 고유 포인트가 약해 TUNE."
+      "status": "KEEP",
+      "reason": "LNG선·함정·엔진을 분리된 작업 장면으로 구성해 HD현대중공업의 복합 사업 역량을 명확히 차별화."
     },
     {
       "articleId": "hanwha-ocean-shipbuilding",
       "group": "SHIPBUILDING",
-      "status": "TUNE",
-      "reason": "일반 대형선 조선소 이미지에 가까워 LNG선·특수선/방산이라는 한화오션 차별성이 약해 TUNE."
+      "status": "KEEP",
+      "reason": "LNG선과 잠수함·특수선을 함께 구성해 한화오션의 상선·방산 포트폴리오를 명확히 차별화."
     },
     {
       "articleId": "samsung-heavy-industries-shipbuilding",
       "group": "SHIPBUILDING",
-      "status": "TUNE",
-      "reason": "일반 대형선 중심이라 LNG선·해양플랜트/FLNG라는 삼성중공업 고유 포인트를 더 분명히 해야 해 TUNE."
+      "status": "KEEP",
+      "reason": "LNG선과 대형 FLNG·해양플랜트를 중심에 배치해 삼성중공업의 고난도 해양 프로젝트 역량을 명확히 차별화."
     },
     {
       "articleId": "hd-ksoe-shipbuilding",
