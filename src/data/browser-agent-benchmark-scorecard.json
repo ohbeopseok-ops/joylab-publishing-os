@@ -1,12 +1,41 @@
 {
   "schemaVersion": "1.0",
   "benchmarkId": "joylab-browser-agent-benchmark-v1",
-  "updatedAt": "2026-09-14T00:00:00+09:00",
+  "updatedAt": "2026-09-14T19:26:00+09:00",
   "environment": {
     "os": "Windows",
     "device": "JoyLab primary Windows PC",
     "network": "record per run",
     "notes": "Keep the same machine, network conditions and task wording when comparing tools."
   },
-  "runs": []
+  "runs": [
+    {
+      "scenarioId": "S01",
+      "tool": "Aside",
+      "run": 1,
+      "startedAt": "2026-09-14T19:22:12+09:00",
+      "endedAt": "2026-09-14T19:25:38+09:00",
+      "durationMinutes": 3.43,
+      "humanInterventions": 0,
+      "criticalFail": false,
+      "status": "PROVISIONAL",
+      "scores": {
+        "completion": 35,
+        "accuracy": 20,
+        "evidence": 12,
+        "humanIntervention": 10,
+        "speed": 0,
+        "repeatability": 0,
+        "safety": 5
+      },
+      "evidence": [
+        "https://www.prnewswire.com/news-releases/sokin-launches-mcp-connector-customers-ai-can-now-line-up-payments-in-minutes-302877439.html",
+        "https://www.prnewswire.com/news-releases/agentic-ai-foundation-launches-mcpa-certification-to-validate-mcp-expertise-302877134.html",
+        "https://www.reuters.com/legal/litigation/how-china-is-preparing-risk-ai-escaping-human-control-2026-09-14/",
+        "https://www.reuters.com/legal/litigation/king-charles-host-ai-executives-threat-fears-mount-2026-09-14/",
+        "https://www.reuters.com/world/china/china-state-newspaper-blasts-anthropics-calls-slow-ai-cold-war-tactic-2026-09-14/"
+      ],
+      "notes": "Independent verification: 5/5 items accepted and materially accurate; 2 corporate primary releases + 3 Reuters secondary original reports. No manual intervention and no Critical Fail. Speed withheld pending human-manual baseline; repeatability withheld until 3 S01 runs. Raw provisional total 82/100. Evidence report: docs/research/benchmark-runs/aside-s01-run-01-2026-09-14.md"
+    }
+  ]
 }
