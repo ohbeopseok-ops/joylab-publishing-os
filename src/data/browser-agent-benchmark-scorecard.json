@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "benchmarkId": "joylab-browser-agent-benchmark-v1",
+  "updatedAt": "2026-09-14T00:00:00+09:00",
+  "environment": {
+    "os": "Windows",
+    "device": "JoyLab primary Windows PC",
+    "network": "record per run",
+    "notes": "Keep the same machine, network conditions and task wording when comparing tools."
+  },
+  "runs": []
+}

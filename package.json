@@ -12,7 +12,10 @@
     "prebuild": "node scripts/apply-curated-research-images.mjs",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "benchmark:evaluate": "node scripts/evaluate-browser-agent-benchmark.mjs",
+    "benchmark:summary": "node scripts/evaluate-browser-agent-benchmark.mjs --write-summary",
+    "benchmark:gate": "node scripts/evaluate-browser-agent-benchmark.mjs --gate"
   },
   "dependencies": {
     "astro": "^7.3.2"
