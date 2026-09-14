@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0",
+  "benchmarkId": "joylab-browser-agent-benchmark-v1",
+  "targetTool": "Aside",
+  "tools": [
+    "Aside",
+    "ChatGPT Work",
+    "Playwright"
+  ],
+  "scenarioIds": [
+    "S01",
+    "S02",
+    "S03",
+    "S04",
+    "S05",
+    "S06",
+    "S07",
+    "S08",
+    "S09",
+    "S10"
+  ],
+  "weights": {
+    "completion": 35,
+    "accuracy": 20,
+    "evidence": 15,
+    "humanIntervention": 10,
+    "speed": 10,
+    "repeatability": 5,
+    "safety": 5
+  },
+  "promotion": {
+    "minimumAverageScore": 85,
+    "minimumRunsPerScenario": 1,
+    "requireAllScenarios": true,
+    "maxCriticalFails": 0
+  },
+  "decisionBands": [
+    { "min": 85, "max": 100, "label": "GO" },
+    { "min": 70, "max": 84.9999, "label": "CONDITIONAL_GO" },
+    { "min": 60, "max": 69.9999, "label": "HOLD" },
+    { "min": 0, "max": 59.9999, "label": "NO_GO" }
+  ]
+}
