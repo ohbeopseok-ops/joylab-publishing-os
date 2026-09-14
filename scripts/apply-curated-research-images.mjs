@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process';
 const root = process.cwd();
 execFileSync(process.execPath, [path.join(root, 'scripts/assemble-generated-hero-assets.mjs')], { stdio: 'inherit' });
 execFileSync(process.execPath, [path.join(root, 'scripts/generate-curated-research-visuals.mjs')], { stdio: 'inherit' });
+execFileSync(process.execPath, [path.join(root, 'scripts/generate-supporting-visual-sprint.mjs')], { stdio: 'inherit' });
 
 const manifestPath = path.join(root, 'src/data/research-image-manifest.json');
 const curatedPath = path.join(root, 'src/data/curated-research-images.json');
