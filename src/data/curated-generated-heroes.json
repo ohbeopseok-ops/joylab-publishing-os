@@ -48,6 +48,20 @@
       "caption": "성과·피드백·인정·공정성·학습을 하나의 운영시스템으로 연결합니다."
     }
   },
+  "hanwha-ocean-shipbuilding": {
+    "hero": {
+      "src": "/images/research/generated/hanwha-ocean-shipbuilding-hero-v2.webp",
+      "alt": "LNG 운반선·잠수함·특수선을 한 장면에 담은 한화오션 차별화 Hero",
+      "caption": "한화오션은 LNG선과 특수선·방산 역량이 동시에 수주 구조를 만듭니다."
+    }
+  },
+  "hd-hyundai-heavy-industries-shipbuilding": {
+    "hero": {
+      "src": "/images/research/generated/hd-hyundai-heavy-industries-shipbuilding-hero-v2.webp",
+      "alt": "LNG선·함정·선박 엔진 역량을 함께 보여주는 HD현대중공업 차별화 Hero",
+      "caption": "HD현대중공업은 LNG선뿐 아니라 함정과 엔진까지 이어지는 복합 사업 구조를 봐야 합니다."
+    }
+  },
   "hd-ksoe-shipbuilding": {
     "hero": {
       "src": "/images/research/generated/hd-ksoe-shipbuilding-hero-v2.webp",
@@ -88,6 +102,13 @@
       "src": "/images/research/generated/recognition-system-fair-performance-hero-v2.webp",
       "alt": "팀 구성원의 기여를 공정하게 인정하고 성과와 연결하는 시스템",
       "caption": "칭찬의 양보다 기준이 설명 가능한 공정한 인정 구조가 중요합니다."
+    }
+  },
+  "samsung-heavy-industries-shipbuilding": {
+    "hero": {
+      "src": "/images/research/generated/samsung-heavy-industries-shipbuilding-hero-v2.webp",
+      "alt": "LNG선과 FLNG·해양플랜트 통합 역량을 보여주는 삼성중공업 차별화 Hero",
+      "caption": "삼성중공업은 LNG선과 FLNG·해양플랜트의 고난도 프로젝트 역량이 핵심입니다."
     }
   },
   "what-is-ai-agent": {
