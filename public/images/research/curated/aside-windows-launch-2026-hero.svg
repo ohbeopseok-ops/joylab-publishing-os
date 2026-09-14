@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Aside for Windows 정식 출시</title><desc id="desc">Windows 데스크톱과 AI 브라우저 에이전트의 업무 실행 흐름을 표현한 JoyLab 리서치 Hero</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07152f"/><stop offset="1" stop-color="#123b7a"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1f6fff" stop-opacity=".35"/><stop offset="1" stop-color="#8fb7ff" stop-opacity=".08"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<circle cx="1320" cy="160" r="250" fill="#1677ff" opacity=".12"/><circle cx="250" cy="760" r="310" fill="#1677ff" opacity=".08"/>
+<text x="120" y="150" fill="#7fb2ff" font-size="28" font-family="Arial, sans-serif" font-weight="700">JOYLAB · AI PRODUCTIVITY RESEARCH</text>
+<text x="120" y="245" fill="#ffffff" font-size="72" font-family="Arial, sans-serif" font-weight="800">Aside for Windows</text>
+<text x="120" y="315" fill="#d7e7ff" font-size="38" font-family="Arial, sans-serif" font-weight="600">맥에서 쓰던 AI 브라우저를 이제 윈도우에서도</text>
+<g transform="translate(120 405)">
+<rect width="860" height="340" rx="28" fill="#0b1f4d" stroke="#3b82f6" stroke-width="2"/>
+<rect x="28" y="28" width="804" height="56" rx="14" fill="#102d61"/><circle cx="62" cy="56" r="8" fill="#7faeff"/><circle cx="90" cy="56" r="8" fill="#4e85e8"/><circle cx="118" cy="56" r="8" fill="#315fae"/>
+<rect x="40" y="120" width="280" height="180" rx="18" fill="url(#glass)" stroke="#4e8cff"/><text x="70" y="165" fill="#ffffff" font-size="24" font-family="Arial, sans-serif" font-weight="700">Browser</text><text x="70" y="205" fill="#a9c8ff" font-size="20" font-family="Arial, sans-serif">Logged-in sites</text><text x="70" y="240" fill="#a9c8ff" font-size="20" font-family="Arial, sans-serif">Files · Docs · Dashboards</text>
+<path d="M345 210 H465" stroke="#7fb2ff" stroke-width="4"/><path d="M450 195 L470 210 L450 225" fill="none" stroke="#7fb2ff" stroke-width="4"/>
+<rect x="490" y="120" width="300" height="180" rx="18" fill="#122d5b" stroke="#6aa0ff"/><text x="520" y="165" fill="#ffffff" font-size="24" font-family="Arial, sans-serif" font-weight="700">AI Agent</text><text x="520" y="205" fill="#a9c8ff" font-size="20" font-family="Arial, sans-serif">Execute</text><text x="520" y="240" fill="#a9c8ff" font-size="20" font-family="Arial, sans-serif">Remember · Ask approval</text>
+</g>
+<g transform="translate(1080 425)"><rect width="360" height="320" rx="34" fill="#ffffff" opacity=".96"/><path d="M80 86 h85 v-36 h-85z M185 86 h95 v-36 h-95z M80 106 h85 v84 h-85z M185 106 h95 v84 h-95z M80 210 h85 v56 h-85z M185 210 h95 v56 h-95z" fill="#1677ff"/><text x="72" y="298" fill="#0b1f4d" font-size="26" font-family="Arial, sans-serif" font-weight="700">WINDOWS READY</text></g>
+<text x="120" y="825" fill="#9cc0ff" font-size="25" font-family="Arial, sans-serif">Fact → Product Shift → Workflow Fit → Risk → Adoption Signal → Action</text>
+</svg>
