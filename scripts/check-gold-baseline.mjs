@@ -37,6 +37,9 @@ const build = await text('.github/workflows/build.yml');
 const deploy = await text('.github/workflows/deploy-cloudflare.yml');
 const healthWorkflow = await text('.github/workflows/production-health.yml');
 const healthScript = await text('scripts/check-production-health.mjs');
+const driftWorkflow = await text('.github/workflows/configuration-drift.yml');
+const driftScript = await text('scripts/check-configuration-drift.mjs');
+const productionBaseline = await text('config/production-baseline.json');
 const worker = await text('worker/index.js');
 const wrangler = await text('wrangler.jsonc');
 const packageJson = await text('package.json');
@@ -53,6 +56,8 @@ contains(build, 'run: npm ci', 'Build uses deterministic npm ci');
 contains(build, 'run: npm audit --omit=dev', 'Build blocks production dependency vulnerabilities');
 contains(build, 'run: npm run build', 'Build produces the Astro site');
 contains(build, 'node --check scripts/check-production-health.mjs', 'Build syntax-checks Production Health');
+contains(build, 'node --check scripts/check-configuration-drift.mjs', 'Build syntax-checks Configuration Drift');
+contains(build, "production-baseline.json", 'Build validates the production configuration baseline');
 
 contains(deploy, 'permissions:\n  contents: read', 'Deploy workflow keeps read-only repository permissions');
 contains(deploy, 'push:\n    branches: [main]', 'Production deploy only follows main pushes');
@@ -91,6 +96,29 @@ contains(healthScript, "'strict-transport-security'", 'Production Health checks 
 contains(healthScript, "'x-content-type-options'", 'Production Health checks X-Content-Type-Options');
 contains(healthScript, "expectedStatus: 301", 'Production Health checks permanent www redirect');
 contains(healthScript, 'SOFT_LATENCY_MS = 1_500', 'Production Health records soft latency threshold');
+
+contains(driftWorkflow, "cron: '37 2 * * *'", 'Configuration Drift runs daily at 02:37 UTC');
+contains(driftWorkflow, 'workflow_dispatch:', 'Configuration Drift supports manual dispatch');
+contains(driftWorkflow, 'permissions:\n  contents: read', 'Configuration Drift keeps read-only repository permissions');
+contains(driftWorkflow, 'node-version: 24', 'Configuration Drift uses Node 24');
+contains(driftWorkflow, 'group: configuration-drift', 'Configuration Drift has concurrency control');
+contains(driftWorkflow, 'CF_AUDIT_API_TOKEN', 'Configuration Drift uses a dedicated audit token');
+contains(driftWorkflow, 'secrets.CLOUDFLARE_ACCOUNT_ID', 'Configuration Drift reuses the canonical account identifier');
+contains(driftWorkflow, 'CF_ZONE_ID', 'Configuration Drift requires an explicit zone identifier');
+contains(driftWorkflow, 'run: node scripts/check-configuration-drift.mjs', 'Configuration Drift runs the canonical checker');
+
+contains(driftScript, '/dns_records', 'Configuration Drift checks DNS inventory');
+contains(driftScript, '/workers/domains', 'Configuration Drift checks Worker custom domains');
+contains(driftScript, '/subdomain', 'Configuration Drift checks Worker subdomain exposure');
+contains(driftScript, 'previews_enabled', 'Configuration Drift checks preview URL exposure');
+contains(driftScript, 'record.proxied === true', 'Configuration Drift checks Cloudflare proxy intent');
+contains(driftScript, 'domain.zone_id === zoneId', 'Configuration Drift checks expected Cloudflare zone');
+
+contains(productionBaseline, '"schemaVersion": 1', 'Production configuration baseline schema remains V1');
+contains(productionBaseline, '"workersDevEnabled": false', 'Production baseline requires workers.dev disabled');
+contains(productionBaseline, '"previewUrlsEnabled": false', 'Production baseline requires preview URLs disabled');
+contains(productionBaseline, '"aijoylab.kr"', 'Production baseline retains canonical host');
+contains(productionBaseline, '"www.aijoylab.kr"', 'Production baseline retains www host');
 
 contains(worker, "'Strict-Transport-Security': 'max-age=31536000; includeSubDomains'", 'Worker sets HSTS');
 contains(worker, "'X-Content-Type-Options': 'nosniff'", 'Worker sets X-Content-Type-Options');
