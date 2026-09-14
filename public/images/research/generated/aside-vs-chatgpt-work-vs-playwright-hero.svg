@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07152f"/><stop offset="1" stop-color="#0b1f4d"/></linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f2b5e"/><stop offset="1" stop-color="#10233f"/></linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <text x="90" y="105" fill="#fff" font-family="Arial,sans-serif" font-size="52" font-weight="700">Aside vs ChatGPT Work vs Playwright</text>
+  <text x="92" y="157" fill="#8fb4ff" font-family="Arial,sans-serif" font-size="25">AI browser automation · the right layer for the right job</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="80" y="230" width="440" height="480" rx="28" fill="url(#panel)" stroke="#1677ff" stroke-width="2"/>
+    <rect x="120" y="275" width="360" height="160" rx="16" fill="#081b37" stroke="#2d6fd7"/>
+    <rect x="142" y="300" width="120" height="18" rx="9" fill="#214d8a"/><rect x="142" y="336" width="292" height="16" rx="8" fill="#173968"/><rect x="142" y="368" width="250" height="16" rx="8" fill="#173968"/>
+    <text x="120" y="505" fill="#fff" font-size="38" font-weight="700">Aside</text><text x="120" y="550" fill="#56c7ff" font-size="26" font-weight="700">BROWSER EXECUTION</text><text x="120" y="602" fill="#dce8ff" font-size="22">logged-in web tasks · navigation · downloads</text><text x="120" y="640" fill="#9db5da" font-size="20">Use it where the browser itself is the workplace.</text>
+    <rect x="580" y="230" width="440" height="480" rx="28" fill="url(#panel)" stroke="#4a9cff" stroke-width="2"/>
+    <rect x="620" y="275" width="360" height="160" rx="16" fill="#f6f9ff"/><rect x="645" y="300" width="310" height="34" rx="10" fill="#dbe9ff"/><rect x="645" y="355" width="92" height="56" rx="10" fill="#e9f1ff"/><rect x="753" y="355" width="92" height="56" rx="10" fill="#e9f1ff"/><rect x="861" y="355" width="92" height="56" rx="10" fill="#e9f1ff"/>
+    <text x="620" y="505" fill="#fff" font-size="38" font-weight="700">ChatGPT Work</text><text x="620" y="550" fill="#56c7ff" font-size="26" font-weight="700">RESEARCH &amp; ORCHESTRATION</text><text x="620" y="602" fill="#dce8ff" font-size="22">research · synthesis · finished outputs</text><text x="620" y="640" fill="#9db5da" font-size="20">Use it where the goal is clear but the path is uncertain.</text>
+    <rect x="1080" y="230" width="440" height="480" rx="28" fill="url(#panel)" stroke="#39d4ff" stroke-width="2"/>
+    <rect x="1120" y="275" width="360" height="160" rx="16" fill="#081b37" stroke="#286e93"/><text x="1142" y="315" fill="#65d7ff" font-size="18">test('critical path', async page =&gt; {'</text><text x="1142" y="347" fill="#d8e7ff" font-size="18">  await page.goto('/dashboard')</text><text x="1142" y="379" fill="#d8e7ff" font-size="18">  await expect(page).toBeVisible()</text><text x="1142" y="411" fill="#65d7ff" font-size="18">})</text>
+    <text x="1120" y="505" fill="#fff" font-size="38" font-weight="700">Playwright</text><text x="1120" y="550" fill="#56c7ff" font-size="26" font-weight="700">VERIFICATION</text><text x="1120" y="602" fill="#dce8ff" font-size="22">assertions · regression · CI evidence</text><text x="1120" y="640" fill="#9db5da" font-size="20">Use it where the same result must be proven repeatedly.</text>
+  </g>
+  <path d="M520 470 H580" stroke="#45b7ff" stroke-width="4"/><path d="M1020 470 H1080" stroke="#45b7ff" stroke-width="4"/>
+  <text x="800" y="800" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="28" font-weight="700">Acquire → Reason → Verify</text><text x="800" y="842" text-anchor="middle" fill="#8fb4ff" font-family="Arial,sans-serif" font-size="21">JoyLab · assign the right layer to the right tool</text>
+</svg>
