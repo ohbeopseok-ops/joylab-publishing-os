@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "node scripts/apply-curated-research-images.mjs && astro dev",
+    "check:heroes": "node scripts/check-hero-quality.mjs",
     "prebuild": "node scripts/apply-curated-research-images.mjs",
     "build": "astro build",
     "preview": "astro preview",
@@ -17,6 +18,7 @@
     "astro": "^7.3.2"
   },
   "devDependencies": {
+    "sharp": "^0.35.4",
     "wrangler": "^4.130.0"
   },
   "overrides": {

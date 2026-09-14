@@ -1,0 +1,10 @@
+{
+  "version": "2.0",
+  "width": 1600,
+  "height": 900,
+  "format": "webp",
+  "minBytes": 10000,
+  "maxBytes": 262144,
+  "pHashDistanceBlock": 8,
+  "allowedSimilarPairs": []
+}

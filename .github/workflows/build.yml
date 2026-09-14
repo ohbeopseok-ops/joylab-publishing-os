@@ -25,6 +25,9 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
+      - name: Install locked dependencies
+        run: npm ci
+
       - name: Gold baseline guard
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -32,6 +35,9 @@ jobs:
 
       - name: Research Image Gate
         run: node scripts/check-research-images.mjs
+
+      - name: Hero Quality Gate V2
+        run: npm run check:heroes
 
       - name: Visual Audit Runtime
         run: node scripts/audit-visual-system.mjs
@@ -44,9 +50,6 @@ jobs:
           node --check scripts/sync-cloudflare-visual-metrics.mjs
           node --check scripts/sync-gsc-visual-metrics.mjs
           node --check scripts/visual-upgrade-runtime.mjs
-
-      - name: Install locked dependencies
-        run: npm ci
 
       - name: Production dependency audit
         run: npm audit --omit=dev
