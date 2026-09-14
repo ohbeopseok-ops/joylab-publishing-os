@@ -27,10 +27,30 @@ for (const viewport of viewports) {
 
   const response = await page.goto(baseURL, { waitUntil: 'networkidle' });
   const status = response?.status() ?? 0;
+
+  // Trigger lazy-loaded media before measuring image health.
+  await page.evaluate(async () => {
+    const step = Math.max(320, Math.floor(window.innerHeight * 0.75));
+    for (let y = 0; y < document.documentElement.scrollHeight; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((resolve) => setTimeout(resolve, 35));
+    }
+    window.scrollTo(0, document.documentElement.scrollHeight);
+    await new Promise((resolve) => setTimeout(resolve, 120));
+    window.scrollTo(0, 0);
+  });
+
+  await page.waitForFunction(() => [...document.images].every((img) => img.complete), null, { timeout: 5000 }).catch(() => {});
+
   const metrics = await page.evaluate(() => {
-    const brokenImages = [...document.images]
-      .filter((img) => img.complete && img.naturalWidth === 0)
-      .map((img) => img.getAttribute('src') || 'unknown');
+    const imageState = [...document.images].map((img) => ({
+      src: img.getAttribute('src') || 'unknown',
+      complete: img.complete,
+      naturalWidth: img.naturalWidth,
+    }));
+    const brokenImages = imageState
+      .filter((img) => !img.complete || img.naturalWidth === 0)
+      .map((img) => img.src);
     const viewportWidth = window.innerWidth;
     const bodyWidth = document.body.scrollWidth;
     const docWidth = document.documentElement.scrollWidth;
@@ -47,6 +67,7 @@ for (const viewport of viewports) {
       docWidth,
       overflow: Math.max(bodyWidth, docWidth) - viewportWidth,
       brokenImages,
+      imageState,
       keyVisibility: {
         hero: visible('.home-hero'),
         pillars: visible('.home-pillars'),
