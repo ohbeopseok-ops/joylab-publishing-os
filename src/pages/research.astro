@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/interactive.css';
+import '../styles/research-hub.css';
+import researchImageManifest from '../data/research-image-manifest.json';
+import { getCollection } from 'astro:content';
+
+const articles = (await getCollection('articles'))
+  .filter((item) => !item.data.draft)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더십'];
+const tags = Array.from(new Set(articles.flatMap((item) => item.data.tags))).sort((a, b) => a.localeCompare(b, 'ko'));
+const series = Array.from(new Set(articles.map((item) => item.data.series).filter(Boolean))).sort((a, b) => String(a).localeCompare(String(b), 'ko'));
+const latest = articles.slice(0, 3);
+---
+<BaseLayout title="JoyLab Research｜전체 리서치 탐색" description="JoyLab의 투자·경제, AI·생산성, 성장·리더십 리서치를 검색·카테고리·시리즈로 탐색합니다." bodyClass="research-hub-page">
+  <div class="research-hub-shell">
+    <section class="research-hub-hero" aria-labelledby="research-hub-title">
+      <div>
+        <div class="research-hub-eyebrow">JOYLAB RESEARCH ARCHIVE</div>
+        <h1 id="research-hub-title">필요한 분석을<br /><span>판단 기준으로 찾습니다.</span></h1>
+        <p>뉴스를 쌓는 아카이브가 아니라, Fact → Interpretation → Scenario → Action 흐름으로 다시 찾을 수 있는 JoyLab의 리서치 허브입니다.</p>
+      </div>
+      <div class="research-hub-metrics" aria-label="리서치 현황">
+        <div><strong>{articles.length}</strong><span>Published Research</span></div>
+        <div><strong>{series.length}</strong><span>Series</span></div>
+        <div><strong>3</strong><span>Core Pillars</span></div>
+      </div>
+    </section>
+
+    <section class="research-hub-featured" aria-labelledby="latest-title">
+      <div class="research-hub-section-head"><div><small>START HERE</small><h2 id="latest-title">최신 리서치</h2></div><p>지금 JoyLab에서 가장 최근에 업데이트된 분석입니다.</p></div>
+      <div class="research-hub-featured-grid">
+        {latest.map((article) => {
+          const visual = researchImageManifest[article.id as keyof typeof researchImageManifest];
+          const hero = visual?.hero?.src ?? article.data.heroImage;
+          const alt = visual?.hero?.alt ?? article.data.heroAlt ?? article.data.title;
+          return (
+            <a class="research-hub-featured-card" href={`/articles/${article.id}`}>
+              {hero && <img src={hero} alt={alt} width="1600" height="900" loading="eager" />}
+              <span class="research-hub-featured-copy"><small>{article.data.category}</small><strong>{article.data.title}</strong><em>{article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</em></span>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="research-hub-archive" id="research-archive" aria-labelledby="archive-title">
+      <div class="research-hub-section-head"><div><small>EXPLORE</small><h2 id="archive-title">전체 리서치</h2></div><p>검색어, Pillar, 태그, 시리즈를 조합해 원하는 분석을 좁혀보세요.</p></div>
+
+      <div class="research-hub-finder" aria-label="리서치 검색 및 필터">
+        <div class="research-hub-search-row">
+          <label class="research-hub-search"><span>검색</span><input id="research-search" type="search" placeholder="삼성전자, HBM, AI Agent, 리더십 검색" autocomplete="off" /></label>
+          <label><span>태그</span><select id="research-tag"><option value="">모든 태그</option>{tags.map((tag) => <option value={tag}>{tag}</option>)}</select></label>
+          <label><span>시리즈</span><select id="research-series"><option value="">모든 시리즈</option>{series.map((item) => <option value={item}>{item}</option>)}</select></label>
+        </div>
+        <div class="research-hub-chips" role="group" aria-label="Pillar 필터">
+          {categories.map((category, index) => <button type="button" class={index === 0 ? 'is-active' : ''} data-research-category={category === '전체' ? '' : category}>{category}</button>)}
+        </div>
+        <div class="research-hub-finder-foot"><span><strong id="research-count">{articles.length}</strong>개의 리서치</span><button id="research-clear" type="button">필터 초기화</button></div>
+      </div>
+
+      <div id="research-grid" class="research-hub-grid">
+        {articles.map((article, index) => {
+          const visual = researchImageManifest[article.id as keyof typeof researchImageManifest];
+          const hero = visual?.hero?.src ?? article.data.heroImage;
+          const alt = visual?.hero?.alt ?? article.data.heroAlt ?? article.data.title;
+          return (
+            <a class={`research-hub-card ${index >= 12 ? 'is-page-hidden' : ''}`} href={`/articles/${article.id}`} data-category={article.data.category} data-tags={article.data.tags.join('|')} data-series={article.data.series ?? ''} data-search={`${article.data.title} ${article.data.description} ${article.data.category} ${article.data.tags.join(' ')} ${article.data.series ?? ''}`}>
+              {hero ? <img src={hero} alt={alt} width="1600" height="900" loading="lazy" /> : <div class="research-hub-card-placeholder" aria-hidden="true"></div>}
+              <span class="research-hub-card-copy"><small>{article.data.category}</small><strong>{article.data.title}</strong><p>{article.data.description}</p><em>{article.data.series ?? 'JoyLab Research'} · {article.data.readingTime ?? '약 6분'}</em></span>
+            </a>
+          );
+        })}
+      </div>
+      <div id="research-empty" class="research-hub-empty">조건에 맞는 리서치가 없습니다. 검색어나 필터를 바꿔보세요.</div>
+      <div class="research-hub-more-wrap"><button id="research-more" type="button">리서치 더 보기</button></div>
+    </section>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const cards = Array.from(document.querySelectorAll('.research-hub-card'));
+      const search = document.getElementById('research-search');
+      const tag = document.getElementById('research-tag');
+      const series = document.getElementById('research-series');
+      const categoryButtons = Array.from(document.querySelectorAll('[data-research-category]'));
+      const count = document.getElementById('research-count');
+      const clear = document.getElementById('research-clear');
+      const more = document.getElementById('research-more');
+      const empty = document.getElementById('research-empty');
+      if (!search || !tag || !series || !count || !clear || !more || !empty) return;
+      const PAGE_SIZE = 12;
+      let activeCategory = '';
+      let visibleLimit = PAGE_SIZE;
+      const normalize = (value) => String(value || '').trim().toLocaleLowerCase('ko-KR');
+      const apply = (resetPage = true) => {
+        if (resetPage) visibleLimit = PAGE_SIZE;
+        const query = normalize(search.value);
+        const selectedTag = tag.value;
+        const selectedSeries = series.value;
+        const matches = cards.filter((card) => {
+          const tags = (card.dataset.tags || '').split('|');
+          return (!query || normalize(card.dataset.search).includes(query)) && (!activeCategory || card.dataset.category === activeCategory) && (!selectedTag || tags.includes(selectedTag)) && (!selectedSeries || card.dataset.series === selectedSeries);
+        });
+        cards.forEach((card) => {
+          const index = matches.indexOf(card);
+          card.classList.toggle('is-filtered-out', index === -1);
+          card.classList.toggle('is-page-hidden', index !== -1 && index >= visibleLimit);
+        });
+        count.textContent = String(matches.length);
+        empty.classList.toggle('is-visible', matches.length === 0);
+        more.hidden = matches.length <= visibleLimit;
+      };
+      search.addEventListener('input', () => apply());
+      tag.addEventListener('change', () => apply());
+      series.addEventListener('change', () => apply());
+      categoryButtons.forEach((button) => button.addEventListener('click', () => {
+        activeCategory = button.dataset.researchCategory || '';
+        categoryButtons.forEach((item) => item.classList.toggle('is-active', item === button));
+        apply();
+      }));
+      clear.addEventListener('click', () => {
+        search.value = ''; tag.value = ''; series.value = ''; activeCategory = '';
+        categoryButtons.forEach((button, index) => button.classList.toggle('is-active', index === 0));
+        apply();
+      });
+      more.addEventListener('click', () => { visibleLimit += PAGE_SIZE; apply(false); });
+      apply(false);
+    })();
+  </script>
+</BaseLayout>
