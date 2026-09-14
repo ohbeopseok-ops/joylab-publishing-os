@@ -33,3 +33,10 @@ npm run preview
 GitHub Actions를 통해 Cloudflare Workers로 자동 배포합니다.
 
 브랜드: **생각 → 분석 → 실행 → 성장**
+
+## Visual QA Pass (2026-09-14)
+
+- 총 17장 감사
+- KEEP 14 / TUNE 3 / REGEN 0
+- KEEP 14장은 1600×900 WebP(quality 65)로 최적화
+- TUNE 3장: HD현대중공업 / 한화오션 / 삼성중공업
