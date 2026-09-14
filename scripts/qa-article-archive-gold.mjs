@@ -23,14 +23,17 @@ async function triggerLazy(page) {
     await new Promise((resolve) => setTimeout(resolve, 100));
     window.scrollTo(0, 0);
   });
-  await page.waitForFunction(() => [...document.images].every((img) => img.complete), null, { timeout: 5000 }).catch(() => {});
+  await page.waitForTimeout(150);
 }
 
-async function pageHealth(page) {
-  return page.evaluate(() => ({
-    overflow: Math.max(document.body.scrollWidth, document.documentElement.scrollWidth) - window.innerWidth,
-    brokenImages: [...document.images].filter((img) => !img.complete || img.naturalWidth === 0).map((img) => img.getAttribute('src') || 'unknown'),
-  }));
+async function pageHealth(page, visibleImagesOnly = false) {
+  return page.evaluate((onlyVisible) => {
+    const images = [...document.images].filter((img) => !onlyVisible || img.getClientRects().length > 0);
+    return {
+      overflow: Math.max(document.body.scrollWidth, document.documentElement.scrollWidth) - window.innerWidth,
+      brokenImages: images.filter((img) => !img.complete || img.naturalWidth === 0).map((img) => img.getAttribute('src') || 'unknown'),
+    };
+  }, visibleImagesOnly);
 }
 
 async function runArticle(viewport) {
@@ -42,6 +45,7 @@ async function runArticle(viewport) {
   page.on('console', (m) => { if (m.type() === 'error') errors.push(`console: ${m.text()}`); });
   const response = await page.goto(`${baseURL}${articlePath}`, { waitUntil: 'networkidle' });
   await triggerLazy(page);
+  await page.waitForFunction(() => [...document.images].every((img) => img.complete), null, { timeout: 5000 }).catch(() => {});
   const health = await pageHealth(page);
   const structure = await page.evaluate(() => {
     const text = (sel) => document.querySelector(sel)?.textContent?.trim() || '';
@@ -119,7 +123,8 @@ async function runResearch(viewport) {
   }
 
   await triggerLazy(page);
-  const health = await pageHealth(page);
+  await page.waitForFunction(() => [...document.images].filter((img) => img.getClientRects().length > 0).every((img) => img.complete), null, { timeout: 5000 }).catch(() => {});
+  const health = await pageHealth(page, true);
   const screenshot = path.join(outputDir, `research-${viewport.width}.png`);
   await page.screenshot({ path: screenshot, fullPage: true });
 
