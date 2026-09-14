@@ -1,0 +1,47 @@
+name: Browser Agent Promotion Gate
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'config/browser-agent-benchmark-policy.json'
+      - 'src/data/browser-agent-benchmark-scorecard.json'
+      - 'scripts/evaluate-browser-agent-benchmark.mjs'
+      - '.github/workflows/browser-agent-promotion-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Validate scorecard and calculate summary
+        run: node scripts/evaluate-browser-agent-benchmark.mjs
+
+  promotion:
+    if: github.event_name == 'workflow_dispatch'
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Enforce Browser Execution Layer Promotion Gate
+        run: node scripts/evaluate-browser-agent-benchmark.mjs --gate
