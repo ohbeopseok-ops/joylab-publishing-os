@@ -5,7 +5,6 @@ import path from 'node:path';
 const baseURL = process.env.QA_BASE_URL || 'http://127.0.0.1:4321';
 const outputDir = process.env.QA_OUTPUT_DIR || 'qa-artifacts/article-archive';
 const articlePath = '/articles/china-us-treasury-holdings-2026';
-const screenshots = [];
 const results = [];
 const failures = [];
 
@@ -65,7 +64,6 @@ async function runArticle(viewport) {
   const name = `article-${viewport.width}`;
   const screenshot = path.join(outputDir, `${name}.png`);
   await page.screenshot({ path: screenshot, fullPage: true });
-  screenshots.push(screenshot);
   const checks = {
     httpOk: (response?.status() ?? 0) >= 200 && (response?.status() ?? 0) < 400,
     noOverflow: health.overflow <= 1,
@@ -94,14 +92,14 @@ async function runArchive(viewport) {
   await page.locator('#content-search').fill('Aside');
   await page.waitForTimeout(120);
   const searchCount = Number((await page.locator('#result-count').textContent())?.trim() || 0);
-  const visibleAfterSearch = await page.locator('.article-card:not(.is-filtered-out):not(.is-page-hidden)').count();
+  const visibleAfterSearch = await page.locator('.article-card:visible').count();
 
   await page.locator('#clear-filter').click();
   await page.waitForTimeout(100);
   const aiChip = page.locator('.filter-chip', { hasText: 'AI·생산성' });
   await aiChip.click();
   await page.waitForTimeout(120);
-  const aiVisibleCategories = await page.locator('.article-card:not(.is-filtered-out):not(.is-page-hidden)').evaluateAll((cards) => cards.map((c) => c.getAttribute('data-category')));
+  const aiVisibleCategories = await page.locator('.article-card:visible').evaluateAll((cards) => cards.map((c) => c.getAttribute('data-category')));
   const aiCount = Number((await page.locator('#result-count').textContent())?.trim() || 0);
 
   await page.locator('#clear-filter').click();
@@ -111,10 +109,10 @@ async function runArchive(viewport) {
   const loadMoreVisible = await loadMore.isVisible();
   let loadMoreWorked = true;
   if (loadMoreVisible) {
-    const before = await page.locator('.article-card:not(.is-page-hidden):not(.is-filtered-out)').count();
+    const before = await page.locator('.article-card:visible').count();
     await loadMore.click();
     await page.waitForTimeout(100);
-    const after = await page.locator('.article-card:not(.is-page-hidden):not(.is-filtered-out)').count();
+    const after = await page.locator('.article-card:visible').count();
     loadMoreWorked = after > before || !(await loadMore.isVisible());
   }
 
@@ -123,7 +121,6 @@ async function runArchive(viewport) {
   await page.locator('#archive').scrollIntoViewIfNeeded();
   const screenshot = path.join(outputDir, `archive-${viewport.width}.png`);
   await page.screenshot({ path: screenshot, fullPage: true });
-  screenshots.push(screenshot);
 
   const checks = {
     httpOk: (response?.status() ?? 0) >= 200 && (response?.status() ?? 0) < 400,
@@ -137,7 +134,7 @@ async function runArchive(viewport) {
     noErrors: errors.length === 0,
   };
   const passed = Object.values(checks).every(Boolean);
-  results.push({ kind: 'archive', viewport, checks, counts: { initialCount, searchCount, aiCount, resetCount }, health, errors, passed, screenshot });
+  results.push({ kind: 'archive', viewport, checks, counts: { initialCount, searchCount, aiCount, resetCount, visibleAfterSearch, aiVisible: aiVisibleCategories.length }, health, errors, passed, screenshot });
   if (!passed) failures.push(`archive-${viewport.width}`);
   await context.close();
 }
