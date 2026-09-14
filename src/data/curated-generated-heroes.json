@@ -117,5 +117,24 @@
       "alt": "AI가 여러 정보원과 도구를 연결해 결과를 만드는 에이전트 구조",
       "caption": "AI 에이전트는 답변을 넘어 도구와 데이터를 연결해 작업을 수행합니다."
     }
+  },
+  "aside-windows-launch-2026": {
+    "hero": {
+      "src": "/images/research/curated/aside-windows-launch-2026-hero.svg",
+      "alt": "Windows PC에서 AI 브라우저 에이전트가 여러 웹서비스를 연결해 업무를 실행하는 구조",
+      "caption": "Aside의 Windows 출시는 AI 브라우저가 실제 업무 PC 환경으로 확장되는 전환점입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Aside for Windows 정식 출시의 핵심 변화와 업무 도입 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "맥 전용 도구에서 Windows 업무 환경으로 확장되며 검증 범위가 크게 넓어집니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Aside를 Fact Product Shift Workflow Fit Risk Adoption Signal Action 순으로 평가하는 JoyLab 리서치 프레임워크 이미지",
+        "caption": "기능보다 실제 업무 완료율·사람 개입·보안·재사용률로 평가해야 합니다."
+      }
+    ]
   }
 }
