@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="t d">
+<title id="t">JoyLab 판단 프레임 비주얼</title><desc id="d">Fact에서 Interpretation, Scenario, Action으로 이어지는 판단 흐름을 딥 네이비와 골드 라인으로 표현한 배경 이미지</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06152f"/><stop offset="1" stop-color="#0d2f68"/></linearGradient>
+  <radialGradient id="glow" cx="78%" cy="30%" r="58%"><stop stop-color="#1677ff" stop-opacity=".28"/><stop offset="1" stop-color="#1677ff" stop-opacity="0"/></radialGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ffd76a"/><stop offset="1" stop-color="#e9b949"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/><rect width="1600" height="900" fill="url(#glow)"/>
+<g opacity=".23" stroke="#79aefc" fill="none">
+  <path d="M0 650 C280 520 460 730 760 560 S1220 320 1600 460" stroke-width="2"/>
+  <path d="M0 710 C300 580 520 770 860 600 S1270 430 1600 520" stroke-width="1.5"/>
+</g>
+<g transform="translate(120 185)">
+  <g fill="#0b224b" fill-opacity=".72" stroke="#5f9df1" stroke-opacity=".45">
+    <rect x="0" y="0" width="260" height="350" rx="26"/><rect x="325" y="0" width="260" height="350" rx="26"/><rect x="650" y="0" width="260" height="350" rx="26"/><rect x="975" y="0" width="260" height="350" rx="26"/>
+  </g>
+  <g fill="#8eb8f8" opacity=".55">
+    <circle cx="130" cy="115" r="34"/><circle cx="455" cy="115" r="34"/><circle cx="780" cy="115" r="34"/><circle cx="1105" cy="115" r="34"/>
+  </g>
+  <g fill="#c8dcfb" opacity=".4"><rect x="70" y="190" width="120" height="10" rx="5"/><rect x="395" y="190" width="120" height="10" rx="5"/><rect x="720" y="190" width="120" height="10" rx="5"/><rect x="1045" y="190" width="120" height="10" rx="5"/></g>
+  <g fill="#c8dcfb" opacity=".24"><rect x="48" y="225" width="164" height="8" rx="4"/><rect x="373" y="225" width="164" height="8" rx="4"/><rect x="698" y="225" width="164" height="8" rx="4"/><rect x="1023" y="225" width="164" height="8" rx="4"/></g>
+  <path d="M130 115 C285 20 405 250 560 155 S820 60 970 165 1110 220 1280 90" stroke="url(#gold)" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <circle cx="130" cy="115" r="11" fill="#ffd76a"/><circle cx="455" cy="115" r="11" fill="#ffd76a"/><circle cx="780" cy="115" r="11" fill="#ffd76a"/><circle cx="1105" cy="115" r="11" fill="#ffd76a"/>
+</g>
+<g opacity=".22" fill="#e8f1ff"><circle cx="1420" cy="130" r="3"/><circle cx="1350" cy="185" r="5"/><circle cx="1490" cy="260" r="4"/><circle cx="1280" cy="95" r="3"/></g>
+</svg>
