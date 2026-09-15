@@ -93,6 +93,23 @@ jobs:
           test "$(jq -r '.state' /tmp/pack.json)" = 'PUBLISHED'
           test "$(jq -r '.channels.x.variants[] | select(.id=="x_data_a") | .publishedUrl' /tmp/pack.json)" = 'https://x.com/joylab/status/gold'
 
+      - name: Local review UI boot
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp distribution/gold/anthropic-ipo-ai-safety-2026/distribution-pack.json /tmp/review-pack.json
+          node scripts/distribution-review-server.mjs --manifest /tmp/review-pack.json --port 4178 >/tmp/review-ui.log 2>&1 &
+          pid=$!
+          trap 'kill $pid 2>/dev/null || true' EXIT
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4178/ >/tmp/review.html; then break; fi
+            sleep 0.25
+          done
+          grep -Fq 'DISTRIBUTION EXECUTION LAYER V1' /tmp/review.html
+          grep -Fq 'State:' /tmp/review.html
+          grep -Fq '자동 게시 OFF' /tmp/review.html
+          ! grep -Fq 'Publish handoff 생성' /tmp/review.html
+
       - name: Empty metrics scorecard
         shell: bash
         run: |
