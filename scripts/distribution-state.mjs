@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
 const ORDER = ['DRAFT', 'REVIEW', 'APPROVED', 'PUBLISHED', 'MEASURED'];
+const argValue = (args, flag, fallback) => { const i = args.indexOf(flag); return i >= 0 && i + 1 < args.length ? args[i + 1] : fallback; };
 
 export function assertTransition(from, to) {
   const fromIndex = ORDER.indexOf(from);
@@ -35,9 +36,9 @@ function runCli() {
     return;
   }
   const args = process.argv.slice(2);
-  const file = args[args.indexOf('--manifest') + 1];
-  const to = args[args.indexOf('--to') + 1];
-  const actor = args[args.indexOf('--actor') + 1] || 'manual-reviewer';
+  const file = argValue(args, '--manifest');
+  const to = argValue(args, '--to');
+  const actor = argValue(args, '--actor', 'manual-reviewer');
   if (!file || !to) throw new Error('Usage: node scripts/distribution-state.mjs --manifest <path> --to <STATE> [--actor <name>]');
   const pack = JSON.parse(fs.readFileSync(file, 'utf8'));
   transitionPack(pack, to, actor);
