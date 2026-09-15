@@ -7,6 +7,7 @@ on:
       - 'src/data/articles/**'
       - 'scripts/submit-indexnow.mjs'
       - 'public/1793952a193325da594f7015ca133737.txt'
+      - '.github/workflows/indexnow-publish.yml'
   workflow_dispatch:
 
 permissions:
@@ -34,15 +35,32 @@ jobs:
           set -euo pipefail
           test "$(tr -d '\r\n' < public/1793952a193325da594f7015ca133737.txt)" = '1793952a193325da594f7015ca133737'
 
-      - name: Submit changed article URLs
+      - name: Determine submission mode
         if: github.event_name == 'push'
+        id: mode
+        shell: bash
+        env:
+          INDEXNOW_FROM: ${{ github.event.before }}
+          INDEXNOW_TO: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          changed="$(git diff --name-only "$INDEXNOW_FROM" "$INDEXNOW_TO")"
+          printf '%s\n' "$changed"
+          if printf '%s\n' "$changed" | grep -Eq '^(scripts/submit-indexnow\.mjs|public/1793952a193325da594f7015ca133737\.txt|\.github/workflows/indexnow-publish\.yml)$'; then
+            echo 'all=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'all=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Submit changed article URLs
+        if: github.event_name == 'push' && steps.mode.outputs.all != 'true'
         env:
           INDEXNOW_FROM: ${{ github.event.before }}
           INDEXNOW_TO: ${{ github.sha }}
         run: node scripts/submit-indexnow.mjs --from "$INDEXNOW_FROM" --to "$INDEXNOW_TO"
 
-      - name: Submit all article URLs
-        if: github.event_name == 'workflow_dispatch'
+      - name: Submit all published article URLs
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && steps.mode.outputs.all == 'true')
         run: node scripts/submit-indexnow.mjs --all
 
       - name: Upload IndexNow report
