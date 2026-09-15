@@ -1,0 +1,48 @@
+name: Homepage Funnel Report
+
+on:
+  schedule:
+    - cron: '45 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  homepage-funnel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_ANALYTICS_READ_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_READ_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Validate report generator
+        run: |
+          node --check scripts/report-homepage-funnel.mjs
+          node scripts/report-homepage-funnel.mjs --self-test
+
+      - name: Build rolling 7-day report
+        run: node scripts/report-homepage-funnel.mjs --days=7 --min-impressions=100 --out-dir=qa-artifacts/homepage-funnel
+
+      - name: Publish report to job summary
+        shell: bash
+        run: cat qa-artifacts/homepage-funnel/homepage-funnel-7d.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload Homepage Funnel report
+        uses: actions/upload-artifact@v6
+        with:
+          name: homepage-funnel-7d
+          path: qa-artifacts/homepage-funnel
+          if-no-files-found: error
+          retention-days: 30
