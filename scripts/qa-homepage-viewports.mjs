@@ -31,8 +31,9 @@ for (const viewport of viewports) {
   const response = await page.goto(baseURL, { waitUntil: 'networkidle' });
   const status = response?.status() ?? 0;
 
-  // Trigger lazy-loaded media before measuring image health.
+  // Trigger lazy-loaded media with instant QA-only scrolling, then return to the real first viewport.
   await page.evaluate(async () => {
+    document.documentElement.style.setProperty('scroll-behavior', 'auto', 'important');
     const step = Math.max(320, Math.floor(window.innerHeight * 0.75));
     for (let y = 0; y < document.documentElement.scrollHeight; y += step) {
       window.scrollTo(0, y);
@@ -41,8 +42,10 @@ for (const viewport of viewports) {
     window.scrollTo(0, document.documentElement.scrollHeight);
     await new Promise((resolve) => setTimeout(resolve, 120));
     window.scrollTo(0, 0);
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
   });
 
+  await page.waitForFunction(() => window.scrollY === 0, null, { timeout: 2000 }).catch(() => {});
   await page.waitForFunction(() => [...document.images].every((img) => img.complete), null, { timeout: 5000 }).catch(() => {});
 
   const metrics = await page.evaluate(() => {
