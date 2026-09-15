@@ -1,0 +1,18 @@
+/* Homepage PC Fidelity Pass 02 — hierarchy, alignment, archive density */
+@media (min-width:1100px){
+  body.homepage-v2 #site-nav-shell{
+    width:min(calc(100% - 56px),1360px);
+    max-width:1360px;
+  }
+
+  body.homepage-v2 .home-hero__signature{
+    opacity:.67;
+  }
+
+  body.homepage-v2 .home-archive .article-card p{
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:3;
+    overflow:hidden;
+  }
+}
