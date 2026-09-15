@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI 안전과 IPO 자본시장 사이의 긴장</title>
+  <desc id="desc">왼쪽은 AI 안전과 통제, 오른쪽은 IPO와 자본시장 상승을 상징하는 JoyLab 리서치 히어로 이미지</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06142f"/><stop offset="0.55" stop-color="#0B1F4D"/><stop offset="1" stop-color="#112a61"/></linearGradient>
+    <linearGradient id="blue" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#1677FF"/><stop offset="1" stop-color="#77b7ff"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#c58a32"/><stop offset="1" stop-color="#ffd98a"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse"><path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity=".045"/></pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+
+  <!-- left: safety / governance -->
+  <g transform="translate(80 110)">
+    <rect width="650" height="650" rx="34" fill="#06162f" fill-opacity=".74" stroke="#2c6fcb" stroke-opacity=".55"/>
+    <circle cx="325" cy="265" r="158" fill="none" stroke="#4b98ff" stroke-width="3" opacity=".72"/>
+    <circle cx="325" cy="265" r="120" fill="none" stroke="#4b98ff" stroke-width="2" stroke-dasharray="8 12" opacity=".55"/>
+    <path d="M242 285c20-97 142-131 205-52 39 49 24 120-28 154-46 30-105 24-145-14-26-25-38-56-32-88z" fill="none" stroke="#8fc5ff" stroke-width="5"/>
+    <path d="M280 229l43-37 50 14 32 46-13 53-48 29-52-17-28-45z" fill="none" stroke="#1677FF" stroke-width="4" opacity=".9"/>
+    <g fill="#1677FF" filter="url(#glow)"><circle cx="323" cy="192" r="8"/><circle cx="373" cy="206" r="8"/><circle cx="405" cy="252" r="8"/><circle cx="392" cy="305" r="8"/><circle cx="344" cy="334" r="8"/><circle cx="292" cy="317" r="8"/><circle cx="264" cy="272" r="8"/></g>
+    <path d="M150 486h350" stroke="#ffffff" stroke-opacity=".16"/>
+    <g font-family="Arial, Helvetica, sans-serif" fill="#d9e9ff">
+      <text x="76" y="70" font-size="25" font-weight="700">FRONTIER AI</text>
+      <text x="76" y="108" font-size="18" opacity=".72">SAFETY · ALIGNMENT · AUDIT</text>
+      <text x="76" y="540" font-size="21" font-weight="700">PACE THE FRONTIER</text>
+      <text x="76" y="579" font-size="17" opacity=".72">Independent evaluation</text>
+      <text x="76" y="612" font-size="17" opacity=".72">Human oversight</text>
+      <text x="76" y="645" font-size="17" opacity=".72">Risk containment</text>
+    </g>
+    <path d="M520 532l34 0 18 18-18 18h-34l-18-18z" fill="#1677FF" opacity=".9"/>
+  </g>
+
+  <!-- center tension -->
+  <path d="M795 32L765 170l55 92-44 119 62 112-58 117 54 113-38 145" fill="none" stroke="#64aaff" stroke-width="10" filter="url(#glow)"/>
+  <path d="M809 32L780 170l55 92-44 119 62 112-58 117 54 113-38 145" fill="none" stroke="#ffffff" stroke-width="2" opacity=".85"/>
+
+  <!-- right: capital / IPO -->
+  <g transform="translate(875 105)">
+    <rect width="645" height="655" rx="34" fill="#12234c" fill-opacity=".8" stroke="#8c6b2e" stroke-opacity=".62"/>
+    <g opacity=".92">
+      <rect x="70" y="410" width="62" height="120" rx="10" fill="#224b95"/>
+      <rect x="154" y="350" width="62" height="180" rx="10" fill="#2b60bd"/>
+      <rect x="238" y="292" width="62" height="238" rx="10" fill="#3675dd"/>
+      <rect x="322" y="230" width="62" height="300" rx="10" fill="#4a8cff"/>
+      <rect x="406" y="157" width="62" height="373" rx="10" fill="url(#gold)"/>
+      <rect x="490" y="90" width="62" height="440" rx="10" fill="url(#gold)"/>
+    </g>
+    <polyline points="82,398 172,340 260,307 350,224 442,174 526,95" fill="none" stroke="#f9d37c" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+    <path d="M520 95l-34-5 24-25z" fill="#f9d37c"/>
+    <g font-family="Arial, Helvetica, sans-serif" fill="#ffffff">
+      <text x="70" y="67" font-size="25" font-weight="700">PUBLIC MARKET</text>
+      <text x="70" y="105" font-size="18" opacity=".72">IPO · CAPITAL · GROWTH</text>
+      <text x="70" y="585" font-size="20" font-weight="700">$2T VALUATION?</text>
+      <text x="70" y="620" font-size="17" opacity=".72">Can safety survive market pressure?</text>
+    </g>
+  </g>
+
+  <!-- brand / headline safe area -->
+  <rect x="565" y="790" width="470" height="68" rx="34" fill="#06142f" fill-opacity=".88" stroke="#ffffff" stroke-opacity=".12"/>
+  <text x="800" y="833" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#ffffff">SAFETY × COMPETITION × CAPITAL</text>
+  <text x="90" y="835" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#75b4ff">JOYLAB RESEARCH</text>
+</svg>
