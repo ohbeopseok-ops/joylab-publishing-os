@@ -1,0 +1,70 @@
+name: Distribution Pack
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'scripts/build-distribution-pack.mjs'
+      - 'distribution/distribution-pack.schema.json'
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Article slug to build'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Generate packs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts/distribution-packs
+          if [ -n "${{ inputs.slug }}" ]; then
+            slugs="${{ inputs.slug }}"
+          else
+            slugs=$(git diff --name-only HEAD^ HEAD -- 'src/data/articles/*.md' | sed -n 's#src/data/articles/\(.*\)\.md#\1#p' | sort -u)
+          fi
+          if [ -z "$slugs" ]; then
+            echo 'No changed article slug; validating GOLD case instead.'
+            slugs='anthropic-ipo-ai-safety-2026'
+          fi
+          for slug in $slugs; do
+            file="src/data/articles/${slug}.md"
+            if [ ! -f "$file" ]; then
+              echo "Deleted article skipped for distribution generation: $slug"
+              continue
+            fi
+            if grep -Eq '^draft:[[:space:]]*true[[:space:]]*$' "$file"; then
+              echo "Draft article skipped: $slug"
+              continue
+            fi
+            node scripts/build-distribution-pack.mjs --slug "$slug"
+            cp -R "distribution/generated/$slug" "qa-artifacts/distribution-packs/$slug"
+          done
+
+      - name: Upload review packs
+        uses: actions/upload-artifact@v6
+        with:
+          name: distribution-review-packs
+          path: qa-artifacts/distribution-packs
+          if-no-files-found: warn
+          retention-days: 30
