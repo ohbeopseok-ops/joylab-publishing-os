@@ -18,7 +18,13 @@ const readFrontmatter = (file) => {
     const m = fm.match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+)["']?\\s*$`, 'm'));
     return m?.[1]?.trim();
   };
-  return { title: get('title') ?? '', series: get('series'), draft: get('draft') === 'true' };
+  return {
+    title: get('title') ?? '',
+    series: get('series'),
+    draft: get('draft') === 'true',
+    heroImage: get('heroImage'),
+    heroAlt: get('heroAlt')
+  };
 };
 
 for (const [articleId, visual] of Object.entries(manifest)) {
@@ -40,12 +46,29 @@ for (const [articleId, visual] of Object.entries(manifest)) {
   }
 }
 
+let publishedArticleCount = 0;
 let publishedResearchCount = 0;
 for (const name of fs.readdirSync(articleDir).filter((name) => name.endsWith('.md'))) {
   const file = path.join(articleDir, name);
-  const { title, series, draft } = readFrontmatter(file);
+  const { title, series, draft, heroImage, heroAlt } = readFrontmatter(file);
   const articleId = name.replace(/\.md$/, '');
-  if (draft || !series) continue;
+  if (draft) continue;
+  publishedArticleCount += 1;
+
+  // Global Article Hero Gate: every published article must resolve to a real Hero.
+  // Research manifest takes precedence; standalone/editorial articles may use frontmatter heroImage.
+  const manifestHero = manifest[articleId]?.hero;
+  const resolvedHeroSrc = manifestHero?.src ?? heroImage;
+  const resolvedHeroAlt = manifestHero?.alt ?? heroAlt;
+  if (!resolvedHeroSrc) {
+    failures.push(`${articleId}: every published article requires a Hero (manifest hero or heroImage frontmatter)`);
+  } else {
+    if (!resolvedHeroAlt?.trim()) failures.push(`${articleId}: published Hero requires non-empty alt text`);
+    const heroFile = imageToFile(resolvedHeroSrc);
+    if (!fs.existsSync(heroFile)) failures.push(`${articleId}: published Hero asset is missing ${resolvedHeroSrc}`);
+  }
+
+  if (!series) continue;
   publishedResearchCount += 1;
 
   const visual = manifest[articleId];
@@ -71,11 +94,13 @@ if (process.env.GITHUB_EVENT_NAME === 'pull_request' && process.env.GITHUB_BASE_
       .split('\n').map((v) => v.trim()).filter((v) => v.endsWith('.md'));
     for (const rel of changed) {
       const file = path.join(root, rel);
-      const { series, draft } = readFrontmatter(file);
-      if (!draft && series) {
-        const articleId = path.basename(rel, '.md');
-        if (!manifest[articleId]) failures.push(`${articleId}: new research requires Hero + 2 supporting visuals before merge`);
-      }
+      const { series, draft, heroImage, heroAlt } = readFrontmatter(file);
+      if (draft) continue;
+      const articleId = path.basename(rel, '.md');
+      const manifestHero = manifest[articleId]?.hero;
+      if (!manifestHero?.src && !heroImage) failures.push(`${articleId}: new published article requires a Hero before merge`);
+      if (!(manifestHero?.alt ?? heroAlt)?.trim()) failures.push(`${articleId}: new published article Hero requires alt text before merge`);
+      if (series && !manifest[articleId]) failures.push(`${articleId}: new research requires Hero + 2 supporting visuals before merge`);
     }
   } catch (error) {
     failures.push(`PR diff validation failed: ${error.message}`);
@@ -88,4 +113,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Research Image Gate PASS: ${publishedResearchCount} published research articles verified.`);
+console.log(`Research Image Gate PASS: ${publishedArticleCount} published articles have Heroes; ${publishedResearchCount} series research articles verified.`);
