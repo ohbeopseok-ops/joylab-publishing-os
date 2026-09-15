@@ -61,7 +61,7 @@ if (writes[1].blobs.join('|') !== 'social_click|threads|about|/about') throw new
 if (writes[2].blobs.join('|') !== 'social_click|x|footer|/') throw new Error(`Unexpected X social payload: ${JSON.stringify(writes[2])}`);
 if (writes[3].blobs.join('|') !== 'social_click|youtube|about|/about') throw new Error(`Unexpected YouTube social payload: ${JSON.stringify(writes[3])}`);
 if (writes[4].blobs.join('|') !== 'article_view|foreign-investor-flow|article_page|/articles/foreign-investor-flow') throw new Error(`Unexpected article view payload: ${JSON.stringify(writes[4])}`);
-if (writes[7].blobs.join('|') !== 'home_section_impression|major|/') throw new Error(`Unexpected home impression payload: ${JSON.stringify(writes[7])}`);
+if (writes[7].blobs.join('|') !== 'home_section_impression|major|home|/') throw new Error(`Unexpected home impression payload: ${JSON.stringify(writes[7])}`);
 if (writes[8].blobs.join('|') !== 'home_section_click|anthropic-ipo-ai-safety-2026|major|/') throw new Error(`Unexpected home click payload: ${JSON.stringify(writes[8])}`);
 
 const invalid = await post({ event: 'article_internal_link_click', target: 'https://evil.example/', placement: 'article_body', path: '/articles/foreign-investor-flow' });
