@@ -27,6 +27,9 @@ jobs:
       - name: Check About QA syntax
         run: node --check scripts/qa-about-activation.mjs
 
+      - name: Test Click Analytics V3 Worker contract
+        run: node scripts/test-click-analytics.mjs
+
       - name: Build Astro site
         run: npm run build
 
@@ -39,7 +42,7 @@ jobs:
           grep -Fq '"@id":"https://aijoylab.kr/#founder"' dist/about/index.html
           grep -Fq 'OFFICIAL CHANNELS' dist/about/index.html
           grep -Fq 'data-analytics-placement="about"' dist/about/index.html
-          grep -Fq 'FOUNDER &amp; OPERATOR' dist/about/index.html
+          grep -Fq '오법석 · AIJoyLab' dist/about/index.html
 
       - name: Install Playwright QA runtime
         run: |
