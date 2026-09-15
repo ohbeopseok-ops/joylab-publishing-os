@@ -25,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v7
@@ -35,13 +35,19 @@ jobs:
 
       - name: Generate packs
         shell: bash
+        env:
+          PUSH_BEFORE: ${{ github.event.before }}
+          PUSH_AFTER: ${{ github.sha }}
         run: |
           set -euo pipefail
           mkdir -p qa-artifacts/distribution-packs
           if [ -n "${{ inputs.slug }}" ]; then
             slugs="${{ inputs.slug }}"
+          elif [ "${{ github.event_name }}" = 'push' ] && [ -n "$PUSH_BEFORE" ] && [ "$PUSH_BEFORE" != '0000000000000000000000000000000000000000' ]; then
+            git fetch --no-tags origin "$PUSH_BEFORE" "$PUSH_AFTER" || true
+            slugs=$(git diff --name-only "$PUSH_BEFORE" "$PUSH_AFTER" -- 'src/data/articles/*.md' | sed -n 's#src/data/articles/\(.*\)\.md#\1#p' | sort -u)
           else
-            slugs=$(git diff --name-only HEAD^ HEAD -- 'src/data/articles/*.md' | sed -n 's#src/data/articles/\(.*\)\.md#\1#p' | sort -u)
+            slugs=''
           fi
           if [ -z "$slugs" ]; then
             echo 'No changed article slug; validating GOLD case instead.'
