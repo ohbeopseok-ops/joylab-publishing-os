@@ -1,0 +1,88 @@
+---
+const channels = [
+  {
+    label: 'Threads',
+    href: 'https://www.threads.com/@ohbeopseok',
+    mark: '@',
+    description: '짧은 해석·대화',
+    analyticsKey: 'threads'
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/',
+    mark: 'in',
+    description: '기업·교육·B2B 네트워크',
+    analyticsKey: 'linkedin'
+  },
+  {
+    label: 'Naver Blog',
+    href: 'https://blog.naver.com/joy014',
+    mark: 'N',
+    description: '검색형·장문 콘텐츠',
+    analyticsKey: 'naver'
+  },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/aijoylab/',
+    mark: '◎',
+    description: '비주얼·카드 콘텐츠',
+    analyticsKey: 'instagram'
+  },
+  {
+    label: 'RSS',
+    href: '/rss.xml',
+    mark: 'R',
+    description: '새 리서치 직접 구독',
+    analyticsKey: 'rss'
+  }
+];
+---
+<section class="about-official" aria-labelledby="about-official-title">
+  <div class="about-official-head">
+    <div>
+      <small>OFFICIAL CHANNELS</small>
+      <h2 id="about-official-title">JoyLab을 계속 만나는 곳</h2>
+    </div>
+    <p>리서치는 사이트에 남기고, 짧은 해석과 업데이트는 공식 채널에서 이어갑니다.</p>
+  </div>
+  <div class="about-official-list">
+    {channels.map((channel) => (
+      <a
+        class="about-official-link"
+        href={channel.href}
+        target={channel.href.startsWith('http') ? '_blank' : undefined}
+        rel={channel.href.startsWith('http') ? 'me noreferrer' : undefined}
+        aria-label={`JoyLab ${channel.label}${channel.href.startsWith('http') ? ' 새 창에서 열기' : ''}`}
+        data-analytics-event="social_click"
+        data-analytics-target={channel.analyticsKey}
+        data-analytics-placement="about"
+      >
+        <span class="about-official-mark" aria-hidden="true">{channel.mark}</span>
+        <span class="about-official-copy">
+          <strong>{channel.label}</strong>
+          <em>{channel.description}</em>
+        </span>
+        <span class="about-official-arrow" aria-hidden="true">↗</span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .about-official{padding:58px 0;border-top:1px solid var(--line)}
+  .about-official-head{display:grid;grid-template-columns:240px minmax(0,1fr);gap:34px;margin-bottom:24px}
+  .about-official-head small{display:block;color:var(--blue);font-size:.78rem;font-weight:900;letter-spacing:.12em}
+  .about-official-head h2{margin:4px 0 0;color:var(--navy);font-size:clamp(1.85rem,3vw,2.8rem);line-height:1.12;letter-spacing:-.045em}
+  .about-official-head p{max-width:720px;margin:0;color:#526278;font-size:1.04rem;line-height:1.8}
+  .about-official-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+  .about-official-link{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:center;min-width:0;padding:14px;border:1px solid #dce6f3;border-radius:16px;background:#fff;box-shadow:0 10px 28px rgba(11,31,77,.035);transition:border-color .18s ease,background .18s ease,transform .18s ease}
+  a.about-official-link:hover{border-color:#bdd4f5;background:#f7faff;transform:translateY(-1px)}
+  .about-official-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--navy);color:#fff;font-size:.76rem;font-weight:900}
+  .about-official-copy{display:grid;min-width:0}
+  .about-official-copy strong{overflow:hidden;color:var(--navy);font-size:.84rem;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}
+  .about-official-copy em{overflow:hidden;margin-top:2px;color:#748399;font-size:.7rem;font-style:normal;line-height:1.4;text-overflow:ellipsis;white-space:nowrap}
+  .about-official-arrow{color:var(--blue);font-size:.85rem;font-weight:900}
+  @media(max-width:980px){.about-official-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:860px){.about-official-head{grid-template-columns:1fr;gap:12px}}
+  @media(max-width:640px){.about-official{padding:44px 0}.about-official-list{grid-template-columns:1fr}.about-official-link{padding:13px 14px}}
+</style>
