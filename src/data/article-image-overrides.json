@@ -1,0 +1,21 @@
+{
+  "aside-windows-launch": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Windows 업무 환경으로 확장된 AI 브라우저와 실행형 에이전트 워크플로를 상징하는 JoyLab 리서치 대표 이미지",
+      "caption": "Windows 지원의 의미는 운영체제 하나가 늘어난 것이 아니라 AI 브라우저가 실제 기업 업무 PC로 들어올 수 있는 조건이 넓어졌다는 데 있습니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Aside for Windows 출시가 AI 브라우저 업무 자동화에 주는 핵심 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "Windows 지원은 개인 도구에서 조직 업무 자동화 도구로 확장될 수 있는 중요한 조건입니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Aside for Windows를 Problem Capability Workflow Fit Human Control 순서로 검토하는 JoyLab 리서치 프레임워크 이미지",
+        "caption": "기능 목록보다 실제 업무 완료율과 Human Approval 구조를 함께 검증합니다."
+      }
+    ]
+  }
+}
