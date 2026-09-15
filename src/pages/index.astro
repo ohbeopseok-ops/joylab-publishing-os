@@ -19,8 +19,20 @@ const editorialPicks = editorialCategories
 const editorialIds = new Set(editorialPicks.map((item) => item.id));
 const today = [...editorialPicks, ...articles.filter((item) => !editorialIds.has(item.id))].slice(0, 3);
 
-const majorResearch = articles.slice(0, 4);
-const latestResearch = articles.slice(0, 5);
+const homeSlotContractActive = articles.some((item) => item.data.homeFeatured || item.data.excludeFromLatest || item.data.homePriority != null);
+const configuredMajor = articles
+  .filter((item) => item.data.homeFeatured)
+  .sort((a,b) => (a.data.homePriority ?? 999) - (b.data.homePriority ?? 999) || b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const majorSeedIds = new Set(configuredMajor.map((item) => item.id));
+const majorResearch = homeSlotContractActive
+  ? [...configuredMajor, ...articles.filter((item) => !majorSeedIds.has(item.id))].slice(0, 4)
+  : articles.slice(0, 4);
+const majorIds = new Set(majorResearch.map((item) => item.id));
+const latestResearch = homeSlotContractActive
+  ? articles
+      .filter((item) => !item.data.excludeFromLatest && !editorialIds.has(item.id) && !majorIds.has(item.id))
+      .slice(0, 5)
+  : articles.slice(0, 5);
 const tags = Array.from(new Set(articles.flatMap((item) => item.data.tags))).sort((a,b) => a.localeCompare(b, 'ko'));
 const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더십'];
 ---
