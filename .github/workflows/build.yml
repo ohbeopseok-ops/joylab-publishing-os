@@ -52,6 +52,7 @@ jobs:
           node --check scripts/visual-upgrade-runtime.mjs
           node --check scripts/qa-homepage-viewports.mjs
           node --check scripts/qa-article-archive-gold.mjs
+          node --check scripts/qa-article-pc-gold.mjs
 
       - name: Production dependency audit
         run: npm audit --omit=dev
@@ -122,6 +123,9 @@ jobs:
       - name: Article Detail and Archive GOLD QA
         run: node scripts/qa-article-archive-gold.mjs
 
+      - name: Article Detail PC GOLD QA
+        run: node scripts/qa-article-pc-gold.mjs
+
       - name: Stop Astro preview
         if: always()
         shell: bash
@@ -142,6 +146,14 @@ jobs:
         with:
           name: article-archive-gold-qa
           path: qa-artifacts/article-archive
+          if-no-files-found: warn
+
+      - name: Upload Article PC GOLD QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: article-pc-gold-qa
+          path: qa-artifacts/article-pc
           if-no-files-found: warn
 
       - name: Upload dist artifact

@@ -1,0 +1,57 @@
+/* Article Detail PC Density Pass 01 — desktop only */
+@media (min-width: 1024px) {
+  body.research-article-page .homepage-nav-toggle {
+    display: none !important;
+  }
+
+  body.research-article-page .homepage-nav-cta {
+    display: inline-flex;
+    align-items: center;
+    color: #c9d8ee;
+    font-size: .82rem;
+    font-weight: 800;
+    line-height: 1;
+    opacity: .92;
+    white-space: nowrap;
+  }
+
+  body.research-article-page .homepage-nav-cta:hover {
+    color: #fff;
+    opacity: 1;
+  }
+
+  .research-v2-shell.article-shell {
+    padding-top: 24px;
+  }
+
+  .research-cover {
+    min-height: 360px;
+  }
+
+  .research-cover__copy {
+    padding: 34px 52px 30px;
+  }
+
+  .research-cover h1 {
+    max-width: 1040px;
+    margin: 12px 0 14px;
+    font-size: clamp(3.1rem, 3.45vw, 3.55rem);
+    line-height: 1.04;
+    letter-spacing: -.05em;
+    text-wrap: balance;
+  }
+
+  .research-cover__desc {
+    max-width: 760px;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .research-cover__meta {
+    margin-top: 20px;
+  }
+
+  .research-cover__tags {
+    margin-top: 14px;
+  }
+}
