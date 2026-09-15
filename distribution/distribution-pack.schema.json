@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aijoylab.kr/schema/distribution-pack-v1.json",
+  "title": "JoyLab Distribution Execution Pack V1",
+  "type": "object",
+  "required": ["version", "articleSlug", "campaign", "state", "channels", "approval"],
+  "properties": {
+    "version": { "const": "1.0" },
+    "articleSlug": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
+    "campaign": { "type": "string", "pattern": "^research_[A-Za-z0-9_-]+$" },
+    "state": { "enum": ["DRAFT", "REVIEW", "APPROVED", "PUBLISHED", "MEASURED"] },
+    "sourceUrl": { "type": "string", "format": "uri" },
+    "generatedAt": { "type": "string" },
+    "updatedAt": { "type": "string" },
+    "approval": {
+      "type": "object",
+      "required": ["approved", "approvedBy", "approvedAt"],
+      "properties": {
+        "approved": { "type": "boolean" },
+        "approvedBy": { "type": ["string", "null"] },
+        "approvedAt": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "channels": {
+      "type": "object",
+      "required": ["threads", "x", "linkedin", "naver"],
+      "properties": {
+        "threads": { "$ref": "#/$defs/channel" },
+        "x": { "$ref": "#/$defs/channel" },
+        "linkedin": { "$ref": "#/$defs/channel" },
+        "naver": { "$ref": "#/$defs/channel" }
+      },
+      "additionalProperties": false
+    },
+    "publishLog": { "type": "array" }
+  },
+  "$defs": {
+    "variant": {
+      "type": "object",
+      "required": ["id", "title", "body", "cta", "hashtags", "utmUrl"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string" },
+        "body": { "type": "string", "minLength": 1 },
+        "cta": { "type": "string" },
+        "hashtags": { "type": "array", "items": { "type": "string" } },
+        "utmUrl": { "type": "string", "format": "uri" },
+        "publishedUrl": { "type": ["string", "null"] },
+        "publishedAt": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "channel": {
+      "type": "object",
+      "required": ["status", "variants"],
+      "properties": {
+        "status": { "enum": ["DRAFT", "REVIEW", "APPROVED", "PUBLISHED", "MEASURED"] },
+        "variants": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/variant" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
