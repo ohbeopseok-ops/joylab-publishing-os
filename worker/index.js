@@ -8,7 +8,7 @@ const securityHeaders = {
 
 const analyticsContracts = {
   contact_view: { targets: new Set(['contact']), placements: new Set(['page']) },
-  social_click: { targets: new Set(['naver', 'threads', 'instagram', 'linkedin']), placements: new Set(['footer', 'contact']) },
+  social_click: { targets: new Set(['naver', 'threads', 'instagram', 'linkedin']), placements: new Set(['footer', 'contact', 'about']) },
   article_contact_click: { targets: new Set(['generic', 'investing', 'ai-productivity', 'growth-leadership']), placements: new Set(['article']) },
   footer_contact_click: { targets: new Set(['contact']), placements: new Set(['footer']) },
   contact_mail_click: { targets: new Set(['mail']), placements: new Set(['contact']) },

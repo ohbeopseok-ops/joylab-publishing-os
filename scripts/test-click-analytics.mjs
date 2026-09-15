@@ -29,6 +29,9 @@ async function post(payload) {
 const social = await post({ event: 'social_click', target: 'instagram', placement: 'contact', path: '/contact' });
 if (social.status !== 204) throw new Error(`Expected 204, got ${social.status}`);
 
+const aboutSocial = await post({ event: 'social_click', target: 'threads', placement: 'about', path: '/about' });
+if (aboutSocial.status !== 204) throw new Error(`About social_click expected 204, got ${aboutSocial.status}`);
+
 const articleView = await post({ event: 'article_view', target: 'foreign-investor-flow', placement: 'article_page', path: '/articles/foreign-investor-flow' });
 if (articleView.status !== 204) throw new Error(`article_view expected 204, got ${articleView.status}`);
 
@@ -47,15 +50,18 @@ if (homeClick.status !== 204) throw new Error(`home_section_click expected 204, 
 const guideClick = await post({ event: 'home_section_click', target: '/guides/ai-productivity', placement: 'guide', path: '/' });
 if (guideClick.status !== 204) throw new Error(`guide home_section_click expected 204, got ${guideClick.status}`);
 
-if (writes.length !== 7) throw new Error(`Expected seven analytics writes, got ${writes.length}`);
-if (writes[1].blobs.join('|') !== 'article_view|foreign-investor-flow|article_page|/articles/foreign-investor-flow') {
-  throw new Error(`Unexpected article view payload: ${JSON.stringify(writes[1])}`);
+if (writes.length !== 8) throw new Error(`Expected eight analytics writes, got ${writes.length}`);
+if (writes[1].blobs.join('|') !== 'social_click|threads|about|/about') {
+  throw new Error(`Unexpected About social payload: ${JSON.stringify(writes[1])}`);
 }
-if (writes[4].blobs.join('|') !== 'home_section_impression|major|home|/') {
-  throw new Error(`Unexpected home impression payload: ${JSON.stringify(writes[4])}`);
+if (writes[2].blobs.join('|') !== 'article_view|foreign-investor-flow|article_page|/articles/foreign-investor-flow') {
+  throw new Error(`Unexpected article view payload: ${JSON.stringify(writes[2])}`);
 }
-if (writes[5].blobs.join('|') !== 'home_section_click|anthropic-ipo-ai-safety-2026|major|/') {
-  throw new Error(`Unexpected home click payload: ${JSON.stringify(writes[5])}`);
+if (writes[5].blobs.join('|') !== 'home_section_impression|major|home|/') {
+  throw new Error(`Unexpected home impression payload: ${JSON.stringify(writes[5])}`);
+}
+if (writes[6].blobs.join('|') !== 'home_section_click|anthropic-ipo-ai-safety-2026|major|/') {
+  throw new Error(`Unexpected home click payload: ${JSON.stringify(writes[6])}`);
 }
 
 const invalid = await post({ event: 'article_internal_link_click', target: 'https://evil.example/', placement: 'article_body', path: '/articles/foreign-investor-flow' });
@@ -73,6 +79,9 @@ if (invalidHomeSuffix.status !== 400) throw new Error(`Expected suffixed homepag
 const invalidExternalHomeTarget = await post({ event: 'home_section_click', target: 'https://evil.example/', placement: 'major', path: '/' });
 if (invalidExternalHomeTarget.status !== 400) throw new Error(`Expected external homepage target 400, got ${invalidExternalHomeTarget.status}`);
 
-if (writes.length !== 7) throw new Error('Invalid events must not be written');
+const invalidRssSocial = await post({ event: 'social_click', target: 'rss', placement: 'about', path: '/about' });
+if (invalidRssSocial.status !== 400) throw new Error(`Expected RSS social target 400, got ${invalidRssSocial.status}`);
+
+if (writes.length !== 8) throw new Error('Invalid events must not be written');
 
 console.log('Click Analytics V3 worker contract passed.');

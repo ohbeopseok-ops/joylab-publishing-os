@@ -54,6 +54,7 @@ jobs:
           node --check scripts/qa-homepage-viewports.mjs
           node --check scripts/qa-article-archive-gold.mjs
           node --check scripts/qa-article-pc-gold.mjs
+          node --check scripts/qa-about-activation.mjs
           node scripts/report-homepage-funnel.mjs --self-test
 
       - name: Production dependency audit
@@ -80,6 +81,9 @@ jobs:
           grep -Fq '"@id":"https://aijoylab.kr/#founder"' dist/index.html
           grep -Fq '"sameAs":["https://blog.naver.com/joy014","https://www.instagram.com/aijoylab/"]' dist/index.html
           grep -Fq '"sameAs":["https://www.threads.com/@ohbeopseok","https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/"]' dist/index.html
+          grep -Fq 'OFFICIAL CHANNELS' dist/about/index.html
+          grep -Fq 'data-analytics-placement="about"' dist/about/index.html
+          grep -Fq '오법석 · AIJoyLab' dist/about/index.html
 
       - name: Verify Click Analytics V3 contract
         shell: bash
@@ -100,6 +104,7 @@ jobs:
           grep -Fq "home_section_impression" dist/index.html
           grep -Fq "home_section_click" dist/index.html
           grep -Fq 'data-analytics-event="social_click"' dist/index.html
+          grep -Fq 'data-analytics-placement="about"' dist/about/index.html
           grep -R -Fq 'data-analytics-event="article_contact_click"' dist/articles
           grep -R -Fq "article_dwell_60" dist/articles
           grep -R -Fq 'Cloudflare Workers Analytics Engine' dist/privacy
@@ -133,6 +138,9 @@ jobs:
       - name: Article Detail PC GOLD QA
         run: node scripts/qa-article-pc-gold.mjs
 
+      - name: About Activation PC/Mobile GOLD QA
+        run: node scripts/qa-about-activation.mjs
+
       - name: Stop Astro preview
         if: always()
         shell: bash
@@ -161,6 +169,14 @@ jobs:
         with:
           name: article-pc-gold-qa
           path: qa-artifacts/article-pc
+          if-no-files-found: warn
+
+      - name: Upload About Activation GOLD QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: about-activation-gold-qa
+          path: qa-artifacts/about-activation
           if-no-files-found: warn
 
       - name: Upload dist artifact
