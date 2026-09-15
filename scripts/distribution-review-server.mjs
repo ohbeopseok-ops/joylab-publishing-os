@@ -6,9 +6,10 @@ import { createPublishHandoff } from './distribution-adapters.mjs';
 import { recordPublished } from './distribution-publish-log.mjs';
 
 const args = process.argv.slice(2);
-const file = args[args.indexOf('--manifest') + 1];
-const port = Number(args[args.indexOf('--port') + 1] || 4178);
-if (!file) throw new Error('Usage: node scripts/distribution-review-server.mjs --manifest <distribution-pack.json> [--port 4178]');
+const argValue = (flag, fallback) => { const i = args.indexOf(flag); return i >= 0 && i + 1 < args.length ? args[i + 1] : fallback; };
+const file = argValue('--manifest');
+const port = Number(argValue('--port', '4178'));
+if (!file || !Number.isInteger(port) || port < 1 || port > 65535) throw new Error('Usage: node scripts/distribution-review-server.mjs --manifest <distribution-pack.json> [--port 4178]');
 const manifestPath = path.resolve(file);
 
 const read = () => JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
