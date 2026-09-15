@@ -1,0 +1,54 @@
+name: IndexNow Publish
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'scripts/submit-indexnow.mjs'
+      - 'public/1793952a193325da594f7015ca133737.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Verify IndexNow key file
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(tr -d '\r\n' < public/1793952a193325da594f7015ca133737.txt)" = '1793952a193325da594f7015ca133737'
+
+      - name: Submit changed article URLs
+        if: github.event_name == 'push'
+        env:
+          INDEXNOW_FROM: ${{ github.event.before }}
+          INDEXNOW_TO: ${{ github.sha }}
+        run: node scripts/submit-indexnow.mjs --from "$INDEXNOW_FROM" --to "$INDEXNOW_TO"
+
+      - name: Submit all article URLs
+        if: github.event_name == 'workflow_dispatch'
+        run: node scripts/submit-indexnow.mjs --all
+
+      - name: Upload IndexNow report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: indexnow-report
+          path: qa-artifacts/indexnow
+          if-no-files-found: warn
