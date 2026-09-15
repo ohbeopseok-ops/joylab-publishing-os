@@ -6,6 +6,7 @@ on:
     paths:
       - 'distribution/**'
       - 'scripts/build-distribution-pack.mjs'
+      - 'scripts/build-distribution-review-html.mjs'
       - 'scripts/distribution-*.mjs'
       - '.github/workflows/distribution-*.yml'
       - 'package.json'
@@ -14,6 +15,7 @@ on:
     paths:
       - 'distribution/**'
       - 'scripts/build-distribution-pack.mjs'
+      - 'scripts/build-distribution-review-html.mjs'
       - 'scripts/distribution-*.mjs'
       - '.github/workflows/distribution-*.yml'
       - 'package.json'
@@ -36,6 +38,7 @@ jobs:
       - name: Syntax
         run: |
           node --check scripts/build-distribution-pack.mjs
+          node --check scripts/build-distribution-review-html.mjs
           node --check scripts/distribution-state.mjs
           node --check scripts/distribution-adapters.mjs
           node --check scripts/distribution-publish-log.mjs
@@ -45,6 +48,7 @@ jobs:
       - name: Contract self-tests
         run: |
           node scripts/build-distribution-pack.mjs --self-test
+          node scripts/build-distribution-review-html.mjs --self-test
           node scripts/distribution-state.mjs --self-test
           node scripts/distribution-adapters.mjs --self-test
           node scripts/distribution-publish-log.mjs --self-test
@@ -65,16 +69,26 @@ jobs:
           jq -e '[.channels[].variants[].utmUrl | contains("utm_campaign=research_anthropic-ipo-ai-safety-2026")] | all' "$file" >/dev/null
           jq -e '[.channels[].variants[].publishedUrl] | all(. == null)' "$file" >/dev/null
 
-      - name: Generated article pack
+      - name: Generated article pack and static review
         shell: bash
         run: |
           set -euo pipefail
           node scripts/build-distribution-pack.mjs --slug anthropic-ipo-ai-safety-2026
           file='distribution/generated/anthropic-ipo-ai-safety-2026/distribution-pack.json'
+          review='distribution/generated/anthropic-ipo-ai-safety-2026/review.html'
           test -f "$file"
           test "$(jq -r '.state' "$file")" = 'DRAFT'
           test "$(jq '.channels | keys | length' "$file")" = '4'
           jq -e '[.channels[].variants[].utmUrl | contains("utm_content=")] | all' "$file" >/dev/null
+          node scripts/build-distribution-review-html.mjs --manifest "$file" --out "$review"
+          test -s "$review"
+          grep -Fq 'STATIC REVIEW' "$review"
+          grep -Fq 'APPROVED로 승인' "$review"
+          grep -Fq '문안+링크 복사' "$review"
+          grep -Fq '게시 URL 기록' "$review"
+          grep -Fq 'distribution-pack.updated.json' "$review"
+          grep -Fq '자동 게시 OFF' "$review"
+          grep -Fq 'threads_hook_a' "$review"
 
       - name: Approval and multi-channel publication simulation
         shell: bash
