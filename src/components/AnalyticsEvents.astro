@@ -4,12 +4,16 @@
     const privacyOptOut = navigator.globalPrivacyControl === true || navigator.doNotTrack === '1';
     if (privacyOptOut) return;
 
+    const localPreview = location.hostname === '127.0.0.1' || location.hostname === 'localhost' || location.hostname.endsWith('.localhost');
+
     const clean = (value, fallback = '-') => {
       const normalized = String(value ?? '').trim().slice(0, 120);
       return normalized || fallback;
     };
 
     const send = (event, target = '-', placement = '-') => {
+      if (localPreview) return;
+
       const payload = JSON.stringify({
         event: clean(event),
         target: clean(target),
@@ -38,8 +42,52 @@
 
     const articleMatch = location.pathname.match(/^\/articles\/([^/]+)\/?$/);
     const articleId = articleMatch?.[1] ?? null;
+    const isHome = location.pathname === '/' || location.pathname === '/index.html';
+
+    const homeSections = isHome
+      ? [
+          ['editorial', document.querySelector('.home-hero__today')],
+          ['major', document.getElementById('today-research')],
+          ['latest', document.querySelector('.home-list-card')],
+          ['guide', document.querySelector('.home-guide')]
+        ].filter(([, node]) => node instanceof Element)
+      : [];
 
     window.joylabTrack = send;
+
+    if (homeSections.length && 'IntersectionObserver' in window) {
+      const sentImpressions = new Set();
+      const sectionByNode = new Map(homeSections.map(([placement, node]) => [node, placement]));
+      let observer;
+
+      const visibleRatio = (node) => {
+        const rect = node.getBoundingClientRect();
+        if (rect.width <= 0 || rect.height <= 0) return 0;
+        const visibleWidth = Math.max(0, Math.min(rect.right, innerWidth) - Math.max(rect.left, 0));
+        const visibleHeight = Math.max(0, Math.min(rect.bottom, innerHeight) - Math.max(rect.top, 0));
+        return (visibleWidth * visibleHeight) / (rect.width * rect.height);
+      };
+
+      const tryImpression = (placement, node, ratio = visibleRatio(node)) => {
+        if (!placement || sentImpressions.has(placement) || document.hidden || ratio < 0.5) return;
+        sentImpressions.add(placement);
+        send('home_section_impression', placement, 'home');
+        observer?.unobserve(node);
+      };
+
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          tryImpression(sectionByNode.get(entry.target), entry.target, entry.intersectionRatio);
+        });
+      }, { threshold: [0.5] });
+
+      homeSections.forEach(([, node]) => observer.observe(node));
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) return;
+        homeSections.forEach(([placement, node]) => tryImpression(placement, node));
+      }, { passive: true });
+    }
 
     document.addEventListener('click', (clickEvent) => {
       const targetNode = clickEvent.target;
@@ -54,18 +102,29 @@
         );
       }
 
-      if (articleId) {
-        const link = targetNode.closest('a[href]');
-        if (link) {
+      const link = targetNode.closest('a[href]');
+
+      if (isHome && link) {
+        const placementEntry = homeSections.find(([, root]) => root.contains(link));
+        if (placementEntry) {
+          const [placement] = placementEntry;
           const href = link.getAttribute('href') || '';
-          if (href.startsWith('/articles/') && href !== location.pathname) {
-            const placement = link.closest('.research-related')
-              ? 'related_research'
-              : link.closest('.research-guide-cta')
-                ? 'guide_cta'
-                : 'article_body';
-            send('article_internal_link_click', href, placement);
-          }
+          const articleTarget = href.match(/^\/articles\/([^/?#]+)\/?(?:[?#].*)?$/)?.[1];
+          const guideTarget = href.match(/^\/guides\/[A-Za-z0-9_-]+\/?$/)?.[0];
+          const homeTarget = articleTarget || guideTarget;
+          if (homeTarget) send('home_section_click', homeTarget, placement);
+        }
+      }
+
+      if (articleId && link) {
+        const href = link.getAttribute('href') || '';
+        if (href.startsWith('/articles/') && href !== location.pathname) {
+          const placement = link.closest('.research-related')
+            ? 'related_research'
+            : link.closest('.research-guide-cta')
+              ? 'guide_cta'
+              : 'article_body';
+          send('article_internal_link_click', href, placement);
         }
       }
 

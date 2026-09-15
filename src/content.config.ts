@@ -15,6 +15,9 @@ const articles = defineCollection({
     updatedAt: z.coerce.date().optional(),
     author: z.string().default('JoyLab'),
     featured: z.boolean().default(false),
+    homeFeatured: z.boolean().default(false),
+    homePriority: z.number().int().min(1).max(999).optional(),
+    excludeFromLatest: z.boolean().default(false),
     draft: z.boolean().default(false),
     seoTitle: z.string().optional(),
     canonical: z.string().optional(),
@@ -24,6 +27,14 @@ const articles = defineCollection({
     heroAlt: z.string().optional(),
     heroCaption: z.string().optional(),
     ogImage: z.string().optional()
+  }).superRefine((data, ctx) => {
+    if (data.homePriority !== undefined && !data.homeFeatured) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['homePriority'],
+        message: 'homePriority requires homeFeatured: true'
+      });
+    }
   })
 });
 
