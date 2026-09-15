@@ -118,6 +118,25 @@
       "caption": "AI 에이전트는 답변을 넘어 도구와 데이터를 연결해 작업을 수행합니다."
     }
   },
+  "aside-windows-launch": {
+    "hero": {
+      "src": "/images/research/generated/aside-windows-launch-hero-v1.svg",
+      "alt": "Windows 업무 PC에서 로그인된 웹서비스를 AI 브라우저 에이전트가 실행하고 중요한 작업은 사람 승인을 기다리는 구조",
+      "caption": "Windows 지원의 의미는 검색 기능 확대보다 브라우저 에이전트가 실제 업무 PC 안으로 들어온다는 데 있습니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Aside for Windows의 업무 자동화 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "검색보다 실행, 자동화보다 승인 경계가 실제 업무 적용의 핵심입니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Aside for Windows를 Fact Interpretation Scenario Action 구조로 검토하는 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Windows 확장을 기능 목록이 아니라 Workflow Fit과 Human Control 관점에서 판단합니다."
+      }
+    ]
+  },
   "anthropic-ipo-ai-safety-2026": {
     "hero": {
       "src": "/images/research/generated/anthropic-ipo-ai-safety-hero.webp",
