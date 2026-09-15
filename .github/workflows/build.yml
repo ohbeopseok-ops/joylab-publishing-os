@@ -42,7 +42,7 @@ jobs:
       - name: Visual Audit Runtime
         run: node scripts/audit-visual-system.mjs
 
-      - name: Check Visual Runtime syntax
+      - name: Check runtime syntax and contracts
         shell: bash
         run: |
           set -euo pipefail
@@ -55,7 +55,29 @@ jobs:
           node --check scripts/qa-article-archive-gold.mjs
           node --check scripts/qa-article-pc-gold.mjs
           node --check scripts/qa-about-activation.mjs
+          node --check scripts/submit-indexnow.mjs
+          node --check scripts/report-gsc-7d.mjs
+          node --check scripts/build-distribution-pack.mjs
           node scripts/report-homepage-funnel.mjs --self-test
+          node scripts/submit-indexnow.mjs --self-test
+          node scripts/report-gsc-7d.mjs --self-test
+          node scripts/build-distribution-pack.mjs --self-test
+
+      - name: Distribution OS real-article smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-distribution-pack.mjs --slug anthropic-ipo-ai-safety-2026
+          test -f distribution/generated/anthropic-ipo-ai-safety-2026/manifest.json
+          test -f distribution/generated/anthropic-ipo-ai-safety-2026/threads.md
+          test -f distribution/generated/anthropic-ipo-ai-safety-2026/x.md
+          test -f distribution/generated/anthropic-ipo-ai-safety-2026/linkedin.md
+          test -f distribution/generated/anthropic-ipo-ai-safety-2026/naver.md
+          grep -Fq '"campaign": "research_anthropic-ipo-ai-safety-2026"' distribution/generated/anthropic-ipo-ai-safety-2026/manifest.json
+          grep -Fq 'utm_source=threads' distribution/generated/anthropic-ipo-ai-safety-2026/manifest.json
+          grep -Fq 'utm_source=x' distribution/generated/anthropic-ipo-ai-safety-2026/manifest.json
+          grep -Fq 'utm_source=linkedin' distribution/generated/anthropic-ipo-ai-safety-2026/manifest.json
+          grep -Fq 'utm_source=naver' distribution/generated/anthropic-ipo-ai-safety-2026/manifest.json
 
       - name: Production dependency audit
         run: npm audit --omit=dev
@@ -79,11 +101,15 @@ jobs:
           grep -Fq 'id="joylab-identity-schema"' dist/index.html
           grep -Fq '"@id":"https://aijoylab.kr/#organization"' dist/index.html
           grep -Fq '"@id":"https://aijoylab.kr/#founder"' dist/index.html
-          grep -Fq '"sameAs":["https://blog.naver.com/joy014","https://www.instagram.com/aijoylab/"]' dist/index.html
-          grep -Fq '"sameAs":["https://www.threads.com/@ohbeopseok","https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/"]' dist/index.html
+          grep -Fq 'https://x.com/shark01479' dist/index.html
+          grep -Fq 'https://www.youtube.com/@superhalabe100' dist/index.html
+          grep -Fq 'https://www.threads.com/@ohbeopseok' dist/index.html
+          grep -Fq 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/' dist/index.html
           grep -Fq 'OFFICIAL CHANNELS' dist/about/index.html
-          grep -Fq 'data-analytics-placement="about"' dist/about/index.html
+          grep -Fq 'data-analytics-target="x"' dist/about/index.html
+          grep -Fq 'data-analytics-target="youtube"' dist/about/index.html
           grep -Fq '오법석 · AIJoyLab' dist/about/index.html
+          test "$(tr -d '\r\n' < dist/1793952a193325da594f7015ca133737.txt)" = '1793952a193325da594f7015ca133737'
 
       - name: Verify Click Analytics V3 contract
         shell: bash

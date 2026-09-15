@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aijoylab.kr/schema/distribution-manifest-v1.json",
+  "title": "JoyLab Distribution Manifest V1",
+  "type": "object",
+  "required": ["version", "sourceArticle", "campaign", "channels"],
+  "properties": {
+    "version": { "const": "1.0" },
+    "sourceArticle": {
+      "type": "object",
+      "required": ["slug", "title", "url"],
+      "properties": {
+        "slug": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
+        "title": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" }
+      },
+      "additionalProperties": true
+    },
+    "campaign": { "type": "string", "pattern": "^research_[A-Za-z0-9_-]+$" },
+    "channels": {
+      "type": "object",
+      "required": ["threads", "x", "linkedin", "naver"],
+      "properties": {
+        "threads": { "$ref": "#/$defs/channel" },
+        "x": { "$ref": "#/$defs/channel" },
+        "linkedin": { "$ref": "#/$defs/channel" },
+        "naver": { "$ref": "#/$defs/channel" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "channel": {
+      "type": "object",
+      "required": ["utmSource", "utmMedium", "publishStatus", "variants"],
+      "properties": {
+        "utmSource": { "type": "string" },
+        "utmMedium": { "type": "string" },
+        "publishStatus": { "enum": ["draft", "review", "scheduled", "published", "skipped"] },
+        "publishedAt": { "type": ["string", "null"] },
+        "variants": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
