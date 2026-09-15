@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Aside for Windows — Browser Agent at Work</title>
+  <desc id="desc">JoyLab editorial visual showing a Windows work environment where an AI browser agent operates logged-in web tools and pauses for human approval before sensitive actions.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06101E"/>
+      <stop offset="0.52" stop-color="#0B1F4D"/>
+      <stop offset="1" stop-color="#071428"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1677FF"/>
+      <stop offset="1" stop-color="#54D7FF"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#000" flood-opacity="0.42"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1340" cy="160" r="250" fill="#1677FF" opacity="0.13" filter="url(#glow)"/>
+  <circle cx="220" cy="760" r="290" fill="#54D7FF" opacity="0.08" filter="url(#glow)"/>
+
+  <g opacity="0.12" stroke="#72A9EF" stroke-width="1">
+    <path d="M0 120H1600M0 240H1600M0 360H1600M0 480H1600M0 600H1600M0 720H1600M0 840H1600"/>
+    <path d="M160 0V900M320 0V900M480 0V900M640 0V900M800 0V900M960 0V900M1120 0V900M1280 0V900M1440 0V900"/>
+  </g>
+
+  <text x="90" y="105" fill="#8AB9FF" font-family="Inter, Arial, sans-serif" font-size="24" letter-spacing="4">JOYLAB · AI PRODUCTIVITY</text>
+  <text x="90" y="176" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="60" font-weight="700">ASIDE FOR WINDOWS</text>
+  <text x="90" y="226" fill="#B7CCEE" font-family="Inter, Arial, sans-serif" font-size="27">From AI answers to browser execution</text>
+
+  <g transform="translate(90 300)" filter="url(#shadow)">
+    <rect width="900" height="430" rx="28" fill="#061324" stroke="#2A5A9B" stroke-width="2"/>
+    <rect x="34" y="34" width="832" height="326" rx="18" fill="#0B1B35" stroke="#224C82"/>
+    <circle cx="64" cy="63" r="7" fill="#FF6B6B"/><circle cx="88" cy="63" r="7" fill="#FFD166"/><circle cx="112" cy="63" r="7" fill="#5BE29B"/>
+    <rect x="146" y="48" width="560" height="30" rx="15" fill="#10294E"/>
+    <text x="168" y="69" fill="#9FC0EA" font-family="Inter, Arial, sans-serif" font-size="14">Logged-in workspace · Windows desktop</text>
+
+    <g transform="translate(62 108)" font-family="Inter, Arial, sans-serif">
+      <rect width="224" height="210" rx="14" fill="#0D2342"/>
+      <text x="20" y="34" fill="#8AB9FF" font-size="15">01 · ACQUIRE</text>
+      <text x="20" y="70" fill="#FFFFFF" font-size="20" font-weight="700">Open sites</text>
+      <text x="20" y="100" fill="#B5CAE9" font-size="15">Search · collect</text>
+      <text x="20" y="126" fill="#B5CAE9" font-size="15">Read logged-in tools</text>
+      <rect x="20" y="158" width="184" height="30" rx="8" fill="#12345D"/>
+      <text x="38" y="178" fill="#6EE7C2" font-size="14">AGENT RUNNING</text>
+
+      <rect x="244" width="224" height="210" rx="14" fill="#0D2342"/>
+      <text x="264" y="34" fill="#8AB9FF" font-size="15">02 · EXECUTE</text>
+      <text x="264" y="70" fill="#FFFFFF" font-size="20" font-weight="700">Do the work</text>
+      <text x="264" y="100" fill="#B5CAE9" font-size="15">Forms · files</text>
+      <text x="264" y="126" fill="#B5CAE9" font-size="15">Multi-site workflow</text>
+      <rect x="264" y="158" width="184" height="30" rx="8" fill="#12345D"/>
+      <text x="284" y="178" fill="#6EE7C2" font-size="14">TASK READY</text>
+
+      <rect x="488" width="274" height="210" rx="14" fill="#10213D" stroke="#1677FF" stroke-width="2"/>
+      <text x="510" y="34" fill="#8AB9FF" font-size="15">03 · HUMAN CONTROL</text>
+      <text x="510" y="70" fill="#FFFFFF" font-size="20" font-weight="700">Approval required</text>
+      <text x="510" y="100" fill="#B5CAE9" font-size="15">Publish · message</text>
+      <text x="510" y="126" fill="#B5CAE9" font-size="15">Purchase · account change</text>
+      <rect x="510" y="154" width="108" height="36" rx="9" fill="url(#blue)"/>
+      <text x="534" y="178" fill="#FFFFFF" font-size="14" font-weight="700">APPROVE</text>
+      <rect x="632" y="154" width="108" height="36" rx="9" fill="#1A2C47" stroke="#42658D"/>
+      <text x="660" y="178" fill="#B8CBE6" font-size="14">REVIEW</text>
+    </g>
+
+    <path d="M178 376h630l72 42H106z" fill="#09111F" stroke="#263B5A"/>
+    <rect x="438" y="386" width="118" height="9" rx="4.5" fill="#2A4362"/>
+  </g>
+
+  <g transform="translate(1060 320)" font-family="Inter, Arial, sans-serif">
+    <rect width="445" height="382" rx="26" fill="#081629" stroke="#2C5C9B" stroke-width="2" filter="url(#shadow)"/>
+    <text x="34" y="50" fill="#8AB9FF" font-size="18" letter-spacing="2">WINDOWS EXPANSION</text>
+    <text x="34" y="102" fill="#FFFFFF" font-size="27" font-weight="700">Browser Agent</text>
+    <text x="34" y="136" fill="#FFFFFF" font-size="27" font-weight="700">moves into the work PC</text>
+
+    <g transform="translate(34 174)">
+      <rect width="377" height="52" rx="12" fill="#0D2342"/>
+      <circle cx="28" cy="26" r="9" fill="#43E0A1"/><text x="52" y="32" fill="#D8E7FC" font-size="16">Logged-in web services</text>
+      <rect y="66" width="377" height="52" rx="12" fill="#0D2342"/>
+      <circle cx="28" cy="92" r="9" fill="#43E0A1"/><text x="52" y="98" fill="#D8E7FC" font-size="16">Workflow execution</text>
+      <rect y="132" width="377" height="52" rx="12" fill="#0D2342"/>
+      <circle cx="28" cy="158" r="9" fill="#1677FF"/><text x="52" y="164" fill="#D8E7FC" font-size="16">Human approval boundary</text>
+    </g>
+  </g>
+
+  <text x="90" y="818" fill="#6FA8F5" font-family="Inter, Arial, sans-serif" font-size="20" letter-spacing="1">SEARCH → EXECUTE → REVIEW → HUMAN APPROVAL</text>
+  <rect x="90" y="848" width="1415" height="3" fill="url(#blue)" opacity="0.82"/>
+</svg>
