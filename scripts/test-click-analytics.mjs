@@ -67,6 +67,12 @@ if (invalidHomePlacement.status !== 400) throw new Error(`Expected invalid homep
 const invalidHomeTarget = await post({ event: 'home_section_impression', target: 'unknown', placement: 'home', path: '/' });
 if (invalidHomeTarget.status !== 400) throw new Error(`Expected invalid homepage target 400, got ${invalidHomeTarget.status}`);
 
+const invalidHomeSuffix = await post({ event: 'home_section_click', target: 'anthropic-ipo-ai-safety-2026|malformed', placement: 'major', path: '/' });
+if (invalidHomeSuffix.status !== 400) throw new Error(`Expected suffixed homepage target 400, got ${invalidHomeSuffix.status}`);
+
+const invalidExternalHomeTarget = await post({ event: 'home_section_click', target: 'https://evil.example/', placement: 'major', path: '/' });
+if (invalidExternalHomeTarget.status !== 400) throw new Error(`Expected external homepage target 400, got ${invalidExternalHomeTarget.status}`);
+
 if (writes.length !== 7) throw new Error('Invalid events must not be written');
 
 console.log('Click Analytics V3 worker contract passed.');
