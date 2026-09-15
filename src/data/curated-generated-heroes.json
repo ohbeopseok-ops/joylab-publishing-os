@@ -120,7 +120,7 @@
   },
   "aside-windows-launch": {
     "hero": {
-      "src": "/images/research/generated/aside-windows-launch-hero-v1.svg",
+      "src": "/images/research/generated/aside-windows-launch-hero-v1.webp",
       "alt": "Windows 업무 PC에서 로그인된 웹서비스를 AI 브라우저 에이전트가 실행하고 중요한 작업은 사람 승인을 기다리는 구조",
       "caption": "Windows 지원의 의미는 검색 기능 확대보다 브라우저 에이전트가 실제 업무 PC 안으로 들어온다는 데 있습니다."
     },
