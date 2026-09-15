@@ -1,6 +1,8 @@
 ---
 title: "AI는 늦추자, IPO는 간다｜앤트로픽 2조 달러 상장이 던진 질문"
-description: "앤트로픽이 프론티어 AI 개발 속도 조절을 촉구하면서도 2026년 IPO를 계속 추진하는 이유를 팩트체크하고, 2조 달러 밸류에이션·OpenAI 비교·기업 데이터 보안·AI 반도체 투자 영향까지 분석합니다."
+description: "AI 안전 속도조절을 주장한 앤트로픽이 2조 달러 기업가치 IPO를 추진한다. 30.8배 매출 멀티플, OpenAI와 다른 선택, 기업 데이터 보안과 AI CAPEX까지 숫자로 분석합니다."
+cardTitle: "AI는 늦추자는데, 앤트로픽은 왜 2조 달러 IPO를 서두를까?"
+cardDescription: "9650억 달러에서 2조 달러로. 약 30.8배 매출 멀티플과 OpenAI의 다른 선택을 통해 ‘안전과 성장’이 정말 양립 가능한지 따져봤습니다."
 category: "AI·생산성"
 tags:
   - Anthropic
@@ -15,13 +17,13 @@ updatedAt: 2026-09-15
 author: "JoyLab"
 featured: true
 draft: false
-seoTitle: "앤트로픽 IPO 논란｜AI 속도조절과 2조 달러 상장이 동시에 가능한 이유"
+seoTitle: "AI는 늦추자면서 2조 달러 IPO｜앤트로픽의 진짜 계산"
 series: "AI 산업 리서치"
 readingTime: "약 13분"
-heroImage: "/images/research/generated/anthropic-ipo-ai-safety-hero.svg"
+heroImage: "/images/research/generated/anthropic-ipo-ai-safety-hero.webp"
 heroAlt: "AI 안전과 월스트리트 IPO 열기가 충돌하는 모습을 표현한 JoyLab 리서치 이미지"
 heroCaption: "AI 능력 개발은 늦추자고 말하면서 자본시장 진입은 계속한다. 이번 논쟁의 본질은 위선 여부보다 안전과 성장의 인센티브가 실제로 양립할 수 있느냐에 있다."
-ogImage: "/images/research/generated/anthropic-ipo-ai-safety-hero.svg"
+ogImage: "/images/research/generated/anthropic-ipo-ai-safety-hero.webp"
 ---
 
 ## Research Brief
