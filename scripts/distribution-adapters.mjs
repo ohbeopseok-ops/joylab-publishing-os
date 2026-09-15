@@ -5,7 +5,9 @@ import { pathToFileURL } from 'node:url';
 export const CHANNELS = ['threads', 'x', 'linkedin', 'naver'];
 
 export function createPublishHandoff(pack, channel, variantId) {
-  if (pack.state !== 'APPROVED' || !pack.approval?.approved) throw new Error('Publish handoff blocked: pack must be APPROVED.');
+  if (!['APPROVED', 'PUBLISHED'].includes(pack.state) || !pack.approval?.approved) {
+    throw new Error('Publish handoff blocked: pack must be APPROVED before publishing.');
+  }
   if (!CHANNELS.includes(channel)) throw new Error(`Unsupported channel: ${channel}`);
   const variant = pack.channels[channel]?.variants?.find((item) => item.id === variantId);
   if (!variant) throw new Error(`Variant not found: ${channel}/${variantId}`);
@@ -28,9 +30,12 @@ function runCli() {
     let blocked = false;
     try { createPublishHandoff({ state: 'REVIEW', approval: { approved: false }, channels: {} }, 'x', 'x_hook_a'); } catch { blocked = true; }
     if (!blocked) throw new Error('Adapter approval guard failed.');
-    const pack = { state: 'APPROVED', approval: { approved: true }, channels: { x: { variants: [{ id: 'x_hook_a', title: '', body: 'hello', cta: '', hashtags: [], utmUrl: 'https://aijoylab.kr/' }] } } };
-    const handoff = createPublishHandoff(pack, 'x', 'x_hook_a');
-    if (handoff.autoPublish !== false || handoff.mode !== 'MANUAL_HANDOFF') throw new Error('Adapter manual-only contract failed.');
+    const variant = { id: 'x_hook_a', title: '', body: 'hello', cta: '', hashtags: [], utmUrl: 'https://aijoylab.kr/' };
+    const approved = { state: 'APPROVED', approval: { approved: true }, channels: { x: { variants: [variant] } } };
+    const handoff = createPublishHandoff(approved, 'x', 'x_hook_a');
+    approved.state = 'PUBLISHED';
+    const second = createPublishHandoff(approved, 'x', 'x_hook_a');
+    if (handoff.autoPublish !== false || second.mode !== 'MANUAL_HANDOFF') throw new Error('Adapter manual-only/multi-channel contract failed.');
     console.log('Distribution adapter self-test passed.');
     return;
   }
