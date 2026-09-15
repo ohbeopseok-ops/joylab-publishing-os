@@ -76,22 +76,27 @@ jobs:
           test "$(jq '.channels | keys | length' "$file")" = '4'
           jq -e '[.channels[].variants[].utmUrl | contains("utm_content=")] | all' "$file" >/dev/null
 
-      - name: Approval guard simulation
+      - name: Approval and multi-channel publication simulation
         shell: bash
         run: |
           set -euo pipefail
           cp distribution/gold/anthropic-ipo-ai-safety-2026/distribution-pack.json /tmp/pack.json
-          if node scripts/distribution-adapters.mjs --manifest /tmp/pack.json --channel x --variant x_data_a --out /tmp/handoff.json; then
+          if node scripts/distribution-adapters.mjs --manifest /tmp/pack.json --channel x --variant x_data_a --out /tmp/x-handoff.json; then
             echo 'ERROR: handoff succeeded before APPROVED'
             exit 1
           fi
           node scripts/distribution-state.mjs --manifest /tmp/pack.json --to REVIEW --actor gold
           node scripts/distribution-state.mjs --manifest /tmp/pack.json --to APPROVED --actor gold
-          node scripts/distribution-adapters.mjs --manifest /tmp/pack.json --channel x --variant x_data_a --out /tmp/handoff.json
-          test "$(jq -r '.autoPublish' /tmp/handoff.json)" = 'false'
+          node scripts/distribution-adapters.mjs --manifest /tmp/pack.json --channel x --variant x_data_a --out /tmp/x-handoff.json
+          test "$(jq -r '.autoPublish' /tmp/x-handoff.json)" = 'false'
           node scripts/distribution-publish-log.mjs --manifest /tmp/pack.json --channel x --variant x_data_a --url 'https://x.com/joylab/status/gold' --log /tmp/publish-log.ndjson
           test "$(jq -r '.state' /tmp/pack.json)" = 'PUBLISHED'
+          node scripts/distribution-adapters.mjs --manifest /tmp/pack.json --channel threads --variant threads_hook_a --out /tmp/threads-handoff.json
+          test "$(jq -r '.autoPublish' /tmp/threads-handoff.json)" = 'false'
+          node scripts/distribution-publish-log.mjs --manifest /tmp/pack.json --channel threads --variant threads_hook_a --url 'https://www.threads.com/@joylab/post/gold' --log /tmp/publish-log.ndjson
+          test "$(jq '.publishLog | length' /tmp/pack.json)" = '2'
           test "$(jq -r '.channels.x.variants[] | select(.id=="x_data_a") | .publishedUrl' /tmp/pack.json)" = 'https://x.com/joylab/status/gold'
+          test "$(jq -r '.channels.threads.variants[] | select(.id=="threads_hook_a") | .publishedUrl' /tmp/pack.json)" = 'https://www.threads.com/@joylab/post/gold'
 
       - name: Local review UI boot
         shell: bash
@@ -109,6 +114,12 @@ jobs:
           grep -Fq 'State:' /tmp/review.html
           grep -Fq '자동 게시 OFF' /tmp/review.html
           ! grep -Fq 'Publish handoff 생성' /tmp/review.html
+          ! grep -Fq '게시 완료 URL 기록' /tmp/review.html
+          curl -fsS -o /dev/null -X POST -d 'to=REVIEW' http://127.0.0.1:4178/transition
+          curl -fsS -o /dev/null -X POST -d 'to=APPROVED' http://127.0.0.1:4178/transition
+          curl -fsS http://127.0.0.1:4178/ >/tmp/review-approved.html
+          grep -Fq 'Publish handoff 생성' /tmp/review-approved.html
+          grep -Fq '게시 완료 URL 기록' /tmp/review-approved.html
 
       - name: Empty metrics scorecard
         shell: bash
