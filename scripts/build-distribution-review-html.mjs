@@ -31,6 +31,10 @@ function staticReviewRuntime() {
   };
   const escHtml = (s = '') => String(s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
   const approved = () => ['APPROVED','PUBLISHED','MEASURED'].includes(pack.state) && pack.approval?.approved;
+  const setState = (state) => {
+    pack.state = state;
+    for (const channel of Object.values(pack.channels || {})) channel.status = state;
+  };
   const save = () => {
     pack.updatedAt = new Date().toISOString();
     localStorage.setItem(storageKey, JSON.stringify(pack));
@@ -61,8 +65,7 @@ function staticReviewRuntime() {
     const publishedAt = new Date().toISOString();
     variant.publishedUrl = parsed.toString();
     variant.publishedAt = publishedAt;
-    pack.channels[channel].status = 'PUBLISHED';
-    pack.state = 'PUBLISHED';
+    setState('PUBLISHED');
     pack.publishLog = Array.isArray(pack.publishLog) ? pack.publishLog : [];
     pack.publishLog.push({
       articleSlug: pack.articleSlug,
@@ -110,14 +113,14 @@ function staticReviewRuntime() {
 
   document.getElementById('reviewBtn').onclick = () => {
     if (pack.state !== 'DRAFT') return;
-    pack.state = 'REVIEW';
+    setState('REVIEW');
     save();
     toast('REVIEW로 전환했습니다.');
   };
   document.getElementById('approveBtn').onclick = () => {
     if (pack.state !== 'REVIEW') return;
     const approvedAt = new Date().toISOString();
-    pack.state = 'APPROVED';
+    setState('APPROVED');
     pack.approval = { approved: true, approvedBy: 'static-reviewer', approvedAt };
     save();
     toast('APPROVED로 승인했습니다.');
@@ -139,7 +142,8 @@ function staticReviewRuntime() {
 
 function buildHtml(pack) {
   const embedded = JSON.stringify(pack).replaceAll('<', '\\u003c');
-  const storageKey = `joylab-distribution-review:${pack.articleSlug}:${pack.campaign}`;
+  const artifactVersion = pack.generatedAt || pack.updatedAt || 'baseline';
+  const storageKey = `joylab-distribution-review:${pack.articleSlug}:${pack.campaign}:${artifactVersion}`;
   return `<!doctype html>
 <html lang="ko">
 <head>
@@ -166,9 +170,17 @@ function buildHtml(pack) {
 }
 
 if (args.includes('--self-test')) {
-  const sample = { articleSlug:'demo', campaign:'research_demo', state:'DRAFT', approval:{approved:false}, channels:{threads:{status:'DRAFT',variants:[{id:'threads_hook_a',title:'<demo>',body:'body',cta:'cta',hashtags:['#demo'],utmUrl:'https://aijoylab.kr/articles/demo?utm_source=threads',publishedUrl:null,publishedAt:null}]}}, publishLog:[] };
+  const sample = {
+    articleSlug:'demo',
+    campaign:'research_demo',
+    generatedAt:'2026-09-15T00:00:00.000Z',
+    state:'DRAFT',
+    approval:{approved:false},
+    channels:{threads:{status:'DRAFT',variants:[{id:'threads_hook_a',title:'<demo>',body:'body',cta:'cta',hashtags:['#demo'],utmUrl:'https://aijoylab.kr/articles/demo?utm_source=threads',publishedUrl:null,publishedAt:null}]}},
+    publishLog:[]
+  };
   const html = buildHtml(sample);
-  for (const token of ['STATIC REVIEW','APPROVED로 승인','distribution-pack.updated.json','localStorage','threads_hook_a']) {
+  for (const token of ['STATIC REVIEW','APPROVED로 승인','distribution-pack.updated.json','localStorage','threads_hook_a','2026-09-15T00:00:00.000Z','Object.values(pack.channels']) {
     if (!html.includes(token)) throw new Error(`Static review self-test failed: ${token}`);
   }
   if (html.includes('<demo>')) throw new Error('Static review HTML escaping self-test failed.');
