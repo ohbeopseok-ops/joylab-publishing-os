@@ -32,8 +32,7 @@ const channels = [
     label: 'RSS',
     href: '/rss.xml',
     mark: 'R',
-    description: '새 리서치 직접 구독',
-    analyticsKey: 'rss'
+    description: '새 리서치 직접 구독'
   }
 ];
 ---
@@ -53,9 +52,9 @@ const channels = [
         target={channel.href.startsWith('http') ? '_blank' : undefined}
         rel={channel.href.startsWith('http') ? 'me noreferrer' : undefined}
         aria-label={`JoyLab ${channel.label}${channel.href.startsWith('http') ? ' 새 창에서 열기' : ''}`}
-        data-analytics-event="social_click"
+        data-analytics-event={channel.analyticsKey ? 'social_click' : undefined}
         data-analytics-target={channel.analyticsKey}
-        data-analytics-placement="about"
+        data-analytics-placement={channel.analyticsKey ? 'about' : undefined}
       >
         <span class="about-official-mark" aria-hidden="true">{channel.mark}</span>
         <span class="about-official-copy">
