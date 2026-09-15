@@ -3,6 +3,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 export const CHANNELS = ['threads', 'x', 'linkedin', 'naver'];
+const argValue = (args, flag, fallback) => { const i = args.indexOf(flag); return i >= 0 && i + 1 < args.length ? args[i + 1] : fallback; };
 
 export function createPublishHandoff(pack, channel, variantId) {
   if (!['APPROVED', 'PUBLISHED'].includes(pack.state) || !pack.approval?.approved) {
@@ -12,15 +13,9 @@ export function createPublishHandoff(pack, channel, variantId) {
   const variant = pack.channels[channel]?.variants?.find((item) => item.id === variantId);
   if (!variant) throw new Error(`Variant not found: ${channel}/${variantId}`);
   return {
-    mode: 'MANUAL_HANDOFF',
-    autoPublish: false,
-    channel,
-    variantId,
-    title: variant.title,
-    body: variant.body,
-    cta: variant.cta,
-    hashtags: variant.hashtags,
-    utmUrl: variant.utmUrl,
+    mode: 'MANUAL_HANDOFF', autoPublish: false, channel, variantId,
+    title: variant.title, body: variant.body, cta: variant.cta,
+    hashtags: variant.hashtags, utmUrl: variant.utmUrl,
     createdAt: new Date().toISOString()
   };
 }
@@ -40,10 +35,10 @@ function runCli() {
     return;
   }
   const args = process.argv.slice(2);
-  const manifest = args[args.indexOf('--manifest') + 1];
-  const channel = args[args.indexOf('--channel') + 1];
-  const variant = args[args.indexOf('--variant') + 1];
-  const out = args[args.indexOf('--out') + 1] || 'distribution/publish-handoff.json';
+  const manifest = argValue(args, '--manifest');
+  const channel = argValue(args, '--channel');
+  const variant = argValue(args, '--variant');
+  const out = argValue(args, '--out', 'distribution/publish-handoff.json');
   if (!manifest || !channel || !variant) throw new Error('Usage: node scripts/distribution-adapters.mjs --manifest <path> --channel <channel> --variant <id> [--out <path>]');
   const pack = JSON.parse(fs.readFileSync(manifest, 'utf8'));
   const handoff = createPublishHandoff(pack, channel, variant);
