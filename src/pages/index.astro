@@ -44,7 +44,7 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
           {today.map((article, index) => (
             <a class="home-today-item" href={`/articles/${article.id}`}>
               <span class="home-today-no">{index + 1}</span>
-              <span><b>{article.data.title}</b><small>{article.data.category} · {article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</small></span>
+              <span><b>{article.data.cardTitle ?? article.data.title}</b><small>{article.data.category} · {article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</small></span>
             </a>
           ))}
         </div>
@@ -91,8 +91,8 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
               )}
               <div class="home-research-copy">
                 <small>{article.data.category}</small>
-                <h3>{article.data.title}</h3>
-                <p>{article.data.description}</p>
+                <h3>{article.data.cardTitle ?? article.data.title}</h3>
+                <p>{article.data.cardDescription ?? article.data.description}</p>
                 <div class="home-research-meta">{article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</div>
               </div>
             </a>
