@@ -2,6 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
+const argValue = (args, flag, fallback) => { const i = args.indexOf(flag); return i >= 0 && i + 1 < args.length ? args[i + 1] : fallback; };
+
 export function recordPublished(pack, { channel, variantId, publishedUrl, publishedAt }) {
   if (!['APPROVED', 'PUBLISHED'].includes(pack.state) || !pack.approval?.approved) {
     throw new Error('Publish log blocked: pack must be APPROVED before the first publication.');
@@ -37,12 +39,12 @@ function runCli() {
   }
 
   const args = process.argv.slice(2);
-  const manifest = args[args.indexOf('--manifest') + 1];
-  const channel = args[args.indexOf('--channel') + 1];
-  const variantId = args[args.indexOf('--variant') + 1];
-  const publishedUrl = args[args.indexOf('--url') + 1];
-  const publishedAt = args[args.indexOf('--at') + 1] || new Date().toISOString();
-  const logFile = args[args.indexOf('--log') + 1] || 'distribution/publish-log.ndjson';
+  const manifest = argValue(args, '--manifest');
+  const channel = argValue(args, '--channel');
+  const variantId = argValue(args, '--variant');
+  const publishedUrl = argValue(args, '--url');
+  const publishedAt = argValue(args, '--at', new Date().toISOString());
+  const logFile = argValue(args, '--log', 'distribution/publish-log.ndjson');
   if (!manifest || !channel || !variantId || !publishedUrl) throw new Error('Usage: node scripts/distribution-publish-log.mjs --manifest <pack.json> --channel <channel> --variant <id> --url <published-url> [--at <iso>]');
   const pack = JSON.parse(fs.readFileSync(manifest,'utf8'));
   const row = recordPublished(pack,{channel,variantId,publishedUrl,publishedAt});
