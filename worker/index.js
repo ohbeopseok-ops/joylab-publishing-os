@@ -16,7 +16,9 @@ const analyticsContracts = {
   smoke_test: { targets: new Set(['deploy']), placements: new Set(['production_smoke']) },
   article_view: { targetPattern: /^[A-Za-z0-9_-]{1,100}$/, placements: new Set(['article_page']) },
   article_dwell_60: { targetPattern: /^[A-Za-z0-9_-]{1,100}$/, placements: new Set(['article_page']) },
-  article_internal_link_click: { targetPattern: /^\/articles\/[A-Za-z0-9_-]{1,100}\/?$/, placements: new Set(['article_body', 'related_research', 'guide_cta']) }
+  article_internal_link_click: { targetPattern: /^\/articles\/[A-Za-z0-9_-]{1,100}\/?$/, placements: new Set(['article_body', 'related_research', 'guide_cta']) },
+  home_section_impression: { targets: new Set(['editorial', 'major', 'latest', 'guide']), placements: new Set(['home']) },
+  home_section_click: { targetPattern: /^(?:[A-Za-z0-9_-]{1,100}|\/guides\/[A-Za-z0-9_-]{1,100}\/?$)/, placements: new Set(['editorial', 'major', 'latest', 'guide']) }
 };
 
 function withSecurityHeaders(response) {
