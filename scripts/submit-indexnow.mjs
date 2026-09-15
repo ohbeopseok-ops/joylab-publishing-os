@@ -16,6 +16,17 @@ const value = (name) => {
   return index >= 0 ? args[index + 1] : undefined;
 };
 
+function isDraftText(text) {
+  return /^draft:\s*true\s*$/mi.test(text);
+}
+
+function shouldSubmitFile(file) {
+  const full = path.join(root, file);
+  // Deleted article paths must still be submitted so engines can discover removal.
+  if (!fs.existsSync(full)) return true;
+  return !isDraftText(fs.readFileSync(full, 'utf8'));
+}
+
 function slugFromFile(file) {
   const full = path.join(root, file);
   if (fs.existsSync(full)) {
@@ -38,12 +49,14 @@ function allArticleFiles() {
 }
 
 function buildUrls(files) {
-  return [...new Set(files.map((file) => `${siteOrigin}/articles/${slugFromFile(file)}`))];
+  return [...new Set(files.filter(shouldSubmitFile).map((file) => `${siteOrigin}/articles/${slugFromFile(file)}`))];
 }
 
 if (has('--self-test')) {
   const sample = buildUrls(['src/data/articles/example-article.md']);
   if (sample[0] !== `${siteOrigin}/articles/example-article`) throw new Error('IndexNow URL mapping self-test failed.');
+  if (!isDraftText('---\ndraft: true\n---')) throw new Error('IndexNow draft detection self-test failed.');
+  if (isDraftText('---\ndraft: false\n---')) throw new Error('IndexNow published detection self-test failed.');
   if (!/^[A-Za-z0-9-]{8,128}$/.test(key)) throw new Error('IndexNow key format invalid.');
   console.log('IndexNow submitter self-test passed.');
   process.exit(0);
@@ -57,9 +70,9 @@ const urls = buildUrls(files);
 fs.mkdirSync(outputDir, { recursive: true });
 
 if (!urls.length) {
-  const report = { submitted: false, reason: 'no_changed_articles', urls: [] };
+  const report = { submitted: false, reason: 'no_publishable_changed_articles', urls: [] };
   fs.writeFileSync(path.join(outputDir, 'indexnow-report.json'), `${JSON.stringify(report, null, 2)}\n`);
-  console.log('IndexNow: no changed article URLs to submit.');
+  console.log('IndexNow: no publishable changed article URLs to submit.');
   process.exit(0);
 }
 
