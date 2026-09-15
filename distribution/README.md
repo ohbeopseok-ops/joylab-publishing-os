@@ -33,9 +33,22 @@ npm run distribution:build -- --slug anthropic-ipo-ai-safety-2026
 - `naver.md` — 검색형 요약 + 원문 연결
 - `manifest.json` — Foundation V1 호환 manifest
 
-## Review UI
+## JoyLab Distribution Review Mobile V1
 
-로컬에서만 실행합니다. 외부 서비스나 production route를 만들지 않습니다.
+`npm run build`가 끝나면 모든 published article에 대해 모바일 Review 페이지가 같이 생성됩니다.
+
+- URL: `https://aijoylab.kr/ops/distribution/<article-slug>`
+- 예: `https://aijoylab.kr/ops/distribution/anthropic-ipo-ai-safety-2026`
+- `draft: true` 문서는 생성하지 않습니다.
+- 검색 노출 방지를 위해 각 페이지는 `noindex,nofollow,noarchive`를 사용하고 robots.txt에서 `/ops/distribution/`을 차단합니다.
+- 승인·게시 URL은 해당 휴대폰 브라우저의 `localStorage`에 저장합니다.
+- 저장 키는 `generatedAt`이 아니라 문안·CTA·해시태그·UTM의 content fingerprint를 사용합니다. 내용이 같으면 재배포 후에도 상태가 유지되고, 실제 문안이 바뀌면 새 검토 버전으로 분리됩니다.
+- 모바일 화면에는 채널 필터, REVIEW, APPROVE, 문안+링크 복사, 게시 URL 기록을 제공합니다.
+- 외부 소셜 API 호출은 하지 않습니다.
+
+기존 artifact `review.html`과 로컬 Review UI는 비상용·백업 운영 경로로 계속 유지합니다.
+
+## Local Review UI
 
 ```bash
 npm run distribution:review -- --manifest distribution/gold/anthropic-ipo-ai-safety-2026/distribution-pack.json
@@ -121,3 +134,4 @@ GOLD Gate: `.github/workflows/distribution-execution-gold.yml`.
 5. 외부 소셜 API 자동 게시 코드는 포함하지 않습니다.
 6. 게시 완료는 외부 URL이 기록돼야만 인정합니다.
 7. 성과 판단은 단순 클릭보다 Qualified Research Visit을 우선합니다.
+8. Mobile V1의 브라우저 승인 상태는 서버 기록이 아니라 기기 로컬 운영 상태입니다.
