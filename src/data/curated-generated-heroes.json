@@ -117,5 +117,24 @@
       "alt": "AI가 여러 정보원과 도구를 연결해 결과를 만드는 에이전트 구조",
       "caption": "AI 에이전트는 답변을 넘어 도구와 데이터를 연결해 작업을 수행합니다."
     }
+  },
+  "anthropic-ipo-ai-safety-2026": {
+    "hero": {
+      "src": "/images/research/generated/anthropic-ipo-ai-safety-hero.svg",
+      "alt": "AI 안전과 IPO 자본시장 사이의 긴장을 표현한 JoyLab 리서치 대표 이미지",
+      "caption": "프론티어 AI의 안전 속도조절과 공개시장 성장 압력이 동시에 시험대에 올랐습니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/generated/anthropic-valuation-multiple.svg",
+        "alt": "앤트로픽의 2026년 사모 기업가치와 연환산 매출, 2조 달러 IPO 기대가치를 비교한 차트",
+        "caption": "2조 달러 기업가치는 650억 달러 이상 연환산 매출을 기준으로 약 30.8배 매출 멀티플입니다."
+      },
+      {
+        "src": "/images/research/generated/anthropic-safety-capital-framework.svg",
+        "alt": "프론티어 AI 기업의 안전 경쟁 자본시장 압력을 삼각 구조로 표현한 인포그래픽",
+        "caption": "진짜 시험은 Safety·Competition·Capital의 인센티브가 충돌할 때 시작됩니다."
+      }
+    ]
   }
 }
