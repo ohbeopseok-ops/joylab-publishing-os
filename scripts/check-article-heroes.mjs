@@ -4,7 +4,9 @@ import path from 'node:path';
 const root = process.cwd();
 const articleDir = path.join(root, 'src/data/articles');
 const manifestPath = path.join(root, 'src/data/research-image-manifest.json');
+const overridesPath = path.join(root, 'src/data/article-image-overrides.json');
 const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+const overrides = fs.existsSync(overridesPath) ? JSON.parse(fs.readFileSync(overridesPath, 'utf8')) : {};
 const failures = [];
 let publishedCount = 0;
 
@@ -37,12 +39,12 @@ for (const name of fs.readdirSync(articleDir).filter((name) => name.endsWith('.m
   if (fm.draft) continue;
   publishedCount += 1;
 
-  const manifestHero = manifest[articleId]?.hero;
-  const heroSrc = manifestHero?.src ?? fm.heroImage;
-  const heroAlt = manifestHero?.alt ?? fm.heroAlt;
+  const hero = overrides[articleId]?.hero ?? manifest[articleId]?.hero;
+  const heroSrc = hero?.src ?? fm.heroImage;
+  const heroAlt = hero?.alt ?? fm.heroAlt;
 
   if (!heroSrc) {
-    failures.push(`${articleId}: published article requires a Hero image (manifest hero or heroImage frontmatter)`);
+    failures.push(`${articleId}: published article requires a Hero image (image override, manifest hero, or heroImage frontmatter)`);
     continue;
   }
   if (!heroAlt) failures.push(`${articleId}: Hero image requires alt text`);
