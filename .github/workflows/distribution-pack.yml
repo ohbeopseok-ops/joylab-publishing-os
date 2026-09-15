@@ -6,7 +6,9 @@ on:
     paths:
       - 'src/data/articles/**'
       - 'scripts/build-distribution-pack.mjs'
+      - 'scripts/build-distribution-review-html.mjs'
       - 'distribution/distribution-pack.schema.json'
+      - '.github/workflows/distribution-pack.yml'
   workflow_dispatch:
     inputs:
       slug:
@@ -33,7 +35,7 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Generate packs
+      - name: Generate packs and static review HTML
         shell: bash
         env:
           PUSH_BEFORE: ${{ github.event.before }}
@@ -64,7 +66,11 @@ jobs:
               continue
             fi
             node scripts/build-distribution-pack.mjs --slug "$slug"
+            node scripts/build-distribution-review-html.mjs \
+              --manifest "distribution/generated/$slug/distribution-pack.json" \
+              --out "distribution/generated/$slug/review.html"
             cp -R "distribution/generated/$slug" "qa-artifacts/distribution-packs/$slug"
+            test -s "qa-artifacts/distribution-packs/$slug/review.html"
           done
 
       - name: Upload review packs
