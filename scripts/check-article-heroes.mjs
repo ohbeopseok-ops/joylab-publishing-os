@@ -32,9 +32,15 @@ const assetExists = (src) => {
   return fs.existsSync(path.join(root, 'public', src.slice(1)));
 };
 
-for (const name of fs.readdirSync(articleDir).filter((name) => name.endsWith('.md')).sort()) {
-  const articleId = name.replace(/\.md$/, '');
-  const file = path.join(articleDir, name);
+const markdownFiles = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+  const full = path.join(dir, entry.name);
+  if (entry.isDirectory()) return markdownFiles(full);
+  return entry.isFile() && entry.name.endsWith('.md') ? [full] : [];
+});
+
+for (const file of markdownFiles(articleDir).sort()) {
+  const relative = path.relative(articleDir, file).split(path.sep).join('/');
+  const articleId = relative.replace(/\.md$/, '');
   const fm = readFrontmatter(file);
   if (fm.draft) continue;
   publishedCount += 1;
