@@ -17,10 +17,13 @@ function taggedLink(url, source, medium, campaign, content) {
   u.searchParams.set('utm_content', content);
   return u.toString();
 }
+function variant(id, title, body, cta, hashtags, url, source, medium, campaign) {
+  return { id, title, body, cta, hashtags, utmUrl: taggedLink(url, source, medium, campaign, id), publishedUrl: null, publishedAt: null };
+}
 
 if (process.argv.includes('--self-test')) {
-  const link = taggedLink('https://aijoylab.kr/articles/demo', 'threads', 'social', 'research_demo', 'hook');
-  if (!link.includes('utm_source=threads') || !link.includes('utm_content=hook')) throw new Error('Distribution UTM self-test failed.');
+  const link = taggedLink('https://aijoylab.kr/articles/demo', 'threads', 'social', 'research_demo', 'threads_hook_a');
+  if (!link.includes('utm_source=threads') || !link.includes('utm_content=threads_hook_a')) throw new Error('Distribution UTM self-test failed.');
   console.log('Distribution pack self-test passed.');
   process.exit(0);
 }
@@ -29,6 +32,7 @@ if (!slug || !/^[A-Za-z0-9_-]+$/.test(slug)) throw new Error('Usage: node script
 const articlePath = path.join(root, 'src/data/articles', `${slug}.md`);
 if (!fs.existsSync(articlePath)) throw new Error(`Article not found: ${articlePath}`);
 const article = fs.readFileSync(articlePath, 'utf8');
+if (/^draft:\s*true\s*$/m.test(article)) throw new Error(`Draft article cannot create distribution pack: ${slug}`);
 const title = field(article, 'title');
 const description = field(article, 'description');
 const category = field(article, 'category');
@@ -56,16 +60,42 @@ const manifest = {
     publishStatus: 'draft',
     publishedAt: null,
     variants: cfg.variants,
-    links: Object.fromEntries(cfg.variants.map((variant) => [variant, taggedLink(sourceUrl, cfg.source, cfg.medium, campaign, variant)]))
+    links: Object.fromEntries(cfg.variants.map((name) => [name, taggedLink(sourceUrl, cfg.source, cfg.medium, campaign, name)]))
   }]))
 };
 fs.writeFileSync(path.join(outDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);
 
 const templates = {
-  'threads.md': `# Threads — ${title}\n\n## 1. Hook\n- 핵심 충돌/숫자/질문으로 시작\n- 원문 복붙 금지\n- Link: ${manifest.channels.threads.links.hook}\n\n## 2. Interpretation\n- 사실 → JoyLab 해석 → 의미\n- Link: ${manifest.channels.threads.links.interpretation}\n\n## 3. Question\n- 독자가 답하고 싶어지는 질문으로 마무리\n- Link: ${manifest.channels.threads.links.question}\n`,
-  'x.md': `# X — ${title}\n\n## 1. Data\n- 핵심 숫자 1~3개 + 한 줄 의미\n- Link: ${manifest.channels.x.links.data}\n\n## 2. Debate\n- 시장의 통념 vs JoyLab 해석\n- Link: ${manifest.channels.x.links.debate}\n\n## 3. Judgment\n- 한 문장 판단 + 다음 확인 지표\n- Link: ${manifest.channels.x.links.judgment}\n`,
-  'linkedin.md': `# LinkedIn — ${title}\n\n## Problem\n- 산업/업무 문제 정의\n\n## Interpretation\n- 데이터와 구조적 의미\n\n## Practical implication\n- 리더/실무자가 무엇을 확인할지\n\n원문: ${manifest.channels.linkedin.links.insight}\n`,
-  'naver.md': `# Naver Summary — ${title}\n\n## 검색 의도\n- 핵심 키워드와 독자의 질문\n\n## 요약\n- 원문의 30~50% 수준으로 재구성\n- 핵심 수치·판단 기준 포함\n- 전체 원문 복제 금지\n\nJoyLab 원문: ${manifest.channels.naver.links.summary}\n`
+  'threads.md': `# Threads — ${title}\n\n## 1. Hook\n${description}\n\n원문: ${manifest.channels.threads.links.hook}\n\n## 2. Interpretation\n사실과 해석을 분리해 이 이슈가 실제 판단에 어떤 의미인지 풀어봅니다.\n\n원문: ${manifest.channels.threads.links.interpretation}\n\n## 3. Question\n당신이라면 이 이슈에서 어떤 지표를 먼저 확인하겠습니까?\n\n원문: ${manifest.channels.threads.links.question}\n`,
+  'x.md': `# X — ${title}\n\n## 1. Data\n${description}\n${manifest.channels.x.links.data}\n\n## 2. Debate\n표면적 논쟁보다 실제 숫자와 인센티브를 확인해야 합니다.\n${manifest.channels.x.links.debate}\n\n## 3. Judgment\nJoyLab은 다음 확인 지표까지 연결합니다.\n${manifest.channels.x.links.judgment}\n`,
+  'linkedin.md': `# LinkedIn — ${title}\n\n## Problem\n${description}\n\n## Interpretation\n사실 → 해석 → 시나리오 → 실행의 순서로 구조화합니다.\n\n## Practical implication\n리더와 실무자가 다음 판단에서 확인할 조건을 남깁니다.\n\n원문: ${manifest.channels.linkedin.links.insight}\n`,
+  'naver.md': `# Naver Summary — ${title}\n\n## 검색 의도\n${description}\n\n## 요약\n핵심 사실과 판단 기준을 검색형 문장으로 재구성합니다. 전체 원문을 복제하지 않고 JoyLab 원문으로 연결합니다.\n\nJoyLab 원문: ${manifest.channels.naver.links.summary}\n`
 };
 for (const [name, content] of Object.entries(templates)) fs.writeFileSync(path.join(outDir, name), content);
+
+const executionPack = {
+  version: '1.0', articleSlug: slug, campaign, state: 'DRAFT', sourceUrl,
+  generatedAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
+  approval: { approved: false, approvedBy: null, approvedAt: null },
+  channels: {
+    threads: { status:'DRAFT', variants:[
+      variant('threads_hook_a', title, description, '전체 분석은 JoyLab 원문에서 확인하세요.', ['#JoyLab', `#${category.replace(/[^가-힣A-Za-z0-9]/g,'')}`], sourceUrl,'threads','social',campaign),
+      variant('threads_insight_b', `${title} — 해석`, '사실을 확인한 뒤 이 이슈가 시장·기술·업무에 어떤 의미인지 JoyLab 관점으로 해석합니다.', '판단 기준까지 원문에 정리했습니다.', ['#JoyLab'], sourceUrl,'threads','social',campaign),
+      variant('threads_question_c', `${title} — 질문`, '표면적 결론보다 다음 판단에서 무엇을 확인해야 하는지가 중요합니다. 당신이라면 어떤 지표를 먼저 보시겠습니까?', '원문에서 확인 지표를 확인하세요.', ['#JoyLab'], sourceUrl,'threads','social',campaign)
+    ]},
+    x: { status:'DRAFT', variants:[
+      variant('x_data_a', title, description, '핵심 숫자와 원문 ↓', ['#JoyLab'], sourceUrl,'x','social',campaign),
+      variant('x_debate_b', `${title} — debate`, '통념과 실제 데이터가 같은 방향인지 확인해야 합니다. JoyLab은 사실과 해석을 분리해서 봅니다.', '전체 분석 ↓', ['#JoyLab'], sourceUrl,'x','social',campaign),
+      variant('x_judgment_c', `${title} — judgment`, '한 문장 결론보다 다음 확인 지표가 중요합니다. 무엇이 바뀌면 판단도 바뀌는지 확인합니다.', '확인 지표 ↓', ['#JoyLab'], sourceUrl,'x','social',campaign)
+    ]},
+    linkedin: { status:'DRAFT', variants:[
+      variant('linkedin_analysis_a', title, `${description}\n\n이 이슈를 Fact → Interpretation → Scenario → Action 구조로 보면, 중요한 것은 정보 자체보다 다음 의사결정 조건입니다.`, '리더와 실무자를 위한 전체 리서치를 확인하세요.', ['#JoyLab', '#Research'], sourceUrl,'linkedin','social',campaign)
+    ]},
+    naver: { status:'DRAFT', variants:[
+      variant('naver_summary_a', title, `${description}\n\n핵심 사실과 판단 기준을 요약했습니다. 전체 원문을 복제하지 않고 세부 근거와 시나리오는 JoyLab 원문으로 연결합니다.`, '전체 분석은 JoyLab 원문에서 확인하세요.', ['#JoyLab'], sourceUrl,'naver','blog',campaign)
+    ]}
+  },
+  publishLog: []
+};
+fs.writeFileSync(path.join(outDir, 'distribution-pack.json'), `${JSON.stringify(executionPack, null, 2)}\n`);
 console.log(`Distribution pack created: distribution/generated/${slug}`);
