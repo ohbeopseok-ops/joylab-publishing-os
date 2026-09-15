@@ -15,7 +15,13 @@
     "deploy": "wrangler deploy",
     "benchmark:evaluate": "node scripts/evaluate-browser-agent-benchmark.mjs",
     "benchmark:summary": "node scripts/evaluate-browser-agent-benchmark.mjs --write-summary",
-    "benchmark:gate": "node scripts/evaluate-browser-agent-benchmark.mjs --gate"
+    "benchmark:gate": "node scripts/evaluate-browser-agent-benchmark.mjs --gate",
+    "distribution:build": "node scripts/build-distribution-pack.mjs",
+    "distribution:review": "node scripts/distribution-review-server.mjs",
+    "distribution:state": "node scripts/distribution-state.mjs",
+    "distribution:handoff": "node scripts/distribution-adapters.mjs",
+    "distribution:published": "node scripts/distribution-publish-log.mjs",
+    "distribution:scorecard": "node scripts/distribution-scorecard.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"

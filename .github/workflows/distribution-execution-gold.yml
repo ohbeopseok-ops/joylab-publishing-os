@@ -1,0 +1,131 @@
+name: Distribution Execution GOLD
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'distribution/**'
+      - 'scripts/build-distribution-pack.mjs'
+      - 'scripts/distribution-*.mjs'
+      - '.github/workflows/distribution-*.yml'
+      - 'package.json'
+  push:
+    branches: [main]
+    paths:
+      - 'distribution/**'
+      - 'scripts/build-distribution-pack.mjs'
+      - 'scripts/distribution-*.mjs'
+      - '.github/workflows/distribution-*.yml'
+      - 'package.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gold:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Syntax
+        run: |
+          node --check scripts/build-distribution-pack.mjs
+          node --check scripts/distribution-state.mjs
+          node --check scripts/distribution-adapters.mjs
+          node --check scripts/distribution-publish-log.mjs
+          node --check scripts/distribution-scorecard.mjs
+          node --check scripts/distribution-review-server.mjs
+
+      - name: Contract self-tests
+        run: |
+          node scripts/build-distribution-pack.mjs --self-test
+          node scripts/distribution-state.mjs --self-test
+          node scripts/distribution-adapters.mjs --self-test
+          node scripts/distribution-publish-log.mjs --self-test
+          node scripts/distribution-scorecard.mjs --self-test
+
+      - name: Anthropic GOLD pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          file='distribution/gold/anthropic-ipo-ai-safety-2026/distribution-pack.json'
+          test -f "$file"
+          test "$(jq -r '.state' "$file")" = 'DRAFT'
+          test "$(jq -r '.approval.approved' "$file")" = 'false'
+          test "$(jq '.channels.threads.variants | length' "$file")" = '3'
+          test "$(jq '.channels.x.variants | length' "$file")" = '3'
+          test "$(jq '.channels.linkedin.variants | length' "$file")" = '1'
+          test "$(jq '.channels.naver.variants | length' "$file")" = '1'
+          jq -e '[.channels[].variants[].utmUrl | contains("utm_campaign=research_anthropic-ipo-ai-safety-2026")] | all' "$file" >/dev/null
+          jq -e '[.channels[].variants[].publishedUrl] | all(. == null)' "$file" >/dev/null
+
+      - name: Generated article pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-distribution-pack.mjs --slug anthropic-ipo-ai-safety-2026
+          file='distribution/generated/anthropic-ipo-ai-safety-2026/distribution-pack.json'
+          test -f "$file"
+          test "$(jq -r '.state' "$file")" = 'DRAFT'
+          test "$(jq '.channels | keys | length' "$file")" = '4'
+          jq -e '[.channels[].variants[].utmUrl | contains("utm_content=")] | all' "$file" >/dev/null
+
+      - name: Approval and multi-channel publication simulation
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp distribution/gold/anthropic-ipo-ai-safety-2026/distribution-pack.json /tmp/pack.json
+          if node scripts/distribution-adapters.mjs --manifest /tmp/pack.json --channel x --variant x_data_a --out /tmp/x-handoff.json; then
+            echo 'ERROR: handoff succeeded before APPROVED'
+            exit 1
+          fi
+          node scripts/distribution-state.mjs --manifest /tmp/pack.json --to REVIEW --actor gold
+          node scripts/distribution-state.mjs --manifest /tmp/pack.json --to APPROVED --actor gold
+          node scripts/distribution-adapters.mjs --manifest /tmp/pack.json --channel x --variant x_data_a --out /tmp/x-handoff.json
+          test "$(jq -r '.autoPublish' /tmp/x-handoff.json)" = 'false'
+          node scripts/distribution-publish-log.mjs --manifest /tmp/pack.json --channel x --variant x_data_a --url 'https://x.com/joylab/status/gold' --log /tmp/publish-log.ndjson
+          test "$(jq -r '.state' /tmp/pack.json)" = 'PUBLISHED'
+          node scripts/distribution-adapters.mjs --manifest /tmp/pack.json --channel threads --variant threads_hook_a --out /tmp/threads-handoff.json
+          test "$(jq -r '.autoPublish' /tmp/threads-handoff.json)" = 'false'
+          node scripts/distribution-publish-log.mjs --manifest /tmp/pack.json --channel threads --variant threads_hook_a --url 'https://www.threads.com/@joylab/post/gold' --log /tmp/publish-log.ndjson
+          test "$(jq '.publishLog | length' /tmp/pack.json)" = '2'
+          test "$(jq -r '.channels.x.variants[] | select(.id=="x_data_a") | .publishedUrl' /tmp/pack.json)" = 'https://x.com/joylab/status/gold'
+          test "$(jq -r '.channels.threads.variants[] | select(.id=="threads_hook_a") | .publishedUrl' /tmp/pack.json)" = 'https://www.threads.com/@joylab/post/gold'
+
+      - name: Local review UI boot
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp distribution/gold/anthropic-ipo-ai-safety-2026/distribution-pack.json /tmp/review-pack.json
+          node scripts/distribution-review-server.mjs --manifest /tmp/review-pack.json --port 4178 >/tmp/review-ui.log 2>&1 &
+          pid=$!
+          trap 'kill $pid 2>/dev/null || true' EXIT
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4178/ >/tmp/review.html; then break; fi
+            sleep 0.25
+          done
+          grep -Fq 'DISTRIBUTION EXECUTION LAYER V1' /tmp/review.html
+          grep -Fq 'State:' /tmp/review.html
+          grep -Fq '자동 게시 OFF' /tmp/review.html
+          ! grep -Fq 'Publish handoff 생성' /tmp/review.html
+          ! grep -Fq '게시 완료 URL 기록' /tmp/review.html
+          curl -fsS -o /dev/null -X POST -d 'to=REVIEW' http://127.0.0.1:4178/transition
+          curl -fsS -o /dev/null -X POST -d 'to=APPROVED' http://127.0.0.1:4178/transition
+          curl -fsS http://127.0.0.1:4178/ >/tmp/review-approved.html
+          grep -Fq 'Publish handoff 생성' /tmp/review-approved.html
+          grep -Fq '게시 완료 URL 기록' /tmp/review-approved.html
+
+      - name: Empty metrics scorecard
+        shell: bash
+        run: |
+          cat > /tmp/metrics.json <<'JSON'
+          {"articleSlug":"anthropic-ipo-ai-safety-2026","windowHours":24,"rows":[]}
+          JSON
+          node scripts/distribution-scorecard.mjs --input /tmp/metrics.json --out /tmp/scorecard.json
+          test "$(jq -r '.status' /tmp/scorecard.json)" = 'WAITING_FOR_DATA'
