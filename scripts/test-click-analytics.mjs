@@ -32,6 +32,12 @@ if (social.status !== 204) throw new Error(`Expected 204, got ${social.status}`)
 const aboutSocial = await post({ event: 'social_click', target: 'threads', placement: 'about', path: '/about' });
 if (aboutSocial.status !== 204) throw new Error(`About social_click expected 204, got ${aboutSocial.status}`);
 
+const xSocial = await post({ event: 'social_click', target: 'x', placement: 'footer', path: '/' });
+if (xSocial.status !== 204) throw new Error(`X social_click expected 204, got ${xSocial.status}`);
+
+const youtubeSocial = await post({ event: 'social_click', target: 'youtube', placement: 'about', path: '/about' });
+if (youtubeSocial.status !== 204) throw new Error(`YouTube social_click expected 204, got ${youtubeSocial.status}`);
+
 const articleView = await post({ event: 'article_view', target: 'foreign-investor-flow', placement: 'article_page', path: '/articles/foreign-investor-flow' });
 if (articleView.status !== 204) throw new Error(`article_view expected 204, got ${articleView.status}`);
 
@@ -50,19 +56,13 @@ if (homeClick.status !== 204) throw new Error(`home_section_click expected 204, 
 const guideClick = await post({ event: 'home_section_click', target: '/guides/ai-productivity', placement: 'guide', path: '/' });
 if (guideClick.status !== 204) throw new Error(`guide home_section_click expected 204, got ${guideClick.status}`);
 
-if (writes.length !== 8) throw new Error(`Expected eight analytics writes, got ${writes.length}`);
-if (writes[1].blobs.join('|') !== 'social_click|threads|about|/about') {
-  throw new Error(`Unexpected About social payload: ${JSON.stringify(writes[1])}`);
-}
-if (writes[2].blobs.join('|') !== 'article_view|foreign-investor-flow|article_page|/articles/foreign-investor-flow') {
-  throw new Error(`Unexpected article view payload: ${JSON.stringify(writes[2])}`);
-}
-if (writes[5].blobs.join('|') !== 'home_section_impression|major|home|/') {
-  throw new Error(`Unexpected home impression payload: ${JSON.stringify(writes[5])}`);
-}
-if (writes[6].blobs.join('|') !== 'home_section_click|anthropic-ipo-ai-safety-2026|major|/') {
-  throw new Error(`Unexpected home click payload: ${JSON.stringify(writes[6])}`);
-}
+if (writes.length !== 10) throw new Error(`Expected ten analytics writes, got ${writes.length}`);
+if (writes[1].blobs.join('|') !== 'social_click|threads|about|/about') throw new Error(`Unexpected About social payload: ${JSON.stringify(writes[1])}`);
+if (writes[2].blobs.join('|') !== 'social_click|x|footer|/') throw new Error(`Unexpected X social payload: ${JSON.stringify(writes[2])}`);
+if (writes[3].blobs.join('|') !== 'social_click|youtube|about|/about') throw new Error(`Unexpected YouTube social payload: ${JSON.stringify(writes[3])}`);
+if (writes[4].blobs.join('|') !== 'article_view|foreign-investor-flow|article_page|/articles/foreign-investor-flow') throw new Error(`Unexpected article view payload: ${JSON.stringify(writes[4])}`);
+if (writes[7].blobs.join('|') !== 'home_section_impression|major|/') throw new Error(`Unexpected home impression payload: ${JSON.stringify(writes[7])}`);
+if (writes[8].blobs.join('|') !== 'home_section_click|anthropic-ipo-ai-safety-2026|major|/') throw new Error(`Unexpected home click payload: ${JSON.stringify(writes[8])}`);
 
 const invalid = await post({ event: 'article_internal_link_click', target: 'https://evil.example/', placement: 'article_body', path: '/articles/foreign-investor-flow' });
 if (invalid.status !== 400) throw new Error(`Expected 400, got ${invalid.status}`);
@@ -82,6 +82,6 @@ if (invalidExternalHomeTarget.status !== 400) throw new Error(`Expected external
 const invalidRssSocial = await post({ event: 'social_click', target: 'rss', placement: 'about', path: '/about' });
 if (invalidRssSocial.status !== 400) throw new Error(`Expected RSS social target 400, got ${invalidRssSocial.status}`);
 
-if (writes.length !== 8) throw new Error('Invalid events must not be written');
+if (writes.length !== 10) throw new Error('Invalid events must not be written');
 
 console.log('Click Analytics V3 worker contract passed.');
