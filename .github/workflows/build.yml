@@ -63,6 +63,22 @@ jobs:
           node scripts/report-gsc-7d.mjs --self-test
           node scripts/build-distribution-pack.mjs --self-test
 
+      - name: Distribution OS real-article smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-distribution-pack.mjs --slug anthropic-ipo-ai-safety-2026
+          test -f distribution/generated/anthropic-ipo-ai-safety-2026/manifest.json
+          test -f distribution/generated/anthropic-ipo-ai-safety-2026/threads.md
+          test -f distribution/generated/anthropic-ipo-ai-safety-2026/x.md
+          test -f distribution/generated/anthropic-ipo-ai-safety-2026/linkedin.md
+          test -f distribution/generated/anthropic-ipo-ai-safety-2026/naver.md
+          grep -Fq '"campaign": "research_anthropic-ipo-ai-safety-2026"' distribution/generated/anthropic-ipo-ai-safety-2026/manifest.json
+          grep -Fq 'utm_source=threads' distribution/generated/anthropic-ipo-ai-safety-2026/manifest.json
+          grep -Fq 'utm_source=x' distribution/generated/anthropic-ipo-ai-safety-2026/manifest.json
+          grep -Fq 'utm_source=linkedin' distribution/generated/anthropic-ipo-ai-safety-2026/manifest.json
+          grep -Fq 'utm_source=naver' distribution/generated/anthropic-ipo-ai-safety-2026/manifest.json
+
       - name: Production dependency audit
         run: npm audit --omit=dev
 
