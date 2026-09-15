@@ -53,5 +53,6 @@
 .about-v2-cta-primary{background:#fff;color:var(--navy)}
 .about-v2-cta-secondary{border:1px solid rgba(255,255,255,.28);color:#fff}
 .about-v2 a:focus-visible{outline:3px solid #8ab8ff;outline-offset:3px}
+@media(min-width:641px){body.about-v2 .homepage-nav-toggle{display:none!important}}
 @media(max-width:860px){.about-v2-hero,.about-v2-founder{grid-template-columns:1fr}.about-v2-section-head{grid-template-columns:1fr;gap:12px}.about-v2-system{grid-template-columns:repeat(2,1fr)}.about-v2-pillars{grid-template-columns:1fr}.about-v2-trust{grid-template-columns:1fr}.about-v2-cta{grid-template-columns:1fr}.about-v2-cta-actions{justify-content:flex-start}}
 @media(max-width:640px){.about-v2-page{padding:52px 18px 72px}.about-v2-hero{gap:26px;padding-bottom:42px}.about-v2-hero h1{font-size:clamp(2.5rem,13vw,3.7rem)}.about-v2-lead{font-size:1.05rem}.about-v2-section{padding:44px 0}.about-v2-system,.about-v2-principles{grid-template-columns:1fr}.about-v2-step{min-height:0}.about-v2-summary,.about-v2-founder-card,.about-v2-founder-copy,.about-v2-cta{padding:22px}.about-v2-cta-actions{display:grid}.about-v2-cta-actions a{width:100%}}
