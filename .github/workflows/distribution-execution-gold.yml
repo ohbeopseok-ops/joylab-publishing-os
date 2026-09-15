@@ -7,6 +7,7 @@ on:
       - 'distribution/**'
       - 'scripts/build-distribution-pack.mjs'
       - 'scripts/build-distribution-review-html.mjs'
+      - 'scripts/build-distribution-mobile-pages.mjs'
       - 'scripts/distribution-*.mjs'
       - '.github/workflows/distribution-*.yml'
       - 'package.json'
@@ -16,6 +17,7 @@ on:
       - 'distribution/**'
       - 'scripts/build-distribution-pack.mjs'
       - 'scripts/build-distribution-review-html.mjs'
+      - 'scripts/build-distribution-mobile-pages.mjs'
       - 'scripts/distribution-*.mjs'
       - '.github/workflows/distribution-*.yml'
       - 'package.json'
@@ -39,6 +41,7 @@ jobs:
         run: |
           node --check scripts/build-distribution-pack.mjs
           node --check scripts/build-distribution-review-html.mjs
+          node --check scripts/build-distribution-mobile-pages.mjs
           node --check scripts/distribution-state.mjs
           node --check scripts/distribution-adapters.mjs
           node --check scripts/distribution-publish-log.mjs
@@ -49,6 +52,7 @@ jobs:
         run: |
           node scripts/build-distribution-pack.mjs --self-test
           node scripts/build-distribution-review-html.mjs --self-test
+          node scripts/build-distribution-mobile-pages.mjs --self-test
           node scripts/distribution-state.mjs --self-test
           node scripts/distribution-adapters.mjs --self-test
           node scripts/distribution-publish-log.mjs --self-test
@@ -69,7 +73,7 @@ jobs:
           jq -e '[.channels[].variants[].utmUrl | contains("utm_campaign=research_anthropic-ipo-ai-safety-2026")] | all' "$file" >/dev/null
           jq -e '[.channels[].variants[].publishedUrl] | all(. == null)' "$file" >/dev/null
 
-      - name: Generated article pack and static review
+      - name: Generated article pack and mobile review
         shell: bash
         run: |
           set -euo pipefail
@@ -82,13 +86,28 @@ jobs:
           jq -e '[.channels[].variants[].utmUrl | contains("utm_content=")] | all' "$file" >/dev/null
           node scripts/build-distribution-review-html.mjs --manifest "$file" --out "$review"
           test -s "$review"
-          grep -Fq 'STATIC REVIEW' "$review"
-          grep -Fq 'APPROVED로 승인' "$review"
+          grep -Fq 'JoyLab Distribution Review Mobile V1' "$review"
+          grep -Fq 'APPROVE' "$review"
           grep -Fq '문안+링크 복사' "$review"
           grep -Fq '게시 URL 기록' "$review"
           grep -Fq 'distribution-pack.updated.json' "$review"
           grep -Fq '자동 게시 OFF' "$review"
           grep -Fq 'threads_hook_a' "$review"
+          grep -Fq 'noindex,nofollow,noarchive' "$review"
+          grep -Fq 'channelFilter' "$review"
+
+      - name: Mobile site page build
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          node scripts/build-distribution-mobile-pages.mjs
+          page='dist/ops/distribution/anthropic-ipo-ai-safety-2026/index.html'
+          test -s "$page"
+          grep -Fq 'JoyLab Distribution Review Mobile V1' "$page"
+          grep -Fq 'threads_hook_a' "$page"
+          grep -Fq 'noindex,nofollow,noarchive' "$page"
+          test -s dist/ops/distribution/_mobile-review.json
 
       - name: Approval and multi-channel publication simulation
         shell: bash

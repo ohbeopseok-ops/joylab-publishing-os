@@ -5,6 +5,7 @@ export function GET({ site }: { site: URL }) {
   const body = [
     'User-agent: *',
     'Allow: /',
+    'Disallow: /ops/distribution/',
     `Sitemap: ${origin}/sitemap.xml`,
     ''
   ].join('\n');
