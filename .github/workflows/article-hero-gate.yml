@@ -1,0 +1,39 @@
+name: Article Hero Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'src/data/research-image-manifest.json'
+      - 'public/images/**'
+      - 'scripts/check-article-heroes.mjs'
+      - '.github/workflows/article-hero-gate.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'src/data/research-image-manifest.json'
+      - 'public/images/**'
+      - 'scripts/check-article-heroes.mjs'
+      - '.github/workflows/article-hero-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  article-hero-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Validate every published Article Hero
+        run: node scripts/check-article-heroes.mjs
