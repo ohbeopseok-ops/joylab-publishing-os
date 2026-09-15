@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+const argValue = (args, flag, fallback) => { const i = args.indexOf(flag); return i >= 0 && i + 1 < args.length ? args[i + 1] : fallback; };
 function safeRate(a, b) { return b > 0 ? a / b : 0; }
 function round4(n) { return Math.round(n * 10000) / 10000; }
 
@@ -18,12 +19,10 @@ export function buildScorecard(metrics) {
   }, { impressions:0, clicks:0, siteSessions:0, dwell60:0, internalLinkClicks:0, articleCta:0 });
   const qualifiedVisits = total.dwell60 + total.internalLinkClicks;
   return {
-    generatedAt: new Date().toISOString(),
-    windowHours: metrics.windowHours || null,
+    generatedAt: new Date().toISOString(), windowHours: metrics.windowHours || null,
     articleSlug: metrics.articleSlug,
     status: total.siteSessions > 0 ? 'MEASURED' : 'WAITING_FOR_DATA',
-    totals: { ...total, ctr: round4(safeRate(total.clicks, total.impressions)), qualifiedVisits },
-    rows
+    totals: { ...total, ctr: round4(safeRate(total.clicks, total.impressions)), qualifiedVisits }, rows
   };
 }
 
@@ -35,8 +34,8 @@ if (process.argv.includes('--self-test')) {
 }
 
 const args = process.argv.slice(2);
-const input = args[args.indexOf('--input') + 1];
-const out = args[args.indexOf('--out') + 1];
+const input = argValue(args, '--input');
+const out = argValue(args, '--out');
 if (!input) throw new Error('Usage: node scripts/distribution-scorecard.mjs --input <metrics.json> [--out <report.json>]');
 const metrics = JSON.parse(fs.readFileSync(input, 'utf8'));
 const report = buildScorecard(metrics);
