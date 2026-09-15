@@ -1,6 +1,11 @@
 name: Homepage Funnel Report
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/homepage-funnel-report.yml'
+      - 'scripts/report-homepage-funnel.mjs'
   schedule:
     - cron: '45 0 * * *'
   workflow_dispatch:
