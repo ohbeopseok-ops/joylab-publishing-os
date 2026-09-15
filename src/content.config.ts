@@ -27,6 +27,14 @@ const articles = defineCollection({
     heroAlt: z.string().optional(),
     heroCaption: z.string().optional(),
     ogImage: z.string().optional()
+  }).superRefine((data, ctx) => {
+    if (data.homePriority !== undefined && !data.homeFeatured) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['homePriority'],
+        message: 'homePriority requires homeFeatured: true'
+      });
+    }
   })
 });
 
