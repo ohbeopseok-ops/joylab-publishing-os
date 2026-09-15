@@ -51,7 +51,6 @@ for (const viewport of viewports) {
       placement: link.getAttribute('data-analytics-placement') || '',
       event: link.getAttribute('data-analytics-event') || '',
     }));
-    const channelGrid = document.querySelector('.about-official-list');
     return {
       overflow: Math.max(bodyWidth, docWidth) - viewportWidth,
       heroVisible: visible('.about-v2-hero'),
@@ -62,13 +61,14 @@ for (const viewport of viewports) {
       operatorLabel: [...document.querySelectorAll('.about-v2-summary small')].at(-1)?.textContent?.trim() || '',
       operatorValue: [...document.querySelectorAll('.about-v2-summary strong')].at(-1)?.textContent?.trim() || '',
       channelLinks,
-      channelGridColumns: channelGrid ? getComputedStyle(channelGrid).gridTemplateColumns : '',
       organizationSameAs: Array.isArray(org?.sameAs) ? org.sameAs : [],
       founderSameAs: Array.isArray(founder?.sameAs) ? founder.sameAs : [],
     };
   });
 
   const expectedChannels = ['Threads', 'LinkedIn', 'Naver Blog', 'Instagram', 'RSS'];
+  const socialLinks = metrics.channelLinks.filter((item) => item.label !== 'RSS');
+  const rssLink = metrics.channelLinks.find((item) => item.label === 'RSS');
   const checks = {
     httpOk: status >= 200 && status < 400,
     noHorizontalOverflow: metrics.overflow <= 1,
@@ -77,7 +77,8 @@ for (const viewport of viewports) {
     officialChannelsVisible: metrics.officialVisible,
     ctaVisible: metrics.ctaVisible,
     officialChannelsComplete: expectedChannels.every((label) => metrics.channelLinks.some((item) => item.label === label)) && metrics.channelLinks.length === 5,
-    socialAnalyticsWired: metrics.channelLinks.every((item) => item.event === 'social_click' && item.placement === 'about'),
+    socialAnalyticsWired: socialLinks.length === 4 && socialLinks.every((item) => item.event === 'social_click' && item.placement === 'about'),
+    rssNotMisclassifiedAsSocial: Boolean(rssLink) && rssLink.event === '' && rssLink.placement === '',
     operatorIdentityClear: metrics.operatorLabel === 'FOUNDER & OPERATOR' && metrics.operatorValue === '오법석 · AIJoyLab',
     organizationSameAs: ['https://blog.naver.com/joy014', 'https://www.instagram.com/aijoylab/'].every((url) => metrics.organizationSameAs.includes(url)),
     founderSameAs: ['https://www.threads.com/@ohbeopseok', 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/'].every((url) => metrics.founderSameAs.includes(url)),
