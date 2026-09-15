@@ -4,6 +4,7 @@ import '../styles/interactive.css';
 import '../styles/homepage-v2.css';
 import '../styles/homepage-v2-fidelity.css';
 import '../styles/homepage-visuals.css';
+import '../styles/homepage-pc-fidelity-pass-02.css';
 import researchImageManifest from '../data/research-image-manifest.json';
 import { getCollection } from 'astro:content';
 
@@ -38,8 +39,8 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
           <div class="home-stat"><strong>1</strong><span>Research System</span></div>
         </div>
       </div>
-      <aside class="home-hero__today" aria-label="오늘의 핵심 리서치">
-        <div class="home-today-head"><h2>오늘의 핵심 리서치</h2><span>EDITORIAL TOP 3</span></div>
+      <aside class="home-hero__today" aria-label="에디터 추천 3선">
+        <div class="home-today-head"><h2>에디터 추천 3선</h2><span>EDITORIAL TOP 3</span></div>
         <div class="home-today-list">
           {today.map((article, index) => (
             <a class="home-today-item" href={`/articles/${article.id}`}>
@@ -74,7 +75,7 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
 
     <section class="home-section" id="today-research">
       <div class="home-section-head">
-        <div class="home-section-title"><div><h2>오늘의 주요 리서치</h2><p>지금 가장 주목해야 할 분석입니다.</p></div></div>
+        <div class="home-section-title"><div><h2>주요 리서치</h2><p>지금 가장 주목해야 할 분석입니다.</p></div></div>
         <a class="home-section-link" href="#archive">전체 보기 →</a>
       </div>
       <div class="home-research-grid">
@@ -118,7 +119,7 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
     <section class="home-section">
       <div class="home-latest-row">
         <div class="home-list-card">
-          <div class="home-section-title"><div><h2>최신 리서치</h2></div></div>
+          <div class="home-section-title"><div><h2>최신 업데이트</h2></div></div>
           <ol>{latestResearch.map((article, index) => <li><b>0{index + 1}</b><a href={`/articles/${article.id}`}>{article.data.title}</a></li>)}</ol>
         </div>
         <div class="home-category-card">
@@ -138,9 +139,9 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
       </div>
       <div class="content-finder" aria-label="콘텐츠 검색 및 필터">
         <div class="content-finder__top">
-          <input id="content-search" class="content-search" type="search" placeholder="삼성전자, HBM, 외국인 수급 검색" autocomplete="off" aria-label="콘텐츠 검색" />
-          <select id="tag-filter" class="content-select" aria-label="종목 또는 주제 태그 선택">
-            <option value="">모든 종목·주제</option>
+          <input id="content-search" class="content-search" type="search" placeholder="기업·기술·시장·업무·리더십 키워드 검색" autocomplete="off" aria-label="콘텐츠 검색" />
+          <select id="tag-filter" class="content-select" aria-label="주제 태그 선택">
+            <option value="">전체 주제</option>
             {tags.map((tag) => <option value={tag}>{tag}</option>)}
           </select>
         </div>
