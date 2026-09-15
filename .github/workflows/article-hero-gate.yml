@@ -6,16 +6,20 @@ on:
     paths:
       - 'src/data/articles/**'
       - 'src/data/research-image-manifest.json'
+      - 'src/data/article-image-overrides.json'
       - 'public/images/**'
       - 'scripts/check-article-heroes.mjs'
+      - 'scripts/apply-curated-research-images.mjs'
       - '.github/workflows/article-hero-gate.yml'
   pull_request:
     branches: [main]
     paths:
       - 'src/data/articles/**'
       - 'src/data/research-image-manifest.json'
+      - 'src/data/article-image-overrides.json'
       - 'public/images/**'
       - 'scripts/check-article-heroes.mjs'
+      - 'scripts/apply-curated-research-images.mjs'
       - '.github/workflows/article-hero-gate.yml'
   workflow_dispatch:
 
