@@ -18,7 +18,22 @@ const readFrontmatter = (file) => {
     const m = fm.match(new RegExp(`^${key}:\\s*["']?([^"'\\n]+)["']?\\s*$`, 'm'));
     return m?.[1]?.trim();
   };
-  return { title: get('title') ?? '', series: get('series'), draft: get('draft') === 'true' };
+  return {
+    title: get('title') ?? '',
+    series: get('series'),
+    draft: get('draft') === 'true',
+    heroImage: get('heroImage'),
+    heroAlt: get('heroAlt')
+  };
+};
+
+const validateLocalAsset = (articleId, src, label) => {
+  if (!src.startsWith('/')) {
+    failures.push(`${articleId}: ${label} must use a local /public asset path`);
+    return;
+  }
+  const file = imageToFile(src);
+  if (!fs.existsSync(file)) failures.push(`${articleId}: missing asset ${src}`);
 };
 
 for (const [articleId, visual] of Object.entries(manifest)) {
@@ -35,20 +50,33 @@ for (const [articleId, visual] of Object.entries(manifest)) {
     }
     if (seen.has(image.src)) failures.push(`${articleId}: duplicate image path ${image.src}`);
     seen.add(image.src);
-    const file = imageToFile(image.src);
-    if (!fs.existsSync(file)) failures.push(`${articleId}: missing asset ${image.src}`);
+    validateLocalAsset(articleId, image.src, 'research image');
   }
 }
 
+let publishedArticleCount = 0;
 let publishedResearchCount = 0;
 for (const name of fs.readdirSync(articleDir).filter((name) => name.endsWith('.md'))) {
   const file = path.join(articleDir, name);
-  const { title, series, draft } = readFrontmatter(file);
+  const { title, series, draft, heroImage, heroAlt } = readFrontmatter(file);
   const articleId = name.replace(/\.md$/, '');
-  if (draft || !series) continue;
+  if (draft) continue;
+
+  publishedArticleCount += 1;
+  const visual = manifest[articleId];
+  const effectiveHero = visual?.hero?.src ?? heroImage;
+  const effectiveAlt = visual?.hero?.alt ?? heroAlt;
+
+  if (!effectiveHero) {
+    failures.push(`${articleId}: every published article requires a Hero image`);
+  } else {
+    if (!effectiveAlt) failures.push(`${articleId}: every published article Hero requires alt text`);
+    validateLocalAsset(articleId, effectiveHero, 'Hero image');
+  }
+
+  if (!series) continue;
   publishedResearchCount += 1;
 
-  const visual = manifest[articleId];
   if (!visual) {
     failures.push(`${articleId}: every published series research article must be registered in research-image-manifest.json`);
     continue;
@@ -71,10 +99,18 @@ if (process.env.GITHUB_EVENT_NAME === 'pull_request' && process.env.GITHUB_BASE_
       .split('\n').map((v) => v.trim()).filter((v) => v.endsWith('.md'));
     for (const rel of changed) {
       const file = path.join(root, rel);
-      const { series, draft } = readFrontmatter(file);
-      if (!draft && series) {
-        const articleId = path.basename(rel, '.md');
-        if (!manifest[articleId]) failures.push(`${articleId}: new research requires Hero + 2 supporting visuals before merge`);
+      const { series, draft, heroImage, heroAlt } = readFrontmatter(file);
+      if (draft) continue;
+
+      const articleId = path.basename(rel, '.md');
+      const visual = manifest[articleId];
+      const effectiveHero = visual?.hero?.src ?? heroImage;
+      const effectiveAlt = visual?.hero?.alt ?? heroAlt;
+      if (!effectiveHero || !effectiveAlt) {
+        failures.push(`${articleId}: new published article requires Hero + alt before merge`);
+      }
+      if (series && !visual) {
+        failures.push(`${articleId}: new research requires Hero + 2 supporting visuals before merge`);
       }
     }
   } catch (error) {
@@ -88,4 +124,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`Research Image Gate PASS: ${publishedResearchCount} published research articles verified.`);
+console.log(`Research Image Gate PASS: ${publishedArticleCount} published articles have Hero assets; ${publishedResearchCount} series research articles have full visual sets.`);
