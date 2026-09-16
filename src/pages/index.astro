@@ -5,6 +5,7 @@ import '../styles/homepage-v2.css';
 import '../styles/homepage-v2-fidelity.css';
 import '../styles/homepage-visuals.css';
 import '../styles/homepage-pc-fidelity-pass-02.css';
+import '../styles/homepage-treasury-hub-card.css';
 import researchImageManifest from '../data/research-image-manifest.json';
 import { getCollection } from 'astro:content';
 
@@ -81,6 +82,21 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
         <a class="home-pillar" href="/guides/growth-leadership">
           <img class="home-pillar__visual" src="/images/home/pillar-growth-leadership.svg" alt="성과와 피드백, 인정의 선순환을 표현한 성장·리더십 Pillar 비주얼" width="1200" height="700" loading="lazy" />
           <span class="home-pillar__copy"><small>GROWTH & LEADERSHIP</small><strong>성장·리더십</strong><p>성과·공정성·피드백·성장을 하나의 프레임으로 봅니다.</p></span>
+        </a>
+      </div>
+      <div class="home-treasury-feature">
+        <a class="home-treasury-card" href="/guides/us-rates" aria-label="미국채 리서치 허브 바로가기">
+          <div>
+            <div class="home-treasury-card__eyebrow">FEATURED RESEARCH HUB · INVESTMENT & ECONOMY</div>
+            <h3>미국채 리서치 허브</h3>
+            <p>금리 숫자 하나가 아니라 미국이 실제 얼마에 돈을 빌리는지, 그 비용이 AI·반도체 밸류에이션과 한국 증시까지 어떻게 전달되는지를 연결해 봅니다.</p>
+            <div class="home-treasury-card__flow"><span>AUCTION</span><span>10Y·30Y</span><span>VALUATION</span><span>USD/KRW</span><span>AI·SEMI</span></div>
+          </div>
+          <div class="home-treasury-card__side">
+            <small>3-PART CORE JOURNEY</small>
+            <strong>입찰 → 장기금리 → AI·반도체</strong>
+            <span class="home-treasury-card__cta">미국채 허브 바로가기 →</span>
+          </div>
         </a>
       </div>
     </section>
