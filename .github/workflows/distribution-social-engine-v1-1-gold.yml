@@ -1,0 +1,81 @@
+name: Distribution Social Engine V1.1 GOLD
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'distribution/**'
+      - 'scripts/build-distribution-pack.mjs'
+      - 'scripts/distribution-adapters.mjs'
+      - '.github/workflows/distribution-social-engine-v1-1-gold.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'distribution/**'
+      - 'scripts/build-distribution-pack.mjs'
+      - 'scripts/distribution-adapters.mjs'
+      - '.github/workflows/distribution-social-engine-v1-1-gold.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  social-engine-v1-1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Syntax and self-tests
+        run: |
+          node --check scripts/build-distribution-pack.mjs
+          node --check scripts/distribution-adapters.mjs
+          node scripts/build-distribution-pack.mjs --self-test
+          node scripts/distribution-adapters.mjs --self-test
+
+      - name: Generate V1.1 entity pack
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-distribution-pack.mjs --slug anthropic-ipo-ai-safety-2026
+          file='distribution/generated/anthropic-ipo-ai-safety-2026/distribution-pack.json'
+          manifest='distribution/generated/anthropic-ipo-ai-safety-2026/manifest.json'
+          test -f "$file"
+          test -f "$manifest"
+          test "$(jq -r '.version' "$file")" = '1.1'
+          test "$(jq -r '.version' "$manifest")" = '1.1'
+          test "$(jq -r '.identity.person["@id"]' "$file")" = 'https://aijoylab.kr/#founder'
+          test "$(jq -r '.identity.organization["@id"]' "$file")" = 'https://aijoylab.kr/#organization'
+          test "$(jq -r '.identity.website["@id"]' "$file")" = 'https://aijoylab.kr/#website'
+          test "$(jq -r '.channels.x.identity.accountUrl' "$file")" = 'https://x.com/ohbeopseok'
+          test "$(jq -r '.channels.threads.identity.accountUrl' "$file")" = 'https://www.threads.com/@ohbeopseok'
+          test "$(jq -r '.channels.linkedin.identity.authorEntity' "$file")" = 'https://aijoylab.kr/#founder'
+          test "$(jq -r '.channels.x.identity.destinationEntity' "$file")" = 'https://aijoylab.kr/#website'
+          test "$(jq -r '.channels.threads.identity.destinationEntity' "$file")" = 'https://aijoylab.kr/#website'
+          test "$(jq -r '.channels.linkedin.identity.destinationEntity' "$file")" = 'https://aijoylab.kr/#website'
+          jq -e '.channels.x.variants | all(.cta == "숫자와 전체 근거 → JoyLab Research")' "$file" >/dev/null
+          jq -e '.channels.threads.variants | all(.cta == "이 생각을 숫자까지 붙여 정리했습니다 ↓")' "$file" >/dev/null
+          jq -e '.channels.linkedin.variants | all(.cta == "전체 분석과 실행 프레임워크 → JoyLab Research")' "$file" >/dev/null
+          jq -e '[.channels.x.variants[].utmUrl, .channels.threads.variants[].utmUrl, .channels.linkedin.variants[].utmUrl] | all(startswith("https://aijoylab.kr/articles/"))' "$file" >/dev/null
+
+      - name: Entity-aware handoff simulation
+        shell: bash
+        run: |
+          set -euo pipefail
+          file='distribution/generated/anthropic-ipo-ai-safety-2026/distribution-pack.json'
+          node scripts/distribution-state.mjs --manifest "$file" --to REVIEW --actor social-engine-gold
+          node scripts/distribution-state.mjs --manifest "$file" --to APPROVED --actor social-engine-gold
+          node scripts/distribution-adapters.mjs --manifest "$file" --channel x --variant x_data_a --out /tmp/x-handoff.json
+          node scripts/distribution-adapters.mjs --manifest "$file" --channel threads --variant threads_hook_a --out /tmp/threads-handoff.json
+          node scripts/distribution-adapters.mjs --manifest "$file" --channel linkedin --variant linkedin_analysis_a --out /tmp/linkedin-handoff.json
+          test "$(jq -r '.identity.accountUrl' /tmp/x-handoff.json)" = 'https://x.com/ohbeopseok'
+          test "$(jq -r '.identity.authorEntity' /tmp/x-handoff.json)" = 'https://aijoylab.kr/#founder'
+          test "$(jq -r '.identity.destinationEntity' /tmp/x-handoff.json)" = 'https://aijoylab.kr/#website'
+          test "$(jq -r '.identity.authorEntity' /tmp/threads-handoff.json)" = 'https://aijoylab.kr/#founder'
+          test "$(jq -r '.identity.authorEntity' /tmp/linkedin-handoff.json)" = 'https://aijoylab.kr/#founder'
+          test "$(jq -r '.sourceArticle' /tmp/x-handoff.json)" = 'https://aijoylab.kr/articles/anthropic-ipo-ai-safety-2026'
