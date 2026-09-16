@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "cloudflare": {
     "workerService": "joylab-publishing-os",
+    "workerEnvironment": "production",
     "zoneName": "aijoylab.kr"
   },
   "workerExposure": {
