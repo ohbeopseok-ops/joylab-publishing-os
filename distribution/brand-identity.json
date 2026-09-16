@@ -1,0 +1,53 @@
+{
+  "version": "1.1",
+  "person": {
+    "@id": "https://aijoylab.kr/#founder",
+    "name": "오법석",
+    "url": "https://aijoylab.kr/about",
+    "sameAs": [
+      "https://x.com/ohbeopseok",
+      "https://www.threads.com/@ohbeopseok",
+      "https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/"
+    ]
+  },
+  "organization": {
+    "@id": "https://aijoylab.kr/#organization",
+    "name": "JoyLab",
+    "url": "https://aijoylab.kr/"
+  },
+  "website": {
+    "@id": "https://aijoylab.kr/#website",
+    "name": "JoyLab",
+    "url": "https://aijoylab.kr/"
+  },
+  "channels": {
+    "x": {
+      "accountUrl": "https://x.com/ohbeopseok",
+      "authorEntity": "https://aijoylab.kr/#founder",
+      "publisherEntity": "https://aijoylab.kr/#organization",
+      "destinationEntity": "https://aijoylab.kr/#website",
+      "cta": "숫자와 전체 근거 → JoyLab Research"
+    },
+    "threads": {
+      "accountUrl": "https://www.threads.com/@ohbeopseok",
+      "authorEntity": "https://aijoylab.kr/#founder",
+      "publisherEntity": "https://aijoylab.kr/#organization",
+      "destinationEntity": "https://aijoylab.kr/#website",
+      "cta": "이 생각을 숫자까지 붙여 정리했습니다 ↓"
+    },
+    "linkedin": {
+      "accountUrl": "https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/",
+      "authorEntity": "https://aijoylab.kr/#founder",
+      "publisherEntity": "https://aijoylab.kr/#organization",
+      "destinationEntity": "https://aijoylab.kr/#website",
+      "cta": "전체 분석과 실행 프레임워크 → JoyLab Research"
+    },
+    "naver": {
+      "accountUrl": "https://blog.naver.com/joy014",
+      "authorEntity": "https://aijoylab.kr/#organization",
+      "publisherEntity": "https://aijoylab.kr/#organization",
+      "destinationEntity": "https://aijoylab.kr/#website",
+      "cta": "관련 데이터와 후속 리서치 보기 → JoyLab Research"
+    }
+  }
+}

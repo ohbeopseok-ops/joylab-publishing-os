@@ -10,12 +10,16 @@ export function createPublishHandoff(pack, channel, variantId) {
     throw new Error('Publish handoff blocked: pack must be APPROVED before publishing.');
   }
   if (!CHANNELS.includes(channel)) throw new Error(`Unsupported channel: ${channel}`);
-  const variant = pack.channels[channel]?.variants?.find((item) => item.id === variantId);
+  const channelPack = pack.channels[channel];
+  const variant = channelPack?.variants?.find((item) => item.id === variantId);
   if (!variant) throw new Error(`Variant not found: ${channel}/${variantId}`);
+  const identity = channelPack?.identity ?? pack.identity?.channels?.[channel] ?? null;
   return {
     mode: 'MANUAL_HANDOFF', autoPublish: false, channel, variantId,
     title: variant.title, body: variant.body, cta: variant.cta,
     hashtags: variant.hashtags, utmUrl: variant.utmUrl,
+    identity,
+    sourceArticle: pack.sourceUrl ?? null,
     createdAt: new Date().toISOString()
   };
 }
@@ -25,12 +29,20 @@ function runCli() {
     let blocked = false;
     try { createPublishHandoff({ state: 'REVIEW', approval: { approved: false }, channels: {} }, 'x', 'x_hook_a'); } catch { blocked = true; }
     if (!blocked) throw new Error('Adapter approval guard failed.');
-    const variant = { id: 'x_hook_a', title: '', body: 'hello', cta: '', hashtags: [], utmUrl: 'https://aijoylab.kr/' };
-    const approved = { state: 'APPROVED', approval: { approved: true }, channels: { x: { variants: [variant] } } };
+    const variant = { id: 'x_hook_a', title: '', body: 'hello', cta: 'JoyLab Research', hashtags: [], utmUrl: 'https://aijoylab.kr/' };
+    const identity = {
+      accountUrl: 'https://x.com/ohbeopseok',
+      authorEntity: 'https://aijoylab.kr/#founder',
+      publisherEntity: 'https://aijoylab.kr/#organization',
+      destinationEntity: 'https://aijoylab.kr/#website',
+      cta: '숫자와 전체 근거 → JoyLab Research'
+    };
+    const approved = { state: 'APPROVED', sourceUrl: 'https://aijoylab.kr/articles/demo', approval: { approved: true }, channels: { x: { identity, variants: [variant] } } };
     const handoff = createPublishHandoff(approved, 'x', 'x_hook_a');
     approved.state = 'PUBLISHED';
     const second = createPublishHandoff(approved, 'x', 'x_hook_a');
     if (handoff.autoPublish !== false || second.mode !== 'MANUAL_HANDOFF') throw new Error('Adapter manual-only/multi-channel contract failed.');
+    if (handoff.identity?.authorEntity !== 'https://aijoylab.kr/#founder' || handoff.identity?.destinationEntity !== 'https://aijoylab.kr/#website') throw new Error('Adapter entity handoff contract failed.');
     console.log('Distribution adapter self-test passed.');
     return;
   }

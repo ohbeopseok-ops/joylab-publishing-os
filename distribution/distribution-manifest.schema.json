@@ -1,11 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://aijoylab.kr/schema/distribution-manifest-v1.json",
-  "title": "JoyLab Distribution Manifest V1",
+  "title": "JoyLab Distribution Manifest V1/V1.1",
   "type": "object",
   "required": ["version", "sourceArticle", "campaign", "channels"],
   "properties": {
-    "version": { "const": "1.0" },
+    "version": { "enum": ["1.0", "1.1"] },
     "sourceArticle": {
       "type": "object",
       "required": ["slug", "title", "url"],
@@ -17,6 +17,7 @@
       "additionalProperties": true
     },
     "campaign": { "type": "string", "pattern": "^research_[A-Za-z0-9_-]+$" },
+    "identity": { "$ref": "#/$defs/identity" },
     "channels": {
       "type": "object",
       "required": ["threads", "x", "linkedin", "naver"],
@@ -30,6 +31,51 @@
     }
   },
   "$defs": {
+    "entity": {
+      "type": "object",
+      "required": ["@id", "name", "url"],
+      "properties": {
+        "@id": { "type": "string", "format": "uri" },
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "sameAs": { "type": "array", "items": { "type": "string", "format": "uri" } }
+      },
+      "additionalProperties": false
+    },
+    "channelIdentity": {
+      "type": "object",
+      "required": ["accountUrl", "authorEntity", "publisherEntity", "destinationEntity", "cta"],
+      "properties": {
+        "accountUrl": { "type": "string", "format": "uri" },
+        "authorEntity": { "type": "string", "format": "uri" },
+        "publisherEntity": { "type": "string", "format": "uri" },
+        "destinationEntity": { "type": "string", "format": "uri" },
+        "cta": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "identity": {
+      "type": "object",
+      "required": ["version", "person", "organization", "website", "channels"],
+      "properties": {
+        "version": { "const": "1.1" },
+        "person": { "$ref": "#/$defs/entity" },
+        "organization": { "$ref": "#/$defs/entity" },
+        "website": { "$ref": "#/$defs/entity" },
+        "channels": {
+          "type": "object",
+          "required": ["threads", "x", "linkedin", "naver"],
+          "properties": {
+            "threads": { "$ref": "#/$defs/channelIdentity" },
+            "x": { "$ref": "#/$defs/channelIdentity" },
+            "linkedin": { "$ref": "#/$defs/channelIdentity" },
+            "naver": { "$ref": "#/$defs/channelIdentity" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
     "channel": {
       "type": "object",
       "required": ["utmSource", "utmMedium", "publishStatus", "variants"],
@@ -38,6 +84,7 @@
         "utmMedium": { "type": "string" },
         "publishStatus": { "enum": ["draft", "review", "scheduled", "published", "skipped"] },
         "publishedAt": { "type": ["string", "null"] },
+        "identity": { "$ref": "#/$defs/channelIdentity" },
         "variants": { "type": "array", "minItems": 1, "items": { "type": "string" } }
       },
       "additionalProperties": true
