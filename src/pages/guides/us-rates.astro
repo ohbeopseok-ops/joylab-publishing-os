@@ -7,10 +7,10 @@ import rates from '../../data/rates-dashboard.json';
 const research = [
   { step: '01', eyebrow: 'FACT CHECK', title: '중국 미 국채 보유 2008년 이후 최저', href: '/articles/china-us-treasury-holdings-2026', thesis: '700억 달러 투매 주장 → 공식 TIC 검증 → 진짜 구조 변화', note: '보유액 감소와 실제 순매도를 분리합니다.' },
   { step: '02', eyebrow: 'BUYER MAP', title: '미국 국채는 지금 누가 사고 누가 파나', href: '/articles/who-buys-us-treasuries-2026', thesis: '일본 → 영국 → 중국 → 금융센터 → 공식기관 → 민간 자금', note: '국가별 보유액보다 매수자의 성격과 안정성을 봅니다.' },
-  { step: '03', eyebrow: 'LONG END RISK', title: '미국 30년물 5%대가 더 위험한 이유', href: '/articles/us-30y-treasury-5-percent-risk-2026', thesis: '30년물 → 기간 프리미엄 → 재정·공급 → 장기 자본비용', note: '30년물이 장기 재정 신뢰와 자본비용을 어떻게 가격에 반영하는지 봅니다.' },
-  { step: '04', eyebrow: 'AUCTION QUALITY', title: '미 국채 입찰 읽는 법', href: '/articles/how-to-read-us-treasury-auctions-2026', thesis: 'Tail → Indirect → Dealer → Bid-to-Cover → 사후 금리', note: 'Bid-to-Cover보다 수요의 질을 먼저 판독합니다.' },
-  { step: '05', eyebrow: 'PRICE SIGNAL', title: '미국 10년물 5% 경계', href: '/articles/china-us-treasury-holdings-2026#5-price-signal--그래서-10년물-5가-중요하다', thesis: '국채 공급 → 수익률 → 무위험금리 → PER → 성장주', note: '5%가 글로벌 자산배분 기준이 되는 이유를 봅니다.' },
-  { step: '06', eyebrow: 'KOREA TRANSMISSION', title: '미국 금리 → 원달러 → KOSPI → 반도체', href: '/articles/us-rates-korea-semiconductor-transmission-2026', thesis: '미 금리 → 달러 → 원달러 → 외국인 → KOSPI → 삼성전자·SK하이닉스', note: '9월 실제 외국인 수급으로 전염경로를 검증합니다.' }
+  { step: '03', eyebrow: 'VALUATION', title: '미국채 5% 시대, AI·반도체 밸류에이션은 어떻게 달라질까', href: '/articles/us-rates-korea-semiconductor-transmission-2026', thesis: 'US 10Y → 할인율·AI CAPEX → 원달러·외국인 → 삼성전자·SK하이닉스', note: '미국채 5%가 AI·반도체의 EPS·멀티플·수급에 미치는 영향을 연결합니다.' },
+  { step: '04', eyebrow: 'LONG END RISK', title: '미국 30년물 5%대가 더 위험한 이유', href: '/articles/us-30y-treasury-5-percent-risk-2026', thesis: '30년물 → 기간 프리미엄 → 재정·공급 → 장기 자본비용', note: '30년물이 장기 재정 신뢰와 자본비용을 어떻게 가격에 반영하는지 봅니다.' },
+  { step: '05', eyebrow: 'AUCTION QUALITY', title: '미 국채 입찰 읽는 법', href: '/articles/how-to-read-us-treasury-auctions-2026', thesis: 'Tail → Indirect → Dealer → Bid-to-Cover → 사후 금리', note: 'Bid-to-Cover보다 수요의 질을 먼저 판독합니다.' },
+  { step: '06', eyebrow: 'PRICE SIGNAL', title: '미국 10년물 5% 경계', href: '/articles/china-us-treasury-holdings-2026#5-price-signal--그래서-10년물-5가-중요하다', thesis: '국채 공급 → 수익률 → 무위험금리 → PER → 성장주', note: '5%가 글로벌 자산배분 기준이 되는 이유를 봅니다.' }
 ];
 
 const dashboard = [
@@ -54,7 +54,7 @@ const scorecards = [
       </div>
       <div class="sg-map-head"><div><span>START HERE</span><b>미국 금리 Research Map</b></div><a href="#research">리서치 순서 보기 →</a></div>
       <nav class="sg-map ih-map">
-        {research.map((item, index) => <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={item.href}><em>{item.step}</em><b>{item.eyebrow}</b><span>{index === 0 ? '검증' : index === 1 ? '수요' : index === 2 ? '장기' : index === 3 ? '입찰' : index === 4 ? '가격' : '전염'}</span></a>)}
+        {research.map((item, index) => <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={item.href}><em>{item.step}</em><b>{item.eyebrow}</b><span>{index === 0 ? '검증' : index === 1 ? '수요' : index === 2 ? '밸류' : index === 3 ? '장기' : index === 4 ? '입찰' : '가격'}</span></a>)}
       </nav>
     </div>
   </section>
@@ -79,13 +79,13 @@ const scorecards = [
           <p style="margin-top:12px;color:#6b7a90;font-size:.82rem">TIC 기준월: {rates.series.foreignTreasuryHoldings.period} · 숫자는 자동 갱신 가능하지만 해석은 Editorial Runtime을 거칩니다.</p>
         </section>
 
-        <div class="sg-section-head"><div><div class="sg-eyebrow">RESEARCH PATH</div><h2>국채 뉴스에서 한국 반도체까지</h2></div><p>팩트 → 매수자 → 장기금리 → 입찰 → 가격 → 한국 전염 순서로 읽습니다.</p></div>
+        <div class="sg-section-head"><div><div class="sg-eyebrow">RESEARCH PATH</div><h2>미국채 구조에서 AI·반도체 밸류에이션까지</h2></div><p>팩트 → 매수자 → 밸류에이션 → 장기금리 → 입찰 → 가격 순서로 핵심 연결고리를 읽습니다.</p></div>
         <div class="sg-path ih-path">{research.map((item, index) => <article class={`sg-card ${index === 0 ? 'is-key' : ''}`}><div class="sg-card__no">{item.step}</div><div><div class="sg-card__role">{item.eyebrow}</div><h3><a href={item.href}>{item.title}</a></h3><p>{item.note}</p><div class="ih-thesis">{item.thesis}</div><div class="sg-card__foot"><span>미국 금리 리서치</span><a class="sg-card__cta" href={item.href}>읽기 →</a></div></div></article>)}</div>
 
         <section class="sg-rule"><div class="sg-eyebrow">JOYLAB LIVING RESEARCH FRAMEWORK</div><h2>Source → Signal → Research → Transmission → Scenario → Runtime</h2><div class="sg-rule__grid"><div class="sg-rule__step"><b>SOURCE</b><span>FRED·Treasury·TIC·KRX</span></div><div class="sg-rule__step"><b>SIGNAL</b><span>스프레드·입찰·점수</span></div><div class="sg-rule__step"><b>RESEARCH</b><span>구조와 인과를 설명</span></div><div class="sg-rule__step"><b>RUNTIME</b><span>Issue→PR→Build→Deploy</span></div></div></section>
       </section>
       <aside class="sg-rail">
-        <section class="sg-rail-card sg-rail-card--dark"><small>NEW</small><h3>한국 반도체 전염경로</h3><p>9월 10~11일 삼성전자·SK하이닉스 외국인 수급으로 미국 금리 충격을 검증합니다.</p><a href="/articles/us-rates-korea-semiconductor-transmission-2026">5편 리서치 →</a></section>
+        <section class="sg-rail-card sg-rail-card--dark"><small>NEW · TREASURY HUB 03</small><h3>미국채 5% 시대, AI·반도체 밸류에이션</h3><p>미국채 5%가 할인율·AI CAPEX·원달러·외국인 수급을 거쳐 삼성전자·SK하이닉스에 미치는 영향을 분석합니다.</p><a href="/articles/us-rates-korea-semiconductor-transmission-2026">3편 리서치 →</a></section>
         <section class="sg-rail-card"><small>COMPOSITE RISK</small><h3>{rates.scores.compositeRatesRisk.grade} · {rates.scores.compositeRatesRisk.value}/100</h3><p>금리 45% + 입찰 약화 20% + TIC 스트레스 20% + FX 스트레스 15%.</p></section>
         <section class="sg-rail-card"><small>LIVING RESEARCH</small><h3>첫 Reference Pillar</h3><p>미국 금리 Pillar를 기준 구현으로 삼아 반도체·AI전력에 같은 운영 계약을 복제합니다.</p></section>
       </aside>
