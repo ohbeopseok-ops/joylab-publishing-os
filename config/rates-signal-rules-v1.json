@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "statusOrder": ["GREEN", "YELLOW", "RED"],
+  "series": {
+    "us10y": {
+      "label": "미국 10년물",
+      "level": { "greenBelow": 4.5, "yellowBelow": 5.0, "redFrom": 5.0 },
+      "momentum30dBp": { "greenBelow": 15, "yellowBelow": 30, "redFrom": 30 },
+      "combine": "max(levelStatus,momentumStatus)"
+    },
+    "us30y": {
+      "label": "미국 30년물",
+      "level": { "greenBelow": 5.0, "yellowBelow": 5.3, "redFrom": 5.3 },
+      "momentum30dBp": { "greenBelow": 15, "yellowBelow": 30, "redFrom": 30 },
+      "combine": "max(levelStatus,momentumStatus)"
+    },
+    "usdkrw": {
+      "label": "원·달러",
+      "level": { "greenBelow": 1320, "yellowBelow": 1350, "redFrom": 1350 },
+      "momentum30dWon": { "greenBelow": 20, "yellowBelow": 40, "redFrom": 40 },
+      "combine": "max(levelStatus,momentumStatus)"
+    }
+  },
+  "treasuryRiskIndex": {
+    "name": "US Treasury Risk Index",
+    "range": [0, 100],
+    "higherIsWorse": true,
+    "weights": {
+      "ratesRisk": 0.5,
+      "auctionWeakness": 0.3,
+      "ticStress": 0.2
+    },
+    "components": {
+      "ratesRisk": "rates-dashboard.scores.compositeRatesRisk.value",
+      "auctionWeakness": "100 - rates-dashboard.scores.auction.value",
+      "ticStress": "100 - rates-dashboard.scores.tic.value"
+    },
+    "formula": "round(ratesRisk*0.50 + auctionWeakness*0.30 + ticStress*0.20)",
+    "grades": {
+      "GREEN": "0-34",
+      "YELLOW": "35-64",
+      "RED": "65-100"
+    },
+    "transitionNote": "V1.0 uses the existing validated rates risk score until 30-day Level/Momentum history is populated. V1.1 should replace ratesRisk with a pure Level/Momentum market-risk component to remove overlap with Auction/TIC inputs."
+  }
+}
