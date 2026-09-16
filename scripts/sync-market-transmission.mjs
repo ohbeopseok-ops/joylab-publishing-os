@@ -92,10 +92,11 @@ const [foreignFlow, epsRevision] = await Promise.all([
   syncEpsRevision().catch((error) => ({ ...existing.epsRevision, ready: false, note: `EPS sync failed: ${error.message}` }))
 ]);
 
+const anyConnected = foreignFlow.ready || epsRevision.ready;
 const output = {
   version: '0.4',
   ready: Boolean(foreignFlow.ready && epsRevision.ready),
-  generatedAt: nowIso(),
+  generatedAt: anyConnected ? nowIso() : existing.generatedAt,
   foreignFlow,
   epsRevision
 };
