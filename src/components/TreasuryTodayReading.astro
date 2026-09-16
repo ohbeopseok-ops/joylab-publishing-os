@@ -1,0 +1,88 @@
+---
+import rates from '../data/rates-dashboard.json';
+import timeseries from '../data/rates-timeseries.json';
+
+const liveReady = Boolean(timeseries.ready && ['us10y','us30y','usdkrw'].every((key) => timeseries.series?.[key]?.points?.length === 30));
+const normalizeGrade = (value) => {
+  const raw = String(value || '').toUpperCase();
+  if (['RED','DANGER'].includes(raw)) return 'RED';
+  if (['YELLOW','WARNING','WATCH','STABLE_WATCH'].includes(raw)) return 'YELLOW';
+  return 'GREEN';
+};
+const marketGrade = (key) => liveReady ? normalizeGrade(timeseries.series[key]?.combinedStatus) : normalizeGrade(rates.series[key]?.status);
+const us10yGrade = marketGrade('us10y');
+const us30yGrade = marketGrade('us30y');
+const fxGrade = marketGrade('usdkrw');
+const auctionScore = rates.scores.auction.value;
+const ticScore = rates.scores.tic.value;
+const riskValue = liveReady ? timeseries.treasuryRiskIndex.value : rates.scores.compositeRatesRisk.value;
+const riskGrade = riskValue >= 65 ? 'RED' : riskValue >= 35 ? 'YELLOW' : 'GREEN';
+
+const pressureCount = [us10yGrade, us30yGrade, fxGrade].filter((grade) => grade !== 'GREEN').length;
+const ratePressure = us10yGrade === 'RED' || us30yGrade === 'RED';
+const fxPressure = fxGrade === 'RED' || fxGrade === 'YELLOW';
+const auctionStrong = auctionScore >= 80;
+const ticStrong = ticScore >= 80;
+
+let headline = '지표가 엇갈립니다. 한 숫자보다 조합을 먼저 보세요.';
+let pressure = '장기금리와 환율 가운데 어느 축이 먼저 움직이는지 확인할 구간입니다.';
+let cushion = '입찰과 해외 수요가 시장가격 스트레스를 얼마나 완충하는지 함께 봅니다.';
+let check = 'EPS Revision과 외국인 수급이 금리·환율 방향을 따라가는지 확인하세요.';
+let scenario = 'MIXED';
+
+if (ratePressure && fxPressure) {
+  scenario = 'VALUATION PRESSURE';
+  headline = '금리와 원화 약세가 겹쳐 밸류에이션 압박을 먼저 확인할 구간입니다.';
+  pressure = '장기금리 부담과 USD/KRW 부담이 동시에 나타나 성장주·AI·반도체의 멀티플에 불리한 조합입니다.';
+  cushion = auctionStrong
+    ? '다만 최근 입찰 수요가 강하면 이를 곧바로 미국채 수요 붕괴로 해석할 필요는 없습니다.'
+    : '입찰 수요까지 약해지면 금리 상승의 질이 더 나빠질 수 있어 발행시장도 같이 확인해야 합니다.';
+  check = '오늘은 EPS Revision과 외국인 순매도가 동시에 약해지는지 먼저 확인하세요.';
+} else if (ratePressure && auctionStrong) {
+  scenario = 'TERM PREMIUM';
+  headline = '금리는 높지만 입찰은 강합니다. 수요 붕괴와 기간 프리미엄을 분리해서 볼 구간입니다.';
+  pressure = '장기금리 자체는 주식 할인율에 부담이지만, 강한 입찰은 “국채를 아무도 안 산다”는 해석을 약화시킵니다.';
+  cushion = 'Auction Score가 강하면 금리 상승 원인을 재정·공급·기간 프리미엄 쪽에서 더 세밀하게 봐야 합니다.';
+  check = 'EPS가 상향되는 종목은 금리 부담을 이겨내는지, 반대로 EPS가 꺾이는 종목은 멀티플까지 낮아지는지 확인하세요.';
+} else if (pressureCount === 0 && auctionStrong && ticStrong) {
+  scenario = 'STABLE';
+  headline = '금리·환율·수요 신호가 비교적 안정적입니다. 개별 기업 실적이 더 중요해지는 구간입니다.';
+  pressure = '시장 전체 할인율 압력이 낮으면 거시 변수보다 기업별 EPS 변화의 영향력이 커질 수 있습니다.';
+  cushion = '입찰과 해외 수요가 함께 안정적이면 미국채 수요 자체가 시장 불안의 중심일 가능성은 낮습니다.';
+  check = 'EPS Revision, AI CAPEX, 외국인 수급처럼 기업·섹터별 확인 항목으로 초점을 옮기세요.';
+} else if (riskGrade === 'RED') {
+  scenario = 'RISK STACK';
+  headline = '여러 위험 신호가 겹친 구간입니다. 가장 큰 위험 기여축부터 확인하세요.';
+  pressure = '금리·환율·입찰·해외 수요 중 복수 축이 동시에 시장 부담을 키우고 있습니다.';
+  cushion = '강한 축이 하나 있더라도 전체 Risk Index가 RED라면 완충력보다 누적 스트레스를 우선 봅니다.';
+  check = 'Risk Contribution과 Delta Attribution에서 오늘 점수를 가장 많이 올린 항목을 먼저 확인하세요.';
+}
+
+const rows = [
+  { no: '01', label: '핵심 압력', text: pressure },
+  { no: '02', label: '완충 신호', text: cushion },
+  { no: '03', label: '오늘 확인', text: check }
+];
+---
+<section class="jl-today" data-today-reading data-scenario={scenario} aria-label="오늘의 미국채 시장 읽기">
+  <div class="jl-today__head">
+    <div><small>TODAY'S READING · V0.3</small><b>{scenario}</b></div>
+    <span>{riskGrade} · {riskValue}/100</span>
+  </div>
+  <h3>{headline}</h3>
+  <div class="jl-today__rows">
+    {rows.map((row) => <div><em>{row.no}</em><p><strong>{row.label}</strong>{row.text}</p></div>)}
+  </div>
+  <p class="jl-today__note">EPS Revision·외국인 수급은 아직 V0.3 자동 입력값이 아닙니다. 현재 자동화 지표로 상황을 분류하고, 두 항목은 다음 확인 과제로 제시합니다.</p>
+</section>
+<style is:global>
+  .jl-today{display:none;margin:12px 0;padding:14px;border:1px solid #cfe0f6;border-radius:16px;background:linear-gradient(145deg,#f7fbff,#eef5ff);color:#12213d}.rates-hub-v2.is-learn-mode .jl-today{display:block}.jl-today__head{display:flex;align-items:center;justify-content:space-between;gap:10px}.jl-today__head small{display:block;color:#1677ff;font-size:.62rem;font-weight:900;letter-spacing:.08em}.jl-today__head b{display:block;margin-top:3px;font-size:.72rem;color:#0b1f4d}.jl-today__head span{padding:4px 7px;border-radius:999px;background:#0b1f4d;color:#fff;font-size:.62rem;font-weight:900}.jl-today h3{margin:10px 0 11px;font-size:.9rem;line-height:1.45}.jl-today__rows{display:grid;gap:7px}.jl-today__rows>div{display:grid;grid-template-columns:28px 1fr;gap:7px;align-items:start}.jl-today__rows em{display:grid;place-items:center;width:26px;height:26px;border-radius:8px;background:#1677ff;color:#fff;font-size:.6rem;font-style:normal;font-weight:900}.jl-today__rows p{margin:0;color:#52637d;font-size:.73rem;line-height:1.5}.jl-today__rows strong{display:block;margin-bottom:1px;color:#0b1f4d;font-size:.66rem}.jl-today__note{margin:10px 0 0;padding-top:9px;border-top:1px solid #d9e5f3;color:#728098;font-size:.62rem;line-height:1.45}@media(max-width:560px){.jl-today{padding:12px}.jl-today h3{font-size:.84rem}.jl-today__rows p{font-size:.7rem}}
+</style>
+<script is:inline>
+(() => {
+  const reading = document.querySelector('[data-today-reading]');
+  const now = document.querySelector('.jl-learn__now');
+  if (!reading || !now || reading.parentElement === now.parentElement) return;
+  now.insertAdjacentElement('afterend', reading);
+})();
+</script>
