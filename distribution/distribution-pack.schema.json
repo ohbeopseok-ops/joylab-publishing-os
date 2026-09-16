@@ -1,17 +1,18 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://aijoylab.kr/schema/distribution-pack-v1.json",
-  "title": "JoyLab Distribution Execution Pack V1",
+  "title": "JoyLab Distribution Execution Pack V1/V1.1",
   "type": "object",
   "required": ["version", "articleSlug", "campaign", "state", "channels", "approval"],
   "properties": {
-    "version": { "const": "1.0" },
+    "version": { "enum": ["1.0", "1.1"] },
     "articleSlug": { "type": "string", "pattern": "^[A-Za-z0-9_-]+$" },
     "campaign": { "type": "string", "pattern": "^research_[A-Za-z0-9_-]+$" },
     "state": { "enum": ["DRAFT", "REVIEW", "APPROVED", "PUBLISHED", "MEASURED"] },
     "sourceUrl": { "type": "string", "format": "uri" },
     "generatedAt": { "type": "string" },
     "updatedAt": { "type": "string" },
+    "identity": { "$ref": "#/$defs/identity" },
     "approval": {
       "type": "object",
       "required": ["approved", "approvedBy", "approvedAt"],
@@ -36,6 +37,51 @@
     "publishLog": { "type": "array" }
   },
   "$defs": {
+    "entity": {
+      "type": "object",
+      "required": ["@id", "name", "url"],
+      "properties": {
+        "@id": { "type": "string", "format": "uri" },
+        "name": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "sameAs": { "type": "array", "items": { "type": "string", "format": "uri" } }
+      },
+      "additionalProperties": false
+    },
+    "channelIdentity": {
+      "type": "object",
+      "required": ["accountUrl", "authorEntity", "publisherEntity", "destinationEntity", "cta"],
+      "properties": {
+        "accountUrl": { "type": "string", "format": "uri" },
+        "authorEntity": { "type": "string", "format": "uri" },
+        "publisherEntity": { "type": "string", "format": "uri" },
+        "destinationEntity": { "type": "string", "format": "uri" },
+        "cta": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "identity": {
+      "type": "object",
+      "required": ["version", "person", "organization", "website", "channels"],
+      "properties": {
+        "version": { "const": "1.1" },
+        "person": { "$ref": "#/$defs/entity" },
+        "organization": { "$ref": "#/$defs/entity" },
+        "website": { "$ref": "#/$defs/entity" },
+        "channels": {
+          "type": "object",
+          "required": ["threads", "x", "linkedin", "naver"],
+          "properties": {
+            "threads": { "$ref": "#/$defs/channelIdentity" },
+            "x": { "$ref": "#/$defs/channelIdentity" },
+            "linkedin": { "$ref": "#/$defs/channelIdentity" },
+            "naver": { "$ref": "#/$defs/channelIdentity" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
     "variant": {
       "type": "object",
       "required": ["id", "title", "body", "cta", "hashtags", "utmUrl"],
@@ -56,6 +102,7 @@
       "required": ["status", "variants"],
       "properties": {
         "status": { "enum": ["DRAFT", "REVIEW", "APPROVED", "PUBLISHED", "MEASURED"] },
+        "identity": { "$ref": "#/$defs/channelIdentity" },
         "variants": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/variant" } }
       },
       "additionalProperties": false
