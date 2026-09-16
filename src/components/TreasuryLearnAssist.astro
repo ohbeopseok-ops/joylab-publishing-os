@@ -1,16 +1,80 @@
 ---
 import glossary from '../data/treasury-learn-glossary-v0-1.json';
+import rates from '../data/rates-dashboard.json';
+import timeseries from '../data/rates-timeseries.json';
+
 const terms = glossary.terms;
+const liveReady = Boolean(timeseries.ready && ['us10y','us30y','usdkrw'].every((key) => timeseries.series?.[key]?.points?.length === 30));
+const normalizeGrade = (value) => {
+  const raw = String(value || '').toUpperCase();
+  if (['RED','DANGER'].includes(raw)) return 'RED';
+  if (['YELLOW','WARNING','WATCH','STABLE_WATCH'].includes(raw)) return 'YELLOW';
+  return 'GREEN';
+};
+const marketGrade = (key) => liveReady ? normalizeGrade(timeseries.series[key]?.combinedStatus) : normalizeGrade(rates.series[key]?.status);
+const riskValue = liveReady ? timeseries.treasuryRiskIndex.value : rates.scores.compositeRatesRisk.value;
+const riskGrade = riskValue >= 65 ? 'RED' : riskValue >= 35 ? 'YELLOW' : 'GREEN';
+const auctionScore = rates.scores.auction.value;
+const auctionGrade = auctionScore >= 80 ? 'GREEN' : auctionScore >= 60 ? 'YELLOW' : 'RED';
+const ticScore = rates.scores.tic.value;
+const ticGrade = ticScore >= 80 ? 'GREEN' : ticScore >= 60 ? 'YELLOW' : 'RED';
+
+const explain = {
+  us10y: {
+    GREEN: ['장기 할인율 부담이 상대적으로 낮은 구간입니다.', '금리 방향과 기업의 EPS 추정치가 함께 좋아지는지 확인하세요.'],
+    YELLOW: ['할인율 부담을 점검할 구간입니다.', '금리 상승이 이어지는지와 EPS 상향이 이를 상쇄하는지 함께 봅니다.'],
+    RED: ['장기금리가 높은 구간이라 성장주·AI처럼 미래 이익 비중이 큰 자산의 적정 PER에 부담이 커질 수 있습니다.', '금리 고점 통과 여부와 EPS Revision을 같이 확인하세요.']
+  },
+  us30y: {
+    GREEN: ['초장기 자금조달과 기간 프리미엄 부담이 상대적으로 낮은 구간입니다.', '10년물과의 스프레드가 다시 확대되는지 확인하세요.'],
+    YELLOW: ['장기 재정·기간 프리미엄 부담이 커지는지 점검할 구간입니다.', '10년물보다 30년물이 더 강하게 오르는지 함께 봅니다.'],
+    RED: ['초장기 자금조달 비용과 기간 프리미엄 부담이 큰 구간입니다.', '재정·국채 공급 이슈가 기업 자본비용까지 번지는지 확인하세요.']
+  },
+  usdkrw: {
+    GREEN: ['원화 약세가 한국 주식 수급에 주는 부담이 상대적으로 낮은 구간입니다.', '외국인 순매수와 반도체 상대강도를 함께 확인하세요.'],
+    YELLOW: ['원화 약세가 외국인 수급에 부담으로 연결되는지 점검할 구간입니다.', '미국 장기금리와 외국인 매매가 같은 방향인지 보세요.'],
+    RED: ['원화 약세 부담이 큰 구간이라 외국인의 원화자산 기대수익률이 낮아질 수 있습니다.', '환율 상승과 외국인 순매도가 동시에 나타나는지 확인하세요.']
+  },
+  auction: {
+    GREEN: ['최근 국채 입찰 수요는 강한 편입니다.', '금리 상승의 원인을 곧바로 “국채 수요 붕괴”로 해석하기보다 장기물 공급·기간 프리미엄을 함께 봅니다.'],
+    YELLOW: ['입찰 수요의 질이 아주 강하지도 약하지도 않은 구간입니다.', 'Bid-to-Cover보다 Tail·Indirect·Dealer를 함께 확인하세요.'],
+    RED: ['입찰 수요의 질이 약해진 구간입니다.', 'Tail 확대와 Dealer 비중 상승이 반복되는지 확인해야 합니다.']
+  },
+  tic: {
+    GREEN: ['해외 투자자의 미국 국채 수요가 전반적으로 버티는 구간입니다.', '국가별 보유액보다 공식·민간 거래흐름의 방향을 함께 보세요.'],
+    YELLOW: ['해외 수요가 유지되지만 일부 약화 신호를 점검할 구간입니다.', '보유액 감소와 실제 순매도를 구분해서 확인하세요.'],
+    RED: ['해외 국채 수요 약화가 시장 부담으로 커질 수 있는 구간입니다.', '공식기관과 민간의 순매도가 동시에 나타나는지 확인하세요.']
+  },
+  risk: {
+    GREEN: ['금리·입찰·해외수요를 합친 전체 스트레스가 낮은 편입니다.', '개별 지표가 빠르게 악화되는지 변화 방향은 계속 확인하세요.'],
+    YELLOW: ['미국채 시장에 경계 신호가 섞여 있는 구간입니다.', 'Market·Auction·TIC 중 어떤 항목이 점수를 끌어올리는지 먼저 보세요.'],
+    RED: ['금리·입찰·해외수요 중 복수의 스트레스가 겹친 구간입니다.', '점수 자체보다 가장 큰 위험 기여 항목과 그 변화폭을 우선 확인하세요.']
+  }
+};
+const numberReads = [
+  { key:'us10y', label:'US 10Y', value:`${rates.series.us10y.value}${rates.series.us10y.unit}`, grade:marketGrade('us10y'), target:'now', lines:explain.us10y[marketGrade('us10y')] },
+  { key:'us30y', label:'US 30Y', value:`${rates.series.us30y.value}${rates.series.us30y.unit}`, grade:marketGrade('us30y'), target:'now', lines:explain.us30y[marketGrade('us30y')] },
+  { key:'usdkrw', label:'USD/KRW', value:`${rates.series.usdkrw.value}${rates.series.usdkrw.unit}`, grade:marketGrade('usdkrw'), target:'now', lines:explain.usdkrw[marketGrade('usdkrw')] },
+  { key:'auction', label:'Auction Score', value:`${auctionScore}/100`, grade:auctionGrade, target:'risk-component', match:'Auction Weakness', lines:explain.auction[auctionGrade] },
+  { key:'tic', label:'TIC Score', value:`${ticScore}/100`, grade:ticGrade, target:'risk-component', match:'TIC Stress', lines:explain.tic[ticGrade] },
+  { key:'risk', label:'Treasury Risk', value:`${riskValue}/100`, grade:riskGrade, target:'risk', lines:explain.risk[riskGrade] }
+];
 ---
-<div class="jl-learn" data-learn-root data-version={glossary.version}>
+<div class="jl-learn" data-learn-root data-version="0.2">
   <button class="jl-learn__toggle" type="button" data-learn-toggle aria-expanded="false" aria-controls="jl-learn-panel">
     <span>?</span><b>초보자 모드</b>
   </button>
   <aside class="jl-learn__panel" id="jl-learn-panel" data-learn-panel hidden aria-label="미국채 초보 투자자 학습 도우미">
     <div class="jl-learn__panel-head">
-      <div><small>JOYLAB LEARN MODE · V{glossary.version}</small><h2>어려운 용어, 여기서 바로 이해하세요</h2><p>전문 지표는 그대로 두고 뜻과 투자 연결고리만 쉽게 풀어드립니다.</p></div>
+      <div><small>JOYLAB LEARN MODE · V0.2</small><h2>숫자의 뜻까지 바로 읽어드립니다</h2><p>용어 설명에 더해 현재 지표가 투자에 어떤 의미인지 쉬운 문장으로 번역합니다.</p></div>
       <button type="button" class="jl-learn__close" data-learn-close aria-label="학습 패널 닫기">×</button>
     </div>
+    <section class="jl-learn__now" aria-label="현재 숫자 초보자 해석">
+      <div class="jl-learn__now-head"><small>NOW · 숫자 읽기</small><b>현재 지표를 투자 언어로 번역</b></div>
+      <div class="jl-learn__now-grid">
+        {numberReads.map((item) => <article data-grade={item.grade}><div><span>{item.label}</span><strong>{item.value}</strong></div><em>{item.grade}</em><p>{item.lines[0]}</p><small>{item.lines[1]}</small></article>)}
+      </div>
+    </section>
     <div class="jl-learn__quick" data-learn-quick>
       {terms.map((item) => <button type="button" data-learn-key={item.key}>{item.term}</button>)}
     </div>
@@ -21,14 +85,14 @@ const terms = glossary.terms;
     </article>
     <div class="jl-learn__footer">
       <label><input type="checkbox" data-learn-persist /> 다음 방문에도 초보자 모드 유지</label>
-      <span>투자 판단이 아니라 학습을 돕는 설명입니다.</span>
+      <span>해석 문장은 현재 지표의 의미를 설명하는 학습 보조이며 매수·매도 신호가 아닙니다.</span>
     </div>
   </aside>
 </div>
 <style is:global>
-  .jl-learn{position:fixed;right:20px;bottom:20px;z-index:70;font-family:inherit}.jl-learn__toggle{display:flex;align-items:center;gap:8px;padding:10px 14px;border:0;border-radius:999px;background:#0b1f4d;color:#fff;box-shadow:0 12px 28px rgba(11,31,77,.24);cursor:pointer}.jl-learn__toggle span{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#1677ff;font-weight:900}.jl-learn__toggle b{font-size:.82rem}.jl-learn__panel{position:absolute;right:0;bottom:54px;width:min(420px,calc(100vw - 32px));max-height:min(72vh,690px);overflow:auto;padding:18px;border:1px solid #d7e2f0;border-radius:20px;background:#fff;color:#12213d;box-shadow:0 22px 60px rgba(11,31,77,.22)}.jl-learn__panel-head{display:flex;gap:16px;justify-content:space-between}.jl-learn__panel-head small{color:#1677ff;font-size:.65rem;font-weight:900;letter-spacing:.08em}.jl-learn__panel-head h2{margin:5px 0 6px;font-size:1.15rem}.jl-learn__panel-head p{margin:0;color:#6b7890;font-size:.8rem;line-height:1.55}.jl-learn__close{width:32px;height:32px;border:0;border-radius:50%;background:#eef3fa;color:#0b1f4d;font-size:1.2rem;cursor:pointer}.jl-learn__quick{display:flex;flex-wrap:wrap;gap:7px;margin:15px 0}.jl-learn__quick button{padding:6px 9px;border:1px solid #dce5f1;border-radius:999px;background:#f8fbff;color:#25406c;font-size:.72rem;cursor:pointer}.jl-learn__quick button:hover,.jl-learn__quick button.is-active{border-color:#1677ff;background:#eaf2ff;color:#0d5cc8}.jl-learn__detail{padding:15px;border-radius:16px;background:#f6f9fe}.jl-learn__detail small{color:#1677ff;font-size:.64rem;font-weight:900}.jl-learn__detail h3{margin:4px 0 8px;font-size:1.05rem}.jl-learn__detail p{margin:7px 0;color:#4f5f78;font-size:.82rem;line-height:1.62}.jl-learn__detail dl{margin:12px 0 0}.jl-learn__detail dt{margin-top:10px;font-size:.7rem;font-weight:900;color:#0b1f4d}.jl-learn__detail dd{margin:3px 0 0;color:#56667f;font-size:.8rem;line-height:1.55}.jl-learn__detail a{display:inline-flex;margin-top:12px;font-size:.76rem;font-weight:900;color:#1677ff;text-decoration:none}.jl-learn__footer{display:grid;gap:8px;margin-top:13px;padding-top:12px;border-top:1px solid #e8edf4;color:#6c788b;font-size:.7rem}.jl-learn__footer label{display:flex;align-items:center;gap:6px}.jl-learn-term{display:inline;padding:0 1px;border:0;border-bottom:1px dashed #1677ff;background:transparent;color:inherit;font:inherit;cursor:help}.jl-learn-term::after{content:' ?';color:#1677ff;font-size:.72em;font-weight:900}.rates-hub-v2:not(.is-learn-mode) .jl-learn-term{border-bottom-color:transparent;cursor:inherit}.rates-hub-v2:not(.is-learn-mode) .jl-learn-term::after{display:none}.rates-hub-v2.is-learn-mode .jl-learn__toggle{background:#1677ff}.rates-hub-v2.is-learn-mode .jl-learn__toggle span{background:#fff;color:#1677ff}@media(max-width:560px){.jl-learn{right:12px;bottom:12px}.jl-learn__panel{right:0;bottom:52px;max-height:76vh;padding:15px}.jl-learn__toggle{padding:9px 12px}.jl-learn__toggle b{font-size:.76rem}}
+  .jl-learn{position:fixed;right:20px;bottom:20px;z-index:70;font-family:inherit}.jl-learn__toggle{display:flex;align-items:center;gap:8px;padding:10px 14px;border:0;border-radius:999px;background:#0b1f4d;color:#fff;box-shadow:0 12px 28px rgba(11,31,77,.24);cursor:pointer}.jl-learn__toggle span{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#1677ff;font-weight:900}.jl-learn__toggle b{font-size:.82rem}.jl-learn__panel{position:absolute;right:0;bottom:54px;width:min(460px,calc(100vw - 32px));max-height:min(76vh,740px);overflow:auto;padding:18px;border:1px solid #d7e2f0;border-radius:20px;background:#fff;color:#12213d;box-shadow:0 22px 60px rgba(11,31,77,.22)}.jl-learn__panel-head{display:flex;gap:16px;justify-content:space-between}.jl-learn__panel-head small{color:#1677ff;font-size:.65rem;font-weight:900;letter-spacing:.08em}.jl-learn__panel-head h2{margin:5px 0 6px;font-size:1.15rem}.jl-learn__panel-head p{margin:0;color:#6b7890;font-size:.8rem;line-height:1.55}.jl-learn__close{width:32px;height:32px;border:0;border-radius:50%;background:#eef3fa;color:#0b1f4d;font-size:1.2rem;cursor:pointer}.jl-learn__now{margin:15px 0 4px;padding:14px;border-radius:16px;background:#0b1f4d;color:#fff}.jl-learn__now-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:10px}.jl-learn__now-head small{color:#8cb9ff;font-size:.62rem;font-weight:900;letter-spacing:.08em}.jl-learn__now-head b{font-size:.76rem}.jl-learn__now-grid{display:grid;gap:7px}.jl-learn__now-grid article{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:9px 10px;border-radius:12px;background:rgba(255,255,255,.08)}.jl-learn__now-grid article>div{display:flex;align-items:baseline;gap:7px}.jl-learn__now-grid span{font-size:.72rem;font-weight:800;color:#bed5fb}.jl-learn__now-grid strong{font-size:.86rem}.jl-learn__now-grid em{align-self:start;padding:3px 6px;border-radius:999px;background:#fff;color:#0b1f4d;font-size:.58rem;font-style:normal;font-weight:900}.jl-learn__now-grid article[data-grade="YELLOW"] em{background:#fff0b8;color:#705200}.jl-learn__now-grid article[data-grade="RED"] em{background:#ffe0e0;color:#8f1d1d}.jl-learn__now-grid p,.jl-learn__now-grid small{grid-column:1/-1;margin:0;line-height:1.45}.jl-learn__now-grid p{font-size:.74rem;color:#fff}.jl-learn__now-grid small{font-size:.66rem;color:#b7c7e2}.jl-learn__quick{display:flex;flex-wrap:wrap;gap:7px;margin:15px 0}.jl-learn__quick button{padding:6px 9px;border:1px solid #dce5f1;border-radius:999px;background:#f8fbff;color:#25406c;font-size:.72rem;cursor:pointer}.jl-learn__quick button:hover,.jl-learn__quick button.is-active{border-color:#1677ff;background:#eaf2ff;color:#0d5cc8}.jl-learn__detail{padding:15px;border-radius:16px;background:#f6f9fe}.jl-learn__detail small{color:#1677ff;font-size:.64rem;font-weight:900}.jl-learn__detail h3{margin:4px 0 8px;font-size:1.05rem}.jl-learn__detail p{margin:7px 0;color:#4f5f78;font-size:.82rem;line-height:1.62}.jl-learn__detail dl{margin:12px 0 0}.jl-learn__detail dt{margin-top:10px;font-size:.7rem;font-weight:900;color:#0b1f4d}.jl-learn__detail dd{margin:3px 0 0;color:#56667f;font-size:.8rem;line-height:1.55}.jl-learn__detail a{display:inline-flex;margin-top:12px;font-size:.76rem;font-weight:900;color:#1677ff;text-decoration:none}.jl-learn__footer{display:grid;gap:8px;margin-top:13px;padding-top:12px;border-top:1px solid #e8edf4;color:#6c788b;font-size:.7rem}.jl-learn__footer label{display:flex;align-items:center;gap:6px}.jl-learn-term{display:inline;padding:0 1px;border:0;border-bottom:1px dashed #1677ff;background:transparent;color:inherit;font:inherit;cursor:help}.jl-learn-term::after{content:' ?';color:#1677ff;font-size:.72em;font-weight:900}.jl-number-translation{display:none;margin:9px 0 0;padding:9px 10px;border-radius:10px;background:#eef5ff;color:#28415f;font-size:.72rem;line-height:1.55}.jl-number-translation b{display:block;margin-bottom:2px;color:#0d5cc8;font-size:.63rem;letter-spacing:.04em}.jl-number-translation[data-grade="RED"]{background:#fff0f0;color:#713737}.jl-number-translation[data-grade="RED"] b{color:#b32626}.jl-number-translation[data-grade="YELLOW"]{background:#fff8e3;color:#66521a}.jl-number-translation[data-grade="YELLOW"] b{color:#8a6700}.rates-hub-v2:not(.is-learn-mode) .jl-learn-term{border-bottom-color:transparent;cursor:inherit}.rates-hub-v2:not(.is-learn-mode) .jl-learn-term::after{display:none}.rates-hub-v2.is-learn-mode .jl-learn__toggle{background:#1677ff}.rates-hub-v2.is-learn-mode .jl-learn__toggle span{background:#fff;color:#1677ff}.rates-hub-v2.is-learn-mode .jl-number-translation{display:block}@media(max-width:560px){.jl-learn{right:12px;bottom:12px}.jl-learn__panel{right:0;bottom:52px;max-height:78vh;padding:15px}.jl-learn__toggle{padding:9px 12px}.jl-learn__toggle b{font-size:.76rem}.jl-learn__now-head{display:grid;gap:3px}}
 </style>
-<script define:vars={{ terms }} is:inline>
+<script define:vars={{ terms, numberReads }} is:inline>
 (() => {
   const body = document.body;
   if (!body.classList.contains('rates-hub-v2')) return;
@@ -59,7 +123,7 @@ const terms = glossary.terms;
     const nodes = [];
     while (walker.nextNode()) {
       const node = walker.currentNode; const parent = node.parentElement;
-      if (!parent || skipped.has(parent.tagName) || parent.closest('.jl-learn') || parent.closest('.jl-learn-term')) continue;
+      if (!parent || skipped.has(parent.tagName) || parent.closest('.jl-learn') || parent.closest('.jl-learn-term') || parent.closest('.jl-number-translation')) continue;
       if (pattern.test(node.nodeValue || '')) nodes.push(node);
       pattern.lastIndex = 0;
     }
@@ -75,12 +139,37 @@ const terms = glossary.terms;
     });
   };
 
+  const appendTranslation = (host, item) => {
+    if (!host || host.querySelector(`.jl-number-translation[data-read-key="${item.key}"]`)) return;
+    const box = document.createElement('p');
+    box.className = 'jl-number-translation'; box.dataset.readKey = item.key; box.dataset.grade = item.grade;
+    box.innerHTML = `<b>초보자 해석 · ${item.grade}</b>${item.lines[0]} <span>${item.lines[1]}</span>`;
+    host.appendChild(box);
+  };
+
+  const mountNumberReads = () => {
+    document.querySelectorAll('.rh-now__item').forEach((card) => {
+      const label = card.querySelector('em')?.textContent?.trim();
+      const item = numberReads.find((x) => x.target === 'now' && x.label === label);
+      if (item) appendTranslation(card, item);
+    });
+    document.querySelectorAll('.rh-risk__component').forEach((card) => {
+      const label = card.querySelector('small')?.textContent || '';
+      const item = numberReads.find((x) => x.target === 'risk-component' && label.includes(x.match));
+      if (item) appendTranslation(card, item);
+    });
+    const riskItem = numberReads.find((x) => x.target === 'risk');
+    const riskHost = document.querySelector('.rh-risk__grid > div:first-child');
+    if (riskItem) appendTranslation(riskHost, riskItem);
+  };
+
   const setMode = (enabled, save=true) => {
     body.classList.toggle('is-learn-mode', enabled);
     toggle.setAttribute('aria-pressed', String(enabled));
     if (save && persist.checked) localStorage.setItem(storageKey, enabled ? '1' : '0');
   };
   const saved = localStorage.getItem(storageKey) === '1'; persist.checked = saved; setMode(saved, false);
+  mountNumberReads();
   wrapTerms();
   toggle.addEventListener('click', () => { const next = !body.classList.contains('is-learn-mode'); setMode(next); panel.hidden = !next; toggle.setAttribute('aria-expanded', String(next)); });
   root.querySelector('[data-learn-close]')?.addEventListener('click', () => { panel.hidden = true; toggle.setAttribute('aria-expanded','false'); });
