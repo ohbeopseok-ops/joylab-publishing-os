@@ -1,0 +1,26 @@
+---
+const { video, canonicalUrl } = Astro.props;
+const origin = Astro.site ?? Astro.url.origin;
+const thumbnailUrl = new URL(video.thumbnailUrl, origin).toString();
+const watchUrl = `https://www.youtube.com/watch?v=${video.youtubeId}`;
+const embedUrl = `https://www.youtube-nocookie.com/embed/${video.youtubeId}`;
+const uploadDate = video.uploadDate instanceof Date ? video.uploadDate.toISOString() : new Date(video.uploadDate).toISOString();
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  '@id': `${canonicalUrl}#video`,
+  name: video.title,
+  description: video.description,
+  thumbnailUrl: [thumbnailUrl],
+  uploadDate,
+  duration: video.duration,
+  inLanguage: video.language ?? 'ko-KR',
+  embedUrl,
+  contentUrl: watchUrl,
+  publisher: { '@id': 'https://aijoylab.kr/#organization' },
+  isPartOf: { '@id': `${canonicalUrl}#article` },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl }
+};
+---
+<script id="joylab-video-schema" type="application/ld+json" set:html={JSON.stringify(schema)}></script>
