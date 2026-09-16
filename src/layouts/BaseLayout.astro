@@ -1,6 +1,7 @@
 ---
 import SiteFooter from '../components/SiteFooter.astro';
 import ArticleContactCta from '../components/ArticleContactCta.astro';
+import TreasuryRiskDelta from '../components/TreasuryRiskDelta.astro';
 import IdentitySchema from '../components/IdentitySchema.astro';
 import AnalyticsEvents from '../components/AnalyticsEvents.astro';
 import '../styles/global.css';
@@ -17,7 +18,9 @@ const {
 } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
 const socialImageUrl = image ? new URL(image, Astro.site ?? Astro.url.origin).toString() : undefined;
-const showArticleContactCta = String(bodyClass).split(/\s+/).includes('research-article-page');
+const bodyClasses = String(bodyClass).split(/\s+/);
+const showArticleContactCta = bodyClasses.includes('research-article-page');
+const showTreasuryRiskDelta = bodyClasses.includes('rates-hub-v2');
 ---
 <!doctype html>
 <html lang="ko">
@@ -62,6 +65,7 @@ const showArticleContactCta = String(bodyClass).split(/\s+/).includes('research-
     </header>
     <main>
       <slot />
+      {showTreasuryRiskDelta && <TreasuryRiskDelta />}
       {showArticleContactCta && <ArticleContactCta />}
     </main>
     <SiteFooter />
