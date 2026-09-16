@@ -50,8 +50,15 @@ const articles = defineCollection({
     }
 
     if (data.video?.status === 'published') {
-      for (const field of ['youtubeId', 'thumbnailUrl', 'uploadDate', 'duration']) {
-        if (!data.video[field]) {
+      const requiredPublishedFields = [
+        ['youtubeId', data.video.youtubeId],
+        ['thumbnailUrl', data.video.thumbnailUrl],
+        ['uploadDate', data.video.uploadDate],
+        ['duration', data.video.duration]
+      ] as const;
+
+      for (const [field, value] of requiredPublishedFields) {
+        if (!value) {
           ctx.addIssue({
             code: z.ZodIssueCode.custom,
             path: ['video', field],
