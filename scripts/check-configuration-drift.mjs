@@ -88,24 +88,44 @@ async function auditDns(baseline) {
 async function auditCustomDomains(baseline) {
   console.log('\n== Worker custom domains ==');
   const domains = await cloudflare(`/accounts/${accountId}/workers/domains`);
-  const expected = new Set(baseline.customDomains.map((item) => item.toLowerCase()));
-  const relevant = domains.filter(
+  const expectedHostnames = new Set(
+    baseline.customDomains.map((item) => item.toLowerCase())
+  );
+  const expectedEnvironment = baseline.cloudflare.workerEnvironment;
+  const serviceDomains = domains.filter(
     (domain) => domain.service === baseline.cloudflare.workerService
   );
-  const actual = new Set(relevant.map((domain) => String(domain.hostname).toLowerCase()));
 
-  for (const hostname of expected) {
-    assert(actual.has(hostname), `Worker custom domain remains attached: ${hostname}`);
+  for (const hostname of expectedHostnames) {
+    const matching = serviceDomains.filter(
+      (domain) => String(domain.hostname).toLowerCase() === hostname
+    );
+
+    assert(
+      matching.length > 0,
+      `Worker custom domain remains attached: ${hostname}`
+    );
+
+    if (matching.length === 0) continue;
+
+    assert(
+      matching.some((domain) => domain.environment === expectedEnvironment),
+      `custom domain ${hostname} remains attached to Worker environment ${expectedEnvironment}`
+    );
+
+    assert(
+      matching.some((domain) => domain.zone_id === zoneId),
+      `custom domain ${hostname} remains in expected Cloudflare zone`
+    );
   }
 
-  for (const domain of relevant) {
-    if (!expected.has(String(domain.hostname).toLowerCase())) {
-      warn(`unexpected custom domain attached to Worker: ${domain.hostname}`);
+  for (const domain of serviceDomains) {
+    if (!expectedHostnames.has(String(domain.hostname).toLowerCase())) {
+      warn(
+        `unexpected custom domain attached to Worker: ${domain.hostname}` +
+          (domain.environment ? ` (${domain.environment})` : '')
+      );
     }
-    assert(
-      domain.zone_id === zoneId,
-      `custom domain ${domain.hostname} remains in expected Cloudflare zone`
-    );
   }
 }
 
