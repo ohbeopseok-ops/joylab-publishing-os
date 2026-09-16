@@ -107,7 +107,7 @@ jobs:
           grep -Fq 'id="joylab-identity-schema"' dist/index.html
           grep -Fq '"@id":"https://aijoylab.kr/#organization"' dist/index.html
           grep -Fq '"@id":"https://aijoylab.kr/#founder"' dist/index.html
-          grep -Fq 'https://x.com/shark01479' dist/index.html
+          grep -Fq 'https://x.com/ohbeopseok' dist/index.html
           grep -Fq 'https://www.youtube.com/@superhalabe100' dist/index.html
           grep -Fq 'https://www.threads.com/@ohbeopseok' dist/index.html
           grep -Fq 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/' dist/index.html
