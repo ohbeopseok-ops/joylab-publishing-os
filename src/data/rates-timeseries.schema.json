@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aijoylab.kr/schemas/rates-timeseries.schema.json",
+  "title": "JoyLab Rates 30D Time Series",
+  "type": "object",
+  "required": ["version", "asOf", "windowTradingDays", "series"],
+  "properties": {
+    "version": { "const": "1.0" },
+    "asOf": { "type": "string", "format": "date" },
+    "windowTradingDays": { "const": 30 },
+    "series": {
+      "type": "object",
+      "required": ["us10y", "us30y", "usdkrw"],
+      "properties": {
+        "us10y": { "$ref": "#/$defs/rateSeries" },
+        "us30y": { "$ref": "#/$defs/rateSeries" },
+        "usdkrw": { "$ref": "#/$defs/fxSeries" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "point": {
+      "type": "object",
+      "required": ["date", "value"],
+      "properties": {
+        "date": { "type": "string", "format": "date" },
+        "value": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "baseSeries": {
+      "type": "object",
+      "required": ["label", "unit", "source", "points"],
+      "properties": {
+        "label": { "type": "string" },
+        "unit": { "type": "string" },
+        "source": { "type": "string" },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "observedAt": { "type": "string", "format": "date" },
+        "points": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 30,
+          "items": { "$ref": "#/$defs/point" }
+        }
+      }
+    },
+    "rateSeries": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSeries" },
+        { "properties": { "unit": { "const": "%" } } }
+      ]
+    },
+    "fxSeries": {
+      "allOf": [
+        { "$ref": "#/$defs/baseSeries" },
+        { "properties": { "unit": { "const": "원" } } }
+      ]
+    }
+  },
+  "additionalProperties": false
+}
