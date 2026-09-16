@@ -108,12 +108,12 @@ jobs:
           grep -Fq '"@id":"https://aijoylab.kr/#organization"' dist/index.html
           grep -Fq '"@id":"https://aijoylab.kr/#founder"' dist/index.html
           grep -Fq 'https://x.com/ohbeopseok' dist/index.html
-          grep -Fq 'https://www.youtube.com/@superhalabe100' dist/index.html
+          ! grep -Fq 'https://www.youtube.com/@superhalabe100' dist/index.html
           grep -Fq 'https://www.threads.com/@ohbeopseok' dist/index.html
           grep -Fq 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/' dist/index.html
           grep -Fq 'OFFICIAL CHANNELS' dist/about/index.html
           grep -Fq 'data-analytics-target="x"' dist/about/index.html
-          grep -Fq 'data-analytics-target="youtube"' dist/about/index.html
+          ! grep -Fq 'data-analytics-target="youtube"' dist/about/index.html
           grep -Fq '오법석 · AIJoyLab' dist/about/index.html
           test "$(tr -d '\r\n' < dist/1793952a193325da594f7015ca133737.txt)" = '1793952a193325da594f7015ca133737'
 
