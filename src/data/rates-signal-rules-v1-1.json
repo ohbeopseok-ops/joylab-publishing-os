@@ -1,0 +1,54 @@
+{
+  "version": "1.1",
+  "statusOrder": ["GREEN", "YELLOW", "RED"],
+  "statusScore": { "GREEN": 20, "YELLOW": 50, "RED": 80 },
+  "series": {
+    "us10y": {
+      "label": "미국 10년물",
+      "level": { "greenBelow": 4.5, "yellowBelow": 5.0, "redFrom": 5.0 },
+      "momentum30dBp": { "greenBelow": 15, "yellowBelow": 30, "redFrom": 30 },
+      "combine": "max(levelStatus,momentumStatus)",
+      "marketRiskWeight": 0.4
+    },
+    "us30y": {
+      "label": "미국 30년물",
+      "level": { "greenBelow": 5.0, "yellowBelow": 5.3, "redFrom": 5.3 },
+      "momentum30dBp": { "greenBelow": 15, "yellowBelow": 30, "redFrom": 30 },
+      "combine": "max(levelStatus,momentumStatus)",
+      "marketRiskWeight": 0.4
+    },
+    "usdkrw": {
+      "label": "원·달러",
+      "level": { "greenBelow": 1320, "yellowBelow": 1350, "redFrom": 1350 },
+      "momentum30dWon": { "greenBelow": 20, "yellowBelow": 40, "redFrom": 40 },
+      "combine": "max(levelStatus,momentumStatus)",
+      "marketRiskWeight": 0.2
+    }
+  },
+  "marketRisk": {
+    "formula": "round(us10yStress*0.40 + us30yStress*0.40 + usdkrwStress*0.20)",
+    "note": "각 시리즈의 Level/Momentum 중 더 위험한 상태를 GREEN=20, YELLOW=50, RED=80으로 점수화"
+  },
+  "treasuryRiskIndex": {
+    "name": "US Treasury Risk Index",
+    "range": [0, 100],
+    "higherIsWorse": true,
+    "weights": {
+      "marketRisk": 0.5,
+      "auctionWeakness": 0.3,
+      "ticStress": 0.2
+    },
+    "components": {
+      "marketRisk": "rates-timeseries.marketRisk.value",
+      "auctionWeakness": "100 - rates-dashboard.scores.auction.value",
+      "ticStress": "100 - rates-dashboard.scores.tic.value"
+    },
+    "formula": "round(marketRisk*0.50 + auctionWeakness*0.30 + ticStress*0.20)",
+    "grades": {
+      "GREEN": "0-34",
+      "YELLOW": "35-64",
+      "RED": "65-100"
+    },
+    "changeFromV1": "Rates Risk를 기존 Composite에서 30거래일 Level/Momentum 기반 순수 시장위험으로 교체해 Auction/TIC 중복을 제거"
+  }
+}
