@@ -3,6 +3,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 import ArticleContactCta from '../components/ArticleContactCta.astro';
 import TreasuryRiskDelta from '../components/TreasuryRiskDelta.astro';
 import TreasuryLearnAssist from '../components/TreasuryLearnAssist.astro';
+import TreasuryTodayReading from '../components/TreasuryTodayReading.astro';
 import IdentitySchema from '../components/IdentitySchema.astro';
 import AnalyticsEvents from '../components/AnalyticsEvents.astro';
 import '../styles/global.css';
@@ -23,6 +24,7 @@ const bodyClasses = String(bodyClass).split(/\s+/);
 const showArticleContactCta = bodyClasses.includes('research-article-page');
 const showTreasuryRiskDelta = bodyClasses.includes('rates-hub-v2');
 const showTreasuryLearnAssist = bodyClasses.includes('rates-hub-v2');
+const showTreasuryTodayReading = bodyClasses.includes('rates-hub-v2');
 ---
 <!doctype html>
 <html lang="ko">
@@ -71,6 +73,7 @@ const showTreasuryLearnAssist = bodyClasses.includes('rates-hub-v2');
       {showArticleContactCta && <ArticleContactCta />}
     </main>
     {showTreasuryLearnAssist && <TreasuryLearnAssist />}
+    {showTreasuryTodayReading && <TreasuryTodayReading />}
     <SiteFooter />
     <AnalyticsEvents />
     <script is:inline>
