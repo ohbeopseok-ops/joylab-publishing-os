@@ -1,0 +1,38 @@
+---
+const { article, articleImageUrl } = Astro.props;
+
+const canonicalUrl = article.data.canonical
+  ? new URL(article.data.canonical, Astro.site ?? Astro.url.origin).toString()
+  : new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
+
+const isJoyLabAuthor = ['JoyLab', '오법석'].includes(article.data.author);
+const author = isJoyLabAuthor
+  ? { '@id': 'https://aijoylab.kr/#founder' }
+  : {
+      '@type': 'Person',
+      name: article.data.author
+    };
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${canonicalUrl}#article`,
+  headline: article.data.title,
+  description: article.data.description,
+  datePublished: article.data.publishedAt.toISOString(),
+  dateModified: (article.data.updatedAt ?? article.data.publishedAt).toISOString(),
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': canonicalUrl
+  },
+  isPartOf: {
+    '@id': 'https://aijoylab.kr/#website'
+  },
+  ...(articleImageUrl ? { image: articleImageUrl } : {}),
+  author,
+  publisher: {
+    '@id': 'https://aijoylab.kr/#organization'
+  }
+};
+---
+<script id="joylab-article-schema" type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>

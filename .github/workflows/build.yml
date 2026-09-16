@@ -107,7 +107,8 @@ jobs:
           grep -Fq 'id="joylab-identity-schema"' dist/index.html
           grep -Fq '"@id":"https://aijoylab.kr/#organization"' dist/index.html
           grep -Fq '"@id":"https://aijoylab.kr/#founder"' dist/index.html
-          grep -Fq 'https://x.com/shark01479' dist/index.html
+          grep -Fq '"@id":"https://aijoylab.kr/#website"' dist/index.html
+          grep -Fq 'https://x.com/ohbeopseok' dist/index.html
           grep -Fq 'https://www.youtube.com/@superhalabe100' dist/index.html
           grep -Fq 'https://www.threads.com/@ohbeopseok' dist/index.html
           grep -Fq 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/' dist/index.html
@@ -116,6 +117,19 @@ jobs:
           grep -Fq 'data-analytics-target="youtube"' dist/about/index.html
           grep -Fq '오법석 · AIJoyLab' dist/about/index.html
           test "$(tr -d '\r\n' < dist/1793952a193325da594f7015ca133737.txt)" = '1793952a193325da594f7015ca133737'
+
+      - name: Verify JoyLab article schema v2
+        shell: bash
+        run: |
+          set -euo pipefail
+          ARTICLE='dist/articles/anthropic-ipo-ai-safety-2026/index.html'
+          grep -Fq 'id="joylab-article-schema"' "$ARTICLE"
+          grep -Fq '"@id":"https://aijoylab.kr/#founder"' "$ARTICLE"
+          grep -Fq '"@id":"https://aijoylab.kr/#organization"' "$ARTICLE"
+          grep -Fq '"@id":"https://aijoylab.kr/#website"' "$ARTICLE"
+          grep -Fq '"dateModified"' "$ARTICLE"
+          grep -Fq '"mainEntityOfPage"' "$ARTICLE"
+          grep -Fq '오법석 · JoyLab' "$ARTICLE"
 
       - name: Verify Click Analytics V3 contract
         shell: bash

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
 import '../../styles/interactive.css';
 import '../../styles/research-v2.css';
 import '../../styles/visual-placement.css';
@@ -44,6 +45,7 @@ const supportingImages = (researchVisual?.supporting ?? []).map((image, index) =
 }));
 const articleImage = article.data.ogImage ?? heroImage;
 const articleImageUrl = articleImage ? new URL(articleImage, Astro.site ?? Astro.url.origin).toString() : undefined;
+const articleAuthorLabel = ['JoyLab', '오법석'].includes(article.data.author) ? '오법석 · JoyLab' : article.data.author;
 const isCompareHub = article.id === 'samsung-vs-sk-hynix-ai-memory';
 const isSamsung = article.id === 'samsung-electronics-outlook';
 const isAiPowerSeries = article.data.series?.startsWith('AI 전력');
@@ -101,7 +103,7 @@ const scoreCriteria = [
         <h1>{article.data.title}</h1>
         <p class="research-cover__desc">{article.data.description}</p>
         <div class="research-cover__meta">
-          <span>{article.data.author}</span>
+          <span>{articleAuthorLabel}</span>
           <span>{article.data.publishedAt.toLocaleDateString('ko-KR')}</span>
           <span>{article.data.readingTime ?? '약 6분'}</span>
           {article.data.series && <span>{article.data.series}</span>}
@@ -365,14 +367,5 @@ const scoreCriteria = [
     })();
   </script>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: article.data.title,
-    description: article.data.description,
-    datePublished: article.data.publishedAt.toISOString(),
-    ...(articleImageUrl ? { image: articleImageUrl } : {}),
-    author: { '@type': 'Organization', name: article.data.author },
-    publisher: { '@type': 'Organization', name: 'JoyLab' }
-  })}></script>
+  <ArticleSchema article={article} articleImageUrl={articleImageUrl} />
 </BaseLayout>

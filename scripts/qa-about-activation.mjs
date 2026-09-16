@@ -51,6 +51,13 @@ for (const viewport of viewports) {
       placement: link.getAttribute('data-analytics-placement') || '',
       event: link.getAttribute('data-analytics-event') || '',
     }));
+    const founderLinks = [...document.querySelectorAll('.about-v2-founder-links a')].map((link) => ({
+      label: link.textContent?.trim() || '',
+      href: link.getAttribute('href') || '',
+      target: link.getAttribute('data-analytics-target') || '',
+      placement: link.getAttribute('data-analytics-placement') || '',
+      event: link.getAttribute('data-analytics-event') || '',
+    }));
     return {
       overflow: Math.max(bodyWidth, docWidth) - viewportWidth,
       heroVisible: visible('.about-v2-hero'),
@@ -61,6 +68,7 @@ for (const viewport of viewports) {
       operatorLabel: [...document.querySelectorAll('.about-v2-summary small')].at(-1)?.textContent?.trim() || '',
       operatorValue: [...document.querySelectorAll('.about-v2-summary strong')].at(-1)?.textContent?.trim() || '',
       channelLinks,
+      founderLinks,
       organizationSameAs: Array.isArray(org?.sameAs) ? org.sameAs : [],
       founderSameAs: Array.isArray(founder?.sameAs) ? founder.sameAs : [],
     };
@@ -69,6 +77,11 @@ for (const viewport of viewports) {
   const expectedChannels = ['Threads', 'X', 'LinkedIn', 'Naver Blog', 'YouTube', 'Instagram', 'RSS'];
   const socialLinks = metrics.channelLinks.filter((item) => item.label !== 'RSS');
   const rssLink = metrics.channelLinks.find((item) => item.label === 'RSS');
+  const expectedFounderProfiles = [
+    { target: 'x', href: 'https://x.com/ohbeopseok' },
+    { target: 'threads', href: 'https://www.threads.com/@ohbeopseok' },
+    { target: 'linkedin', href: 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/' },
+  ];
   const checks = {
     httpOk: status >= 200 && status < 400,
     noHorizontalOverflow: metrics.overflow <= 1,
@@ -80,8 +93,10 @@ for (const viewport of viewports) {
     socialAnalyticsWired: socialLinks.length === 6 && socialLinks.every((item) => item.event === 'social_click' && item.placement === 'about'),
     rssNotMisclassifiedAsSocial: Boolean(rssLink) && rssLink.event === '' && rssLink.placement === '',
     operatorIdentityClear: metrics.operatorLabel === 'FOUNDER & OPERATOR' && metrics.operatorValue === '오법석 · AIJoyLab',
-    organizationSameAs: ['https://blog.naver.com/joy014', 'https://www.instagram.com/aijoylab/', 'https://x.com/shark01479', 'https://www.youtube.com/@superhalabe100'].every((url) => metrics.organizationSameAs.includes(url)),
-    founderSameAs: ['https://www.threads.com/@ohbeopseok', 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/'].every((url) => metrics.founderSameAs.includes(url)),
+    founderProfilesComplete: expectedFounderProfiles.every((expected) => metrics.founderLinks.some((item) => item.target === expected.target && item.href === expected.href)) && metrics.founderLinks.length === 3,
+    founderProfileAnalyticsWired: metrics.founderLinks.every((item) => item.event === 'social_click' && item.placement === 'about-founder'),
+    organizationSameAs: ['https://blog.naver.com/joy014', 'https://www.instagram.com/aijoylab/', 'https://www.youtube.com/@superhalabe100'].every((url) => metrics.organizationSameAs.includes(url)),
+    founderSameAs: ['https://x.com/ohbeopseok', 'https://www.threads.com/@ohbeopseok', 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/'].every((url) => metrics.founderSameAs.includes(url)),
     navToggleResponsive: viewport.mobile ? metrics.toggleVisible === true : metrics.toggleVisible === false,
   };
 
@@ -97,7 +112,7 @@ await browser.close();
 await fs.writeFile(path.join(outputDir, 'report.json'), JSON.stringify({ baseURL, generatedAt: new Date().toISOString(), report }, null, 2));
 
 for (const item of report) {
-  console.log(`${item.passed ? 'PASS' : 'FAIL'} ${item.viewport.name} overflow=${item.metrics.overflow}px errors=${item.pageErrors.length} toggle=${item.metrics.toggleVisible ? 'visible' : 'hidden'} channels=${item.metrics.channelLinks.length}`);
+  console.log(`${item.passed ? 'PASS' : 'FAIL'} ${item.viewport.name} overflow=${item.metrics.overflow}px errors=${item.pageErrors.length} toggle=${item.metrics.toggleVisible ? 'visible' : 'hidden'} channels=${item.metrics.channelLinks.length} founderProfiles=${item.metrics.founderLinks.length}`);
 }
 
 if (failures.length) {
