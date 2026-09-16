@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aijoylab.kr/schemas/video-source-pack-v0.1.json",
+  "title": "JoyLab Video Source Pack V0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "engine", "article", "files", "workflow", "activation"],
+  "properties": {
+    "version": { "const": "0.1" },
+    "engine": { "const": "JOYLAB Research → Video Engine" },
+    "article": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slug", "title", "canonical", "sourcePath", "publishedAt"],
+      "properties": {
+        "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "title": { "type": "string", "minLength": 1 },
+        "canonical": { "type": "string", "format": "uri" },
+        "sourcePath": { "type": "string", "pattern": "^src/data/articles/.+\\.md$" },
+        "publishedAt": { "type": "string", "format": "date" }
+      }
+    },
+    "files": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["research", "evidence", "numbers", "brief"],
+      "properties": {
+        "research": { "const": "01_RESEARCH.md" },
+        "evidence": { "const": "02_EVIDENCE.md" },
+        "numbers": { "const": "03_NUMBERS.json" },
+        "brief": { "const": "04_VIDEO_BRIEF.md" },
+        "youtubePack": { "const": "05_YOUTUBE_PACK.md" }
+      }
+    },
+    "workflow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "language", "format", "humanApprovalRequired"],
+      "properties": {
+        "state": { "enum": ["SOURCE_READY", "VIDEO_DRAFT", "FACT_REVIEW", "APPROVED", "PUBLISHED", "MEASURED"] },
+        "language": { "const": "ko-KR" },
+        "format": { "enum": ["long-form", "research-brief", "short"] },
+        "targetMinutes": {
+          "type": "array",
+          "prefixItems": [{ "type": "number", "minimum": 1 }, { "type": "number", "minimum": 1 }],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "humanApprovalRequired": { "const": true }
+      }
+    },
+    "activation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["youtubeOfficialChannelEnabled", "gate"],
+      "properties": {
+        "youtubeOfficialChannelEnabled": { "const": false },
+        "gate": { "const": "VIDEO_ACTIVATION_GATE_V0.1" }
+      }
+    }
+  }
+}

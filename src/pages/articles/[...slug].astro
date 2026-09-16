@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleVideo from '../../components/ArticleVideo.astro';
+import VideoObjectSchema from '../../components/VideoObjectSchema.astro';
 import '../../styles/interactive.css';
 import '../../styles/research-v2.css';
 import '../../styles/visual-placement.css';
@@ -44,6 +46,10 @@ const supportingImages = (researchVisual?.supporting ?? []).map((image, index) =
 }));
 const articleImage = article.data.ogImage ?? heroImage;
 const articleImageUrl = articleImage ? new URL(articleImage, Astro.site ?? Astro.url.origin).toString() : undefined;
+const canonicalUrl = article.data.canonical
+  ? new URL(article.data.canonical, Astro.site ?? Astro.url.origin).toString()
+  : new URL(`/articles/${article.id}`, Astro.site ?? Astro.url.origin).toString();
+const publishedVideo = article.data.video?.status === 'published' ? article.data.video : null;
 const isCompareHub = article.id === 'samsung-vs-sk-hynix-ai-memory';
 const isSamsung = article.id === 'samsung-electronics-outlook';
 const isAiPowerSeries = article.data.series?.startsWith('AI 전력');
@@ -123,6 +129,8 @@ const scoreCriteria = [
         )}
       </figure>
     )}
+
+    {publishedVideo && <ArticleVideo video={publishedVideo} />}
 
     <div class="research-quote">
       <strong>좋은 정보보다, 더 나은 판단을 남깁니다.</strong>
@@ -368,11 +376,17 @@ const scoreCriteria = [
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
+    '@id': `${canonicalUrl}#article`,
     headline: article.data.title,
     description: article.data.description,
     datePublished: article.data.publishedAt.toISOString(),
+    dateModified: (article.data.updatedAt ?? article.data.publishedAt).toISOString(),
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
     ...(articleImageUrl ? { image: articleImageUrl } : {}),
+    ...(publishedVideo ? { video: { '@id': `${canonicalUrl}#video` } } : {}),
     author: { '@type': 'Organization', name: article.data.author },
-    publisher: { '@type': 'Organization', name: 'JoyLab' }
+    publisher: { '@id': 'https://aijoylab.kr/#organization' },
+    isPartOf: { '@id': 'https://aijoylab.kr/#website' }
   })}></script>
+  {publishedVideo && <VideoObjectSchema video={publishedVideo} canonicalUrl={canonicalUrl} />}
 </BaseLayout>
