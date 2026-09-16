@@ -4,6 +4,7 @@ import '../../styles/semiconductor-guide-v2.css';
 import '../../styles/investment-hub-v2.css';
 import '../../styles/us-rates-hub-v2.css';
 import rates from '../../data/rates-dashboard.json';
+import signalRules from '../../data/rates-signal-rules-v1.json';
 
 const coreResearch = [
   {
@@ -45,6 +46,17 @@ const dashboard = [
   { key: 'TIC', data: rates.series.foreignTreasuryHoldings, note: '해외 국채 수요', observed: rates.series.foreignTreasuryHoldings.period },
   { key: 'USD/KRW', data: rates.series.usdkrw, note: '한국 전염경로', observed: rates.asOf }
 ];
+
+const ratesRisk = rates.scores.compositeRatesRisk.value;
+const auctionWeakness = 100 - rates.scores.auction.value;
+const ticStress = 100 - rates.scores.tic.value;
+const riskWeights = signalRules.treasuryRiskIndex.weights;
+const treasuryRiskIndex = Math.round(
+  ratesRisk * riskWeights.ratesRisk +
+  auctionWeakness * riskWeights.auctionWeakness +
+  ticStress * riskWeights.ticStress
+);
+const treasuryRiskGrade = treasuryRiskIndex >= 65 ? 'RED' : treasuryRiskIndex >= 35 ? 'YELLOW' : 'GREEN';
 ---
 <BaseLayout
   title="미국채 리서치 허브｜입찰·30년물·AI 반도체 밸류에이션 | JoyLab"
@@ -59,7 +71,7 @@ const dashboard = [
           <h1>미국채를<br /><span>발행부터 AI·반도체까지 연결해서 봅니다.</span></h1>
           <p class="sg-hero__lead">미국채 뉴스는 한 숫자로 끝나지 않습니다. <strong>입찰 → 장기금리 → 할인율 → 달러 → 한국 증시 → AI·반도체</strong>로 이어지는 경로를 3편의 핵심 리서치와 데이터로 추적합니다.</p>
           <div class="sg-hero__chips"><span>#국채입찰</span><span>#미국10년물</span><span>#미국30년물</span><span>#기간프리미엄</span><span>#AI밸류에이션</span><span>#반도체</span></div>
-          <div class="sg-hero__meta"><span><strong>3</strong> Core Research</span><span><strong>5</strong> Live Signals</span><span><strong>{rates.scores.compositeRatesRisk.grade}</strong> Composite Risk</span></div>
+          <div class="sg-hero__meta"><span><strong>3</strong> Core Research</span><span><strong>5</strong> Live Signals</span><span><strong>{treasuryRiskGrade}</strong> Treasury Risk</span></div>
         </div>
         <aside class="sg-lens">
           <div class="sg-lens__brand">JOYLAB<br /><b>TREASURY</b></div>
@@ -77,6 +89,25 @@ const dashboard = [
 
   <main class="sg-main" id="core-research">
     <div class="sg-wrap">
+      <section class="rh-risk" aria-labelledby="treasury-risk-title">
+        <div class="rh-risk__grid">
+          <div>
+            <div class="sg-eyebrow">US TREASURY RISK INDEX · V1.0</div>
+            <h2 id="treasury-risk-title" style="margin:5px 0 8px">미국채 시장 스트레스를 0~100으로 압축합니다</h2>
+            <div class="rh-risk__score"><strong>{treasuryRiskIndex}</strong><span>/ 100</span></div>
+            <span class="rh-risk__grade" data-grade={treasuryRiskGrade}>{treasuryRiskGrade}</span>
+          </div>
+          <div>
+            <div class="rh-risk__components">
+              <div class="rh-risk__component"><small>Rates Risk · 50%</small><b>{ratesRisk}/100</b><span>장기금리·FX 포함 기존 검증 점수</span></div>
+              <div class="rh-risk__component"><small>Auction Weakness · 30%</small><b>{auctionWeakness}/100</b><span>100 - Auction Score</span></div>
+              <div class="rh-risk__component"><small>TIC Stress · 20%</small><b>{ticStress}/100</b><span>100 - TIC Score</span></div>
+            </div>
+            <p class="rh-risk__note">V1.0은 현재 검증된 점수 체계를 사용합니다. 30거래일 Level/Momentum 시계열이 채워지면 V1.1에서 Rates Risk를 순수 시장위험 구성요소로 분리해 Auction·TIC 중복을 제거합니다.</p>
+          </div>
+        </div>
+      </section>
+
       <section class="rh-core">
         <div class="rh-core__intro">
           <div>
@@ -102,7 +133,7 @@ const dashboard = [
       <section class="rh-now" aria-labelledby="rates-now-title">
         <div class="rh-now__head">
           <div><div class="sg-eyebrow" style="color:#8cb9ff">LIVE SIGNAL BOARD</div><h2 id="rates-now-title">지금 시장에서 먼저 확인할 5개 숫자</h2></div>
-          <p>리서치 글은 구조를 설명하고, 아래 숫자는 각 지표의 최신 확보 관측치를 보여줍니다. 지표별 발표주기가 다르므로 카드의 기준시점과 출처를 함께 확인합니다.</p>
+          <p>리서치 글은 구조를 설명하고, 아래 숫자는 각 지표의 최신 확보 관측치를 보여줍니다. 지표별 발표주기가 다르므로 카드의 기준시점과 출처를 함께 확인합니다. 30일 미니차트는 V1.0 JSON 스키마에 맞춘 데이터 적재 후 활성화됩니다.</p>
         </div>
         <div class="rh-now__grid">
           {dashboard.map((item) => <div class="rh-now__item"><em>{item.key}</em><b>{item.data.value}{item.data.unit}</b><span>{item.note}</span><small>기준 {item.observed} · {item.data.source}</small></div>)}
@@ -132,7 +163,7 @@ const dashboard = [
 
         <aside class="sg-rail">
           <section class="sg-rail-card sg-rail-card--dark"><small>START HERE · 03</small><h3>미국채 5% 시대, AI·반도체 밸류에이션</h3><p>지금 시장과 가장 직접적으로 연결되는 최신 글입니다. EPS·멀티플·외국인 수급을 한 프레임에서 봅니다.</p><a href="/articles/us-rates-korea-semiconductor-transmission-2026">최신 리서치 읽기 →</a></section>
-          <section class="sg-rail-card"><small>COMPOSITE RISK</small><h3>{rates.scores.compositeRatesRisk.grade} · {rates.scores.compositeRatesRisk.value}/100</h3><p>금리·입찰·TIC·FX 스트레스를 한 번에 확인하는 JoyLab 보조지표입니다.</p></section>
+          <section class="sg-rail-card"><small>US TREASURY RISK INDEX</small><h3>{treasuryRiskGrade} · {treasuryRiskIndex}/100</h3><p>Rates Risk 50% + Auction Weakness 30% + TIC Stress 20%의 V1.0 지표입니다.</p></section>
           <section class="sg-rail-card"><small>DASHBOARD SNAPSHOT</small><h3>{rates.asOf}</h3><p>시장가격 계열의 공통 스냅샷 기준일입니다. TIC처럼 발표주기가 느린 데이터는 각 카드의 개별 기준시점을 따릅니다.</p></section>
         </aside>
       </div>
