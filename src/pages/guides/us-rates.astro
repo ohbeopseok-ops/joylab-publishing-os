@@ -4,169 +4,50 @@ import '../../styles/semiconductor-guide-v2.css';
 import '../../styles/investment-hub-v2.css';
 import '../../styles/us-rates-hub-v2.css';
 import rates from '../../data/rates-dashboard.json';
-import signalRules from '../../data/rates-signal-rules-v1.json';
+import timeseries from '../../data/rates-timeseries.json';
 
 const coreResearch = [
-  {
-    step: '01',
-    tag: 'AUCTION',
-    title: '응찰률보다 중요한 숫자｜미국 국채 입찰표 읽는 법',
-    href: '/articles/how-to-read-us-treasury-auctions-2026',
-    note: 'Tail·Indirect·Dealer를 통해 “누가 얼마에 샀는가”를 먼저 봅니다.',
-    flow: 'Auction → Tail → Indirect → Dealer → 사후 금리'
-  },
-  {
-    step: '02',
-    tag: 'LONG END',
-    title: '미국 30년물 5%대가 10년물보다 더 위험한 이유',
-    href: '/articles/us-30y-treasury-5-percent-risk-2026',
-    note: '재정적자·국채 공급·기간 프리미엄이 장기 자본비용을 어떻게 끌어올리는지 봅니다.',
-    flow: '30Y → 기간 프리미엄 → 재정·공급 → 장기 자본비용'
-  },
-  {
-    step: '03',
-    tag: 'AI · SEMI',
-    title: '미국채 5% 시대, AI·반도체 밸류에이션은 어떻게 달라질까',
-    href: '/articles/us-rates-korea-semiconductor-transmission-2026',
-    note: '높아진 할인율이 AI CAPEX와 삼성전자·SK하이닉스의 EPS·멀티플·수급에 미치는 영향을 연결합니다.',
-    flow: 'US 10Y → 할인율·AI CAPEX → 원달러·외국인 → 반도체'
-  }
+  { step: '01', tag: 'AUCTION', title: '응찰률보다 중요한 숫자｜미국 국채 입찰표 읽는 법', href: '/articles/how-to-read-us-treasury-auctions-2026', note: 'Tail·Indirect·Dealer를 통해 “누가 얼마에 샀는가”를 먼저 봅니다.', flow: 'Auction → Tail → Indirect → Dealer → 사후 금리' },
+  { step: '02', tag: 'LONG END', title: '미국 30년물 5%대가 10년물보다 더 위험한 이유', href: '/articles/us-30y-treasury-5-percent-risk-2026', note: '재정적자·국채 공급·기간 프리미엄이 장기 자본비용을 어떻게 끌어올리는지 봅니다.', flow: '30Y → 기간 프리미엄 → 재정·공급 → 장기 자본비용' },
+  { step: '03', tag: 'AI · SEMI', title: '미국채 5% 시대, AI·반도체 밸류에이션은 어떻게 달라질까', href: '/articles/us-rates-korea-semiconductor-transmission-2026', note: '높아진 할인율이 AI CAPEX와 삼성전자·SK하이닉스의 EPS·멀티플·수급에 미치는 영향을 연결합니다.', flow: 'US 10Y → 할인율·AI CAPEX → 원달러·외국인 → 반도체' }
 ];
-
 const extensions = [
   { eyebrow: 'FACT CHECK', title: '중국은 미국 국채를 정말 버리고 있나', href: '/articles/china-us-treasury-holdings-2026', note: 'TIC 데이터로 보유액 감소와 실제 순매도를 분리합니다.' },
   { eyebrow: 'BUYER MAP', title: '미국 국채는 지금 누가 사고 누가 파나', href: '/articles/who-buys-us-treasuries-2026', note: '일본·영국·중국·금융센터·민간 자금의 역할을 구분합니다.' },
   { eyebrow: 'PRICE SIGNAL', title: '미국 10년물 5% 경계', href: '/articles/china-us-treasury-holdings-2026#5-price-signal--그래서-10년물-5가-중요하다', note: '5%가 주식 PER과 글로벌 자산배분의 기준이 되는 이유를 봅니다.' }
 ];
-
+const hasLive30d = timeseries.ready && ['us10y','us30y','usdkrw'].every((key) => timeseries.series[key].points?.length === 30);
+const live = timeseries.series;
 const dashboard = [
-  { key: 'US 10Y', data: rates.series.us10y, note: '글로벌 할인율', observed: rates.asOf },
-  { key: 'US 30Y', data: rates.series.us30y, note: '기간·재정 프리미엄', observed: rates.asOf },
-  { key: '30Y-10Y', data: rates.series.spread30y10y, note: '장기 커브 경사', observed: rates.asOf },
-  { key: 'TIC', data: rates.series.foreignTreasuryHoldings, note: '해외 국채 수요', observed: rates.series.foreignTreasuryHoldings.period },
-  { key: 'USD/KRW', data: rates.series.usdkrw, note: '한국 전염경로', observed: rates.asOf }
+  { key: 'US 10Y', data: rates.series.us10y, note: '글로벌 할인율', observed: rates.series.us10y.observedAt || rates.asOf, trend: hasLive30d ? live.us10y : null },
+  { key: 'US 30Y', data: rates.series.us30y, note: '기간·재정 프리미엄', observed: rates.series.us30y.observedAt || rates.asOf, trend: hasLive30d ? live.us30y : null },
+  { key: '30Y-10Y', data: rates.series.spread30y10y, note: '장기 커브 경사', observed: rates.asOf, trend: null },
+  { key: 'TIC', data: rates.series.foreignTreasuryHoldings, note: '해외 국채 수요', observed: rates.series.foreignTreasuryHoldings.period, trend: null },
+  { key: 'USD/KRW', data: rates.series.usdkrw, note: '한국 전염경로', observed: rates.series.usdkrw.observedAt || rates.asOf, trend: hasLive30d ? live.usdkrw : null }
 ];
-
-const ratesRisk = rates.scores.compositeRatesRisk.value;
+const marketRisk = hasLive30d ? timeseries.marketRisk.value : rates.scores.compositeRatesRisk.value;
 const auctionWeakness = 100 - rates.scores.auction.value;
 const ticStress = 100 - rates.scores.tic.value;
-const riskWeights = signalRules.treasuryRiskIndex.weights;
-const treasuryRiskIndex = Math.round(
-  ratesRisk * riskWeights.ratesRisk +
-  auctionWeakness * riskWeights.auctionWeakness +
-  ticStress * riskWeights.ticStress
-);
+const treasuryRiskIndex = hasLive30d ? timeseries.treasuryRiskIndex.value : Math.round(marketRisk * .5 + auctionWeakness * .3 + ticStress * .2);
 const treasuryRiskGrade = treasuryRiskIndex >= 65 ? 'RED' : treasuryRiskIndex >= 35 ? 'YELLOW' : 'GREEN';
+const riskVersion = hasLive30d ? 'V1.1' : 'V1.0 FALLBACK';
+const sparkline = (points) => {
+  if (!points?.length) return '';
+  const values = points.map((p) => p.value); const min = Math.min(...values); const max = Math.max(...values); const span = max - min || 1;
+  return points.map((p, i) => `${i ? 'L' : 'M'} ${(i/(points.length-1))*100} ${28-((p.value-min)/span)*24}`).join(' ');
+};
+const momentumText = (trend) => trend ? (trend.unit === '%' ? `${trend.momentum30dBp >= 0 ? '+' : ''}${trend.momentum30dBp}bp` : `${trend.momentum30dWon >= 0 ? '+' : ''}${trend.momentum30dWon}원`) : '';
 ---
-<BaseLayout
-  title="미국채 리서치 허브｜입찰·30년물·AI 반도체 밸류에이션 | JoyLab"
-  description="JoyLab 미국채 리서치 허브. 국채 입찰의 질부터 30년물 장기금리, 미국채 5%가 AI·반도체 밸류에이션에 미치는 영향까지 3편 핵심 리서치와 실시간 금리 신호를 한 화면에서 연결합니다."
-  bodyClass="semiconductor-guide-v2 investment-hub-v2 rates-hub-v2"
->
-  <section class="sg-hero ih-hero">
-    <div class="sg-wrap sg-hero__inner">
-      <div class="sg-hero__top">
-        <div class="sg-hero__copy">
-          <div class="sg-eyebrow">JOYLAB · U.S. TREASURY RESEARCH HUB</div>
-          <h1>미국채를<br /><span>발행부터 AI·반도체까지 연결해서 봅니다.</span></h1>
-          <p class="sg-hero__lead">미국채 뉴스는 한 숫자로 끝나지 않습니다. <strong>입찰 → 장기금리 → 할인율 → 달러 → 한국 증시 → AI·반도체</strong>로 이어지는 경로를 3편의 핵심 리서치와 데이터로 추적합니다.</p>
-          <div class="sg-hero__chips"><span>#국채입찰</span><span>#미국10년물</span><span>#미국30년물</span><span>#기간프리미엄</span><span>#AI밸류에이션</span><span>#반도체</span></div>
-          <div class="sg-hero__meta"><span><strong>3</strong> Core Research</span><span><strong>5</strong> Live Signals</span><span><strong>{treasuryRiskGrade}</strong> Treasury Risk</span></div>
-        </div>
-        <aside class="sg-lens">
-          <div class="sg-lens__brand">JOYLAB<br /><b>TREASURY</b></div>
-          <div class="sg-lens__item"><em>01</em><div><b>AUCTION</b><span>수요의 질과 발행금리를 읽습니다.</span></div></div>
-          <div class="sg-lens__item"><em>02</em><div><b>RATE</b><span>장기금리와 기간 프리미엄을 봅니다.</span></div></div>
-          <div class="sg-lens__item"><em>03</em><div><b>TRANSMISSION</b><span>AI·반도체까지 전염경로를 연결합니다.</span></div></div>
-        </aside>
-      </div>
-      <div class="sg-map-head"><div><span>START HERE</span><b>3편만 순서대로 읽어도 구조가 보입니다</b></div><a href="#core-research">3편 읽기 →</a></div>
-      <nav class="sg-map ih-map">
-        {coreResearch.map((item, index) => <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={item.href}><em>{item.step}</em><b>{item.tag}</b><span>{index === 0 ? '입찰' : index === 1 ? '장기금리' : '밸류에이션'}</span></a>)}
-      </nav>
-    </div>
-  </section>
+<BaseLayout title="미국채 리서치 허브｜입찰·30년물·AI 반도체 밸류에이션 | JoyLab" description="JoyLab 미국채 리서치 허브. 국채 입찰의 질부터 30년물 장기금리, 미국채 5%가 AI·반도체 밸류에이션에 미치는 영향까지 3편 핵심 리서치와 30거래일 시장 신호를 연결합니다." bodyClass="semiconductor-guide-v2 investment-hub-v2 rates-hub-v2">
+  <section class="sg-hero ih-hero"><div class="sg-wrap sg-hero__inner"><div class="sg-hero__top"><div class="sg-hero__copy"><div class="sg-eyebrow">JOYLAB · U.S. TREASURY RESEARCH HUB</div><h1>미국채를<br /><span>발행부터 AI·반도체까지 연결해서 봅니다.</span></h1><p class="sg-hero__lead">미국채 뉴스는 한 숫자로 끝나지 않습니다. <strong>입찰 → 장기금리 → 할인율 → 달러 → 한국 증시 → AI·반도체</strong>로 이어지는 경로를 3편의 핵심 리서치와 데이터로 추적합니다.</p><div class="sg-hero__chips"><span>#국채입찰</span><span>#미국10년물</span><span>#미국30년물</span><span>#기간프리미엄</span><span>#AI밸류에이션</span><span>#반도체</span></div><div class="sg-hero__meta"><span><strong>3</strong> Core Research</span><span><strong>30D</strong> Live Signals</span><span><strong>{treasuryRiskGrade}</strong> Treasury Risk</span></div></div><aside class="sg-lens"><div class="sg-lens__brand">JOYLAB<br /><b>TREASURY</b></div><div class="sg-lens__item"><em>01</em><div><b>AUCTION</b><span>수요의 질과 발행금리를 읽습니다.</span></div></div><div class="sg-lens__item"><em>02</em><div><b>RATE</b><span>장기금리와 기간 프리미엄을 봅니다.</span></div></div><div class="sg-lens__item"><em>03</em><div><b>TRANSMISSION</b><span>AI·반도체까지 전염경로를 연결합니다.</span></div></div></aside></div><div class="sg-map-head"><div><span>START HERE</span><b>3편만 순서대로 읽어도 구조가 보입니다</b></div><a href="#core-research">3편 읽기 →</a></div><nav class="sg-map ih-map">{coreResearch.map((item, index) => <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={item.href}><em>{item.step}</em><b>{item.tag}</b><span>{index === 0 ? '입찰' : index === 1 ? '장기금리' : '밸류에이션'}</span></a>)}</nav></div></section>
 
-  <main class="sg-main">
-    <div class="sg-wrap">
-      <section class="rh-risk" aria-labelledby="treasury-risk-title">
-        <div class="rh-risk__grid">
-          <div>
-            <div class="sg-eyebrow">US TREASURY RISK INDEX · V1.0</div>
-            <h2 id="treasury-risk-title" style="margin:5px 0 8px">미국채 시장 스트레스를 0~100으로 압축합니다</h2>
-            <div class="rh-risk__score"><strong>{treasuryRiskIndex}</strong><span>/ 100</span></div>
-            <span class="rh-risk__grade" data-grade={treasuryRiskGrade}>{treasuryRiskGrade}</span>
-          </div>
-          <div>
-            <div class="rh-risk__components">
-              <div class="rh-risk__component"><small>Rates Risk · 50%</small><b>{ratesRisk}/100</b><span>장기금리·FX 포함 기존 검증 점수</span></div>
-              <div class="rh-risk__component"><small>Auction Weakness · 30%</small><b>{auctionWeakness}/100</b><span>100 - Auction Score</span></div>
-              <div class="rh-risk__component"><small>TIC Stress · 20%</small><b>{ticStress}/100</b><span>100 - TIC Score</span></div>
-            </div>
-            <p class="rh-risk__note">V1.0은 현재 검증된 점수 체계를 사용합니다. 30거래일 Level/Momentum 시계열이 채워지면 V1.1에서 Rates Risk를 순수 시장위험 구성요소로 분리해 Auction·TIC 중복을 제거합니다.</p>
-          </div>
-        </div>
-      </section>
+  <main class="sg-main"><div class="sg-wrap">
+    <section class="rh-risk" aria-labelledby="treasury-risk-title"><div class="rh-risk__grid"><div><div class="sg-eyebrow">US TREASURY RISK INDEX · {riskVersion}</div><h2 id="treasury-risk-title" style="margin:5px 0 8px">미국채 시장 스트레스를 0~100으로 압축합니다</h2><div class="rh-risk__score"><strong>{treasuryRiskIndex}</strong><span>/ 100</span></div><span class="rh-risk__grade" data-grade={treasuryRiskGrade}>{treasuryRiskGrade}</span></div><div><div class="rh-risk__components"><div class="rh-risk__component"><small>Market Risk · 50%</small><b>{marketRisk}/100</b><span>{hasLive30d ? '10Y·30Y·USD/KRW Level + 30D Momentum' : '30D 데이터 미준비 · 기존 Composite fallback'}</span></div><div class="rh-risk__component"><small>Auction Weakness · 30%</small><b>{auctionWeakness}/100</b><span>100 - Auction Score</span></div><div class="rh-risk__component"><small>TIC Stress · 20%</small><b>{ticStress}/100</b><span>100 - TIC Score</span></div></div><p class="rh-risk__note">{hasLive30d ? 'V1.1은 시장가격 위험을 Auction·TIC와 분리했습니다. Market Risk는 10Y 40% + 30Y 40% + USD/KRW 20%이며 각 지표의 Level/Momentum 중 더 위험한 상태를 사용합니다.' : '30거래일 시계열이 완전하지 않아 V1.0 fallback을 표시합니다. 데이터가 30개 모두 확보되면 V1.1로 자동 전환됩니다.'}</p></div></div></section>
 
-      <section class="rh-core" id="core-research">
-        <div class="rh-core__intro">
-          <div>
-            <div class="sg-eyebrow">CORE JOURNEY · 01 → 02 → 03</div>
-            <h2>발행시장의 숫자에서 투자 판단까지</h2>
-            <p>첫 글에서 국채 입찰을 읽고, 두 번째 글에서 장기금리의 구조를 이해한 뒤, 세 번째 글에서 그 충격이 AI·반도체 밸류에이션으로 어떻게 전달되는지 확인합니다.</p>
-          </div>
-          <div class="rh-core__badge">권장 읽기 순서 · 약 35분</div>
-        </div>
-        <div class="rh-core__grid">
-          {coreResearch.map((item, index) => (
-            <article class={`rh-card ${index === 2 ? 'rh-card--focus' : ''}`}>
-              <div class="rh-card__top"><span class="rh-card__no">{item.step}</span><span class="rh-card__tag">{item.tag}</span></div>
-              <h3>{item.title}</h3>
-              <p>{item.note}</p>
-              <div class="rh-card__flow">{item.flow}</div>
-              <a class="rh-card__cta" href={item.href}>{index === 2 ? '최신 3편 읽기 →' : `${item.step}편 읽기 →`}</a>
-            </article>
-          ))}
-        </div>
-      </section>
+    <section class="rh-core" id="core-research"><div class="rh-core__intro"><div><div class="sg-eyebrow">CORE JOURNEY · 01 → 02 → 03</div><h2>발행시장의 숫자에서 투자 판단까지</h2><p>첫 글에서 국채 입찰을 읽고, 두 번째 글에서 장기금리의 구조를 이해한 뒤, 세 번째 글에서 그 충격이 AI·반도체 밸류에이션으로 어떻게 전달되는지 확인합니다.</p></div><div class="rh-core__badge">권장 읽기 순서 · 약 35분</div></div><div class="rh-core__grid">{coreResearch.map((item, index) => <article class={`rh-card ${index === 2 ? 'rh-card--focus' : ''}`}><div class="rh-card__top"><span class="rh-card__no">{item.step}</span><span class="rh-card__tag">{item.tag}</span></div><h3>{item.title}</h3><p>{item.note}</p><div class="rh-card__flow">{item.flow}</div><a class="rh-card__cta" href={item.href}>{index === 2 ? '최신 3편 읽기 →' : `${item.step}편 읽기 →`}</a></article>)}</div></section>
 
-      <section class="rh-now" aria-labelledby="rates-now-title">
-        <div class="rh-now__head">
-          <div><div class="sg-eyebrow" style="color:#8cb9ff">LIVE SIGNAL BOARD</div><h2 id="rates-now-title">지금 시장에서 먼저 확인할 5개 숫자</h2></div>
-          <p>리서치 글은 구조를 설명하고, 아래 숫자는 각 지표의 최신 확보 관측치를 보여줍니다. 지표별 발표주기가 다르므로 카드의 기준시점과 출처를 함께 확인합니다. 30일 미니차트는 V1.0 JSON 스키마에 맞춘 데이터 적재 후 활성화됩니다.</p>
-        </div>
-        <div class="rh-now__grid">
-          {dashboard.map((item) => <div class="rh-now__item"><em>{item.key}</em><b>{item.data.value}{item.data.unit}</b><span>{item.note}</span><small>기준 {item.observed} · {item.data.source}</small></div>)}
-        </div>
-      </section>
+    <section class="rh-now" aria-labelledby="rates-now-title"><div class="rh-now__head"><div><div class="sg-eyebrow" style="color:#8cb9ff">LIVE SIGNAL BOARD · 30 OBSERVATIONS</div><h2 id="rates-now-title">레벨과 30일 방향을 같이 봅니다</h2></div><p>{hasLive30d ? '10Y·30Y·USD/KRW는 자동 수집된 최근 30개 관측치로 미니차트와 Momentum을 계산합니다. TIC와 입찰 데이터는 각 발표주기를 따릅니다.' : '자동 수집 대기 상태입니다. 30개 관측치가 모두 확보될 때까지 기존 스냅샷을 표시합니다.'}</p></div><div class="rh-now__grid">{dashboard.map((item) => <div class="rh-now__item"><em>{item.key}</em><b>{item.data.value}{item.data.unit}</b>{item.trend && <><svg class="rh-spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-label={`${item.key} 30 observation trend`}><path d={sparkline(item.trend.points)} /></svg><div class="rh-signal-row"><span>{momentumText(item.trend)}</span><strong data-grade={item.trend.combinedStatus}>{item.trend.combinedStatus}</strong></div></>}<span>{item.note}</span><small>기준 {item.observed} · {item.data.source}</small></div>)}</div></section>
 
-      <div class="sg-layout">
-        <section>
-          <section class="sg-insights">
-            <div class="sg-section-head sg-section-head--compact"><div><div class="sg-eyebrow">DECISION FRAME</div><h2>미국채 뉴스는 이 순서로 해석합니다</h2></div><p>Fact → Price → Transmission → Action</p></div>
-            <div class="sg-insights__grid">
-              <div><em>1 · AUCTION</em><b>수요의 질</b><p>Tail·Indirect·Dealer가 약해지는가?</p></div>
-              <div><em>2 · LONG END</em><b>장기 자본비용</b><p>10년물뿐 아니라 30년물과 기간 프리미엄이 오르는가?</p></div>
-              <div><em>3 · TRANSMISSION</em><b>주식 전염</b><p>달러·원달러·외국인 수급과 EPS Revision이 같은 방향인가?</p></div>
-            </div>
-          </section>
-
-          <section class="rh-extension">
-            <div class="sg-section-head"><div><div class="sg-eyebrow">EXTENDED RESEARCH</div><h2>3편을 읽은 뒤 확장해서 볼 자료</h2></div><p>TIC·매수자 구조·5% 가격 신호를 보완합니다.</p></div>
-            <div class="rh-extension__grid">
-              {extensions.map((item) => <article class="rh-extension__item"><small>{item.eyebrow}</small><h3>{item.title}</h3><p>{item.note}</p><a href={item.href}>확장 리서치 →</a></article>)}
-            </div>
-          </section>
-
-          <section class="sg-rule"><div class="sg-eyebrow">JOYLAB TREASURY FRAMEWORK</div><h2>Auction → Rate → Valuation → FX → Flow → EPS</h2><div class="sg-rule__grid"><div class="sg-rule__step"><b>AUCTION</b><span>발행 수요의 질</span></div><div class="sg-rule__step"><b>RATE</b><span>무위험금리·기간 프리미엄</span></div><div class="sg-rule__step"><b>VALUATION</b><span>PER·WACC·CAPEX</span></div><div class="sg-rule__step"><b>TRANSMISSION</b><span>원달러·외국인·반도체</span></div></div></section>
-        </section>
-
-        <aside class="sg-rail">
-          <section class="sg-rail-card sg-rail-card--dark"><small>START HERE · 03</small><h3>미국채 5% 시대, AI·반도체 밸류에이션</h3><p>지금 시장과 가장 직접적으로 연결되는 최신 글입니다. EPS·멀티플·외국인 수급을 한 프레임에서 봅니다.</p><a href="/articles/us-rates-korea-semiconductor-transmission-2026">최신 리서치 읽기 →</a></section>
-          <section class="sg-rail-card"><small>US TREASURY RISK INDEX</small><h3>{treasuryRiskGrade} · {treasuryRiskIndex}/100</h3><p>Rates Risk 50% + Auction Weakness 30% + TIC Stress 20%의 V1.0 지표입니다.</p></section>
-          <section class="sg-rail-card"><small>DASHBOARD SNAPSHOT</small><h3>{rates.asOf}</h3><p>시장가격 계열의 공통 스냅샷 기준일입니다. TIC처럼 발표주기가 느린 데이터는 각 카드의 개별 기준시점을 따릅니다.</p></section>
-        </aside>
-      </div>
-    </div>
-  </main>
+    <div class="sg-layout"><section><section class="sg-insights"><div class="sg-section-head sg-section-head--compact"><div><div class="sg-eyebrow">DECISION FRAME</div><h2>미국채 뉴스는 이 순서로 해석합니다</h2></div><p>Fact → Price → Transmission → Action</p></div><div class="sg-insights__grid"><div><em>1 · AUCTION</em><b>수요의 질</b><p>Tail·Indirect·Dealer가 약해지는가?</p></div><div><em>2 · LONG END</em><b>장기 자본비용</b><p>10년물뿐 아니라 30년물과 기간 프리미엄이 오르는가?</p></div><div><em>3 · TRANSMISSION</em><b>주식 전염</b><p>달러·원달러·외국인 수급과 EPS Revision이 같은 방향인가?</p></div></div></section><section class="rh-extension"><div class="sg-section-head"><div><div class="sg-eyebrow">EXTENDED RESEARCH</div><h2>3편을 읽은 뒤 확장해서 볼 자료</h2></div><p>TIC·매수자 구조·5% 가격 신호를 보완합니다.</p></div><div class="rh-extension__grid">{extensions.map((item) => <article class="rh-extension__item"><small>{item.eyebrow}</small><h3>{item.title}</h3><p>{item.note}</p><a href={item.href}>확장 리서치 →</a></article>)}</div></section><section class="sg-rule"><div class="sg-eyebrow">JOYLAB TREASURY FRAMEWORK</div><h2>Auction → Rate → Valuation → FX → Flow → EPS</h2><div class="sg-rule__grid"><div class="sg-rule__step"><b>AUCTION</b><span>발행 수요의 질</span></div><div class="sg-rule__step"><b>RATE</b><span>무위험금리·기간 프리미엄</span></div><div class="sg-rule__step"><b>VALUATION</b><span>PER·WACC·CAPEX</span></div><div class="sg-rule__step"><b>TRANSMISSION</b><span>원달러·외국인·반도체</span></div></div></section></section><aside class="sg-rail"><section class="sg-rail-card sg-rail-card--dark"><small>START HERE · 03</small><h3>미국채 5% 시대, AI·반도체 밸류에이션</h3><p>지금 시장과 가장 직접적으로 연결되는 최신 글입니다. EPS·멀티플·외국인 수급을 한 프레임에서 봅니다.</p><a href="/articles/us-rates-korea-semiconductor-transmission-2026">최신 리서치 읽기 →</a></section><section class="sg-rail-card"><small>US TREASURY RISK INDEX · {riskVersion}</small><h3>{treasuryRiskGrade} · {treasuryRiskIndex}/100</h3><p>Market Risk 50% + Auction Weakness 30% + TIC Stress 20%입니다.</p></section><section class="sg-rail-card"><small>30D DATA</small><h3>{hasLive30d ? timeseries.asOf : 'SYNC PENDING'}</h3><p>{hasLive30d ? '10Y·30Y·USD/KRW 최근 30개 관측치가 활성화됐습니다.' : '30개 관측치가 모두 확보되면 자동 활성화됩니다.'}</p></section></aside></div>
+  </div></main>
 </BaseLayout>
