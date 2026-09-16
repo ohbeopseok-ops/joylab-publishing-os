@@ -1,0 +1,126 @@
+{
+  "version": "0.1",
+  "title": "미국채 초보 투자자 필수 용어 12",
+  "terms": [
+    {
+      "key": "us10y",
+      "term": "미국 10년물",
+      "aliases": ["US 10Y", "10년물", "미국10년물"],
+      "easy": "미국 정부가 10년 동안 돈을 빌릴 때 시장이 요구하는 대표 금리입니다.",
+      "why": "주식과 부동산 등 여러 자산의 할인율 기준으로 자주 쓰여 성장주 밸류에이션에 큰 영향을 줍니다.",
+      "how": "금리가 빠르게 오르면 미래 이익의 현재가치가 낮아져 주식의 PER이 압박받을 수 있습니다.",
+      "example": "예: 10년물이 4.6%에서 5.0%로 오르면 시장의 무위험 수익률 기준이 높아졌다고 해석합니다.",
+      "href": "/articles/us-rates-korea-semiconductor-transmission-2026"
+    },
+    {
+      "key": "us30y",
+      "term": "미국 30년물",
+      "aliases": ["US 30Y", "30년물", "미국30년물"],
+      "easy": "미국 정부가 30년 동안 돈을 빌릴 때의 장기 금리입니다.",
+      "why": "재정적자, 국채 공급, 인플레이션 불확실성 같은 장기 위험을 더 많이 반영합니다.",
+      "how": "10년물보다 30년물이 더 크게 오르면 장기 재정·기간 프리미엄 부담이 커지는지 확인합니다.",
+      "example": "예: 10년물 4.9%, 30년물 5.4%라면 장기 자금을 빌리는 비용이 더 높다는 뜻입니다.",
+      "href": "/articles/us-30y-treasury-5-percent-risk-2026"
+    },
+    {
+      "key": "auction",
+      "term": "국채 입찰",
+      "aliases": ["Auction", "AUCTION", "입찰"],
+      "easy": "미국 재무부가 새 국채를 시장에 팔아 자금을 조달하는 과정입니다.",
+      "why": "투자자들이 미국 국채를 얼마나 적극적으로 사려는지 실제 주문으로 확인할 수 있습니다.",
+      "how": "응찰률 하나만 보지 말고 Bid-to-Cover, Indirect, Dealer와 함께 수요의 질을 봅니다.",
+      "example": "예: 주문은 많아도 딜러가 많이 떠안았다면 최종 실수요가 강했다고 단정하기 어렵습니다.",
+      "href": "/articles/how-to-read-us-treasury-auctions-2026"
+    },
+    {
+      "key": "bidToCover",
+      "term": "Bid-to-Cover",
+      "aliases": ["Bid-to-Cover", "응찰률"],
+      "easy": "팔려고 내놓은 국채 금액보다 주문이 몇 배 들어왔는지를 보여주는 숫자입니다.",
+      "why": "입찰 수요가 충분했는지 가장 먼저 확인하는 기본 지표입니다.",
+      "how": "2.6배라면 발행액의 약 2.6배 주문이 들어왔다는 뜻이지만, 높다고 무조건 좋은 입찰은 아닙니다.",
+      "example": "예: 390억달러 발행에 약 1,014억달러 주문이면 약 2.6배입니다.",
+      "href": "/articles/how-to-read-us-treasury-auctions-2026"
+    },
+    {
+      "key": "tail",
+      "term": "Tail / Stop-through",
+      "aliases": ["Tail", "Stop-through", "Tail·Indirect"],
+      "easy": "입찰 직전 시장이 예상한 금리와 실제 낙찰 금리의 차이를 보는 개념입니다.",
+      "why": "주문량보다 실제 가격 경쟁력이 강했는지 약했는지 판단하는 데 도움을 줍니다.",
+      "how": "실제 낙찰금리가 직전 시장금리보다 높으면 Tail, 낮으면 Stop-through로 부릅니다.",
+      "example": "예: 시장 예상 5.30%, 낙찰 5.33%라면 약 3bp Tail로 볼 수 있습니다.",
+      "href": "/articles/how-to-read-us-treasury-auctions-2026"
+    },
+    {
+      "key": "indirect",
+      "term": "Indirect Bidder",
+      "aliases": ["Indirect", "Indirect Bidder"],
+      "easy": "해외 중앙은행·기관 등 간접 입찰자로 분류되는 투자자 수요를 보는 항목입니다.",
+      "why": "미국 국채에 대한 해외·기관 실수요가 강한지 확인하는 데 자주 활용됩니다.",
+      "how": "비중이 높고 딜러 비중이 낮으면 최종 투자자 수요가 상대적으로 강했다고 해석할 수 있습니다.",
+      "example": "예: Indirect 79%는 낙찰 물량 중 간접 입찰자 비중이 매우 높았다는 의미입니다.",
+      "href": "/articles/how-to-read-us-treasury-auctions-2026"
+    },
+    {
+      "key": "dealer",
+      "term": "Primary Dealer",
+      "aliases": ["Dealer", "Primary Dealer", "딜러"],
+      "easy": "미국 국채 시장에서 재무부·연준과 직접 거래하는 주요 금융회사들입니다.",
+      "why": "입찰에서 최종 투자자가 덜 사간 물량을 딜러가 많이 떠안는지 확인할 수 있습니다.",
+      "how": "다른 조건이 비슷할 때 Dealer 낙찰 비중이 낮을수록 실수요가 강했다는 신호로 보는 경우가 많습니다.",
+      "example": "예: Dealer 2%대라면 딜러가 떠안은 비중이 낮았다는 뜻입니다.",
+      "href": "/articles/how-to-read-us-treasury-auctions-2026"
+    },
+    {
+      "key": "tic",
+      "term": "TIC",
+      "aliases": ["TIC", "Treasury International Capital"],
+      "easy": "미국 재무부가 집계하는 해외 투자자의 미국 증권 보유·거래 통계입니다.",
+      "why": "중국·일본·영국 등 해외 투자자가 미국 국채를 실제로 얼마나 보유하고 사고파는지 확인할 수 있습니다.",
+      "how": "보유액 변화와 월간 순매수·순매도를 구분해서 봐야 합니다. 보유액 감소가 곧바로 같은 규모의 매도를 뜻하지는 않습니다.",
+      "example": "예: 국채 가격 하락이나 환율 변화도 보유액 평가금액을 바꿀 수 있습니다.",
+      "href": "/articles/who-buys-us-treasuries-2026"
+    },
+    {
+      "key": "termPremium",
+      "term": "기간 프리미엄",
+      "aliases": ["기간 프리미엄", "term premium"],
+      "easy": "돈을 아주 오래 빌려줄 때 투자자가 추가로 요구하는 보상입니다.",
+      "why": "30년물 같은 장기금리가 단순한 기준금리 전망보다 더 높아지는 이유를 설명하는 핵심 개념입니다.",
+      "how": "재정적자·국채 공급·인플레이션 불확실성이 커지면 장기 보유 위험 보상이 높아질 수 있습니다.",
+      "example": "예: 연준 금리인하 기대가 있어도 30년물이 잘 안 내려가면 기간 프리미엄을 함께 점검합니다.",
+      "href": "/articles/us-30y-treasury-5-percent-risk-2026"
+    },
+    {
+      "key": "discountRate",
+      "term": "할인율",
+      "aliases": ["할인율", "Discount Rate"],
+      "easy": "미래에 벌 돈을 오늘 가치로 바꿀 때 적용하는 요구수익률입니다.",
+      "why": "금리가 높아질수록 먼 미래의 이익 가치가 더 크게 깎이기 때문에 성장주에 중요합니다.",
+      "how": "다른 조건이 같다면 할인율 상승은 적정 주가와 적정 PER에 하방 압력을 줍니다.",
+      "example": "예: AI 기업의 이익이 크게 늘어도 금리가 동시에 급등하면 주가 멀티플은 오히려 줄 수 있습니다.",
+      "href": "/articles/us-rates-korea-semiconductor-transmission-2026"
+    },
+    {
+      "key": "usdkrw",
+      "term": "USD/KRW",
+      "aliases": ["USD/KRW", "원·달러", "원달러"],
+      "easy": "1달러를 사는 데 필요한 원화 가격, 즉 원·달러 환율입니다.",
+      "why": "원화 약세가 심해지면 외국인 투자자의 한국 주식 기대수익률과 수급에 부담이 될 수 있습니다.",
+      "how": "환율 상승 자체만 보지 말고 미국 장기금리와 외국인 수급이 같은 방향으로 움직이는지 확인합니다.",
+      "example": "예: 1,330원에서 1,370원으로 오르면 달러 대비 원화 가치가 약해진 것입니다.",
+      "href": "/articles/us-rates-korea-semiconductor-transmission-2026"
+    },
+    {
+      "key": "riskIndex",
+      "term": "US Treasury Risk Index",
+      "aliases": ["Treasury Risk Index", "Risk Index", "US TREASURY RISK INDEX", "Market Risk"],
+      "easy": "JoyLab이 금리·입찰·해외 수요의 스트레스를 0~100으로 압축한 내부 모니터링 지수입니다.",
+      "why": "서로 다른 국채 신호를 한눈에 보고, 위험이 어디서 커졌는지 빠르게 확인하기 위한 보조 도구입니다.",
+      "how": "점수 자체보다 Market·Auction·TIC 중 어떤 항목이 점수를 올렸는지와 전일 대비 변화폭을 함께 봅니다.",
+      "example": "예: 48점 중 Market +40, TIC +8이면 현재 위험의 대부분이 시장금리·환율 쪽에서 나온 것입니다.",
+      "href": "/guides/us-rates"
+    }
+  ]
+}

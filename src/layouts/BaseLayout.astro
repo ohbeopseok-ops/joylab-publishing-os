@@ -2,6 +2,7 @@
 import SiteFooter from '../components/SiteFooter.astro';
 import ArticleContactCta from '../components/ArticleContactCta.astro';
 import TreasuryRiskDelta from '../components/TreasuryRiskDelta.astro';
+import TreasuryLearnAssist from '../components/TreasuryLearnAssist.astro';
 import IdentitySchema from '../components/IdentitySchema.astro';
 import AnalyticsEvents from '../components/AnalyticsEvents.astro';
 import '../styles/global.css';
@@ -21,6 +22,7 @@ const socialImageUrl = image ? new URL(image, Astro.site ?? Astro.url.origin).to
 const bodyClasses = String(bodyClass).split(/\s+/);
 const showArticleContactCta = bodyClasses.includes('research-article-page');
 const showTreasuryRiskDelta = bodyClasses.includes('rates-hub-v2');
+const showTreasuryLearnAssist = bodyClasses.includes('rates-hub-v2');
 ---
 <!doctype html>
 <html lang="ko">
@@ -68,6 +70,7 @@ const showTreasuryRiskDelta = bodyClasses.includes('rates-hub-v2');
       {showTreasuryRiskDelta && <TreasuryRiskDelta />}
       {showArticleContactCta && <ArticleContactCta />}
     </main>
+    {showTreasuryLearnAssist && <TreasuryLearnAssist />}
     <SiteFooter />
     <AnalyticsEvents />
     <script is:inline>

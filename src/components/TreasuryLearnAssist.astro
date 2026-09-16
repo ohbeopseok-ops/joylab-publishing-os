@@ -1,0 +1,91 @@
+---
+import glossary from '../data/treasury-learn-glossary-v0-1.json';
+const terms = glossary.terms;
+---
+<div class="jl-learn" data-learn-root data-version={glossary.version}>
+  <button class="jl-learn__toggle" type="button" data-learn-toggle aria-expanded="false" aria-controls="jl-learn-panel">
+    <span>?</span><b>초보자 모드</b>
+  </button>
+  <aside class="jl-learn__panel" id="jl-learn-panel" data-learn-panel hidden aria-label="미국채 초보 투자자 학습 도우미">
+    <div class="jl-learn__panel-head">
+      <div><small>JOYLAB LEARN MODE · V{glossary.version}</small><h2>어려운 용어, 여기서 바로 이해하세요</h2><p>전문 지표는 그대로 두고 뜻과 투자 연결고리만 쉽게 풀어드립니다.</p></div>
+      <button type="button" class="jl-learn__close" data-learn-close aria-label="학습 패널 닫기">×</button>
+    </div>
+    <div class="jl-learn__quick" data-learn-quick>
+      {terms.map((item) => <button type="button" data-learn-key={item.key}>{item.term}</button>)}
+    </div>
+    <article class="jl-learn__detail" data-learn-detail>
+      <small>START HERE</small>
+      <h3>용어를 선택해보세요</h3>
+      <p>페이지에서 점선으로 표시된 용어나 위의 학습 버튼을 누르면 쉬운 설명이 열립니다.</p>
+    </article>
+    <div class="jl-learn__footer">
+      <label><input type="checkbox" data-learn-persist /> 다음 방문에도 초보자 모드 유지</label>
+      <span>투자 판단이 아니라 학습을 돕는 설명입니다.</span>
+    </div>
+  </aside>
+</div>
+<style is:global>
+  .jl-learn{position:fixed;right:20px;bottom:20px;z-index:70;font-family:inherit}.jl-learn__toggle{display:flex;align-items:center;gap:8px;padding:10px 14px;border:0;border-radius:999px;background:#0b1f4d;color:#fff;box-shadow:0 12px 28px rgba(11,31,77,.24);cursor:pointer}.jl-learn__toggle span{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#1677ff;font-weight:900}.jl-learn__toggle b{font-size:.82rem}.jl-learn__panel{position:absolute;right:0;bottom:54px;width:min(420px,calc(100vw - 32px));max-height:min(72vh,690px);overflow:auto;padding:18px;border:1px solid #d7e2f0;border-radius:20px;background:#fff;color:#12213d;box-shadow:0 22px 60px rgba(11,31,77,.22)}.jl-learn__panel-head{display:flex;gap:16px;justify-content:space-between}.jl-learn__panel-head small{color:#1677ff;font-size:.65rem;font-weight:900;letter-spacing:.08em}.jl-learn__panel-head h2{margin:5px 0 6px;font-size:1.15rem}.jl-learn__panel-head p{margin:0;color:#6b7890;font-size:.8rem;line-height:1.55}.jl-learn__close{width:32px;height:32px;border:0;border-radius:50%;background:#eef3fa;color:#0b1f4d;font-size:1.2rem;cursor:pointer}.jl-learn__quick{display:flex;flex-wrap:wrap;gap:7px;margin:15px 0}.jl-learn__quick button{padding:6px 9px;border:1px solid #dce5f1;border-radius:999px;background:#f8fbff;color:#25406c;font-size:.72rem;cursor:pointer}.jl-learn__quick button:hover,.jl-learn__quick button.is-active{border-color:#1677ff;background:#eaf2ff;color:#0d5cc8}.jl-learn__detail{padding:15px;border-radius:16px;background:#f6f9fe}.jl-learn__detail small{color:#1677ff;font-size:.64rem;font-weight:900}.jl-learn__detail h3{margin:4px 0 8px;font-size:1.05rem}.jl-learn__detail p{margin:7px 0;color:#4f5f78;font-size:.82rem;line-height:1.62}.jl-learn__detail dl{margin:12px 0 0}.jl-learn__detail dt{margin-top:10px;font-size:.7rem;font-weight:900;color:#0b1f4d}.jl-learn__detail dd{margin:3px 0 0;color:#56667f;font-size:.8rem;line-height:1.55}.jl-learn__detail a{display:inline-flex;margin-top:12px;font-size:.76rem;font-weight:900;color:#1677ff;text-decoration:none}.jl-learn__footer{display:grid;gap:8px;margin-top:13px;padding-top:12px;border-top:1px solid #e8edf4;color:#6c788b;font-size:.7rem}.jl-learn__footer label{display:flex;align-items:center;gap:6px}.jl-learn-term{display:inline;padding:0 1px;border:0;border-bottom:1px dashed #1677ff;background:transparent;color:inherit;font:inherit;cursor:help}.jl-learn-term::after{content:' ?';color:#1677ff;font-size:.72em;font-weight:900}.rates-hub-v2:not(.is-learn-mode) .jl-learn-term{border-bottom-color:transparent;cursor:inherit}.rates-hub-v2:not(.is-learn-mode) .jl-learn-term::after{display:none}.rates-hub-v2.is-learn-mode .jl-learn__toggle{background:#1677ff}.rates-hub-v2.is-learn-mode .jl-learn__toggle span{background:#fff;color:#1677ff}@media(max-width:560px){.jl-learn{right:12px;bottom:12px}.jl-learn__panel{right:0;bottom:52px;max-height:76vh;padding:15px}.jl-learn__toggle{padding:9px 12px}.jl-learn__toggle b{font-size:.76rem}}
+</style>
+<script define:vars={{ terms }} is:inline>
+(() => {
+  const body = document.body;
+  if (!body.classList.contains('rates-hub-v2')) return;
+  const root = document.querySelector('[data-learn-root]');
+  const toggle = root?.querySelector('[data-learn-toggle]');
+  const panel = root?.querySelector('[data-learn-panel]');
+  const detail = root?.querySelector('[data-learn-detail]');
+  const persist = root?.querySelector('[data-learn-persist]');
+  if (!root || !toggle || !panel || !detail || !persist) return;
+  const byKey = Object.fromEntries(terms.map((x) => [x.key, x]));
+  const storageKey = 'joylab-treasury-learn-mode';
+  const skipped = new Set(['SCRIPT','STYLE','A','BUTTON','INPUT','TEXTAREA','SELECT','CODE','PRE','SVG']);
+  const aliases = terms.flatMap((t) => t.aliases.map((alias) => ({ alias, key:t.key }))).sort((a,b) => b.alias.length - a.alias.length);
+  const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const pattern = new RegExp(`(${aliases.map((x) => escapeRegExp(x.alias)).join('|')})`, 'g');
+  const aliasToKey = new Map(aliases.map((x) => [x.alias, x.key]));
+
+  const showTerm = (key) => {
+    const item = byKey[key]; if (!item) return;
+    detail.innerHTML = `<small>LEARN CARD</small><h3>${item.term}</h3><p>${item.easy}</p><dl><dt>왜 중요할까?</dt><dd>${item.why}</dd><dt>숫자는 어떻게 읽을까?</dt><dd>${item.how}</dd><dt>예시</dt><dd>${item.example}</dd></dl><a href="${item.href}">관련 리서치 읽기 →</a>`;
+    root.querySelectorAll('[data-learn-key]').forEach((btn) => btn.classList.toggle('is-active', btn.dataset.learnKey === key));
+    panel.hidden = false; toggle.setAttribute('aria-expanded','true');
+  };
+
+  const wrapTerms = () => {
+    const scope = document.querySelector('.rates-hub-v2 main, .rates-hub-v2 .sg-hero')?.parentElement || document.body;
+    const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) {
+      const node = walker.currentNode; const parent = node.parentElement;
+      if (!parent || skipped.has(parent.tagName) || parent.closest('.jl-learn') || parent.closest('.jl-learn-term')) continue;
+      if (pattern.test(node.nodeValue || '')) nodes.push(node);
+      pattern.lastIndex = 0;
+    }
+    nodes.forEach((node) => {
+      const frag = document.createDocumentFragment();
+      const parts = (node.nodeValue || '').split(pattern);
+      parts.forEach((part) => {
+        const key = aliasToKey.get(part);
+        if (!key) return frag.appendChild(document.createTextNode(part));
+        const btn = document.createElement('button'); btn.type='button'; btn.className='jl-learn-term'; btn.dataset.learnKey=key; btn.textContent=part; btn.setAttribute('aria-label', `${part} 쉬운 설명 보기`); frag.appendChild(btn);
+      });
+      node.replaceWith(frag);
+    });
+  };
+
+  const setMode = (enabled, save=true) => {
+    body.classList.toggle('is-learn-mode', enabled);
+    toggle.setAttribute('aria-pressed', String(enabled));
+    if (save && persist.checked) localStorage.setItem(storageKey, enabled ? '1' : '0');
+  };
+  const saved = localStorage.getItem(storageKey) === '1'; persist.checked = saved; setMode(saved, false);
+  wrapTerms();
+  toggle.addEventListener('click', () => { const next = !body.classList.contains('is-learn-mode'); setMode(next); panel.hidden = !next; toggle.setAttribute('aria-expanded', String(next)); });
+  root.querySelector('[data-learn-close]')?.addEventListener('click', () => { panel.hidden = true; toggle.setAttribute('aria-expanded','false'); });
+  root.querySelectorAll('[data-learn-key]').forEach((btn) => btn.addEventListener('click', () => showTerm(btn.dataset.learnKey)));
+  document.addEventListener('click', (event) => { const btn = event.target.closest?.('.jl-learn-term'); if (btn) { setMode(true); showTerm(btn.dataset.learnKey); } });
+  persist.addEventListener('change', () => { if (persist.checked) localStorage.setItem(storageKey, body.classList.contains('is-learn-mode') ? '1' : '0'); else localStorage.removeItem(storageKey); });
+})();
+</script>
