@@ -9,9 +9,11 @@
   "scripts": {
     "dev": "node scripts/apply-curated-research-images.mjs && astro dev",
     "check:heroes": "node scripts/check-hero-quality.mjs",
+    "treasury:sync": "node scripts/sync-treasury-structure.mjs",
+    "treasury:self-test": "node scripts/sync-treasury-structure.mjs --self-test",
     "rates:sync": "node scripts/sync-rates-timeseries.mjs",
     "rates:self-test": "node scripts/sync-rates-timeseries.mjs --self-test",
-    "prebuild": "node scripts/sync-rates-timeseries.mjs && node scripts/apply-curated-research-images.mjs",
+    "prebuild": "node scripts/sync-treasury-structure.mjs && node scripts/sync-rates-timeseries.mjs && node scripts/apply-curated-research-images.mjs",
     "build": "astro build",
     "postbuild": "node scripts/build-distribution-mobile-pages.mjs",
     "preview": "astro preview",
