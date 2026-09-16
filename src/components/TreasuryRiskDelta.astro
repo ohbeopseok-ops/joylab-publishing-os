@@ -1,0 +1,47 @@
+---
+import timeseries from '../data/rates-timeseries.json';
+
+const delta = timeseries.treasuryRiskIndex?.deltaAttribution ?? null;
+const sign = (value) => value > 0 ? `+${value}` : `${value}`;
+const badge = delta?.alert?.level ?? 'BASELINE';
+const direction = delta?.delta > 0 ? '상승' : delta?.delta < 0 ? '하락' : '보합';
+---
+<section class="trd" aria-labelledby="risk-delta-title">
+  <div class="trd__inner">
+    <div class="trd__head">
+      <div>
+        <small>RISK DELTA ATTRIBUTION · EARLY WARNING</small>
+        <h2 id="risk-delta-title">오늘 위험이 왜 움직였는지 분해합니다</h2>
+      </div>
+      <span class="trd__badge" data-level={badge}>{badge}</span>
+    </div>
+
+    {delta ? (
+      <>
+        <div class="trd__summary">
+          <div class="trd__move">
+            <span>{delta.from}</span><b>→</b><span>{delta.to}</span>
+            <strong class:list={{ up: delta.delta > 0, down: delta.delta < 0 }}>{sign(delta.delta)}</strong>
+          </div>
+          <p>{direction} · {delta.interpretation}</p>
+        </div>
+        <div class="trd__drivers" aria-label="Risk delta drivers">
+          <article><small>MARKET</small><strong class:list={{ up: delta.components.marketRisk > 0, down: delta.components.marketRisk < 0 }}>{sign(delta.components.marketRisk)}</strong><span>장기금리·환율</span></article>
+          <article><small>AUCTION</small><strong class:list={{ up: delta.components.auctionWeakness > 0, down: delta.components.auctionWeakness < 0 }}>{sign(delta.components.auctionWeakness)}</strong><span>입찰 수요의 질</span></article>
+          <article><small>TIC</small><strong class:list={{ up: delta.components.ticStress > 0, down: delta.components.ticStress < 0 }}>{sign(delta.components.ticStress)}</strong><span>해외 보유·거래</span></article>
+        </div>
+        <div class="trd__formula">{delta.formula}</div>
+        <p class="trd__rule">경보 규칙: 일간 +10점 이상 ALERT · +5~9점 WATCH · -5~-9점 COOLING · -10점 이하 EASING. 이는 JoyLab 내부 모니터링 규칙이며 공식 시장지표가 아닙니다.</p>
+      </>
+    ) : (
+      <div class="trd__baseline">
+        <strong>BASELINE ESTABLISHED · {timeseries.treasuryRiskIndex.value}/100</strong>
+        <p>첫 스냅샷을 저장했습니다. 다음으로 서로 다른 실데이터 스냅샷이 생성되면 Market / Auction / TIC별 일간 변화 기여도가 자동 활성화됩니다.</p>
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+.trd{margin:0;background:#071631;color:#fff}.trd__inner{max-width:1160px;margin:0 auto;padding:26px 24px 32px}.trd__head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}.trd__head small{color:#7eafff;font-weight:900;letter-spacing:.09em}.trd__head h2{margin:5px 0 0;font-size:clamp(1.35rem,2.4vw,2rem)}.trd__badge{padding:7px 11px;border-radius:999px;font-size:.7rem;font-weight:900;letter-spacing:.08em;background:#1b355f;color:#dbe8ff}.trd__badge[data-level="ALERT"]{background:#5f2026;color:#ffd9dc}.trd__badge[data-level="WATCH"]{background:#5d4613;color:#ffe9a8}.trd__badge[data-level="COOLING"],.trd__badge[data-level="EASING"]{background:#123f34;color:#bff7e4}.trd__summary{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-top:22px;padding:18px 0;border-top:1px solid rgba(255,255,255,.12)}.trd__move{display:flex;align-items:baseline;gap:10px}.trd__move span{font-size:2.15rem;font-weight:900}.trd__move b{color:#7593bd}.trd__move strong{font-size:1.15rem}.trd .up{color:#ff9b9b}.trd .down{color:#7de0ba}.trd__summary p{max-width:620px;margin:0;color:#c8d6eb;line-height:1.65}.trd__drivers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.trd__drivers article{padding:14px;border:1px solid rgba(255,255,255,.13);border-radius:14px;background:rgba(255,255,255,.055)}.trd__drivers small,.trd__drivers span{display:block;color:#8fa9ce;font-size:.72rem}.trd__drivers strong{display:block;margin:4px 0;font-size:1.45rem}.trd__formula{margin-top:12px;padding:13px 15px;border-radius:12px;background:#102649;color:#eaf2ff;font-weight:800}.trd__rule{margin:10px 0 0;color:#8299bb;font-size:.72rem;line-height:1.55}.trd__baseline{margin-top:20px;padding:17px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.05)}.trd__baseline strong{color:#dce9ff}.trd__baseline p{margin:7px 0 0;color:#aebfd9;line-height:1.6}@media(max-width:720px){.trd__inner{padding:22px 18px 26px}.trd__head,.trd__summary{display:block}.trd__badge{display:inline-flex;margin-top:12px}.trd__summary p{margin-top:10px}.trd__drivers{grid-template-columns:1fr}.trd__move span{font-size:1.8rem}}
+</style>
