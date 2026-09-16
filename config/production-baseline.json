@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "cloudflare": {
+    "workerService": "joylab-publishing-os",
+    "workerEnvironment": "production",
+    "zoneName": "aijoylab.kr"
+  },
+  "workerExposure": {
+    "workersDevEnabled": false,
+    "previewUrlsEnabled": false
+  },
+  "customDomains": [
+    "aijoylab.kr",
+    "www.aijoylab.kr"
+  ],
+  "dns": {
+    "requiredHostnames": [
+      "aijoylab.kr",
+      "www.aijoylab.kr"
+    ],
+    "requireProxied": true
+  }
+}
