@@ -100,11 +100,23 @@ function computeTreasuryRiskIndex(marketRisk) {
   const auctionWeakness = 100 - dashboard.scores.auction.value;
   const ticStress = 100 - dashboard.scores.tic.value;
   const w = rules.treasuryRiskIndex.weights;
-  const value = Math.round(
-    marketRisk.value * w.marketRisk +
-    auctionWeakness * w.auctionWeakness +
-    ticStress * w.ticStress
-  );
+  const rawContributions = {
+    marketRisk: marketRisk.value * w.marketRisk,
+    auctionWeakness: auctionWeakness * w.auctionWeakness,
+    ticStress: ticStress * w.ticStress
+  };
+  const contributions = {
+    marketRisk: Math.round(rawContributions.marketRisk),
+    auctionWeakness: Math.round(rawContributions.auctionWeakness),
+    ticStress: Math.round(rawContributions.ticStress)
+  };
+  const value = Math.round(Object.values(rawContributions).reduce((sum, item) => sum + item, 0));
+  const driverLabels = {
+    marketRisk: 'Market Risk',
+    auctionWeakness: 'Auction Weakness',
+    ticStress: 'TIC Stress'
+  };
+  const dominantDriverKey = Object.entries(rawContributions).sort((a, b) => b[1] - a[1])[0][0];
   return {
     version: '1.1',
     value,
@@ -113,6 +125,12 @@ function computeTreasuryRiskIndex(marketRisk) {
       marketRisk: marketRisk.value,
       auctionWeakness,
       ticStress
+    },
+    contributions,
+    dominantDriver: {
+      key: dominantDriverKey,
+      label: driverLabels[dominantDriverKey],
+      points: contributions[dominantDriverKey]
     },
     weights: w
   };
@@ -154,7 +172,9 @@ function updateDashboard(timeseries) {
     grade: timeseries.treasuryRiskIndex.grade,
     higherIsWorse: true,
     method: 'Market Risk 50% + Auction Weakness 30% + TIC Stress 20%',
-    version: '1.1'
+    version: '1.1',
+    contributions: timeseries.treasuryRiskIndex.contributions,
+    dominantDriver: timeseries.treasuryRiskIndex.dominantDriver
   };
   return next;
 }
@@ -169,6 +189,16 @@ function selfTest() {
   assert.equal(s.points.length, 30);
   assert.equal(s.momentum30dBp, 29);
   assert.equal(s.combinedStatus, 'YELLOW');
+  const originalAuction = dashboard.scores.auction.value;
+  const originalTic = dashboard.scores.tic.value;
+  dashboard.scores.auction.value = 100;
+  dashboard.scores.tic.value = 62;
+  const risk = computeTreasuryRiskIndex({ value: 80, grade: 'RED' });
+  assert.deepEqual(risk.contributions, { marketRisk: 40, auctionWeakness: 0, ticStress: 8 });
+  assert.equal(risk.value, 48);
+  assert.equal(risk.dominantDriver.key, 'marketRisk');
+  dashboard.scores.auction.value = originalAuction;
+  dashboard.scores.tic.value = originalTic;
   console.log('rates sync self-test passed');
 }
 
@@ -209,4 +239,4 @@ const timeseries = {
 
 fs.writeFileSync(outputPath, `${JSON.stringify(timeseries, null, 2)}\n`, 'utf8');
 fs.writeFileSync(dashboardPath, `${JSON.stringify(updateDashboard(timeseries), null, 2)}\n`, 'utf8');
-console.log(`Synced rates through ${asOf}; Market Risk ${marketRisk.value}; Treasury Risk V1.1 ${treasuryRiskIndex.value}.`);
+console.log(`Synced rates through ${asOf}; Market Risk ${marketRisk.value}; Treasury Risk V1.1 ${treasuryRiskIndex.value}; contributions M/A/T ${treasuryRiskIndex.contributions.marketRisk}/${treasuryRiskIndex.contributions.auctionWeakness}/${treasuryRiskIndex.contributions.ticStress}.`);
