@@ -1,0 +1,25 @@
+{
+  "version": "0.4",
+  "ready": false,
+  "generatedAt": null,
+  "foreignFlow": {
+    "ready": false,
+    "provider": "KRX_OPEN_API",
+    "source": "KRX official Open API",
+    "observedAt": null,
+    "market": "KOSPI",
+    "netBuyBillionKrw": null,
+    "status": null,
+    "note": "Requires an approved KRX Open API authentication key and endpoint configuration."
+  },
+  "epsRevision": {
+    "ready": false,
+    "provider": "AUTHORIZED_EPS_FEED",
+    "source": null,
+    "observedAt": null,
+    "universe": ["005930", "000660"],
+    "revision30dPct": null,
+    "status": null,
+    "note": "Requires an authorized consensus/EPS revision feed. Unlicensed scraping is not used."
+  }
+}

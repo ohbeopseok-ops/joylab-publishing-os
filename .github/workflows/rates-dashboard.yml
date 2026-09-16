@@ -44,7 +44,21 @@ jobs:
       - name: Risk delta attribution self-test
         run: npm run risk-history:self-test
 
-      - name: Refresh official Auction + TIC + 30D market data + risk history
+      - name: Market transmission V0.4 self-test
+        run: npm run market-transmission:self-test
+
+      - name: Refresh official Treasury + market transmission inputs
+        env:
+          KRX_AUTH_KEY: ${{ secrets.KRX_AUTH_KEY }}
+          KRX_FOREIGN_FLOW_URL: ${{ vars.KRX_FOREIGN_FLOW_URL }}
+          KRX_FOREIGN_FLOW_METHOD: ${{ vars.KRX_FOREIGN_FLOW_METHOD }}
+          KRX_FOREIGN_FLOW_ROW_PATH: ${{ vars.KRX_FOREIGN_FLOW_ROW_PATH }}
+          KRX_FOREIGN_FLOW_VALUE_FIELD: ${{ vars.KRX_FOREIGN_FLOW_VALUE_FIELD }}
+          KRX_FOREIGN_FLOW_DATE_FIELD: ${{ vars.KRX_FOREIGN_FLOW_DATE_FIELD }}
+          KRX_FOREIGN_FLOW_DIVISOR: ${{ vars.KRX_FOREIGN_FLOW_DIVISOR }}
+          KRX_FOREIGN_FLOW_MARKET: ${{ vars.KRX_FOREIGN_FLOW_MARKET }}
+          EPS_REVISION_FEED_URL: ${{ vars.EPS_REVISION_FEED_URL }}
+          EPS_REVISION_FEED_TOKEN: ${{ secrets.EPS_REVISION_FEED_TOKEN }}
         run: npm run build
 
       - name: Capture refreshed TIC period
@@ -65,14 +79,14 @@ jobs:
       - name: Commit verified dashboard data
         id: commit
         run: |
-          if git diff --quiet -- src/data/rates-dashboard.json src/data/rates-timeseries.json src/data/treasury-risk-history.json; then
+          if git diff --quiet -- src/data/rates-dashboard.json src/data/rates-timeseries.json src/data/treasury-risk-history.json src/data/market-transmission.json; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "joylab-rates-bot"
           git config user.email "joylab-rates-bot@users.noreply.github.com"
-          git add src/data/rates-dashboard.json src/data/rates-timeseries.json src/data/treasury-risk-history.json
-          git commit -m "data: refresh Treasury risk inputs and delta history"
+          git add src/data/rates-dashboard.json src/data/rates-timeseries.json src/data/treasury-risk-history.json src/data/market-transmission.json
+          git commit -m "data: refresh Treasury and market transmission inputs"
           git push origin HEAD:main
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
@@ -87,7 +101,7 @@ jobs:
           if [ -n "$existing" ]; then exit 0; fi
           gh issue create \
             --title "Treasury Risk Delta ALERT ${ASOF}" \
-            --body "## Early warning trigger\nTreasury Risk Index increased by **10 points or more** versus the previous distinct snapshot.\n\n**${FORMULA}**\n\n## Required review\n- [ ] Check US 10Y / 30Y Level + Momentum\n- [ ] Check latest 10Y / 30Y auction quality\n- [ ] Check TIC holdings / Treasury flows\n- [ ] Confirm whether the dominant driver is Market, Auction, or TIC\n- [ ] Decide whether editorial commentary or investor watchlist needs an update\n\nThis alert is a JoyLab internal monitoring rule, not an official market indicator."
+            --body "## Early warning trigger\nTreasury Risk Index increased by **10 points or more** versus the previous distinct snapshot.\n\n**${FORMULA}**\n\n## Required review\n- [ ] Check US 10Y / 30Y Level + Momentum\n- [ ] Check latest 10Y / 30Y auction quality\n- [ ] Check TIC holdings / Treasury flows\n- [ ] Check EPS Revision / foreign flow transmission inputs\n- [ ] Confirm whether the dominant driver is Market, Auction, or TIC\n- [ ] Decide whether editorial commentary or investor watchlist needs an update\n\nThis alert is a JoyLab internal monitoring rule, not an official market indicator."
 
       - name: Open TIC Monthly Research Runtime issue
         if: steps.before.outputs.tic_period != steps.after.outputs.tic_period
@@ -100,4 +114,4 @@ jobs:
           if [ -n "$existing" ]; then exit 0; fi
           gh issue create \
             --title "TIC Monthly Research ${NEW_TIC}" \
-            --body "## Trigger\nTIC Monthly Research Runtime detected a new U.S. Treasury TIC period: **${OLD_TIC} → ${NEW_TIC}**.\n\nRuntime spec: \`docs/operations/tic-monthly-research-runtime.md\`\n\n## Automated inputs\n- Auction Score: latest 10Y + 30Y from TreasuryDirect TA_WS\n- TIC Score: SLT Table 5 holdings + SLT Table 1 Treasury net flows\n- Market Risk: 10Y + 30Y + USD/KRW Level/Momentum\n- Treasury Risk Index V1.1 recomputed after all inputs refresh\n- Risk Delta Attribution: previous distinct snapshot vs current snapshot\n\n## Required editorial validation\n- [ ] Verify Grand Total / Foreign Official holdings\n- [ ] Verify China / Japan / United Kingdom\n- [ ] Reconcile MoM and YoY deltas\n- [ ] Separate holdings change from monthly transaction flow\n- [ ] Update \`china-us-treasury-holdings-2026.md\` if interpretation changed\n- [ ] Update \`who-buys-us-treasuries-2026.md\` if buyer regime changed\n- [ ] Re-evaluate crisis / stress language before publishing prose\n\n## Rule\nNumbers and model scores may refresh automatically after plausibility checks. Research prose, crisis language and investment interpretation require verified source review and PR approval."
+            --body "## Trigger\nTIC Monthly Research Runtime detected a new U.S. Treasury TIC period: **${OLD_TIC} → ${NEW_TIC}**.\n\nRuntime spec: \`docs/operations/tic-monthly-research-runtime.md\`\n\n## Automated inputs\n- Auction Score: latest 10Y + 30Y from TreasuryDirect TA_WS\n- TIC Score: SLT Table 5 holdings + SLT Table 1 Treasury net flows\n- Market Risk: 10Y + 30Y + USD/KRW Level/Momentum\n- Treasury Risk Index V1.1 recomputed after all inputs refresh\n- Risk Delta Attribution: previous distinct snapshot vs current snapshot\n- Learn Mode V0.4: EPS Revision + KRX foreign flow when authorized feeds are connected\n\n## Required editorial validation\n- [ ] Verify Grand Total / Foreign Official holdings\n- [ ] Verify China / Japan / United Kingdom\n- [ ] Reconcile MoM and YoY deltas\n- [ ] Separate holdings change from monthly transaction flow\n- [ ] Update \`china-us-treasury-holdings-2026.md\` if interpretation changed\n- [ ] Update \`who-buys-us-treasuries-2026.md\` if buyer regime changed\n- [ ] Re-evaluate crisis / stress language before publishing prose\n\n## Rule\nNumbers and model scores may refresh automatically after plausibility checks. Research prose, crisis language and investment interpretation require verified source review and PR approval."
