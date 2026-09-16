@@ -32,7 +32,7 @@
   "us-rates-korea-semiconductor-transmission-2026": {
     "supporting": [
       {"index": 0, "afterHeading": "TRANSMISSION"},
-      {"index": 1, "afterHeading": "FLOW"}
+      {"index": 1, "afterHeading": "SEMICONDUCTOR"}
     ]
   },
   "us-30y-treasury-5-percent-risk-2026": {
