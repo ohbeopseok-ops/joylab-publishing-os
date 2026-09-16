@@ -34,26 +34,33 @@ jobs:
       - name: Rates sync self-test
         run: npm run rates:self-test
 
+      - name: Risk delta attribution self-test
+        run: npm run risk-history:self-test
+
       - name: Fetch 30-observation market data
         run: npm run rates:sync
+
+      - name: Recompute and persist Risk Delta Attribution
+        run: npm run risk-history:update
 
       - name: Validate generated JSON
         shell: bash
         run: |
           set -euo pipefail
-          node -e "const d=require('./src/data/rates-timeseries.json'); if(!d.ready) process.exit(1); for (const k of ['us10y','us30y','usdkrw']) if(d.series[k].points.length!==30) process.exit(1); console.log(d.asOf,d.marketRisk,d.treasuryRiskIndex)"
+          node -e "const d=require('./src/data/rates-timeseries.json'); if(!d.ready) process.exit(1); for (const k of ['us10y','us30y','usdkrw']) if(d.series[k].points.length!==30) process.exit(1); if(!d.treasuryRiskIndex.deltaAttribution && !require('./src/data/treasury-risk-history.json').snapshots.length) process.exit(1); console.log(d.asOf,d.marketRisk,d.treasuryRiskIndex)"
           node -e "JSON.parse(require('node:fs').readFileSync('src/data/rates-dashboard.json','utf8'))"
+          node -e "JSON.parse(require('node:fs').readFileSync('src/data/treasury-risk-history.json','utf8'))"
 
       - name: Commit updated rates data
         shell: bash
         run: |
           set -euo pipefail
-          if git diff --quiet -- src/data/rates-timeseries.json src/data/rates-dashboard.json; then
+          if git diff --quiet -- src/data/rates-timeseries.json src/data/rates-dashboard.json src/data/treasury-risk-history.json; then
             echo 'No rates data changes.'
             exit 0
           fi
           git config user.name 'JoyLab Rates Bot'
           git config user.email 'actions@users.noreply.github.com'
-          git add src/data/rates-timeseries.json src/data/rates-dashboard.json
-          git commit -m 'data: refresh 30d Treasury and USDKRW signals'
+          git add src/data/rates-timeseries.json src/data/rates-dashboard.json src/data/treasury-risk-history.json
+          git commit -m 'data: refresh 30d Treasury signals and delta history'
           git push origin HEAD:main
