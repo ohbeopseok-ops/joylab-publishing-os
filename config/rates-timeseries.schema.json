@@ -1,12 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://aijoylab.kr/schemas/rates-timeseries.schema.json",
-  "title": "JoyLab Rates 30D Time Series",
+  "title": "JoyLab Rates 30D Time Series V1.1",
   "type": "object",
-  "required": ["version", "asOf", "windowTradingDays", "series"],
+  "required": ["version", "ready", "asOf", "generatedAt", "windowTradingDays", "series", "marketRisk", "treasuryRiskIndex"],
   "properties": {
-    "version": { "const": "1.0" },
-    "asOf": { "type": "string", "format": "date" },
+    "version": { "const": "1.1" },
+    "ready": { "type": "boolean" },
+    "asOf": { "type": ["string", "null"], "format": "date" },
+    "generatedAt": { "type": ["string", "null"], "format": "date-time" },
     "windowTradingDays": { "const": 30 },
     "series": {
       "type": "object",
@@ -17,6 +19,18 @@
         "usdkrw": { "$ref": "#/$defs/fxSeries" }
       },
       "additionalProperties": false
+    },
+    "marketRisk": { "$ref": "#/$defs/riskValue" },
+    "treasuryRiskIndex": {
+      "type": "object",
+      "required": ["version", "value", "grade"],
+      "properties": {
+        "version": { "const": "1.1" },
+        "value": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+        "grade": { "type": ["string", "null"] },
+        "components": { "type": "object" },
+        "weights": { "type": "object" }
+      }
     }
   },
   "$defs": {
@@ -29,35 +43,75 @@
       },
       "additionalProperties": false
     },
+    "riskValue": {
+      "type": "object",
+      "required": ["value", "grade"],
+      "properties": {
+        "value": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+        "grade": { "type": ["string", "null"] }
+      }
+    },
     "baseSeries": {
       "type": "object",
-      "required": ["label", "unit", "source", "points"],
+      "required": ["label", "unit", "source", "observedAt", "points", "current", "levelStatus", "momentumStatus", "combinedStatus", "stressScore"],
       "properties": {
         "label": { "type": "string" },
         "unit": { "type": "string" },
         "source": { "type": "string" },
         "sourceUrl": { "type": "string", "format": "uri" },
-        "observedAt": { "type": "string", "format": "date" },
-        "points": {
-          "type": "array",
-          "minItems": 30,
-          "maxItems": 30,
-          "items": { "$ref": "#/$defs/point" }
-        }
+        "observedAt": { "type": ["string", "null"], "format": "date" },
+        "points": { "type": "array", "maxItems": 30, "items": { "$ref": "#/$defs/point" } },
+        "current": { "type": ["number", "null"] },
+        "levelStatus": { "type": ["string", "null"] },
+        "momentumStatus": { "type": ["string", "null"] },
+        "combinedStatus": { "type": ["string", "null"] },
+        "stressScore": { "type": ["number", "null"] }
       }
     },
     "rateSeries": {
       "allOf": [
         { "$ref": "#/$defs/baseSeries" },
-        { "properties": { "unit": { "const": "%" } } }
+        { "required": ["momentum30dBp"], "properties": { "unit": { "const": "%" }, "momentum30dBp": { "type": ["number", "null"] } } }
       ]
     },
     "fxSeries": {
       "allOf": [
         { "$ref": "#/$defs/baseSeries" },
-        { "properties": { "unit": { "const": "원" } } }
+        { "required": ["momentum30dWon"], "properties": { "unit": { "const": "원" }, "momentum30dWon": { "type": ["number", "null"] } } }
       ]
     }
   },
+  "allOf": [
+    {
+      "if": { "properties": { "ready": { "const": true } } },
+      "then": {
+        "properties": {
+          "asOf": { "type": "string", "format": "date" },
+          "generatedAt": { "type": "string", "format": "date-time" },
+          "series": {
+            "properties": {
+              "us10y": { "properties": { "points": { "minItems": 30, "maxItems": 30 } } },
+              "us30y": { "properties": { "points": { "minItems": 30, "maxItems": 30 } } },
+              "usdkrw": { "properties": { "points": { "minItems": 30, "maxItems": 30 } } }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "ready": { "const": false } } },
+      "then": {
+        "properties": {
+          "series": {
+            "properties": {
+              "us10y": { "properties": { "points": { "maxItems": 0 } } },
+              "us30y": { "properties": { "points": { "maxItems": 0 } } },
+              "usdkrw": { "properties": { "points": { "maxItems": 0 } } }
+            }
+          }
+        }
+      }
+    }
+  ],
   "additionalProperties": false
 }

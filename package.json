@@ -9,7 +9,9 @@
   "scripts": {
     "dev": "node scripts/apply-curated-research-images.mjs && astro dev",
     "check:heroes": "node scripts/check-hero-quality.mjs",
-    "prebuild": "node scripts/apply-curated-research-images.mjs",
+    "rates:sync": "node scripts/sync-rates-timeseries.mjs",
+    "rates:self-test": "node scripts/sync-rates-timeseries.mjs --self-test",
+    "prebuild": "node scripts/sync-rates-timeseries.mjs && node scripts/apply-curated-research-images.mjs",
     "build": "astro build",
     "postbuild": "node scripts/build-distribution-mobile-pages.mjs",
     "preview": "astro preview",
