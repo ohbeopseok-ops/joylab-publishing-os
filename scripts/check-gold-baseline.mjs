@@ -67,7 +67,7 @@ contains(deploy, 'name: Production smoke test', 'Deploy includes a production sm
 contains(deploy, 'https://aijoylab.kr/', 'Canonical production domain is smoke-tested');
 contains(deploy, 'https://aijoylab.kr/robots.txt', 'robots.txt is smoke-tested');
 contains(deploy, 'https://aijoylab.kr/sitemap.xml', 'sitemap.xml is smoke-tested');
-contains(deploy, 'https://aijoylab.kr/rss.xml', 'rss.xml is smoke-tested');
+contains(deploy, 'https://aijoylab.kr/rss.xml', 'RSS is smoke-tested');
 contains(deploy, "test \"$www_code\" = \"301\"", 'www canonical redirect must remain HTTP 301');
 contains(deploy, 'strict-transport-security: max-age=31536000; includeSubDomains', 'HSTS is verified in production');
 contains(deploy, 'x-content-type-options: nosniff', 'X-Content-Type-Options is verified in production');
@@ -113,8 +113,11 @@ contains(driftScript, '/subdomain', 'Configuration Drift checks Worker subdomain
 contains(driftScript, 'previews_enabled', 'Configuration Drift checks preview URL exposure');
 contains(driftScript, 'record.proxied === true', 'Configuration Drift checks Cloudflare proxy intent');
 contains(driftScript, 'domain.zone_id === zoneId', 'Configuration Drift checks expected Cloudflare zone');
+contains(driftScript, 'domain.environment === expectedEnvironment', 'Configuration Drift checks the expected Worker environment');
+contains(driftScript, 'unexpected custom domain attached to Worker', 'Configuration Drift keeps unexpected extra custom domains warning-only');
 
 contains(productionBaseline, '"schemaVersion": 1', 'Production configuration baseline schema remains V1');
+contains(productionBaseline, '"workerEnvironment": "production"', 'Production baseline pins the Worker environment');
 contains(productionBaseline, '"workersDevEnabled": false', 'Production baseline requires workers.dev disabled');
 contains(productionBaseline, '"previewUrlsEnabled": false', 'Production baseline requires preview URLs disabled');
 contains(productionBaseline, '"aijoylab.kr"', 'Production baseline retains canonical host');
