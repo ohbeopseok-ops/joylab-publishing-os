@@ -7,14 +7,27 @@
     "name": "AI Economics",
     "status": "ACTIVE"
   },
-  "updatedAt": "2026-09-20T20:00:00+09:00",
+  "updatedAt": "2026-09-20T20:30:00+09:00",
   "articles": [
     {
       "articleId": "ai-bubble-vs-compute-supercycle-2026",
       "thesis": {
         "id": "THESIS-AIE-001",
         "statement": "AI 수요의 구조적 성장과 특정 시점의 과도한 CAPEX·밸류에이션은 동시에 존재할 수 있으며, 핵심 검증 변수는 투자된 자본이 매출·마진·FCF로 전환되는 속도다.",
-        "status": "SUPPORTED"
+        "status": "SUPPORTED",
+        "confidence": 0.78,
+        "history": [
+          {
+            "at": "2026-09-20",
+            "status": "SUPPORTED",
+            "confidence": 0.78,
+            "reason": "대규모 AI CAPEX와 OpenAI 현금소진 전망이 산업 성장과 자본효율 리스크의 동시 존재를 지지한다.",
+            "evidenceIds": [
+              "EVID-AIE-001-01",
+              "EVID-AIE-001-02"
+            ]
+          }
+        ]
       },
       "evidence": [
         {
@@ -48,7 +61,21 @@
       "thesis": {
         "id": "THESIS-AIE-002",
         "statement": "프런티어 AI 기업의 평가 기준은 사용자 성장에서 기업 매출, 컴퓨팅 원가, 현금소진과 자본효율로 이동하고 있다.",
-        "status": "SUPPORTED"
+        "status": "SUPPORTED",
+        "confidence": 0.82,
+        "history": [
+          {
+            "at": "2026-09-20",
+            "status": "SUPPORTED",
+            "confidence": 0.82,
+            "reason": "OpenAI 기업 매출 비중 확대와 현금소진 전망이 성장에서 자본효율로 평가축이 이동한다는 명제를 지지한다.",
+            "evidenceIds": [
+              "EVID-AIE-002-01",
+              "EVID-AIE-002-02",
+              "EVID-AIE-002-03"
+            ]
+          }
+        ]
       },
       "evidence": [
         {
@@ -94,7 +121,20 @@
       "thesis": {
         "id": "THESIS-AIE-003",
         "statement": "AI 인프라의 병목은 GPU·HBM에서 서버 부품과 전력망으로 확장되며, 병목의 이동이 수익 풀의 이동을 만든다.",
-        "status": "SUPPORTED"
+        "status": "SUPPORTED",
+        "confidence": 0.84,
+        "history": [
+          {
+            "at": "2026-09-20",
+            "status": "SUPPORTED",
+            "confidence": 0.84,
+            "reason": "AI 서버용 MLCC 대형 계약과 전력 수요 증가가 병목의 물리 인프라 확장을 지지한다.",
+            "evidenceIds": [
+              "EVID-AIE-003-01",
+              "EVID-AIE-003-02"
+            ]
+          }
+        ]
       },
       "evidence": [
         {
@@ -128,7 +168,20 @@
       "thesis": {
         "id": "THESIS-AIE-004",
         "statement": "AI 메모리 수요가 삼성전자 이익으로 전환되는 핵심은 HBM4·HBM4E·서버 DRAM·eSSD의 고부가 믹스와 수율이다.",
-        "status": "SUPPORTED"
+        "status": "SUPPORTED",
+        "confidence": 0.9,
+        "history": [
+          {
+            "at": "2026-09-20",
+            "status": "SUPPORTED",
+            "confidence": 0.9,
+            "reason": "삼성전자 HBM4 양산·HBM4E·서버 메모리 실적 데이터가 고부가 믹스 전환을 직접 지지한다.",
+            "evidenceIds": [
+              "EVID-AIE-004-01",
+              "EVID-AIE-004-02"
+            ]
+          }
+        ]
       },
       "evidence": [
         {
@@ -162,7 +215,20 @@
       "thesis": {
         "id": "THESIS-AIE-005",
         "statement": "AI 사용량 증가와 에이전트 통합 확대는 API 키·세션 토큰·연산 권한을 새로운 경제적 자산이자 공격면으로 만든다.",
-        "status": "STRONGLY_SUPPORTED"
+        "status": "SUPPORTED",
+        "confidence": 0.92,
+        "history": [
+          {
+            "at": "2026-09-20",
+            "status": "SUPPORTED",
+            "confidence": 0.92,
+            "reason": "Anthropic 위협 인텔리전스가 API 키·세션 토큰·연산 권한을 실제 공격 자산으로 확인한다.",
+            "evidenceIds": [
+              "EVID-AIE-005-01",
+              "EVID-AIE-005-02"
+            ]
+          }
+        ]
       },
       "evidence": [
         {
@@ -201,6 +267,28 @@
     ],
     "articleCount": 5,
     "evidenceCount": 11,
-    "goldRule": "Every article must have at least one dated evidence item with a resolvable source URL."
+    "goldRule": "Every article must have at least one dated evidence item with a resolvable source URL.",
+    "allowedThesisStatuses": [
+      "SUPPORTED",
+      "CHALLENGED",
+      "SUPERSEDED"
+    ],
+    "confidenceHistoryRequired": true
+  },
+  "confidenceModel": {
+    "meaning": "Internal evidence-strength score, not a probability that a thesis is true.",
+    "range": "0.00-1.00",
+    "bands": {
+      "EARLY": "0.00-0.39",
+      "DEVELOPING": "0.40-0.59",
+      "SUPPORTED": "0.60-0.79",
+      "STRONGLY_SUPPORTED": "0.80-1.00"
+    },
+    "changeRule": "A change of 0.05 or more requires a dated reason and evidence reference."
+  },
+  "thesisStatusModel": {
+    "SUPPORTED": "Evidence currently supports the active thesis.",
+    "CHALLENGED": "Credible new evidence materially weakens or contradicts a core claim; thesis remains active under review.",
+    "SUPERSEDED": "A newer thesis replaces the prior framing. Historical record is retained."
   }
 }
