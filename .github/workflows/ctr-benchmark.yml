@@ -1,0 +1,77 @@
+name: CTR Benchmark V1
+
+on:
+  pull_request:
+    paths:
+      - 'config/ctr-benchmark.json'
+      - 'scripts/build-ctr-benchmark.mjs'
+      - '.github/workflows/ctr-benchmark.yml'
+  schedule:
+    - cron: '45 1 * * 1'
+  push:
+    branches: [main]
+    paths:
+      - 'config/ctr-benchmark.json'
+      - 'scripts/build-ctr-benchmark.mjs'
+      - '.github/workflows/ctr-benchmark.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  self-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: CTR benchmark self-test
+        run: node scripts/build-ctr-benchmark.mjs --self-test
+
+  live-benchmark:
+    if: github.event_name != 'pull_request'
+    needs: self-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      GSC_SITE_URL: sc-domain:aijoylab.kr
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Build JoyLab CTR benchmark
+        run: node scripts/build-ctr-benchmark.mjs
+
+      - name: Publish summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f qa-artifacts/ctr-benchmark/ctr-benchmark.md ]; then
+            cat qa-artifacts/ctr-benchmark/ctr-benchmark.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload benchmark
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: joylab-ctr-benchmark
+          path: qa-artifacts/ctr-benchmark
+          if-no-files-found: error
+          retention-days: 90

@@ -240,3 +240,36 @@ CTR Benchmark는 시간이 지남에 따라 바뀐다.
 검색결과 구성, 브랜드 인지도, 콘텐츠 유형, JoyLab의 검색 노출 위치가 변하기 때문이다.
 
 따라서 benchmark version과 생성 기간을 반드시 함께 저장한다.
+
+
+## 13. Engine 구현
+
+실행:
+
+```bash
+node scripts/build-ctr-benchmark.mjs --self-test
+node scripts/build-ctr-benchmark.mjs
+```
+
+실제 GSC 실행은 최근 90일의 `query × page` 데이터를 pagination으로 수집한다.
+
+처리 순서:
+
+```text
+GSC query × page
+→ article page filter
+→ branded query exclusion
+→ position <= 50 filter
+→ fine/parent aggregation
+→ internal smoothing
+→ expectedCtr
+→ ctr-benchmark.json
+```
+
+출력:
+
+```text
+qa-artifacts/ctr-benchmark/
+├─ ctr-benchmark.json
+└─ ctr-benchmark.md
+```
