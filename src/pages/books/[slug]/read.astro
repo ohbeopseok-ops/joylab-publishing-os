@@ -288,12 +288,36 @@ const storagePrefix = `joylab-book-${book.id}`;
         chapters.forEach((chapter) => observer.observe(chapter));
       }
 
+      const progressEvents = [
+        [25, 'book_reader_progress_25'],
+        [50, 'book_reader_progress_50'],
+        [75, 'book_reader_progress_75']
+      ];
+      const sentMilestones = new Set();
+      const track = (event, placement) => {
+        if (typeof window.joylabTrack === 'function') {
+          window.joylabTrack(event, reader.dataset.bookSlug || '-', placement);
+        }
+      };
+
       let saveTimer = 0;
       const updateProgress = () => {
         const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
         const progress = Math.min(1, Math.max(0, window.scrollY / max));
         if (progressBar) progressBar.style.transform = `scaleX(${progress})`;
         if (progressText) progressText.textContent = `${Math.round(progress * 100)}%`;
+
+        for (const [milestone, eventName] of progressEvents) {
+          if (progress >= milestone / 100 && !sentMilestones.has(milestone)) {
+            sentMilestones.add(milestone);
+            track(eventName, 'web_reader');
+          }
+        }
+        if (progress >= 0.95 && !sentMilestones.has(100)) {
+          sentMilestones.add(100);
+          track('book_reader_complete', 'web_reader');
+        }
+
         window.clearTimeout(saveTimer);
         saveTimer = window.setTimeout(() => {
           localStorage.setItem(key('scroll'), String(Math.round(window.scrollY)));
