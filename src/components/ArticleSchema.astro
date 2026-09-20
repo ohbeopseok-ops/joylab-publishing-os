@@ -1,0 +1,54 @@
+---
+const {
+  slug,
+  title,
+  description,
+  publishedAt,
+  updatedAt,
+  author = 'JoyLab',
+  image,
+  tags = [],
+  canonical
+} = Astro.props;
+
+const siteOrigin = Astro.site ?? new URL('https://aijoylab.kr/');
+const pageUrl = canonical
+  ? new URL(canonical, siteOrigin).toString()
+  : new URL(`/articles/${slug}`, siteOrigin).toString();
+const imageUrl = image ? new URL(image, siteOrigin).toString() : undefined;
+const authorEntity = author === 'JoyLab'
+  ? { '@type': 'Organization', '@id': 'https://aijoylab.kr/#organization', name: 'JoyLab' }
+  : { '@type': 'Person', name: author };
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${pageUrl}#article`,
+  headline: title,
+  description,
+  url: pageUrl,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`
+  },
+  datePublished: publishedAt.toISOString(),
+  dateModified: (updatedAt ?? publishedAt).toISOString(),
+  inLanguage: 'ko-KR',
+  ...(imageUrl ? { image: [imageUrl] } : {}),
+  ...(tags.length ? { keywords: tags.join(', ') } : {}),
+  author: authorEntity,
+  publisher: {
+    '@type': 'Organization',
+    '@id': 'https://aijoylab.kr/#organization',
+    name: 'JoyLab',
+    url: 'https://aijoylab.kr/'
+  },
+  isPartOf: {
+    '@type': 'WebSite',
+    '@id': 'https://aijoylab.kr/#website',
+    name: 'JoyLab',
+    url: 'https://aijoylab.kr/'
+  }
+};
+---
+<script id="joylab-article-schema" type="application/ld+json" set:html={JSON.stringify(schema)}></script>
