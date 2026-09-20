@@ -32,7 +32,9 @@
     "distribution:state": "node scripts/distribution-state.mjs",
     "distribution:handoff": "node scripts/distribution-adapters.mjs",
     "distribution:published": "node scripts/distribution-publish-log.mjs",
-    "distribution:scorecard": "node scripts/distribution-scorecard.mjs"
+    "distribution:scorecard": "node scripts/distribution-scorecard.mjs",
+    "quality:gate": "node scripts/quality/quality-gate.mjs",
+    "quality:self-test": "node scripts/quality/quality-gate.mjs --self-test"
   },
   "dependencies": {
     "astro": "^7.3.2"
