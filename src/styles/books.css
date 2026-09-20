@@ -91,3 +91,36 @@
   .book-v2-section-head{align-items:flex-start;flex-direction:column}
   .book-v2-toc-row{grid-template-columns:64px 1fr;gap:8px 14px}.book-v2-toc-row em{grid-column:2;justify-self:start}
 }
+
+
+/* JoyLab Books Hub V2 */
+.books-hub-v2{background:#f7f5f1;color:#12233e}
+.books-v2-shell{width:min(1240px,calc(100% - 48px));margin:0 auto}
+.books-v2-hero{padding:92px 0 70px;background:linear-gradient(135deg,#081d3b 0%,#123865 62%,#1e4f82 100%);color:#fff}
+.books-v2-kicker{margin:0 0 16px;color:#f0c98e;font-size:.78rem;font-weight:900;letter-spacing:.2em}
+.books-v2-hero h1{margin:0;max-width:820px;font-family:Georgia,'Noto Serif KR',serif;font-size:clamp(3rem,6vw,5.8rem);font-weight:500;line-height:1.08;letter-spacing:-.055em}
+.books-v2-hero>div>p:last-child{max-width:760px;margin:24px 0 0;color:#dce6f2;font-size:1.08rem;line-height:1.85}
+.books-v2-featured{padding:72px 0;background:linear-gradient(180deg,#ede7df 0%,#f8f6f2 100%)}
+.books-v2-featured__grid{display:grid;grid-template-columns:330px minmax(0,1fr);gap:64px;align-items:center}
+.books-v2-featured__cover img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:4px;box-shadow:0 28px 56px rgba(53,35,24,.22)}
+.books-v2-label{margin:0 0 10px;color:#7d93b4;font-size:.72rem;font-weight:900;letter-spacing:.18em}
+.books-v2-featured__copy h2{margin:0;font-family:Georgia,'Noto Serif KR',serif;font-size:clamp(2.4rem,4.2vw,4.2rem);font-weight:500;line-height:1.15;letter-spacing:-.045em;word-break:keep-all}
+.books-v2-subtitle{margin:18px 0 0;font-family:Georgia,'Noto Serif KR',serif;color:#6d5d50;font-size:1.12rem}
+.books-v2-description{max-width:720px;margin:18px 0 0;color:#4b5668;line-height:1.85}
+.books-v2-featured__copy blockquote{margin:24px 0 0;padding-left:20px;border-left:3px solid #b97845;color:#744b2c;font-family:Georgia,'Noto Serif KR',serif;font-size:1.18rem;line-height:1.7}
+.books-v2-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.books-v2-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:999px;text-decoration:none;font-weight:800}.books-v2-primary{background:#0b2d55;color:#fff}.books-v2-secondary{background:#fff;border:1px solid #d8dde6;color:#23364f}
+.books-v2-philosophy,.books-v2-categories,.books-v2-library{padding:76px 0}
+.books-v2-philosophy{display:grid;grid-template-columns:330px 1fr;gap:48px}
+.books-v2-philosophy h2,.books-v2-section-head h2{margin:0;font-family:Georgia,'Noto Serif KR',serif;font-size:clamp(2rem,3vw,3rem);letter-spacing:-.04em}
+.books-v2-philosophy__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.books-v2-philosophy__grid article{padding:24px;background:#fff;border:1px solid #e1e4e8;border-radius:18px}.books-v2-philosophy__grid strong{font-size:1.15rem;color:#153d73}.books-v2-philosophy__grid p{margin:12px 0 0;color:#5a6576;line-height:1.75}
+.books-v2-categories{border-top:1px solid #e2ddd5}.books-v2-category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}.books-v2-category-grid article{min-height:210px;padding:24px;background:#0e294d;color:#fff;border-radius:18px}.books-v2-category-grid small{color:#7fb4ff;font-weight:800}.books-v2-category-grid strong{display:block;margin-top:24px;font-family:Georgia,'Noto Serif KR',serif;font-size:1.45rem}.books-v2-category-grid p{margin-top:12px;color:#d5e0ee;line-height:1.7}
+.books-v2-library{border-top:1px solid #e2ddd5}.books-v2-library-grid{display:grid;gap:24px;margin-top:28px}.books-v2-book{display:grid;grid-template-columns:220px minmax(0,1fr);gap:30px;padding:24px;background:#fff;border:1px solid #e2e5ea;border-radius:20px}.books-v2-book__cover img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:4px}.books-v2-book>div{align-self:center}.books-v2-book small{color:#7b8798}.books-v2-book h3{margin:10px 0;font-size:1.8rem}.books-v2-book h3 a{color:#12233e;text-decoration:none}.books-v2-book p{max-width:720px;color:#596678;line-height:1.8}.books-v2-link{color:#1268d8;font-weight:800;text-decoration:none}
+@media(max-width:900px){
+  .books-v2-featured__grid,.books-v2-philosophy{grid-template-columns:1fr}
+  .books-v2-featured__cover{width:min(72vw,320px);margin:0 auto}.books-v2-philosophy__grid{grid-template-columns:1fr}.books-v2-category-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  .books-v2-shell{width:min(100% - 28px,680px)}.books-v2-hero{padding:56px 0 46px}.books-v2-hero h1{font-size:clamp(2.5rem,13vw,4rem)}
+  .books-v2-featured,.books-v2-philosophy,.books-v2-categories,.books-v2-library{padding:48px 0}
+  .books-v2-category-grid{grid-template-columns:1fr}.books-v2-book{grid-template-columns:110px 1fr;gap:18px;padding:16px}.books-v2-book h3{font-size:1.25rem}.books-v2-book p{display:none}
+}
