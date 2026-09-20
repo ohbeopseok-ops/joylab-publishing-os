@@ -12,7 +12,7 @@ if (!fs.existsSync(readerPath)) throw new Error('Book reader build output missin
 const landing = fs.readFileSync(landingPath, 'utf8');
 const reader = fs.readFileSync(readerPath, 'utf8');
 
-const expectedCanonical = `https://aijoylab.kr/books/${slug}`;
+const expectedCanonical = new URL(`/books/${slug}`, 'https://aijoylab.kr').toString();
 
 if (!landing.includes('name="robots" content="index,follow"')) {
   throw new Error('Book landing must be index,follow.');
