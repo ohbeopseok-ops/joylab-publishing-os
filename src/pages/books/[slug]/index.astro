@@ -51,7 +51,7 @@ const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site
         {book.data.heroQuote && <blockquote>“{book.data.heroQuote}”</blockquote>}
         <div class="book-actions">
           <a class="book-primary" href="#toc">목차 보기</a>
-          <span class="book-secondary is-disabled" aria-disabled="true">웹 리더 · 다음 PR에서 연결</span>
+          <a class="book-secondary" href={`/books/${book.id}/read`}>작가의 말과 1장 읽기 →</a>
         </div>
       </div>
     </div>
@@ -101,8 +101,9 @@ const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site
 
     <section class="book-next">
       <p class="books-section-label">WEB READER</p>
-      <h2>작가의 말과 1장부터 읽을 수 있는 웹 리더를 연결합니다.</h2>
-      <p>이번 PR은 Books 도메인과 랜딩까지 구축합니다. 다음 Web Reader PR에서 미리보기, 목차 이동, 읽던 위치 저장을 연결합니다.</p>
+      <h2>작가의 말과 1장을 웹에서 바로 읽을 수 있습니다.</h2>
+      <p>목차 이동, 읽기 진행률, 글자 크기, 줄간격, 화면 테마와 읽던 위치 저장을 지원합니다.</p>
+      <a class="book-primary" href={`/books/${book.id}/read`}>웹 리더 열기 →</a>
     </section>
   </main>
 </BaseLayout>
