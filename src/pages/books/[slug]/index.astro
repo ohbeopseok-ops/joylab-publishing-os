@@ -60,7 +60,7 @@ const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site
   <main class="book-landing-shell book-landing-main">
     <section class="book-intro">
       <p class="books-section-label">ABOUT THE BOOK</p>
-      <h2>완벽해지기보다, 금이 간 채로 살아가는 법</h2>
+      <h2>{book.data.landingHeading}</h2>
       <div class="book-prose"><Content /></div>
     </section>
 
@@ -68,9 +68,9 @@ const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site
       <p class="books-section-label">FOR READERS</p>
       <h2>이런 독자에게 권합니다</h2>
       <div class="book-for-grid">
-        <div><strong>01</strong><p>완벽해야 안심되는 마음 때문에 늘 자신을 몰아붙이는 사람</p></div>
-        <div><strong>02</strong><p>번아웃 이후 예전의 자신으로 돌아가야 한다는 압박을 느끼는 사람</p></div>
-        <div><strong>03</strong><p>누군가의 아픔을 해결하기보다 함께 머무는 법을 배우고 싶은 사람</p></div>
+        {book.data.readerProfiles.map((profile, index) => (
+          <div><strong>{String(index + 1).padStart(2, '0')}</strong><p>{profile}</p></div>
+        ))}
       </div>
     </section>
 
