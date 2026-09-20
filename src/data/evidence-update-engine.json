@@ -1,0 +1,112 @@
+{
+  "engineVersion": "1.0",
+  "id": "JOYLAB-EVIDENCE-ENGINE-AI-ECON",
+  "cadence": "WEEKLY",
+  "timezone": "Asia/Seoul",
+  "policy": {
+    "discovery": "WEB_RESEARCH_REQUIRED",
+    "autoApply": "VERIFIED_PR_ONLY",
+    "sourcePriority": [
+      "PRIMARY",
+      "TIER_1"
+    ],
+    "staleAfterDays": 45,
+    "requireDatedSource": true,
+    "requireResolvableUrl": true,
+    "noSilentOverwrite": true
+  },
+  "metrics": [
+    {
+      "metricId": "hyperscaler-capex",
+      "thesisIds": [
+        "THESIS-AIE-001",
+        "THESIS-AIE-003"
+      ],
+      "searchQueries": [
+        "Microsoft Alphabet Amazon capex AI infrastructure latest",
+        "hyperscaler capex AI data center latest"
+      ],
+      "preferredDomains": [
+        "reuters.com",
+        "microsoft.com",
+        "abc.xyz",
+        "amazon.com"
+      ],
+      "reviewCadence": "WEEKLY"
+    },
+    {
+      "metricId": "openai-enterprise-revenue-share",
+      "thesisIds": [
+        "THESIS-AIE-002"
+      ],
+      "searchQueries": [
+        "OpenAI enterprise revenue share latest",
+        "OpenAI enterprise revenue latest"
+      ],
+      "preferredDomains": [
+        "openai.com",
+        "reuters.com"
+      ],
+      "reviewCadence": "WEEKLY"
+    },
+    {
+      "metricId": "samsung-hbm-sales-growth",
+      "thesisIds": [
+        "THESIS-AIE-004"
+      ],
+      "searchQueries": [
+        "Samsung HBM sales 2026 latest HBM4 HBM4E",
+        "Samsung Electronics HBM revenue latest"
+      ],
+      "preferredDomains": [
+        "news.samsung.com",
+        "reuters.com"
+      ],
+      "reviewCadence": "WEEKLY"
+    },
+    {
+      "metricId": "electricity-demand-growth",
+      "thesisIds": [
+        "THESIS-AIE-003"
+      ],
+      "searchQueries": [
+        "IEA data center electricity demand AI latest",
+        "AI electricity demand data centre IEA latest"
+      ],
+      "preferredDomains": [
+        "iea.org",
+        "reuters.com"
+      ],
+      "reviewCadence": "WEEKLY"
+    },
+    {
+      "metricId": "openai-cash-burn",
+      "thesisIds": [
+        "THESIS-AIE-001",
+        "THESIS-AIE-002"
+      ],
+      "searchQueries": [
+        "OpenAI cash burn forecast latest",
+        "OpenAI free cash flow compute cost latest"
+      ],
+      "preferredDomains": [
+        "openai.com",
+        "reuters.com",
+        "ft.com"
+      ],
+      "reviewCadence": "WEEKLY"
+    }
+  ],
+  "thesisStateRules": {
+    "SUPPORTED": "Current evidence materially supports the thesis and no stronger contradictory evidence has emerged.",
+    "CHALLENGED": "New credible evidence materially weakens or contradicts at least one core causal claim, but the thesis remains under active review.",
+    "SUPERSEDED": "A newer thesis replaces this statement because the original framing no longer best represents the evidence."
+  },
+  "confidence": {
+    "meaning": "Internal evidence-strength score, not a probability that the thesis is true.",
+    "min": 0,
+    "max": 1,
+    "changeThreshold": 0.05,
+    "requiredReasonForChange": true
+  }
+}
