@@ -102,7 +102,7 @@ books fields:
 - publisher: optional string
 - format: web | epub | pdf
 - access: preview | full
-- previewChapterCount: integer, default 1
+- previewChapterCount: integer, default 1 (numbered chapters only; Author's Note/order 0 excluded)
 - canonical: optional string
 - draft: boolean
 
@@ -215,6 +215,14 @@ Default V1:
 
 access: full 이면 모든 장 공개.
 
+V1 authorization predicate:
+- access=full → 모든 chapter readable
+- access=preview → chapter.preview=true 인 chapter만 readable
+- chapter.preview가 실제 권한의 단일 source of truth다.
+- previewChapterCount는 numbered chapter(order >= 1)의 preview 개수를 검증하는 metadata다.
+- Author's Note(order 0)는 previewChapterCount에 포함하지 않는다.
+- previewChapterCount와 실제 preview=true numbered chapter 수가 다르면 build/QA를 실패시킨다.
+
 중요:
 CSS로만 숨기면 안 된다.
 preview mode에서는 locked chapter 본문 자체를 생성 HTML에 포함하지 않는다.
@@ -234,6 +242,7 @@ Landing:
 Reader:
 - noindex,follow
 - canonical = landing URL
+- noindex/canonical은 PR B(Web Reader)와 함께 배포한다. Reader route가 indexable 상태로 먼저 배포되는 중간 상태를 허용하지 않는다.
 
 목적:
 - landing / reader 중복 방지
@@ -285,21 +294,31 @@ V1:
 
 ## 15. Analytics events
 
-- book_landing_view
+V1은 기존 /__analytics/event 계약(event, target, placement, path)을 그대로 사용한다.
+
+이벤트:
 - book_preview_start
-- book_reader_chapter_view
 - book_reader_progress_25
 - book_reader_progress_50
 - book_reader_progress_75
 - book_reader_complete
-- book_cta_click
 
-payload:
-- book_slug
-- chapter
-- progress
+mapping:
+- event = 위 이벤트명
+- target = book slug
+- placement = book_hero | book_footer | web_reader
+- path = 현재 페이지 경로
 
-읽고 있는 실제 문장 텍스트는 analytics로 보내지 않는다.
+Worker requirements:
+- analyticsContracts에 위 이벤트를 명시적으로 allowlist한다.
+- 한글 book slug를 target으로 허용한다.
+- 허용되지 않은 target/placement는 기존처럼 400으로 거부한다.
+- Analytics Engine 저장 형식은 기존 blobs [event, target, placement, path], doubles [1]을 재사용한다.
+
+V1에서는 chapter 본문이나 실제 읽은 문장 텍스트를 보내지 않는다.
+별도의 progress 숫자 필드도 저장하지 않고 이벤트명 자체가 25/50/75 milestone을 표현한다.
+
+Privacy 페이지에는 preview 시작과 reader 진행률 milestone 집계를 명시한다.
 
 ## 16. Migration from current standalone HTML
 
@@ -336,7 +355,13 @@ Mobile:
 - line-height 1.95~2.05
 - horizontal padding 20~24px
 
-## 18. Launch QA
+## 18. Sitemap + Launch QA
+
+Sitemap:
+- /books/ 포함
+- draft=false book landing 포함
+- /books/{slug}/read 제외(noindex reader)
+- 기존 article URL 유지
 
 Hard gate:
 - landing 200
