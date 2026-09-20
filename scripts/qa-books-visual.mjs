@@ -43,6 +43,23 @@ for (const c of cases) {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   if (overflow > 2) throw new Error(`${c.name}: horizontal overflow ${overflow}px`);
 
+  if (c.width <= 640 && (c.name.startsWith('hub') || c.name.startsWith('landing'))) {
+    const toggle = page.locator('.homepage-nav-toggle');
+    if (!(await toggle.isVisible())) throw new Error(`${c.name}: mobile nav toggle not visible`);
+
+    const nav = page.locator('#site-primary-nav');
+    if (await nav.isVisible()) throw new Error(`${c.name}: mobile nav should be collapsed by default`);
+
+    await toggle.click();
+    if (!(await nav.isVisible())) throw new Error(`${c.name}: mobile nav did not open`);
+
+    const booksLink = page.locator('#site-primary-nav a[href="/books"]');
+    if (!(await booksLink.isVisible())) throw new Error(`${c.name}: Books link not visible in mobile drawer`);
+
+    await toggle.click();
+    if (await nav.isVisible()) throw new Error(`${c.name}: mobile nav did not close`);
+  }
+
   if (c.name.startsWith('home')) {
     const booksSection = page.locator('.home-books-v2');
     if (!(await booksSection.count())) throw new Error(`${c.name}: homepage Books section missing`);
