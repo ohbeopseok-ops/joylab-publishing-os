@@ -42,6 +42,20 @@ jobs:
       - name: Visual Audit Runtime
         run: node scripts/audit-visual-system.mjs
 
+      - name: Content Quality Gate self-test
+        run: npm run quality:self-test
+
+      - name: Content Quality Gate for changed articles
+        run: npm run quality:gate -- --changed
+
+      - name: Upload Content Quality Report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: content-quality-report
+          path: qa-artifacts/content-quality
+          if-no-files-found: ignore
+
       - name: Check runtime syntax and contracts
         shell: bash
         run: |
