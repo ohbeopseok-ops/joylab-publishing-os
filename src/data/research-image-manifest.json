@@ -802,5 +802,100 @@
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
+  },
+  "samsung-hbm4-memory-outlook-2026-09-20": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "삼성전자 반도체 업황 분석｜HBM4·HBM4E가 중요한 이유 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "삼성전자 반도체 업황 분석｜HBM4·HBM4E가 중요한 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "삼성전자 반도체 업황 분석｜HBM4·HBM4E가 중요한 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ai-infrastructure-hbm-mlcc-power-grid-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 인프라 투자, HBM 다음은 MLCC·전력망인가 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 인프라 투자, HBM 다음은 MLCC·전력망인가 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 인프라 투자, HBM 다음은 MLCC·전력망인가 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ai-bubble-vs-compute-supercycle-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 거품론 vs 컴퓨팅 슈퍼사이클｜둘 다 맞을 수 있는 이유 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 거품론 vs 컴퓨팅 슈퍼사이클｜둘 다 맞을 수 있는 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 거품론 vs 컴퓨팅 슈퍼사이클｜둘 다 맞을 수 있는 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "openai-anthropic-ipo-cash-burn-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "오픈AI·앤트로픽 IPO 논의가 중요한 이유｜성장보다 현금흐름을 보게 된다 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "오픈AI·앤트로픽 IPO 논의가 중요한 이유｜성장보다 현금흐름을 보게 된다 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "오픈AI·앤트로픽 IPO 논의가 중요한 이유｜성장보다 현금흐름을 보게 된다 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ai-api-key-compute-theft-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "해커들은 왜 데이터 대신 AI 연산 권한을 노리는가 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "해커들은 왜 데이터 대신 AI 연산 권한을 노리는가 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "해커들은 왜 데이터 대신 AI 연산 권한을 노리는가 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
   }
 }
