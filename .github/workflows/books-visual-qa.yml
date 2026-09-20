@@ -35,7 +35,7 @@ jobs:
           npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/books-preview.log 2>&1 &
           echo $! > /tmp/books-preview.pid
           for i in {1..30}; do
-            if curl -fsS http://127.0.0.1:4321/books/ >/dev/null; then exit 0; fi
+            if curl -fsS http://127.0.0.1:4321/books >/dev/null; then exit 0; fi
             sleep 1
           done
           cat /tmp/books-preview.log
