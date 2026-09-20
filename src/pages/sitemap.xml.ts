@@ -5,6 +5,7 @@ export const prerender = true;
 export async function GET({ site }: { site: URL }) {
   const origin = site?.origin ?? 'https://aijoylab.kr';
   const articles = await getCollection('articles');
+  const books = (await getCollection('books')).filter((book) => !book.data.draft);
 
   const urls = [
     `${origin}/`,
@@ -18,6 +19,8 @@ export async function GET({ site }: { site: URL }) {
     `${origin}/guides/ai-power`,
     `${origin}/guides/shipbuilding`,
     `${origin}/guides/us-rates`,
+    `${origin}/books/`,
+    ...books.map((book) => `${origin}/books/${book.id}`),
     ...articles.map((article) => `${origin}/articles/${article.id.replace(/\.mdx?$/, '')}`)
   ];
 
