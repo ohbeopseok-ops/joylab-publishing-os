@@ -6,41 +6,105 @@ import '../../styles/books.css';
 const books = (await getCollection('books'))
   .filter((book) => !book.data.draft)
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+
+const featured = books[0];
 ---
 <BaseLayout
   title="JoyLab Books | 생각을 오래 남기는 책"
-  description="JoyLab의 성장·리더십, 삶과 일의 기록을 책으로 엮은 아카이브입니다."
-  bodyClass="books-page"
+  description="리서치에서 시작된 생각을 더 오래 남기는 JoyLab의 책과 에세이 아카이브입니다."
+  bodyClass="books-page books-hub-v2"
 >
-  <section class="books-hero">
-    <div class="books-shell">
-      <p class="books-kicker">JOYLAB BOOKS</p>
-      <h1>생각을 오래 남기는 책</h1>
-      <p>리서치가 판단을 돕는다면, 책은 한 생각 곁에 더 오래 머무르게 합니다.</p>
+  <section class="books-v2-hero">
+    <div class="books-v2-shell">
+      <p class="books-v2-kicker">JOYLAB BOOKS</p>
+      <h1>분석한 생각을,<br />오래 남기는 책으로.</h1>
+      <p>JoyLab Research가 복잡한 정보를 판단 가능한 구조로 바꾼다면, JoyLab Books는 그 생각을 한 사람의 삶과 일에 오래 머무르게 합니다.</p>
     </div>
   </section>
 
-  <section class="books-shell books-grid-section">
-    <div class="books-grid">
+  {featured && (
+    <section class="books-v2-featured">
+      <div class="books-v2-shell books-v2-featured__grid">
+        <a class="books-v2-featured__cover" href={`/books/${featured.id}`}>
+          {featured.data.coverImage ? (
+            <img src={featured.data.coverImage} alt={`${featured.data.title} 표지`} width="640" height="960" loading="eager" decoding="async" />
+          ) : (
+            <span class="books-v2-text-cover">
+              <small>JOYLAB BOOKS</small>
+              <strong>{featured.data.title}</strong>
+              {featured.data.subtitle && <em>{featured.data.subtitle}</em>}
+              <b>{featured.data.author}</b>
+            </span>
+          )}
+        </a>
+        <div class="books-v2-featured__copy">
+          <p class="books-v2-label">NOW PUBLISHED · {featured.data.category}</p>
+          <h2>{featured.data.title}</h2>
+          {featured.data.subtitle && <p class="books-v2-subtitle">{featured.data.subtitle}</p>}
+          <p class="books-v2-description">{featured.data.description}</p>
+          {featured.data.heroQuote && <blockquote>“{featured.data.heroQuote}”</blockquote>}
+          <div class="books-v2-actions">
+            <a class="books-v2-primary" href={`/books/${featured.id}`}>책 만나보기 →</a>
+            <a
+              class="books-v2-secondary"
+              href={`/books/${featured.id}/read`}
+              data-analytics-event="book_preview_start"
+              data-analytics-target={featured.id}
+              data-analytics-placement="books_hub_v2"
+            >작가의 말과 1장 읽기</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="books-v2-shell books-v2-philosophy">
+    <div>
+      <p class="books-v2-label">WHY BOOKS</p>
+      <h2>빠른 판단과 긴 호흡을 함께 만듭니다.</h2>
+    </div>
+    <div class="books-v2-philosophy__grid">
+      <article><strong>Research</strong><p>사실과 근거를 구조화해 지금 필요한 판단을 돕습니다.</p></article>
+      <article><strong>Books</strong><p>그 판단 뒤에 남는 감정과 관계, 삶의 태도를 더 긴 호흡으로 기록합니다.</p></article>
+      <article><strong>JoyLab</strong><p>분석과 실행, 그리고 오래 남는 생각을 하나의 지식 자산으로 연결합니다.</p></article>
+    </div>
+  </section>
+
+  <section class="books-v2-shell books-v2-categories">
+    <div class="books-v2-section-head">
+      <div><p class="books-v2-label">BOOKS CATEGORIES</p><h2>JoyLab이 책으로 확장하는 네 가지 영역</h2></div>
+    </div>
+    <div class="books-v2-category-grid">
+      <article><small>01</small><strong>Essay</strong><p>삶의 균열, 회복, 관계와 감정을 오래 바라보는 기록.</p></article>
+      <article><small>02</small><strong>Leadership</strong><p>성과·공정성·피드백·성장을 사람의 언어로 풀어낸 책.</p></article>
+      <article><small>03</small><strong>Investment</strong><p>시장과 기업을 바라보는 판단 프레임을 긴 호흡으로 정리한 책.</p></article>
+      <article><small>04</small><strong>AI & Productivity</strong><p>AI 시대의 일하는 방식과 생산성 변화를 구조화한 책.</p></article>
+    </div>
+  </section>
+
+  <section class="books-v2-shell books-v2-library">
+    <div class="books-v2-section-head">
+      <div><p class="books-v2-label">LIBRARY</p><h2>현재 출간된 JoyLab Books</h2></div>
+    </div>
+    <div class="books-v2-library-grid">
       {books.map((book) => (
-        <article class="book-card">
-          <a class="book-cover book-cover--image" href={`/books/${book.id}`} aria-label={`${book.data.title} 자세히 보기`}>
+        <article class="books-v2-book">
+          <a class="books-v2-book__cover" href={`/books/${book.id}`}>
             {book.data.coverImage ? (
               <img src={book.data.coverImage} alt={`${book.data.title} 표지`} width="640" height="960" loading="lazy" decoding="async" />
             ) : (
-              <>
+              <span class="books-v2-text-cover">
                 <small>JOYLAB BOOKS</small>
                 <strong>{book.data.title}</strong>
-                {book.data.subtitle && <span>{book.data.subtitle}</span>}
-                <em>{book.data.author}</em>
-              </>
+                <b>{book.data.author}</b>
+              </span>
             )}
           </a>
-          <div class="book-card__copy">
-            <div class="book-card__meta">{book.data.category} · {book.data.publishedAt.toLocaleDateString('ko-KR')}</div>
-            <h2><a href={`/books/${book.id}`}>{book.data.title}</a></h2>
+          <div>
+            <small>{book.data.category} · {book.data.publishedAt.toLocaleDateString('ko-KR')}</small>
+            <h3><a href={`/books/${book.id}`}>{book.data.title}</a></h3>
             <p>{book.data.description}</p>
-            <a class="book-link" href={`/books/${book.id}`}>책 소개 보기 →</a>
+            <a class="books-v2-link" href={`/books/${book.id}`}>책 소개 보기 →</a>
           </div>
         </article>
       ))}
