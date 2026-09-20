@@ -22,3 +22,27 @@
   .ai-economics-guide-v1 .ae-thesis{padding:20px}
   .ai-economics-guide-v1 .ae-rule-grid{grid-template-columns:1fr}
 }
+
+.ai-economics-guide-v1 .ae-dashboard{margin:0 0 28px;padding:26px;border:1px solid var(--sg-line);border-radius:24px;background:#fff}
+.ai-economics-guide-v1 .ae-dashboard__head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:start;margin-bottom:18px}
+.ai-economics-guide-v1 .ae-dashboard__head h2{margin:6px 0 7px;font-size:clamp(1.45rem,2.3vw,2rem);color:var(--sg-ink)}
+.ai-economics-guide-v1 .ae-dashboard__head p{margin:0;max-width:760px;color:#5d6878;line-height:1.65}
+.ai-economics-guide-v1 .ae-graph-status{min-width:220px;padding:14px 16px;border-radius:16px;background:#0b1f4d;color:#fff}
+.ai-economics-guide-v1 .ae-graph-status small{display:block;color:#9fc4ff;font-weight:900;letter-spacing:.06em}
+.ai-economics-guide-v1 .ae-graph-status strong{display:block;margin-top:5px;font-size:1.02rem}
+.ai-economics-guide-v1 .ae-graph-status span{display:block;margin-top:5px;color:#cfdaf0;font-size:.78rem}
+.ai-economics-guide-v1 .ae-dashboard__grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.ai-economics-guide-v1 .ae-metric{padding:16px;border:1px solid #dfe5ef;border-radius:17px;background:#fbfcfe;min-width:0}
+.ai-economics-guide-v1 .ae-metric__top{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.ai-economics-guide-v1 .ae-metric__top span{font-size:.77rem;font-weight:900;color:#25334a}
+.ai-economics-guide-v1 .ae-metric__top em{font-style:normal;font-size:.62rem;font-weight:900;letter-spacing:.05em;color:#1677ff}
+.ai-economics-guide-v1 .ae-metric>strong{display:block;margin-top:11px;font-size:1.72rem;color:#0b1f4d}
+.ai-economics-guide-v1 .ae-metric>b{display:block;margin-top:2px;font-size:.74rem;line-height:1.35;color:#68758a}
+.ai-economics-guide-v1 .ae-metric p{min-height:76px;margin:12px 0 10px;font-size:.78rem;line-height:1.55;color:#4c586c}
+.ai-economics-guide-v1 .ae-metric small{display:block;color:#8a95a6;font-size:.68rem}
+.ai-economics-guide-v1 .ae-metric a{display:inline-block;margin-top:8px;font-size:.72rem;font-weight:900;color:#1677ff;text-decoration:none}
+.ai-economics-guide-v1 .ae-dashboard__note{display:flex;gap:10px;margin-top:14px;padding:11px 13px;border-radius:13px;background:#f5f7fb;font-size:.74rem;color:#657086}
+.ai-economics-guide-v1 .ae-dashboard__note b{color:#0b1f4d;white-space:nowrap}
+@media(max-width:1100px){.ai-economics-guide-v1 .ae-dashboard__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.ai-economics-guide-v1 .ae-dashboard__head{grid-template-columns:1fr}.ai-economics-guide-v1 .ae-graph-status{min-width:0}.ai-economics-guide-v1 .ae-dashboard__grid{grid-template-columns:1fr 1fr}.ai-economics-guide-v1 .ae-metric p{min-height:0}}
+@media(max-width:520px){.ai-economics-guide-v1 .ae-dashboard{padding:18px}.ai-economics-guide-v1 .ae-dashboard__grid{grid-template-columns:1fr}.ai-economics-guide-v1 .ae-dashboard__note{display:block}.ai-economics-guide-v1 .ae-dashboard__note b{display:block;margin-bottom:4px}}
