@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import '../../styles/ai-security-guide-v1.css';
+import { getCollection } from 'astro:content';
+
+const sequence = [
+  { id: 'ai-api-key-compute-theft-2026', step: '01', role: 'CREDENTIAL', short: 'API Key', note: 'API 키·세션 토큰이 데이터가 아니라 AI 연산 권한과 비용 지불 주체를 탈취하는 자산이 되는 구조를 봅니다.' },
+  { id: 'ai-agent-security-prompt-to-rce-2026', step: '02', role: 'AGENT', short: 'Agent', note: '프롬프트 인젝션이 도구 선택과 코드 실행으로 연결될 때 콘텐츠 위험이 실행 위험으로 바뀌는 지점을 봅니다.' },
+  { id: 'mcp-security-tool-poisoning-2026', step: '03', role: 'TOOL SUPPLY CHAIN', short: 'MCP', note: '인증 누락·도구 설명 변조·서버 권한 오용이 MCP를 새로운 공급망 공격면으로 만드는 과정을 봅니다.' },
+  { id: 'ai-database-security-data-layer-2026', step: '04', role: 'DATA LAYER', short: 'Database', note: '행·열 권한과 SQL Firewall을 데이터베이스에서 강제해 에이전트가 실수해도 데이터가 보호되는 구조를 봅니다.' }
+];
+
+const collection=(await getCollection('articles')).filter((item)=>!item.data.draft);
+const byId=new Map(collection.map((item)=>[item.id,item]));
+const steps=sequence.map((entry)=>({...entry,article:byId.get(entry.id)})).filter((entry)=>entry.article);
+---
+<BaseLayout
+  title="AI Security Research Hub｜API Key·Agent·MCP·Database 보안 | JoyLab"
+  description="API 키 탈취에서 AI 에이전트 실행 권한, MCP 공급망, 데이터베이스 권한과 SQL Firewall까지 연결하는 JoyLab AI Security Research Hub입니다."
+  bodyClass="semiconductor-guide-v2 ai-security-guide-v1"
+>
+  <section class="sg-hero ais-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">AI SECURITY RESEARCH HUB · JOYLAB</div>
+          <h1>AI 보안은 모델을 막는 일이 아니라<br /><span>권한의 경로를 통제하는 일입니다.</span></h1>
+          <p class="sg-hero__lead">AI가 답변에서 실행으로 이동할수록 보안 경계도 달라집니다. <strong>API Key → Agent → MCP → Database</strong> 순서로 자격증명, 실행 권한, 도구 공급망, 데이터 계층을 하나의 공격면으로 연결해 봅니다.</p>
+          <div class="sg-hero__chips"><span>#APIKey</span><span>#AgentSecurity</span><span>#MCP</span><span>#DatabaseSecurity</span><span>#LeastPrivilege</span></div>
+          <div class="sg-hero__meta"><span><strong>{steps.length}</strong> Core Research</span><span><strong>4</strong> Security Layers</span><span><strong>1</strong> Permission Graph</span></div>
+        </div>
+        <aside class="sg-lens" aria-label="AI Security 핵심 판단 축">
+          <div class="sg-lens__brand">JOYLAB<br /><b>AI SECURITY</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>IDENTITY</b><span>누가 어떤 키와 세션을 가지고 있는지 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>EXECUTION</b><span>에이전트가 어떤 도구와 권한으로 행동하는지 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>DATA</b><span>최종 데이터 계층에서 다시 권한을 강제하는지 확인합니다.</span></div></div>
+        </aside>
+      </div>
+
+      <div class="sg-map-head">
+        <div><span>SECURITY CLUSTER</span><b>API Key → Agent → MCP → Database</b></div>
+        <a href="#security-path">4편 순서대로 보기 →</a>
+      </div>
+      <nav class="sg-map ais-map" aria-label="AI Security 리서치 경로">
+        {steps.map(({article,step,short,role},index)=>(
+          <a class={`sg-map__step ${index===0?'is-start':''} ${index===steps.length-1?'is-data':''}`} href={`/articles/${article!.id}`}>
+            <em>{step}</em><b>{short}</b><span>{role}</span>
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <main class="sg-main" id="security-path">
+    <div class="sg-wrap sg-layout">
+      <section>
+        <section class="ais-thesis">
+          <div class="sg-eyebrow">CORE THESIS</div>
+          <h2>AI 보안의 핵심은 “모델이 안전한가”보다 “모델이 잘못 판단해도 피해가 제한되는가”입니다.</h2>
+          <div class="ais-thesis__flow"><span>IDENTITY</span><b>→</b><span>AGENT</span><b>→</b><span>TOOL</span><b>→</b><span>DATA</span><b>→</b><span>AUDIT</span></div>
+        </section>
+
+        <div class="sg-section-head">
+          <div><div class="sg-eyebrow">CORE RESEARCH · 01 → 04</div><h2>자격증명에서 데이터베이스까지 하나의 권한 그래프로 봅니다</h2></div>
+          <p>공격자는 키를 훔치고, 에이전트는 도구를 실행하며, MCP는 시스템을 연결하고, 데이터베이스가 최종 경계가 됩니다.</p>
+        </div>
+
+        <div class="sg-path">
+          {steps.map(({article,step,role,note},index)=>(
+            <article class={`sg-card ${index===0?'is-key':''}`}>
+              <div class="sg-card__no">{step}</div>
+              <div>
+                <div class="sg-card__role">{role}</div>
+                <h3><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h3>
+                <p>{note}</p>
+                <div class="sg-card__foot">
+                  {article!.data.tags.slice(0,3).map((tag)=><span>#{tag}</span>)}
+                  <a class="sg-card__cta" href={`/articles/${article!.id}`}>{index===0?'첫 공격면부터 읽기 →':'리서치 읽기 →'}</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <section class="sg-insights">
+          <div class="sg-section-head sg-section-head--compact"><div><div class="sg-eyebrow">DEFENSE FRAME</div><h2>세 가지 원칙으로 통제합니다</h2></div></div>
+          <div class="sg-insights__grid">
+            <div><em>LEAST PRIVILEGE</em><b>에이전트 권한을 최소화합니다</b><p>모델이 실수하거나 공격받아도 실행 가능한 범위를 좁힙니다.</p></div>
+            <div><em>IDENTITY CONTEXT</em><b>사용자 권한을 끝까지 유지합니다</b><p>공용 서비스 계정 대신 실제 사용자의 보안 컨텍스트를 Tool과 DB까지 전달합니다.</p></div>
+            <div><em>VERIFY AT DATA</em><b>데이터가 마지막에 다시 검사합니다</b><p>행·열 권한과 SQL 정책을 데이터 계층에서 강제해 애플리케이션 우회를 제한합니다.</p></div>
+          </div>
+        </section>
+
+        <section class="sg-rule">
+          <div class="sg-eyebrow">JOYLAB AI SECURITY FRAMEWORK</div>
+          <h2>Credential → Agent → Tool → Permission → Data → Audit</h2>
+          <div class="sg-rule__grid ais-rule-grid">
+            <div class="sg-rule__step"><b>CREDENTIAL</b><span>API Key·Session Token 관리</span></div>
+            <div class="sg-rule__step"><b>AGENT</b><span>Prompt·Tool 선택·실행 범위</span></div>
+            <div class="sg-rule__step"><b>MCP</b><span>인증·도구 무결성·공급망</span></div>
+            <div class="sg-rule__step"><b>DATABASE</b><span>Row·Column·SQL Firewall</span></div>
+            <div class="sg-rule__step"><b>MONITOR</b><span>사용량·행동·비용 이상탐지</span></div>
+            <div class="sg-rule__step"><b>AUDIT</b><span>누가 무엇을 실행했는지 추적</span></div>
+          </div>
+        </section>
+      </section>
+
+      <aside class="sg-rail">
+        <section class="sg-rail-card sg-rail-card--dark">
+          <small>START HERE · 01</small>
+          <h3>API 키가 새로운 공격 자산이 된 이유</h3>
+          <p>AI 보안의 출발점은 자격증명입니다. 키 하나가 접근권·컴퓨팅 비용·은폐 수단이 되는 구조부터 봅니다.</p>
+          <a href="/articles/ai-api-key-compute-theft-2026">첫 리서치 읽기 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>BRIDGE</small>
+          <h3>AI Economics와 연결됩니다</h3>
+          <p>보안 비용도 결국 AI의 경제성에 포함됩니다. 연산 권한 탈취와 통제 비용은 AI의 총소유비용을 높입니다.</p>
+          <a href="/guides/ai-economics">AI Economics Hub 보기 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>WATCH</small>
+          <h3>앞으로 추적할 신호</h3>
+          <ol><li>Stolen API Credential Cases</li><li>Agent RCE / Tool Misuse</li><li>MCP Auth Exposure</li><li>Database Policy Enforcement</li></ol>
+        </section>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>
