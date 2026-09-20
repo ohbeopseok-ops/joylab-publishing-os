@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "thresholds": {
+    "gold": 90,
+    "pass": 85,
+    "review": 75,
+    "hold": 60
+  },
+  "weights": {
+    "seo": 0.25,
+    "geo": 0.25,
+    "eeat": 0.25,
+    "discover": 0.25
+  },
+  "hardGates": {
+    "title": true,
+    "description": true,
+    "author": true,
+    "publishedAt": true,
+    "brokenArticleLinks": true
+  },
+  "legacyGoldCases": {
+    "what-is-hbm": { "manualBaseline": 83, "expectedBand": "REVIEW" },
+    "samsung-vs-sk-hynix-ai-memory": { "manualBaseline": 82, "expectedBand": "REVIEW" },
+    "anthropic-ipo-ai-safety-2026": { "manualBaseline": 94, "expectedBand": "GOLD" }
+  }
+}
