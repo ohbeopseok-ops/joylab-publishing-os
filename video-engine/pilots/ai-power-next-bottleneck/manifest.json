@@ -1,0 +1,29 @@
+{
+  "version": "0.1",
+  "engine": "JOYLAB Research → Video Engine",
+  "article": {
+    "slug": "ai-power-next-bottleneck",
+    "title": "GPU 다음 병목은 발전소다｜AI 데이터센터 전력 수요가 바꾸는 투자 지도",
+    "canonical": "https://aijoylab.kr/articles/ai-power-next-bottleneck",
+    "sourcePath": "src/data/articles/ai-power-next-bottleneck.md",
+    "publishedAt": "2026-09-10"
+  },
+  "files": {
+    "research": "01_RESEARCH.md",
+    "evidence": "02_EVIDENCE.md",
+    "numbers": "03_NUMBERS.json",
+    "brief": "04_VIDEO_BRIEF.md",
+    "youtubePack": "05_YOUTUBE_PACK.md"
+  },
+  "workflow": {
+    "state": "SOURCE_READY",
+    "language": "ko-KR",
+    "format": "long-form",
+    "targetMinutes": [6, 9],
+    "humanApprovalRequired": true
+  },
+  "activation": {
+    "youtubeOfficialChannelEnabled": false,
+    "gate": "VIDEO_ACTIVATION_GATE_V0.1"
+  }
+}

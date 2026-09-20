@@ -1,0 +1,56 @@
+---
+const { video } = Astro.props;
+const watchUrl = `https://www.youtube.com/watch?v=${video.youtubeId}`;
+const embedUrl = `https://www.youtube-nocookie.com/embed/${video.youtubeId}`;
+---
+<section class="article-video" aria-labelledby="article-video-title" data-article-video>
+  <div class="article-video__head">
+    <div>
+      <small>JOYLAB VIDEO RESEARCH</small>
+      <h2 id="article-video-title">영상으로 보기</h2>
+    </div>
+    <span>{video.duration}</span>
+  </div>
+  <div class="article-video__frame">
+    <iframe
+      src={embedUrl}
+      title={video.title}
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <div class="article-video__copy">
+    <strong>{video.title}</strong>
+    <p>{video.description}</p>
+    <div class="article-video__actions">
+      <a
+        href={watchUrl}
+        target="_blank"
+        rel="noreferrer"
+        data-analytics-event="article_video_click"
+        data-analytics-target="youtube"
+        data-analytics-placement="article_video"
+      >YouTube에서 보기 ↗</a>
+      <span>최신 수치와 근거는 이 리서치 본문을 기준으로 합니다.</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .article-video{margin:0;background:#081d48;color:#fff;border:1px solid #17386f;border-top:0;padding:24px}
+  .article-video__head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:16px}
+  .article-video__head small{display:block;color:#73aaff;font-size:.72rem;font-weight:900;letter-spacing:.12em}
+  .article-video__head h2{margin:5px 0 0;font-size:clamp(1.45rem,2.6vw,2rem);letter-spacing:-.04em}
+  .article-video__head>span{color:#a9b9d0;font-size:.78rem;font-weight:800}
+  .article-video__frame{position:relative;overflow:hidden;border-radius:16px;background:#020817;aspect-ratio:16/9;box-shadow:0 18px 48px rgba(0,0,0,.25)}
+  .article-video__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .article-video__copy{padding-top:16px}
+  .article-video__copy>strong{display:block;font-size:1.02rem;line-height:1.55}
+  .article-video__copy p{margin:7px 0 0;color:#b9c8dc;font-size:.86rem;line-height:1.7}
+  .article-video__actions{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px}
+  .article-video__actions a{display:inline-flex;padding:9px 12px;border-radius:10px;background:#1677ff;color:#fff;font-size:.8rem;font-weight:850}
+  .article-video__actions span{color:#8499b8;font-size:.72rem;line-height:1.5;text-align:right}
+  @media(max-width:640px){.article-video{padding:18px 14px}.article-video__head{align-items:flex-start;flex-direction:column;gap:6px}.article-video__actions{align-items:flex-start;flex-direction:column}.article-video__actions span{text-align:left}}
+</style>

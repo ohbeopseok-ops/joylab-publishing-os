@@ -15,6 +15,12 @@ draft: false
 seoTitle: "GPU 다음 병목은 발전소다｜AI 데이터센터 전력 투자 지도"
 series: "AI 전력 투자 가이드"
 readingTime: "약 10분"
+video:
+  status: "planned"
+  title: "GPU 다음 병목은 발전소다｜AI 데이터센터 전력 투자 지도"
+  description: "발전부터 송전·변압·배전·백업전원·냉각까지 AI 데이터센터 전력 병목을 설명하는 JoyLab Video Research 파일럿입니다."
+  sourcePack: "video-engine/pilots/ai-power-next-bottleneck"
+  language: "ko-KR"
 ---
 
 AI 투자에서 가장 익숙한 병목은 GPU와 HBM입니다. 그런데 데이터센터가 실제로 돌아가려면 칩보다 먼저 해결해야 하는 물리적 조건이 하나 있습니다. **전력입니다.**
