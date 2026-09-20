@@ -1,0 +1,41 @@
+name: Article Schema Gate
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/components/ArticleSchema.astro'
+      - 'src/pages/articles/**'
+      - 'src/data/articles/**'
+      - 'scripts/check-article-schema.mjs'
+      - '.github/workflows/article-schema-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  article-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Schema Gate self-test
+        run: node scripts/check-article-schema.mjs --self-test
+
+      - name: Build site
+        run: npm run build
+
+      - name: Validate built Article JSON-LD
+        run: node scripts/check-article-schema.mjs
