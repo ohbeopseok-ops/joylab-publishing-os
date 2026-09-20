@@ -27,16 +27,14 @@ for (const c of cases) {
 
   if (c.name.startsWith('landing')) {
     await page.locator('h1').waitFor();
-    if (!(await page.getByText('완벽하지 않아서 스며들 수 있었다', { exact: false }).count())) {
-      throw new Error(`${c.name}: book title missing`);
-    }
-    if (!(await page.getByText('작가의 말과 1장 읽기', { exact: false }).count())) {
-      throw new Error(`${c.name}: reader CTA missing`);
-    }
+    const title = page.getByText('완벽하지 않아서 스며들 수 있었다', { exact: false }).first();
+    if (!(await title.isVisible())) throw new Error(`${c.name}: book title not visible`);
+
+    const previewCta = page.getByText('작가의 말과 1장 읽기', { exact: false }).first();
+    if (!(await previewCta.isVisible())) throw new Error(`${c.name}: reader CTA not visible`);
   } else {
-    if (!(await page.getByText('PREVIEW END', { exact: true }).count())) {
-      throw new Error(`${c.name}: preview end missing`);
-    }
+    const previewEnd = page.getByText('PREVIEW END', { exact: true }).first();
+    if (!(await previewEnd.isVisible())) throw new Error(`${c.name}: preview end not visible`);
     if (await page.getByText('소나무 장작이 타들어 가는 냄새는', { exact: false }).count()) {
       throw new Error(`${c.name}: locked chapter body leaked`);
     }
