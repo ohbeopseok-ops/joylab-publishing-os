@@ -21,7 +21,7 @@ const relatedArticles = (await getCollection('articles'))
   .slice(0, 3);
 
 const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site ?? Astro.url.origin).toString();
-const cover = book.data.coverImage ?? '/books/imperfect/cover.webp';
+const cover = book.data.coverImage;
 ---
 <BaseLayout
   title={`${book.data.title} | ${book.data.author} 에세이 | JoyLab`}
@@ -32,11 +32,20 @@ const cover = book.data.coverImage ?? '/books/imperfect/cover.webp';
 >
   <BookSchema book={book} canonical={canonical} />
 
-  <section class="book-v2-hero" style={`--book-cover-image:url("${cover}")`}>
+  <section class="book-v2-hero" style={cover ? `--book-cover-image:url("${cover}")` : undefined}>
     <div class="book-v2-hero__veil" aria-hidden="true"></div>
     <div class="book-v2-hero__shell">
-      <div class="book-v2-hero__cover">
-        <img src={cover} alt={`${book.data.title} 표지`} width="640" height="960" fetchpriority="high" decoding="async" />
+      <div class:list={['book-v2-hero__cover', { 'is-text-cover': !cover }]}>
+        {cover ? (
+          <img src={cover} alt={`${book.data.title} 표지`} width="640" height="960" fetchpriority="high" decoding="async" />
+        ) : (
+          <div class="book-v2-text-cover" aria-label={`${book.data.title} 텍스트 표지`}>
+            <small>JOYLAB BOOKS</small>
+            <strong>{book.data.title}</strong>
+            {book.data.subtitle && <span>{book.data.subtitle}</span>}
+            <em>{book.data.author}</em>
+          </div>
+        )}
       </div>
 
       <div class="book-v2-hero__copy">
@@ -44,7 +53,7 @@ const cover = book.data.coverImage ?? '/books/imperfect/cover.webp';
         <p class="book-v2-overline">오늘도 조금 더 나답게 살아가는 당신에게</p>
         <h1>{book.data.title}</h1>
         {book.data.subtitle && <p class="book-v2-subtitle">{book.data.subtitle}</p>}
-        <p class="book-v2-author">{book.data.author} 지음 <span>·</span> JoyLab Books</p>
+        <p class="book-v2-byline">{book.data.author} 지음 <span>·</span> JoyLab Books</p>
         {book.data.heroQuote && <blockquote>“{book.data.heroQuote}”</blockquote>}
         <div class="book-v2-actions">
           <a
@@ -119,13 +128,16 @@ const cover = book.data.coverImage ?? '/books/imperfect/cover.webp';
         <a href={`/books/${book.id}/read`}>작가의 말과 1장 읽기 →</a>
       </div>
       <div class="book-v2-toc-list">
-        {chapters.map((chapter) => (
-          <div class:list={['book-v2-toc-row', { 'is-preview': chapter.data.preview, 'is-locked': !chapter.data.preview }]}>
-            <span class="book-v2-toc-no">{chapter.data.label?.split(' ')[0] ?? String(chapter.data.order).padStart(2, '0')}</span>
-            <span class="book-v2-toc-title">{chapter.data.title}</span>
-            {chapter.data.preview ? <em>공개</em> : <em class="is-lock">전체본 준비 중</em>}
-          </div>
-        ))}
+        {chapters.map((chapter) => {
+          const available = book.data.access === 'full' || chapter.data.preview;
+          return (
+            <div class:list={['book-v2-toc-row', { 'is-preview': available, 'is-locked': !available }]}>
+              <span class="book-v2-toc-no">{chapter.data.label?.split(' ')[0] ?? String(chapter.data.order).padStart(2, '0')}</span>
+              <span class="book-v2-toc-title">{chapter.data.title}</span>
+              {available ? <em>공개</em> : <em class="is-lock">전체본 준비 중</em>}
+            </div>
+          );
+        })}
       </div>
     </section>
 
