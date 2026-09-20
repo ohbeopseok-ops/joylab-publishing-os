@@ -1,0 +1,24 @@
+/* JoyLab AI Economics Research Hub V1 — extends Semiconductor Guide */
+.ai-economics-guide-v1 .ae-hero{background:linear-gradient(135deg,#06152b 0%,#0b2857 52%,#124d91 100%)}
+.ai-economics-guide-v1 .sg-hero__inner:before{background:radial-gradient(circle at 74% 38%,rgba(22,119,255,.38),transparent 24%),radial-gradient(circle at 60% 70%,rgba(255,216,61,.10),transparent 22%)}
+.ai-economics-guide-v1 .sg-hero__lead{max-width:720px;text-wrap:pretty}
+.ai-economics-guide-v1 .ae-map{grid-template-columns:repeat(5,minmax(0,1fr))}
+.ai-economics-guide-v1 .sg-map__step.is-start{box-shadow:inset 0 3px 0 var(--sg-yellow);background:linear-gradient(180deg,rgba(255,216,61,.08),rgba(255,255,255,.015))}
+.ai-economics-guide-v1 .sg-map__step.is-security{box-shadow:inset 0 3px 0 #60a5fa;background:linear-gradient(180deg,rgba(96,165,250,.09),rgba(255,255,255,.015))}
+.ai-economics-guide-v1 .ae-thesis{margin:0 0 28px;padding:28px;border:1px solid var(--sg-line);border-radius:24px;background:linear-gradient(135deg,#fff 0%,#f4f8ff 100%)}
+.ai-economics-guide-v1 .ae-thesis h2{max-width:900px;margin:8px 0 18px;font-size:clamp(1.4rem,2.5vw,2.05rem);line-height:1.35;color:var(--sg-ink)}
+.ai-economics-guide-v1 .ae-thesis__flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ai-economics-guide-v1 .ae-thesis__flow span{padding:8px 11px;border-radius:999px;background:#0b1f4d;color:#fff;font-size:.76rem;font-weight:900;letter-spacing:.03em}
+.ai-economics-guide-v1 .ae-thesis__flow b{color:#1677ff}
+.ai-economics-guide-v1 .sg-insights__grid>div:first-child{box-shadow:inset 0 3px 0 #1677ff}
+.ai-economics-guide-v1 .sg-insights__grid>div:nth-child(2){box-shadow:inset 0 3px 0 #ffd83d}
+.ai-economics-guide-v1 .sg-insights__grid>div:nth-child(3){box-shadow:inset 0 3px 0 #60a5fa}
+.ai-economics-guide-v1 .ae-rule-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.ai-economics-guide-v1 .ae-rule-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){
+  .ai-economics-guide-v1 .sg-hero h1{font-size:2.2rem}
+  .ai-economics-guide-v1 .ae-map{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+  .ai-economics-guide-v1 .sg-map__step{min-width:146px;scroll-snap-align:start}
+  .ai-economics-guide-v1 .ae-thesis{padding:20px}
+  .ai-economics-guide-v1 .ae-rule-grid{grid-template-columns:1fr}
+}

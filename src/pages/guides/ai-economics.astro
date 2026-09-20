@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import '../../styles/ai-economics-guide-v1.css';
+import { getCollection } from 'astro:content';
+
+const sequence = [
+  { id: 'ai-bubble-vs-compute-supercycle-2026', step: '01', role: 'ECONOMICS', short: 'Economics', note: 'AI 수요의 구조적 성장과 과도한 자본투자·밸류에이션이 동시에 존재할 수 있는지 검증합니다.' },
+  { id: 'openai-anthropic-ipo-cash-burn-2026', step: '02', role: 'BUSINESS MODEL', short: 'Business', note: '프런티어 AI의 성장률을 현금소진·기업 매출·마진·자본효율과 연결합니다.' },
+  { id: 'ai-infrastructure-hbm-mlcc-power-grid-2026', step: '03', role: 'INFRASTRUCTURE', short: 'Infra', note: '컴퓨팅 수요가 HBM을 넘어 MLCC·데이터센터·전력망으로 이동하는 병목을 봅니다.' },
+  { id: 'samsung-hbm4-memory-outlook-2026-09-20', step: '04', role: 'SEMICONDUCTOR', short: 'Semiconductor', note: 'AI 인프라 수요가 HBM4·HBM4E·서버 DRAM·eSSD와 기업 이익으로 전환되는 과정을 봅니다.' },
+  { id: 'ai-api-key-compute-theft-2026', step: '05', role: 'SECURITY', short: 'Security', note: 'AI 사용량 증가가 API 키·세션 토큰·연산 권한이라는 새로운 공격 자산을 어떻게 만드는지 봅니다.' }
+];
+
+const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
+const byId = new Map(collection.map((item) => [item.id, item]));
+const steps = sequence.map((entry) => ({ ...entry, article: byId.get(entry.id) })).filter((entry) => entry.article);
+---
+<BaseLayout
+  title="AI Economics Research Hub｜AI 성장·인프라·반도체·보안 연결 분석 | JoyLab"
+  description="AI 거품론과 컴퓨팅 슈퍼사이클부터 OpenAI·Anthropic 수익성, AI 인프라, 삼성전자 HBM4, API 키 보안까지 하나의 경제 구조로 연결하는 JoyLab AI Economics Research Hub입니다."
+  bodyClass="semiconductor-guide-v2 ai-economics-guide-v1"
+>
+  <section class="sg-hero ae-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">AI ECONOMICS RESEARCH HUB · JOYLAB</div>
+          <h1>AI는 얼마나 똑똑한가보다<br /><span>어떻게 돈을 버는가가 중요합니다.</span></h1>
+          <p class="sg-hero__lead">JoyLab은 AI 산업을 모델 성능만으로 보지 않습니다. <strong>CAPEX → Compute → Revenue → Margin → Semiconductor → Security Cost</strong>로 연결해 성장의 경제적 실체를 추적합니다.</p>
+          <div class="sg-hero__chips" aria-label="AI Economics 핵심 주제">
+            <span>#AI Economics</span><span>#AI CAPEX</span><span>#현금흐름</span><span>#AI인프라</span><span>#HBM</span><span>#AI보안</span>
+          </div>
+          <div class="sg-hero__meta">
+            <span><strong>{steps.length}</strong> Core Research</span>
+            <span><strong>4</strong> Connected Layers</span>
+            <span><strong>1</strong> Economic Lens</span>
+          </div>
+        </div>
+
+        <aside class="sg-lens" aria-label="AI Economics 판단 축">
+          <div class="sg-lens__brand">JOYLAB<br /><b>AI ECONOMICS</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>CAPITAL</b><span>얼마나 많은 자본이 투입되고 현금이 소진되는지 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>CONVERSION</b><span>컴퓨팅 수요가 매출·마진·FCF로 전환되는지 확인합니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>BOTTLENECK</b><span>HBM·부품·전력·보안 중 어디서 비용과 가치가 발생하는지 봅니다.</span></div></div>
+        </aside>
+      </div>
+
+      <div class="sg-map-head">
+        <div><span>RESEARCH CLUSTER</span><b>AI Economics → Infrastructure → Semiconductor → Security</b></div>
+        <a href="#research-path">5편 순서대로 보기 →</a>
+      </div>
+
+      <nav class="sg-map ae-map" aria-label="AI Economics 리서치 경로">
+        {steps.map(({ article, step, short, role }, index) => (
+          <a class={`sg-map__step ${index === 0 ? 'is-start' : ''} ${index === steps.length - 1 ? 'is-security' : ''}`} href={`/articles/${article!.id}`}>
+            <em>{step}</em><b>{short}</b><span>{role}</span>
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <main class="sg-main" id="research-path">
+    <div class="sg-wrap sg-layout">
+      <section>
+        <section class="ae-thesis">
+          <div class="sg-eyebrow">CORE THESIS</div>
+          <h2>AI 산업의 핵심 질문은 “수요가 있는가”가 아니라 “수요를 경제적 가치로 얼마나 효율적으로 바꾸는가”입니다.</h2>
+          <div class="ae-thesis__flow" aria-label="AI Economics conversion chain">
+            <span>CAPEX</span><b>→</b><span>COMPUTE</span><b>→</b><span>USAGE</span><b>→</b><span>REVENUE</span><b>→</b><span>MARGIN</span><b>→</b><span>FCF</span>
+          </div>
+        </section>
+
+        <div class="sg-section-head">
+          <div><div class="sg-eyebrow">CORE RESEARCH · 01 → 05</div><h2>한 편씩 보면 뉴스지만, 연결해서 보면 산업 구조가 됩니다</h2></div>
+          <p>거시 논쟁에서 시작해 기업 수익화, 물리 인프라, 반도체 이익, 보안 비용으로 내려갑니다.</p>
+        </div>
+
+        <div class="sg-path">
+          {steps.map(({ article, step, role, note }, index) => (
+            <article class={`sg-card ${index === 0 ? 'is-key' : ''}`}>
+              <div class="sg-card__no">{step}</div>
+              <div>
+                <div class="sg-card__role">{role}</div>
+                <h3><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h3>
+                <p>{note}</p>
+                <div class="sg-card__foot">
+                  {article!.data.tags.slice(0, 3).map((tag) => <span>#{tag}</span>)}
+                  <a class="sg-card__cta" href={`/articles/${article!.id}`}>{index === 0 ? '핵심 논지부터 읽기 →' : '리서치 읽기 →'}</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <section class="sg-insights" aria-labelledby="ae-insights-title">
+          <div class="sg-section-head sg-section-head--compact">
+            <div><div class="sg-eyebrow">DECISION FRAME</div><h2 id="ae-insights-title">세 개의 질문으로 AI 뉴스를 걸러냅니다</h2></div>
+          </div>
+          <div class="sg-insights__grid">
+            <div><em>DEMAND</em><b>실제 사용량이 늘고 있는가</b><p>모델 발표보다 기업 고객·API·데이터센터 가동과 같은 실제 수요를 확인합니다.</p></div>
+            <div><em>ECONOMICS</em><b>성장이 현금흐름으로 바뀌는가</b><p>매출 성장률보다 Compute Cost·Gross Margin·FCF·ROIC의 방향을 함께 봅니다.</p></div>
+            <div><em>BOTTLENECK</em><b>가치가 어디로 이동하는가</b><p>GPU에서 HBM, MLCC, 전력망, 보안으로 병목이 이동하는 경로를 추적합니다.</p></div>
+          </div>
+        </section>
+
+        <section class="sg-rule">
+          <div class="sg-eyebrow">JOYLAB AI ECONOMICS FRAMEWORK</div>
+          <h2>Capital → Compute → Usage → Revenue → Margin → FCF → Bottleneck → Risk</h2>
+          <div class="sg-rule__grid ae-rule-grid">
+            <div class="sg-rule__step"><b>CAPITAL</b><span>투입되는 CAPEX와 자금조달 조건</span></div>
+            <div class="sg-rule__step"><b>COMPUTE</b><span>GPU·데이터센터·전력 용량</span></div>
+            <div class="sg-rule__step"><b>REVENUE</b><span>사용량이 실제 유료 매출로 전환되는지</span></div>
+            <div class="sg-rule__step"><b>MARGIN</b><span>컴퓨팅 비용을 흡수하는 수익성</span></div>
+            <div class="sg-rule__step"><b>SEMICONDUCTOR</b><span>HBM·DRAM·스토리지 이익 전환</span></div>
+            <div class="sg-rule__step"><b>SECURITY</b><span>권한·토큰·연산 비용이라는 신규 리스크</span></div>
+          </div>
+        </section>
+      </section>
+
+      <aside class="sg-rail" aria-label="AI Economics Hub 사용법">
+        <section class="sg-rail-card sg-rail-card--dark">
+          <small>START HERE · 01</small>
+          <h3>AI 거품론 vs 컴퓨팅 슈퍼사이클</h3>
+          <p>전체 클러스터의 기준점입니다. 산업 성장과 투자 가격을 분리해 보는 프레임부터 시작합니다.</p>
+          <a href="/articles/ai-bubble-vs-compute-supercycle-2026">핵심 리서치 읽기 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>CORE CHAIN</small>
+          <h3>Economics → Infra → Semi → Security</h3>
+          <p>AI의 돈 흐름이 물리 인프라와 반도체, 다시 운영·보안 비용으로 이어지는 구조를 봅니다.</p>
+        </section>
+        <section class="sg-rail-card">
+          <small>WATCH</small>
+          <h3>앞으로 추가할 데이터</h3>
+          <ol><li>Hyperscaler CAPEX</li><li>Enterprise AI Revenue</li><li>Compute Cost</li><li>HBM·Server Memory</li><li>Power & Security Cost</li></ol>
+        </section>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>

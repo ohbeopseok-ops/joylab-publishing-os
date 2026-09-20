@@ -12,6 +12,7 @@ tags:
   - AI Economics
   - AI수익성
   - EnterpriseAI
+  - AI Research Cluster
 publishedAt: 2026-09-20
 updatedAt: 2026-09-20
 author: "JoyLab"
@@ -175,6 +176,20 @@ AI 산업의 평가 기준이 바뀌는 사건이다.
 > 기업가치 = 성장률 × 수익화 속도 × 자본효율
 
 성장만 빠르고 현금소진이 더 빠르면 장기 가치 판단은 어려워진다.
+
+---
+
+## Research Cluster｜AI Economics → Infrastructure → Semiconductor → Security
+
+이 글은 JoyLab의 **AI Economics Research Cluster**에 포함됩니다.
+
+**전체 허브:** [AI Economics Research Hub에서 5편을 순서대로 보기](/guides/ai-economics)
+
+1. [AI 거품론 vs 컴퓨팅 슈퍼사이클](/articles/ai-bubble-vs-compute-supercycle-2026) — 산업 성장과 자본효율의 기준
+2. [오픈AI·앤트로픽 IPO와 현금소진](/articles/openai-anthropic-ipo-cash-burn-2026) — AI 기업의 수익화와 자본효율
+3. [AI 인프라, HBM 다음은 MLCC·전력망인가](/articles/ai-infrastructure-hbm-mlcc-power-grid-2026) — 컴퓨팅 수요가 물리 인프라로 확장되는 경로
+4. [삼성전자 HBM4·HBM4E 분석](/articles/samsung-hbm4-memory-outlook-2026-09-20) — AI 인프라 수요가 반도체 이익으로 전환되는 기업 사례
+5. [AI API 키가 새로운 공격 자산이 된 이유](/articles/ai-api-key-compute-theft-2026) — AI 사용 확대가 만드는 새로운 보안 비용
 
 ---
 
