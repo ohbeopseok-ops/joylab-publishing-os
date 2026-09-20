@@ -1,0 +1,37 @@
+name: Book Web Reader V1
+
+on:
+  pull_request:
+    paths:
+      - 'src/layouts/BaseLayout.astro'
+      - 'src/pages/books/**'
+      - 'src/styles/book-reader.css'
+      - 'scripts/check-book-reader.mjs'
+      - '.github/workflows/book-web-reader.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Astro build
+        run: npm run build
+
+      - name: Reader contract
+        run: node scripts/check-book-reader.mjs
