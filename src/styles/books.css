@@ -48,7 +48,7 @@
 .book-v2-overline{margin:0 0 22px;color:#d5dbe2;font-family:Georgia,'Noto Serif KR',serif;font-size:1.02rem}
 .book-v2-hero__copy h1{max-width:760px;margin:0;font-family:Georgia,'Noto Serif KR',serif;font-weight:500;font-size:clamp(3rem,5.2vw,5.4rem);line-height:1.12;letter-spacing:-.055em;word-break:keep-all;text-wrap:balance}
 .book-v2-subtitle{margin:24px 0 0;font-family:Georgia,'Noto Serif KR',serif;font-size:1.18rem;color:#e9e4db;line-height:1.8}
-.book-v2-author{margin:12px 0 0;color:#e5e7eb}.book-v2-author span{margin:0 10px;color:#a7b1bf}
+.book-v2-byline{margin:12px 0 0;color:#e5e7eb}.book-v2-byline span{margin:0 10px;color:#a7b1bf}
 .book-v2-hero__copy blockquote{margin:24px 0 0;padding:0;border:0;background:none;color:#f1c681;font-family:Georgia,'Noto Serif KR',serif;font-size:1.32rem;line-height:1.7}
 .book-v2-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
 .book-v2-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 24px;border-radius:12px;text-decoration:none;font-weight:800}
@@ -58,7 +58,7 @@
 .book-v2-topics{display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;color:#eee9e0;font-size:.86rem}.book-v2-topics span::before{content:"◆";margin-right:8px;color:#ead0a8;font-size:.58rem}
 .book-v2-hero__quote{align-self:center;padding-left:20px;border-left:1px solid rgba(255,255,255,.18)}
 .book-v2-hero__quote p{margin:0;font-family:Georgia,'Noto Serif KR',serif;font-size:1.55rem;line-height:1.7;word-break:keep-all}.book-v2-hero__quote span{display:block;width:34px;height:1px;margin:22px 0;background:#e2b56d}.book-v2-hero__quote small{font-family:Georgia,'Noto Serif KR',serif;letter-spacing:.06em;color:#f1c681}
-.book-v2-tabs{position:sticky;top:0;z-index:8;background:rgba(255,255,255,.96);border-bottom:1px solid #e5e8ed;backdrop-filter:blur(10px)}
+.book-v2-tabs{position:sticky;top:72px;z-index:8;background:rgba(255,255,255,.96);border-bottom:1px solid #e5e8ed;backdrop-filter:blur(10px)}
 .book-v2-tabs__inner{width:min(1420px,calc(100% - 72px));margin:0 auto;display:flex;gap:42px;overflow-x:auto;scrollbar-width:none}.book-v2-tabs__inner::-webkit-scrollbar{display:none}
 .book-v2-tabs a{position:relative;flex:0 0 auto;padding:18px 0 16px;color:#3c4657;text-decoration:none;font-weight:700;font-size:.9rem}
 .book-v2-tabs a:first-child{color:#102b53}.book-v2-tabs a:first-child::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:#102b53}
@@ -124,3 +124,14 @@
   .books-v2-featured,.books-v2-philosophy,.books-v2-categories,.books-v2-library{padding:48px 0}
   .books-v2-category-grid{grid-template-columns:1fr}.books-v2-book{grid-template-columns:110px 1fr;gap:18px;padding:16px}.books-v2-book h3{font-size:1.25rem}.books-v2-book p{display:none}
 }
+
+.book-v2-text-cover,.books-v2-text-cover{display:flex;flex-direction:column;justify-content:space-between;width:100%;height:100%;min-height:100%;padding:28px;background:linear-gradient(155deg,#faf6f0 0%,#e8d8c6 60%,#caa888 100%);color:#3d1f12;text-decoration:none}
+.book-v2-text-cover small,.books-v2-text-cover small{font-size:.68rem;letter-spacing:.14em}
+.book-v2-text-cover strong,.books-v2-text-cover strong{font-family:Georgia,'Noto Serif KR',serif;font-size:2rem;line-height:1.28;word-break:keep-all}
+.book-v2-text-cover span,.books-v2-text-cover em{font-style:normal;font-size:.85rem;line-height:1.6}
+.book-v2-text-cover em,.books-v2-text-cover b{font-style:normal;font-size:.78rem;font-weight:600}
+.book-v2-hero__cover.is-text-cover{aspect-ratio:2/3;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.books-v2-featured__cover,.books-v2-book__cover{display:block;overflow:hidden;border-radius:4px}
+.books-v2-featured__cover .books-v2-text-cover{aspect-ratio:2/3;box-shadow:0 28px 56px rgba(53,35,24,.22)}
+.books-v2-book__cover .books-v2-text-cover{aspect-ratio:2/3;padding:18px}.books-v2-book__cover .books-v2-text-cover strong{font-size:1.25rem}
+@media(max-width:640px){.book-v2-tabs{top:64px}}
