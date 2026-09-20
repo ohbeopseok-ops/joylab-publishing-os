@@ -50,6 +50,8 @@ const books = defineCollection({
     coverImage: z.string().optional(),
     ogImage: z.string().optional(),
     heroQuote: z.string().optional(),
+    landingHeading: z.string(),
+    readerProfiles: z.array(z.string()).min(1),
     category: z.string().default('성장·리더십'),
     tags: z.array(z.string()).default([]),
     isbn: z.string().optional(),
