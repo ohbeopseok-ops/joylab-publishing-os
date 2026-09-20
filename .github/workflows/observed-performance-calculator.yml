@@ -1,0 +1,29 @@
+name: Observed Performance Calculator V1
+
+on:
+  pull_request:
+    paths:
+      - 'config/observed-performance-score.json'
+      - 'scripts/calculate-observed-performance.mjs'
+      - '.github/workflows/observed-performance-calculator.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  self-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: OPS calculator self-test
+        run: node scripts/calculate-observed-performance.mjs --self-test
