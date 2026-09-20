@@ -60,12 +60,13 @@ const storagePrefix = `joylab-book-${book.id}`;
         <button type="button" data-font-size="decrease" title="글자 작게">가−</button>
         <span id="book-font-size-label" aria-live="polite">18px</span>
         <button type="button" data-font-size="increase" title="글자 크게">가+</button>
+        <button type="button" id="book-font-family" title="글꼴 변경">명조</button>
         <button type="button" id="book-line-height" title="줄간격 조정">↕</button>
         <button type="button" id="book-theme" title="화면 테마 변경">☾</button>
       </div>
     </header>
 
-    <aside class="book-reader-toc" id="book-reader-toc" aria-label="책 목차" aria-hidden="true">
+    <aside class="book-reader-toc" id="book-reader-toc" aria-label="책 목차" aria-hidden="true" inert>
       <div class="book-reader-toc__head">
         <div>
           <small>JOYLAB BOOKS</small>
@@ -103,7 +104,7 @@ const storagePrefix = `joylab-book-${book.id}`;
         </div>
       )}
     </aside>
-    <button class="book-reader-backdrop" id="book-reader-backdrop" type="button" aria-label="목차 닫기"></button>
+    <button class="book-reader-backdrop" id="book-reader-backdrop" type="button" tabindex="-1" aria-label="목차 닫기"></button>
 
     <main class="book-reader-content" id="book-reader-content">
       <section class="book-reader-cover" id="book-reader-cover">
@@ -159,6 +160,7 @@ const storagePrefix = `joylab-book-${book.id}`;
       const progressBar = document.getElementById('book-reading-progress-bar');
       const progressText = document.getElementById('book-reading-percent');
       const fontLabel = document.getElementById('book-font-size-label');
+      const fontFamilyButton = document.getElementById('book-font-family');
       const themeButton = document.getElementById('book-theme');
       const lineHeightButton = document.getElementById('book-line-height');
       const prevButton = document.getElementById('book-prev-chapter');
@@ -171,40 +173,59 @@ const storagePrefix = `joylab-book-${book.id}`;
 
       const sizes = [16, 17, 18, 19, 20, 21, 22];
       const lineHeights = [1.85, 2.05, 2.25];
+      const fontFamilies = ['serif', 'sans'];
       const themes = ['light', 'warm', 'dark'];
 
       let fontSize = Number(localStorage.getItem(key('font-size'))) || 18;
       if (!sizes.includes(fontSize)) fontSize = 18;
       let lineHeight = Number(localStorage.getItem(key('line-height'))) || 2.05;
       if (!lineHeights.includes(lineHeight)) lineHeight = 2.05;
+      let fontFamily = localStorage.getItem(key('font-family')) || 'serif';
+      if (!fontFamilies.includes(fontFamily)) fontFamily = 'serif';
       let theme = localStorage.getItem(key('theme')) || 'warm';
       if (!themes.includes(theme)) theme = 'warm';
 
       const applySettings = () => {
         reader.style.setProperty('--reader-font-size', `${fontSize}px`);
         reader.style.setProperty('--reader-line-height', String(lineHeight));
+        reader.style.setProperty(
+          '--reader-font-family',
+          fontFamily === 'sans'
+            ? 'Pretendard, "Noto Sans KR", system-ui, sans-serif'
+            : 'Georgia, "Noto Serif KR", "Nanum Myeongjo", serif'
+        );
         reader.dataset.theme = theme;
         if (fontLabel) fontLabel.textContent = `${fontSize}px`;
+        if (fontFamilyButton) fontFamilyButton.textContent = fontFamily === 'sans' ? '고딕' : '명조';
         if (themeButton) themeButton.textContent = theme === 'dark' ? '☀' : theme === 'warm' ? '◐' : '☾';
       };
       applySettings();
 
       const openToc = () => {
+        toc.removeAttribute('inert');
         toc.classList.add('is-open');
         backdrop.classList.add('is-open');
         toc.setAttribute('aria-hidden', 'false');
         openButton?.setAttribute('aria-expanded', 'true');
+        closeButton?.focus();
       };
       const closeToc = () => {
         toc.classList.remove('is-open');
         backdrop.classList.remove('is-open');
         toc.setAttribute('aria-hidden', 'true');
+        toc.setAttribute('inert', '');
         openButton?.setAttribute('aria-expanded', 'false');
       };
       openButton?.addEventListener('click', openToc);
       closeButton?.addEventListener('click', closeToc);
       backdrop.addEventListener('click', closeToc);
       tocLinks.forEach((link) => link.addEventListener('click', closeToc));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && toc.classList.contains('is-open')) {
+          closeToc();
+          openButton?.focus();
+        }
+      });
 
       document.querySelector('[data-font-size="decrease"]')?.addEventListener('click', () => {
         const index = Math.max(0, sizes.indexOf(fontSize) - 1);
@@ -216,6 +237,11 @@ const storagePrefix = `joylab-book-${book.id}`;
         const index = Math.min(sizes.length - 1, sizes.indexOf(fontSize) + 1);
         fontSize = sizes[index];
         localStorage.setItem(key('font-size'), String(fontSize));
+        applySettings();
+      });
+      fontFamilyButton?.addEventListener('click', () => {
+        fontFamily = fontFamilies[(fontFamilies.indexOf(fontFamily) + 1) % fontFamilies.length];
+        localStorage.setItem(key('font-family'), fontFamily);
         applySettings();
       });
       lineHeightButton?.addEventListener('click', () => {
