@@ -897,5 +897,62 @@
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
+  },
+  "ai-agent-security-prompt-to-rce-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 에이전트 보안｜프롬프트가 실행 권한으로 바뀌는 순간 — JoyLab Research Standard v1.0 공통 대표 이미지",
+      "caption": "JoyLab AI Security Research 기본 Hero. 핵심 공격면과 방어 구조는 본문에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 에이전트 보안｜프롬프트가 실행 권한으로 바뀌는 순간 — 핵심 위협 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 위협 신호와 변화 방향을 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 에이전트 보안｜프롬프트가 실행 권한으로 바뀌는 순간 — 공격면과 방어 계층을 구조화한 JoyLab Research Framework 이미지",
+        "caption": "공격면 → 권한 → 실행 → 방어 순서로 구조화합니다."
+      }
+    ]
+  },
+  "mcp-security-tool-poisoning-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "MCP 보안｜도구 연결이 새로운 공급망 공격면이 되는 이유 — JoyLab Research Standard v1.0 공통 대표 이미지",
+      "caption": "JoyLab AI Security Research 기본 Hero. 핵심 공격면과 방어 구조는 본문에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "MCP 보안｜도구 연결이 새로운 공급망 공격면이 되는 이유 — 핵심 위협 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 위협 신호와 변화 방향을 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "MCP 보안｜도구 연결이 새로운 공급망 공격면이 되는 이유 — 공격면과 방어 계층을 구조화한 JoyLab Research Framework 이미지",
+        "caption": "공격면 → 권한 → 실행 → 방어 순서로 구조화합니다."
+      }
+    ]
+  },
+  "ai-database-security-data-layer-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 데이터베이스 보안｜권한 통제를 데이터 계층으로 내려야 하는 이유 — JoyLab Research Standard v1.0 공통 대표 이미지",
+      "caption": "JoyLab AI Security Research 기본 Hero. 핵심 공격면과 방어 구조는 본문에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 데이터베이스 보안｜권한 통제를 데이터 계층으로 내려야 하는 이유 — 핵심 위협 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 위협 신호와 변화 방향을 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 데이터베이스 보안｜권한 통제를 데이터 계층으로 내려야 하는 이유 — 공격면과 방어 계층을 구조화한 JoyLab Research Framework 이미지",
+        "caption": "공격면 → 권한 → 실행 → 방어 순서로 구조화합니다."
+      }
+    ]
   }
 }

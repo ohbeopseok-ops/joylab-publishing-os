@@ -1,0 +1,18 @@
+/* JoyLab AI Security Hub V1 */
+.ai-security-guide-v1 .ais-hero{background:linear-gradient(135deg,#07131f 0%,#102944 54%,#143e65 100%)}
+.ai-security-guide-v1 .sg-hero__inner:before{background:radial-gradient(circle at 76% 36%,rgba(59,130,246,.35),transparent 25%),radial-gradient(circle at 61% 72%,rgba(239,68,68,.10),transparent 24%)}
+.ai-security-guide-v1 .sg-hero__lead{max-width:710px;text-wrap:pretty}
+.ai-security-guide-v1 .ais-map{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ai-security-guide-v1 .sg-map__step.is-start{box-shadow:inset 0 3px 0 #ffd83d;background:linear-gradient(180deg,rgba(255,216,61,.07),rgba(255,255,255,.015))}
+.ai-security-guide-v1 .sg-map__step.is-data{box-shadow:inset 0 3px 0 #60a5fa;background:linear-gradient(180deg,rgba(96,165,250,.09),rgba(255,255,255,.015))}
+.ai-security-guide-v1 .ais-thesis{margin:0 0 28px;padding:28px;border:1px solid var(--sg-line);border-radius:24px;background:linear-gradient(135deg,#fff 0%,#f4f8ff 100%)}
+.ai-security-guide-v1 .ais-thesis h2{max-width:900px;margin:8px 0 18px;font-size:clamp(1.4rem,2.5vw,2.05rem);line-height:1.35;color:var(--sg-ink)}
+.ai-security-guide-v1 .ais-thesis__flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ai-security-guide-v1 .ais-thesis__flow span{padding:8px 11px;border-radius:999px;background:#102944;color:#fff;font-size:.76rem;font-weight:900}
+.ai-security-guide-v1 .ais-thesis__flow b{color:#1677ff}
+.ai-security-guide-v1 .sg-insights__grid>div:first-child{box-shadow:inset 0 3px 0 #ffd83d}
+.ai-security-guide-v1 .sg-insights__grid>div:nth-child(2){box-shadow:inset 0 3px 0 #1677ff}
+.ai-security-guide-v1 .sg-insights__grid>div:nth-child(3){box-shadow:inset 0 3px 0 #60a5fa}
+.ai-security-guide-v1 .ais-rule-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.ai-security-guide-v1 .ais-rule-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.ai-security-guide-v1 .sg-hero h1{font-size:2.16rem}.ai-security-guide-v1 .ais-map{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.ai-security-guide-v1 .sg-map__step{min-width:150px;scroll-snap-align:start}.ai-security-guide-v1 .ais-thesis{padding:20px}.ai-security-guide-v1 .ais-rule-grid{grid-template-columns:1fr}}
