@@ -97,6 +97,22 @@ const steps = sequence.map((entry) => ({ ...entry, article: byId.get(entry.id) }
           </div>
         </section>
 
+        <section class="ae-thesis-status">
+          <div class="sg-section-head sg-section-head--compact">
+            <div><div class="sg-eyebrow">THESIS STATUS</div><h2>판단은 고정하지 않고 이력으로 남깁니다</h2></div>
+          </div>
+          <div class="ae-thesis-status__grid">
+            {researchGraph.articles.map((item)=>(
+              <article>
+                <div><span>{item.thesis.status}</span><em>{Math.round(item.thesis.confidence*100)}%</em></div>
+                <b>{item.thesis.id}</b>
+                <p>{item.thesis.statement}</p>
+                <small>Confidence는 진실 확률이 아니라 현재 근거 강도입니다.</small>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section class="ae-thesis">
           <div class="sg-eyebrow">CORE THESIS</div>
           <h2>AI 산업의 핵심 질문은 “수요가 있는가”가 아니라 “수요를 경제적 가치로 얼마나 효율적으로 바꾸는가”입니다.</h2>
@@ -174,6 +190,12 @@ const steps = sequence.map((entry) => ({ ...entry, article: byId.get(entry.id) }
           <h3>보안 비용도 AI Economics입니다</h3>
           <p>API Key → Agent → MCP → Database로 확장되는 권한·통제 비용을 별도 클러스터에서 추적합니다.</p>
           <a href="/guides/ai-security">AI Security Hub 보기 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>INFRASTRUCTURE BRIDGE</small>
+          <h3>GPU에서 Cooling까지</h3>
+          <p>AI Economics의 CAPEX를 실제 물리적 병목 구조로 내려가서 봅니다.</p>
+          <a href="/guides/ai-infrastructure">AI Infrastructure Hub →</a>
         </section>
       </aside>
     </div>

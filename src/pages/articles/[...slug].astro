@@ -52,12 +52,20 @@ const isUsRatesSeries = article.data.series === '미국 금리 리서치';
 const aiEconomicsClusterIds = new Set(['ai-bubble-vs-compute-supercycle-2026','openai-anthropic-ipo-cash-burn-2026','ai-infrastructure-hbm-mlcc-power-grid-2026','samsung-hbm4-memory-outlook-2026-09-20','ai-api-key-compute-theft-2026']);
 const isAiEconomicsCluster = aiEconomicsClusterIds.has(article.id);
 const aiSecurityClusterIds = new Set(['ai-api-key-compute-theft-2026','ai-agent-security-prompt-to-rce-2026','mcp-security-tool-poisoning-2026','ai-database-security-data-layer-2026']);
+const aiInfrastructureClusterIds = new Set(['gpu-compute-economics-rubin-2026','what-is-hbm','ai-infrastructure-hbm-mlcc-power-grid-2026','ai-data-center-capacity-stack-2026','ai-power-next-bottleneck','ai-data-center-cooling-bottleneck']);
 const isAiSecurityCluster = aiSecurityClusterIds.has(article.id);
+const isAiInfrastructureCluster = aiInfrastructureClusterIds.has(article.id);
 const guideCta = isAiSecurityCluster
   ? {
       title: 'AI Security Research Hub',
       href: '/guides/ai-security',
       label: 'API Key → Agent → MCP → Database Security 전체 흐름 보기 →'
+    }
+  : isAiInfrastructureCluster
+  ? {
+      title: 'AI Infrastructure Research Hub',
+      href: '/guides/ai-infrastructure',
+      label: 'GPU → HBM → MLCC → Data Center → Power → Cooling 전체 흐름 보기 →'
     }
   : isAiEconomicsCluster
   ? {

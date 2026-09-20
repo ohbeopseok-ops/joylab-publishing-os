@@ -954,5 +954,43 @@
         "caption": "공격면 → 권한 → 실행 → 방어 순서로 구조화합니다."
       }
     ]
+  },
+  "gpu-compute-economics-rubin-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "GPU 병목의 본질｜칩 수량보다 토큰당 비용과 랙 효율이 중요한 이유 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab AI Infrastructure Research 기본 Hero."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "GPU 병목의 본질｜칩 수량보다 토큰당 비용과 랙 효율이 중요한 이유 — 핵심 신호 이미지",
+        "caption": "병목과 Capacity 신호를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "GPU 병목의 본질｜칩 수량보다 토큰당 비용과 랙 효율이 중요한 이유 — 리서치 프레임워크 이미지",
+        "caption": "Demand → Bottleneck → Capacity → Economics 구조로 봅니다."
+      }
+    ]
+  },
+  "ai-data-center-capacity-stack-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 데이터센터 병목｜서버를 사도 바로 돌릴 수 없는 이유 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab AI Infrastructure Research 기본 Hero."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 데이터센터 병목｜서버를 사도 바로 돌릴 수 없는 이유 — 핵심 신호 이미지",
+        "caption": "병목과 Capacity 신호를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 데이터센터 병목｜서버를 사도 바로 돌릴 수 없는 이유 — 리서치 프레임워크 이미지",
+        "caption": "Demand → Bottleneck → Capacity → Economics 구조로 봅니다."
+      }
+    ]
   }
 }

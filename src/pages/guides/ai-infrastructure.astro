@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import '../../styles/ai-infrastructure-guide-v1.css';
+import { getCollection } from 'astro:content';
+
+const sequence=[
+{id:'gpu-compute-economics-rubin-2026',step:'01',role:'COMPUTE',short:'GPU',note:'칩 수량보다 토큰당 비용·사용률·랙 효율을 봅니다.'},
+{id:'what-is-hbm',step:'02',role:'MEMORY',short:'HBM',note:'GPU 성능 상승이 왜 메모리 대역폭과 HBM 가치를 키우는지 봅니다.'},
+{id:'ai-infrastructure-hbm-mlcc-power-grid-2026',step:'03',role:'COMPONENTS',short:'MLCC',note:'고밀도 AI 서버가 전원 안정화 부품의 고사양화를 어떻게 만드는지 봅니다.'},
+{id:'ai-data-center-capacity-stack-2026',step:'04',role:'CAPACITY',short:'Data Center',note:'발표된 CAPEX와 실제 가동 가능한 MW·GPU Capacity를 구분합니다.'},
+{id:'ai-power-next-bottleneck',step:'05',role:'POWER',short:'Power',note:'발전·송전·변압·배전이 AI Capacity의 다음 병목이 되는 구조를 봅니다.'},
+{id:'ai-data-center-cooling-bottleneck',step:'06',role:'THERMAL',short:'Cooling',note:'전력을 연산으로 바꾼 뒤 발생하는 열을 제거하는 마지막 물리 병목을 봅니다.'}
+];
+const collection=(await getCollection('articles')).filter(x=>!x.data.draft);
+const byId=new Map(collection.map(x=>[x.id,x]));
+const steps=sequence.map(x=>({...x,article:byId.get(x.id)})).filter(x=>x.article);
+---
+<BaseLayout title="AI Infrastructure Research Hub｜GPU·HBM·MLCC·데이터센터·전력·냉각 | JoyLab" description="GPU에서 HBM, MLCC, 데이터센터, 전력, 냉각까지 AI 인프라의 병목이 이동하는 경로를 연결한 JoyLab Research Hub입니다." bodyClass="semiconductor-guide-v2 ai-infrastructure-guide-v1">
+<section class="sg-hero aii-hero"><div class="sg-wrap sg-hero__inner">
+<div class="sg-hero__top"><div class="sg-hero__copy"><div class="sg-eyebrow">AI INFRASTRUCTURE RESEARCH HUB · JOYLAB</div><h1>AI 인프라는 칩이 아니라<br/><span>병목의 연쇄입니다.</span></h1><p class="sg-hero__lead">JoyLab은 AI 인프라를 <strong>GPU → HBM → MLCC → Data Center → Power → Cooling</strong> 순서로 봅니다. 가장 느린 레이어가 전체 컴퓨팅 Capacity와 경제성을 제한합니다.</p><div class="sg-hero__chips"><span>#GPU</span><span>#HBM</span><span>#MLCC</span><span>#DataCenter</span><span>#Power</span><span>#Cooling</span></div><div class="sg-hero__meta"><span><strong>{steps.length}</strong> Core Research</span><span><strong>6</strong> Bottleneck Layers</span><span><strong>1</strong> Capacity Stack</span></div></div>
+<aside class="sg-lens"><div class="sg-lens__brand">JOYLAB<br/><b>AI INFRA</b></div><div class="sg-lens__item"><em>01</em><div><b>COMPUTE</b><span>토큰당 비용과 GPU 사용률을 봅니다.</span></div></div><div class="sg-lens__item"><em>02</em><div><b>BOTTLENECK</b><span>메모리·부품·전력·냉각 중 제약이 어디로 이동하는지 봅니다.</span></div></div><div class="sg-lens__item"><em>03</em><div><b>CONVERSION</b><span>CAPEX가 실제 가동 Capacity와 매출로 바뀌는지 확인합니다.</span></div></div></aside></div>
+<div class="sg-map-head"><div><span>INFRASTRUCTURE CLUSTER</span><b>GPU → HBM → MLCC → Data Center → Power → Cooling</b></div><a href="#infra-path">6편 순서대로 보기 →</a></div>
+<nav class="sg-map aii-map">{steps.map(({article,step,short,role},i)=><a class={`sg-map__step ${i===0?'is-start':''}`} href={`/articles/${article!.id}`}><em>{step}</em><b>{short}</b><span>{role}</span></a>)}</nav>
+</div></section>
+<main class="sg-main" id="infra-path"><div class="sg-wrap sg-layout"><section>
+<section class="aii-thesis"><div class="sg-eyebrow">CORE THESIS</div><h2>AI 인프라의 가치는 가장 비싼 부품이 아니라 가장 부족한 Capacity 레이어에서 커집니다.</h2><div class="aii-flow"><span>COMPUTE</span><b>→</b><span>MEMORY</span><b>→</b><span>COMPONENT</span><b>→</b><span>CAPACITY</span><b>→</b><span>POWER</span><b>→</b><span>THERMAL</span></div></section>
+<div class="sg-section-head"><div><div class="sg-eyebrow">CORE RESEARCH · 01 → 06</div><h2>병목이 이동하는 순서대로 봅니다</h2></div><p>한 레이어의 개선은 다음 레이어의 제약을 드러냅니다. GPU만 보면 보이지 않는 수익 풀의 이동을 추적합니다.</p></div>
+<div class="sg-path">{steps.map(({article,step,role,note},i)=><article class={`sg-card ${i===0?'is-key':''}`}><div class="sg-card__no">{step}</div><div><div class="sg-card__role">{role}</div><h3><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h3><p>{note}</p><div class="sg-card__foot">{article!.data.tags.slice(0,3).map(tag=><span>#{tag}</span>)}<a class="sg-card__cta" href={`/articles/${article!.id}`}>리서치 읽기 →</a></div></div></article>)}</div>
+<section class="sg-rule"><div class="sg-eyebrow">JOYLAB INFRASTRUCTURE FRAME</div><h2>Demand → Bottleneck → Capacity → Utilization → Revenue → ROIC</h2><div class="sg-rule__grid"><div class="sg-rule__step"><b>DEMAND</b><span>AI 사용량과 Compute 수요</span></div><div class="sg-rule__step"><b>BOTTLENECK</b><span>가장 부족한 물리 레이어</span></div><div class="sg-rule__step"><b>CAPACITY</b><span>실제 가동 가능한 공급능력</span></div><div class="sg-rule__step"><b>UTILIZATION</b><span>GPU·MW의 실제 사용률</span></div></div></section>
+</section><aside class="sg-rail"><section class="sg-rail-card sg-rail-card--dark"><small>START HERE</small><h3>GPU Compute Economics</h3><p>칩 성능보다 토큰당 비용과 랙 효율에서 출발합니다.</p><a href="/articles/gpu-compute-economics-rubin-2026">첫 리서치 읽기 →</a></section><section class="sg-rail-card"><small>POWER DEEP DIVE</small><h3>AI Power Research</h3><p>발전·송전·변압·배전·백업·냉각을 더 깊게 봅니다.</p><a href="/guides/ai-power">AI Power Hub 보기 →</a></section><section class="sg-rail-card"><small>ECONOMICS BRIDGE</small><h3>AI Economics와 연결</h3><p>인프라 CAPEX가 매출·마진·FCF로 전환되는지는 Economics Hub에서 추적합니다.</p><a href="/guides/ai-economics">AI Economics Hub →</a></section></aside></div></main>
+</BaseLayout>
