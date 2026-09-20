@@ -5,11 +5,13 @@ on:
     branches: [main]
     paths:
       - 'src/pages/books/**'
+      - 'src/pages/index.astro'
       - 'src/data/books/**'
       - 'src/data/book-chapters/**'
       - 'src/layouts/BaseLayout.astro'
       - 'src/components/BookSchema.astro'
       - 'src/styles/books.css'
+      - 'src/styles/homepage-books-v2.css'
       - 'src/styles/book-reader.css'
       - 'scripts/qa-books-visual.mjs'
       - '.github/workflows/books-visual-qa.yml'
