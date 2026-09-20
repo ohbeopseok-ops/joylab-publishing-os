@@ -13,6 +13,7 @@ tags:
   - AIAgent
   - SupplyChain
   - AI Research Cluster
+  - AI Security Cluster
 publishedAt: 2026-09-20
 updatedAt: 2026-09-20
 author: "JoyLab"
@@ -202,6 +203,19 @@ AI를 훔치는 것이 아니라 **AI를 사용할 권리와 비용 지불 주�
 - 비정상 지역·시간대 접근
 - Spend Limit 초과
 - 장기 미교체 키
+
+---
+
+## Research Cluster｜AI Security
+
+이 글은 JoyLab **AI Security Research Cluster**의 시작점입니다.
+
+**전체 허브:** [AI Security Research Hub에서 4편을 순서대로 보기](/guides/ai-security)
+
+1. **AI API 키가 새로운 공격 자산이 된 이유**
+2. [AI 에이전트 보안｜프롬프트가 실행 권한으로 바뀌는 순간](/articles/ai-agent-security-prompt-to-rce-2026)
+3. [MCP 보안｜도구 연결이 새로운 공급망 공격면이 되는 이유](/articles/mcp-security-tool-poisoning-2026)
+4. [AI 데이터베이스 보안｜권한 통제를 데이터 계층으로 내려야 하는 이유](/articles/ai-database-security-data-layer-2026)
 
 ---
 
