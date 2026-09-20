@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "windowDays": 28,
+  "dimensions": {
+    "discovery": {
+      "max": 30,
+      "method": "cohort_percentile",
+      "minimumCohortSize": 10
+    },
+    "ctrQuality": {
+      "max": 25,
+      "minimumImpressions": 50,
+      "thresholds": [
+        { "minEfficiency": 1.4, "score": 25 },
+        { "minEfficiency": 1.2, "score": 22 },
+        { "minEfficiency": 1.0, "score": 18 },
+        { "minEfficiency": 0.8, "score": 12 },
+        { "minEfficiency": 0.6, "score": 6 },
+        { "minEfficiency": 0.0, "score": 0 }
+      ]
+    },
+    "rankMomentum": {
+      "max": 25,
+      "averagePositionImprovementMax": 15,
+      "fullCreditImprovement": 10,
+      "top20Presence": 5,
+      "top10Presence": 5
+    },
+    "queryExpansion": {
+      "max": 20,
+      "uniqueQueryGrowthMax": 10,
+      "top20QueryGrowthMax": 5,
+      "top10QueryGrowthMax": 5,
+      "fullCreditGrowthRatio": 3
+    }
+  },
+  "confidence": {
+    "high": {
+      "minimumD28Impressions": 300,
+      "minimumCohortSize": 20
+    },
+    "medium": {
+      "minimumD28Impressions": 100,
+      "minimumCohortSize": 10
+    }
+  },
+  "guardrails": {
+    "doNotUseAsRankingFactorClaim": true,
+    "doNotAutoChangeQualityWeights": true,
+    "minimumArticlesBeforeWeightRecommendation": 50
+  }
+}
