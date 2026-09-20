@@ -157,6 +157,9 @@ jobs:
           check_200 https://aijoylab.kr/articles/samsung-vs-sk-hynix-ai-memory
           grep -Fq '삼성전자 vs SK하이닉스' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/samsung-vs-sk-hynix-ai-memory' /tmp/body
+          grep -Fq 'https://aijoylab.kr/books/' /tmp/body
+          grep -Fq '완벽하지-않아서-스며들-수-있었다' /tmp/body
+          ! grep -Fq '/read</loc>' /tmp/body
           grep -Fq 'compare-scorecard' /tmp/body
           grep -Fq 'AI 성장 우선' /tmp/body
           grep -Fq 'data-total="samsung"' /tmp/body
@@ -188,6 +191,37 @@ jobs:
           grep -Fq 'Contact 문의 작성 방식' /tmp/body
           grep -Fq '클릭·전환 측정' /tmp/body
           grep -Fq 'Workers Analytics Engine' /tmp/body
+          grep -Fq '웹 리더의 25%·50%·75%·완독 진행률' /tmp/body
+
+          book_slug='%EC%99%84%EB%B2%BD%ED%95%98%EC%A7%80-%EC%95%8A%EC%95%84%EC%84%9C-%EC%8A%A4%EB%A9%B0%EB%93%A4-%EC%88%98-%EC%9E%88%EC%97%88%EB%8B%A4'
+
+          check_200 https://aijoylab.kr/books/
+          grep -Fq 'JOYLAB BOOKS' /tmp/body
+          grep -Fq '완벽하지 않아서 스며들 수 있었다' /tmp/body
+
+          check_200 "https://aijoylab.kr/books/$book_slug"
+          grep -Fq '완벽하지 않아서 스며들 수 있었다' /tmp/body
+          grep -Fq 'id="joylab-book-schema"' /tmp/body
+          grep -Fq 'data-analytics-event="book_preview_start"' /tmp/body
+          grep -Fq "/books/$book_slug/read" /tmp/body
+
+          check_200 "https://aijoylab.kr/books/$book_slug/read"
+          grep -Fq 'name="robots" content="noindex,follow"' /tmp/body
+          grep -Fq 'PREVIEW END' /tmp/body
+          grep -Fq 'id="book-font-family"' /tmp/body
+          grep -Fq 'id="book-reader-toc"' /tmp/body
+          grep -Fq '다도 테이블 위의 실핏줄' /tmp/body
+          ! grep -Fq '소나무 장작이 타들어 가는 냄새는' /tmp/body
+
+          book_analytics_code=$(curl -sS -o /tmp/book-analytics-body -w '%{http_code}' --max-time 20 \
+            -X POST \
+            -H 'Content-Type: text/plain;charset=UTF-8' \
+            -H 'Origin: https://aijoylab.kr' \
+            -H 'Sec-Fetch-Site: same-origin' \
+            --data '{"event":"book_preview_start","target":"완벽하지-않아서-스며들-수-있었다","placement":"book_hero","path":"/books/완벽하지-않아서-스며들-수-있었다"}' \
+            https://aijoylab.kr/__analytics/event)
+          echo "$book_analytics_code Books analytics"
+          test "$book_analytics_code" = "204"
 
           check_200 https://aijoylab.kr/robots.txt
           grep -Fq 'Sitemap: https://aijoylab.kr/sitemap.xml' /tmp/body
