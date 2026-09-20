@@ -15,122 +15,157 @@ const chapters = (await getCollection('bookChapters'))
   .filter((chapter) => chapter.data.bookSlug === book.id)
   .sort((a, b) => a.data.order - b.data.order);
 
-const grouped = [];
-for (const chapter of chapters) {
-  const part = chapter.data.part ?? '';
-  let group = grouped.find((item) => item.part === part);
-  if (!group) {
-    group = { part, chapters: [] };
-    grouped.push(group);
-  }
-  group.chapters.push(chapter);
-}
+const relatedArticles = (await getCollection('articles'))
+  .filter((article) => !article.data.draft && article.data.category === book.data.category)
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 3);
 
 const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site ?? Astro.url.origin).toString();
+const cover = book.data.coverImage ?? '/books/imperfect/cover.webp';
 ---
 <BaseLayout
   title={`${book.data.title} | ${book.data.author} 에세이 | JoyLab`}
   description={book.data.description}
   canonical={canonical}
-  bodyClass="book-landing-page"
+  bodyClass="book-landing-page book-landing-v2"
   image={book.data.ogImage}
 >
   <BookSchema book={book} canonical={canonical} />
-  <section class="book-landing-hero">
-    <div class="book-landing-shell">
-      <div class="book-cover book-cover--large book-cover--image">
-        {book.data.coverImage ? (
-          <img
-            src={book.data.coverImage}
-            alt={`${book.data.title} 표지`}
-            width="640"
-            height="960"
-            fetchpriority="high"
-            decoding="async"
-          />
-        ) : (
-          <>
-            <small>JOYLAB BOOKS · ESSAY</small>
-            <strong>{book.data.title}</strong>
-            {book.data.subtitle && <span>{book.data.subtitle}</span>}
-            <em>글 · {book.data.author}</em>
-          </>
-        )}
+
+  <section class="book-v2-hero" style={`--book-cover-image:url("${cover}")`}>
+    <div class="book-v2-hero__veil" aria-hidden="true"></div>
+    <div class="book-v2-hero__shell">
+      <div class="book-v2-hero__cover">
+        <img src={cover} alt={`${book.data.title} 표지`} width="640" height="960" fetchpriority="high" decoding="async" />
       </div>
 
-      <div class="book-landing-copy">
-        <p class="books-kicker">JOYLAB BOOKS · {book.data.category}</p>
+      <div class="book-v2-hero__copy">
+        <p class="book-v2-kicker">JoyLab Books</p>
+        <p class="book-v2-overline">오늘도 조금 더 나답게 살아가는 당신에게</p>
         <h1>{book.data.title}</h1>
-        {book.data.subtitle && <p class="book-subtitle">{book.data.subtitle}</p>}
-        <p class="book-description">{book.data.description}</p>
+        {book.data.subtitle && <p class="book-v2-subtitle">{book.data.subtitle}</p>}
+        <p class="book-v2-author">{book.data.author} 지음 <span>·</span> JoyLab Books</p>
         {book.data.heroQuote && <blockquote>“{book.data.heroQuote}”</blockquote>}
-        <div class="book-actions">
+        <div class="book-v2-actions">
           <a
-            class="book-primary"
+            class="book-v2-primary"
             href={`/books/${book.id}/read`}
             data-analytics-event="book_preview_start"
             data-analytics-target={book.id}
-            data-analytics-placement="book_hero"
-          >작가의 말과 1장 읽기 →</a>
-          <a class="book-secondary" href="#toc">목차 보기</a>
+            data-analytics-placement="book_hero_v2"
+          >지금 읽기 · 작가의 말 + 1장 <span aria-hidden="true">→</span></a>
+          <a class="book-v2-secondary" href="#toc">전체 목차 보기</a>
+        </div>
+        <div class="book-v2-topics" aria-label="책의 핵심 주제">
+          <span>성장과 회복</span><span>관계와 공감</span><span>일과 삶의 균형</span><span>리더에게 필요한 태도</span>
         </div>
       </div>
+
+      <aside class="book-v2-hero__quote" aria-label="JoyLab Books 메시지">
+        <p>“흠이 있는 삶도,<br />충분히 아름답다.”</p>
+        <span></span>
+        <small>JoyLab Books</small>
+      </aside>
     </div>
   </section>
 
-  <main class="book-landing-shell book-landing-main">
-    <section class="book-intro">
-      <p class="books-section-label">ABOUT THE BOOK</p>
-      <h2>{book.data.landingHeading}</h2>
-      <div class="book-prose"><Content /></div>
+  <nav class="book-v2-tabs" aria-label="책 페이지 메뉴">
+    <div class="book-v2-tabs__inner">
+      <a href="#about">책 소개</a>
+      <a href="#recommend">추천의 글</a>
+      <a href="#toc">목차</a>
+      <a href={`/books/${book.id}/read`}>미리보기</a>
+      <a href="#author">저자 소개</a>
+      <a href="#related">함께 읽으면 좋은 글</a>
+    </div>
+  </nav>
+
+  <main class="book-v2-main">
+    <section id="about" class="book-v2-section book-v2-about">
+      <div>
+        <p class="book-v2-label">ABOUT THE BOOK</p>
+        <h2>왜 이 책을 읽어야 할까요?</h2>
+        <div class="book-v2-prose"><Content /></div>
+      </div>
+      <aside class="book-v2-benefits">
+        <ul>
+          <li><span>☕</span>지친 일상에 건네는 따뜻한 문장</li>
+          <li><span>🌱</span>실패를 다시 바라보는 새로운 시선</li>
+          <li><span>♥</span>나와 타인을 이해하는 공감의 언어</li>
+          <li><span>●</span>리더에게 필요한 용기와 온기</li>
+        </ul>
+        <blockquote>“금이 간 그릇에도, 좋은 찻물이 담깁니다.<br />당신의 삶도 그렇습니다.”</blockquote>
+      </aside>
     </section>
 
-    <section class="book-for">
-      <p class="books-section-label">FOR READERS</p>
-      <h2>이런 독자에게 권합니다</h2>
-      <div class="book-for-grid">
+    <section id="recommend" class="book-v2-section book-v2-recommend">
+      <div>
+        <p class="book-v2-label">RECOMMENDED FOR</p>
+        <h2>이런 분에게 권합니다</h2>
+      </div>
+      <div class="book-v2-recommend-grid">
         {book.data.readerProfiles.map((profile, index) => (
-          <div><strong>{String(index + 1).padStart(2, '0')}</strong><p>{profile}</p></div>
+          <article>
+            <strong>{String(index + 1).padStart(2, '0')}</strong>
+            <p>{profile}</p>
+          </article>
         ))}
       </div>
     </section>
 
-    <section id="toc" class="book-toc-section">
-      <p class="books-section-label">CONTENTS</p>
-      <h2>목차</h2>
-      <div class="book-toc">
-        {grouped.map((group) => (
-          <div class="book-toc-group">
-            {group.part && <h3>{group.part}</h3>}
-            {group.chapters.map((chapter) => (
-              <div class="book-toc-row">
-                <span>{chapter.data.label ?? `${chapter.data.order}장. ${chapter.data.title}`}</span>
-                {chapter.data.preview && <em>미리보기</em>}
-              </div>
-            ))}
+    <section id="toc" class="book-v2-section book-v2-toc">
+      <div class="book-v2-section-head">
+        <div><p class="book-v2-label">CONTENTS</p><h2>미리 보는 목차</h2></div>
+        <a href={`/books/${book.id}/read`}>작가의 말과 1장 읽기 →</a>
+      </div>
+      <div class="book-v2-toc-list">
+        {chapters.map((chapter) => (
+          <div class:list={['book-v2-toc-row', { 'is-preview': chapter.data.preview, 'is-locked': !chapter.data.preview }]}>
+            <span class="book-v2-toc-no">{chapter.data.label?.split(' ')[0] ?? String(chapter.data.order).padStart(2, '0')}</span>
+            <span class="book-v2-toc-title">{chapter.data.title}</span>
+            {chapter.data.preview ? <em>공개</em> : <em class="is-lock">전체본 준비 중</em>}
           </div>
         ))}
       </div>
     </section>
 
-    <section class="book-author">
-      <p class="books-section-label">AUTHOR</p>
-      <h2>{book.data.author}</h2>
-      <p>글을 짓고, 삶의 거친 틈을 오래 바라보며, 생각을 분석에서 실행으로 연결하는 사람.</p>
-      <a href="/about">JoyLab 소개 보기 →</a>
+    <section id="author" class="book-v2-section book-v2-author">
+      <div>
+        <p class="book-v2-label">AUTHOR</p>
+        <h2>{book.data.author}</h2>
+      </div>
+      <div>
+        <p>글을 짓고, 삶과 일에서 생기는 균열을 오래 바라보며, 생각을 분석에서 실행으로 연결합니다.</p>
+        <p>JoyLab에서 투자·경제, AI·생산성, 성장·리더십을 연구하고 기록합니다.</p>
+        <a href="/about">JoyLab과 저자 소개 보기 →</a>
+      </div>
     </section>
 
-    <section class="book-next">
-      <p class="books-section-label">WEB READER</p>
-      <h2>작가의 말과 1장을 웹에서 바로 읽을 수 있습니다.</h2>
-      <p>목차 이동, 읽기 진행률, 글자 크기, 줄간격, 화면 테마와 읽던 위치 저장을 지원합니다.</p>
+    <section id="related" class="book-v2-section book-v2-related">
+      <div class="book-v2-section-head">
+        <div><p class="book-v2-label">READ TOGETHER</p><h2>함께 읽으면 좋은 글</h2></div>
+        <a href="/guides/growth-leadership">성장·리더십 전체 보기 →</a>
+      </div>
+      <div class="book-v2-related-grid">
+        {relatedArticles.map((article) => (
+          <a href={`/articles/${article.id}`}>
+            <small>{article.data.category}</small>
+            <h3>{article.data.cardTitle ?? article.data.title}</h3>
+            <p>{article.data.cardDescription ?? article.data.description}</p>
+            <span>리서치 읽기 →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="book-v2-closing">
+      <p>“조금 덜 완벽해도, 조금 더 나답게.”</p>
       <a
-        class="book-primary"
         href={`/books/${book.id}/read`}
         data-analytics-event="book_preview_start"
         data-analytics-target={book.id}
-        data-analytics-placement="book_footer"
-      >웹 리더 열기 →</a>
+        data-analytics-placement="book_closing_v2"
+      >작가의 말과 1장 읽기 →</a>
     </section>
   </main>
 </BaseLayout>
