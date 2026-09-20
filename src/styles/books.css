@@ -1,0 +1,22 @@
+.books-page,.book-landing-page{background:#f8f7f3;color:#182033}
+.books-shell,.book-landing-shell{width:min(1120px,calc(100% - 40px));margin:0 auto}
+.books-hero{padding:96px 0 54px;background:linear-gradient(180deg,#0b1f4d 0%,#102d63 100%);color:#fff}
+.books-kicker,.books-section-label{font-size:.74rem;letter-spacing:.18em;font-weight:800;color:#1677ff;margin:0 0 12px}
+.books-hero .books-kicker{color:#8fc2ff}
+.books-hero h1{font-size:clamp(2.2rem,5vw,4.5rem);margin:0 0 18px;letter-spacing:-.04em}
+.books-hero p{max-width:680px;font-size:1.08rem;line-height:1.8;color:#d8e6ff}
+.books-grid-section{padding:56px 0 90px}.books-grid{display:grid;gap:28px}
+.book-card{display:grid;grid-template-columns:260px 1fr;gap:32px;background:#fff;border:1px solid #e5e9ef;border-radius:24px;padding:24px;box-shadow:0 18px 45px rgba(15,30,60,.07)}
+.book-cover{display:flex;flex-direction:column;justify-content:space-between;min-height:360px;text-decoration:none;border-radius:8px;padding:30px;background:linear-gradient(155deg,#faf6f0 0%,#e8d8c6 60%,#caa888 100%);color:#3d1f12;box-shadow:0 18px 28px rgba(53,35,24,.18);border:1px solid rgba(80,52,35,.18)}
+.book-cover small{font-size:.68rem;letter-spacing:.15em}.book-cover strong{font-family:Georgia,'Noto Serif KR',serif;font-size:2rem;line-height:1.25;letter-spacing:-.04em}.book-cover span{font-size:.9rem;line-height:1.65}.book-cover em{font-size:.78rem;font-style:normal}
+.book-card__copy{align-self:center}.book-card__meta{font-size:.78rem;color:#718096;margin-bottom:10px}.book-card h2{font-size:2rem;margin:0 0 12px;letter-spacing:-.035em}.book-card h2 a{color:inherit;text-decoration:none}.book-card p{color:#566176;line-height:1.8}.book-link{display:inline-block;margin-top:14px;font-weight:800;text-decoration:none;color:#0f63df}
+.book-landing-hero{padding:76px 0 64px;background:linear-gradient(180deg,#f6f3ec,#fff)}
+.book-landing-hero .book-landing-shell{display:grid;grid-template-columns:minmax(260px,360px) 1fr;gap:64px;align-items:center}
+.book-cover--large{min-height:500px}.book-cover--large strong{font-size:2.6rem}
+.book-landing-copy h1{font-size:clamp(2.5rem,5vw,4.6rem);line-height:1.08;letter-spacing:-.055em;margin:0 0 18px}.book-subtitle{font-size:1.2rem;color:#6b7280;line-height:1.7}.book-description{max-width:690px;font-size:1.05rem;line-height:1.85;color:#455168}.book-landing-copy blockquote{margin:28px 0 0;padding:20px 22px;border-left:3px solid #995838;background:#fff;color:#503525;font-family:Georgia,'Noto Serif KR',serif;font-size:1.08rem;line-height:1.8}
+.book-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.book-primary,.book-secondary{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;font-weight:800;text-decoration:none}.book-primary{background:#0b1f4d;color:#fff}.book-secondary{border:1px solid #d8dde6;color:#7b8494;background:#f4f5f7}.is-disabled{cursor:not-allowed}
+.book-landing-main{padding:72px 0 100px}.book-landing-main section{padding:52px 0;border-bottom:1px solid #e2e7ee}.book-landing-main h2{font-size:clamp(1.8rem,3vw,2.7rem);letter-spacing:-.04em;margin:0 0 22px}.book-prose{max-width:760px;color:#455168;line-height:1.95;font-size:1.04rem}
+.book-for-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.book-for-grid>div{background:#fff;border:1px solid #e4e8ef;border-radius:18px;padding:24px}.book-for-grid strong{color:#1677ff}.book-for-grid p{line-height:1.7;color:#4e596d}
+.book-toc{display:grid;gap:26px}.book-toc-group h3{font-size:.85rem;letter-spacing:.08em;color:#995838;margin:0 0 8px}.book-toc-row{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid #edf0f4}.book-toc-row em{font-style:normal;font-size:.72rem;color:#0f63df;font-weight:800}
+.book-author p,.book-next p{max-width:760px;line-height:1.85;color:#566176}.book-author a{color:#0f63df;font-weight:800;text-decoration:none}.book-next{border-bottom:0!important}
+@media(max-width:760px){.books-shell,.book-landing-shell{width:min(100% - 28px,1120px)}.book-card,.book-landing-hero .book-landing-shell{grid-template-columns:1fr}.book-card{padding:16px}.book-cover{min-height:330px}.book-cover--large{min-height:430px}.book-landing-hero{padding-top:34px}.book-for-grid{grid-template-columns:1fr}.book-landing-copy h1{font-size:2.55rem}}

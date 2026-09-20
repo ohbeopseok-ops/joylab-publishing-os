@@ -1,0 +1,39 @@
+name: Books Domain Core
+
+on:
+  pull_request:
+    paths:
+      - 'src/content.config.ts'
+      - 'src/data/books/**'
+      - 'src/data/book-chapters/**'
+      - 'src/pages/books/**'
+      - 'src/styles/books.css'
+      - 'scripts/check-books-domain.mjs'
+      - '.github/workflows/books-domain-core.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Books domain self-test
+        run: node scripts/check-books-domain.mjs
+
+      - name: Astro build
+        run: npm run build

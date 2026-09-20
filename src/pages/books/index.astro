@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import '../../styles/books.css';
+
+const books = (await getCollection('books'))
+  .filter((book) => !book.data.draft)
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+---
+<BaseLayout
+  title="JoyLab Books | 생각을 오래 남기는 책"
+  description="JoyLab의 성장·리더십, 삶과 일의 기록을 책으로 엮은 아카이브입니다."
+  bodyClass="books-page"
+>
+  <section class="books-hero">
+    <div class="books-shell">
+      <p class="books-kicker">JOYLAB BOOKS</p>
+      <h1>생각을 오래 남기는 책</h1>
+      <p>리서치가 판단을 돕는다면, 책은 한 생각 곁에 더 오래 머무르게 합니다.</p>
+    </div>
+  </section>
+
+  <section class="books-shell books-grid-section">
+    <div class="books-grid">
+      {books.map((book) => (
+        <article class="book-card">
+          <a class="book-cover book-cover--text" href={`/books/${book.id}`} aria-label={`${book.data.title} 자세히 보기`}>
+            <small>JOYLAB BOOKS</small>
+            <strong>{book.data.title}</strong>
+            {book.data.subtitle && <span>{book.data.subtitle}</span>}
+            <em>{book.data.author}</em>
+          </a>
+          <div class="book-card__copy">
+            <div class="book-card__meta">{book.data.category} · {book.data.publishedAt.toLocaleDateString('ko-KR')}</div>
+            <h2><a href={`/books/${book.id}`}>{book.data.title}</a></h2>
+            <p>{book.data.description}</p>
+            <a class="book-link" href={`/books/${book.id}`}>책 소개 보기 →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

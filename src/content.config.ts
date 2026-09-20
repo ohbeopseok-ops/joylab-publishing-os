@@ -38,4 +38,42 @@ const articles = defineCollection({
   })
 });
 
-export const collections = { articles };
+const books = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/data/books' }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string().optional(),
+    description: z.string(),
+    author: z.string().default('오법석'),
+    publishedAt: z.coerce.date(),
+    updatedAt: z.coerce.date().optional(),
+    coverImage: z.string().optional(),
+    ogImage: z.string().optional(),
+    heroQuote: z.string().optional(),
+    landingHeading: z.string(),
+    readerProfiles: z.array(z.string()).min(1),
+    category: z.string().default('성장·리더십'),
+    tags: z.array(z.string()).default([]),
+    isbn: z.string().optional(),
+    publisher: z.string().optional(),
+    format: z.enum(['web', 'epub', 'pdf']).default('web'),
+    access: z.enum(['preview', 'full']).default('preview'),
+    previewChapterCount: z.number().int().min(0).default(1),
+    canonical: z.string().optional(),
+    draft: z.boolean().default(false)
+  })
+});
+
+const bookChapters = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/data/book-chapters' }),
+  schema: z.object({
+    bookSlug: z.string(),
+    order: z.number().int().min(0),
+    part: z.string().optional(),
+    title: z.string(),
+    label: z.string().optional(),
+    preview: z.boolean().default(false)
+  })
+});
+
+export const collections = { articles, books, bookChapters };

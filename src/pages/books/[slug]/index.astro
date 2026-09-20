@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import '../../../styles/books.css';
+
+export async function getStaticPaths() {
+  const books = (await getCollection('books')).filter((book) => !book.data.draft);
+  return books.map((book) => ({ params: { slug: book.id }, props: { book } }));
+}
+
+const { book } = Astro.props;
+const { Content } = await render(book);
+const chapters = (await getCollection('bookChapters'))
+  .filter((chapter) => chapter.data.bookSlug === book.id)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const grouped = [];
+for (const chapter of chapters) {
+  const part = chapter.data.part ?? '';
+  let group = grouped.find((item) => item.part === part);
+  if (!group) {
+    group = { part, chapters: [] };
+    grouped.push(group);
+  }
+  group.chapters.push(chapter);
+}
+
+const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site ?? Astro.url.origin).toString();
+---
+<BaseLayout
+  title={`${book.data.title} | ${book.data.author} 에세이 | JoyLab`}
+  description={book.data.description}
+  canonical={canonical}
+  bodyClass="book-landing-page"
+  image={book.data.ogImage}
+>
+  <section class="book-landing-hero">
+    <div class="book-landing-shell">
+      <div class="book-cover book-cover--large book-cover--text" aria-hidden="true">
+        <small>JOYLAB BOOKS · ESSAY</small>
+        <strong>{book.data.title}</strong>
+        {book.data.subtitle && <span>{book.data.subtitle}</span>}
+        <em>글 · {book.data.author}</em>
+      </div>
+
+      <div class="book-landing-copy">
+        <p class="books-kicker">JOYLAB BOOKS · {book.data.category}</p>
+        <h1>{book.data.title}</h1>
+        {book.data.subtitle && <p class="book-subtitle">{book.data.subtitle}</p>}
+        <p class="book-description">{book.data.description}</p>
+        {book.data.heroQuote && <blockquote>“{book.data.heroQuote}”</blockquote>}
+        <div class="book-actions">
+          <a class="book-primary" href="#toc">목차 보기</a>
+          <span class="book-secondary is-disabled" aria-disabled="true">웹 리더 · 다음 PR에서 연결</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="book-landing-shell book-landing-main">
+    <section class="book-intro">
+      <p class="books-section-label">ABOUT THE BOOK</p>
+      <h2>{book.data.landingHeading}</h2>
+      <div class="book-prose"><Content /></div>
+    </section>
+
+    <section class="book-for">
+      <p class="books-section-label">FOR READERS</p>
+      <h2>이런 독자에게 권합니다</h2>
+      <div class="book-for-grid">
+        {book.data.readerProfiles.map((profile, index) => (
+          <div><strong>{String(index + 1).padStart(2, '0')}</strong><p>{profile}</p></div>
+        ))}
+      </div>
+    </section>
+
+    <section id="toc" class="book-toc-section">
+      <p class="books-section-label">CONTENTS</p>
+      <h2>목차</h2>
+      <div class="book-toc">
+        {grouped.map((group) => (
+          <div class="book-toc-group">
+            {group.part && <h3>{group.part}</h3>}
+            {group.chapters.map((chapter) => (
+              <div class="book-toc-row">
+                <span>{chapter.data.label ?? `${chapter.data.order}장. ${chapter.data.title}`}</span>
+                {chapter.data.preview && <em>미리보기</em>}
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="book-author">
+      <p class="books-section-label">AUTHOR</p>
+      <h2>{book.data.author}</h2>
+      <p>글을 짓고, 삶의 거친 틈을 오래 바라보며, 생각을 분석에서 실행으로 연결하는 사람.</p>
+      <a href="/about">JoyLab 소개 보기 →</a>
+    </section>
+
+    <section class="book-next">
+      <p class="books-section-label">WEB READER</p>
+      <h2>작가의 말과 1장부터 읽을 수 있는 웹 리더를 연결합니다.</h2>
+      <p>이번 PR은 Books 도메인과 랜딩까지 구축합니다. 다음 Web Reader PR에서 미리보기, 목차 이동, 읽던 위치 저장을 연결합니다.</p>
+    </section>
+  </main>
+</BaseLayout>
