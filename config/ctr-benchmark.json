@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "source": "joylab_gsc_only",
+  "windowDays": 90,
+  "refreshCadence": "weekly",
+  "excludeBrandedQueries": true,
+  "brandPatterns": ["joylab", "aijoylab", "오법석"],
+  "positionBuckets": [
+    { "id": "p1", "min": 1.0, "max": 1.99 },
+    { "id": "p2", "min": 2.0, "max": 2.99 },
+    { "id": "p3", "min": 3.0, "max": 3.99 },
+    { "id": "p4", "min": 4.0, "max": 4.99 },
+    { "id": "p5", "min": 5.0, "max": 5.99 },
+    { "id": "p6_10", "min": 6.0, "max": 10.99 },
+    { "id": "p11_20", "min": 11.0, "max": 20.99 },
+    { "id": "p21_50", "min": 21.0, "max": 50.99 }
+  ],
+  "parentBuckets": [
+    { "id": "top3", "min": 1.0, "max": 3.99 },
+    { "id": "top10", "min": 4.0, "max": 10.99 },
+    { "id": "top20", "min": 11.0, "max": 20.99 },
+    { "id": "deep", "min": 21.0, "max": 50.99 }
+  ],
+  "minimums": {
+    "bucketImpressions": 300,
+    "bucketRows": 10,
+    "highConfidenceImpressions": 1000,
+    "highConfidenceRows": 30
+  },
+  "smoothing": {
+    "method": "internal_parent_prior",
+    "priorStrengthImpressions": 100
+  },
+  "fallback": {
+    "insufficientFineBucket": "parent_bucket",
+    "insufficientParentBucket": "na",
+    "externalIndustryCtr": false
+  }
+}
