@@ -1,0 +1,52 @@
+---
+const {
+  book,
+  canonical
+} = Astro.props;
+
+const pageUrl = canonical;
+const bookId = `${pageUrl}#book`;
+const pageId = `${pageUrl}#webpage`;
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Book',
+      '@id': bookId,
+      name: book.data.title,
+      ...(book.data.subtitle ? { alternateName: book.data.subtitle } : {}),
+      description: book.data.description,
+      url: pageUrl,
+      inLanguage: 'ko-KR',
+      datePublished: book.data.publishedAt.toISOString(),
+      author: { '@id': 'https://aijoylab.kr/#founder' },
+      ...(book.data.coverImage ? { image: new URL(book.data.coverImage, Astro.site ?? Astro.url.origin).toString() } : {}),
+      ...(book.data.isbn ? { isbn: book.data.isbn } : {}),
+      ...(book.data.publisher ? {
+        publisher: {
+          '@type': 'Organization',
+          name: book.data.publisher
+        }
+      } : {})
+    },
+    {
+      '@type': 'WebPage',
+      '@id': pageId,
+      url: pageUrl,
+      name: `${book.data.title} | JoyLab Books`,
+      description: book.data.description,
+      inLanguage: 'ko-KR',
+      mainEntity: { '@id': bookId },
+      about: { '@id': bookId },
+      isPartOf: {
+        '@type': 'WebSite',
+        '@id': 'https://aijoylab.kr/#website',
+        name: 'JoyLab',
+        url: 'https://aijoylab.kr/'
+      }
+    }
+  ]
+};
+---
+<script id="joylab-book-schema" type="application/ld+json" set:html={JSON.stringify(graph)}></script>

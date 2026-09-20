@@ -18,7 +18,12 @@ const analyticsContracts = {
   article_dwell_60: { targetPattern: /^[A-Za-z0-9_-]{1,100}$/, placements: new Set(['article_page']) },
   article_internal_link_click: { targetPattern: /^\/articles\/[A-Za-z0-9_-]{1,100}\/?$/, placements: new Set(['article_body', 'related_research', 'guide_cta']) },
   home_section_impression: { targets: new Set(['editorial', 'major', 'latest', 'guide']), placements: new Set(['home']) },
-  home_section_click: { targetPattern: /^(?:[A-Za-z0-9_-]{1,100}|\/guides\/[A-Za-z0-9_-]{1,100}\/?$)$/, placements: new Set(['editorial', 'major', 'latest', 'guide']) }
+  home_section_click: { targetPattern: /^(?:[A-Za-z0-9_-]{1,100}|\/guides\/[A-Za-z0-9_-]{1,100}\/?$)$/, placements: new Set(['editorial', 'major', 'latest', 'guide']) },
+  book_preview_start: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['book_hero', 'book_footer']) },
+  book_reader_progress_25: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['web_reader']) },
+  book_reader_progress_50: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['web_reader']) },
+  book_reader_progress_75: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['web_reader']) },
+  book_reader_complete: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['web_reader']) }
 };
 
 function withSecurityHeaders(response) {
