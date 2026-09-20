@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/semiconductor-guide-v2.css';
 import '../../styles/ai-economics-guide-v1.css';
+import dashboard from '../../data/ai-economics-dashboard.json';
+import researchGraph from '../../data/research-graph-gold-ai-economics-2026-09-20.json';
 import { getCollection } from 'astro:content';
 
 const sequence = [
@@ -64,6 +66,37 @@ const steps = sequence.map((entry) => ({ ...entry, article: byId.get(entry.id) }
   <main class="sg-main" id="research-path">
     <div class="sg-wrap sg-layout">
       <section>
+        <section class="ae-dashboard" aria-labelledby="ae-dashboard-title">
+          <div class="ae-dashboard__head">
+            <div>
+              <div class="sg-eyebrow">AI ECONOMICS DASHBOARD · AS OF {dashboard.asOf}</div>
+              <h2 id="ae-dashboard-title">성장의 크기보다 전환의 질을 추적합니다</h2>
+              <p>CAPEX → AI 매출 → HBM → 전력 → 현금소진을 같은 화면에서 보되, 각 숫자의 범위와 기준시점을 함께 표시합니다.</p>
+            </div>
+            <div class="ae-graph-status">
+              <small>RESEARCH GRAPH GOLD CASE</small>
+              <strong>{researchGraph.articles.length} Thesis · {researchGraph.articles.reduce((sum,item)=>sum+item.evidence.length,0)} Evidence</strong>
+              <span>Updated {researchGraph.updatedAt.slice(0,10)}</span>
+            </div>
+          </div>
+          <div class="ae-dashboard__grid">
+            {dashboard.metrics.map((metric)=>(
+              <article class="ae-metric" data-status={metric.status}>
+                <div class="ae-metric__top"><span>{metric.label}</span><em>{metric.status}</em></div>
+                <strong>{metric.value}</strong>
+                <b>{metric.unit}</b>
+                <p>{metric.interpretation}</p>
+                <small>기준 {metric.observedAt} · {metric.source.publisher}</small>
+                <a href={metric.source.url} target="_blank" rel="noreferrer">근거 보기 →</a>
+              </article>
+            ))}
+          </div>
+          <div class="ae-dashboard__note">
+            <b>범위 주의</b>
+            <span>CAPEX 카드는 3개 빅테크의 전체 계획 CAPEX 합산치로 AI 전용 지출이 아닙니다. 현금소진은 실현값이 아닌 전망치입니다.</span>
+          </div>
+        </section>
+
         <section class="ae-thesis">
           <div class="sg-eyebrow">CORE THESIS</div>
           <h2>AI 산업의 핵심 질문은 “수요가 있는가”가 아니라 “수요를 경제적 가치로 얼마나 효율적으로 바꾸는가”입니다.</h2>
@@ -132,9 +165,15 @@ const steps = sequence.map((entry) => ({ ...entry, article: byId.get(entry.id) }
           <p>AI의 돈 흐름이 물리 인프라와 반도체, 다시 운영·보안 비용으로 이어지는 구조를 봅니다.</p>
         </section>
         <section class="sg-rail-card">
-          <small>WATCH</small>
-          <h3>앞으로 추가할 데이터</h3>
-          <ol><li>Hyperscaler CAPEX</li><li>Enterprise AI Revenue</li><li>Compute Cost</li><li>HBM·Server Memory</li><li>Power & Security Cost</li></ol>
+          <small>RESEARCH GRAPH</small>
+          <h3>{researchGraph.articles.length} Thesis · {researchGraph.articles.reduce((sum,item)=>sum+item.evidence.length,0)} Evidence</h3>
+          <p>각 리서치의 핵심 명제를 날짜가 있는 근거와 연결한 첫 GOLD CASE입니다.</p>
+        </section>
+        <section class="sg-rail-card">
+          <small>SECURITY BRIDGE</small>
+          <h3>보안 비용도 AI Economics입니다</h3>
+          <p>API Key → Agent → MCP → Database로 확장되는 권한·통제 비용을 별도 클러스터에서 추적합니다.</p>
+          <a href="/guides/ai-security">AI Security Hub 보기 →</a>
         </section>
       </aside>
     </div>
