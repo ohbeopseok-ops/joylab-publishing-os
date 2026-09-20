@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
+const slug = '완벽하지-않아서-스며들-수-있었다';
 
 const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
   const full = path.join(dir, entry.name);
@@ -10,7 +11,7 @@ const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((entr
 });
 
 const files = walk(dist);
-const reader = files.find((file) => file.endsWith(path.join('read','index.html')));
+const reader = files.find((file) => file.endsWith(path.join('books', slug, 'read', 'index.html')));
 if (!reader) throw new Error('Built reader page not found.');
 
 const html = fs.readFileSync(reader, 'utf8');
@@ -34,10 +35,16 @@ if (!/rel="canonical" href="https:\/\/aijoylab\.kr\/books\//.test(html)) {
   throw new Error('Reader canonical does not point to book landing.');
 }
 
-const landing = files.find((file) => /books.+index\.html$/.test(file) && !file.endsWith(path.join('read','index.html')));
+const landing = files.find((file) => file.endsWith(path.join('books', slug, 'index.html')));
 if (!landing) throw new Error('Book landing build output not found.');
-const landingHtml = fs.readFileSync(landing, 'utf8');
-if (!landingHtml.includes('/read')) throw new Error('Book landing does not link to reader.');
+
+const landingSource = fs.readFileSync(
+  path.join(root, 'src/pages/books/[slug]/index.astro'),
+  'utf8'
+);
+if (!landingSource.includes('/read')) {
+  throw new Error('Book landing source does not link to reader.');
+}
 
 console.log('Book Web Reader V1 build contract passed.');
 console.log(reader);
