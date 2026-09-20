@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "1.0",
+  "id": "AI-ECON-DASH-2026-09-20",
+  "asOf": "2026-09-20",
+  "title": "AI Economics Dashboard",
+  "methodology": "Each card stores a dated public signal, source, scope note and directional interpretation. Values are not normalized into one score.",
+  "metrics": [
+    {
+      "id": "hyperscaler-capex",
+      "label": "CAPEX",
+      "value": "~$730B",
+      "unit": "2026 planned combined capex",
+      "status": "EXPANDING",
+      "direction": "UP",
+      "scope": "Microsoft + Alphabet + Amazon combined plan reported by Reuters; total capex, not an AI-only spending figure.",
+      "observedAt": "2026-06-30",
+      "source": {
+        "publisher": "Reuters",
+        "url": "https://www.reuters.com/business/ai-spending-earnings-hopes-fed-outlook-set-sway-us-stocks-second-half-2026-06-30/",
+        "tier": "TIER_1"
+      },
+      "interpretation": "AI infrastructure demand remains capital intensive; return on invested capital is the next test."
+    },
+    {
+      "id": "openai-enterprise-revenue-share",
+      "label": "AI 매출",
+      "value": ">40%",
+      "unit": "OpenAI enterprise share of revenue",
+      "status": "MONETIZING",
+      "direction": "UP",
+      "scope": "OpenAI company disclosure; enterprise revenue share, not total AI industry revenue.",
+      "observedAt": "2026-04-08",
+      "source": {
+        "publisher": "OpenAI",
+        "url": "https://openai.com/index/next-phase-of-enterprise-ai/",
+        "tier": "PRIMARY"
+      },
+      "interpretation": "Enterprise monetization is becoming a core revenue engine rather than a secondary channel."
+    },
+    {
+      "id": "samsung-hbm-sales-growth",
+      "label": "HBM",
+      "value": ">3x",
+      "unit": "Samsung 2026 HBM sales vs 2025 expectation",
+      "status": "TIGHT",
+      "direction": "UP",
+      "scope": "Company expectation announced with HBM4 mass-production shipment.",
+      "observedAt": "2026-02-12",
+      "source": {
+        "publisher": "Samsung Newsroom",
+        "url": "https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing",
+        "tier": "PRIMARY"
+      },
+      "interpretation": "HBM remains a high-value bottleneck in the compute stack, with supply mix and yield central to profit conversion."
+    },
+    {
+      "id": "electricity-demand-growth",
+      "label": "전력",
+      "value": "3x",
+      "unit": "electricity demand growth vs total energy demand growth",
+      "status": "BOTTLENECK",
+      "direction": "UP",
+      "scope": "IEA chief comments reported by Reuters; global electricity demand growth relative to overall energy demand.",
+      "observedAt": "2026-09-17",
+      "source": {
+        "publisher": "Reuters / IEA",
+        "url": "https://www.reuters.com/business/energy/iea-chief-says-electrification-remains-way-forward-despite-ai-investment-jitters-2026-09-17/",
+        "tier": "TIER_1"
+      },
+      "interpretation": "Power and grid capacity are increasingly part of AI infrastructure economics."
+    },
+    {
+      "id": "openai-cash-burn",
+      "label": "현금소진",
+      "value": "~$278B",
+      "unit": "OpenAI projected cumulative cash burn, 2026-2030",
+      "status": "RISK",
+      "direction": "UP",
+      "scope": "Financial Times forecast reported by Reuters; forward-looking estimate, not realized cash flow.",
+      "observedAt": "2026-09-18",
+      "source": {
+        "publisher": "Reuters / Financial Times",
+        "url": "https://www.reuters.com/technology/openai-expects-burn-through-almost-280-billion-by-2030-ft-reports-2026-09-18/",
+        "tier": "TIER_1"
+      },
+      "interpretation": "Revenue growth alone is insufficient; compute intensity and funding requirements remain core valuation variables."
+    }
+  ]
+}
