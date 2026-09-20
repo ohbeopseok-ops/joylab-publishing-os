@@ -86,3 +86,31 @@ console.log(JSON.stringify({
     'book_reader_complete'
   ]
 }, null, 2));
+
+
+const workerSource = fs.readFileSync(path.join(root, 'worker/index.js'), 'utf8');
+for (const event of [
+  'book_preview_start',
+  'book_reader_progress_25',
+  'book_reader_progress_50',
+  'book_reader_progress_75',
+  'book_reader_complete'
+]) {
+  if (!workerSource.includes(`${event}:`)) {
+    throw new Error(`Worker analytics contract missing: ${event}`);
+  }
+}
+
+const sitemap = fs.readFileSync(path.join(root, 'dist', 'sitemap.xml'), 'utf8');
+if (!sitemap.includes('/books/')) throw new Error('Books hub missing from sitemap.');
+if (!sitemap.includes(encodeURI('/books/' + slug)) && !sitemap.includes('/books/' + slug)) {
+  throw new Error('Book landing missing from sitemap.');
+}
+if (sitemap.includes('/read')) throw new Error('Noindex reader must not be in sitemap.');
+
+const privacy = fs.readFileSync(path.join(root, 'dist', 'privacy', 'index.html'), 'utf8');
+for (const marker of ['25%', '50%', '75%', '본문 텍스트는 수집하지 않습니다']) {
+  if (!privacy.includes(marker)) throw new Error(`Privacy disclosure missing: ${marker}`);
+}
+
+console.log('Books release contracts passed: worker, sitemap, privacy.');
