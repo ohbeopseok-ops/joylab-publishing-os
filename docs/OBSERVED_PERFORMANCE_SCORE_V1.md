@@ -338,3 +338,45 @@ Prediction Error
 ```
 
 OPS는 콘텐츠의 절대적 가치 점수가 아니라 Search Console에서 관측된 검색 성과를 표준화한 운영 지표다.
+
+
+## 13. Calculator runtime
+
+실행:
+
+```bash
+node scripts/calculate-observed-performance.mjs --self-test
+
+node scripts/calculate-observed-performance.mjs \
+  --quality qa-artifacts/content-quality/quality-report.json \
+  --gsc qa-artifacts/gsc-28d/gsc-28d.json \
+  --ctr qa-artifacts/ctr-benchmark/ctr-benchmark.json
+```
+
+기본 출력:
+
+```text
+qa-artifacts/observed-performance/
+├─ observed-performance.json
+└─ observed-performance.md
+```
+
+연결 구조:
+
+```text
+Quality Report
+     +
+GSC D7/D28
+     +
+CTR Benchmark
+     ↓
+Observed Performance Calculator
+     ↓
+OPS + Confidence + Prediction Error
+```
+
+D28가 complete인 글만 평가 대상으로 사용한다.
+
+Quality Score가 해당 slug에 없으면 `SKIPPED / QUALITY_SCORE_UNAVAILABLE`로 기록한다.
+
+CTR benchmark 또는 cohort가 부족하면 해당 dimension을 N/A 처리하고 available maximum 기준으로 100점 정규화한다.
