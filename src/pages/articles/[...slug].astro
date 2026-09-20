@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleSchema from '../../components/ArticleSchema.astro';
 import '../../styles/interactive.css';
 import '../../styles/research-v2.css';
 import '../../styles/visual-placement.css';
@@ -365,14 +366,15 @@ const scoreCriteria = [
     })();
   </script>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: article.data.title,
-    description: article.data.description,
-    datePublished: article.data.publishedAt.toISOString(),
-    ...(articleImageUrl ? { image: articleImageUrl } : {}),
-    author: { '@type': 'Organization', name: article.data.author },
-    publisher: { '@type': 'Organization', name: 'JoyLab' }
-  })}></script>
+  <ArticleSchema
+    slug={article.id}
+    title={article.data.title}
+    description={article.data.description}
+    publishedAt={article.data.publishedAt}
+    updatedAt={article.data.updatedAt}
+    author={article.data.author}
+    image={articleImage}
+    tags={article.data.tags}
+    canonical={article.data.canonical}
+  />
 </BaseLayout>
