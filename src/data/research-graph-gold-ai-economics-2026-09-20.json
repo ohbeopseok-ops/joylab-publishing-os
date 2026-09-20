@@ -1,0 +1,206 @@
+{
+  "schemaVersion": "1.0",
+  "goldCaseId": "RG-GOLD-AI-ECON-001",
+  "name": "AI Economics Research Graph GOLD CASE",
+  "topic": {
+    "id": "TOPIC-AI-ECONOMICS",
+    "name": "AI Economics",
+    "status": "ACTIVE"
+  },
+  "updatedAt": "2026-09-20T20:00:00+09:00",
+  "articles": [
+    {
+      "articleId": "ai-bubble-vs-compute-supercycle-2026",
+      "thesis": {
+        "id": "THESIS-AIE-001",
+        "statement": "AI 수요의 구조적 성장과 특정 시점의 과도한 CAPEX·밸류에이션은 동시에 존재할 수 있으며, 핵심 검증 변수는 투자된 자본이 매출·마진·FCF로 전환되는 속도다.",
+        "status": "SUPPORTED"
+      },
+      "evidence": [
+        {
+          "id": "EVID-AIE-001-01",
+          "claim": "OpenAI의 2026~2030년 누적 현금소진 전망이 약 2,780억 달러로 보도됐다.",
+          "stance": "SUPPORTS",
+          "source": {
+            "publisher": "Reuters / Financial Times",
+            "url": "https://www.reuters.com/technology/openai-expects-burn-through-almost-280-billion-by-2030-ft-reports-2026-09-18/",
+            "publishedAt": "2026-09-18",
+            "tier": "TIER_1"
+          },
+          "updatedAt": "2026-09-20"
+        },
+        {
+          "id": "EVID-AIE-001-02",
+          "claim": "2026년 주요 AI 인프라 투자 규모가 매우 큰 수준으로 유지되고 있으며 Reuters는 Microsoft·Alphabet·Amazon의 계획 CAPEX를 합산 약 7,300억 달러로 보도했다.",
+          "stance": "SUPPORTS",
+          "source": {
+            "publisher": "Reuters",
+            "url": "https://www.reuters.com/business/ai-spending-earnings-hopes-fed-outlook-set-sway-us-stocks-second-half-2026-06-30/",
+            "publishedAt": "2026-06-30",
+            "tier": "TIER_1"
+          },
+          "updatedAt": "2026-09-20"
+        }
+      ]
+    },
+    {
+      "articleId": "openai-anthropic-ipo-cash-burn-2026",
+      "thesis": {
+        "id": "THESIS-AIE-002",
+        "statement": "프런티어 AI 기업의 평가 기준은 사용자 성장에서 기업 매출, 컴퓨팅 원가, 현금소진과 자본효율로 이동하고 있다.",
+        "status": "SUPPORTED"
+      },
+      "evidence": [
+        {
+          "id": "EVID-AIE-002-01",
+          "claim": "OpenAI는 2026년 4월 기업 부문이 전체 매출의 40% 이상을 차지한다고 밝혔다.",
+          "stance": "SUPPORTS",
+          "source": {
+            "publisher": "OpenAI",
+            "url": "https://openai.com/index/next-phase-of-enterprise-ai/",
+            "publishedAt": "2026-04-08",
+            "tier": "PRIMARY"
+          },
+          "updatedAt": "2026-09-20"
+        },
+        {
+          "id": "EVID-AIE-002-02",
+          "claim": "OpenAI는 2026년 6월 비공개 S-1 초안을 제출했으나 당시 상장 시점을 확정하지 않았다.",
+          "stance": "SUPPORTS",
+          "source": {
+            "publisher": "OpenAI",
+            "url": "https://openai.com/index/openai-submits-confidential-s-1/",
+            "publishedAt": "2026-06-08",
+            "tier": "PRIMARY"
+          },
+          "updatedAt": "2026-09-20"
+        },
+        {
+          "id": "EVID-AIE-002-03",
+          "claim": "OpenAI의 대규모 2026~2030 현금소진 전망은 공개시장 진입 시 자본효율 검증 부담을 키우는 근거다.",
+          "stance": "SUPPORTS",
+          "source": {
+            "publisher": "Reuters / Financial Times",
+            "url": "https://www.reuters.com/technology/openai-expects-burn-through-almost-280-billion-by-2030-ft-reports-2026-09-18/",
+            "publishedAt": "2026-09-18",
+            "tier": "TIER_1"
+          },
+          "updatedAt": "2026-09-20"
+        }
+      ]
+    },
+    {
+      "articleId": "ai-infrastructure-hbm-mlcc-power-grid-2026",
+      "thesis": {
+        "id": "THESIS-AIE-003",
+        "statement": "AI 인프라의 병목은 GPU·HBM에서 서버 부품과 전력망으로 확장되며, 병목의 이동이 수익 풀의 이동을 만든다.",
+        "status": "SUPPORTED"
+      },
+      "evidence": [
+        {
+          "id": "EVID-AIE-003-01",
+          "claim": "전력 수요는 전체 에너지 수요보다 약 세 배 빠르게 증가하고 있다.",
+          "stance": "SUPPORTS",
+          "source": {
+            "publisher": "Reuters / IEA",
+            "url": "https://www.reuters.com/business/energy/iea-chief-says-electrification-remains-way-forward-despite-ai-investment-jitters-2026-09-17/",
+            "publishedAt": "2026-09-17",
+            "tier": "TIER_1"
+          },
+          "updatedAt": "2026-09-20"
+        },
+        {
+          "id": "EVID-AIE-003-02",
+          "claim": "삼성전기는 2026년 9월 약 1조 722억 원 규모의 AI 서버용 MLCC 공급계약을 발표했다.",
+          "stance": "SUPPORTS",
+          "source": {
+            "publisher": "Samsung Electro-Mechanics",
+            "url": "https://www.samsungsem.com/kr/newsroom/news/view.do?id=10501",
+            "publishedAt": "2026-09-01",
+            "tier": "PRIMARY"
+          },
+          "updatedAt": "2026-09-20"
+        }
+      ]
+    },
+    {
+      "articleId": "samsung-hbm4-memory-outlook-2026-09-20",
+      "thesis": {
+        "id": "THESIS-AIE-004",
+        "statement": "AI 메모리 수요가 삼성전자 이익으로 전환되는 핵심은 HBM4·HBM4E·서버 DRAM·eSSD의 고부가 믹스와 수율이다.",
+        "status": "SUPPORTED"
+      },
+      "evidence": [
+        {
+          "id": "EVID-AIE-004-01",
+          "claim": "삼성전자는 2026년 2월 HBM4 양산과 상용 출하를 시작했고 2026년 HBM 매출이 전년 대비 세 배 이상 증가할 것으로 예상했다.",
+          "stance": "SUPPORTS",
+          "source": {
+            "publisher": "Samsung Newsroom",
+            "url": "https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing",
+            "publishedAt": "2026-02-12",
+            "tier": "PRIMARY"
+          },
+          "updatedAt": "2026-09-20"
+        },
+        {
+          "id": "EVID-AIE-004-02",
+          "claim": "삼성전자는 2026년 2분기 서버 매출 비중이 사상 최고를 기록했고 HBM4 판매 확대와 HBM4E 샘플 출하를 발표했다.",
+          "stance": "SUPPORTS",
+          "source": {
+            "publisher": "Samsung Newsroom",
+            "url": "https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results",
+            "publishedAt": "2026-07-30",
+            "tier": "PRIMARY"
+          },
+          "updatedAt": "2026-09-20"
+        }
+      ]
+    },
+    {
+      "articleId": "ai-api-key-compute-theft-2026",
+      "thesis": {
+        "id": "THESIS-AIE-005",
+        "statement": "AI 사용량 증가와 에이전트 통합 확대는 API 키·세션 토큰·연산 권한을 새로운 경제적 자산이자 공격면으로 만든다.",
+        "status": "STRONGLY_SUPPORTED"
+      },
+      "evidence": [
+        {
+          "id": "EVID-AIE-005-01",
+          "claim": "Anthropic은 공격자들이 공개 코드 저장소, 컨테이너 이미지, 모바일 앱과 피해자 배포 AI 에이전트에서 노출된 토큰과 자격증명을 산업 규모로 탐색한다고 보고했다.",
+          "stance": "SUPPORTS",
+          "source": {
+            "publisher": "Anthropic",
+            "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+            "publishedAt": "2026-09-10",
+            "tier": "PRIMARY"
+          },
+          "updatedAt": "2026-09-20"
+        },
+        {
+          "id": "EVID-AIE-005-02",
+          "claim": "Anthropic은 탈취된 AI API 키가 재판매 자산, 공격 컴퓨팅, 은폐 수단으로 동시에 활용된 사례를 보고했다.",
+          "stance": "SUPPORTS",
+          "source": {
+            "publisher": "Anthropic",
+            "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+            "publishedAt": "2026-09-10",
+            "tier": "PRIMARY"
+          },
+          "updatedAt": "2026-09-20"
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "requiredChain": [
+      "thesis",
+      "evidence",
+      "source",
+      "updatedAt"
+    ],
+    "articleCount": 5,
+    "evidenceCount": 11,
+    "goldRule": "Every article must have at least one dated evidence item with a resolvable source URL."
+  }
+}
