@@ -262,6 +262,11 @@ const storagePrefix = `joylab-book-${book.id}`;
         chapters.forEach((chapter) => observer.observe(chapter));
       }
 
+      const progressEvents = [
+        [25, 'book_reader_progress_25'],
+        [50, 'book_reader_progress_50'],
+        [75, 'book_reader_progress_75']
+      ];
       const sentMilestones = new Set();
       const track = (event, placement) => {
         if (typeof window.joylabTrack === 'function') {
@@ -276,10 +281,10 @@ const storagePrefix = `joylab-book-${book.id}`;
         if (progressBar) progressBar.style.transform = `scaleX(${progress})`;
         if (progressText) progressText.textContent = `${Math.round(progress * 100)}%`;
 
-        for (const milestone of [25, 50, 75]) {
+        for (const [milestone, eventName] of progressEvents) {
           if (progress >= milestone / 100 && !sentMilestones.has(milestone)) {
             sentMilestones.add(milestone);
-            track(`book_reader_progress_${milestone}`, 'web_reader');
+            track(eventName, 'web_reader');
           }
         }
         if (progress >= 0.95 && !sentMilestones.has(100)) {
