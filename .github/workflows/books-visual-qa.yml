@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths:
       - 'src/pages/books/**'
+      - 'src/data/books/**'
+      - 'src/data/book-chapters/**'
+      - 'src/layouts/BaseLayout.astro'
+      - 'src/components/BookSchema.astro'
       - 'src/styles/books.css'
       - 'src/styles/book-reader.css'
       - 'scripts/qa-books-visual.mjs'
