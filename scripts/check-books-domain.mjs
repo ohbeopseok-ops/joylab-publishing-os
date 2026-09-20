@@ -10,6 +10,8 @@ if (!fs.existsSync(bookPath)) throw new Error('Book metadata missing.');
 if (!fs.existsSync(chapterDir)) throw new Error('Chapter directory missing.');
 
 const book = fs.readFileSync(bookPath, 'utf8');
+const previewChapterCount = Number(book.match(/^previewChapterCount:\s*(\d+)\s*$/m)?.[1]);
+if (!Number.isInteger(previewChapterCount)) throw new Error('previewChapterCount missing or invalid.');
 if (/979-11-987654-3-2|E-BOOK-2026-0920/.test(book)) {
   throw new Error('Placeholder bibliographic identifier detected.');
 }
@@ -34,6 +36,10 @@ for (let i=0;i<rows.length;i++) {
 const previewOrders = rows.filter((row) => row.preview).map((row) => row.order);
 if (JSON.stringify(previewOrders) !== JSON.stringify([0,1])) {
   throw new Error(`Preview contract mismatch: ${previewOrders.join(',')}`);
+}
+const numberedPreviewCount = rows.filter((row) => row.order >= 1 && row.preview).length;
+if (numberedPreviewCount !== previewChapterCount) {
+  throw new Error(`previewChapterCount mismatch: metadata=${previewChapterCount}, actual=${numberedPreviewCount}`);
 }
 
 for (const required of [
