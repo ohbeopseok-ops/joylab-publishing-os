@@ -27,6 +27,18 @@ for (const c of cases) {
 
   if (c.name.startsWith('landing')) {
     await page.locator('h1').waitFor();
+
+    const cover = page.locator('img[src="/books/imperfect/cover.webp"]').first();
+    if (!(await cover.count())) throw new Error(`${c.name}: cover image element missing`);
+    await cover.waitFor({ state: 'visible' });
+    const coverState = await cover.evaluate((img) => ({
+      complete: img.complete,
+      naturalWidth: img.naturalWidth,
+      naturalHeight: img.naturalHeight
+    }));
+    if (!coverState.complete || coverState.naturalWidth <= 0 || coverState.naturalHeight <= 0) {
+      throw new Error(`${c.name}: cover image failed to decode ${JSON.stringify(coverState)}`);
+    }
     const title = page.getByText('완벽하지 않아서 스며들 수 있었다', { exact: false }).first();
     if (!(await title.isVisible())) throw new Error(`${c.name}: book title not visible`);
 
