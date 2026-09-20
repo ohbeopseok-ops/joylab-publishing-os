@@ -1,0 +1,317 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import '../../../styles/book-reader.css';
+
+export async function getStaticPaths() {
+  const books = (await getCollection('books')).filter((book) => !book.data.draft);
+  return books.map((book) => ({ params: { slug: book.id }, props: { book } }));
+}
+
+const { book } = Astro.props;
+const chapters = (await getCollection('bookChapters'))
+  .filter((chapter) => chapter.data.bookSlug === book.id)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const readableChapters = book.data.access === 'full'
+  ? chapters
+  : chapters.filter((chapter) => chapter.data.preview);
+
+const renderedChapters = await Promise.all(
+  readableChapters.map(async (chapter) => {
+    const { Content } = await render(chapter);
+    return { chapter, Content };
+  })
+);
+
+const landingPath = `/books/${book.id}`;
+const canonical = new URL(landingPath, Astro.site ?? Astro.url.origin).toString();
+const storagePrefix = `joylab-book-${book.id}`;
+---
+
+<BaseLayout
+  title={`${book.data.title} · 웹 리더 | JoyLab`}
+  description={`${book.data.title} 웹 리더. ${book.data.description}`}
+  canonical={canonical}
+  robots="noindex,follow"
+  bodyClass="book-reader-page"
+  image={book.data.ogImage}
+>
+  <div class="book-reading-progress" aria-hidden="true">
+    <span id="book-reading-progress-bar"></span>
+  </div>
+
+  <section
+    class="book-reader"
+    id="book-reader"
+    data-book-slug={book.id}
+    data-storage-prefix={storagePrefix}
+  >
+    <header class="book-reader-toolbar">
+      <div class="book-reader-toolbar__left">
+        <button id="book-toc-open" class="book-reader-icon" type="button" aria-controls="book-reader-toc" aria-expanded="false" title="목차 열기">☰</button>
+        <a class="book-reader-brand" href={landingPath}>
+          <strong>{book.data.title}</strong>
+          <span id="book-current-chapter">{renderedChapters[0]?.chapter.data.label ?? renderedChapters[0]?.chapter.data.title ?? '미리보기'}</span>
+        </a>
+      </div>
+
+      <div class="book-reader-controls" aria-label="읽기 설정">
+        <button type="button" data-font-size="decrease" title="글자 작게">가−</button>
+        <span id="book-font-size-label" aria-live="polite">18px</span>
+        <button type="button" data-font-size="increase" title="글자 크게">가+</button>
+        <button type="button" id="book-font-family" title="글꼴 변경">명조</button>
+        <button type="button" id="book-line-height" title="줄간격 조정">↕</button>
+        <button type="button" id="book-theme" title="화면 테마 변경">☾</button>
+      </div>
+    </header>
+
+    <aside class="book-reader-toc" id="book-reader-toc" aria-label="책 목차" aria-hidden="true" inert>
+      <div class="book-reader-toc__head">
+        <div>
+          <small>JOYLAB BOOKS</small>
+          <strong>목차</strong>
+        </div>
+        <button id="book-toc-close" type="button" aria-label="목차 닫기">×</button>
+      </div>
+
+      <nav class="book-reader-toc__list">
+        {chapters.map((chapter) => {
+          const readable = book.data.access === 'full' || chapter.data.preview;
+          const label = chapter.data.label ?? `${chapter.data.order}장. ${chapter.data.title}`;
+          return readable ? (
+            <a
+              href={`#chapter-${chapter.data.order}`}
+              data-reader-toc-link
+              data-order={chapter.data.order}
+            >
+              <span>{label}</span>
+              {chapter.data.preview && book.data.access !== 'full' && <em>미리보기</em>}
+            </a>
+          ) : (
+            <div class="is-locked" aria-disabled="true">
+              <span>{label}</span>
+              <em>잠김</em>
+            </div>
+          );
+        })}
+      </nav>
+
+      {book.data.access !== 'full' && (
+        <div class="book-reader-toc__notice">
+          <strong>미리보기</strong>
+          <p>작가의 말과 1장까지 공개되어 있습니다. 잠긴 장의 본문은 이 페이지에 포함되지 않습니다.</p>
+        </div>
+      )}
+    </aside>
+    <button class="book-reader-backdrop" id="book-reader-backdrop" type="button" tabindex="-1" aria-label="목차 닫기"></button>
+
+    <main class="book-reader-content" id="book-reader-content">
+      <section class="book-reader-cover" id="book-reader-cover">
+        <p>JOYLAB BOOKS · ESSAY</p>
+        <h1>{book.data.title}</h1>
+        {book.data.subtitle && <h2>{book.data.subtitle}</h2>}
+        <div>글 · {book.data.author}</div>
+        {book.data.heroQuote && <blockquote>“{book.data.heroQuote}”</blockquote>}
+        <a href="#chapter-0">읽기 시작 ↓</a>
+      </section>
+
+      {renderedChapters.map(({ chapter, Content }) => (
+        <section
+          class="book-reader-chapter"
+          id={`chapter-${chapter.data.order}`}
+          data-reader-chapter
+          data-order={chapter.data.order}
+          data-label={chapter.data.label ?? `${chapter.data.order}장. ${chapter.data.title}`}
+        >
+          <header>
+            {chapter.data.part && <p>{chapter.data.part}</p>}
+            <h2>{chapter.data.label ?? (chapter.data.order === 0 ? chapter.data.title : `${chapter.data.order}장. ${chapter.data.title}`)}</h2>
+          </header>
+          <div class="book-reader-prose"><Content /></div>
+        </section>
+      ))}
+
+      {book.data.access !== 'full' && (
+        <section class="book-reader-lockwall" id="book-reader-lockwall">
+          <small>PREVIEW END</small>
+          <h2>1장 미리보기가 끝났습니다.</h2>
+          <p>이후 장은 현재 공개하지 않습니다. 책 소개 페이지에서 전체 목차를 확인할 수 있습니다.</p>
+          <a href={landingPath}>책 소개로 돌아가기 →</a>
+        </section>
+      )}
+    </main>
+
+    <footer class="book-reader-footer">
+      <button id="book-prev-chapter" type="button">← 이전 장</button>
+      <span><b id="book-reading-percent">0%</b> 읽음</span>
+      <button id="book-next-chapter" type="button">다음 장 →</button>
+    </footer>
+  </section>
+
+  <script is:inline define:vars={{ storagePrefix }}>
+    (() => {
+      const reader = document.getElementById('book-reader');
+      const toc = document.getElementById('book-reader-toc');
+      const backdrop = document.getElementById('book-reader-backdrop');
+      const openButton = document.getElementById('book-toc-open');
+      const closeButton = document.getElementById('book-toc-close');
+      const currentLabel = document.getElementById('book-current-chapter');
+      const progressBar = document.getElementById('book-reading-progress-bar');
+      const progressText = document.getElementById('book-reading-percent');
+      const fontLabel = document.getElementById('book-font-size-label');
+      const fontFamilyButton = document.getElementById('book-font-family');
+      const themeButton = document.getElementById('book-theme');
+      const lineHeightButton = document.getElementById('book-line-height');
+      const prevButton = document.getElementById('book-prev-chapter');
+      const nextButton = document.getElementById('book-next-chapter');
+      if (!reader || !toc || !backdrop) return;
+
+      const chapters = Array.from(document.querySelectorAll('[data-reader-chapter]'));
+      const tocLinks = Array.from(document.querySelectorAll('[data-reader-toc-link]'));
+      const key = (name) => `${storagePrefix}-${name}`;
+
+      const sizes = [16, 17, 18, 19, 20, 21, 22];
+      const lineHeights = [1.85, 2.05, 2.25];
+      const fontFamilies = ['serif', 'sans'];
+      const themes = ['light', 'warm', 'dark'];
+
+      let fontSize = Number(localStorage.getItem(key('font-size'))) || 18;
+      if (!sizes.includes(fontSize)) fontSize = 18;
+      let lineHeight = Number(localStorage.getItem(key('line-height'))) || 2.05;
+      if (!lineHeights.includes(lineHeight)) lineHeight = 2.05;
+      let fontFamily = localStorage.getItem(key('font-family')) || 'serif';
+      if (!fontFamilies.includes(fontFamily)) fontFamily = 'serif';
+      let theme = localStorage.getItem(key('theme')) || 'warm';
+      if (!themes.includes(theme)) theme = 'warm';
+
+      const applySettings = () => {
+        reader.style.setProperty('--reader-font-size', `${fontSize}px`);
+        reader.style.setProperty('--reader-line-height', String(lineHeight));
+        reader.style.setProperty(
+          '--reader-font-family',
+          fontFamily === 'sans'
+            ? 'Pretendard, "Noto Sans KR", system-ui, sans-serif'
+            : 'Georgia, "Noto Serif KR", "Nanum Myeongjo", serif'
+        );
+        reader.dataset.theme = theme;
+        if (fontLabel) fontLabel.textContent = `${fontSize}px`;
+        if (fontFamilyButton) fontFamilyButton.textContent = fontFamily === 'sans' ? '고딕' : '명조';
+        if (themeButton) themeButton.textContent = theme === 'dark' ? '☀' : theme === 'warm' ? '◐' : '☾';
+      };
+      applySettings();
+
+      const openToc = () => {
+        toc.removeAttribute('inert');
+        toc.classList.add('is-open');
+        backdrop.classList.add('is-open');
+        toc.setAttribute('aria-hidden', 'false');
+        openButton?.setAttribute('aria-expanded', 'true');
+        closeButton?.focus();
+      };
+      const closeToc = () => {
+        toc.classList.remove('is-open');
+        backdrop.classList.remove('is-open');
+        toc.setAttribute('aria-hidden', 'true');
+        toc.setAttribute('inert', '');
+        openButton?.setAttribute('aria-expanded', 'false');
+      };
+      openButton?.addEventListener('click', openToc);
+      closeButton?.addEventListener('click', closeToc);
+      backdrop.addEventListener('click', closeToc);
+      tocLinks.forEach((link) => link.addEventListener('click', closeToc));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && toc.classList.contains('is-open')) {
+          closeToc();
+          openButton?.focus();
+        }
+      });
+
+      document.querySelector('[data-font-size="decrease"]')?.addEventListener('click', () => {
+        const index = Math.max(0, sizes.indexOf(fontSize) - 1);
+        fontSize = sizes[index];
+        localStorage.setItem(key('font-size'), String(fontSize));
+        applySettings();
+      });
+      document.querySelector('[data-font-size="increase"]')?.addEventListener('click', () => {
+        const index = Math.min(sizes.length - 1, sizes.indexOf(fontSize) + 1);
+        fontSize = sizes[index];
+        localStorage.setItem(key('font-size'), String(fontSize));
+        applySettings();
+      });
+      fontFamilyButton?.addEventListener('click', () => {
+        fontFamily = fontFamilies[(fontFamilies.indexOf(fontFamily) + 1) % fontFamilies.length];
+        localStorage.setItem(key('font-family'), fontFamily);
+        applySettings();
+      });
+      lineHeightButton?.addEventListener('click', () => {
+        lineHeight = lineHeights[(lineHeights.indexOf(lineHeight) + 1) % lineHeights.length];
+        localStorage.setItem(key('line-height'), String(lineHeight));
+        applySettings();
+      });
+      themeButton?.addEventListener('click', () => {
+        theme = themes[(themes.indexOf(theme) + 1) % themes.length];
+        localStorage.setItem(key('theme'), theme);
+        applySettings();
+      });
+
+      let activeIndex = 0;
+      const setActive = (index) => {
+        activeIndex = Math.max(0, Math.min(index, chapters.length - 1));
+        const chapter = chapters[activeIndex];
+        const label = chapter?.dataset.label || '미리보기';
+        if (currentLabel) currentLabel.textContent = label;
+        tocLinks.forEach((link) => link.classList.toggle('is-active', Number(link.dataset.order) === Number(chapter?.dataset.order)));
+        if (prevButton) prevButton.disabled = activeIndex <= 0;
+        if (nextButton) nextButton.disabled = activeIndex >= chapters.length - 1;
+        localStorage.setItem(key('chapter'), String(chapter?.dataset.order ?? 0));
+      };
+
+      prevButton?.addEventListener('click', () => {
+        if (activeIndex <= 0) return;
+        chapters[activeIndex - 1]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      nextButton?.addEventListener('click', () => {
+        if (activeIndex >= chapters.length - 1) return;
+        chapters[activeIndex + 1]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+          if (!visible) return;
+          const index = chapters.indexOf(visible.target);
+          if (index >= 0) setActive(index);
+        }, { rootMargin: '-18% 0px -64% 0px', threshold: 0 });
+        chapters.forEach((chapter) => observer.observe(chapter));
+      }
+
+      let saveTimer = 0;
+      const updateProgress = () => {
+        const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+        const progress = Math.min(1, Math.max(0, window.scrollY / max));
+        if (progressBar) progressBar.style.transform = `scaleX(${progress})`;
+        if (progressText) progressText.textContent = `${Math.round(progress * 100)}%`;
+        window.clearTimeout(saveTimer);
+        saveTimer = window.setTimeout(() => {
+          localStorage.setItem(key('scroll'), String(Math.round(window.scrollY)));
+        }, 120);
+      };
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress);
+
+      const hash = window.location.hash;
+      if (!hash) {
+        const savedScroll = Number(localStorage.getItem(key('scroll')));
+        if (Number.isFinite(savedScroll) && savedScroll > 0) {
+          requestAnimationFrame(() => window.scrollTo({ top: savedScroll, behavior: 'auto' }));
+        }
+      }
+
+      setActive(0);
+      updateProgress();
+    })();
+  </script>
+</BaseLayout>
