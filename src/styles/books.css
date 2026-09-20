@@ -135,3 +135,43 @@
 .books-v2-featured__cover .books-v2-text-cover{aspect-ratio:2/3;box-shadow:0 28px 56px rgba(53,35,24,.22)}
 .books-v2-book__cover .books-v2-text-cover{aspect-ratio:2/3;padding:18px}.books-v2-book__cover .books-v2-text-cover strong{font-size:1.25rem}
 @media(max-width:640px){.book-v2-tabs{top:64px}}
+
+
+/* JoyLab Books Hub V2.1 visual polish */
+@media(min-width:901px){
+  .books-v2-hero{padding:64px 0 52px}
+  .books-v2-hero h1{max-width:760px;font-size:clamp(3rem,5.2vw,5rem);line-height:1.06}
+  .books-v2-hero>div>p:last-child{margin-top:20px;max-width:700px}
+
+  .books-v2-featured{padding:62px 0}
+  .books-v2-featured__grid{grid-template-columns:390px minmax(0,1fr);gap:52px;align-items:center}
+  .books-v2-featured__cover{justify-self:start;width:100%}
+  .books-v2-featured__copy{max-width:720px}
+  .books-v2-featured__copy h2{font-size:clamp(2.55rem,3.9vw,3.9rem);line-height:1.12}
+  .books-v2-featured__copy blockquote{margin-top:22px}
+  .books-v2-actions{margin-top:24px}
+
+  .books-v2-philosophy,.books-v2-categories,.books-v2-library{padding:52px 0}
+  .books-v2-philosophy{grid-template-columns:280px 1fr;gap:34px;align-items:start}
+  .books-v2-philosophy h2{font-size:clamp(2rem,2.7vw,2.65rem);line-height:1.28}
+  .books-v2-philosophy__grid{gap:12px}
+  .books-v2-philosophy__grid article{min-height:150px;padding:20px 22px;border-radius:14px}
+  .books-v2-philosophy__grid strong{font-size:1.05rem}
+  .books-v2-philosophy__grid p{margin-top:10px;line-height:1.65}
+
+  .books-v2-categories .books-v2-section-head{margin-bottom:20px}
+  .books-v2-category-grid{gap:12px;margin-top:20px}
+  .books-v2-category-grid article{min-height:150px;padding:20px 22px;border-radius:14px}
+  .books-v2-category-grid small{font-size:.68rem}
+  .books-v2-category-grid strong{margin-top:18px;font-family:inherit;font-size:1.22rem}
+  .books-v2-category-grid p{margin-top:10px;font-size:.93rem;line-height:1.58}
+
+  .books-v2-library .books-v2-section-head{margin-bottom:22px}
+  .books-v2-library-grid{max-width:920px;margin-top:22px}
+  .books-v2-book{grid-template-columns:190px minmax(0,1fr);gap:28px;padding:20px;border-radius:16px}
+  .books-v2-book__cover{align-self:start}
+  .books-v2-book>div{align-self:center;padding-right:8px}
+  .books-v2-book h3{margin:8px 0 10px;font-size:1.55rem}
+  .books-v2-book p{margin:0;max-width:610px;line-height:1.72}
+  .books-v2-link{display:inline-block;margin-top:14px}
+}
