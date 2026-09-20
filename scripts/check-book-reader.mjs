@@ -22,7 +22,9 @@ for (const required of [
   '다도 테이블 위의 실핏줄',
   'PREVIEW END',
   'book-reader-toc',
-  'book-reading-progress-bar'
+  'book-reading-progress-bar',
+  'book-font-family',
+  'aria-hidden="true" inert'
 ]) {
   if (!html.includes(required)) throw new Error(`Missing reader contract marker: ${required}`);
 }
