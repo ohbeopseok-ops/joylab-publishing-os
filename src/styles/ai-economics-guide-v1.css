@@ -46,3 +46,14 @@
 @media(max-width:1100px){.ai-economics-guide-v1 .ae-dashboard__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.ai-economics-guide-v1 .ae-dashboard__head{grid-template-columns:1fr}.ai-economics-guide-v1 .ae-graph-status{min-width:0}.ai-economics-guide-v1 .ae-dashboard__grid{grid-template-columns:1fr 1fr}.ai-economics-guide-v1 .ae-metric p{min-height:0}}
 @media(max-width:520px){.ai-economics-guide-v1 .ae-dashboard{padding:18px}.ai-economics-guide-v1 .ae-dashboard__grid{grid-template-columns:1fr}.ai-economics-guide-v1 .ae-dashboard__note{display:block}.ai-economics-guide-v1 .ae-dashboard__note b{display:block;margin-bottom:4px}}
+
+.ai-economics-guide-v1 .ae-thesis-status{margin:0 0 28px}
+.ai-economics-guide-v1 .ae-thesis-status__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ai-economics-guide-v1 .ae-thesis-status__grid article{padding:17px;border:1px solid #dfe5ef;border-radius:16px;background:#fff}
+.ai-economics-guide-v1 .ae-thesis-status__grid article>div{display:flex;justify-content:space-between;gap:10px}
+.ai-economics-guide-v1 .ae-thesis-status__grid span{font-size:.68rem;font-weight:900;color:#1677ff}
+.ai-economics-guide-v1 .ae-thesis-status__grid em{font-style:normal;font-size:.76rem;font-weight:900;color:#0b1f4d}
+.ai-economics-guide-v1 .ae-thesis-status__grid b{display:block;margin-top:8px;font-size:.72rem;color:#61708a}
+.ai-economics-guide-v1 .ae-thesis-status__grid p{margin:6px 0 8px;font-size:.84rem;line-height:1.55;color:#344158}
+.ai-economics-guide-v1 .ae-thesis-status__grid small{color:#8a95a6;font-size:.67rem}
+@media(max-width:720px){.ai-economics-guide-v1 .ae-thesis-status__grid{grid-template-columns:1fr}}
