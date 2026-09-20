@@ -26,7 +26,16 @@ const featured = books[0];
     <section class="books-v2-featured">
       <div class="books-v2-shell books-v2-featured__grid">
         <a class="books-v2-featured__cover" href={`/books/${featured.id}`}>
-          <img src={featured.data.coverImage} alt={`${featured.data.title} 표지`} width="640" height="960" loading="eager" decoding="async" />
+          {featured.data.coverImage ? (
+            <img src={featured.data.coverImage} alt={`${featured.data.title} 표지`} width="640" height="960" loading="eager" decoding="async" />
+          ) : (
+            <span class="books-v2-text-cover">
+              <small>JOYLAB BOOKS</small>
+              <strong>{featured.data.title}</strong>
+              {featured.data.subtitle && <em>{featured.data.subtitle}</em>}
+              <b>{featured.data.author}</b>
+            </span>
+          )}
         </a>
         <div class="books-v2-featured__copy">
           <p class="books-v2-label">NOW PUBLISHED · {featured.data.category}</p>
@@ -81,7 +90,15 @@ const featured = books[0];
       {books.map((book) => (
         <article class="books-v2-book">
           <a class="books-v2-book__cover" href={`/books/${book.id}`}>
-            <img src={book.data.coverImage} alt={`${book.data.title} 표지`} width="640" height="960" loading="lazy" decoding="async" />
+            {book.data.coverImage ? (
+              <img src={book.data.coverImage} alt={`${book.data.title} 표지`} width="640" height="960" loading="lazy" decoding="async" />
+            ) : (
+              <span class="books-v2-text-cover">
+                <small>JOYLAB BOOKS</small>
+                <strong>{book.data.title}</strong>
+                <b>{book.data.author}</b>
+              </span>
+            )}
           </a>
           <div>
             <small>{book.data.category} · {book.data.publishedAt.toLocaleDateString('ko-KR')}</small>
