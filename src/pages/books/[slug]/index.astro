@@ -38,11 +38,24 @@ const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site
   <BookSchema book={book} canonical={canonical} />
   <section class="book-landing-hero">
     <div class="book-landing-shell">
-      <div class="book-cover book-cover--large book-cover--text" aria-hidden="true">
-        <small>JOYLAB BOOKS · ESSAY</small>
-        <strong>{book.data.title}</strong>
-        {book.data.subtitle && <span>{book.data.subtitle}</span>}
-        <em>글 · {book.data.author}</em>
+      <div class="book-cover book-cover--large book-cover--image">
+        {book.data.coverImage ? (
+          <img
+            src={book.data.coverImage}
+            alt={`${book.data.title} 표지`}
+            width="640"
+            height="960"
+            fetchpriority="high"
+            decoding="async"
+          />
+        ) : (
+          <>
+            <small>JOYLAB BOOKS · ESSAY</small>
+            <strong>{book.data.title}</strong>
+            {book.data.subtitle && <span>{book.data.subtitle}</span>}
+            <em>글 · {book.data.author}</em>
+          </>
+        )}
       </div>
 
       <div class="book-landing-copy">
@@ -52,14 +65,14 @@ const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site
         <p class="book-description">{book.data.description}</p>
         {book.data.heroQuote && <blockquote>“{book.data.heroQuote}”</blockquote>}
         <div class="book-actions">
-          <a class="book-primary" href="#toc">목차 보기</a>
           <a
-            class="book-secondary"
+            class="book-primary"
             href={`/books/${book.id}/read`}
             data-analytics-event="book_preview_start"
             data-analytics-target={book.id}
             data-analytics-placement="book_hero"
           >작가의 말과 1장 읽기 →</a>
+          <a class="book-secondary" href="#toc">목차 보기</a>
         </div>
       </div>
     </div>

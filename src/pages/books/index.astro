@@ -24,11 +24,17 @@ const books = (await getCollection('books'))
     <div class="books-grid">
       {books.map((book) => (
         <article class="book-card">
-          <a class="book-cover book-cover--text" href={`/books/${book.id}`} aria-label={`${book.data.title} 자세히 보기`}>
-            <small>JOYLAB BOOKS</small>
-            <strong>{book.data.title}</strong>
-            {book.data.subtitle && <span>{book.data.subtitle}</span>}
-            <em>{book.data.author}</em>
+          <a class="book-cover book-cover--image" href={`/books/${book.id}`} aria-label={`${book.data.title} 자세히 보기`}>
+            {book.data.coverImage ? (
+              <img src={book.data.coverImage} alt={`${book.data.title} 표지`} width="640" height="960" loading="lazy" decoding="async" />
+            ) : (
+              <>
+                <small>JOYLAB BOOKS</small>
+                <strong>{book.data.title}</strong>
+                {book.data.subtitle && <span>{book.data.subtitle}</span>}
+                <em>{book.data.author}</em>
+              </>
+            )}
           </a>
           <div class="book-card__copy">
             <div class="book-card__meta">{book.data.category} · {book.data.publishedAt.toLocaleDateString('ko-KR')}</div>
