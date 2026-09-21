@@ -7,6 +7,17 @@
   --m-title:clamp(2rem,10vw,3rem);
   --m-section-title:clamp(1.7rem,8.6vw,2.35rem);
   --m-body:1rem;
+
+  /* Component tokens — Mobile UI V1.2 */
+  --m-touch:48px;
+  --m-footer-gap:26px;
+  --m-footer-link-h:44px;
+  --m-form-gap:10px;
+  --m-form-control-h:48px;
+  --m-form-radius:14px;
+  --m-reader-pad:14px;
+  --m-reader-radius:18px;
+  --m-reader-line:1.82;
 }
 
 .site-header .nav-links a.is-active{
@@ -235,7 +246,7 @@
     width:min(calc(100% - 28px),var(--max))!important;
   }
   body.contact-v2 .contact-hero{
-    margin-bottom:28px!important;
+    margin-bottom:24px!important;
   }
   body.contact-v2 .contact-hero h1{
     margin:10px 0 16px!important;
@@ -249,11 +260,11 @@
   }
   body.contact-v2 .contact-grid{
     grid-template-columns:1fr!important;
-    gap:24px!important;
+    gap:20px!important;
   }
   body.contact-v2 .contact-aside{
     position:static!important;
-    gap:14px!important;
+    gap:12px!important;
   }
   body.contact-v2 .contact-aside-card,
   body.contact-v2 .contact-form-card,
@@ -262,7 +273,7 @@
     border-radius:var(--m-radius)!important;
   }
   body.contact-v2 .contact-form-card{
-    padding:22px 18px!important;
+    padding:20px 18px!important;
   }
   body.contact-v2 .contact-form-head{
     gap:10px!important;
@@ -275,12 +286,13 @@
   body.contact-v2 .contact-type-grid,
   body.contact-v2 .contact-form-grid{
     grid-template-columns:1fr!important;
-    gap:12px!important;
+    gap:var(--m-form-gap)!important;
   }
   body.contact-v2 .contact-field input,
   body.contact-v2 .contact-field select,
   body.contact-v2 .contact-field textarea{
-    min-height:48px!important;
+    min-height:var(--m-form-control-h)!important;
+    border-radius:var(--m-form-radius)!important;
     font-size:16px!important;
   }
   body.contact-v2 .contact-field textarea{
@@ -293,7 +305,7 @@
   }
   body.contact-v2 .contact-actions button{
     width:100%!important;
-    min-height:50px!important;
+    min-height:var(--m-touch)!important;
   }
 
   /* Privacy / info pages */
@@ -313,7 +325,7 @@
     line-height:1.72!important;
   }
   .info-page section{
-    padding:var(--m-section-y) 0 0!important;
+    padding:38px 0 0!important;
     margin:0!important;
   }
   .info-page section h2{
@@ -329,5 +341,14 @@
     line-height:1.78!important;
     word-break:keep-all!important;
     overflow-wrap:break-word!important;
+  }
+}
+
+
+@media(max-width:640px){
+  .site-footer-v2__grid{gap:var(--m-footer-gap)!important}
+  .site-footer-v2__column>a,
+  .site-footer-v2__socials a{
+    min-height:var(--m-footer-link-h);
   }
 }

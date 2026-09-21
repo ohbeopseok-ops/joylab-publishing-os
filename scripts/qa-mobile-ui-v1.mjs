@@ -63,6 +63,23 @@ for (const item of cases) {
   const bodyUnlocked = await page.locator('body').evaluate((el) => !el.classList.contains('nav-open'));
   if (!bodyUnlocked) throw new Error(`${item.name}: Escape did not unlock body scroll`);
 
+  if (item.name === 'contact') {
+    const field = page.locator('#contact-name');
+    const fieldMetrics = await field.evaluate((el) => {
+      const s = getComputedStyle(el);
+      return { fontSize: Number.parseFloat(s.fontSize), height: el.getBoundingClientRect().height };
+    });
+    if (fieldMetrics.fontSize < 16) throw new Error(`contact: form font-size ${fieldMetrics.fontSize}px is below 16px`);
+    if (fieldMetrics.height < 48) throw new Error(`contact: form control height ${fieldMetrics.height}px is below 48px`);
+  }
+
+  if (item.name === 'books') {
+    await page.locator('#site-footer-v2').scrollIntoViewIfNeeded();
+    const footerLink = page.locator('#site-footer-v2 .site-footer-v2__socials a').first();
+    const footerHeight = await footerLink.evaluate((el) => el.getBoundingClientRect().height);
+    if (footerHeight < 44) throw new Error(`books: footer link height ${footerHeight}px is below 44px`);
+  }
+
   results.push({ ...item, overflow, activeText, activeStyle });
   await page.close();
 }

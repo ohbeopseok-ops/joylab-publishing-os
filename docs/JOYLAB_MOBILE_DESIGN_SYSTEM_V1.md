@@ -1,6 +1,6 @@
 # JOYLAB Mobile Design System V1
 
-> Status: Active  
+> Status: Active · V1.2  
 > Scope: aijoylab.kr mobile web, 640px and below  
 > Source of truth: `src/styles/mobile-ui-v1.css`  
 > GOLD QA: `scripts/qa-mobile-ui-v1.mjs`
@@ -221,5 +221,30 @@ Automated 390 × 844 QA is the baseline. Real-device screenshots remain the fina
 
 - V1.0: shared mobile shell, Books/About/Guide/Research normalization, active navigation, automated GOLD QA
 - V1.1: Contact and Privacy added to the shared system and GOLD QA scope
+- V1.2: Footer, Contact Form, and Books Reader component tokens added; Contact/Privacy spacing tuned from real iPhone screenshots
 
 Future changes that alter core tokens, shell behavior, or QA contract should update this document in the same PR.
+
+
+## 13. V1.2 component token layer
+
+Mobile UI V1.2 adds reusable component-level tokens:
+
+- `--m-touch`: default mobile action target
+- `--m-footer-gap`, `--m-footer-link-h`: Footer rhythm and tap target
+- `--m-form-gap`, `--m-form-control-h`, `--m-form-radius`: Contact/Form system
+- `--m-reader-pad`, `--m-reader-radius`, `--m-reader-line`: Books Reader mobile rhythm
+
+Component-local tokens may map to these global mobile tokens with fallbacks. This keeps page-family styles readable while preserving one mobile source of truth.
+
+## 14. Real-device GOLD note — 2026-09-21
+
+Verified on actual iPhone screenshots:
+
+- Contact hero and cards: PASS
+- Contact form width and 16px controls: PASS
+- Privacy title, body width, and section wrapping: PASS
+- Shared sticky header and hamburger: PASS
+- No horizontal overflow observed
+
+V1.2 reduced Contact vertical gaps and Privacy section spacing after this review.
