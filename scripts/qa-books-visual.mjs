@@ -73,6 +73,30 @@ for (const c of cases) {
     await assertCoverDecoded(page, c.name);
     const library = page.getByText('현재 출간된 JoyLab Books', { exact: true });
     if (!(await library.isVisible())) throw new Error(`${c.name}: Books library heading missing`);
+
+    if (c.width >= 1200) {
+      const shellWidth = await page.locator('.books-v2-shell').first().evaluate((el) => el.getBoundingClientRect().width);
+      if (shellWidth > 1182) throw new Error(`${c.name}: desktop shell wider than 1180px contract (${shellWidth}px)`);
+
+      const featuredBox = await page.locator('.books-v2-featured__cover').evaluate((el) => {
+        const r = el.getBoundingClientRect();
+        return { width: r.width, height: r.height, ratio: r.width / r.height };
+      });
+      const targetRatio = 2 / 3;
+      if (Math.abs(featuredBox.ratio - targetRatio) > 0.03) {
+        throw new Error(`${c.name}: featured cover ratio drifted ${JSON.stringify(featuredBox)}`);
+      }
+
+      const libraryCard = page.locator('.books-v2-book').first();
+      if (await libraryCard.count()) {
+        const cardBox = await libraryCard.evaluate((el) => {
+          const r = el.getBoundingClientRect();
+          return { width: r.width, height: r.height };
+        });
+        if (cardBox.width < 1000) throw new Error(`${c.name}: library card should use the full editorial row (${cardBox.width}px)`);
+        if (cardBox.height > 340) throw new Error(`${c.name}: library card too tall (${cardBox.height}px)`);
+      }
+    }
   } else if (c.name.startsWith('landing')) {
     await page.locator('h1').waitFor();
     await assertCoverDecoded(page, c.name);
