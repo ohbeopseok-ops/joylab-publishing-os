@@ -49,14 +49,14 @@ const episodes = [
     </section>
 
     <section class="ll-featured sg-wrap">
-      <div class="sg-eyebrow">FEATURED ESSAY · EP01</div>
+      <div class="sg-eyebrow">FEATURED RESEARCH · EP01</div>
       <div class="ll-featured__grid">
         <div>
           <small>ERNEST HEMINGWAY · 노인과 바다</small>
           <h2>성과가 무너졌을 때 사람이 보인다</h2>
           <p>산티아고는 84일 동안 성과를 내지 못했습니다. 그러나 결과가 없었다고 그의 경험과 태도, 다시 시도할 가능성까지 사라진 것은 아닙니다.</p>
           <blockquote>성과를 무시하면 조직이 무너지고, 성과만 보면 사람을 잃는다.</blockquote>
-          <a href="/guides/growth-leadership/literature/old-man-and-the-sea">EP01 전체 글 읽기 →</a>
+          <a href="/guides/growth-leadership/literature/old-man-and-the-sea">EP01 Research 읽기 →</a>
         </div>
         <div class="ll-featured__visual">
           <span>EP01</span>
@@ -84,14 +84,14 @@ const episodes = [
       <h2>문학에서 배우는 리더십</h2>
       <div class="ll-series__grid">
         {episodes.map((item) => item.live ? (
-          <a class="ll-episode" href={item.href}>
+          <a class="ll-episode" id={item.ep.toLowerCase()} href={item.href}>
             <div><span>{item.ep}</span><small>{item.theme}</small></div>
             <h3>{item.title}</h3>
             <p>{item.question}</p>
-            <b>READ ESSAY →</b>
+            <b>READ RESEARCH →</b>
           </a>
         ) : (
-          <article class="ll-episode is-upcoming">
+          <article class="ll-episode is-upcoming" id={item.ep.toLowerCase()}>
             <div><span>{item.ep}</span><small>{item.theme}</small></div>
             <h3>{item.title}</h3>
             <p>{item.question}</p>
