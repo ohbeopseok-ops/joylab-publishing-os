@@ -61,7 +61,6 @@ jobs:
           node --check scripts/qa-article-pc-gold.mjs
           node --check scripts/qa-about-activation.mjs
           node --check scripts/qa-mobile-ui-v1.mjs
-          node --check scripts/qa-growth-literature.mjs
           node --check scripts/submit-indexnow.mjs
           node --check scripts/report-gsc-7d.mjs
           node --check scripts/build-distribution-pack.mjs
@@ -183,9 +182,6 @@ jobs:
       - name: Mobile UI V1 GOLD QA
         run: node scripts/qa-mobile-ui-v1.mjs
 
-      - name: Growth Literature 1440/390 GOLD QA
-        run: node scripts/qa-growth-literature.mjs
-
       - name: Growth Literature PC/Mobile GOLD QA
         run: node scripts/qa-growth-literature-gold.mjs
 
@@ -240,14 +236,6 @@ jobs:
         with:
           name: growth-literature-gold-qa
           path: qa-artifacts/growth-literature-gold
-          if-no-files-found: warn
-
-      - name: Upload Growth Literature GOLD QA screenshots
-        if: always()
-        uses: actions/upload-artifact@v6
-        with:
-          name: growth-literature-gold-qa
-          path: qa-artifacts/growth-literature
           if-no-files-found: warn
 
       - name: Upload dist artifact
