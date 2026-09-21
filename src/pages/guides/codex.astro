@@ -77,6 +77,40 @@ const series = ids.map((id) => byId.get(id)).filter(Boolean);
           ))}
         </div>
 
+        <section class="codex-diagnostic" id="codex-diagnostic" aria-labelledby="codex-diagnostic-title">
+          <div class="sg-eyebrow">30-SECOND START DIAGNOSIS</div>
+          <h2 id="codex-diagnostic-title">나는 무엇부터 읽어야 하나?</h2>
+          <p>세 문항만 선택하면 현재 수준에 맞는 시작 글을 바로 추천합니다. 결과는 브라우저 안에서만 계산됩니다.</p>
+
+          <div class="codex-diagnostic__questions">
+            <fieldset data-diagnostic-question>
+              <legend>1. 지금 Codex를 어느 정도 써봤나요?</legend>
+              <label><input type="radio" name="dq1" value="0" /> 거의 처음이다</label>
+              <label><input type="radio" name="dq1" value="1" /> 간단한 파일 수정은 해봤다</label>
+              <label><input type="radio" name="dq1" value="2" /> 여러 단계 작업과 QA까지 맡겨봤다</label>
+            </fieldset>
+            <fieldset data-diagnostic-question>
+              <legend>2. 지금 가장 먼저 하고 싶은 것은?</legend>
+              <label><input type="radio" name="dq2" value="0" /> 사용법부터 이해하기</label>
+              <label><input type="radio" name="dq2" value="1" /> 반복 업무 하나 자동화하기</label>
+              <label><input type="radio" name="dq2" value="2" /> Skill·Plugin으로 시스템 만들기</label>
+            </fieldset>
+            <fieldset data-diagnostic-question>
+              <legend>3. 완료 기준과 테스트를 직접 설계할 수 있나요?</legend>
+              <label><input type="radio" name="dq3" value="0" /> 아직 어렵다</label>
+              <label><input type="radio" name="dq3" value="1" /> 체크리스트 정도는 만들 수 있다</label>
+              <label><input type="radio" name="dq3" value="2" /> Success Criteria·Stop Condition까지 정의한다</label>
+            </fieldset>
+          </div>
+
+          <button class="codex-diagnostic__button" id="codex-diagnostic-submit" type="button">내 시작점 추천받기</button>
+          <div class="codex-diagnostic__result" id="codex-diagnostic-result" aria-live="polite">
+            <small>RESULT</small>
+            <strong>세 문항을 선택하면 추천이 표시됩니다.</strong>
+            <p>비개발자 입문 · 자동화 입문 · 고급 사용자 중 현재 위치를 기준으로 안내합니다.</p>
+          </div>
+        </section>
+
         <section class="sg-insights">
           <div class="sg-section-head sg-section-head--compact"><div><div class="sg-eyebrow">LEVEL ROADMAP</div><h2>내 수준에 맞는 시작점을 고릅니다</h2></div></div>
           <div class="sg-insights__grid">
@@ -176,4 +210,69 @@ const series = ids.map((id) => byId.get(id)).filter(Boolean);
       </aside>
     </div>
   </main>
+
+<style>
+  .codex-diagnostic{margin:34px 0;padding:28px;border:1px solid #dce6f3;border-radius:20px;background:linear-gradient(180deg,#f8fbff,#fff)}
+  .codex-diagnostic>h2{margin:8px 0 8px;color:#0b1f4d;font-size:1.7rem}
+  .codex-diagnostic>p{margin:0 0 22px;color:#60718a;line-height:1.7}
+  .codex-diagnostic__questions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .codex-diagnostic fieldset{margin:0;padding:18px;border:1px solid #dce6f3;border-radius:14px;background:#fff}
+  .codex-diagnostic legend{padding:0 5px;color:#0b1f4d;font-size:.9rem;font-weight:800;line-height:1.45}
+  .codex-diagnostic label{display:flex;gap:9px;align-items:flex-start;margin-top:11px;color:#425672;font-size:.82rem;line-height:1.45;cursor:pointer}
+  .codex-diagnostic input{margin-top:3px;accent-color:#1677ff}
+  .codex-diagnostic__button{margin-top:18px;padding:12px 18px;border:0;border-radius:999px;background:#1677ff;color:#fff;font-weight:800;cursor:pointer}
+  .codex-diagnostic__result{margin-top:18px;padding:18px 20px;border-radius:14px;background:#0b1f4d;color:#fff}
+  .codex-diagnostic__result small{display:block;color:#86b7ff;font-size:.68rem;font-weight:800;letter-spacing:.12em}
+  .codex-diagnostic__result strong{display:block;margin-top:6px;font-size:1.08rem}
+  .codex-diagnostic__result p{margin:7px 0 0;color:#cbd7e8;font-size:.83rem;line-height:1.6}
+  .codex-diagnostic__result a{display:inline-block;margin-top:12px;padding:9px 13px;border-radius:999px;background:#fff;color:#0b1f4d;font-size:.78rem;font-weight:800}
+  @media(max-width:800px){.codex-diagnostic__questions{grid-template-columns:1fr}.codex-diagnostic{padding:20px}}
+</style>
+
+<script is:inline>
+  (() => {
+    const button = document.getElementById('codex-diagnostic-submit');
+    const result = document.getElementById('codex-diagnostic-result');
+    if (!button || !result) return;
+
+    const recommendations = [
+      {
+        max: 1,
+        label: '비개발자 입문',
+        title: 'EP01 · Codex 6단계 시작 가이드부터',
+        text: '먼저 프로젝트·권한·작업 모드의 구조를 익힌 뒤 EP02에서 작은 자동화 하나를 골라보세요.',
+        href: '/articles/codex-guide-6-steps-2026',
+        cta: 'EP01부터 시작하기 →'
+      },
+      {
+        max: 4,
+        label: '자동화 입문',
+        title: 'EP02 · 자동화 10가지에서 내 업무 하나를 고르세요',
+        text: '반복 업무 하나를 실제로 실행한 뒤 EP03 Skill로 고정하면 가장 빠르게 체감이 생깁니다.',
+        href: '/articles/codex-non-developer-automation-10',
+        cta: 'EP02에서 자동화 후보 찾기 →'
+      },
+      {
+        max: 6,
+        label: '고급 사용자',
+        title: 'EP05 · GOLD CASE부터 시작하세요',
+        text: '이미 실행 경험이 있다면 Contract PASS와 Runtime PASS를 구분한 뒤 Computer Use·Goal Mode·Custom Plugin으로 확장하세요.',
+        href: '/articles/codex-automation-gold-cases-5',
+        cta: 'EP05 GOLD CASE 보기 →'
+      }
+    ];
+
+    button.addEventListener('click', () => {
+      const checked = ['dq1','dq2','dq3'].map((name) => document.querySelector(`input[name="${name}"]:checked`));
+      if (checked.some((item) => !item)) {
+        result.innerHTML = '<small>CHECK</small><strong>세 문항을 모두 선택해주세요.</strong><p>약 30초면 현재 시작점을 정확히 추천할 수 있습니다.</p>';
+        return;
+      }
+      const score = checked.reduce((sum, item) => sum + Number(item.value), 0);
+      const rec = recommendations.find((item) => score <= item.max) || recommendations[2];
+      result.innerHTML = `<small>${rec.label.toUpperCase()}</small><strong>${rec.title}</strong><p>${rec.text}</p><a href="${rec.href}">${rec.cta}</a>`;
+    });
+  })();
+</script>
+
 </BaseLayout>
