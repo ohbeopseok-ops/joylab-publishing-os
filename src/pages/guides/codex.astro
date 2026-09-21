@@ -4,14 +4,14 @@ import '../../styles/semiconductor-guide-v2.css';
 import '../../styles/ai-productivity-guide-v2.css';
 import { getCollection } from 'astro:content';
 
-const ids = ['codex-guide-6-steps-2026','codex-non-developer-automation-10','codex-skill-guide-2026','codex-plugin-guide-2026','codex-automation-gold-cases-5'];
+const ids = ['codex-guide-6-steps-2026','codex-non-developer-automation-10','codex-skill-guide-2026','codex-plugin-guide-2026','codex-automation-gold-cases-5','codex-computer-use-guide-2026','codex-goal-mode-guide-2026','codex-build-your-own-plugin-2026'];
 const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
 const byId = new Map(collection.map((item) => [item.id, item]));
 const series = ids.map((id) => byId.get(id)).filter(Boolean);
 ---
 <BaseLayout
   title="Codex Hub｜비개발자를 위한 AI 업무 자동화 가이드 | JoyLab"
-  description="Codex 기본 사용법부터 업무 자동화 사례, Skill·Plugin 설계, GOLD CASE 검증까지 초급·중급·고급으로 연결한 JoyLab Codex Hub입니다."
+  description="Codex 기본 사용법부터 업무 자동화 사례, Skill·Plugin, GOLD CASE, Computer Use, Goal Mode, 나만의 Plugin 제작까지 8부작으로 연결한 JoyLab Codex Pillar Hub입니다."
   canonical="https://aijoylab.kr/guides/codex"
   bodyClass="semiconductor-guide-v2 ai-productivity-guide-v2"
 >
@@ -21,7 +21,7 @@ const series = ids.map((id) => byId.get(id)).filter(Boolean);
         <div class="sg-hero__copy">
           <div class="sg-eyebrow">CODEX OPERATING GUIDE · JOYLAB</div>
           <h1>코딩보다 먼저,<br /><span>업무를 구조화합니다.</span></h1>
-          <p class="sg-hero__lead">Codex를 기능 탐색으로 끝내지 않고 <strong>Setup → Use Case → Skill → Plugin → Computer Use</strong>로 연결해 실제 업무 자동화 시스템으로 만드는 실행형 가이드입니다.</p>
+          <p class="sg-hero__lead">Codex를 기능 탐색으로 끝내지 않고 <strong>Setup → Use Case → Skill → Plugin → Gold Case → Computer Use → Goal Mode → Build Plugin</strong>으로 연결해 실제 업무 자동화 시스템으로 만드는 8부작 실행형 가이드입니다.</p>
           <div class="sg-hero__chips"><span>#Codex</span><span>#AI자동화</span><span>#Skills</span><span>#비개발자</span><span>#업무시스템</span></div>
           <div class="sg-hero__meta">
             <span><strong>{series.length}</strong> Core Guides</span>
@@ -45,7 +45,10 @@ const series = ids.map((id) => byId.get(id)).filter(Boolean);
         <a class="sg-map__step" href="/articles/codex-non-developer-automation-10"><em>02</em><b>Use Cases</b><span>10 AUTOMATIONS</span></a>
         <a class="sg-map__step" href="/articles/codex-skill-guide-2026"><em>03</em><b>Skill</b><span>REPEATABLE SYSTEM</span></a>
         <a class="sg-map__step" href="/articles/codex-plugin-guide-2026"><em>04</em><b>Plugin</b><span>CONNECTED WORK</span></a>
-        <a class="sg-map__step is-compare" href="/articles/codex-automation-gold-cases-5"><em>05</em><b>Gold</b><span>VALIDATED CASES</span></a>
+        <a class="sg-map__step" href="/articles/codex-automation-gold-cases-5"><em>05</em><b>Gold</b><span>VALIDATED CASES</span></a>
+        <a class="sg-map__step" href="/articles/codex-computer-use-guide-2026"><em>06</em><b>Computer</b><span>GUI EXECUTION</span></a>
+        <a class="sg-map__step" href="/articles/codex-goal-mode-guide-2026"><em>07</em><b>Goal</b><span>SUCCESS CRITERIA</span></a>
+        <a class="sg-map__step is-compare" href="/articles/codex-build-your-own-plugin-2026"><em>08</em><b>Build</b><span>YOUR PLUGIN</span></a>
       </nav>
     </div>
   </section>
@@ -62,7 +65,7 @@ const series = ids.map((id) => byId.get(id)).filter(Boolean);
             <article class={`sg-card ${index === series.length - 1 ? 'is-key' : ''}`}>
               <div class="sg-card__no">0{index + 1}</div>
               <div>
-                <div class="sg-card__role">{index === 0 ? 'BEGINNER · FOUNDATION' : index === 1 ? 'BEGINNER · USE CASES' : index === 2 ? 'INTERMEDIATE · SKILL' : index === 3 ? 'INTERMEDIATE · PLUGIN' : 'ADVANCED · GOLD CASE'}</div>
+                <div class="sg-card__role">{index === 0 ? 'BEGINNER · FOUNDATION' : index === 1 ? 'BEGINNER · USE CASES' : index === 2 ? 'INTERMEDIATE · SKILL' : index === 3 ? 'INTERMEDIATE · PLUGIN' : index === 4 ? 'ADVANCED · GOLD CASE' : index === 5 ? 'ADVANCED · COMPUTER USE' : index === 6 ? 'ADVANCED · GOAL MODE' : 'BUILDER · CUSTOM PLUGIN'}</div>
                 <h3><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h3>
                 <p>{article!.data.description}</p>
                 <div class="sg-card__foot">
@@ -79,7 +82,7 @@ const series = ids.map((id) => byId.get(id)).filter(Boolean);
           <div class="sg-insights__grid">
             <div><em>BEGINNER</em><b>1부 + 2부</b><p>프로젝트 세팅, 완료 기준, 자동화 후보 10개 중 하나를 실제로 실행합니다.</p></div>
             <div><em>INTERMEDIATE</em><b>3부 + 4부</b><p>성공한 흐름을 Skill로 고정하고 Gmail·Drive·GitHub 같은 Plugin을 연결합니다.</p></div>
-            <div><em>ADVANCED</em><b>GOLD CASE</b><p>Contract PASS와 Runtime PASS를 구분해 재현 가능한 운영 자동화로 승격합니다.</p></div>
+            <div><em>ADVANCED</em><b>5부 ~ 8부</b><p>GOLD CASE → Computer Use → Goal Mode → 나만의 Plugin 제작으로 실행 범위를 확장합니다.</p></div>
           </div>
         </section>
 
@@ -151,6 +154,24 @@ const series = ids.map((id) => byId.get(id)).filter(Boolean);
           <h3>반복 가능성을 검증</h3>
           <p>실행 프롬프트·완료 조건·검증 상태가 포함된 JoyLab GOLD CASE 5개를 확인합니다.</p>
           <a href="/articles/codex-automation-gold-cases-5">GOLD CASE 5개 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>COMPUTER USE</small>
+          <h3>화면 기반 업무까지 확장</h3>
+          <p>GUI가 꼭 필요한 작업만 골라 승인·중단·검증 기준과 함께 실행합니다.</p>
+          <a href="/articles/codex-computer-use-guide-2026">Computer Use 실전 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>GOAL MODE</small>
+          <h3>완료 기준으로 끝까지 맡기기</h3>
+          <p>Scope·Success Criteria·Verification·Stop Conditions를 계약처럼 정의합니다.</p>
+          <a href="/articles/codex-goal-mode-guide-2026">Goal Mode 실전 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>BUILD YOUR PLUGIN</small>
+          <h3>업무 방식을 Plugin으로 패키징</h3>
+          <p>Skill·MCP·plugin.json을 묶어 개인 또는 조직의 재사용 가능한 업무 도구로 만듭니다.</p>
+          <a href="/articles/codex-build-your-own-plugin-2026">나만의 Plugin 만들기 →</a>
         </section>
       </aside>
     </div>
