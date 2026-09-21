@@ -185,3 +185,47 @@
     linear-gradient(90deg,rgba(7,23,47,.42) 0%,rgba(7,23,47,.12) 52%,rgba(7,23,47,.04) 100%),
     url('/images/leadership/literature/ep01-old-man-and-the-sea.webp') center/cover no-repeat;
 }
+
+
+/* Growth & Leadership discovery V1 */
+.growth-leadership-guide-v2 .growth-hero__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px;
+}
+.growth-leadership-guide-v2 .growth-hero__cta{
+  display:inline-flex;
+  align-items:center;
+  min-height:42px;
+  padding:0 15px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:999px;
+  color:#fff;
+  font-size:.82rem;
+  font-weight:900;
+  text-decoration:none;
+  background:rgba(255,255,255,.06);
+}
+.growth-leadership-guide-v2 .growth-hero__cta.is-primary{
+  background:#1677ff;
+  border-color:#1677ff;
+}
+.growth-leadership-guide-v2 .growth-rail-discovery a{
+  display:block;
+  margin-top:12px;
+}
+.growth-leadership-guide-v2 .growth-rail-discovery__secondary{
+  color:#61708a !important;
+  font-size:.78rem;
+}
+@media(max-width:640px){
+  .growth-leadership-guide-v2 .growth-hero__actions{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+  .growth-leadership-guide-v2 .growth-hero__cta{
+    justify-content:center;
+    width:100%;
+  }
+}
