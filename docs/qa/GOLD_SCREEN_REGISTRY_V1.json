@@ -1,0 +1,75 @@
+{
+  "version": "1.0",
+  "viewport_contracts": {
+    "desktop": {
+      "width": 1440,
+      "height": 1000
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844
+    }
+  },
+  "screens": [
+    {
+      "id": "home-desktop",
+      "path": "/",
+      "viewport": "desktop",
+      "h1": true
+    },
+    {
+      "id": "home-mobile",
+      "path": "/",
+      "viewport": "mobile",
+      "h1": true
+    },
+    {
+      "id": "research-desktop",
+      "path": "/articles/anthropic-ipo-ai-safety-2026",
+      "viewport": "desktop",
+      "h1": true
+    },
+    {
+      "id": "research-mobile",
+      "path": "/articles/anthropic-ipo-ai-safety-2026",
+      "viewport": "mobile",
+      "h1": true
+    },
+    {
+      "id": "books-desktop",
+      "path": "/books",
+      "viewport": "desktop",
+      "h1": true
+    },
+    {
+      "id": "books-mobile",
+      "path": "/books",
+      "viewport": "mobile",
+      "h1": true
+    },
+    {
+      "id": "about-desktop",
+      "path": "/about",
+      "viewport": "desktop",
+      "h1": true
+    },
+    {
+      "id": "about-mobile",
+      "path": "/about",
+      "viewport": "mobile",
+      "h1": true
+    },
+    {
+      "id": "contact-desktop",
+      "path": "/contact",
+      "viewport": "desktop",
+      "h1": true
+    },
+    {
+      "id": "contact-mobile",
+      "path": "/contact",
+      "viewport": "mobile",
+      "h1": true
+    }
+  ]
+}
