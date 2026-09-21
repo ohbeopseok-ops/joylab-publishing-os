@@ -48,7 +48,7 @@
 .contact-field label{color:#263a53;font-size:.82rem;font-weight:800}
 .contact-required{color:var(--blue)}
 .contact-field input,.contact-field select,.contact-field textarea{width:100%;border:1px solid #dbe2eb;border-radius:var(--contact-control-radius);background:#fff;color:#25384f;padding:12px 14px;outline:none;transition:border-color .18s ease,box-shadow .18s ease;background-clip:padding-box}
-.contact-field input,.contact-field select{min-height:46px}
+.contact-field input,.contact-field select{min-height:var(--contact-control-h)}
 .contact-field textarea{min-height:150px;resize:vertical;line-height:1.65}
 .contact-field input::placeholder,.contact-field textarea::placeholder{color:#a1acba}
 .contact-field input:focus,.contact-field select:focus,.contact-field textarea:focus{border-color:#8ab8f8;box-shadow:0 0 0 3px rgba(22,119,255,.09)}
