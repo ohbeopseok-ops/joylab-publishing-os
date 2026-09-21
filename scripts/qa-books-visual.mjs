@@ -22,7 +22,10 @@ const browser = await chromium.launch({ headless: true });
 const results = [];
 
 const assertCoverDecoded = async (page, name) => {
-  const cover = page.locator('img[src="/books/imperfect/cover.webp"]').first();
+  const cover = page.locator(
+    '.home-books-v2__cover img, .books-v2-featured__cover img, .book-v2-hero__cover img'
+  ).first();
+
   if (await cover.count()) {
     await cover.waitFor({ state: 'visible' });
     const state = await cover.evaluate((img) => ({
@@ -31,14 +34,16 @@ const assertCoverDecoded = async (page, name) => {
       naturalHeight: img.naturalHeight
     }));
     if (!state.complete || state.naturalWidth <= 0 || state.naturalHeight <= 0) {
-      throw new Error(`${name}: cover image failed to decode ${JSON.stringify(state)}`);
+      throw new Error(`${name}: featured cover image failed to decode ${JSON.stringify(state)}`);
     }
     return;
   }
 
-  const textCover = page.locator('.home-books-v2__text-cover, .books-v2-text-cover').first();
+  const textCover = page.locator(
+    '.home-books-v2__text-cover, .books-v2-featured__cover .books-v2-text-cover, .book-v2-hero__cover .book-v2-text-cover'
+  ).first();
   if (!(await textCover.count()) || !(await textCover.isVisible())) {
-    throw new Error(`${name}: neither image cover nor text cover is visible`);
+    throw new Error(`${name}: featured image cover or text cover is not visible`);
   }
 };
 
