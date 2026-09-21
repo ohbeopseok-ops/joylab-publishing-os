@@ -60,6 +60,7 @@ jobs:
           node --check scripts/qa-article-archive-gold.mjs
           node --check scripts/qa-article-pc-gold.mjs
           node --check scripts/qa-about-activation.mjs
+          node --check scripts/qa-mobile-ui-v1.mjs
           node --check scripts/submit-indexnow.mjs
           node --check scripts/report-gsc-7d.mjs
           node --check scripts/build-distribution-pack.mjs
@@ -178,6 +179,9 @@ jobs:
       - name: About Activation PC/Mobile GOLD QA
         run: node scripts/qa-about-activation.mjs
 
+      - name: Mobile UI V1 GOLD QA
+        run: node scripts/qa-mobile-ui-v1.mjs
+
       - name: Stop Astro preview
         if: always()
         shell: bash
@@ -214,6 +218,14 @@ jobs:
         with:
           name: about-activation-gold-qa
           path: qa-artifacts/about-activation
+          if-no-files-found: warn
+
+      - name: Upload Mobile UI V1 GOLD QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: mobile-ui-v1-gold-qa
+          path: qa-artifacts/mobile-ui-v1
           if-no-files-found: warn
 
       - name: Upload dist artifact
