@@ -14,6 +14,7 @@ export async function GET({ site }: { site: URL }) {
     `${origin}/privacy`,
     `${origin}/guides/investing`,
     `${origin}/guides/ai-productivity`,
+    `${origin}/guides/codex`,
     `${origin}/guides/growth-leadership`,
     `${origin}/guides/growth-leadership/literature`,
     `${origin}/guides/growth-leadership/literature/old-man-and-the-sea`,
