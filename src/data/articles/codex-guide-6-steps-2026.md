@@ -21,3 +21,10 @@ seoTitle: "ChatGPT Codex 활용법 6단계｜코딩 몰라도 시작하는 업�
 canonical: "https://aijoylab.kr/articles/codex-guide-6-steps-2026"
 series: "AI 업무 자동화"
 readingTime: "약 8분"
+
+
+## 다음 글｜기능을 실제 업무로 연결하기
+
+Codex의 기본 사용법을 익혔다면 다음 단계는 “내 업무에서 무엇을 맡길 것인가”를 정하는 것입니다.
+
+→ [2부｜Codex로 비개발자가 자동화할 수 있는 업무 10가지](/articles/codex-non-developer-automation-10)
