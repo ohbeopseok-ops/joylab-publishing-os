@@ -1049,5 +1049,43 @@
         "caption": "Input → Process → Quality Gate → Output 네 요소를 고정하면 재사용성이 높아집니다."
       }
     ]
+  },
+  "codex-plugin-guide-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Gmail Google Drive GitHub를 Codex Plugin으로 연결하는 JoyLab AI·생산성 대표 이미지",
+      "caption": "Plugin은 앱 연결이 아니라 실제 업무 데이터와 도구를 Skill 기반 워크플로에 연결하는 계층입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Gmail Drive GitHub를 읽기 중심으로 연결하고 권한을 단계적으로 확장하는 JoyLab Visual Research 이미지",
+        "caption": "처음에는 읽기 중심으로 시작하고 필요한 쓰기 권한만 추가합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "문제 정의 데이터 최소권한 Skill 승인 검증 확장 순서로 Plugin을 설계하는 JoyLab 프레임워크 이미지",
+        "caption": "문제 정의 → 필요한 데이터 → 최소 권한 → Skill → 승인 → 검증 → 확장 순서로 설계합니다."
+      }
+    ]
+  },
+  "codex-automation-gold-cases-5": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Codex 자동화 GOLD CASE 5개와 완료 조건 검증표를 소개하는 JoyLab AI·생산성 대표 이미지",
+      "caption": "자동화는 생성 성공이 아니라 같은 기준으로 다시 재현 가능한지 검증해야 합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Contract PASS와 Runtime PASS를 구분하는 Codex 자동화 검증 신호 이미지",
+        "caption": "설계 계약 검증과 실제 실행 검증을 분리해 자동화 성숙도를 판단합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Input Process Quality Gate Output Human Review로 GOLD CASE를 검증하는 JoyLab 프레임워크 이미지",
+        "caption": "Input → Process → Quality Gate → Output → Human Review를 모두 통과해야 GOLD CASE 후보가 됩니다."
+      }
+    ]
   }
 }
