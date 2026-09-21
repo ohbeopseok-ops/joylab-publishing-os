@@ -22,6 +22,11 @@ const targets = [
     required: ['.le-hero', '.le-visual--ep01', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
   },
   {
+    name: 'ep02',
+    route: '/guides/growth-leadership/literature/little-prince',
+    required: ['.le-hero', '.le-visual--ep02', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
     name: 'playbook',
     route: '/guides/growth-leadership/playbook/performance-coaching',
     required: ['.lp-hero', '.lp-principle', '.lp-questions', '.lp-gold'],
