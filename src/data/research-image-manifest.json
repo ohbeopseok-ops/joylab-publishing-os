@@ -1068,5 +1068,43 @@
         "caption": "Macro Surprise → Yield → EPS Revision → Valuation → Price의 순서로 해석합니다."
       }
     ]
+  },
+  "us-cpi-fed-nasdaq-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "2026년 8월 미국 CPI 3.4%와 근원 CPI 2.4%, Fed 금리와 나스닥 연결 구조를 표현한 JoyLab 리서치 대표 이미지",
+      "caption": "CPI는 숫자 하나가 아니라 헤드라인·근원·주거비·에너지·시장금리 반응을 함께 봐야 합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미국 CPI의 헤드라인 근원 주거비 에너지 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "헤드라인보다 물가의 구성과 지속성을 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "CPI에서 Fed 2년물 10년물 나스닥으로 이어지는 JoyLab 분석 프레임워크 이미지",
+        "caption": "CPI → Fed → 2Y → 10Y → EPS → Nasdaq 순서로 읽습니다."
+      }
+    ]
+  },
+  "us-economic-indicators-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "미국 소매판매 CPI PPI 비농업고용 PCE를 Fed 금리와 나스닥으로 연결한 JoyLab 경제지표 허브 대표 이미지",
+      "caption": "미국 핵심 경제지표를 하나의 전송경로로 연결합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미국 핵심 경제지표의 변화 신호를 한 화면에 정리한 JoyLab Visual Research 이미지",
+        "caption": "소비·물가·고용의 신호를 같은 기준으로 비교합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "고용 소득 소비 물가 Fed 국채금리 EPS 주가 연결 구조를 보여주는 JoyLab 리서치 프레임워크 이미지",
+        "caption": "고용 → 소득 → 소비 → 물가 → Fed → 금리 → EPS → 주가로 연결합니다."
+      }
+    ]
   }
 }
