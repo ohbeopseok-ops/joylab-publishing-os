@@ -76,7 +76,7 @@ const navState = {
           <a class:list={{ 'is-active': navState.books }} aria-current={navState.books ? 'page' : undefined} href="/books">Books</a>
           <a class:list={{ 'is-active': navState.about }} aria-current={navState.about ? 'page' : undefined} href="/about">About</a>
           <a class:list={{ 'is-active': navState.contact }} aria-current={navState.contact ? 'page' : undefined} href="/contact">Contact</a>
-          <a class="mobile-nav-cta" href="/#today-research">오늘의 리서치 보기 →</a>
+          <a class="mobile-nav-cta" href="/#today-research" aria-label="오늘의 리서치 보기">오늘의 리서치 보기 →</a>
         </nav>
         <a class="homepage-nav-cta" href="/#today-research">오늘의 리서치 →</a>
         <button class="homepage-nav-toggle" type="button" aria-expanded="false" aria-controls="site-primary-nav" aria-label="메뉴 열기">
