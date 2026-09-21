@@ -4,14 +4,14 @@ import '../../styles/semiconductor-guide-v2.css';
 import '../../styles/ai-productivity-guide-v2.css';
 import { getCollection } from 'astro:content';
 
-const ids = ['codex-guide-6-steps-2026','codex-non-developer-automation-10','codex-skill-guide-2026'];
+const ids = ['codex-guide-6-steps-2026','codex-non-developer-automation-10','codex-skill-guide-2026','codex-plugin-guide-2026','codex-automation-gold-cases-5'];
 const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
 const byId = new Map(collection.map((item) => [item.id, item]));
 const series = ids.map((id) => byId.get(id)).filter(Boolean);
 ---
 <BaseLayout
   title="Codex Hub｜비개발자를 위한 AI 업무 자동화 가이드 | JoyLab"
-  description="Codex 기본 사용법부터 비개발자 업무 자동화 사례, Skill 설계까지 하나의 실행 경로로 연결한 JoyLab Codex Hub입니다."
+  description="Codex 기본 사용법부터 업무 자동화 사례, Skill·Plugin 설계, GOLD CASE 검증까지 초급·중급·고급으로 연결한 JoyLab Codex Hub입니다."
   canonical="https://aijoylab.kr/guides/codex"
   bodyClass="semiconductor-guide-v2 ai-productivity-guide-v2"
 >
@@ -26,24 +26,26 @@ const series = ids.map((id) => byId.get(id)).filter(Boolean);
           <div class="sg-hero__meta">
             <span><strong>{series.length}</strong> Core Guides</span>
             <span><strong>6</strong> Setup Steps</span>
-            <span><strong>10</strong> Automation Cases</span>
+            <span><strong>5</strong> GOLD Cases</span>
           </div>
         </div>
         <aside class="sg-lens">
           <div class="sg-lens__brand">JOYLAB<br /><b>CODEX HUB</b></div>
           <div class="sg-lens__item"><em>01</em><div><b>START</b><span>프로젝트와 권한, 작업 모드부터 안전하게 시작합니다.</span></div></div>
           <div class="sg-lens__item"><em>02</em><div><b>AUTOMATE</b><span>반복 업무를 자동화 후보로 바꾸고 완료 기준을 정합니다.</span></div></div>
-          <div class="sg-lens__item"><em>03</em><div><b>STANDARDIZE</b><span>성공한 작업을 Skill로 패키징해 재사용 자산으로 만듭니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>STANDARDIZE</b><span>Skill·Plugin·GOLD CASE로 확장해 반복 가능한 운영 자산으로 만듭니다.</span></div></div>
         </aside>
       </div>
       <div class="sg-map-head">
         <div><span>START HERE</span><b>Codex Learning Path</b></div>
-        <a href="#codex-path">3개 가이드 순서대로 보기 →</a>
+        <a href="#codex-path">{series.length}개 가이드 순서대로 보기 →</a>
       </div>
       <nav class="sg-map" aria-label="Codex 학습 경로">
         <a class="sg-map__step is-start" href="/articles/codex-guide-6-steps-2026"><em>01</em><b>Start</b><span>6 STEP GUIDE</span></a>
         <a class="sg-map__step" href="/articles/codex-non-developer-automation-10"><em>02</em><b>Use Cases</b><span>10 AUTOMATIONS</span></a>
-        <a class="sg-map__step is-compare" href="/articles/codex-skill-guide-2026"><em>03</em><b>Skill</b><span>REPEATABLE SYSTEM</span></a>
+        <a class="sg-map__step" href="/articles/codex-skill-guide-2026"><em>03</em><b>Skill</b><span>REPEATABLE SYSTEM</span></a>
+        <a class="sg-map__step" href="/articles/codex-plugin-guide-2026"><em>04</em><b>Plugin</b><span>CONNECTED WORK</span></a>
+        <a class="sg-map__step is-compare" href="/articles/codex-automation-gold-cases-5"><em>05</em><b>Gold</b><span>VALIDATED CASES</span></a>
       </nav>
     </div>
   </section>
@@ -52,15 +54,15 @@ const series = ids.map((id) => byId.get(id)).filter(Boolean);
     <div class="sg-wrap sg-layout">
       <section>
         <div class="sg-section-head">
-          <div><div class="sg-eyebrow">CODEX PATH</div><h2>사용법 → 업무 적용 → Skill화 순서로 갑니다</h2></div>
-          <p>처음부터 복잡한 자동화를 만들지 않습니다. 먼저 Codex 환경을 이해하고, 작은 반복 업무 하나를 선택한 뒤, 성공한 흐름을 Skill로 고정합니다.</p>
+          <div><div class="sg-eyebrow">CODEX PATH</div><h2>초급 → 중급 → 고급으로 확장합니다</h2></div>
+          <p>처음부터 복잡한 자동화를 만들지 않습니다. 기본 세팅과 작은 자동화부터 시작해 Skill·Plugin으로 연결하고, 마지막에는 GOLD CASE 기준으로 반복 가능성을 검증합니다.</p>
         </div>
         <div class="sg-path">
           {series.map((article, index) => (
             <article class={`sg-card ${index === series.length - 1 ? 'is-key' : ''}`}>
               <div class="sg-card__no">0{index + 1}</div>
               <div>
-                <div class="sg-card__role">{index === 0 ? 'FOUNDATION' : index === 1 ? 'USE CASES' : 'SKILL SYSTEM'}</div>
+                <div class="sg-card__role">{index === 0 ? 'BEGINNER · FOUNDATION' : index === 1 ? 'BEGINNER · USE CASES' : index === 2 ? 'INTERMEDIATE · SKILL' : index === 3 ? 'INTERMEDIATE · PLUGIN' : 'ADVANCED · GOLD CASE'}</div>
                 <h3><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h3>
                 <p>{article!.data.description}</p>
                 <div class="sg-card__foot">
@@ -71,6 +73,30 @@ const series = ids.map((id) => byId.get(id)).filter(Boolean);
             </article>
           ))}
         </div>
+
+        <section class="sg-insights">
+          <div class="sg-section-head sg-section-head--compact"><div><div class="sg-eyebrow">LEVEL ROADMAP</div><h2>내 수준에 맞는 시작점을 고릅니다</h2></div></div>
+          <div class="sg-insights__grid">
+            <div><em>BEGINNER</em><b>1부 + 2부</b><p>프로젝트 세팅, 완료 기준, 자동화 후보 10개 중 하나를 실제로 실행합니다.</p></div>
+            <div><em>INTERMEDIATE</em><b>3부 + 4부</b><p>성공한 흐름을 Skill로 고정하고 Gmail·Drive·GitHub 같은 Plugin을 연결합니다.</p></div>
+            <div><em>ADVANCED</em><b>GOLD CASE</b><p>Contract PASS와 Runtime PASS를 구분해 재현 가능한 운영 자동화로 승격합니다.</p></div>
+          </div>
+        </section>
+
+        <section class="sg-rule">
+          <div class="sg-eyebrow">PROGRESS CHECKLIST</div>
+          <h2>다음 단계로 넘어가기 전 체크합니다</h2>
+          <div class="sg-rule__grid">
+            <div class="sg-rule__step"><b>01</b><span>프로젝트 폴더와 권한 범위를 이해했다.</span></div>
+            <div class="sg-rule__step"><b>02</b><span>자동화할 반복 업무 하나를 골랐다.</span></div>
+            <div class="sg-rule__step"><b>03</b><span>완료 기준과 실패 조건을 적었다.</span></div>
+            <div class="sg-rule__step"><b>04</b><span>실제 자료로 한 번 실행해 검증했다.</span></div>
+            <div class="sg-rule__step"><b>05</b><span>성공한 흐름을 Skill로 고정했다.</span></div>
+            <div class="sg-rule__step"><b>06</b><span>필요한 Plugin만 최소 권한으로 연결했다.</span></div>
+            <div class="sg-rule__step"><b>07</b><span>사람 승인과 복구 지점을 정했다.</span></div>
+            <div class="sg-rule__step"><b>08</b><span>Runtime PASS 여부를 기록했다.</span></div>
+          </div>
+        </section>
 
         <section class="sg-insights">
           <div class="sg-section-head sg-section-head--compact"><div><div class="sg-eyebrow">JOYLAB CODEX METHOD</div><h2>Prompt보다 완료 기준을 먼저 설계합니다</h2></div></div>
@@ -113,6 +139,18 @@ const series = ids.map((id) => byId.get(id)).filter(Boolean);
           <h3>반복 업무를 자산화</h3>
           <p>Input → Process → Quality Gate → Output 구조로 Skill을 설계합니다.</p>
           <a href="/articles/codex-skill-guide-2026">Skill 만들기 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>CONNECT APPS</small>
+          <h3>Plugin으로 실제 업무 연결</h3>
+          <p>Gmail·Google Drive·GitHub를 최소 권한으로 연결하고 Skill과 결합합니다.</p>
+          <a href="/articles/codex-plugin-guide-2026">Plugin 활용법 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>GOLD CASE</small>
+          <h3>반복 가능성을 검증</h3>
+          <p>실행 프롬프트·완료 조건·검증 상태가 포함된 JoyLab GOLD CASE 5개를 확인합니다.</p>
+          <a href="/articles/codex-automation-gold-cases-5">GOLD CASE 5개 →</a>
         </section>
       </aside>
     </div>
