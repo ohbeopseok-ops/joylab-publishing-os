@@ -335,6 +335,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{
     height:calc(100dvh - 68px);
     padding:24px 20px max(24px,env(safe-area-inset-bottom));
     overflow-y:auto;
+    overscroll-behavior:contain;
     flex-direction:column;
     gap:4px;
     background:#fff;
