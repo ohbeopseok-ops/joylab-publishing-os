@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2400" viewBox="0 0 1600 2400">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07152f"/><stop offset="0.52" stop-color="#0b2454"/><stop offset="1" stop-color="#061022"/></linearGradient>
+  <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#66c7ff"/><stop offset="1" stop-color="#7de7ff"/></linearGradient>
+  <radialGradient id="glow"><stop stop-color="#1677ff" stop-opacity=".72"/><stop offset="1" stop-color="#1677ff" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1600" height="2400" fill="url(#bg)"/>
+<circle cx="800" cy="1400" r="650" fill="url(#glow)" opacity=".42"/>
+<text x="800" y="95" text-anchor="middle" fill="#fff" font-size="38" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" letter-spacing="15">JOYLAB BOOKS</text>
+<line x1="530" y1="150" x2="690" y2="150" stroke="#75cfff" stroke-width="2"/><line x1="910" y1="150" x2="1070" y2="150" stroke="#75cfff" stroke-width="2"/>
+<text x="800" y="165" text-anchor="middle" fill="#a8d9ff" font-size="34" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">AI·생산성</text>
+<text x="800" y="455" text-anchor="middle" fill="#fff" font-weight="800" font-size="122" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">AX 시대</text>
+<text x="800" y="610" text-anchor="middle" fill="#fff" font-weight="800" font-size="118" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">살아남는 <tspan fill="url(#cyan)">고객센터</tspan></text>
+<text x="800" y="720" text-anchor="middle" fill="#e7eefb" font-size="44" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">상담사부터 리더까지 쓰는</text>
+<text x="800" y="780" text-anchor="middle" fill="#e7eefb" font-size="42" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">생성형 AI 프롬프트 &amp; 현장형 미니 웹도구</text>
+<ellipse cx="800" cy="1360" rx="420" ry="500" fill="none" stroke="#68bfff" stroke-width="26" opacity=".9"/>
+<path d="M430 1360c0-330 165-520 370-520s370 190 370 520" fill="none" stroke="#dbeafe" stroke-width="52" stroke-linecap="round"/>
+<rect x="380" y="1270" width="150" height="320" rx="74" fill="#102b5f" stroke="#76c9ff" stroke-width="8"/>
+<rect x="1070" y="1270" width="150" height="320" rx="74" fill="#102b5f" stroke="#76c9ff" stroke-width="8"/>
+<path d="M1120 1530c-20 180-140 250-300 250" fill="none" stroke="#7cd6ff" stroke-width="24" stroke-linecap="round"/>
+<rect x="730" y="1745" width="150" height="42" rx="21" fill="#99e5ff"/>
+<g font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">
+ <rect x="570" y="1060" width="460" height="120" rx="28" fill="#123c7d" stroke="#4dabff" stroke-width="3"/>
+ <text x="620" y="1115" fill="#dbeafe" font-size="30">안녕하세요!</text><text x="620" y="1155" fill="#dbeafe" font-size="28">무엇을 도와드릴까요?</text>
+ <rect x="520" y="1210" width="560" height="150" rx="28" fill="#1553b8" stroke="#82d8ff" stroke-width="4"/>
+ <rect x="555" y="1245" width="72" height="72" rx="14" fill="#e5f4ff"/><text x="591" y="1293" text-anchor="middle" fill="#1677ff" font-size="34" font-weight="800">AI</text>
+ <text x="660" y="1270" fill="#fff" font-size="28">상황을 분석하고</text><text x="660" y="1312" fill="#fff" font-size="28">최적의 답변을 제안합니다.</text>
+ <rect x="590" y="1390" width="430" height="118" rx="28" fill="#123c7d" stroke="#4dabff" stroke-width="3"/>
+ <text x="635" y="1440" fill="#dbeafe" font-size="27">더 좋은 해결책이</text><text x="635" y="1480" fill="#dbeafe" font-size="27">고객 만족으로 이어집니다.</text>
+</g>
+<path d="M160 1630 C430 1450 1180 1460 1440 1610" fill="none" stroke="#1686ff" stroke-width="4" opacity=".8"/>
+<path d="M100 1750 C520 1580 1120 1640 1500 1780" fill="none" stroke="#4fd7ff" stroke-width="3" opacity=".5"/>
+<g fill="#bfe9ff" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" font-size="26" letter-spacing="4">
+ <text x="170" y="1690">PROMPT</text><text x="440" y="1770">DATA</text><text x="730" y="1845">INSIGHT</text><text x="1150" y="1775">ACTION</text>
+</g>
+<g font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" fill="#a8d9ff" font-size="28">
+ <text x="120" y="990">더 빠른 답변</text><text x="120" y="1035">더 나은 판단</text><text x="120" y="1080">사람이 만드는</text><text x="120" y="1125">더 좋은 고객 경험</text>
+</g>
+<text x="800" y="2160" text-anchor="middle" fill="#fff" font-size="44" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">오법석 지음</text>
+<text x="800" y="2240" text-anchor="middle" fill="#7dcfff" font-size="28" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" letter-spacing="9">A MORE HUMAN CUSTOMER CENTER</text>
+<circle cx="1360" cy="2180" r="125" fill="none" stroke="#8de9ff" stroke-width="4"/>
+<text x="1360" y="2165" text-anchor="middle" fill="#a9edff" font-size="42" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">2026</text>
+<text x="1360" y="2215" text-anchor="middle" fill="#fff" font-size="32" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">웹 전자책</text>
+</svg>

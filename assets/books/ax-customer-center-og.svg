@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06142d"/><stop offset=".6" stop-color="#0b2d67"/><stop offset="1" stop-color="#061326"/></linearGradient><linearGradient id="cy" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#6ec8ff"/><stop offset="1" stop-color="#85f0ff"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#bg)"/><circle cx="870" cy="320" r="320" fill="#1677ff" opacity=".12"/>
+<text x="70" y="70" fill="#fff" font-size="24" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" letter-spacing="8">JOYLAB BOOKS</text>
+<text x="70" y="108" fill="#9ddcff" font-size="22" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">AI·생산성</text>
+<text x="70" y="230" fill="#fff" font-size="72" font-weight="800" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">AX 시대</text>
+<text x="70" y="315" fill="#fff" font-size="68" font-weight="800" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">살아남는 <tspan fill="url(#cy)">고객센터</tspan></text>
+<text x="70" y="385" fill="#e7eefb" font-size="27" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">상담사부터 리더까지 쓰는 생성형 AI 프롬프트</text>
+<text x="70" y="425" fill="#e7eefb" font-size="27" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">&amp; 현장형 미니 웹도구</text>
+<text x="70" y="492" fill="#74cfff" font-size="24" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">고객센터 AX 실전 가이드 · 오법석</text>
+<g transform="translate(760 95)"><rect width="330" height="455" rx="18" fill="#071b3d" stroke="#68cfff" stroke-width="3"/>
+<text x="165" y="50" text-anchor="middle" fill="#fff" font-size="16" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif" letter-spacing="4">JOYLAB BOOKS</text>
+<text x="165" y="112" text-anchor="middle" fill="#fff" font-size="39" font-weight="800" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">AX 시대</text>
+<text x="165" y="158" text-anchor="middle" fill="#8fe9ff" font-size="36" font-weight="800" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">살아남는 고객센터</text>
+<path d="M65 290c0-95 45-150 100-150s100 55 100 150" fill="none" stroke="#79d7ff" stroke-width="14"/>
+<rect x="50" y="260" width="45" height="95" rx="20" fill="#153d7b"/><rect x="235" y="260" width="45" height="95" rx="20" fill="#153d7b"/>
+<rect x="105" y="225" width="120" height="58" rx="15" fill="#1557bc"/><text x="165" y="260" text-anchor="middle" fill="#fff" font-size="18" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">AI 상담 보조</text>
+<text x="165" y="415" text-anchor="middle" fill="#fff" font-size="18" font-family="Noto Sans CJK KR,Noto Sans KR,sans-serif">오법석 지음</text></g>
+</svg>

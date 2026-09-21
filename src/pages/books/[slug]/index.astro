@@ -48,6 +48,8 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
   canonical={canonical}
   bodyClass="book-landing-page book-landing-v2"
   image={book.data.ogImage}
+  imageWidth={book.id === 'ax-customer-center' ? 1200 : 1600}
+  imageHeight={book.id === 'ax-customer-center' ? 630 : 900}
 >
   <BookSchema book={book} canonical={canonical} />
 

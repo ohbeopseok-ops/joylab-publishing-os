@@ -11,6 +11,8 @@ tags:
   - 프롬프트
   - 상담생산성
   - 고객응대
+coverImage: "/images/books/ax-customer-center-cover.webp"
+ogImage: "/images/og/ax-customer-center-og.webp"
 heroQuote: "기술은 고객을 향하고, AI는 상담사의 판단을 보조해야 한다."
 landingHeading: "고객센터 실무를 AI와 연결하는 현장형 가이드"
 readerProfiles:
