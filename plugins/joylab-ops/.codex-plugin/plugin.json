@@ -1,0 +1,40 @@
+{
+  "name": "joylab-ops",
+  "version": "0.1.0",
+  "description": "JoyLab research-to-publish workflow plugin with Research, Publish QA, and Distribution skills.",
+  "author": {
+    "name": "JoyLab",
+    "url": "https://aijoylab.kr/"
+  },
+  "homepage": "https://aijoylab.kr/guides/codex",
+  "repository": "https://github.com/ohbeopseok-ops/joylab-publishing-os",
+  "keywords": [
+    "joylab",
+    "research",
+    "publishing",
+    "distribution",
+    "qa",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "JoyLab Ops",
+    "shortDescription": "Research → Publish QA → Distribution",
+    "longDescription": "Run JoyLab's research, article publishing QA, and channel distribution workflow as three reusable Codex skills with explicit quality gates and human approval points.",
+    "developerName": "JoyLab",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://aijoylab.kr/",
+    "defaultPrompt": [
+      "Research a topic and prepare a JoyLab article draft",
+      "Run publish QA for a JoyLab article",
+      "Build a distribution review pack for an article"
+    ],
+    "brandColor": "#0B1F4D",
+    "screenshots": []
+  }
+}
