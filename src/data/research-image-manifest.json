@@ -1087,5 +1087,62 @@
         "caption": "Input → Process → Quality Gate → Output → Human Review를 모두 통과해야 GOLD CASE 후보가 됩니다."
       }
     ]
+  },
+  "codex-computer-use-guide-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Codex Computer Use로 브라우저와 데스크톱 앱의 GUI 작업을 안전하게 실행하는 JoyLab 대표 이미지",
+      "caption": "Computer Use는 GUI가 꼭 필요한 작업에서 승인·중단·검증 기준과 함께 사용하는 것이 핵심입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Computer Use 적용 여부를 파일 API Plugin Browser GUI 순서로 판단하는 JoyLab Visual Research 이미지",
+        "caption": "구조화된 파일·API·Plugin 방법을 먼저 검토하고 GUI 작업은 필요한 경우에만 사용합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "범위 승인 중단 조건 검증 로그로 Computer Use를 운영하는 JoyLab 프레임워크 이미지",
+        "caption": "Scope → Approval → Stop Conditions → Verification → Log 순서로 안전하게 운영합니다."
+      }
+    ]
+  },
+  "codex-goal-mode-guide-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Codex Goal Mode에서 목표와 성공 기준을 정의해 장기 작업을 완료하는 JoyLab 대표 이미지",
+      "caption": "Goal Mode의 핵심은 긴 작업이 아니라 결과와 성공 기준을 명확히 정의하는 것입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Goal Mode의 Scope Success Criteria Constraints Verification Stop Conditions를 정리한 JoyLab Visual Research 이미지",
+        "caption": "Scope·Success Criteria·Constraints·Verification·Stop Conditions가 Goal Mode의 핵심 계약입니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Outcome Criteria Execute Verify Report 흐름으로 Goal Mode를 설계하는 JoyLab 프레임워크 이미지",
+        "caption": "Outcome → Criteria → Execute → Verify → Report 순서로 완료 기준까지 반복합니다."
+      }
+    ]
+  },
+  "codex-build-your-own-plugin-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Skill MCP plugin.json을 하나의 Codex Plugin으로 패키징하는 JoyLab AI·생산성 대표 이미지",
+      "caption": "나만의 Plugin은 업무 절차·품질 기준·외부 도구 연결을 하나의 재사용 가능한 실행 패키지로 만드는 단계입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Skill부터 시작해 필요할 때 MCP를 연결하는 Codex Plugin 설계 신호 이미지",
+        "caption": "먼저 Skill을 안정화하고 외부 시스템 연결이 필요할 때만 MCP를 추가합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Skill MCP plugin json Local Test Workspace Share 순서로 Plugin을 만드는 JoyLab 프레임워크 이미지",
+        "caption": "Skill → MCP → plugin.json → Local Test → Workspace Share 순서로 패키징합니다."
+      }
+    ]
   }
 }

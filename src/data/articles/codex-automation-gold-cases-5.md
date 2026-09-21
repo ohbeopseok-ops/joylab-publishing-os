@@ -238,3 +238,10 @@ JoyLab Distribution OS는 실제로 DRAFT → REVIEW → APPROVED → PUBLISHED 
 다음 단계는 GOLD-01~03을 실제 운영 데이터로 UAT해 **Contract PASS → Runtime PASS**로 승격하는 것입니다.
 
 → [Codex Hub에서 전체 시리즈 보기](/guides/codex)
+
+
+## 다음 글｜화면 기반 업무까지 확장하기
+
+GOLD CASE 기준을 잡았다면 다음은 GUI가 꼭 필요한 업무를 Computer Use로 안전하게 실행하는 방법입니다.
+
+→ [6부｜Codex Computer Use 실전](/articles/codex-computer-use-guide-2026)
