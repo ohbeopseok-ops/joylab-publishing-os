@@ -71,6 +71,14 @@ jobs:
             test -s /tmp/body
           }
 
+          check_follow_200() {
+            url="$1"
+            code=$(curl -LsS -o /tmp/body -w '%{http_code}' --max-time 20 "$url")
+            echo "$code $url (follow redirects)"
+            test "$code" = "200"
+            test -s /tmp/body
+          }
+
           check_200 https://aijoylab.kr/
           grep -Fq 'JoyLab' /tmp/body
           grep -Fq 'https://aijoylab.kr/' /tmp/body
@@ -140,7 +148,9 @@ jobs:
 
           check_200 https://aijoylab.kr/images/books/ax-customer-center-cover.webp
           check_200 https://aijoylab.kr/images/og/ax-customer-center-og.webp
-          check_200 https://aijoylab.kr/books/ax-customer-center/interactive.html
+          check_follow_200 https://aijoylab.kr/books/ax-customer-center/interactive.html
+          grep -Fq 'id="book-scroll-viewport"' /tmp/body
+          grep -Fq 'AX 시대 살아남는 고객센터' /tmp/body
 
           check_200 https://aijoylab.kr/guides/semiconductor-investing
           grep -Fq '반도체 투자 가이드' /tmp/body
