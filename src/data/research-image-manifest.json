@@ -1030,5 +1030,43 @@
         "caption": "입력 → 처리 → 품질 게이트 → 결과물 구조를 고정하면 반복 자동화의 안정성이 높아집니다."
       }
     ]
+  },
+  "us-august-retail-sales-fed-nasdaq-2026": {
+    "hero": {
+      "src": "/images/research/us-august-retail-sales-fed-nasdaq-2026.svg",
+      "alt": "미국 8월 소매판매 실제 +1.2%와 예상 +0.8%, Fed 정책금리 3.75~4.00%를 데이터 카드와 상승 그래프로 표현한 JoyLab 리서치 이미지",
+      "caption": "예상보다 강한 미국 소비는 경기 회복력을 확인하는 동시에 높은 금리가 더 오래 유지될 가능성을 키웁니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미국 소매판매 서프라이즈가 경기와 금리 기대에 주는 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "소매판매 서프라이즈를 성장 신호와 금리 신호로 분리해 봅니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "소매판매에서 Fed와 국채금리, 나스닥 밸류에이션으로 이어지는 분석 프레임워크 이미지",
+        "caption": "소비 → Fed → 국채금리 → 할인율 → 나스닥 순서로 전송경로를 추적합니다."
+      }
+    ]
+  },
+  "strong-retail-sales-nasdaq-rally-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "강한 미국 소비에도 나스닥이 오를 수 있는 이유를 금리와 EPS의 경쟁으로 설명하는 JoyLab 리서치 대표 이미지",
+      "caption": "나스닥의 방향은 경제지표 자체보다 금리 상승폭과 이익 기대의 상대강도로 결정됩니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "금리 부담과 이익 성장 기대가 나스닥 방향을 결정하는 핵심 신호 이미지",
+        "caption": "금리와 EPS 중 어느 쪽의 변화가 더 강한지 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "경제지표에서 국채금리와 EPS 리비전을 거쳐 나스닥으로 이어지는 JoyLab 분석 프레임워크 이미지",
+        "caption": "Macro Surprise → Yield → EPS Revision → Valuation → Price의 순서로 해석합니다."
+      }
+    ]
   }
 }
