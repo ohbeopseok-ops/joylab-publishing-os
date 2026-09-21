@@ -189,3 +189,10 @@ Goal Mode는 “AI가 오래 일하게 하는 기능”이 아닙니다.
 **완료 기준을 계약처럼 정의하고, 검증과 수정까지 포함해 결과 책임을 맡기는 방식**입니다.
 
 → [Codex Hub에서 전체 시리즈 보기](/guides/codex)
+
+
+## 다음 글｜내 업무 방식을 Plugin으로 패키징하기
+
+Goal Mode까지 익혔다면 마지막 단계는 Skill과 외부 연결을 나만의 Plugin으로 묶는 것입니다.
+
+→ [8부｜나만의 Codex Plugin 만들기](/articles/codex-build-your-own-plugin-2026)
