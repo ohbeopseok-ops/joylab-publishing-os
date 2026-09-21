@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  ['『노인과 바다』에서 배울 수 있는 핵심 리더십은 무엇인가요?', '현재 성과와 사람의 전체 가치를 분리해서 보는 관점입니다. 결과를 평가하되 실패 이후의 학습, 태도, 행동 변화와 다시 시도할 가능성까지 함께 봅니다.'],
+  ['성과가 낮은 구성원에게 가장 먼저 확인해야 할 것은 무엇인가요?', '의지, 역량, 방법, 환경 중 어디에서 문제가 발생했는지 먼저 구분해야 합니다.'],
+  ['GRIT은 단순히 오래 버티는 것인가요?', '무조건 버티는 것이 아니라 목표를 유지하면서 현실을 인정하고 방법을 수정하며 다시 시도하는 힘으로 보는 편이 실무적으로 유용합니다.'],
+  ['공정한 성과관리는 어떻게 해야 하나요?', '개인이 통제할 수 있었던 행동과 통제할 수 없었던 외부 변수를 분리하고, 단일 결과보다 행동 변화와 추세를 함께 봐야 합니다.']
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '성과가 무너졌을 때 사람이 보인다',
+  alternativeHeadline: '『노인과 바다』에서 배우는 리더십',
+  description: '『노인과 바다』를 성과관리, GRIT, 공정한 평가와 구성원 성장의 관점에서 분석한 JoyLab 리더십 에세이.',
+  mainEntityOfPage: 'https://aijoylab.kr/guides/growth-leadership/literature/old-man-and-the-sea',
+  author: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  publisher: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  about: ['Leadership', 'Performance Management', 'GRIT', 'Coaching', 'The Old Man and the Sea']
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(([q, a]) => ({
+    '@type': 'Question', name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a }
+  }))
+};
+---
+
+<BaseLayout
+  title="노인과 바다 리더십｜성과가 무너졌을 때 사람이 보인다 | JoyLab"
+  description="헤밍웨이 『노인과 바다』를 성과관리와 리더십 관점에서 다시 읽습니다. GRIT, 성과부진 코칭, 공정한 평가와 구성원 성장의 원칙을 분석합니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/old-man-and-the-sea"
+  type="article"
+  bodyClass="growth-leadership-guide-v2 literature-essay-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP · EP01</div>
+      <h1>성과가 무너졌을 때<br /><span>사람이 보인다</span></h1>
+      <p class="le-subtitle">『노인과 바다』에서 배우는 성과관리와 리더십</p>
+      <p class="le-intro">산티아고는 84일 동안 물고기를 잡지 못했습니다. 숫자만 보면 성과부진자입니다. 하지만 성과가 없었다고 해서 사람의 역량과 가능성까지 사라졌다고 말할 수 있을까요?</p>
+    </header>
+
+    <section class="le-visual" aria-label="노인과 바다 리더십 비주얼">
+      <div><span>EP01</span><b>PERFORMANCE × GRIT</b></div>
+    </section>
+
+    <article class="le-body">
+      <section>
+        <h2>산티아고는 정말 성과부진자인가</h2>
+        <p>『노인과 바다』에서 늙은 어부 산티아고는 84일 동안 한 마리의 물고기도 잡지 못합니다. 조직의 언어로 옮기면 장기간 목표를 달성하지 못한 구성원과 비슷합니다.</p>
+        <p>숫자만 놓고 보면 판단은 간단합니다. 성과가 낮고, 목표는 미달이며, 결과를 만들지 못했습니다.</p>
+        <blockquote>성과가 낮다는 사실을 확인하는 것은 관리다.<br />왜 성과가 낮은지 보는 것은 리더십이다.</blockquote>
+      </section>
+
+      <section>
+        <h2>KPI가 같다고 원인까지 같은 것은 아니다</h2>
+        <p>성과가 낮은 구성원을 모두 같은 유형으로 판단하는 순간 코칭은 실패하기 쉽습니다. 누군가는 의지가 떨어졌고, 누군가는 방법을 몰라 헤매며, 누군가는 아직 숙련도가 부족하거나 외부 환경의 영향을 크게 받고 있을 수 있습니다.</p>
+        <div class="le-diagnosis">
+          <article><b>WILL</b><span>의지</span></article>
+          <article><b>SKILL</b><span>역량</span></article>
+          <article><b>METHOD</b><span>방법</span></article>
+          <article><b>ENVIRONMENT</b><span>환경</span></article>
+        </div>
+      </section>
+
+      <section>
+        <h2>GRIT은 무조건 버티는 힘이 아니다</h2>
+        <p>산티아고는 자신의 현실을 부정하지 않습니다. 자신이 늙었다는 것도, 체력이 예전과 같지 않다는 사실도 압니다. 하지만 현실을 인정하는 것과 포기하는 것은 다릅니다.</p>
+        <div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>GRIT은 목표를 유지하면서도 방법을 수정할 수 있는 힘이다.</p></div>
+      </section>
+
+      <section>
+        <h2>조직에도 상어가 있다</h2>
+        <p>산티아고는 청새치를 잡지만 돌아오는 길에 상어들에게 결과를 빼앗깁니다. 조직에도 시스템 장애, 업무량 변화, 정책 변경, 고객 상황처럼 개인이 통제하기 어려운 변수가 존재합니다.</p>
+        <blockquote class="is-dark">좋은 리더는 책임을 없애주는 사람이 아니다.<br />책임의 범위를 정확히 구분하는 사람이다.</blockquote>
+      </section>
+
+      <section>
+        <h2>통제 가능한 것과 통제 불가능한 것</h2>
+        <div class="le-control">
+          <article><small>CONTROL</small><h3>내가 바꿀 수 있는 것</h3><p>준비, 질문 방식, 설명, 피드백 적용, 재시도, 학습</p></article>
+          <article><small>NO CONTROL</small><h3>내가 바꿀 수 없는 것</h3><p>콜량, 시스템 장애, 정책 변화, 특정 고객 상황, 외부 환경</p></article>
+        </div>
+      </section>
+
+      <section class="le-translation">
+        <div class="sg-eyebrow">THE JOYLAB METHOD</div>
+        <h2>문학을 리더의 행동으로 번역하면</h2>
+        <div>
+          <article><b>SCENE</b><p>84일 동안 물고기를 잡지 못한 산티아고</p></article>
+          <article><b>INSIGHT</b><p>성과부진과 역량 부족은 동일하지 않다.</p></article>
+          <article><b>QUESTION</b><p>나는 최근 숫자로 사람 전체를 판단하고 있지 않은가?</p></article>
+          <article><b>ACTION</b><p>면담에서 원인을 통제 가능 / 통제 불가능으로 구분한다.</p></article>
+        </div>
+      </section>
+
+      <section>
+        <h2>성과와 사람을 분리해서 보는 법</h2>
+        <p>“이번 성과가 좋지 않았다”와 “이 사람은 역량이 없다”는 전혀 다른 문장입니다. 단일 KPI는 현재 상태를 보여주는 신호일 뿐, 한 사람의 전체 가능성을 설명하지 않습니다.</p>
+        <ul>
+          <li>성과 추세는 개선되고 있는가</li>
+          <li>같은 실수가 줄고 있는가</li>
+          <li>피드백 이후 행동이 바뀌었는가</li>
+          <li>학습 속도가 빨라지고 있는가</li>
+          <li>도움을 요청하고 활용하는가</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>성과부진 면담에서 리더가 해야 할 질문</h2>
+        <ol>
+          <li>최근 성과 중 가장 먼저 바꿔야 할 것은 무엇입니까?</li>
+          <li>성과가 흔들리기 시작한 시점에 무엇이 달라졌습니까?</li>
+          <li>현재 어려움은 의지·역량·방법·환경 중 어디에 가깝습니까?</li>
+          <li>통제할 수 없었던 것은 무엇입니까?</li>
+          <li>반대로 스스로 바꿀 수 있었던 것은 무엇입니까?</li>
+          <li>다음 한 번의 행동에서 무엇을 다르게 하겠습니까?</li>
+        </ol>
+        <div class="le-gold-question"><small>LEADER QUESTION</small><p>이번 결과에서 본인이 바꿀 수 있었던 행동은 무엇이었습니까?</p></div>
+      </section>
+
+      <section class="le-action">
+        <div class="sg-eyebrow">LEADERSHIP ACTION</div>
+        <h2>한 사람을 숫자에서 분리해 다시 본다.</h2>
+        <p>성과가 낮은 구성원 한 명을 선택하고 결과를 의지·역량·방법·환경으로 다시 진단합니다. 그리고 행동 목표 1~2개와 다음 확인 시점을 합의합니다.</p>
+        <a href="/guides/growth-leadership/playbook/performance-coaching">성과부진 코칭 Playbook 보기 →</a>
+      </section>
+
+      <section class="le-conclusion">
+        <p>성과를 무시하면 조직이 무너집니다. 하지만 성과만 보면 사람을 잃습니다.</p>
+        <h2>결과가 무너진 사람에게서<br />당신은 무엇을 보고 있는가.</h2>
+      </section>
+    </article>
+
+    <section class="le-faq">
+      <div class="sg-eyebrow">FAQ</div>
+      <h2>『노인과 바다』와 리더십</h2>
+      {faq.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <footer class="le-back">
+      <a href="/guides/growth-leadership/literature">← 문학에서 배우는 리더십 전체 보기</a>
+    </footer>
+  </main>
+</BaseLayout>
