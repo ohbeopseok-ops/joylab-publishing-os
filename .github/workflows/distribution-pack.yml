@@ -8,7 +8,6 @@ on:
       - 'scripts/build-distribution-pack.mjs'
       - 'scripts/build-distribution-review-html.mjs'
       - 'distribution/distribution-pack.schema.json'
-      - 'distribution/editorial-overrides.json'
       - '.github/workflows/distribution-pack.yml'
   workflow_dispatch:
     inputs:
@@ -49,43 +48,6 @@ jobs:
           elif [ "${{ github.event_name }}" = 'push' ] && [ -n "$PUSH_BEFORE" ] && [ "$PUSH_BEFORE" != '0000000000000000000000000000000000000000' ]; then
             git fetch --no-tags origin "$PUSH_BEFORE" "$PUSH_AFTER" || true
             slugs=$(git diff --name-only "$PUSH_BEFORE" "$PUSH_AFTER" -- 'src/data/articles/*.md' | sed -n 's#src/data/articles/\(.*\)\.md#\1#p' | sort -u)
-            changed_files=$(git diff --name-only "$PUSH_BEFORE" "$PUSH_AFTER")
-            if echo "$changed_files" | grep -Eq '^(distribution/editorial-overrides.json|scripts/build-distribution-pack.mjs)          else
-            slugs=''
-          fi
-          if [ -z "$slugs" ]; then
-            echo 'No changed article slug; validating GOLD case instead.'
-            slugs='anthropic-ipo-ai-safety-2026'
-          fi
-          for slug in $slugs; do
-            file="src/data/articles/${slug}.md"
-            if [ ! -f "$file" ]; then
-              echo "Deleted article skipped for distribution generation: $slug"
-              continue
-            fi
-            if grep -Eq '^draft:[[:space:]]*true[[:space:]]*$' "$file"; then
-              echo "Draft article skipped: $slug"
-              continue
-            fi
-            node scripts/build-distribution-pack.mjs --slug "$slug"
-            node scripts/build-distribution-review-html.mjs \
-              --manifest "distribution/generated/$slug/distribution-pack.json" \
-              --out "distribution/generated/$slug/review.html"
-            cp -R "distribution/generated/$slug" "qa-artifacts/distribution-packs/$slug"
-            test -s "qa-artifacts/distribution-packs/$slug/review.html"
-          done
-
-      - name: Upload review packs
-        uses: actions/upload-artifact@v6
-        with:
-          name: distribution-review-packs
-          path: qa-artifacts/distribution-packs
-          if-no-files-found: warn
-          retention-days: 30
-; then
-              override_slugs=$(node -e "const fs=require('fs');const p='distribution/editorial-overrides.json';if(fs.existsSync(p)){for(const k of Object.keys(JSON.parse(fs.readFileSync(p,'utf8')))) console.log(k)}")
-              slugs=$(printf '%s\n%s\n' "$slugs" "$override_slugs" | sed '/^$/d' | sort -u)
-            fi
           else
             slugs=''
           fi
