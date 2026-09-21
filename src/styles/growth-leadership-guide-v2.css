@@ -367,37 +367,21 @@
   position:relative;
   overflow:hidden;
   background:
-    radial-gradient(circle at 72% 42%,rgba(214,168,75,.28) 0 2px,transparent 3px),
-    radial-gradient(circle at 78% 36%,rgba(214,168,75,.22) 0 1px,transparent 2px),
-    radial-gradient(circle at 84% 48%,rgba(214,168,75,.18) 0 1px,transparent 2px),
-    linear-gradient(145deg,#07172f 0%,#0b2455 58%,#153b6b 100%);
-}
-.literature-essay-page .le-visual--ep02:before,
-.literature-essay-page .le-visual--ep02:after{
-  content:"";
-  position:absolute;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.26);
+    linear-gradient(90deg,rgba(5,17,39,.56) 0%,rgba(5,17,39,.30) 42%,rgba(5,17,39,.08) 72%,rgba(5,17,39,.02) 100%),
+    url('/images/leadership/literature/ep02-little-prince.webp') center/cover no-repeat;
 }
 .literature-essay-page .le-visual--ep02:before{
-  width:150px;height:150px;right:18%;top:28%;
-  box-shadow:0 0 0 18px rgba(255,255,255,.02);
-}
-.literature-essay-page .le-visual--ep02:after{
-  width:10px;height:10px;right:calc(18% + 70px);top:calc(28% + 70px);
-  background:#d6a84b;border-color:#d6a84b;box-shadow:0 0 34px rgba(214,168,75,.55);
-}
-.literature-essay-page .le-visual--ep02 i{
+  content:"";
   position:absolute;
-  left:34%;
-  right:28%;
-  top:50%;
-  height:1px;
-  background:linear-gradient(90deg,transparent,rgba(143,186,255,.7),rgba(214,168,75,.7),transparent);
+  inset:0;
+  background:linear-gradient(180deg,transparent 58%,rgba(5,17,39,.28) 100%);
+  pointer-events:none;
 }
+.literature-essay-page .le-visual--ep02:after,
+.literature-essay-page .le-visual--ep02 i{display:none}
 @media(max-width:760px){
-  .literature-essay-page .le-visual--ep02{min-height:300px}
-  .literature-essay-page .le-visual--ep02:before{right:10%;top:34%;width:110px;height:110px}
-  .literature-essay-page .le-visual--ep02:after{right:calc(10% + 50px);top:calc(34% + 50px)}
-  .literature-essay-page .le-visual--ep02 i{left:28%;right:25%}
+  .literature-essay-page .le-visual--ep02{
+    min-height:300px;
+    background-position:62% center;
+  }
 }
