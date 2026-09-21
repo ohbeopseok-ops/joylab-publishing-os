@@ -178,3 +178,10 @@
   .literature-leadership-page .ll-hero{padding:72px 0 62px}
   .literature-essay-page .le-visual{min-height:300px}
 }
+
+
+.literature-essay-page .le-visual--ep01{
+  background:
+    linear-gradient(90deg,rgba(7,23,47,.42) 0%,rgba(7,23,47,.12) 52%,rgba(7,23,47,.04) 100%),
+    url('/images/leadership/literature/ep01-old-man-and-the-sea.webp') center/cover no-repeat;
+}
