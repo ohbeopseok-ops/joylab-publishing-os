@@ -229,3 +229,133 @@
     width:100%;
   }
 }
+
+
+/* EP01 Literature Research Article */
+.literature-research-page .le-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:22px;
+}
+.literature-research-page .le-meta span{
+  padding:7px 10px;
+  border:1px solid #dbe4f0;
+  border-radius:999px;
+  color:#52627a;
+  background:#fff;
+  font-size:.72rem;
+  font-weight:800;
+}
+.literature-research-page .le-research-brief{
+  padding:30px;
+  border:1px solid #dbe4f0;
+  border-radius:22px;
+  background:linear-gradient(145deg,#f8fbff 0%,#fff 68%);
+}
+.literature-research-page .le-research-brief h2{
+  margin-top:10px;
+}
+.literature-research-page .le-key-takeaways{
+  padding:0;
+}
+.literature-research-page .le-takeaway-list{
+  display:grid;
+  gap:12px;
+  margin-top:26px;
+}
+.literature-research-page .le-takeaway-list article{
+  display:grid;
+  grid-template-columns:56px minmax(0,1fr);
+  gap:18px;
+  padding:22px;
+  border:1px solid #e2e8f0;
+  border-radius:16px;
+  background:#fff;
+}
+.literature-research-page .le-takeaway-list__no{
+  color:#1677ff;
+  font-size:1.35rem;
+  font-weight:900;
+}
+.literature-research-page .le-takeaway-list article>div:last-child{
+  min-width:0;
+}
+.literature-research-page .le-takeaway-list h3{
+  margin:0 0 6px;
+  font-size:1.12rem;
+  line-height:1.5;
+}
+.literature-research-page .le-takeaway-list h3,
+.literature-research-page .le-takeaway-list p,
+.literature-research-page .le-action-grid p{
+  overflow-wrap:anywhere;
+}
+.literature-research-page .le-takeaway-list p{
+  margin:0;
+  color:#61708a;
+}
+.literature-research-page .le-question-list{
+  padding-left:1.3rem;
+}
+.literature-research-page .le-question-list li{
+  margin:10px 0;
+  padding-left:4px;
+}
+.literature-research-page .le-action-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin:22px 0 24px;
+}
+.literature-research-page .le-action-grid article{
+  padding:18px;
+  border-radius:14px;
+  background:#f5f8fc;
+}
+.literature-research-page .le-action-grid b{
+  color:#1677ff;
+  font-size:.78rem;
+}
+.literature-research-page .le-action-grid p{
+  margin-bottom:0;
+}
+.literature-research-page .le-next{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:28px;
+  align-items:center;
+  max-width:760px;
+  margin:0 auto 54px;
+  padding:28px;
+  border-radius:20px;
+  color:#fff;
+  background:linear-gradient(135deg,#0b1f4d,#12346f);
+}
+.literature-research-page .le-next small{
+  color:#8fbaff;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+.literature-research-page .le-next h2{
+  margin:8px 0 10px;
+  font-size:1.55rem;
+  line-height:1.4;
+}
+.literature-research-page .le-next p{
+  margin:0;
+  color:#cbd5e1;
+  line-height:1.75;
+}
+.literature-research-page .le-next a{
+  white-space:nowrap;
+  color:#fff;
+  font-weight:900;
+}
+@media(max-width:760px){
+  .literature-research-page .le-research-brief{padding:22px}
+  .literature-research-page .le-takeaway-list article{grid-template-columns:42px minmax(0,1fr);padding:18px}
+  .literature-research-page .le-action-grid{grid-template-columns:1fr}
+  .literature-research-page .le-next{grid-template-columns:1fr}
+  .literature-research-page .le-next a{white-space:normal}
+}

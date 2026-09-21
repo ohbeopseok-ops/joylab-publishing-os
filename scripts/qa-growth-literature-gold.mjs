@@ -19,7 +19,7 @@ const targets = [
   {
     name: 'ep01',
     route: '/guides/growth-leadership/literature/old-man-and-the-sea',
-    required: ['.le-hero', '.le-visual--ep01', '.le-body', '.le-faq'],
+    required: ['.le-hero', '.le-visual--ep01', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
   },
   {
     name: 'playbook',
