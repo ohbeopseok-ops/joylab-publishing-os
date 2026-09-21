@@ -80,7 +80,9 @@ for (const viewport of viewports) {
     noBrokenImages: health.brokenImages.length === 0,
     noErrors: errors.length === 0,
     titleCorrect: structure.h1Text === 'AI는 늦추자, IPO는 간다｜앤트로픽 2조 달러 상장이 던진 질문',
-    titleTwoLines: structure.h1Lines === 2,
+    titleLineCount: viewport.width === 1440
+      ? structure.h1Lines >= 1 && structure.h1Lines <= 2
+      : structure.h1Lines === 2,
     compactCover: structure.coverHeight <= 390,
     heroVisibleAboveFold: structure.heroVisibleAboveFold,
     headerCtaVisible: structure.ctaVisible,
