@@ -266,7 +266,7 @@
 }
 .literature-research-page .le-takeaway-list article{
   display:grid;
-  grid-template-columns:56px 1fr;
+  grid-template-columns:56px minmax(0,1fr);
   gap:18px;
   padding:22px;
   border:1px solid #e2e8f0;
@@ -278,10 +278,18 @@
   font-size:1.35rem;
   font-weight:900;
 }
+.literature-research-page .le-takeaway-list article>div:last-child{
+  min-width:0;
+}
 .literature-research-page .le-takeaway-list h3{
   margin:0 0 6px;
   font-size:1.12rem;
   line-height:1.5;
+}
+.literature-research-page .le-takeaway-list h3,
+.literature-research-page .le-takeaway-list p,
+.literature-research-page .le-action-grid p{
+  overflow-wrap:anywhere;
 }
 .literature-research-page .le-takeaway-list p{
   margin:0;
@@ -346,7 +354,7 @@
 }
 @media(max-width:760px){
   .literature-research-page .le-research-brief{padding:22px}
-  .literature-research-page .le-takeaway-list article{grid-template-columns:42px 1fr;padding:18px}
+  .literature-research-page .le-takeaway-list article{grid-template-columns:42px minmax(0,1fr);padding:18px}
   .literature-research-page .le-action-grid{grid-template-columns:1fr}
   .literature-research-page .le-next{grid-template-columns:1fr}
   .literature-research-page .le-next a{white-space:normal}
