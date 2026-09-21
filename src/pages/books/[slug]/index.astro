@@ -20,6 +20,12 @@ const relatedArticles = (await getCollection('articles'))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
   .slice(0, 3);
 
+const relatedGuide = book.data.category === '투자·경제'
+  ? { href: '/guides/investing', label: '투자·경제 전체 보기' }
+  : book.data.category === 'AI·생산성'
+    ? { href: '/guides/ai-productivity', label: 'AI·생산성 전체 보기' }
+    : { href: '/guides/growth-leadership', label: '성장·리더십 전체 보기' };
+
 const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site ?? Astro.url.origin).toString();
 const cover = book.data.coverImage;
 const readerPath = book.data.readerPath ?? `/books/${book.id}/read`;
@@ -172,7 +178,7 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
     <section id="related" class="book-v2-section book-v2-related">
       <div class="book-v2-section-head">
         <div><p class="book-v2-label">READ TOGETHER</p><h2>함께 읽으면 좋은 글</h2></div>
-        <a href="/guides/growth-leadership">성장·리더십 전체 보기 →</a>
+        <a href={relatedGuide.href}>{relatedGuide.label} →</a>
       </div>
       <div class="book-v2-related-grid">
         {relatedArticles.map((article) => (
