@@ -12,7 +12,9 @@ const cases = [
   { name: 'investing', path: '/guides/investing', active: '투자·경제' },
   { name: 'ai-productivity', path: '/guides/ai-productivity', active: 'AI·생산성' },
   { name: 'growth-leadership', path: '/guides/growth-leadership', active: '성장·리더십' },
-  { name: 'research-article', path: '/articles/anthropic-ipo-ai-safety-2026', active: 'Research' }
+  { name: 'research-article', path: '/articles/anthropic-ipo-ai-safety-2026', active: 'Research' },
+  { name: 'contact', path: '/contact', active: 'Contact' },
+  { name: 'privacy', path: '/privacy', active: null }
 ];
 
 const browser = await chromium.launch({ headless: true });
@@ -38,18 +40,22 @@ for (const item of cases) {
 
   const active = page.locator('#site-primary-nav a[aria-current="page"]');
   const activeCount = await active.count();
-  if (activeCount !== 1) throw new Error(`${item.name}: expected 1 active nav item, got ${activeCount}`);
-  const activeText = (await active.textContent())?.trim();
-  if (activeText !== item.active) throw new Error(`${item.name}: active nav is "${activeText}", expected "${item.active}"`);
+  if (item.active) {
+    if (activeCount !== 1) throw new Error(`${item.name}: expected 1 active nav item, got ${activeCount}`);
+  } else if (activeCount !== 0) {
+    throw new Error(`${item.name}: expected no active nav item, got ${activeCount}`);
+  }
+  const activeText = item.active ? (await active.textContent())?.trim() : null;
+  if (item.active && activeText !== item.active) throw new Error(`${item.name}: active nav is "${activeText}", expected "${item.active}"`);
 
   const cta = page.locator('#site-primary-nav .mobile-nav-cta');
   if (!(await cta.isVisible())) throw new Error(`${item.name}: mobile Today Research CTA missing`);
 
-  const activeStyle = await active.evaluate((el) => {
+  const activeStyle = item.active ? await active.evaluate((el) => {
     const s = getComputedStyle(el);
     return { color: s.color, background: s.backgroundColor, minHeight: el.getBoundingClientRect().height };
-  });
-  if (activeStyle.minHeight < 44) throw new Error(`${item.name}: active target too small`);
+  }) : null;
+  if (activeStyle && activeStyle.minHeight < 44) throw new Error(`${item.name}: active target too small`);
 
   await page.screenshot({ path: path.join(out, `${item.name}-menu.png`), fullPage: false });
 
