@@ -1,7 +1,9 @@
 import fs from 'node:fs/promises';
 
 const html = await fs.readFile('public/books/ax-customer-center/interactive.html', 'utf8');
-const urls = [...html.matchAll(/(?:src|href)=["'](https?:\/\/[^"'#]+)["']/g)].map((m) => m[1]);
+const scriptUrls = [...html.matchAll(/<script[^>]+src=["'](https?:\/\/[^"'#]+)["'][^>]*>/gi)].map((m) => m[1]);
+const linkUrls = [...html.matchAll(/<link[^>]+href=["'](https?:\/\/[^"'#]+)["'][^>]*>/gi)].map((m) => m[1]);
+const urls = [...scriptUrls, ...linkUrls].filter((u) => new URL(u).hostname !== 'aijoylab.kr');
 const hosts = [...new Set(urls.map((u) => new URL(u).hostname))].sort();
 
 const approvedHosts = new Set([
