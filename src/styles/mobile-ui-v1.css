@@ -1,0 +1,229 @@
+/* JOYLAB Mobile UI V1 */
+:root{
+  --m-shell-x:18px;
+  --m-section-y:44px;
+  --m-gap:16px;
+  --m-radius:18px;
+  --m-title:clamp(2rem,10vw,3rem);
+  --m-section-title:clamp(1.7rem,8.6vw,2.35rem);
+  --m-body:1rem;
+}
+
+.site-header .nav-links a.is-active{
+  color:var(--blue);
+  font-weight:900;
+}
+
+@media(max-width:640px){
+  body{
+    overflow-x:hidden;
+  }
+
+  .site-header{
+    position:sticky!important;
+    top:0!important;
+    z-index:100!important;
+    background:rgba(255,255,255,.98)!important;
+    border-bottom:1px solid #e7ecf3!important;
+    backdrop-filter:blur(16px);
+  }
+  .site-header .container.nav{
+    width:min(calc(100% - 28px),var(--max))!important;
+    min-height:68px!important;
+    height:68px!important;
+    padding:0!important;
+    display:grid!important;
+    grid-template-columns:1fr auto!important;
+    align-items:center!important;
+    gap:12px!important;
+    overflow:visible!important;
+  }
+  .site-header .brand{
+    color:var(--navy)!important;
+    font-size:1.48rem!important;
+    line-height:1!important;
+  }
+  .site-header .brand span{color:var(--blue)!important}
+  .site-header .homepage-nav-toggle{
+    display:inline-flex!important;
+    width:44px!important;
+    height:44px!important;
+    padding:0!important;
+    border:1px solid #dbe3ee!important;
+    border-radius:12px!important;
+    background:#fff!important;
+    color:var(--navy)!important;
+    align-items:center!important;
+    justify-content:center!important;
+    flex-direction:column!important;
+    gap:5px!important;
+    box-shadow:0 4px 14px rgba(11,31,77,.06)!important;
+  }
+  .site-header .homepage-nav-toggle span{
+    display:block!important;
+    width:20px!important;
+    height:2px!important;
+    background:currentColor!important;
+  }
+  .site-header .nav-links{
+    position:fixed!important;
+    inset:68px 0 0 0!important;
+    z-index:90!important;
+    display:none!important;
+    width:100%!important;
+    height:calc(100dvh - 68px)!important;
+    padding:22px 20px max(24px,env(safe-area-inset-bottom))!important;
+    overflow-y:auto!important;
+    overscroll-behavior:contain!important;
+    -webkit-overflow-scrolling:touch!important;
+    flex-direction:column!important;
+    grid-template-columns:none!important;
+    gap:2px!important;
+    white-space:normal!important;
+    background:#fff!important;
+    border:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+  }
+  .site-header .nav.is-open .nav-links{display:flex!important}
+  .site-header .nav-links a{
+    display:flex!important;
+    align-items:center!important;
+    min-height:54px!important;
+    padding:0 8px!important;
+    border:0!important;
+    border-bottom:1px solid #edf1f6!important;
+    border-radius:0!important;
+    color:#17304f!important;
+    font-size:1.08rem!important;
+    font-weight:800!important;
+    background:transparent!important;
+  }
+  .site-header .nav-links a.is-active,
+  .site-header .nav-links a[aria-current="page"]{
+    color:var(--blue)!important;
+    background:#f3f7ff!important;
+    border-radius:12px!important;
+    border-bottom-color:transparent!important;
+    padding-inline:14px!important;
+  }
+  .site-header .nav-links .mobile-nav-cta{
+    display:flex!important;
+    justify-content:center!important;
+    min-height:54px!important;
+    margin-top:18px!important;
+    padding:0 18px!important;
+    border:0!important;
+    border-radius:14px!important;
+    background:#0b2d55!important;
+    color:#fff!important;
+    font-size:1rem!important;
+  }
+
+  /* About */
+  .about-v2-page{
+    padding:40px var(--m-shell-x) 64px!important;
+  }
+  .about-v2-hero{
+    gap:22px!important;
+    padding:0 0 36px!important;
+  }
+  .about-v2-hero h1{
+    margin:10px 0 16px!important;
+    font-size:var(--m-title)!important;
+    line-height:1.08!important;
+    letter-spacing:-.045em!important;
+  }
+  .about-v2-lead{
+    font-size:var(--m-body)!important;
+    line-height:1.72!important;
+  }
+  .about-v2-section{
+    padding:var(--m-section-y) 0!important;
+  }
+  .about-v2-section-head{
+    gap:10px!important;
+    margin-bottom:22px!important;
+  }
+  .about-v2-section-head h2{
+    font-size:var(--m-section-title)!important;
+    line-height:1.16!important;
+  }
+  .about-v2-section-head p{
+    font-size:.96rem!important;
+    line-height:1.72!important;
+  }
+  .about-v2-system,.about-v2-pillars,.about-v2-principles,.about-v2-trust{
+    gap:12px!important;
+  }
+
+  /* Guide family */
+  body.semiconductor-guide-v2 .sg-hero{
+    padding-top:0!important;
+  }
+  body.semiconductor-guide-v2 .sg-wrap{
+    width:min(calc(100% - 28px),1180px)!important;
+  }
+  body.semiconductor-guide-v2 .sg-hero__inner{
+    padding-top:38px!important;
+    padding-bottom:38px!important;
+  }
+  body.semiconductor-guide-v2 .sg-hero__top{
+    gap:24px!important;
+  }
+  body.semiconductor-guide-v2 .sg-hero h1{
+    font-size:var(--m-title)!important;
+    line-height:1.08!important;
+    letter-spacing:-.045em!important;
+  }
+  body.semiconductor-guide-v2 .sg-hero__lead{
+    font-size:.98rem!important;
+    line-height:1.72!important;
+  }
+  body.semiconductor-guide-v2 .sg-main{
+    padding-top:40px!important;
+    padding-bottom:64px!important;
+  }
+  body.semiconductor-guide-v2 .sg-section-head{
+    gap:10px!important;
+    margin-bottom:22px!important;
+  }
+  body.semiconductor-guide-v2 .sg-section-head h2{
+    font-size:var(--m-section-title)!important;
+    line-height:1.16!important;
+  }
+  body.semiconductor-guide-v2 .sg-card,
+  body.semiconductor-guide-v2 .sg-rail-card,
+  body.semiconductor-guide-v2 .sg-insights,
+  body.semiconductor-guide-v2 .sg-rule{
+    border-radius:var(--m-radius)!important;
+  }
+
+  /* Research article */
+  body.research-article-page .research-v2-shell.article-shell{
+    width:min(calc(100% - 28px),1180px)!important;
+    padding:18px 0 60px!important;
+  }
+  body.research-article-page .research-cover__copy{
+    padding:22px 18px!important;
+  }
+  body.research-article-page .research-cover h1{
+    margin:10px 0 12px!important;
+    font-size:clamp(1.8rem,8.8vw,2.45rem)!important;
+    line-height:1.14!important;
+    word-break:keep-all!important;
+    overflow-wrap:normal!important;
+  }
+  body.research-article-page .research-cover__desc{
+    font-size:.94rem!important;
+    line-height:1.7!important;
+  }
+  body.research-article-page .research-panel,
+  body.research-article-page .research-v2-content,
+  body.research-article-page .research-rail__card{
+    border-radius:14px!important;
+  }
+  body.research-article-page .research-v2-content{
+    padding:22px 18px!important;
+  }
+}
