@@ -212,3 +212,10 @@ Codex Skill의 핵심은 프롬프트를 줄이는 것이 아닙니다.
 Input → Process → Quality Gate → Output으로 구조화해 **업무 자산**으로 바꾸는 것이 Codex를 제대로 쓰는 다음 단계입니다.
 
 → [Codex Hub에서 전체 시리즈 보기](/guides/codex)
+
+
+## 다음 글｜Skill을 실제 업무 시스템과 연결하기
+
+Skill의 처리 방식이 안정화됐다면 다음 단계는 필요한 외부 데이터와 도구를 연결하는 것입니다.
+
+→ [4부｜Codex Plugin 활용법｜Gmail·Google Drive·GitHub 연결](/articles/codex-plugin-guide-2026)
