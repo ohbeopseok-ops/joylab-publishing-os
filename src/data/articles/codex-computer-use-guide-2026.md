@@ -151,3 +151,10 @@ Computer Use의 핵심은 “AI가 마우스를 움직인다”가 아닙니다.
 **사람이 하던 GUI 작업 중 어떤 부분까지 맡기고, 어디서 멈추고, 무엇을 검증할지 설계하는 것**입니다.
 
 → [Codex Hub에서 전체 시리즈 보기](/guides/codex)
+
+
+## 다음 글｜완료 기준을 주고 끝까지 맡기기
+
+Computer Use가 개별 화면 작업이라면 Goal Mode는 여러 단계를 성공 기준까지 이어가는 방식입니다.
+
+→ [7부｜Codex Goal Mode 실전](/articles/codex-goal-mode-guide-2026)
