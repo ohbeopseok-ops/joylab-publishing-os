@@ -7,6 +7,11 @@ const outputDir = process.env.QA_OUTPUT_DIR || 'qa-artifacts/growth-literature-g
 
 const targets = [
   {
+    name: 'growth-home',
+    route: '/guides/growth-leadership',
+    required: ['.growth-hero', '.growth-hero__actions', '.growth-extension', '.growth-rail-discovery'],
+  },
+  {
     name: 'literature',
     route: '/guides/growth-leadership/literature',
     required: ['.ll-hero', '.ll-featured', '.ll-series', '.ll-playbook'],
