@@ -22,6 +22,19 @@ const relatedArticles = (await getCollection('articles'))
 
 const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site ?? Astro.url.origin).toString();
 const cover = book.data.coverImage;
+const readerPath = book.data.readerPath ?? `/books/${book.id}/read`;
+const readerCta = book.data.readerCta ?? '지금 읽기 · 작가의 말 + 1장';
+const overline = book.data.overline ?? '오늘도 조금 더 나답게 살아가는 당신에게';
+const topics = book.data.topics ?? ['성장과 회복', '관계와 공감', '일과 삶의 균형', '리더에게 필요한 태도'];
+const defaultBenefits = [
+  { icon: '☕', text: '지친 일상에 건네는 따뜻한 문장' },
+  { icon: '🌱', text: '실패를 다시 바라보는 새로운 시선' },
+  { icon: '♥', text: '나와 타인을 이해하는 공감의 언어' },
+  { icon: '●', text: '리더에게 필요한 용기와 온기' }
+];
+const benefits = book.data.benefits?.map((text) => ({ icon: '✓', text })) ?? defaultBenefits;
+const tocItems = book.data.tocItems ?? [];
+const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 더 나답게.';
 ---
 <BaseLayout
   title={`${book.data.title} | ${book.data.author} 에세이 | JoyLab`}
@@ -50,7 +63,7 @@ const cover = book.data.coverImage;
 
       <div class="book-v2-hero__copy">
         <p class="book-v2-kicker">JoyLab Books</p>
-        <p class="book-v2-overline">오늘도 조금 더 나답게 살아가는 당신에게</p>
+        <p class="book-v2-overline">{overline}</p>
         <h1>{book.data.title}</h1>
         {book.data.subtitle && <p class="book-v2-subtitle">{book.data.subtitle}</p>}
         <p class="book-v2-byline">{book.data.author} 지음 <span>·</span> JoyLab Books</p>
@@ -58,15 +71,15 @@ const cover = book.data.coverImage;
         <div class="book-v2-actions">
           <a
             class="book-v2-primary"
-            href={`/books/${book.id}/read`}
+            href={readerPath}
             data-analytics-event="book_preview_start"
             data-analytics-target={book.id}
             data-analytics-placement="book_hero_v2"
-          >지금 읽기 · 작가의 말 + 1장 <span aria-hidden="true">→</span></a>
+          >{readerCta} <span aria-hidden="true">→</span></a>
           <a class="book-v2-secondary" href="#toc">전체 목차 보기</a>
         </div>
         <div class="book-v2-topics" aria-label="책의 핵심 주제">
-          <span>성장과 회복</span><span>관계와 공감</span><span>일과 삶의 균형</span><span>리더에게 필요한 태도</span>
+          {topics.map((topic) => <span>{topic}</span>)}
         </div>
       </div>
 
@@ -83,7 +96,7 @@ const cover = book.data.coverImage;
       <a href="#about">책 소개</a>
       <a href="#recommend">추천의 글</a>
       <a href="#toc">목차</a>
-      <a href={`/books/${book.id}/read`}>미리보기</a>
+      <a href={readerPath}>{book.data.access === 'full' ? '웹 리더' : '미리보기'}</a>
       <a href="#author">저자 소개</a>
       <a href="#related">함께 읽으면 좋은 글</a>
     </div>
@@ -93,17 +106,14 @@ const cover = book.data.coverImage;
     <section id="about" class="book-v2-section book-v2-about">
       <div>
         <p class="book-v2-label">ABOUT THE BOOK</p>
-        <h2>왜 이 책을 읽어야 할까요?</h2>
+        <h2>{book.data.landingHeading}</h2>
         <div class="book-v2-prose"><Content /></div>
       </div>
       <aside class="book-v2-benefits">
         <ul>
-          <li><span>☕</span>지친 일상에 건네는 따뜻한 문장</li>
-          <li><span>🌱</span>실패를 다시 바라보는 새로운 시선</li>
-          <li><span>♥</span>나와 타인을 이해하는 공감의 언어</li>
-          <li><span>●</span>리더에게 필요한 용기와 온기</li>
+          {benefits.map((benefit) => <li><span>{benefit.icon}</span>{benefit.text}</li>)}
         </ul>
-        <blockquote>“금이 간 그릇에도, 좋은 찻물이 담깁니다.<br />당신의 삶도 그렇습니다.”</blockquote>
+        {book.id === '완벽하지-않아서-스며들-수-있었다' && <blockquote>“금이 간 그릇에도, 좋은 찻물이 담깁니다.<br />당신의 삶도 그렇습니다.”</blockquote>}
       </aside>
     </section>
 
@@ -125,10 +135,10 @@ const cover = book.data.coverImage;
     <section id="toc" class="book-v2-section book-v2-toc">
       <div class="book-v2-section-head">
         <div><p class="book-v2-label">CONTENTS</p><h2>미리 보는 목차</h2></div>
-        <a href={`/books/${book.id}/read`}>작가의 말과 1장 읽기 →</a>
+        <a href={readerPath}>{readerCta} →</a>
       </div>
       <div class="book-v2-toc-list">
-        {chapters.map((chapter) => {
+        {chapters.length > 0 ? chapters.map((chapter) => {
           const available = book.data.access === 'full' || chapter.data.preview;
           return (
             <div class:list={['book-v2-toc-row', { 'is-preview': available, 'is-locked': !available }]}>
@@ -137,7 +147,13 @@ const cover = book.data.coverImage;
               {available ? <em>공개</em> : <em class="is-lock">전체본 준비 중</em>}
             </div>
           );
-        })}
+        }) : tocItems.map((item, index) => (
+          <div class="book-v2-toc-row is-preview">
+            <span class="book-v2-toc-no">{String(index + 1).padStart(2, '0')}</span>
+            <span class="book-v2-toc-title">{item}</span>
+            <em>수록</em>
+          </div>
+        ))}
       </div>
     </section>
 
@@ -171,13 +187,13 @@ const cover = book.data.coverImage;
     </section>
 
     <section class="book-v2-closing">
-      <p>“조금 덜 완벽해도, 조금 더 나답게.”</p>
+      <p>“{closingQuote}”</p>
       <a
-        href={`/books/${book.id}/read`}
+        href={readerPath}
         data-analytics-event="book_preview_start"
         data-analytics-target={book.id}
         data-analytics-placement="book_closing_v2"
-      >작가의 말과 1장 읽기 →</a>
+      >{readerCta} →</a>
     </section>
   </main>
 </BaseLayout>
