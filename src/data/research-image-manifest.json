@@ -992,5 +992,43 @@
         "caption": "Demand → Bottleneck → Capacity → Economics 구조로 봅니다."
       }
     ]
+  },
+  "codex-guide-6-steps-2026": {
+    "hero": {
+      "src": "/images/research/codex-guide-6-steps-hero.svg",
+      "alt": "Codex 초보자를 위한 6단계 활용 흐름과 프로젝트 작업 화면을 표현한 JoyLab AI·생산성 대표 이미지",
+      "caption": "첨부된 실제 Codex 화면 구성을 바탕으로 세팅부터 실행까지의 흐름을 JoyLab 에디토리얼 비주얼로 재구성했습니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/codex-guide-setup-modes.svg",
+        "alt": "Codex 개인 맞춤 설정과 일반·목표·계획 작업 모드를 한 화면에 정리한 인포그래픽",
+        "caption": "Step 1–2. 프로젝트 폴더와 권한을 먼저 잡고, 작업 성격에 따라 즉시 실행·목표·계획 방식을 구분합니다."
+      },
+      {
+        "src": "/images/research/codex-guide-workflow.svg",
+        "alt": "Codex Skills Plugins Computer Use Terminal 네 단계를 연결한 업무 자동화 인포그래픽",
+        "caption": "Step 3–6. 반복 작업을 Skill로 고정하고 Plugin·Computer Use·Terminal을 필요한 지점에 연결합니다."
+      }
+    ]
+  },
+  "codex-non-developer-automation-10": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "비개발자를 위한 Codex 업무 자동화 10가지 사례를 소개하는 JoyLab AI·생산성 대표 이미지",
+      "caption": "자동화의 출발점은 기능이 아니라 반복 가능한 업무 단위를 정의하는 것입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Codex 자동화 후보 업무의 반복 빈도와 규칙성을 점검하는 JoyLab Visual Research 이미지",
+        "caption": "반복성·입력 규칙성·출력 규칙성·오류 위험도를 기준으로 자동화 후보를 고릅니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Codex 업무 자동화를 Input Process Quality Gate Output 구조로 설계하는 JoyLab 프레임워크 이미지",
+        "caption": "입력 → 처리 → 품질 게이트 → 결과물 구조를 고정하면 반복 자동화의 안정성이 높아집니다."
+      }
+    ]
   }
 }
