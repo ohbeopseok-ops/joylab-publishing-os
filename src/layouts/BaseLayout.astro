@@ -65,6 +65,7 @@ const showTreasuryTodayReading = bodyClasses.includes('rates-hub-v2');
           <a href="/books">Books</a>
           <a href="/about">About</a>
           <a href="/contact">Contact</a>
+          <a class="mobile-nav-cta" href="/#today-research">오늘의 리서치 보기 →</a>
         </nav>
         <a class="homepage-nav-cta" href="/#today-research">오늘의 리서치 →</a>
         <button class="homepage-nav-toggle" type="button" aria-expanded="false" aria-controls="site-primary-nav" aria-label="메뉴 열기">
@@ -89,16 +90,19 @@ const showTreasuryTodayReading = bodyClasses.includes('rates-hub-v2');
         if (!shell || !toggle) return;
         const close = () => {
           shell.classList.remove('is-open');
+          document.body.classList.remove('nav-open');
           toggle.setAttribute('aria-expanded', 'false');
           toggle.setAttribute('aria-label', '메뉴 열기');
         };
         toggle.addEventListener('click', () => {
           const open = !shell.classList.contains('is-open');
           shell.classList.toggle('is-open', open);
+          document.body.classList.toggle('nav-open', open);
           toggle.setAttribute('aria-expanded', String(open));
           toggle.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
         });
         links?.forEach((link) => link.addEventListener('click', close));
+        document.addEventListener('keydown', (event) => { if (event.key === 'Escape') close(); });
         window.addEventListener('resize', () => { if (window.innerWidth > 640) close(); });
       })();
     </script>
