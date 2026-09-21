@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="ko" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AX 시대 살아남는 고객센터 · 인터랙티브 웹 리더 | JoyLab Books</title>
+  <meta name="description" content="고객센터 상담사와 리더를 위한 생성형 AI 실무 안내서. 프롬프트, CRM 요약, 고객응대 문장, 개인정보 보호 원칙과 현장형 미니 웹도구를 한 권에 정리했습니다.">
+  <link rel="canonical" href="https://aijoylab.kr/books/ax-customer-center/">
+  <meta name="robots" content="noindex,follow">
+  <meta property="og:type" content="book">
+  <meta property="og:title" content="AX 시대 살아남는 고객센터 | JoyLab Books">
+  <meta property="og:description" content="상담사부터 리더까지 바로 적용하는 생성형 AI 고객센터 실무 가이드">
+  <meta property="og:url" content="https://aijoylab.kr/books/ax-customer-center/">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Pretendard & Noto Serif Fonts -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'system-ui', 'Roboto', 'sans-serif'],
+            serif: ['"Noto Serif KR"', 'serif']
+          },
+          colors: {
+            sepia: {
+              50: '#fbf8f2',
+              100: '#f6f0e4',
+              200: '#eddcc5',
+              800: '#524332',
+              900: '#382c1f'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom sleek scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+    /* Reading Modes */
+    body.theme-dark { background-color: #090d16; color: #f1f5f9; }
+    body.theme-light { background-color: #f8fafc; color: #0f172a; }
+    body.theme-sepia { background-color: #f6f0e4; color: #382c1f; }
+
+    .book-body-font-sans { font-family: 'Pretendard', sans-serif; }
+    .book-body-font-serif { font-family: 'Noto Serif KR', serif; }
+
+    /* Typography sizes */
+    .font-size-sm .book-content { font-size: 0.875rem; line-height: 1.75; }
+    .font-size-base .book-content { font-size: 1rem; line-height: 1.85; }
+    .font-size-lg .book-content { font-size: 1.125rem; line-height: 1.95; }
+
+    /* Prompt Box Styling */
+    .prompt-box {
+      border-left: 4px solid #6366f1;
+      background: rgba(99, 102, 241, 0.07);
+      padding: 1rem 1.25rem;
+      border-radius: 0 0.75rem 0.75rem 0;
+      margin: 1.25rem 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      position: relative;
+    }
+    body.theme-light .prompt-box { background: #eef2ff; border-left-color: #4f46e5; color: #1e1b4b; }
+    body.theme-sepia .prompt-box { background: #ece2cf; border-left-color: #854d0e; color: #422006; }
+
+    /* Print Optimization (A5 Ready Book Layout) */
+    @media print {
+      header, nav, #app-controls, #toc-sidebar, #quick-tools-bar, #print-action-bar, #toast { display: none !important; }
+      body { background: #ffffff !important; color: #000000 !important; overflow: visible !important; height: auto !important; }
+      main { padding: 0 !important; overflow: visible !important; }
+      #book-container { max-width: 100% !important; margin: 0 !important; box-shadow: none !important; border: none !important; }
+      .book-chapter-block { page-break-before: always; margin-bottom: 2rem; }
+      .prompt-box { border: 1px solid #94a3b8 !important; border-left: 4px solid #334155 !important; background: #f8fafc !important; color: #000 !important; }
+      @page { size: A5; margin: 15mm; }
+    }
+
+    /* Public release: mobile + reading-mode hardening */
+    @media (max-width: 1023px) {
+      #toc-sidebar { position: absolute; left: 0; top: 0; bottom: 0; height: 100%; }
+    }
+    @media (max-width: 640px) {
+      #btn-font-family, #font-size-controls, #theme-controls { display: none !important; }
+      header { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+      #book-scroll-viewport { padding: 0.75rem !important; }
+      #book-container { padding: 1.1rem !important; border-radius: 1.25rem !important; }
+    }
+    body.theme-light #book-container { background: #ffffff !important; border-color: #e2e8f0 !important; }
+    body.theme-light #book-container h1, body.theme-light #book-container h2, body.theme-light #book-container h3,
+    body.theme-light #book-container strong { color: #0f172a !important; }
+    body.theme-light #book-container p, body.theme-light #book-container li, body.theme-light #book-container td { color: #334155 !important; }
+    body.theme-sepia #book-container { background: #fbf8f2 !important; border-color: #ddc9aa !important; }
+    body.theme-sepia #book-container h1, body.theme-sepia #book-container h2, body.theme-sepia #book-container h3,
+    body.theme-sepia #book-container strong { color: #382c1f !important; }
+    body.theme-sepia #book-container p, body.theme-sepia #book-container li, body.theme-sepia #book-container td { color: #524332 !important; }
+  </style>
+</head>
+<body class="h-full theme-dark font-size-base book-body-font-sans flex flex-col overflow-hidden transition-colors duration-300" id="body-app">
+
+  <!-- Top Global Header -->
+  <header class="h-14 border-b border-slate-800 bg-slate-900/95 backdrop-blur px-3 sm:px-6 flex items-center justify-between z-30 shrink-0 shadow-md">
+    <div class="flex items-center space-x-3">
+      <button onclick="toggleTocSidebar()" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition" title="목차 열기/닫기">
+        <i class="ph ph-list text-lg"></i>
+      </button>
+      <div class="flex items-center gap-2">
+        <a href="https://aijoylab.kr/books" class="hidden lg:inline text-[10px] text-slate-400 hover:text-white mr-1" title="JoyLab Books로 돌아가기">JOYLAB BOOKS ←</a>
+        <span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 via-indigo-500 to-teal-400 flex items-center justify-center text-white shadow font-bold text-sm">
+          <i class="ph ph-book-open"></i>
+        </span>
+        <div>
+          <h1 class="text-xs sm:text-sm font-bold text-white tracking-tight flex items-center gap-1.5">
+            『AX 시대 살아남는 고객센터』
+            <span class="hidden md:inline-block px-2 py-0.5 rounded text-[10px] bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">2026 웹 전자책</span>
+          </h1>
+          <p class="text-[10px] text-slate-400 hidden sm:block">저자 오법석 | 생성형 AI 프롬프트 & 현장형 미니 웹도구</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reading Controls & Settings -->
+    <div class="flex items-center space-x-1.5 sm:space-x-2">
+      <!-- Search Button -->
+      <button onclick="openSearchModal()" class="flex items-center gap-1 px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs border border-slate-700 transition" title="본문 검색 (Ctrl+F)">
+        <i class="ph ph-magnifying-glass text-sm"></i>
+        <span class="hidden md:inline">검색</span>
+      </button>
+
+      <!-- Font Type Toggle (Sans / Serif) -->
+      <button onclick="toggleFontFamily()" id="btn-font-family" class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs border border-slate-700 transition" title="글꼴 변경">
+        <span id="font-family-indicator" class="font-serif">명조체</span>
+      </button>
+
+      <!-- Font Size Controller -->
+      <div id="font-size-controls" class="flex items-center bg-slate-800 border border-slate-700 rounded-lg p-0.5 text-xs text-slate-300">
+        <button onclick="changeFontSize('sm')" id="btn-font-sm" class="px-2 py-1 rounded hover:bg-slate-700 font-bold" title="작게">A-</button>
+        <button onclick="changeFontSize('base')" id="btn-font-base" class="px-2 py-1 rounded bg-indigo-600 text-white font-bold" title="보통">A</button>
+        <button onclick="changeFontSize('lg')" id="btn-font-lg" class="px-2 py-1 rounded hover:bg-slate-700 font-bold" title="크게">A+</button>
+      </div>
+
+      <!-- Theme Switcher (Dark / Light / Sepia) -->
+      <div id="theme-controls" class="flex items-center bg-slate-800 border border-slate-700 rounded-lg p-0.5">
+        <button onclick="setTheme('dark')" id="theme-btn-dark" class="p-1.5 rounded bg-slate-950 text-indigo-400" title="다크 모드"><i class="ph ph-moon"></i></button>
+        <button onclick="setTheme('light')" id="theme-btn-light" class="p-1.5 rounded text-slate-400 hover:text-amber-500" title="라이트 모드"><i class="ph ph-sun"></i></button>
+        <button onclick="setTheme('sepia')" id="theme-btn-sepia" class="p-1.5 rounded text-slate-400 hover:text-amber-700" title="세피아 독서 모드"><i class="ph ph-coffee"></i></button>
+      </div>
+
+      <!-- Quick Tools Popup Toggle -->
+      <button onclick="toggleToolsModal()" class="px-3 py-1.5 bg-teal-600 hover:bg-teal-500 text-white rounded-lg text-xs font-semibold shadow flex items-center gap-1 transition">
+        <i class="ph ph-wrench text-sm"></i>
+        <span class="hidden sm:inline">현장 웹앱 5종</span>
+      </button>
+
+      <!-- Print / PDF Button -->
+      <button onclick="window.print()" class="p-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg border border-slate-700 transition" title="A5 전자책 인쇄 및 PDF 저장">
+        <i class="ph ph-printer text-base"></i>
+      </button>
+    </div>
+  </header>
+  <!-- Top Reading Progress Indicator -->
+  <div class="w-full bg-slate-800/60 h-1 z-20 shrink-0">
+    <div id="read-progress-bar" class="bg-gradient-to-r from-indigo-500 via-teal-400 to-indigo-600 h-full w-0 transition-all duration-150"></div>
+  </div>
+
+  <!-- Main Work & Reading Space -->
+  <div class="flex-1 flex overflow-hidden relative">
+
+    <!-- TOC Sidebar Drawer -->
+    <aside id="toc-sidebar" class="w-80 border-r border-slate-800/80 bg-slate-900/95 backdrop-blur flex flex-col shrink-0 transition-all duration-300 z-20 overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="ph ph-bookmarks text-indigo-400 text-lg"></i>
+          <span class="text-xs font-bold text-slate-200 uppercase tracking-wider">전체 목차 네비게이션</span>
+        </div>
+        <button onclick="toggleTocSidebar()" class="text-slate-400 hover:text-white text-base">
+          <i class="ph ph-x"></i>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto p-3 space-y-1 text-xs" id="toc-list-container">
+        <!-- Dynamically generated TOC links -->
+      </div>
+
+      <!-- Author Card in Sidebar -->
+      <div class="p-3 border-t border-slate-800 bg-slate-950/60">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-indigo-600/30 border border-indigo-500/40 flex items-center justify-center text-indigo-400 font-bold text-xs">
+            오
+          </div>
+          <div>
+            <div class="text-xs font-bold text-slate-200">저자 오법석</div>
+            <div class="text-[10px] text-slate-400">고객센터 운영·교육 실무자 · JoyLab</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Reader Container -->
+    <main id="book-scroll-viewport" onscroll="handleReadingScroll()" class="flex-1 overflow-y-auto p-4 sm:p-8 lg:p-12 relative flex justify-center">
+
+      <article id="book-container" class="max-w-3xl w-full bg-slate-900/60 border border-slate-800/80 rounded-3xl p-6 sm:p-12 shadow-2xl space-y-16 transition-colors duration-300">
+
+        <!-- BOOK COVER & METADATA SECTION -->
+        <section id="sec-cover" class="book-chapter-block border-b border-slate-800 pb-12 pt-4 text-center space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+            <i class="ph ph-sparkle"></i> JoyLab Books · 2026 웹 전자책
+          </div>
+          <div class="space-y-3">
+            <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white leading-snug">
+              『AX 시대 살아남는 고객센터』
+            </h1>
+            <p class="text-sm sm:text-lg font-medium text-indigo-400">
+              상담사부터 팀장까지 쓰는 챗GPT 프롬프트 팩 & 바이브 코딩
+            </p>
+          </div>
+          <div class="py-4 border-y border-slate-800/70 max-w-md mx-auto flex items-center justify-around text-xs text-slate-400">
+            <div>
+              <span class="block text-[10px] text-slate-500 uppercase">저자</span>
+              <strong class="text-slate-200 text-sm">오 법 석</strong>
+            </div>
+            <div class="h-6 w-px bg-slate-800"></div>
+            <div>
+              <span class="block text-[10px] text-slate-500 uppercase">분량 / 서식</span>
+              <strong class="text-slate-200 text-sm">웹 리더 / 실무형 구성</strong>
+            </div>
+            <div class="h-6 w-px bg-slate-800"></div>
+            <div>
+              <span class="block text-[10px] text-slate-500 uppercase">프롬프트</span>
+              <strong class="text-emerald-400 text-sm">핵심 치트키 5선</strong>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-lg mx-auto italic">
+            "기술은 고객을 향하고, AI는 상담사의 판단을 보조해야 한다. 현장 언어로 배우는 고객센터 생성형 AI 실무 활용서."
+          </p>
+        </section>
+        <!-- INTRO: 들어가며 -->
+        <section id="sec-intro" class="book-chapter-block space-y-6 pt-6">
+          <div class="border-b border-indigo-500/30 pb-3">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Book Foreword</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">들어가며: 헤드셋 너머의 한숨을 미소로 바꾸는 AI 파트너</h2>
+          </div>
+          <div class="book-content space-y-4 text-slate-300">
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2">
+              <span class="w-1.5 h-4 bg-indigo-500 rounded"></span> [p. 1] 귀가 먹먹해지는 헤드셋과 빨간색 인입 대기등
+            </h3>
+            <p>오전 9시 01분. 센터 전산 시스템에 로그인하자마자 알림음이 귓가를 때립니다. 전광판의 인입 대기 숫자는 순식간에 두 자릿수로 치솟고, 모니터 하단의 통화 상태창은 쉼 없이 붉은빛을 깜빡입니다.</p>
+            <blockquote class="p-3 bg-rose-500/10 border-l-4 border-rose-500 text-rose-300 italic text-xs rounded-r-lg">
+              "이게 도대체 몇 번째 끊기는 겁니까? 오늘 안에 해결 안 되면 당장 해지할 테니 위약금 전액 면제하고 팀장 바꿔요!"
+            </blockquote>
+            <p>첫 콜부터 쏟아지는 거친 언성에 숨이 턱 끝까지 차오릅니다. 수화기 너머 고객의 격앙된 분노를 고스란히 받아내며, 마우스로는 수십 페이지짜리 전산 매뉴얼을 허겁지겁 뒤적입니다. 고객은 당장 1초 만에 납득할 수 있는 명쾌한 대답을 요구하지만 사내 지식관리시스템(KMS)은 검색어를 조금만 다르게 쳐도 엉뚱한 결과만 뱉어냅니다.</p>
+            <p>겨우 통화를 끝내고 '통화 종료' 버튼을 눌러도 안도의 한숨은 사치입니다. 방금 나눈 10분간의 실랑이를 상담 이력(CRM)에 개조식으로 요약해 넣어야 하는 후처리(ACW) 시간이 단 30초밖에 남지 않았기 때문입니다. 하루 70통, 80통의 전화를 소화하고 나면 목은 바짝 타들어가고 턱관절은 뻐근하게 굳어버립니다. 퇴근길 지하철 차창에 비친 내 메마른 표정을 보며 스스로에게 묻게 됩니다. <em>"나는 고객의 문제를 해결하는 전문가인가, 그저 욕받이 기계인가?"</em></p>
+
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-4">
+              <span class="w-1.5 h-4 bg-indigo-500 rounded"></span> [p. 2] AX(인공지능 전환)의 파도: 위협인가, 해방인가?
+            </h3>
+            <p>최근 언론과 뉴스에서는 하루가 멀다 하고 'AX(AI Transformation)'를 외칩니다. AI 상담 챗봇이 도입되어 콜센터 상담사의 일자리를 전면 대체할 것이라는 흉흉한 기사들이 쏟아집니다. 하지만 현장에서 매일 고객의 숨소리를 직접 듣는 우리는 잘 알고 있습니다.</p>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs text-slate-300">
+              <li>복잡하게 얽힌 결제 오류와 시스템 장애의 실마리</li>
+              <li>사기를 당한 것은 아닐까 사시나무 떨듯 떠는 고령 고객의 불안감</li>
+              <li>규정과 현실 사이에서 억울함을 호소하는 고객의 찢어지는 심정</li>
+            </ul>
+            <p>이러한 인간의 절박한 감정과 복합적인 맥락은 기계적인 FAQ 챗봇의 "죄송합니다, 다시 입력해 주세요" 따위의 건조한 문장으로는 결코 해결할 수 없습니다. AI는 결코 여러분의 자리를 빼앗으러 온 침입자가 아닙니다. 오히려 지긋지긋한 감정 쓰레기통 역할에서 우리를 구출하고, 복잡한 사내 전산 매뉴얼의 미로 속에서 가장 확실한 나침반을 건네주는 <strong>'나만의 1:1 전담 AI 사수'</strong>입니다.</p>
+
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-4">
+              <span class="w-1.5 h-4 bg-indigo-500 rounded"></span> [p. 3~5] 모니터 우측에 앉히는 AI 사수와 3일 마스터 로드맵
+            </h3>
+            <p>이 책은 베테랑 선배를 여러분의 모니터 오른쪽 화면에 24시간 상주시킬 수 있도록 돕는 실전 안내서입니다. 파이썬 같은 코딩 지식은 단 한 줄도 필요 없습니다. 오직 우리가 매일 마주하는 날것 그대로의 도구로 승부합니다.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div class="bg-slate-800/80 border border-slate-700/80 p-3 rounded-xl">
+                <strong class="text-indigo-400 text-xs block mb-1">🛡️ 감정 탈색기</strong>
+                <p class="text-[11px] text-slate-300">다짜고짜 욕설을 퍼붓는 발화에서 인신공격을 걷어내고 순수한 Fact와 요구사항만 남기는 프롬프트</p>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-700/80 p-3 rounded-xl">
+                <strong class="text-teal-400 text-xs block mb-1">⚡ 3초 CRM 요약기</strong>
+                <p class="text-[11px] text-slate-300">긴 통화 메모를 [원인 - 안내 - 조치]의 3줄 개조식으로 압축해 후처리 시간을 줄이는 데 활용</p>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-700/80 p-3 rounded-xl">
+                <strong class="text-purple-400 text-xs block mb-1">💬 심리 완충 쿠션어</strong>
+                <p class="text-[11px] text-slate-300">"규정상 불가합니다"라는 거절의 말을 고객이 납득할 수 있는 대안 제시형 스크립트로 즉각 변환</p>
+              </div>
+              <div class="bg-slate-800/80 border border-slate-700/80 p-3 rounded-xl">
+                <strong class="text-rose-400 text-xs block mb-1">💻 바이브 코딩 (Vibe Coding)</strong>
+                <p class="text-[11px] text-slate-300">약정 잔여기간 계산, PII 마스킹 보조 도구처럼 브라우저에서 실행되는 미니 웹앱을 직접 만드는 방법</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CHAPTER 1: 제1장 -->
+        <section id="sec-ch1" class="book-chapter-block space-y-6 pt-6">
+          <div class="border-b border-indigo-500/30 pb-3">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Part 1 · Chapter 01</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">제1장. 왜 고객센터의 ChatGPT는 일반 업무와 달라야 하는가?</h2>
+          </div>
+          <div class="book-content space-y-4 text-slate-300">
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2">
+              <span class="w-1.5 h-4 bg-indigo-500 rounded"></span> 일반 사무직 vs 고객센터 프롬프트 3대 축 차이
+            </h3>
+            <p>기획서나 마케팅 문구를 작성하는 일반 사무직과 콜센터 실무자의 프롬프트는 3가지 관점에서 완전히 달라야 합니다.</p>
+            <div class="overflow-x-auto">
+              <table class="w-full text-xs text-left border-collapse border border-slate-800 my-2">
+                <thead>
+                  <tr class="bg-slate-800 text-slate-200">
+                    <th class="p-2 border border-slate-700">비교 항목</th>
+                    <th class="p-2 border border-slate-700">일반 사무직 프롬프트</th>
+                    <th class="p-2 border border-slate-700 text-indigo-400">고객센터 현장 프롬프트</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="p-2 border border-slate-800 font-semibold">1. 시간의 압박</td>
+                    <td class="p-2 border border-slate-800">수십 분~수 시간 여유로운 수정</td>
+                    <td class="p-2 border border-slate-800 text-emerald-400"><strong>단 3~5초 이내 즉각 도출</strong></td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 border border-slate-800 font-semibold">2. 입력 데이터</td>
+                    <td class="p-2 border border-slate-800">정제된 보고서, 정형 기획안</td>
+                    <td class="p-2 border border-slate-800 text-rose-400"><strong>날것의 비문, 비속어, 극단적 감정</strong></td>
+                  </tr>
+                  <tr>
+                    <td class="p-2 border border-slate-800 font-semibold">3. 법적 리스크</td>
+                    <td class="p-2 border border-slate-800">내부 검토 후 반려 가능</td>
+                    <td class="p-2 border border-slate-800 text-amber-400"><strong>개인정보·보안·업권 규제 위반 가능성</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-4">
+              <span class="w-1.5 h-4 bg-indigo-500 rounded"></span> 보안 제1원칙: PII 4중 철통 마스킹 공식
+            </h3>
+            <p>외부 생성형 AI에 고객 정보를 입력하기 전에는 개인정보와 회사 기밀이 포함되어 있는지 먼저 확인해야 합니다. 아래 4종 마스킹은 최소한의 예시일 뿐이며, 실제 업무에서는 회사의 보안정책·승인된 AI 이용기준·개인정보 처리 지침이 항상 우선합니다. 고유식별정보·민감정보·인증정보 등은 단순 마스킹만으로 안전하다고 단정할 수 없습니다.</p>
+            <ul class="list-disc pl-5 space-y-1 text-xs">
+              <li><strong>이름</strong>: 성만 남기거나 익명화 (예: 김철수 &rarr; 김*수 또는 [고객A])</li>
+              <li><strong>주민등록번호</strong>: 생년월일 외 뒷자리 전면 삭제 (예: 950505-1****** &rarr; [생년월일])</li>
+              <li><strong>계좌/카드번호</strong>: 중간 자리 마스킹 (예: 110-384-928192 &rarr; [금융계좌])</li>
+              <li><strong>상세 주소</strong>: 시/군/구까지만 남기고 상세 동/호수 제거 (예: 서울 서초구 [상세주소])</li>
+            </ul>
+
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-4">
+              <span class="w-1.5 h-4 bg-indigo-500 rounded"></span> 초보자도 바로 쓰는 4단계 프롬프트 골격 (RSTO)
+            </h3>
+            <div class="prompt-box">
+              <button onclick="copyPromptText(this)" class="absolute top-2 right-2 px-2 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[10px] font-sans font-semibold">복사하기</button>
+[Role]: 10년 차 대기업 고객센터 수석 CS 코치이자 분쟁 해결 전문가
+[Situation]: 통신 장애로 재택근무 회의에 참석하지 못해 극도로 분노한 VIP 고객이 위약금 전액 면제와 당일 해지를 요구하며 폭언 중
+[Task]: 고객의 감정적 비난을 수용하는 36.5도 공감 쿠션어를 배치하고, 전산상 위약금 임의 면제가 불가함을 납득시키며 기사 긴급 출동 및 요금 감면 대안을 제시하는 구어체 낭독 스크립트 작성
+[Output]: 
+1. 통화 즉시 낭독용 첫마디 쿠션어 (2문장 이내)
+2. 규정 소명 및 대안 제시 본문 (3문장 이내)
+3. 통화 종료 후 CRM 입력용 3줄 개조식 요약본
+            </div>
+          </div>
+        </section>
+        <!-- CHAPTER 2: 제2장 -->
+        <section id="sec-ch2" class="book-chapter-block space-y-6 pt-6">
+          <div class="border-b border-indigo-500/30 pb-3">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Part 1 · Chapter 02</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">제2장. 원하는 답을 끌어내는 고수들의 기술: 메타 & 리버스 프롬프트</h2>
+          </div>
+          <div class="book-content space-y-4 text-slate-300">
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2">
+              <span class="w-1.5 h-4 bg-indigo-500 rounded"></span> 리버스 프롬프트 (Reverse Prompt): AI 주도형 역질문
+            </h3>
+            <p>상담사 스스로도 사건의 인과관계가 복잡하여 무엇을 먼저 물어봐야 할지 막막할 때가 있습니다. 이때는 AI가 상담사에게 질문을 던지게 만드는 리버스 프롬프트를 가동합니다.</p>
+            <div class="prompt-box">
+              <button onclick="copyPromptText(this)" class="absolute top-2 right-2 px-2 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[10px] font-sans font-semibold">복사하기</button>
+"고객이 해외 로밍 요금 80만 원이 과다 청구되었다며 금감원에 민원을 넣겠다고 격앙되어 있어. 
+네가 최선의 방어 및 감면 협상 스크립트를 작성하기 위해, 내가 사내 전산에서 지금 당장 확인해야 할 핵심 정보 3가지를 질문해 줘. 
+질문이 끝나고 내가 답변하면 그때 완성된 통화 스크립트를 도출해라."
+            </div>
+
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-4">
+              <span class="w-1.5 h-4 bg-indigo-500 rounded"></span> 메타 프롬프트 (Meta Prompt): 반복 업무용 3단 응답 규칙
+            </h3>
+            <p>통화 중에는 긴 명령어를 칠 여유가 없습니다. 사용 중인 생성형 AI의 사용자 지침 또는 업무용 템플릿에 아래 응답 규칙을 저장해 두면, 짧은 메모만으로도 일정한 형식의 결과를 빠르게 받을 수 있습니다. 실제 응답 속도와 기능은 사용하는 도구·요금제·보안정책에 따라 달라집니다.</p>
+            <div class="prompt-box">
+              <button onclick="copyPromptText(this)" class="absolute top-2 right-2 px-2 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[10px] font-sans font-semibold">복사하기</button>
+[반복 응답 규칙 예시]
+내가 고객의 거친 발화나 단어 조각을 입력하면, 너는 사족 없이 오직 다음 3가지 블록으로만 응답하라.
+1. [Fact Extraction]: 감정을 뺀 사실 관계 및 핵심 요구 2줄 요약
+2. [Speaking Script]: 상담사가 바로 낭독할 수 있는 체온 36.5도 구어체 대화문 (존칭, 쿠션어 포함)
+3. [CRM 3 Lines]: [인입분류]-[규정안내]-[최종조치] 3줄 개조식 표준 전산 이력
+            </div>
+          </div>
+        </section>
+
+        <!-- CHAPTER 3: 제3장 -->
+        <section id="sec-ch3" class="book-chapter-block space-y-6 pt-6">
+          <div class="border-b border-indigo-500/30 pb-3">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Part 1 · Chapter 03</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">제3장. 현장 상담사가 절대 빠지면 안 되는 3가지 함정</h2>
+          </div>
+          <div class="book-content space-y-4 text-slate-300">
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2">
+              <span class="w-1.5 h-4 bg-rose-400 rounded"></span> 함정 ① 그럴듯한 거짓말: 환각(Hallucination) 3초 감별법
+            </h3>
+            <p>존재하지도 않는 사내 보상 규정이나 약관 조항을 날조하는 AI 환각은 상담사를 징계와 법적 분쟁으로 몰아넣습니다. "단정적 수치(금액, 일수)"가 나오면 반드시 사내 표준업무지침서(SOP)와 대조하는 <strong>'근거 결박(Grounding)'</strong> 명령어를 프롬프트 끝에 항상 삽입해야 합니다.</p>
+            <div class="prompt-box">
+              <button onclick="copyPromptText(this)" class="absolute top-2 right-2 px-2 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[10px] font-sans font-semibold">복사하기</button>
+"반드시 내가 제공한 사내 규정 텍스트 내에서만 답변해라. 
+지침에 없는 내용이나 확신이 서지 않는 보상 금액은 절대로 추측하여 답변하지 말고 
+'담당 부서 확인 필요'로 표기하라."
+            </div>
+
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-4">
+              <span class="w-1.5 h-4 bg-amber-400 rounded"></span> 함정 ② 앵무새 어투 vs 체온 36.5도 공감 파라미터
+            </h3>
+            <p>"불편을 드려 대단히 죄송합니다"라는 건조한 매크로 사과는 화난 고객에게 기름을 붓는 격입니다. 공감의 3요소인 <code>[구체적 고통 인정] + [상담사 자신의 유감 표명] + [즉각적 해결 의지]</code>를 AI에 주입해야 합니다.</p>
+
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-4">
+              <span class="w-1.5 h-4 bg-indigo-400 rounded"></span> 함정 ③ 회사 지침(SOP)과 AI 답변 충돌 시 4단계 원칙
+            </h3>
+            <p>예를 들어 AI가 임의의 보상 금액을 제안하더라도 실제 보상·예외처리 권한과 기준은 회사 SOP와 전결 규정을 우선해야 합니다. AI 출력은 참고 초안일 뿐이며 고객에게 확정 안내하기 전에 반드시 승인된 기준을 확인해야 합니다.</p>
+          </div>
+        </section>
+
+        <!-- CHAPTER 4: 통신 부문 -->
+        <section id="sec-ch4" class="book-chapter-block space-y-6 pt-6">
+          <div class="border-b border-indigo-500/30 pb-3">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Part 2 · Chapter 04</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">제4장. [통신 부문] 네트워크 장애·요금 분쟁 원스톱 해결</h2>
+          </div>
+          <div class="book-content space-y-4 text-slate-300">
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2">
+              <span class="w-1.5 h-4 bg-teal-400 rounded"></span> "껐다 켜보세요" 거부감을 없애는 3단계 동행 자가진단
+            </h3>
+            <p>"기계 탓하지 말고 기사나 당장 보내라"며 화를 내는 고객을 부드럽게 유도하는 3단계 자가진단 스크립트입니다.</p>
+            <div class="prompt-box">
+              <button onclick="copyPromptText(this)" class="absolute top-2 right-2 px-2 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[10px] font-sans font-semibold">복사하기</button>
+"고객님, 우선 가능한 방문 일정을 확인해 보겠습니다. 기사 방문 전 제가 안내 가능한 기본 점검부터 함께 해보겠습니다. 전원을 다시 연결하는 과정이 가능한 상황인지 먼저 확인한 뒤, 고객님께서 괜찮으시면 한 단계씩 천천히 안내드리겠습니다. 점검 결과에 따라 원격 조치 가능 여부와 방문 필요 여부를 정확히 구분해 안내드리겠습니다."
+            </div>
+
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-4">
+              <span class="w-1.5 h-4 bg-indigo-400 rounded"></span> 5GHz vs 2.4GHz 주파수 차이 일상 사물 비유법
+            </h3>
+            <p>시니어 고객에게는 GHz 수치보다 체감 차이를 먼저 설명하는 편이 이해에 도움이 됩니다. 예를 들어 <strong>5GHz는 가까운 거리에서 속도가 빠르지만 벽의 영향을 더 받는 길</strong>, <strong>2.4GHz는 속도는 상대적으로 낮아도 더 먼 거리와 장애물 환경에서 연결에 유리할 수 있는 길</strong>처럼 비유할 수 있습니다. 실제 연결 품질은 공유기·단말·벽체·간섭 환경에 따라 달라집니다.</p>
+          </div>
+        </section>
+
+        <!-- CHAPTER 5: 이커머스 부문 -->
+        <section id="sec-ch5" class="book-chapter-block space-y-6 pt-6">
+          <div class="border-b border-indigo-500/30 pb-3">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Part 2 · Chapter 05</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">제5장. [이커머스 부문] 배송 지연·교환/환불 감정선 케어</h2>
+          </div>
+          <div class="book-content space-y-4 text-slate-300">
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2">
+              <span class="w-1.5 h-4 bg-teal-400 rounded"></span> 물류 허브 병목 시 '선택형 2단 보상 카드' 제시법
+            </h3>
+            <p>택배사 파업이나 명절 물류 마비 시 고객에게 통제권을 돌려주는 양자택일 제안 기법입니다.</p>
+            <p class="text-[11px] text-amber-300">※ 아래 금액·쿠폰 조건은 화법 구조를 보여주기 위한 가상 예시이며 실제 보상정책이 아닙니다.</p>
+            <div class="prompt-box">
+              <button onclick="copyPromptText(this)" class="absolute top-2 right-2 px-2 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[10px] font-sans font-semibold">복사하기</button>
+"소중한 날짜에 맞춰 입으셔야 할 옷인데 배송 지연으로 애태우시게 해 진심으로 면목이 없습니다. 
+현재 고객님의 상품은 대전 물류 허브에 집중 집하되어 있어 오늘 중 즉시 배송이 어려운 상황입니다. 
+고객님의 귀한 일정을 위해 제가 즉시 처리해 드릴 수 있는 2가지 방안을 준비했습니다.
+[A안]: 기다리시는 피로감을 덜어드리기 위해 즉시 주문 전액 취소 및 위로 적립금 5천 원 선지급
+[B안]: 배송을 계속 유지하시되, 내일 도착 시 감사의 마음을 담아 15% VIP 전용 재구매 할인 쿠폰 즉시 발행
+고객님께 가장 편하신 방안을 말씀해 주시면 적용 가능 여부를 확인해 바로 접수하겠습니다."
+            </div>
+
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-4">
+              <span class="w-1.5 h-4 bg-indigo-400 rounded"></span> 단순 변심 반품비 6,000원 항의를 우회하는 감사 프레이밍
+            </h3>
+            <p>반품비를 '회사가 떼어가는 벌금'이 아닌 '택배사 화물 왕복 실비'로 소명하고, 고객의 VIP 등급 자존감을 세워주며 차기 장바구니 쿠폰으로 교환하는 고수들의 화법을 구사합니다.</p>
+          </div>
+        </section>
+
+        <!-- CHAPTER 6: 금융 부문 -->
+        <section id="sec-ch6" class="book-chapter-block space-y-6 pt-6">
+          <div class="border-b border-indigo-500/30 pb-3">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Part 2 · Chapter 06</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">제6장. [금융/결제 부문] 착오송금·카드 부정사용 긴급 대응</h2>
+          </div>
+          <div class="book-content space-y-4 text-slate-300">
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2">
+              <span class="w-1.5 h-4 bg-teal-400 rounded"></span> 착오송금 공포 진정 & 은행·예보 2단계 안전망
+            </h3>
+            <p>통장 전 재산을 엉뚱한 계좌로 잘못 보낸 고객의 패닉을 진정시키고, 은행 임의 인출 불가라는 법적 한계를 투명하게 설명하며 2대 국가 회수 제도를 연결합니다.</p>
+            <ul class="list-disc pl-5 space-y-1.5 text-xs text-slate-300">
+              <li><strong>1차 안전망 (은행 자진반환 전문 접수)</strong>: 수취 은행을 통해 수취인에게 유선 연락 및 반환 동의 절차 개시</li>
+              <li><strong>2차 안전망 (예금보험공사 착오송금 반환지원 제도)</strong>: 금융회사를 통한 반환 요청이 완료되었으나 반환받지 못한 경우, 현재 예금보험공사 기준상 건당 5만 원 이상 1억 원 이하 등 신청 요건을 확인해 반환지원 제도를 안내</li>
+            </ul>
+
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-4">
+              <span class="w-1.5 h-4 bg-rose-400 rounded"></span> 카드 해외 부정사용(FDS) 신고·차단 우선순위
+            </h3>
+            <div class="prompt-box">
+              <button onclick="copyPromptText(this)" class="absolute top-2 right-2 px-2 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[10px] font-sans font-semibold">복사하기</button>
+"고객님, 우선 추가 사용을 막을 수 있도록 카드 정지·해외 이용 차단 등 가능한 조치부터 확인하겠습니다. 
+이미 발생한 거래는 부정사용 신고와 이의제기 절차를 접수해 조사하게 됩니다. 
+책임 범위와 보상 여부는 여신전문금융업법, 카드사 약관, 신고 시점과 고객님의 고의·과실 여부 등 구체적 사실관계에 따라 달라질 수 있습니다. 
+조사 기간 중 결제대금 처리 방식도 카드사별 절차가 다를 수 있으므로 현재 적용 가능한 조치를 확인해 정확히 안내드리겠습니다."
+            </div>
+          </div>
+        </section>
+
+        <!-- CHAPTER 7: 상담 생산성 -->
+        <section id="sec-ch7" class="book-chapter-block space-y-6 pt-6">
+          <div class="border-b border-indigo-500/30 pb-3">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Part 2 · Chapter 07</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">제7장. [상담 생산성] 3초 CRM 요약과 악성 민원 방패</h2>
+          </div>
+          <div class="book-content space-y-4 text-slate-300">
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2">
+              <span class="w-1.5 h-4 bg-teal-400 rounded"></span> 후처리 단축을 돕는 3줄 개조식 CRM 템플릿
+            </h3>
+            <div class="prompt-box">
+              <button onclick="copyPromptText(this)" class="absolute top-2 right-2 px-2 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[10px] font-sans font-semibold">복사하기</button>
+[프롬프트]: 다음 상담 통화 메모에서 잡담을 모두 제거하고 사내 CRM 시스템 등록용 3줄 개조식으로 변환하라.
+- 1줄 [인입분류 및 원인]: 대괄호 카테고리와 함께 고객의 핵심 불만/요청 사유
+- 2줄 [안내 팩트 및 규정]: 전산 조회 결과 및 고객에게 고지한 객관적 규정 사실
+- 3줄 [최종 조치 및 종결]: 상담사가 실행한 전산 조치 및 고객 합의 결과
+
+[출력 예시]:
+[배송/파손] 택배 배송 중 도자기 화병 파손 인입되어 고객 격앙 및 당일 재발송 요구
+[규정소명] 파손 증빙 확인, 판매자 정책 및 관련 소비자보호 기준에 따라 교환·환불 가능 여부 안내
+[최종조치] 물류센터 긴급 맞교환 특송 접수 완료, 파손품 무상 회수 및 LMS 안내장 발송 종결
+            </div>
+
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-4">
+              <span class="w-1.5 h-4 bg-rose-500 rounded"></span> 산업안전보건법 제41조 기반 3단계 폭언 단절 프로토콜
+            </h3>
+            <p>고객의 폭언 등으로 건강장해가 발생하거나 그 우려가 있는 경우에는 회사의 고객응대근로자 보호절차에 따라 상담 중단·전환 등 필요한 조치를 요청할 수 있습니다. 아래 문장은 법 조문 자체가 아니라 현장용 예시이므로 실제 사용 전 회사 승인문구와 업무지침을 우선하십시오.</p>
+            <ol class="list-decimal pl-5 space-y-2 text-xs">
+              <li><strong>1차 제지</strong>: "고객님, 원활한 상담을 위해 거친 언행은 중단해 주시길 부탁드립니다. 계속되면 상담원 보호절차에 따라 상담이 제한될 수 있습니다."</li>
+              <li><strong>2차 경고</strong>: "고객님, 거친 언행이 계속되고 있어 다시 안내드립니다. 회사의 상담원 보호절차에 따라 상담 중단 또는 관리자 전환이 진행될 수 있습니다."</li>
+              <li><strong>3차 보호조치</strong>: "안내드린 거친 언행이 계속되어 회사의 고객응대근로자 보호절차에 따라 상담을 중단하겠습니다. 이후 재상담 또는 관리자 절차는 회사 기준에 따라 안내드리겠습니다."</li>
+            </ol>
+          </div>
+        </section>
+        <!-- CHAPTER 8 & 9: 바이브 코딩 -->
+        <section id="sec-ch8" class="book-chapter-block space-y-6 pt-6">
+          <div class="border-b border-indigo-500/30 pb-3">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Part 3 · Chapters 08 & 09</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">제8장 & 제9장. 바이브 코딩(Vibe Coding): 자연어로 나만의 CS 웹앱 만들기</h2>
+          </div>
+          <div class="book-content space-y-4 text-slate-300">
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2">
+              <span class="w-1.5 h-4 bg-indigo-500 rounded"></span> 설치 없이 실행하는 단일 HTML 미니 웹앱의 장점과 한계
+            </h3>
+            <p>고객센터 PC는 설치 프로그램 사용이 제한되는 경우가 많습니다. HTML, CSS, JavaScript를 한 파일에 담아 브라우저로 실행하면 별도 설치 없이 간단한 보조 도구를 만들 수 있습니다. 다만 브라우저 실행이 가능하다는 이유만으로 사내 보안 규정을 충족하는 것은 아니므로, 업무용 사용 전 반드시 회사의 정보보호·소프트웨어 사용 정책과 승인 절차를 확인해야 합니다.</p>
+            
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-2">
+              <span class="w-1.5 h-4 bg-teal-400 rounded"></span> 본 전자책에 포함된 5대 미니 웹도구 툴킷
+            </h3>
+            <p class="text-xs">상단 우측의 <strong>[현장 웹앱 5종]</strong> 버튼에서 이 책에 포함된 5개 예제 도구를 사용할 수 있습니다. 계산·마스킹 결과는 교육용 참고값이며 실제 고객 안내 전에는 회사 전산과 승인된 업무 기준으로 다시 확인해야 합니다.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div class="p-3 bg-slate-800/80 border border-slate-700 rounded-xl">
+                <strong class="text-indigo-400 block mb-1">1. 약정 잔여기간 참고 계산기</strong>
+                약정 시작일·만료일·기준일을 입력해 잔여기간과 교육용 단순 추정 참고액을 확인. 실제 금액은 회사 전산 기준으로 재확인
+              </div>
+              <div class="p-3 bg-slate-800/80 border border-slate-700 rounded-xl">
+                <strong class="text-teal-400 block mb-1">2. 원터치 스크립트 패드</strong>
+                고객응대근로자 보호 안내, 녹취 문구 확인, 감정 쿠션어 예시를 클릭 한 번으로 복사
+              </div>
+              <div class="p-3 bg-slate-800/80 border border-slate-700 rounded-xl">
+                <strong class="text-purple-400 block mb-1">3. 지능형 PII 마스킹 툴</strong>
+                전화번호·주민번호 형식·계좌/카드 형식·상세 주소를 브라우저 정규식으로 1차 마스킹하는 예제
+              </div>
+              <div class="p-3 bg-slate-800/80 border border-slate-700 rounded-xl">
+                <strong class="text-amber-400 block mb-1">4. 골든타임 신호등 타이머</strong>
+                개인 연습용 3단계 시간 구간을 시각화해 통화 흐름과 랩업 타이밍을 점검
+              </div>
+              <div class="p-3 bg-slate-800/80 border border-slate-700 rounded-xl sm:col-span-2">
+                <strong class="text-rose-400 block mb-1">5. CRM 3줄 빌더</strong>
+                [인입분류]·[안내/규정]·[최종조치]를 선택·입력해 표준화된 3줄 상담 메모 초안을 조립
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CHAPTER 10, 11, 12: 관리자 및 조직 문화 -->
+        <section id="sec-ch10" class="book-chapter-block space-y-6 pt-6">
+          <div class="border-b border-indigo-500/30 pb-3">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Part 4 · Chapters 10, 11, 12</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">제10~12장. QA 코칭·일일 보고서 자동화 및 AX 조직 문화</h2>
+          </div>
+          <div class="book-content space-y-4 text-slate-300">
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2">
+              <span class="w-1.5 h-4 bg-teal-400 rounded"></span> 점수 깎기 탈피: SBI + Alternative 성장형 QA 코칭 피드백
+            </h3>
+            <p>신임 QA 코치가 상담사의 기를 죽이지 않고 행동 변화를 이끌어내는 프롬프트입니다.</p>
+            <div class="prompt-box">
+              <button onclick="copyPromptText(this)" class="absolute top-2 right-2 px-2 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[10px] font-sans font-semibold">복사하기</button>
+[Role]: 15년 차 온정적이고 객관적인 수석 QA 코치
+[Situation]: 입사 3개월 차 신입 상담사가 복잡한 전산 규정을 안내하다 고객의 말을 2회 끊고 쿠션어 없이 "규정상 안 됩니다"라고 직설 거절함
+[Task]: SBI(Situation-Behavior-Impact) 공식에 기반하여 상담사의 노고를 먼저 칭찬하고, 객관적 영향과 함께 다음 통화에서 즉시 읽을 수 있는 낭독용 대체 스크립트(Alternative)를 제시하는 코칭 피드백 작성
+            </div>
+
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-4">
+              <span class="w-1.5 h-4 bg-indigo-400 rounded"></span> 팀장·센터장용: 일일 VOC 500건 1분 시맨틱 군집화
+            </h3>
+            <p>상담 메모 묶음을 AI에 제공할 수 있는 환경이라면 주요 이슈를 주제별로 군집화하고 비중을 요약하는 작업을 보조받을 수 있습니다. 단, 고객정보와 회사 기밀을 제거하고 표본 크기·분류 기준·오분류 여부를 사람이 검증해야 하며, 경영 보고 수치는 원본 데이터와 재대조해야 합니다.</p>
+
+            <h3 class="text-base font-bold text-slate-100 flex items-center gap-2 pt-4">
+              <span class="w-1.5 h-4 bg-rose-400 rounded"></span> AI 시대에도 대체되지 않는 베테랑 상담사의 3대 절대 역량
+            </h3>
+            <p>1. <strong>맥락 독해력 (Contextual Insight)</strong>: 고객이 숨긴 진짜 불안과 결핍을 짚어내는 능력</p>
+            <p>2. <strong>체온 36.5도 공감 (Human Warmth)</strong>: 기계의 완벽한 문장을 넘어 마음을 어루만지는 목소리의 온기</p>
+            <p>3. <strong>재량 판단력 (Discretionary Resolution)</strong>: 규정과 도의 사이에서 상생의 합의점을 도출하는 유연성</p>
+          </div>
+        </section>
+
+        <!-- PUBLICATION SAFETY NOTE -->
+        <section id="sec-verification" class="book-chapter-block space-y-4 pt-6">
+          <div class="border-b border-amber-500/30 pb-3">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Verification Note · 2026-09</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">공개판 사용 전 꼭 확인할 기준</h2>
+          </div>
+          <div class="book-content space-y-3 text-slate-300 text-sm">
+            <p><strong>1. 회사 지침 우선:</strong> 본문과 프롬프트는 교육용 예시입니다. 실제 고객 안내·보상·상담 종료·녹취·개인정보 처리에는 소속 회사의 최신 SOP와 승인 문구를 우선 적용해야 합니다.</p>
+            <p><strong>2. AI 입력 최소화:</strong> 단순 마스킹만으로 개인정보 보호 의무가 자동 충족되는 것은 아닙니다. 개인정보·민감정보·고유식별정보·인증정보·회사 기밀은 승인되지 않은 외부 AI에 입력하지 않는 것을 기본 원칙으로 삼으십시오.</p>
+            <p><strong>3. 법률·금융 절차 재확인:</strong> 산업안전보건법 제41조는 고객의 폭언 등으로 인한 건강장해 예방 및 필요한 보호조치의 근거를 두고 있습니다. 카드 부정사용, 착오송금, 환불·교환은 개별 약관과 사실관계에 따라 결과가 달라질 수 있습니다.</p>
+            <p><strong>4. 계산기는 참고용:</strong> 약정 잔여기간·할인반환금 예제는 교육용 단순 모델입니다. 실제 청구액은 반드시 회사 전산 또는 공식 산정 기준으로 확인해야 합니다.</p>
+            <div class="p-4 rounded-xl border border-amber-500/20 bg-amber-500/10 text-xs leading-relaxed">
+              <strong class="text-amber-300">검증 기준</strong><br>
+              <a class="underline hover:text-white" href="https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1027902553" target="_blank" rel="noopener noreferrer">산업안전보건법 제41조</a> (2026.8.1 시행 기준) ·
+              <a class="underline hover:text-white" href="https://pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&nttId=12084" target="_blank" rel="noopener noreferrer">개인정보보호위원회 「생성형 AI 서비스 이용자를 위한 개인정보 보호 가이드」</a> (2026.5.19) ·
+              <a class="underline hover:text-white" href="https://mkcs.kdic.or.kr/ir/msdrpr/selectAplyQlfcIdntyRslt.do" target="_blank" rel="noopener noreferrer">예금보험공사 착오송금 반환지원 신청요건</a>.
+            </div>
+          </div>
+        </section>
+
+        <!-- EPILOGUE & APPENDIX: 맺음말 및 핵심 치트키 5선 -->
+        <section id="sec-epilogue" class="book-chapter-block space-y-6 pt-6">
+          <div class="border-b border-indigo-500/30 pb-3">
+            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Epilogue & Appendix</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-1">맺음말 및 부록: CS 현장 즉시 복사 프롬프트 핵심 5선</h2>
+          </div>
+          <div class="book-content space-y-4 text-slate-300">
+            <p class="italic text-indigo-300 border-l-4 border-indigo-500 pl-4 py-1">
+              "기술은 고객을 향하고, AI는 상담사의 판단을 보조해야 합니다. 아래 핵심 프롬프트는 그대로 믿는 정답지가 아니라, 회사 기준에 맞게 검증하고 다듬어 쓰는 출발점입니다." - 저자 오법석
+            </p>
+
+            <div class="space-y-4 pt-4" id="cheatkeys-container">
+              <!-- Cheatkey 1 -->
+              <div class="p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl space-y-2">
+                <div class="flex items-center justify-between">
+                  <strong class="text-xs font-bold text-teal-400">치트키 01. 폭언 인입 시 Fact 추출 및 감정 탈색기</strong>
+                  <button onclick="copyPromptText(this)" class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[11px] font-semibold">복사하기</button>
+                </div>
+                <div class="prompt-box !m-0 !mt-2">다음 고객 발화에서 인신공격, 욕설, 감정적 비난을 모두 완전히 제거하고, 고객이 겪은 [순수한 객관적 사실 2줄]과 [원하는 핵심 요구사항 1줄]만 개조식으로 추출하라.</div>
+              </div>
+
+              <!-- Cheatkey 2 -->
+              <div class="p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl space-y-2">
+                <div class="flex items-center justify-between">
+                  <strong class="text-xs font-bold text-teal-400">치트키 02. 통화 직후 3초 CRM 3줄 개조식 변환기</strong>
+                  <button onclick="copyPromptText(this)" class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[11px] font-semibold">복사하기</button>
+                </div>
+                <div class="prompt-box !m-0 !mt-2">다음 통화 메모를 고객센터 CRM 등록 표준 양식인 [인입분류 및 핵심사유], [규정 소명 및 안내 팩트], [최종 조치 및 합의 결과]의 3줄 개조식 포맷으로 3초 만에 압축하라.</div>
+              </div>
+
+              <!-- Cheatkey 3 -->
+              <div class="p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl space-y-2">
+                <div class="flex items-center justify-between">
+                  <strong class="text-xs font-bold text-teal-400">치트키 03. "규정상 불가" 대안 제시형 심리 완충 쿠션어</strong>
+                  <button onclick="copyPromptText(this)" class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[11px] font-semibold">복사하기</button>
+                </div>
+                <div class="prompt-box !m-0 !mt-2">"전산상 직접 환불/예외 처리는 불가하다"는 거절의 의미를 담되, 고객의 답답한 감정을 구체적으로 인정하고 상담사가 제공할 수 있는 최선의 차선책(쿠폰, 적립금, 부서 상신)을 제시하는 구어체 낭독 스크립트를 작성하라.</div>
+              </div>
+
+              <!-- Cheatkey 4 -->
+              <div class="p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl space-y-2">
+                <div class="flex items-center justify-between">
+                  <strong class="text-xs font-bold text-teal-400">치트키 04. 고객응대근로자 보호 3단계 대응 스크립트</strong>
+                  <button onclick="copyPromptText(this)" class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[11px] font-semibold">복사하기</button>
+                </div>
+                <div class="prompt-box !m-0 !mt-2">산업안전보건법 제41조의 고객응대근로자 보호 취지를 반영하되 법률 문구를 과장하지 말고, 회사 내부 지침이 우선이라는 전제 아래 [1차 정중 제지], [2차 보호절차 예고], [3차 상담 중단 또는 관리자 전환 안내] 예시문을 작성하라.</div>
+              </div>
+
+              <!-- Cheatkey 5 -->
+              <div class="p-4 bg-slate-800/80 border border-slate-700/80 rounded-2xl space-y-2">
+                <div class="flex items-center justify-between">
+                  <strong class="text-xs font-bold text-teal-400">치트키 05. 약정 만료 전 위약금 할인반환금 방어 멘트</strong>
+                  <button onclick="copyPromptText(this)" class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[11px] font-semibold">복사하기</button>
+                </div>
+                <div class="prompt-box !m-0 !mt-2">위약금을 벌금이 아닌 '그동안 고객님께서 누리신 할인 혜택의 정산'으로 자연스럽게 프레이밍하고, 약정 만료일까지 남은 잔여 일수와 만료 시 0원이 되는 정확한 날짜를 안내하여 해지를 방어하는 대화문을 작성하라.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BOOK FOOTER & COPYRIGHT -->
+        <footer class="pt-12 border-t border-slate-800/80 text-center text-xs text-slate-500 space-y-2">
+          <p>© 2026 『AX 시대 살아남는 고객센터』 저자 오법석 · JoyLab Books. All rights reserved.</p>
+          <p class="text-[11px]">생성형 AI 고객센터 실무를 위한 웹 전자책 및 인터랙티브 예제 도구</p>
+        </footer>
+
+      </article>
+    </main>
+  </div>
+  <!-- MODAL: EMBEDDED 5 WEB APPS COCKPIT -->
+  <div id="tools-modal" class="fixed inset-0 bg-black/75 backdrop-blur-md z-50 flex items-center justify-center p-3 sm:p-6 hidden">
+    <div class="bg-slate-900 border border-slate-700/80 rounded-3xl max-w-4xl w-full h-[85vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+      
+      <!-- Modal Header -->
+      <div class="h-14 border-b border-slate-800 px-5 flex items-center justify-between bg-slate-950/80 shrink-0">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded-lg bg-teal-600 flex items-center justify-center text-white font-bold text-xs">
+            <i class="ph ph-wrench"></i>
+          </div>
+          <div>
+            <h3 class="text-xs sm:text-sm font-bold text-white">현장 바이브 코딩 마이크로 웹앱 5종 툴킷</h3>
+            <p class="text-[10px] text-slate-400">브라우저 내 예제 로직 · 실제 업무 사용 전 사내 보안정책 확인</p>
+          </div>
+        </div>
+        <button onclick="toggleToolsModal()" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300">
+          <i class="ph ph-x text-base"></i>
+        </button>
+      </div>
+
+      <!-- App Tabs Bar -->
+      <nav class="bg-slate-900 border-b border-slate-800 px-4 py-2 flex space-x-1.5 shrink-0 overflow-x-auto">
+        <button onclick="switchAppTab('app-calc')" id="btn-app-calc" class="app-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-indigo-600 text-white flex items-center gap-1.5 shrink-0">
+          <i class="ph ph-calculator"></i> 위약금 계산기
+        </button>
+        <button onclick="switchAppTab('app-pad')" id="btn-app-pad" class="app-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:bg-slate-800 flex items-center gap-1.5 shrink-0">
+          <i class="ph ph-clipboard-text"></i> 스크립트 패드
+        </button>
+        <button onclick="switchAppTab('app-mask')" id="btn-app-mask" class="app-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:bg-slate-800 flex items-center gap-1.5 shrink-0">
+          <i class="ph ph-shield-check"></i> PII 마스킹
+        </button>
+        <button onclick="switchAppTab('app-timer')" id="btn-app-timer" class="app-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:bg-slate-800 flex items-center gap-1.5 shrink-0">
+          <i class="ph ph-timer"></i> 신호등 타이머
+        </button>
+        <button onclick="switchAppTab('app-crm')" id="btn-app-crm" class="app-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:bg-slate-800 flex items-center gap-1.5 shrink-0">
+          <i class="ph ph-rows"></i> CRM 3줄 빌더
+        </button>
+      </nav>
+
+      <!-- App Content Area -->
+      <div class="flex-1 overflow-y-auto p-4 sm:p-6 bg-slate-950">
+        
+        <!-- TOOL 1: Calculator -->
+        <div id="app-calc" class="tool-content space-y-4 max-w-lg mx-auto">
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3 shadow-lg">
+            <h4 class="text-xs font-bold text-indigo-400 flex items-center gap-1.5 uppercase">
+              <i class="ph ph-calculator"></i> 약정 잔여기간·할인반환금 교육용 참고 계산기
+            </h4>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div>
+                <label class="block text-slate-400 mb-1">약정 시작일</label>
+                <input type="date" id="c-start" value="2024-03-15" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-slate-200">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">약정 만료일</label>
+                <input type="date" id="c-end" value="2027-03-14" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-slate-200">
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div>
+                <label class="block text-slate-400 mb-1">해지 희망일 (오늘)</label>
+                <input type="date" id="c-today" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-slate-200">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">월 할인 혜택액 (교육용 가정값)</label>
+                <input type="number" id="c-amt" value="15000" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-slate-200">
+              </div>
+            </div>
+            <button onclick="calcPenaltyAction()" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-semibold text-xs transition shadow-md flex items-center justify-center gap-1">
+              <i class="ph ph-lightning"></i> 교육용 참고 계산 및 안내 멘트 생성
+            </button>
+          </div>
+          <div id="c-result" class="bg-slate-900 border border-slate-800 rounded-2xl p-4 text-xs space-y-2 hidden">
+            <div class="text-emerald-400 font-bold" id="c-status"></div>
+            <div class="text-slate-300 font-mono" id="c-detail"></div>
+            <button onclick="copyCalcVoice()" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold transition border border-slate-700 flex items-center justify-center gap-1">
+              <i class="ph ph-copy"></i> 확인 필요 안내 멘트 복사
+            </button>
+          </div>
+        </div>
+
+        <!-- TOOL 2: Script Pad -->
+        <div id="app-pad" class="tool-content space-y-3 max-w-xl mx-auto hidden">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold text-teal-400 flex items-center gap-1.5 uppercase">
+              <i class="ph ph-clipboard-text"></i> 원터치 상용구 패드
+            </h4>
+            <span class="text-[11px] text-slate-500">클릭 즉시 클립보드 복사</span>
+          </div>
+          <div id="pad-items-container" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- TOOL 3: PII Masking -->
+        <div id="app-mask" class="tool-content space-y-3 max-w-2xl mx-auto hidden">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold text-purple-400 flex items-center gap-1.5 uppercase">
+              <i class="ph ph-shield-check"></i> PII 1차 마스킹 보조도구
+            </h4>
+            <span class="px-2 py-0.5 rounded text-[10px] bg-amber-500/20 text-amber-300">입력값 별도 전송 로직 없음*</span>
+          </div>
+          <p class="text-[10px] text-slate-500 leading-relaxed">* 이 페이지의 마스킹 함수 자체에는 입력값을 서버로 보내는 코드가 없습니다. 다만 공개 웹페이지는 외부 CDN 리소스를 사용하므로, 실제 고객정보 입력은 금지하고 반드시 비식별 예제 데이터로만 테스트하세요.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div>
+              <label class="block text-slate-400 mb-1">비식별 예제 메모 입력</label>
+              <textarea id="m-in" oninput="runMaskEngine()" rows="7" placeholder="홍길동 고객 010-1234-5678 국민 123-456-789012 서울시 강남구 테헤란로 12..." class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-slate-200 focus:outline-none focus:ring-1 focus:ring-purple-500 resize-none"></textarea>
+            </div>
+            <div>
+              <label class="block text-slate-400 mb-1">추가 점검용 마스킹 결과</label>
+              <textarea id="m-out" readonly rows="7" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-emerald-400 font-mono resize-none focus:outline-none"></textarea>
+            </div>
+          </div>
+          <div class="flex justify-end gap-2">
+            <button onclick="document.getElementById('m-in').value=''; document.getElementById('m-out').value='';" class="px-3 py-1.5 bg-slate-800 text-slate-400 rounded-lg text-xs">초기화</button>
+            <button onclick="copyMaskOutputAction()" class="px-4 py-1.5 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-xs font-semibold transition flex items-center gap-1">
+              <i class="ph ph-copy"></i> 마스킹 결과 복사
+            </button>
+          </div>
+        </div>
+
+        <!-- TOOL 4: Timer -->
+        <div id="app-timer" class="tool-content max-w-sm mx-auto text-center space-y-4 hidden">
+          <h4 class="text-xs font-bold text-amber-400 uppercase">AHT 관리 골든타임 타이머</h4>
+          <div id="t-display" class="text-6xl font-extrabold font-mono text-emerald-400 py-3">00:00</div>
+          <div id="t-badge" class="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300">
+            🟢 0~3분: 경청 및 원인 파악
+          </div>
+          <div class="flex justify-center gap-2 pt-2">
+            <button onclick="toggleTimerAction()" id="btn-t-toggle" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-semibold transition flex items-center gap-1">
+              <i class="ph ph-play" id="icon-t-play"></i> 시작
+            </button>
+            <button onclick="resetTimerAction()" class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-semibold transition">
+              리셋
+            </button>
+          </div>
+        </div>
+
+        <!-- TOOL 5: CRM Builder -->
+        <div id="app-crm" class="tool-content space-y-3 max-w-lg mx-auto hidden">
+          <h4 class="text-xs font-bold text-rose-400 uppercase">클릭 조립형 CRM 3줄 표준 빌더</h4>
+          <div class="space-y-2 text-xs">
+            <div>
+              <label class="block text-slate-400 mb-1">1줄: 인입분류</label>
+              <div class="grid grid-cols-2 gap-2">
+                <select id="crm-b-c" onchange="generateCrmText()" class="bg-slate-900 border border-slate-800 rounded-lg p-2 text-slate-200">
+                  <option value="배송/지연">[배송/지연]</option>
+                  <option value="과금/오청구">[과금/오청구]</option>
+                  <option value="품질/장애">[품질/장애]</option>
+                  <option value="해지/위약금">[해지/위약금]</option>
+                </select>
+                <input type="text" id="crm-b-cm" oninput="generateCrmText()" placeholder="원인 메모..." class="bg-slate-900 border border-slate-800 rounded-lg p-2 text-slate-200">
+              </div>
+            </div>
+            <div>
+              <label class="block text-slate-400 mb-1">2줄: 규정안내</label>
+              <div class="grid grid-cols-2 gap-2">
+                <select id="crm-b-r" onchange="generateCrmText()" class="bg-slate-900 border border-slate-800 rounded-lg p-2 text-slate-200">
+                  <option value="전산 규정 팩트 소명">전산 규정 팩트 소명</option>
+                  <option value="시스템 예외 불가 안내">시스템 예외 불가 안내</option>
+                  <option value="보상 한도 기준 고지">보상 한도 기준 고지</option>
+                </select>
+                <input type="text" id="crm-b-rm" oninput="generateCrmText()" placeholder="규정 세부 메모..." class="bg-slate-900 border border-slate-800 rounded-lg p-2 text-slate-200">
+              </div>
+            </div>
+            <div>
+              <label class="block text-slate-400 mb-1">3줄: 최종조치</label>
+              <div class="grid grid-cols-2 gap-2">
+                <select id="crm-b-a" onchange="generateCrmText()" class="bg-slate-900 border border-slate-800 rounded-lg p-2 text-slate-200">
+                  <option value="위로 적립금 지급 종결">위로 적립금 지급 종결</option>
+                  <option value="긴급 특송 재배송 접수">긴급 특송 재배송 접수</option>
+                  <option value="산안법 의거 합법 단절">산안법 의거 합법 단절</option>
+                </select>
+                <input type="text" id="crm-b-am" oninput="generateCrmText()" placeholder="조치 결과 메모..." class="bg-slate-900 border border-slate-800 rounded-lg p-2 text-slate-200">
+              </div>
+            </div>
+          </div>
+          <textarea id="crm-b-out" readonly rows="3" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs text-rose-400 font-mono resize-none focus:outline-none"></textarea>
+          <button onclick="copyCrmBuilderText()" class="w-full py-2 bg-rose-600 hover:bg-rose-500 text-white rounded-xl text-xs font-semibold transition flex items-center justify-center gap-1">
+            <i class="ph ph-copy"></i> 조립된 CRM 이력 복사
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- MODAL: SEARCH IN BOOK -->
+  <div id="search-modal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-16 hidden">
+    <div class="bg-slate-900 border border-slate-700/80 rounded-2xl max-w-lg w-full p-4 shadow-2xl space-y-3 animate-in fade-in zoom-in duration-150">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+        <span class="text-xs font-bold text-indigo-400 flex items-center gap-1.5"><i class="ph ph-magnifying-glass"></i> 전자책 본문 검색</span>
+        <button onclick="closeSearchModal()" class="text-slate-400 hover:text-white text-base"><i class="ph ph-x"></i></button>
+      </div>
+      <input type="text" id="search-keyword" oninput="executeSearch(this.value)" placeholder="검색어를 입력하세요 (예: 위약금, PII, CRM, 산안법...)" class="w-full bg-slate-950 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+      <div id="search-results" class="max-h-64 overflow-y-auto space-y-2 text-xs text-slate-300">
+        <p class="text-[11px] text-slate-500 text-center py-4">키워드를 입력하시면 관련 챕터로 즉시 이동합니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-slate-800/95 text-slate-100 text-xs font-medium rounded-xl border border-slate-700 shadow-2xl transition-all duration-300 opacity-0 pointer-events-none transform -translate-y-2 flex items-center gap-1.5">
+    <i class="ph ph-check-circle text-emerald-400 text-sm"></i>
+    <span id="toast-text">알림</span>
+  </div>
+  <script>
+    // Chapters TOC Registry
+    const tocItems = [
+      { id: "sec-cover", title: "표지 및 도서 개요" },
+      { id: "sec-intro", title: "들어가며: 헤드셋 너머의 한숨을 미소로" },
+      { id: "sec-ch1", title: "제1장. 왜 고객센터 챗GPT는 달라야 하는가?" },
+      { id: "sec-ch2", title: "제2장. 메타 & 리버스 프롬프트 고수의 기술" },
+      { id: "sec-ch3", title: "제3장. 현장 상담사가 빠지면 안 되는 3대 함정" },
+      { id: "sec-ch4", title: "제4장. [통신] 네트워크 장애·위약금 분쟁 해결" },
+      { id: "sec-ch5", title: "제5장. [이커머스] 배송 지연·교환/환불 감정선 케어" },
+      { id: "sec-ch6", title: "제6장. [금융] 착오송금·카드 부정사용 긴급 대응" },
+      { id: "sec-ch7", title: "제7장. [생산성] 3초 CRM 요약과 악성 민원 방패" },
+      { id: "sec-ch8", title: "제8~9장. 바이브 코딩 웹앱 제작 레시피" },
+      { id: "sec-ch10", title: "제10~12장. QA 피드백·VOC 자동화·조직 문화" },
+      { id: "sec-verification", title: "공개판 검증 기준과 사용 주의" },
+      { id: "sec-epilogue", title: "맺음말 및 핵심 치트키 5선 부록" }
+    ];
+
+    // Build TOC Links
+    function buildTocMenu() {
+      const container = document.getElementById('toc-list-container');
+      container.innerHTML = '';
+      tocItems.forEach((item, index) => {
+        const a = document.createElement('a');
+        a.href = '#' + item.id;
+        a.className = 'block px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition truncate';
+        a.innerHTML = `<span class="text-indigo-400 font-mono mr-1.5">${(index+1).toString().padStart(2, '0')}.</span> ${item.title}`;
+        a.onclick = () => {
+          if (window.innerWidth < 1024) toggleTocSidebar();
+        };
+        container.appendChild(a);
+      });
+    }
+
+    // Reading Scroll Progress
+    function handleReadingScroll() {
+      const viewport = document.getElementById('book-scroll-viewport');
+      const scrollTop = viewport.scrollTop;
+      const scrollHeight = viewport.scrollHeight - viewport.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      document.getElementById('read-progress-bar').style.width = progress + '%';
+    }
+
+    // Toast Utility
+    function triggerToast(msg) {
+      const toast = document.getElementById('toast');
+      const text = document.getElementById('toast-text');
+      text.textContent = msg;
+      toast.classList.remove('opacity-0', '-translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', '-translate-y-2');
+      }, 2200);
+    }
+
+    // Sidebar Toggle
+    function toggleTocSidebar() {
+      const sidebar = document.getElementById('toc-sidebar');
+      if (sidebar.classList.contains('-ml-80')) {
+        sidebar.classList.remove('-ml-80');
+      } else {
+        sidebar.classList.add('-ml-80');
+      }
+    }
+
+    // Theme Switcher
+    function setTheme(theme) {
+      const body = document.getElementById('body-app');
+      body.classList.remove('theme-dark', 'theme-light', 'theme-sepia');
+      body.classList.add('theme-' + theme);
+
+      document.getElementById('theme-btn-dark').className = "p-1.5 rounded text-slate-400 hover:text-indigo-400";
+      document.getElementById('theme-btn-light').className = "p-1.5 rounded text-slate-400 hover:text-amber-500";
+      document.getElementById('theme-btn-sepia').className = "p-1.5 rounded text-slate-400 hover:text-amber-700";
+
+      if (theme === 'dark') document.getElementById('theme-btn-dark').className = "p-1.5 rounded bg-slate-950 text-indigo-400";
+      if (theme === 'light') document.getElementById('theme-btn-light').className = "p-1.5 rounded bg-slate-200 text-amber-600";
+      if (theme === 'sepia') document.getElementById('theme-btn-sepia').className = "p-1.5 rounded bg-sepia-200 text-amber-800";
+
+      triggerToast(theme === 'dark' ? '다크 모드 적용' : (theme === 'light' ? '라이트 모드 적용' : '세피아 페이퍼 모드 적용'));
+    }
+
+    // Font Family Toggle
+    let isSerif = false;
+    function toggleFontFamily() {      isSerif = !isSerif;
+      const body = document.getElementById('body-app');
+      const indicator = document.getElementById('font-family-indicator');
+      if (isSerif) {
+        body.classList.remove('book-body-font-sans');
+        body.classList.add('book-body-font-serif');
+        indicator.textContent = '고딕체';
+        triggerToast('명조체(Serif) 독서 모드');
+      } else {
+        body.classList.remove('book-body-font-serif');
+        body.classList.add('book-body-font-sans');
+        indicator.textContent = '명조체';
+        triggerToast('프리텐다드 고딕(Sans) 모드');
+      }
+    }
+
+    // Font Size Adjuster
+    function changeFontSize(size) {
+      const body = document.getElementById('body-app');
+      body.classList.remove('font-size-sm', 'font-size-base', 'font-size-lg');
+      body.classList.add('font-size-' + size);
+
+      document.querySelectorAll('#btn-font-sm, #btn-font-base, #btn-font-lg').forEach(b => {
+        b.className = "px-2 py-1 rounded hover:bg-slate-700 font-bold text-slate-300";
+      });
+      document.getElementById('btn-font-' + size).className = "px-2 py-1 rounded bg-indigo-600 text-white font-bold";
+    }
+
+    // Prompt Box Copy Function
+    function copyPromptText(buttonElement) {
+      const parent = buttonElement.closest('.prompt-box') || buttonElement.closest('div.p-4');
+      const box = parent.classList.contains('prompt-box') ? parent : parent.querySelector('.prompt-box');
+      
+      // Clone text without the button text
+      const clone = box.cloneNode(true);
+      const btnInClone = clone.querySelector('button');
+      if (btnInClone) btnInClone.remove();
+      
+      const cleanText = clone.innerText.trim();
+      navigator.clipboard.writeText(cleanText).then(() => {
+        const origText = buttonElement.textContent;
+        buttonElement.textContent = "복사됨 ✓";
+        buttonElement.classList.add('!bg-emerald-600');
+        setTimeout(() => {
+          buttonElement.textContent = origText;
+          buttonElement.classList.remove('!bg-emerald-600');
+        }, 1500);
+        triggerToast('프롬프트가 클립보드에 복사되었습니다.');
+      });
+    }
+
+    // Tools Modal
+    function toggleToolsModal() {
+      const modal = document.getElementById('tools-modal');
+      modal.classList.toggle('hidden');
+    }
+
+    function switchAppTab(tabId) {
+      document.querySelectorAll('.tool-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById(tabId).classList.remove('hidden');
+      document.querySelectorAll('.app-tab-btn').forEach(btn => {
+        btn.className = "app-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-400 hover:bg-slate-800 flex items-center gap-1.5 shrink-0";
+      });
+      document.getElementById('btn-' + tabId).className = "app-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-indigo-600 text-white flex items-center gap-1.5 shrink-0";
+    }
+
+    // Calculator Tool Logic
+    let lastVoiceScript = "";
+    function calcPenaltyAction() {
+      const start = document.getElementById('c-start').value;
+      const end = document.getElementById('c-end').value;
+      const today = document.getElementById('c-today').value;
+      const amt = parseFloat(document.getElementById('c-amt').value) || 0;
+
+      if (!start || !end || !today) {
+        triggerToast('날짜를 모두 입력하세요.');
+        return;
+      }
+      const s = new Date(start + 'T00:00:00');
+      const e = new Date(end + 'T00:00:00');
+      const t = new Date(today + 'T00:00:00');
+      if (e <= s) {
+        triggerToast('약정 만료일은 시작일보다 뒤여야 합니다.');
+        return;
+      }
+      const totalDays = Math.round((e - s) / 86400000) + 1;
+      const rawUsedDays = Math.round((t - s) / 86400000) + 1;
+      const usedDays = Math.max(0, Math.min(totalDays, rawUsedDays));
+      const remainDays = Math.max(0, totalDays - usedDays);
+
+      let estimate = 0;
+      if (remainDays <= 0) {
+        document.getElementById('c-status').textContent = '★ 약정 기간 경과';
+      } else {
+        estimate = Math.max(0, Math.round((amt * (usedDays / 30)) * (remainDays / totalDays)));
+        document.getElementById('c-status').textContent = `교육용 단순 추정 참고액: ${estimate.toLocaleString()}원`;
+      }
+      document.getElementById('c-detail').innerHTML = `• 약정: ${totalDays}일 | 이용: ${usedDays}일 | 잔여: ${remainDays}일<br>• 실제 할인반환금/위약금은 상품·할인유형·약관·전산 산식에 따라 달라집니다.`;
+      lastVoiceScript = `고객님, 현재 입력 기준으로 약정 잔여기간은 ${remainDays}일입니다. 실제 할인반환금은 상품과 할인유형별 산식이 달라질 수 있어 회사 전산 조회 후 정확한 금액을 다시 안내드리겠습니다.`;
+      document.getElementById('c-result').classList.remove('hidden');
+      triggerToast('교육용 참고 계산 완료');
+    }
+
+    function copyCalcVoice() {
+      if (!lastVoiceScript) return;
+      navigator.clipboard.writeText(lastVoiceScript).then(() => triggerToast('안내 멘트 복사 완료'));
+    }
+
+    // Script Pad Data & Population
+    const defaultPads = [
+      { title: "고객응대근로자 보호 1차 제지", text: "고객님, 원활한 상담을 위해 거친 언행은 중단해 주시길 부탁드립니다. 계속되면 회사의 상담원 보호절차에 따라 상담이 제한될 수 있습니다." },
+      { title: "녹취 고지 확인용", text: "본 통화의 녹취 여부와 고지 문구는 회사의 최신 승인 문구를 확인해 안내해 주세요. 임의 문구를 사용하지 않습니다." },
+      { title: "배송 지연 진심 공감", text: "소중한 일정에 맞춰 받아보셔야 했는데 배송 지연으로 계획에 차질을 드린 점이 가장 답답하셨을 것 같습니다. 현재 확인 가능한 처리 방법부터 차례로 안내드리겠습니다." },
+      { title: "대안 제시형 완충 멘트", text: "요청하신 방식 그대로 처리 가능한지는 먼저 확인이 필요합니다. 가능한 범위 안에서 가장 가까운 대안을 찾아 순서대로 안내드리겠습니다." }
+    ];
+
+    function populatePads() {
+      const container = document.getElementById('pad-items-container');
+      container.innerHTML = '';
+      defaultPads.forEach(p => {
+        const div = document.createElement('div');
+        div.className = "bg-slate-900 border border-slate-800 rounded-xl p-3 flex flex-col justify-between space-y-2 hover:border-teal-500/50 transition cursor-pointer";
+        div.onclick = () => {
+          navigator.clipboard.writeText(p.text).then(() => triggerToast(`[${p.title}] 복사됨`));
+        };
+        div.innerHTML = `
+          <strong class="text-xs text-teal-400 font-bold flex items-center justify-between">
+            ${p.title} <i class="ph ph-copy text-sm"></i>
+          </strong>
+          <p class="text-[11px] text-slate-400 line-clamp-2">${p.text}</p>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // PII Masking Tool Logic
+    function runMaskEngine() {
+      let t = document.getElementById('m-in').value;
+      t = t.replace(/(01[016789])[-.\s]?(\d{3,4})[-.\s]?(\d{4})/g, '$1-****-$3');
+      t = t.replace(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, '[이메일]');
+      t = t.replace(/\d{2}([0]\d|[1][0-2])([0-2]\d|[3][0-1])[-.\s]?[1-4]\d{6}/g, '[생년월일]');
+      t = t.replace(/\b(?:\d[-\s]?){12,18}\d\b/g, '[카드/금융번호]');
+      t = t.replace(/\b\d{3,4}[-\s]?\d{3,4}[-\s]?\d{4,6}\b/g, '[금융계좌/카드]');
+      t = t.replace(/([가-힣]+(시|도|구|군|읍|면|동|로|길))\s*\d+([-\d]*)호?/g, '$1 [상세주소]');
+      document.getElementById('m-out').value = t;
+    }
+
+    function copyMaskOutputAction() {
+      const v = document.getElementById('m-out').value;
+      if (!v) return;
+      navigator.clipboard.writeText(v).then(() => triggerToast('마스킹 텍스트 복사 완료'));
+    }
+
+    // Timer Tool Logic
+    let tSec = 0, tInterval = null, tRunning = false;
+    function toggleTimerAction() {
+      tRunning = !tRunning;
+      const btn = document.getElementById('btn-t-toggle');
+      const icon = document.getElementById('icon-t-play');
+      if (tRunning) {
+        btn.className = "px-5 py-2.5 bg-rose-600 hover:bg-rose-500 text-white rounded-xl text-xs font-semibold transition flex items-center gap-1";
+        icon.className = "ph ph-pause";
+        tInterval = setInterval(() => {
+          tSec++;
+          const m = Math.floor(tSec / 60).toString().padStart(2, '0');
+          const s = (tSec % 60).toString().padStart(2, '0');
+          const disp = document.getElementById('t-display');
+          const badge = document.getElementById('t-badge');
+          disp.textContent = `${m}:${s}`;
+          if (tSec < 180) {
+            disp.className = "text-6xl font-extrabold font-mono text-emerald-400 py-3";
+            badge.className = "inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300";
+            badge.textContent = "🟢 0~3분: 경청 및 원인 파악";
+          } else if (tSec < 300) {
+            disp.className = "text-6xl font-extrabold font-mono text-amber-400 py-3";
+            badge.className = "inline-block px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300";
+            badge.textContent = "🟡 3~5분: 대안 제시 및 합의";
+          } else {
+            disp.className = "text-6xl font-extrabold font-mono text-rose-500 py-3 animate-pulse";
+            badge.className = "inline-block px-3 py-1 rounded-full text-xs font-semibold bg-rose-500/20 text-rose-300";
+            badge.textContent = "🔴 5분 경과: 통화 랩업 경고!";
+          }
+        }, 1000);
+      } else {
+        clearInterval(tInterval);
+        btn.className = "px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-semibold transition flex items-center gap-1";
+        icon.className = "ph ph-play";
+      }
+    }
+
+    function resetTimerAction() {
+      tRunning = false;
+      clearInterval(tInterval);
+      tSec = 0;
+      document.getElementById('t-display').textContent = "00:00";
+      document.getElementById('btn-t-toggle').className = "px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-semibold transition flex items-center gap-1";
+      document.getElementById('icon-t-play').className = "ph ph-play";
+      document.getElementById('t-badge').textContent = "🟢 0~3분: 경청 및 원인 파악";
+    }
+
+    // CRM Builder Tool Logic
+    function generateCrmText() {
+      const c = document.getElementById('crm-b-c').value;
+      const cm = document.getElementById('crm-b-cm').value || '고객 핵심 불만 인입';
+      const r = document.getElementById('crm-b-r').value;
+      const rm = document.getElementById('crm-b-rm').value || '사내 전산 규정 준수 소명';
+      const a = document.getElementById('crm-b-a').value;
+      const am = document.getElementById('crm-b-am').value || '원스톱 승인 합의 종결';
+      document.getElementById('crm-b-out').value = `[${c}] ${cm}\n[${r}] ${rm}\n[${a}] ${am}`;
+    }
+
+    function copyCrmBuilderText() {
+      const v = document.getElementById('crm-b-out').value;
+      if (!v) return;
+      navigator.clipboard.writeText(v).then(() => triggerToast('CRM 이력 복사 완료'));
+    }
+
+    // Search Logic
+    function openSearchModal() {
+      document.getElementById('search-modal').classList.remove('hidden');
+      document.getElementById('search-keyword').focus();
+    }
+
+    function closeSearchModal() {
+      document.getElementById('search-modal').classList.add('hidden');
+    }
+
+    function executeSearch(keyword) {
+      const kw = keyword.trim().toLowerCase();
+      const resultsBox = document.getElementById('search-results');
+      if (!kw) {
+        resultsBox.innerHTML = '<p class="text-[11px] text-slate-500 text-center py-4">검색어를 입력해 주세요.</p>';
+        return;
+      }
+      const matches = [];
+      document.querySelectorAll('.book-chapter-block').forEach(sec => {
+        const text = sec.innerText;
+        if (text.toLowerCase().includes(kw)) {
+          const heading = sec.querySelector('h2, h1')?.innerText || "챕터";
+          matches.push({ id: sec.id, heading: heading });
+        }
+      });
+      if (matches.length === 0) {
+        resultsBox.innerHTML = '<p class="text-[11px] text-rose-400 text-center py-4">일치하는 본문 결과가 없습니다.</p>';
+      } else {
+        resultsBox.innerHTML = matches.map(m => `
+          <div onclick="jumpToChapter('${m.id}')" class="p-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl cursor-pointer transition border border-slate-700/80">
+            <strong class="text-xs text-indigo-400 block">${m.heading}</strong>
+            <span class="text-[10px] text-slate-400">클릭하여 해당 장으로 바로 이동</span>
+          </div>
+        `).join('');
+      }
+    }
+
+    function jumpToChapter(id) {
+      closeSearchModal();
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'f' || e.key === 'F')) {
+        e.preventDefault();
+        openSearchModal();
+      }
+      if (e.key === 'Escape') {
+        closeSearchModal();
+        document.getElementById('tools-modal').classList.add('hidden');
+      }
+    });
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      buildTocMenu();
+      populatePads();
+      generateCrmText();
+      if (window.innerWidth < 1024) document.getElementById('toc-sidebar').classList.add('-ml-80');
+      const now = new Date();
+      const localDate = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+      document.getElementById('c-today').value = localDate;
+    });
+  </script>
+</body>
+</html>

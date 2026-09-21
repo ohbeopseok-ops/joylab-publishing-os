@@ -60,6 +60,13 @@ const books = defineCollection({
     access: z.enum(['preview', 'full']).default('preview'),
     previewChapterCount: z.number().int().min(0).default(1),
     canonical: z.string().optional(),
+    readerPath: z.string().optional(),
+    readerCta: z.string().optional(),
+    overline: z.string().optional(),
+    topics: z.array(z.string()).optional(),
+    benefits: z.array(z.string()).optional(),
+    tocItems: z.array(z.string()).optional(),
+    closingQuote: z.string().optional(),
     draft: z.boolean().default(false)
   })
 });

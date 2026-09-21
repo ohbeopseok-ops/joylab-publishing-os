@@ -8,6 +8,8 @@ const books = (await getCollection('books'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 const featured = books[0];
+const getReaderPath = (book) => book.data.readerPath ?? `/books/${book.id}/read`;
+const getReaderCta = (book) => book.data.readerCta ?? '작가의 말과 1장 읽기';
 ---
 <BaseLayout
   title="JoyLab Books | 생각을 오래 남기는 책"
@@ -47,11 +49,11 @@ const featured = books[0];
             <a class="books-v2-primary" href={`/books/${featured.id}`}>책 만나보기 →</a>
             <a
               class="books-v2-secondary"
-              href={`/books/${featured.id}/read`}
+              href={getReaderPath(featured)}
               data-analytics-event="book_preview_start"
               data-analytics-target={featured.id}
               data-analytics-placement="books_hub_v2"
-            >작가의 말과 1장 읽기</a>
+            >{getReaderCta(featured)}</a>
           </div>
         </div>
       </div>

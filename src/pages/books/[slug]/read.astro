@@ -4,7 +4,7 @@ import { getCollection, render } from 'astro:content';
 import '../../../styles/book-reader.css';
 
 export async function getStaticPaths() {
-  const books = (await getCollection('books')).filter((book) => !book.data.draft);
+  const books = (await getCollection('books')).filter((book) => !book.data.draft && !book.data.readerPath);
   return books.map((book) => ({ params: { slug: book.id }, props: { book } }));
 }
 
