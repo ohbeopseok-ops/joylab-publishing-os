@@ -14,12 +14,17 @@ tags:
   - PPI
   - 비농업고용
 publishedAt: 2026-09-22
+updatedAt: 2026-09-22
 author: "JoyLab"
 featured: false
 draft: false
 seoTitle: "미국 8월 소매판매 1.2%｜Fed 금리와 나스닥 영향"
 series: "미국 경제지표 읽는 법"
 readingTime: "약 8분"
+heroImage: "/images/research/us-august-retail-sales-fed-nasdaq-2026.svg"
+heroAlt: "미국 8월 소매판매 실제 +1.2%와 예상 +0.8%, Fed 정책금리 3.75~4.00%를 데이터 카드와 상승 그래프로 표현한 JoyLab 리서치 이미지"
+heroCaption: "예상보다 강한 미국 소비는 경기 회복력을 확인하는 동시에 높은 금리가 더 오래 유지될 가능성을 키운다."
+ogImage: "/images/research/us-august-retail-sales-fed-nasdaq-2026.svg"
 ---
 
 **미국 8월 소매판매는 전월 대비 1.2% 증가했습니다. 시장 예상치로 거론됐던 +0.8%를 웃돈 결과입니다.**
