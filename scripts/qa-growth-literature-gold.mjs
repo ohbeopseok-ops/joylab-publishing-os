@@ -71,12 +71,12 @@ for (const target of targets) {
         const style = getComputedStyle(el);
         return r.width > 0 && r.height > 0 && style.display !== 'none' && style.visibility !== 'hidden';
       };
-      const hero = document.querySelector('.le-visual--ep01');
+      const hero = document.querySelector('.le-visual--ep01, .le-visual--ep02');
       const heroBg = hero ? getComputedStyle(hero).backgroundImage : '';
       return {
         overflow: Math.max(bodyWidth, docWidth) - viewportWidth,
         requiredVisible: Object.fromEntries(required.map((selector) => [selector, visible(selector)])),
-        heroBackgroundConnected: hero ? heroBg.includes('ep01-old-man-and-the-sea.webp') : null,
+        heroBackgroundConnected: hero ? (hero.classList.contains('le-visual--ep01') ? heroBg.includes('ep01-old-man-and-the-sea.webp') : heroBg.includes('ep02-little-prince.webp')) : null,
         title: document.title,
       };
     }, target.required);
@@ -86,7 +86,7 @@ for (const target of targets) {
       noHorizontalOverflow: metrics.overflow <= 1,
       noPageErrors: pageErrors.length === 0,
       requiredVisible: Object.values(metrics.requiredVisible).every(Boolean),
-      heroConnected: target.name === 'ep01' ? metrics.heroBackgroundConnected === true : true,
+      heroConnected: ['ep01','ep02'].includes(target.name) ? metrics.heroBackgroundConnected === true : true,
       titlePresent: Boolean(metrics.title),
     };
 
