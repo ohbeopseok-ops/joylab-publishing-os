@@ -64,7 +64,7 @@ for (const c of cases) {
     if (c.width >= 900) {
       const booksNav = page.locator('#site-primary-nav a[href="/books"]');
       if (!(await booksNav.isVisible())) throw new Error(`${c.name}: global Books nav not visible`);
-      const researchNav = page.locator('#site-primary-nav a[href="/#today-research"]');
+      const researchNav = page.locator('#site-primary-nav a[href="/#today-research"]:not(.mobile-nav-cta)');
       if (!(await researchNav.isVisible())) throw new Error(`${c.name}: global Research nav not visible`);
     }
   } else if (c.name.startsWith('hub')) {
