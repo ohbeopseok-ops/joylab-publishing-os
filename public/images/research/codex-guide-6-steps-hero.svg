@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07152f"/><stop offset="1" stop-color="#102f64"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="18"/></filter></defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<circle cx="1230" cy="210" r="170" fill="#1677ff" opacity=".22" filter="url(#glow)"/>
+<rect x="850" y="155" width="590" height="480" rx="28" fill="#0d1117" stroke="#2a4a78" stroke-width="2"/>
+<rect x="850" y="155" width="590" height="58" rx="28" fill="#111827"/><circle cx="886" cy="184" r="7" fill="#ff5f56"/><circle cx="910" cy="184" r="7" fill="#ffbd2e"/><circle cx="934" cy="184" r="7" fill="#27c93f"/>
+<rect x="882" y="248" width="190" height="315" rx="14" fill="#141b26"/><rect x="1095" y="248" width="310" height="140" rx="14" fill="#131a24"/><rect x="1095" y="412" width="310" height="151" rx="14" fill="#131a24"/>
+<rect x="905" y="275" width="130" height="18" rx="9" fill="#27364a"/><rect x="905" y="314" width="92" height="10" rx="5" fill="#1f2a39"/><rect x="905" y="342" width="112" height="10" rx="5" fill="#1f2a39"/><rect x="905" y="370" width="76" height="10" rx="5" fill="#1f2a39"/>
+<rect x="1126" y="278" width="198" height="18" rx="9" fill="#1677ff" opacity=".88"/><rect x="1126" y="316" width="230" height="10" rx="5" fill="#2b3e59"/><rect x="1126" y="344" width="168" height="10" rx="5" fill="#2b3e59"/>
+<text x="120" y="160" fill="#7db6ff" font-size="24" font-family="Arial,sans-serif" font-weight="700" letter-spacing="4">JOYLAB · AI &amp; PRODUCTIVITY</text>
+<text x="120" y="260" fill="#ffffff" font-size="82" font-family="Arial,sans-serif" font-weight="800">CODEX</text>
+<text x="120" y="352" fill="#ffffff" font-size="58" font-family="Arial,sans-serif" font-weight="800">6단계 완벽 가이드</text>
+<text x="120" y="420" fill="#a9b9d3" font-size="30" font-family="Arial,sans-serif">코딩 몰라도 시작하는 AI 업무 자동화</text>
+<g transform="translate(120 520)"><rect width="600" height="2" fill="#2e4f7c"/><text y="70" fill="#d9e4f5" font-size="25" font-family="Arial,sans-serif">SETUP → GOAL → SKILLS → PLUGINS</text><text y="120" fill="#d9e4f5" font-size="25" font-family="Arial,sans-serif">COMPUTER USE → TERMINAL</text></g>
+<rect x="120" y="725" width="245" height="56" rx="28" fill="#1677ff"/><text x="156" y="762" fill="#fff" font-size="22" font-family="Arial,sans-serif" font-weight="700">BEGINNER GUIDE</text>
+</svg>
