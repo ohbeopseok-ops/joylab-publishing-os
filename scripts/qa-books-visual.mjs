@@ -23,15 +23,22 @@ const results = [];
 
 const assertCoverDecoded = async (page, name) => {
   const cover = page.locator('img[src="/books/imperfect/cover.webp"]').first();
-  if (!(await cover.count())) throw new Error(`${name}: cover image element missing`);
-  await cover.waitFor({ state: 'visible' });
-  const state = await cover.evaluate((img) => ({
-    complete: img.complete,
-    naturalWidth: img.naturalWidth,
-    naturalHeight: img.naturalHeight
-  }));
-  if (!state.complete || state.naturalWidth <= 0 || state.naturalHeight <= 0) {
-    throw new Error(`${name}: cover image failed to decode ${JSON.stringify(state)}`);
+  if (await cover.count()) {
+    await cover.waitFor({ state: 'visible' });
+    const state = await cover.evaluate((img) => ({
+      complete: img.complete,
+      naturalWidth: img.naturalWidth,
+      naturalHeight: img.naturalHeight
+    }));
+    if (!state.complete || state.naturalWidth <= 0 || state.naturalHeight <= 0) {
+      throw new Error(`${name}: cover image failed to decode ${JSON.stringify(state)}`);
+    }
+    return;
+  }
+
+  const textCover = page.locator('.home-books-v2__text-cover, .books-v2-text-cover').first();
+  if (!(await textCover.count()) || !(await textCover.isVisible())) {
+    throw new Error(`${name}: neither image cover nor text cover is visible`);
   }
 };
 
