@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const questions = [
+  ['01','진단','최근 성과 중 본인이 가장 먼저 개선해야 한다고 느끼는 항목은 무엇인가요?','자기인식'],
+  ['02','진단','이전과 비교해 성과가 흔들리기 시작한 시점에 달라진 것은 무엇인가요?','변화 시점'],
+  ['03','진단','지금 어려움은 의지·지식·기술·방법·환경 중 어디에 가장 가깝나요?','원인 분류'],
+  ['04','분리','이번 결과에서 본인이 통제할 수 없었던 부분은 무엇이었나요?','외부 변수'],
+  ['05','분리','반대로 본인이 바꿀 수 있었던 행동은 무엇이었나요?','책임 영역'],
+  ['06','행동','같은 상황이 다시 온다면 한 가지 다르게 할 행동은 무엇인가요?','행동 수정'],
+  ['07','학습','최근 피드백 중 실제 상담에서 적용해본 것은 무엇인가요?','코칭 이행'],
+  ['08','학습','알고 있지만 실제 상담에서는 잘 실행되지 않는 부분은 무엇인가요?','지식-행동 Gap'],
+  ['09','강점','최근 상담 중 스스로 잘했다고 생각하는 사례는 무엇인가요?','강점 발견'],
+  ['10','지원','성과를 올리기 위해 현재 리더에게 필요한 지원은 무엇인가요?','장애 제거'],
+  ['11','목표','이번 주에 반드시 바꿔볼 행동 한 가지는 무엇인가요?','단일 행동 목표'],
+  ['12','재점검','언제, 무엇을 기준으로 변화 여부를 다시 확인하면 좋을까요?','Follow-up']
+];
+---
+
+<BaseLayout
+  title="성과부진 상담사 코칭 질문 12개｜Leader Playbook | JoyLab"
+  description="성과가 낮은 상담사를 비난하지 않으면서 원인을 진단하고 행동 변화를 만드는 12개의 코칭 질문과 1:1 면담, Follow-up 구조를 제공합니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/playbook/performance-coaching"
+  bodyClass="growth-leadership-guide-v2 leader-playbook-page"
+>
+  <main class="lp-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <span>Leader Playbook</span>
+    </nav>
+
+    <header class="lp-hero">
+      <div class="sg-eyebrow">LEADER PLAYBOOK · PERFORMANCE COACHING</div>
+      <h1>성과부진 상담사<br /><span>코칭 질문 12개</span></h1>
+      <p>“왜 못했어?”가 아니라 “무엇을 바꿀 수 있었을까?”에서 시작합니다. 책임은 유지하면서 방어를 줄이고 실제 행동 변화를 만드는 1:1 코칭 구조입니다.</p>
+    </header>
+
+    <section class="lp-principle">
+      <div class="sg-eyebrow">CORE PRINCIPLE</div>
+      <h2>결과를 평가하되, 원인은 분리해서 본다.</h2>
+      <div>
+        <article><b>WILL</b><p>하려는 의지가 있는가</p></article>
+        <article><b>SKILL</b><p>할 수 있는 역량이 있는가</p></article>
+        <article><b>METHOD</b><p>방법이 맞는가</p></article>
+        <article><b>ENVIRONMENT</b><p>환경이 막고 있는가</p></article>
+      </div>
+    </section>
+
+    <section class="lp-flow">
+      <div class="sg-eyebrow">COACHING FLOW</div>
+      <div>
+        <article><span>01</span><b>진단</b><p>무엇이 흔들렸는지 확인</p></article>
+        <article><span>02</span><b>분리</b><p>통제 가능/불가능 구분</p></article>
+        <article><span>03</span><b>행동</b><p>바꿀 행동 1~2개 합의</p></article>
+        <article><span>04</span><b>지원</b><p>리더가 제거할 장애 확인</p></article>
+        <article><span>05</span><b>재점검</b><p>시점과 기준 확정</p></article>
+      </div>
+    </section>
+
+    <section class="lp-questions">
+      <div class="sg-eyebrow">12 QUESTIONS</div>
+      <h2>면담에서 바로 쓰는 질문</h2>
+      <div class="lp-question-list">
+        {questions.map(([no, stage, q, goal]) => (
+          <article>
+            <div>{no}</div>
+            <div><small>{stage} · {goal}</small><h3>{q}</h3></div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="lp-gold">
+      <small>GOLD QUESTION</small>
+      <h2>이번 결과에서<br />본인이 바꿀 수 있었던 행동은 무엇이었나요?</h2>
+      <p>대화의 초점을 ‘사람의 문제’에서 ‘바꿀 수 있는 행동’으로 이동시키는 질문입니다.</p>
+    </section>
+
+    <section class="lp-rule">
+      <div class="sg-eyebrow">ONE-ACTION RULE</div>
+      <h2>면담이 끝날 때 목표를 많이 주지 않습니다.</h2>
+      <ol>
+        <li><b>행동 목표 1~2개만 확정</b></li>
+        <li><b>성공 기준을 관찰 가능한 행동으로 정의</b></li>
+        <li><b>재점검 시점을 그 자리에서 확정</b></li>
+      </ol>
+    </section>
+
+    <section class="lp-follow">
+      <div class="sg-eyebrow">FOLLOW-UP</div>
+      <h2>재점검 예시</h2>
+      <div>
+        <article><b>당일</b><p>코칭 내용과 행동 목표 확인</p></article>
+        <article><b>익일</b><p>실제 상담 적용 여부 확인</p></article>
+        <article><b>3일 후</b><p>반복 실행과 장애물 확인</p></article>
+        <article><b>1주 후</b><p>KPI보다 행동 변화부터 평가</p></article>
+      </div>
+    </section>
+
+    <section class="lp-related">
+      <div class="sg-eyebrow">RELATED ESSAY</div>
+      <h2>왜 사람과 성과를 분리해서 봐야 할까?</h2>
+      <p>『노인과 바다』의 산티아고를 통해 성과부진과 역량 부족이 왜 같은 말이 아닌지 살펴봅니다.</p>
+      <a href="/guides/growth-leadership/literature/old-man-and-the-sea">EP01 『노인과 바다』 읽기 →</a>
+    </section>
+  </main>
+</BaseLayout>
