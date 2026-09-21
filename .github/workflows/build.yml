@@ -182,6 +182,9 @@ jobs:
       - name: Mobile UI V1 GOLD QA
         run: node scripts/qa-mobile-ui-v1.mjs
 
+      - name: Growth Literature PC/Mobile GOLD QA
+        run: node scripts/qa-growth-literature-gold.mjs
+
       - name: Stop Astro preview
         if: always()
         shell: bash
@@ -226,6 +229,13 @@ jobs:
         with:
           name: mobile-ui-v1-gold-qa
           path: qa-artifacts/mobile-ui-v1
+
+      - name: Upload Growth Literature GOLD QA screenshots
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: growth-literature-gold-qa
+          path: qa-artifacts/growth-literature-gold
           if-no-files-found: warn
 
       - name: Upload dist artifact
