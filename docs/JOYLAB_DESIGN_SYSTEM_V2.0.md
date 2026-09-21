@@ -1,6 +1,8 @@
 # JoyLab Design System V2.0
 
-Status: Gold
+> Superseded by `JOYLAB_DESIGN_SYSTEM_V3.md` for new work. Kept as the V2 historical baseline.
+
+Status: Gold · Legacy baseline
 Last updated: 2026-09-10
 Scope: Homepage / Pillar / Research Article
 
