@@ -1030,5 +1030,24 @@
         "caption": "입력 → 처리 → 품질 게이트 → 결과물 구조를 고정하면 반복 자동화의 안정성이 높아집니다."
       }
     ]
+  },
+  "codex-skill-guide-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Codex Skill을 Input Process Quality Gate Output 구조로 설계하는 JoyLab AI·생산성 대표 이미지",
+      "caption": "Skill은 프롬프트 저장이 아니라 반복 업무의 입력·처리·품질 기준·출력을 고정하는 업무 자산입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "반복 업무에서 Skill 후보를 찾는 기준을 정리한 JoyLab Visual Research 이미지",
+        "caption": "반복 빈도와 입력·출력 규칙성을 기준으로 Skill 후보를 찾습니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Input Process Quality Gate Output 네 단계로 Codex Skill을 설계하는 JoyLab 프레임워크 이미지",
+        "caption": "Input → Process → Quality Gate → Output 네 요소를 고정하면 재사용성이 높아집니다."
+      }
+    ]
   }
 }

@@ -4,6 +4,8 @@ import path from 'node:path';
 const root = process.cwd();
 const args = process.argv.slice(2);
 const slug = args[args.indexOf('--slug') + 1];
+const editorialOverridesPath = path.join(root, 'distribution/editorial-overrides.json');
+const editorialOverrides = fs.existsSync(editorialOverridesPath) ? JSON.parse(fs.readFileSync(editorialOverridesPath, 'utf8')) : {};
 
 function field(text, name) {
   const match = text.match(new RegExp(`^${name}:\\s*["']?([^"'\\n]+)["']?\\s*$`, 'm'));
@@ -18,7 +20,9 @@ function taggedLink(url, source, medium, campaign, content) {
   return u.toString();
 }
 function variant(id, title, body, cta, hashtags, url, source, medium, campaign) {
-  return { id, title, body, cta, hashtags, utmUrl: taggedLink(url, source, medium, campaign, id), publishedUrl: null, publishedAt: null };
+  const base = { id, title, body, cta, hashtags, utmUrl: taggedLink(url, source, medium, campaign, id), publishedUrl: null, publishedAt: null };
+  const override = editorialOverrides?.[slug]?.[id] ?? {};
+  return { ...base, ...override };
 }
 
 if (process.argv.includes('--self-test')) {

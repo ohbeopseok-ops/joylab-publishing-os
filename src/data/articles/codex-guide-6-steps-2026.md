@@ -153,3 +153,6 @@ Codex를 잘 쓰는 사람과 못 쓰는 사람의 차이는 코딩 실력보다
 Codex의 기본 사용법을 익혔다면 다음 단계는 “내 업무에서 무엇을 맡길 것인가”를 정하는 것입니다.
 
 → [2부｜Codex로 비개발자가 자동화할 수 있는 업무 10가지](/articles/codex-non-developer-automation-10)
+
+
+→ [Codex Hub에서 전체 시리즈 보기](/guides/codex)
