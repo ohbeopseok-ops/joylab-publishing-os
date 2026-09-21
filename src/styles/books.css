@@ -175,3 +175,164 @@
   .books-v2-book p{margin:0;max-width:610px;line-height:1.72}
   .books-v2-link{display:inline-block;margin-top:14px}
 }
+
+
+/* Mobile Books V2.2 */
+@media(max-width:640px){
+  .books-hub-v2 .books-v2-shell{
+    width:min(100% - 28px,680px);
+  }
+
+  .books-hub-v2 .books-v2-hero{
+    padding:40px 0 36px;
+  }
+  .books-hub-v2 .books-v2-kicker{
+    margin-bottom:10px;
+    font-size:.7rem;
+  }
+  .books-hub-v2 .books-v2-hero h1{
+    max-width:100%;
+    font-size:clamp(2.15rem,10.5vw,3.15rem);
+    line-height:1.08;
+    letter-spacing:-.045em;
+    text-wrap:balance;
+  }
+  .books-hub-v2 .books-v2-hero>div>p:last-child{
+    margin-top:16px;
+    font-size:1rem;
+    line-height:1.72;
+  }
+
+  .books-hub-v2 .books-v2-featured,
+  .books-hub-v2 .books-v2-philosophy,
+  .books-hub-v2 .books-v2-categories,
+  .books-hub-v2 .books-v2-library{
+    padding:40px 0;
+  }
+  .books-hub-v2 .books-v2-featured__grid{
+    gap:28px;
+  }
+  .books-hub-v2 .books-v2-featured__cover{
+    width:min(68vw,260px);
+    margin:0 auto;
+    border-radius:6px;
+    background:transparent;
+  }
+  .books-hub-v2 .books-v2-featured__cover img{
+    width:100%;
+    height:auto;
+    aspect-ratio:auto;
+    object-fit:contain;
+    border-radius:6px;
+  }
+  .books-hub-v2 .books-v2-featured__copy{
+    text-align:left;
+  }
+  .books-hub-v2 .books-v2-featured__copy h2{
+    font-size:clamp(2rem,10vw,2.8rem);
+    line-height:1.16;
+    word-break:keep-all;
+    overflow-wrap:normal;
+  }
+  .books-hub-v2 .books-v2-subtitle{
+    font-size:1.02rem;
+    line-height:1.65;
+  }
+  .books-hub-v2 .books-v2-description{
+    font-size:.98rem;
+    line-height:1.75;
+  }
+  .books-hub-v2 .books-v2-featured__copy blockquote{
+    margin-top:20px;
+    font-size:1.03rem;
+    line-height:1.68;
+  }
+  .books-hub-v2 .books-v2-actions{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .books-hub-v2 .books-v2-actions a{
+    width:100%;
+    min-height:48px;
+  }
+
+  .books-hub-v2 .books-v2-philosophy{
+    gap:24px;
+  }
+  .books-hub-v2 .books-v2-philosophy h2,
+  .books-hub-v2 .books-v2-section-head h2{
+    font-size:clamp(2rem,9vw,2.7rem);
+    line-height:1.18;
+    text-wrap:balance;
+  }
+
+  .books-hub-v2 .books-v2-category-grid{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+  .books-hub-v2 .books-v2-category-grid article{
+    min-height:0;
+    padding:22px;
+  }
+
+  .books-hub-v2 .books-v2-library-grid{
+    gap:18px;
+    margin-top:20px;
+  }
+  .books-hub-v2 .books-v2-book{
+    grid-template-columns:1fr;
+    gap:20px;
+    padding:18px;
+    border-radius:18px;
+  }
+  .books-hub-v2 .books-v2-book__cover{
+    width:min(68vw,240px);
+    margin:0 auto;
+    align-self:auto;
+    background:transparent;
+  }
+  .books-hub-v2 .books-v2-book__cover img{
+    width:100%;
+    height:auto;
+    aspect-ratio:auto;
+    object-fit:contain;
+    border-radius:6px;
+  }
+  .books-hub-v2 .books-v2-book>div{
+    align-self:auto;
+    min-width:0;
+  }
+  .books-hub-v2 .books-v2-book h3{
+    margin:8px 0 10px;
+    font-size:1.6rem;
+    line-height:1.28;
+    word-break:keep-all;
+    overflow-wrap:normal;
+  }
+  .books-hub-v2 .books-v2-book p{
+    display:block;
+    margin:0;
+    font-size:.96rem;
+    line-height:1.72;
+  }
+  .books-hub-v2 .books-v2-link{
+    display:inline-block;
+    margin-top:14px;
+  }
+
+  .book-landing-v2 .book-v2-hero__cover{
+    width:min(72vw,280px);
+    margin-inline:auto;
+  }
+  .book-landing-v2 .book-v2-hero__cover img{
+    width:100%;
+    height:auto;
+    aspect-ratio:auto;
+    object-fit:contain;
+  }
+  .book-landing-v2 .book-v2-hero__copy h1{
+    font-size:clamp(2.2rem,11vw,3.25rem);
+    line-height:1.13;
+  }
+}
