@@ -46,6 +46,20 @@ const articleImage = article.data.ogImage ?? heroImage;
 const articleImageUrl = articleImage ? new URL(articleImage, Astro.site ?? Astro.url.origin).toString() : undefined;
 const isCompareHub = article.id === 'samsung-vs-sk-hynix-ai-memory';
 const isSamsung = article.id === 'samsung-electronics-outlook';
+const codexSeries = [
+  { id: 'codex-guide-6-steps-2026', ep: 'EP01', short: 'Codex 6단계 시작 가이드' },
+  { id: 'codex-non-developer-automation-10', ep: 'EP02', short: '비개발자 자동화 10가지' },
+  { id: 'codex-skill-guide-2026', ep: 'EP03', short: 'Codex Skill 만들기' },
+  { id: 'codex-plugin-guide-2026', ep: 'EP04', short: 'Codex Plugin 활용법' },
+  { id: 'codex-automation-gold-cases-5', ep: 'EP05', short: '자동화 GOLD CASE 5개' },
+  { id: 'codex-computer-use-guide-2026', ep: 'EP06', short: 'Computer Use 실전' },
+  { id: 'codex-goal-mode-guide-2026', ep: 'EP07', short: 'Goal Mode 실전' },
+  { id: 'codex-build-your-own-plugin-2026', ep: 'EP08', short: '나만의 Plugin 만들기' }
+];
+const codexSeriesIndex = codexSeries.findIndex((item) => item.id === article.id);
+const isCodexSeries = codexSeriesIndex >= 0;
+const codexPrev = isCodexSeries && codexSeriesIndex > 0 ? codexSeries[codexSeriesIndex - 1] : null;
+const codexNext = isCodexSeries && codexSeriesIndex < codexSeries.length - 1 ? codexSeries[codexSeriesIndex + 1] : null;
 const isAiPowerSeries = article.data.series?.startsWith('AI 전력');
 const isMoneyBasics = article.data.series === '돈 공부 기초';
 const isUsRatesSeries = article.data.series === '미국 금리 리서치';
@@ -240,6 +254,39 @@ const scoreCriteria = [
         <div class="research-v2-content">
           <div id="article-content" class="article-body"><Content /></div>
         </div>
+
+        {isCodexSeries && (
+          <nav class="codex-series-nav" aria-label="Codex 8부작 시리즈 이동">
+            <div class="codex-series-nav__head">
+              <div>
+                <small>JOYLAB CODEX · 8-PART PILLAR</small>
+                <strong>{codexSeries[codexSeriesIndex].ep} · {codexSeries[codexSeriesIndex].short}</strong>
+              </div>
+              <a class="codex-series-nav__toc" href="/guides/codex">전체 목차</a>
+            </div>
+            <div class="codex-series-nav__grid">
+              {codexPrev ? (
+                <a class="codex-series-nav__item is-prev" href={`/articles/${codexPrev.id}`}>
+                  <span>← 이전 글</span>
+                  <b>{codexPrev.ep} · {codexPrev.short}</b>
+                </a>
+              ) : (
+                <span class="codex-series-nav__item is-disabled"><span>← 이전 글</span><b>시리즈의 첫 글입니다</b></span>
+              )}
+              {codexNext ? (
+                <a class="codex-series-nav__item is-next" href={`/articles/${codexNext.id}`}>
+                  <span>다음 글 →</span>
+                  <b>{codexNext.ep} · {codexNext.short}</b>
+                </a>
+              ) : (
+                <a class="codex-series-nav__item is-next" href="/guides/codex">
+                  <span>완주 →</span>
+                  <b>Codex Hub 전체 목차로 돌아가기</b>
+                </a>
+              )}
+            </div>
+          </nav>
+        )}
       </div>
 
       <aside class="research-rail" aria-label="리서치 보조 정보">
