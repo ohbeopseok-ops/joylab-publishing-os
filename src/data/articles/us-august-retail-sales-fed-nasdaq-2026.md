@@ -165,6 +165,8 @@ JoyLab에서는 경제지표를 볼 때 **지표 → 금리 → 밸류에이션 
 
 앞으로도 소매판매는 CPI·PPI·비농업고용·PCE와 묶어서 해석하는 것이 핵심입니다.
 
+소비가 강한데도 기술주가 오를 수 있는 이유는 [소매판매가 강한데 왜 나스닥은 오를까｜금리 vs EPS의 싸움](/articles/strong-retail-sales-nasdaq-rally-2026)에서 이어서 분석했습니다.
+
 ## 참고자료
 
 - U.S. Census Bureau, Advance Monthly Sales for Retail and Food Services, August 2026: https://www.census.gov/retail/sales.html
