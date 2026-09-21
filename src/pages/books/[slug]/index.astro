@@ -37,7 +37,7 @@ const tocItems = book.data.tocItems ?? [];
 const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 더 나답게.';
 ---
 <BaseLayout
-  title={`${book.data.title} | ${book.data.author} 에세이 | JoyLab`}
+  title={`${book.data.title} | JoyLab Books`}
   description={book.data.description}
   canonical={canonical}
   bodyClass="book-landing-page book-landing-v2"
@@ -84,7 +84,7 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
       </div>
 
       <aside class="book-v2-hero__quote" aria-label="JoyLab Books 메시지">
-        <p>“흠이 있는 삶도,<br />충분히 아름답다.”</p>
+        <p>“{closingQuote}”</p>
         <span></span>
         <small>JoyLab Books</small>
       </aside>
@@ -94,7 +94,7 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
   <nav class="book-v2-tabs" aria-label="책 페이지 메뉴">
     <div class="book-v2-tabs__inner">
       <a href="#about">책 소개</a>
-      <a href="#recommend">추천의 글</a>
+      <a href="#recommend">추천 대상</a>
       <a href="#toc">목차</a>
       <a href={readerPath}>{book.data.access === 'full' ? '웹 리더' : '미리보기'}</a>
       <a href="#author">저자 소개</a>
