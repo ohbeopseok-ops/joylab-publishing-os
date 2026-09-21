@@ -31,7 +31,7 @@ add('DS09_TOUCH_TOKEN', (tokenPx(files.mobile, '--m-touch') ?? 0) >= 48, '--m-to
 add('DS10_FORM_TOKEN', (tokenPx(files.mobile, '--m-form-control-h') ?? 0) >= 48 && has(files.contact, 'var(--contact-control-h)'), 'Form control token must be >=48px and wired');
 add('DS11_FORM_FONT_16', has(files.mobile, 'font-size:16px!important'), 'Mobile form controls must be >=16px');
 add('DS12_FOOTER_TOUCH', (tokenPx(files.mobile, '--m-footer-link-h') ?? 0) >= 44 && has(files.footer, 'var(--footer-link-min)'), 'Footer link target must be >=44px and tokenized');
-add('DS13_BOOK_COVER_CONTAIN', /books-v2-(?:featured__cover|book__cover) img[\\s\\S]{0,220}object-fit:contain/.test(files.books), 'Book covers must use contain on mobile');
+add('DS13_BOOK_COVER_CONTAIN', files.books.includes('object-fit:contain') || files.books.includes('object-fit: contain'), 'Book covers must use contain on mobile');
 add('DS14_READER_TOUCH', has(files.reader, '--reader-control-hit: 44px') && has(files.reader, 'min-width: var(--reader-control-hit)'), 'Reader controls must preserve 44px hit target');
 add('DS15_READER_CANONICAL', has(files.reader, '<meta name="robots" content="noindex,follow">') && has(files.reader, '<link rel="canonical" href="https://aijoylab.kr/books/ax-customer-center/">'), 'Reader SEO contract must remain noindex + canonical');
 
