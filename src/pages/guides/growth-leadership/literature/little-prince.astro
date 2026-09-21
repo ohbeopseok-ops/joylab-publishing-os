@@ -40,6 +40,7 @@ const articleSchema = {
   alternativeHeadline: '『어린 왕자』에서 배우는 신뢰와 책임의 리더십',
   description: '『어린 왕자』의 관계 형성 장면을 신뢰, 책임, 피드백, 리더의 영향력 관점에서 분석하고 실제 리더 행동으로 번역한 JoyLab Literature & Leadership Research.',
   mainEntityOfPage: 'https://aijoylab.kr/guides/growth-leadership/literature/little-prince',
+  image: 'https://aijoylab.kr/images/leadership/literature/ep02-little-prince.webp',
   author: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
   publisher: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
   about: ['Leadership', 'Trust', 'Responsibility', 'Feedback', 'The Little Prince']
@@ -60,6 +61,9 @@ const faqSchema = {
   description="『어린 왕자』를 신뢰와 책임의 리더십 관점에서 다시 읽습니다. 관계 형성, 피드백, 일관성, 리더의 영향력을 실제 조직 행동으로 번역합니다."
   canonical="https://aijoylab.kr/guides/growth-leadership/literature/little-prince"
   type="article"
+  image="/images/leadership/literature/ep02-little-prince.webp"
+  imageWidth={1200}
+  imageHeight={675}
   bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page"
 >
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
