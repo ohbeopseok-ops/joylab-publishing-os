@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const episodes = [
+  { ep: 'EP01', title: '노인과 바다', theme: '성과 · GRIT', question: '성과가 무너졌을 때 무엇을 볼 것인가', href: '/guides/growth-leadership/literature/old-man-and-the-sea', live: true },
+  { ep: 'EP02', title: '어린 왕자', theme: '관계 · 책임', question: '관계를 만든다는 것은 무엇을 책임지는가', live: false },
+  { ep: 'EP03', title: '데미안', theme: '성장 · 자기결정', question: '리더는 답을 줘야 하는가, 찾게 해야 하는가', live: false },
+  { ep: 'EP04', title: '변신', theme: '성과 · 존엄', question: '쓸모를 잃으면 사람의 가치도 사라지는가', live: false },
+  { ep: 'EP05', title: '동물농장', theme: '권력 · 조직문화', question: '좋은 규칙은 왜 시간이 지나며 변질되는가', live: false },
+  { ep: 'EP06', title: '1984', theme: '심리적 안전 · 정보', question: '구성원이 진실을 말하지 않는 조직은 어떻게 되는가', live: false },
+  { ep: 'EP07', title: '이방인', theme: '판단 · 편견', question: '우리는 사실을 보는가, 사람의 이미지를 보는가', live: false },
+  { ep: 'EP08', title: '레미제라블', theme: '공정성 · 기회', question: '두 번째 기회는 어디까지 공정한가', live: false },
+  { ep: 'EP09', title: '파리대왕', theme: '집단행동 · 규칙', question: '규칙이 무너지면 조직은 무엇으로 움직이는가', live: false },
+  { ep: 'EP10', title: '죄와 벌', theme: '책임 · 회복', question: '신뢰는 어떻게 다시 만들어지는가', live: false }
+];
+---
+
+<BaseLayout
+  title="문학에서 배우는 리더십｜고전에서 찾는 사람·성과·조직의 원리 | JoyLab"
+  description="『노인과 바다』를 시작으로 고전 문학 속 인간 행동을 성과관리, GRIT, 공정성, 조직문화와 실제 리더 행동으로 번역하는 JoyLab 리더십 시리즈입니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature"
+  bodyClass="growth-leadership-guide-v2 literature-leadership-page"
+>
+  <section class="ll-hero">
+    <div class="sg-wrap">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP · JOYLAB</div>
+      <h1>문학에서 배우는<br /><span>리더십</span></h1>
+      <p class="ll-hero__lead">성과, 관계, 권력, 책임, 성장. 좋은 문학은 결국 사람을 이해하는 이야기입니다. JoyLab은 작품 속 인간 행동을 조직의 문제와 실제 리더의 행동으로 번역합니다.</p>
+      <div class="ll-hero__actions">
+        <a class="ll-btn ll-btn--primary" href="/guides/growth-leadership/literature/old-man-and-the-sea">EP01 읽기 →</a>
+        <a class="ll-btn" href="/guides/growth-leadership/playbook/performance-coaching">Leader Playbook →</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="ll-main">
+    <section class="ll-thesis">
+      <div class="sg-wrap">
+        <div class="sg-eyebrow">CORE THESIS</div>
+        <h2>성과는 평가하되,<br />사람을 성과로 규정하지 않는다.</h2>
+        <div class="ll-thesis__grid">
+          <article><b>PEOPLE</b><p>동기 · 성장 · 실패 · 회복 · 가능성</p></article>
+          <article><b>RELATIONSHIP</b><p>신뢰 · 책임 · 공감 · 갈등 · 영향력</p></article>
+          <article><b>ORGANIZATION</b><p>권력 · 공정성 · 문화 · 규칙 · 심리적 안전</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ll-featured sg-wrap">
+      <div class="sg-eyebrow">FEATURED ESSAY · EP01</div>
+      <div class="ll-featured__grid">
+        <div>
+          <small>ERNEST HEMINGWAY · 노인과 바다</small>
+          <h2>성과가 무너졌을 때 사람이 보인다</h2>
+          <p>산티아고는 84일 동안 성과를 내지 못했습니다. 그러나 결과가 없었다고 그의 경험과 태도, 다시 시도할 가능성까지 사라진 것은 아닙니다.</p>
+          <blockquote>성과를 무시하면 조직이 무너지고, 성과만 보면 사람을 잃는다.</blockquote>
+          <a href="/guides/growth-leadership/literature/old-man-and-the-sea">EP01 전체 글 읽기 →</a>
+        </div>
+        <div class="ll-featured__visual">
+          <span>EP01</span>
+          <strong>성과 · GRIT</strong>
+          <small>THE OLD MAN AND THE SEA</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="ll-method">
+      <div class="sg-wrap">
+        <div class="sg-eyebrow">THE JOYLAB METHOD</div>
+        <h2>문학을 읽고, 조직의 언어로 번역합니다.</h2>
+        <div class="ll-method__grid">
+          <article><span>01</span><b>SCENE</b><p>문학 속 결정적 장면</p></article>
+          <article><span>02</span><b>INSIGHT</b><p>인간 행동에 대한 해석</p></article>
+          <article><span>03</span><b>QUESTION</b><p>리더가 스스로 던질 질문</p></article>
+          <article><span>04</span><b>ACTION</b><p>현장에서 바꿀 행동</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ll-series sg-wrap">
+      <div class="sg-eyebrow">10 EPISODES</div>
+      <h2>문학에서 배우는 리더십</h2>
+      <div class="ll-series__grid">
+        {episodes.map((item) => item.live ? (
+          <a class="ll-episode" href={item.href}>
+            <div><span>{item.ep}</span><small>{item.theme}</small></div>
+            <h3>{item.title}</h3>
+            <p>{item.question}</p>
+            <b>READ ESSAY →</b>
+          </a>
+        ) : (
+          <article class="ll-episode is-upcoming">
+            <div><span>{item.ep}</span><small>{item.theme}</small></div>
+            <h3>{item.title}</h3>
+            <p>{item.question}</p>
+            <b>COMING NEXT</b>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="ll-playbook">
+      <div class="sg-wrap ll-playbook__grid">
+        <div>
+          <div class="sg-eyebrow">LEADER PLAYBOOK</div>
+          <h2>읽은 통찰을 현장의 질문으로 바꿉니다.</h2>
+        </div>
+        <div>
+          <p>이번 결과에서 본인이 바꿀 수 있었던 것은 무엇입니까?</p>
+          <p>현재 장애물은 의지·역량·방법·환경 중 어디에 있습니까?</p>
+          <p>다음 한 번의 행동에서 무엇을 바꾸겠습니까?</p>
+          <a href="/guides/growth-leadership/playbook/performance-coaching">성과부진 코칭 Playbook →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
