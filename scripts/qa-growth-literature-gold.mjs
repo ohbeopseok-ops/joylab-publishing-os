@@ -81,12 +81,32 @@ for (const target of targets) {
       };
     }, target.required);
 
+    const heroAssetDecoded = ['ep01', 'ep02'].includes(target.name)
+      ? await page.evaluate(async (name) => {
+          const src = name === 'ep01'
+            ? '/images/leadership/literature/ep01-old-man-and-the-sea.webp'
+            : '/images/leadership/literature/ep02-little-prince.webp';
+          return await new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve({
+              ok: img.naturalWidth > 0 && img.naturalHeight > 0,
+              width: img.naturalWidth,
+              height: img.naturalHeight,
+            });
+            img.onerror = () => resolve({ ok: false, width: 0, height: 0 });
+            img.src = src + '?qa=' + Date.now();
+          });
+        }, target.name)
+      : { ok: true, width: null, height: null };
+
     const checks = {
       httpOk: status >= 200 && status < 400,
       noHorizontalOverflow: metrics.overflow <= 1,
       noPageErrors: pageErrors.length === 0,
       requiredVisible: Object.values(metrics.requiredVisible).every(Boolean),
       heroConnected: ['ep01','ep02'].includes(target.name) ? metrics.heroBackgroundConnected === true : true,
+      heroAssetDecoded: heroAssetDecoded.ok === true,
+      ep02Dimensions: target.name === 'ep02' ? heroAssetDecoded.width === 1200 && heroAssetDecoded.height === 675 : true,
       titlePresent: Boolean(metrics.title),
     };
 
@@ -94,7 +114,7 @@ for (const target of targets) {
     await page.screenshot({ path: screenshot, fullPage: true });
 
     const passed = Object.values(checks).every(Boolean);
-    report.push({ target, viewport, status, metrics, pageErrors, checks, passed, screenshot });
+    report.push({ target, viewport, status, metrics, heroAssetDecoded, pageErrors, checks, passed, screenshot });
     if (!passed) failures.push(`${target.name}-${viewport.name}`);
 
     console.log(
