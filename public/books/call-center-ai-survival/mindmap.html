@@ -1,0 +1,44 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>콜센터 AI 생존기 · 인터랙티브 마인드맵</title><script src="https://cdn.jsdelivr.net/npm/d3@7"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.2"></script><script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.17.2"></script><style>*{box-sizing:border-box}body{margin:0;font-family:Inter,"Noto Sans KR",system-ui,sans-serif;color:#172033;background:#f6f8fc}.top{height:72px;background:#07152f;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 24px;gap:16px}.top strong{font-size:18px}.top small{display:block;color:#9ec9f7;margin-top:4px}.top a{color:#d9ebff;text-decoration:none;font-size:13px}.bar{display:flex;gap:8px;align-items:center;padding:10px 18px;background:#fff;border-bottom:1px solid #e4e9f2;overflow:auto}.bar button,.bar input{border:1px solid #ccd5e3;background:#fff;border-radius:9px;padding:8px 10px;font-size:12px}.bar button{cursor:pointer}.bar input{min-width:240px}.stage{height:calc(100vh - 123px);position:relative}.stage svg{width:100%;height:100%}.note{position:absolute;left:18px;bottom:18px;max-width:340px;padding:13px 15px;background:rgba(255,255,255,.94);border:1px solid #dbe3ef;border-radius:12px;font-size:12px;line-height:1.65;box-shadow:0 6px 24px rgba(7,21,47,.08)}.hit{filter:drop-shadow(0 0 5px #ef4444)}@media(max-width:640px){.top{height:auto;padding:14px 16px;align-items:flex-start}.top strong{font-size:15px}.top small{font-size:11px}.bar input{min-width:180px}.stage{height:calc(100vh - 140px)}.note{display:none}}</style></head><body><header class="top"><div><strong>콜센터 AI 생존기</strong><small>제미나이로 검색·요약·고객응대·민원처리까지 끝내는 실전 프롬프트</small></div><a href="./resources.html">← Reader Resources</a></header><nav class="bar"><button id="fit">화면 맞춤</button><button id="expand">모두 펼치기</button><button id="collapse">챕터만 보기</button><input id="q" placeholder="검색: ACW, 보안, E-V-A, 민원"><span id="count"></span></nav><main class="stage"><svg id="map"></svg><div class="note"><b>JoyLab Books · 활용법</b><br>마우스 휠로 확대·축소하고 드래그로 이동하세요. 검색어를 입력하면 관련 노드가 강조됩니다. 실제 고객정보와 사내 자료 사용 전에는 조직의 최신 보안정책과 승인된 도구 기준을 우선 확인하세요.</div></main><script>const md=`# 🎧 콜센터 AI 생존기
+## 시작하며
+### 첫 콜의 두려움과 AI 사수
+### AI는 판단을 대신하지 않고 찾기·정리·표현을 돕는다
+## 1부. 기초 · 안전한 환경 만들기
+### 1장. 제미나이 기초 개념
+#### 프롬프트 · 토큰 · 컨텍스트 윈도우
+#### 검색과 생성형 AI의 차이
+### 2장. 업무 환경 세팅
+#### CRM + 제미나이 화면 분할
+#### 단축키와 프롬프트 저장
+### 3장. 개인정보와 환각 방어
+#### 개인정보·인증·금융정보 입력 주의
+#### 비식별화와 회사 보안정책 우선
+#### Human-in-the-Loop 검증
+## 2부. 실전 · 상담 업무에 적용하기
+### 4장. 매뉴얼 검색
+#### 근거 조항 · 적용 조건 · 추가 확인
+#### 자료 밖의 내용은 추측하지 않기
+### 5장. ACW·CRM 요약
+#### 문의 요지 · 사실 확인 · 조치 내용 · 약속/이관
+#### 입력에 없는 사실은 [확인 필요]
+### 6장. E-V-A 고객응대
+#### Empathy · 감정 공감
+#### Validation · 확인된 사실 인정
+#### Action · 지금 가능한 다음 행동
+### 7장. 복합 민원과 ESC 보고
+#### 요구사항 분리
+#### 사건 경위 · 고객 요구 · 현재 조치 · 판단 요청
+#### 과실·승인 가능성을 AI가 임의 판단하지 않기
+## 3부. 성장 · 재현 가능한 실무 만들기
+### 8장. R-C-I 프롬프트 디버깅
+#### Role · Context · Instruction
+#### 분량 · 어미 · 형식 · 제약 조건
+### 9장. 롤플레잉과 업무 디브리핑
+#### 악성 민원 모의 연습
+#### 통제 가능한 행동 중심 회고
+### 10장. 프롬프트 라이브러리
+#### Category · Situation · Prompt · Quality
+#### 개인 노하우를 팀 자산으로 전환
+## 부록
+### 현장 복사용 프롬프트 10종
+### AI 보안 체크리스트
+### Reader Pack · PDF · 마인드맵 · 프롬프트`;let mm,root,svg=document.getElementById('map');const {Transformer}=window.markmap;const t=new Transformer();root=t.transform(md).root;mm=window.markmap.Markmap.create(svg,{autoFit:true,duration:250,spacingHorizontal:70,spacingVertical:8,paddingX:12},root);function walk(n,level,max){n.payload=n.payload||{};n.payload.fold=level>=max?1:0;(n.children||[]).forEach(c=>walk(c,level+1,max))}function open(n){n.payload=n.payload||{};n.payload.fold=0;(n.children||[]).forEach(open)}document.getElementById('fit').onclick=()=>mm.fit();document.getElementById('expand').onclick=()=>{open(root);mm.renderData(root);mm.fit()};document.getElementById('collapse').onclick=()=>{walk(root,0,2);mm.renderData(root);mm.fit()};const q=document.getElementById('q'),count=document.getElementById('count');q.oninput=()=>{const v=q.value.trim().toLowerCase();let c=0;svg.querySelectorAll('text').forEach(e=>{const hit=v&&e.textContent.toLowerCase().includes(v);e.classList.toggle('hit',!!hit);e.style.fill=hit?'#ef4444':'';e.style.fontWeight=hit?'700':'';if(hit)c++});count.textContent=v?(c?c+'건':'결과 없음'):''};</script></body></html>
