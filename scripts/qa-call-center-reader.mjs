@@ -37,12 +37,15 @@ for (const c of cases) {
     const paper = box('#paper');
     const header = box('body > header');
     const viewport = box('#viewport');
-    const intro = document.querySelector('body > header > div:first-child > div')?.innerText || '';
+    const versionNode = document.querySelector('body > header > div:first-child > div > div:last-child');
+    const versionLabel = versionNode ? getComputedStyle(versionNode, '::after').content.replaceAll('"', '') : '';
     const links = [...document.querySelectorAll('body > header a')].map((el) => el.getBoundingClientRect().height);
     const expectedCenter = sidebar && viewport ? sidebar.right + viewport.width / 2 : 0;
     const paperCenter = paper ? paper.left + paper.width / 2 : 0;
-    return { sidebar, paper, header, viewport, intro, links, centerDelta: Math.abs(paperCenter - expectedCenter) };
+    return { sidebar, paper, header, viewport, versionLabel, links, centerDelta: Math.abs(paperCenter - expectedCenter) };
   });
+
+  await page.screenshot({ path: path.join(out, `${c.name}.png`), fullPage: false });
 
   if (!metrics.sidebar || metrics.sidebar.width < 252 || metrics.sidebar.width > 268) {
     throw new Error(`${c.name}: sidebar width outside 260px contract ${JSON.stringify(metrics.sidebar)}`);
@@ -56,8 +59,8 @@ for (const c of cases) {
   if (!metrics.header || metrics.header.height < 50 || metrics.header.height > 54) {
     throw new Error(`${c.name}: header height outside 52px contract ${JSON.stringify(metrics.header)}`);
   }
-  if (!metrics.intro.includes('Interactive Workbook V1.2')) {
-    throw new Error(`${c.name}: V1.2 reader label missing`);
+  if (!metrics.versionLabel.includes('Interactive Workbook V1.2')) {
+    throw new Error(`${c.name}: V1.2 reader label missing (${metrics.versionLabel})`);
   }
   if (metrics.links.some((h) => h < 35)) {
     throw new Error(`${c.name}: header link click target below 36px ${JSON.stringify(metrics.links)}`);
@@ -69,7 +72,6 @@ for (const c of cases) {
   const publicationWidth = await page.locator('#publication-info').evaluate((el) => el.getBoundingClientRect().width);
   if (publicationWidth < 650) throw new Error(`${c.name}: chapter content not using widened paper (${publicationWidth}px)`);
 
-  await page.screenshot({ path: path.join(out, `${c.name}.png`), fullPage: false });
   results.push({ ...c, overflow, metrics, tocSize, publicationWidth });
   await page.close();
 }
