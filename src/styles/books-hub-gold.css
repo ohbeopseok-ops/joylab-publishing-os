@@ -1,0 +1,95 @@
+/* JoyLab Books Hub — PC Featured GOLD pass */
+@media (min-width: 901px) {
+  .books-hub-v2 .books-v2-shell {
+    width: min(1180px, calc(100% - 48px));
+  }
+
+  .books-hub-v2 .books-v2-featured {
+    padding: 34px 0 38px;
+  }
+
+  .books-hub-v2 .books-v2-featured__grid {
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 44px;
+    align-items: center;
+    min-height: 420px;
+  }
+
+  .books-hub-v2 .books-v2-featured__cover {
+    width: 250px;
+    aspect-ratio: 2 / 3;
+    overflow: visible;
+    justify-self: start;
+    align-self: center;
+    margin: 0;
+    border-radius: 8px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .books-hub-v2 .books-v2-featured__cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(30, 42, 58, .16);
+  }
+
+  .books-hub-v2 .books-v2-featured__cover .books-v2-text-cover {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(30, 42, 58, .16);
+  }
+
+  .books-hub-v2 .books-v2-featured__copy {
+    max-width: 720px;
+    align-self: center;
+    padding-top: 2px;
+  }
+
+  .books-hub-v2 .books-v2-featured__copy h2 {
+    max-width: 640px;
+    font-size: clamp(2.35rem, 3vw, 3.35rem);
+    line-height: 1.1;
+  }
+
+  .books-hub-v2 .books-v2-subtitle {
+    max-width: 680px;
+    margin-top: 14px;
+    line-height: 1.65;
+  }
+
+  .books-hub-v2 .books-v2-description {
+    max-width: 680px;
+    margin-top: 14px;
+    line-height: 1.75;
+  }
+
+  .books-hub-v2 .books-v2-featured__copy blockquote {
+    max-width: 660px;
+    margin-top: 16px;
+    font-size: 1.08rem;
+    line-height: 1.62;
+  }
+
+  .books-hub-v2 .books-v2-actions {
+    margin-top: 18px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1180px) {
+  .books-hub-v2 .books-v2-featured__grid {
+    grid-template-columns: 230px minmax(0, 1fr);
+    gap: 36px;
+    min-height: 390px;
+  }
+
+  .books-hub-v2 .books-v2-featured__cover {
+    width: 230px;
+  }
+}
