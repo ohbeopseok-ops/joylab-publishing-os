@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/search.css';
+import { getCollection, render } from 'astro:content';
+
+const articles = (await getCollection('articles'))
+  .filter((item) => !item.data.draft)
+  .sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const articleItems = await Promise.all(articles.map(async (article) => {
+  const rendered = await render(article);
+  const headings = (rendered.headings ?? []).map((heading) => heading.text).filter(Boolean);
+  return {
+    type: 'article',
+    id: article.id,
+    title: article.data.title,
+    description: article.data.cardDescription ?? article.data.description,
+    category: article.data.category,
+    tags: article.data.tags,
+    series: article.data.series ?? '',
+    publishedAt: article.data.publishedAt.toISOString(),
+    readingTime: article.data.readingTime ?? '약 6분',
+    href: `/articles/${article.id}`,
+    headings
+  };
+}));
+
+const hubs = [
+  { id:'investing', title:'투자·경제 Research Guide', description:'시장·기업·정책을 읽고 투자 판단으로 연결하는 JoyLab 투자 리서치 허브.', category:'투자·경제', tags:['투자','경제','시장','기업'], href:'/guides/investing' },
+  { id:'semiconductor-investing', title:'반도체 투자 가이드', description:'HBM·메모리 사이클·기업 비교를 연결하는 반도체 리서치 허브.', category:'투자·경제', tags:['반도체','HBM','삼성전자','SK하이닉스'], href:'/guides/semiconductor-investing' },
+  { id:'ai-power', title:'AI 전력 가이드', description:'발전·송전·변압·배전·냉각까지 AI 전력 인프라를 연결하는 리서치 허브.', category:'투자·경제', tags:['AI전력','전력망','냉각','인프라'], href:'/guides/ai-power' },
+  { id:'shipbuilding', title:'조선 투자 가이드', description:'수주의 질·생산성·마진·기업 비교를 연결하는 조선 리서치 허브.', category:'투자·경제', tags:['조선','수주','마진'], href:'/guides/shipbuilding' },
+  { id:'us-rates', title:'미국 금리 리서치', description:'미국채 입찰·장기금리·밸류에이션·한국 증시 전염 경로를 연결하는 허브.', category:'투자·경제', tags:['미국채','금리','10년물','30년물'], href:'/guides/us-rates' },
+  { id:'ai-productivity', title:'AI·생산성 Research Guide', description:'AI Agent·Workflow·ROI·업무 자동화를 연결하는 JoyLab AI·생산성 허브.', category:'AI·생산성', tags:['AI','생산성','Agent','Workflow'], href:'/guides/ai-productivity' },
+  { id:'codex', title:'Codex 8부작 Pillar Hub', description:'기본 세팅부터 Skill·Plugin·Computer Use·Goal Mode·Custom Plugin까지 이어지는 실행형 가이드.', category:'AI·생산성', tags:['Codex','Skills','Plugins','ComputerUse','GoalMode'], href:'/guides/codex' },
+  { id:'ai-economics', title:'AI Economics Research Hub', description:'CAPEX·Compute·Revenue·Margin·Risk 관점으로 AI 산업의 경제성을 분석하는 허브.', category:'AI·생산성', tags:['AI경제','CAPEX','Revenue','Margin'], href:'/guides/ai-economics' },
+  { id:'ai-infrastructure', title:'AI Infrastructure Research Hub', description:'GPU·HBM·MLCC·Data Center·Power·Cooling을 하나의 인프라 체인으로 보는 허브.', category:'AI·생산성', tags:['GPU','HBM','데이터센터','냉각'], href:'/guides/ai-infrastructure' },
+  { id:'ai-security', title:'AI Security Research Hub', description:'API Key·Agent·MCP·Database Security를 연결하는 AI 보안 리서치 허브.', category:'AI·생산성', tags:['AI보안','APIKey','Agent','MCP','Database'], href:'/guides/ai-security' },
+  { id:'growth-leadership', title:'성장·리더십 Research Guide', description:'성과·피드백·인정·공정성을 연결하는 JoyLab 성장·리더십 허브.', category:'성장·리더십', tags:['리더십','성과','피드백','공정성'], href:'/guides/growth-leadership' }
+].map((hub) => ({ ...hub, type:'hub', series:'', publishedAt:'', readingTime:'Hub', headings:[] }));
+
+const seriesMap = new Map();
+for (const article of articleItems) {
+  if (!article.series) continue;
+  const current = seriesMap.get(article.series) ?? {
+    type:'series',
+    id:article.series,
+    title:`${article.series} 시리즈`,
+    description:`${article.series} 관련 글을 한 흐름으로 묶어 봅니다.`,
+    category:article.category,
+    tags:[],
+    series:article.series,
+    publishedAt:article.publishedAt,
+    readingTime:'',
+    href:article.href,
+    headings:[],
+    memberTitles:[]
+  };
+  current.memberTitles.push(article.title);
+  current.tags = Array.from(new Set([...current.tags, ...article.tags])).slice(0, 8);
+  seriesMap.set(article.series, current);
+}
+const seriesItems = Array.from(seriesMap.values()).map((item) => ({
+  ...item,
+  description: `${item.series} · ${item.memberTitles.length}편`,
+  headings:item.memberTitles
+}));
+
+const searchItems = [...hubs, ...articleItems, ...seriesItems];
+const categories = ['전체','투자·경제','AI·생산성','성장·리더십'];
+---
+<BaseLayout
+  title="JoyLab Search｜리서치·가이드·시리즈 검색"
+  description="JoyLab의 투자·경제, AI·생산성, 성장·리더십 리서치와 가이드, 시리즈를 한 번에 검색합니다."
+  canonical="https://aijoylab.kr/search"
+  bodyClass="search-page"
+>
+  <section class="search-hero">
+    <div class="search-wrap">
+      <div class="search-eyebrow">JOYLAB SEARCH V1</div>
+      <h1>필요한 리서치를<br /><span>바로 찾습니다.</span></h1>
+      <p>Hub를 먼저, Article을 다음, Series를 마지막으로 보여줍니다. 제목·설명·태그·시리즈·본문 목차까지 검색합니다.</p>
+
+      <form class="search-form" id="search-form" role="search">
+        <label class="search-box" for="search-input">
+          <span aria-hidden="true">⌕</span>
+          <input id="search-input" name="q" type="search" autocomplete="off" placeholder="Codex, HBM, 금리, 리더십..." />
+        </label>
+        <button type="submit">검색</button>
+      </form>
+
+      <div class="search-chips" role="group" aria-label="카테고리 필터">
+        {categories.map((category, index) => (
+          <button type="button" class:list={{'is-active':index===0}} data-search-category={category === '전체' ? '' : category}>{category}</button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <main class="search-main">
+    <div class="search-wrap">
+      <div class="search-summary">
+        <div><strong id="search-count">0</strong><span>개의 결과</span></div>
+        <p id="search-status">검색어를 입력하면 관련 Hub와 Article, Series를 보여줍니다.</p>
+      </div>
+
+      <section id="search-results" class="search-results" aria-live="polite"></section>
+
+      <section id="search-empty" class="search-empty" hidden>
+        <strong>검색 결과가 없습니다.</strong>
+        <p>검색어를 짧게 바꾸거나 카테고리를 해제해보세요.</p>
+        <div>
+          <a href="/guides/investing">투자·경제 Hub</a>
+          <a href="/guides/ai-productivity">AI·생산성 Hub</a>
+          <a href="/guides/growth-leadership">성장·리더십 Hub</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script type="application/json" id="joylab-search-data" set:html={JSON.stringify(searchItems).replace(/</g,'\u003c')}></script>
+
+  <script is:inline>
+    (() => {
+      const dataNode = document.getElementById('joylab-search-data');
+      const form = document.getElementById('search-form');
+      const input = document.getElementById('search-input');
+      const results = document.getElementById('search-results');
+      const empty = document.getElementById('search-empty');
+      const count = document.getElementById('search-count');
+      const status = document.getElementById('search-status');
+      const categoryButtons = Array.from(document.querySelectorAll('[data-search-category]'));
+      if (!dataNode || !form || !input || !results || !empty || !count || !status) return;
+
+      const items = JSON.parse(dataNode.textContent || '[]');
+      const params = new URLSearchParams(location.search);
+      let activeCategory = params.get('category') || '';
+      let lastTrackedQuery = '';
+
+      const normalize = (value) => String(value || '')
+        .toLocaleLowerCase('ko-KR')
+        .normalize('NFKC')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+      const safeQueryForAnalytics = (value) => normalize(value)
+        .replace(/[^0-9a-z가-힣ㄱ-ㅎㅏ-ㅣ·._\- ]/gi, '')
+        .slice(0, 60);
+
+      const typeLabel = (type) => type === 'hub' ? 'HUB' : type === 'article' ? 'ARTICLE' : 'SERIES';
+      const typeBase = (type) => type === 'hub' ? 3000 : type === 'article' ? 2000 : 1000;
+
+      const searchableText = (item) => normalize([
+        item.title,
+        item.description,
+        item.category,
+        ...(item.tags || []),
+        item.series || '',
+        ...(item.headings || [])
+      ].join(' '));
+
+      const scoreItem = (item, query) => {
+        const q = normalize(query);
+        if (!q) return 0;
+        const words = q.split(' ').filter(Boolean);
+        const haystack = searchableText(item);
+        if (!words.every((word) => haystack.includes(word))) return -1;
+
+        const title = normalize(item.title);
+        const tags = normalize((item.tags || []).join(' '));
+        const series = normalize(item.series || '');
+        let score = typeBase(item.type);
+        if (title === q) score += 500;
+        else if (title.startsWith(q)) score += 250;
+        else if (title.includes(q)) score += 140;
+        if (tags.includes(q)) score += 90;
+        if (series.includes(q)) score += 70;
+        score += words.reduce((sum, word) => sum + (title.includes(word) ? 30 : 0) + (tags.includes(word) ? 15 : 0), 0);
+        return score;
+      };
+
+      const updateUrl = (query) => {
+        const next = new URL(location.href);
+        if (query) next.searchParams.set('q', query); else next.searchParams.delete('q');
+        if (activeCategory) next.searchParams.set('category', activeCategory); else next.searchParams.delete('category');
+        history.replaceState({}, '', next.pathname + next.search);
+      };
+
+      const trackQuery = (query) => {
+        const cleaned = safeQueryForAnalytics(query);
+        if (cleaned.length < 2 || cleaned === lastTrackedQuery) return;
+        lastTrackedQuery = cleaned;
+        window.setTimeout(() => window.joylabTrack?.('search_query', cleaned, 'search_page'), 0);
+      };
+
+      const render = ({ track = false } = {}) => {
+        const query = input.value.trim();
+        updateUrl(query);
+        categoryButtons.forEach((button) => button.classList.toggle('is-active', (button.dataset.searchCategory || '') === activeCategory));
+
+        if (!query) {
+          results.innerHTML = '';
+          count.textContent = '0';
+          empty.hidden = true;
+          status.textContent = '검색어를 입력하면 관련 Hub와 Article, Series를 보여줍니다.';
+          return;
+        }
+
+        const ranked = items
+          .filter((item) => !activeCategory || item.category === activeCategory)
+          .map((item) => ({ item, score: scoreItem(item, query) }))
+          .filter(({score}) => score >= 0)
+          .sort((a,b) => b.score - a.score || String(b.item.publishedAt).localeCompare(String(a.item.publishedAt)))
+          .slice(0, 40);
+
+        count.textContent = String(ranked.length);
+        status.textContent = `“${query}” 검색 결과 · Hub → Article → Series 우선순위`;
+        empty.hidden = ranked.length !== 0;
+
+        results.innerHTML = ranked.map(({item}) => {
+          const tags = (item.tags || []).slice(0, 4).map((tag) => `<span>#${tag}</span>`).join('');
+          const meta = item.type === 'article'
+            ? `${item.category} · ${item.readingTime}`
+            : item.type === 'hub'
+              ? `${item.category} · Research Hub`
+              : `${item.category} · Series`;
+          return `
+            <a class="search-result search-result--${item.type}" href="${item.href}"
+               data-analytics-event="search_result_click"
+               data-analytics-target="${item.href}"
+               data-analytics-placement="search_page">
+              <div class="search-result__type">${typeLabel(item.type)}</div>
+              <div class="search-result__body">
+                <div class="search-result__meta">${meta}</div>
+                <h2>${item.title}</h2>
+                <p>${item.description}</p>
+                <div class="search-result__tags">${tags}</div>
+              </div>
+              <div class="search-result__arrow" aria-hidden="true">→</div>
+            </a>
+          `;
+        }).join('');
+
+        if (track) trackQuery(query);
+      };
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        render({ track: true });
+      });
+
+      let debounce;
+      input.addEventListener('input', () => {
+        clearTimeout(debounce);
+        debounce = setTimeout(() => render({ track: input.value.trim().length >= 2 }), 350);
+      });
+
+      categoryButtons.forEach((button) => button.addEventListener('click', () => {
+        activeCategory = button.dataset.searchCategory || '';
+        render({ track: false });
+      }));
+
+      input.value = params.get('q') || '';
+      categoryButtons.forEach((button) => button.classList.toggle('is-active', (button.dataset.searchCategory || '') === activeCategory));
+      render({ track: Boolean(input.value.trim()) });
+      if (!input.value) input.focus();
+    })();
+  </script>
+</BaseLayout>
