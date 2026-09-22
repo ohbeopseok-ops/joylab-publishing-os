@@ -11,6 +11,7 @@ import '../styles/info.css';
 import '../styles/homepage-v2-fidelity.css';
 import '../styles/mobile-density-pass-01.css';
 import '../styles/mobile-ui-v1.css';
+import '../styles/search-header-refine.css';
 const {
   title = 'JoyLab',
   description = '생각 → 분석 → 실행 → 성장. 투자·경제, AI·생산성, 성장·리더십을 연결하는 독립 콘텐츠 플랫폼.',
@@ -74,7 +75,10 @@ const navState = {
           <a class:list={{ 'is-active': navState.ai }} aria-current={navState.ai ? 'page' : undefined} href="/guides/ai-productivity">AI·생산성</a>
           <a class:list={{ 'is-active': navState.growth }} aria-current={navState.growth ? 'page' : undefined} href="/guides/growth-leadership">성장·리더십</a>
           <a class:list={{ 'is-active': navState.research }} aria-current={navState.research ? 'page' : undefined} href="/#today-research">Research</a>
-          <a class:list={{ 'is-active': navState.search, 'nav-search-link': true }} aria-current={navState.search ? 'page' : undefined} href="/search" aria-label="JoyLab 검색">⌕ 검색</a>
+          <a class:list={{ 'is-active': navState.search, 'nav-search-link': true }} aria-current={navState.search ? 'page' : undefined} href="/search" aria-label="JoyLab 검색">
+            <svg class="nav-search-link__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg>
+            <span>검색</span>
+          </a>
           <a class:list={{ 'is-active': navState.books }} aria-current={navState.books ? 'page' : undefined} href="/books">Books</a>
           <a class:list={{ 'is-active': navState.about }} aria-current={navState.about ? 'page' : undefined} href="/about">About</a>
           <a class:list={{ 'is-active': navState.contact }} aria-current={navState.contact ? 'page' : undefined} href="/contact">Contact</a>
