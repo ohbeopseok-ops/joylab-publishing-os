@@ -380,3 +380,5 @@ a:focus-visible,button:focus-visible,summary:focus-visible{
     z-index:70;
   }
 }
+
+.nav-search-link{display:inline-flex!important;align-items:center;gap:4px;color:#0b1f4d!important}.nav-search-link.is-active{color:#1677ff!important}@media(min-width:641px){.nav-links{gap:20px}.nav-search-link{padding:7px 10px;border:1px solid #dbe4f0;border-radius:999px;background:#f8fbff;font-size:.86rem}.nav-search-link:hover{border-color:#b9d2f6;background:#eef5ff}}
