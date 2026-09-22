@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import '../../styles/books.css';
+import '../../styles/books-hub-gold.css';
 
 const books = (await getCollection('books'))
   .filter((book) => !book.data.draft)
