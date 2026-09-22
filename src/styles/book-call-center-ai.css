@@ -1,0 +1,192 @@
+/* 콜센터 AI 생존기 · PC Hero V2
+   Generated cover/hero direction translated into production-safe SVG assets. */
+
+.book-call-center-ai-survival .book-v2-hero{
+  min-height:640px;
+  background:#06172f;
+}
+.book-call-center-ai-survival .book-v2-hero::before{
+  background-image:linear-gradient(90deg,#06172f 0%,#082442 52%,#0a2e5d 100%) !important;
+  background-size:cover !important;
+  background-position:center !important;
+  filter:none !important;
+}
+.book-call-center-ai-survival .book-v2-hero::after{
+  background:radial-gradient(circle at 82% 34%,rgba(29,119,255,.20),transparent 31%),linear-gradient(180deg,rgba(3,12,26,.02),rgba(2,10,20,.20));
+}
+.book-call-center-ai-survival .book-v2-hero__veil{
+  background:linear-gradient(90deg,rgba(4,18,38,.08),transparent 62%);
+}
+.book-call-center-ai-survival .book-v2-hero__shell{
+  width:min(1420px,calc(100% - 72px));
+  grid-template-columns:270px minmax(0,1fr) 360px;
+  gap:42px;
+  min-height:640px;
+  padding:42px 0;
+}
+.book-call-center-ai-survival .book-v2-hero__cover{
+  width:260px;
+  justify-self:start;
+}
+.book-call-center-ai-survival .book-v2-hero__cover img{
+  width:260px;
+  max-width:100%;
+  height:auto;
+  aspect-ratio:2/3;
+  object-fit:cover;
+  object-position:center;
+  border-radius:8px;
+  box-shadow:0 30px 78px rgba(0,0,0,.38),0 0 0 1px rgba(125,194,255,.16);
+}
+.book-call-center-ai-survival .book-v2-kicker{
+  margin-bottom:14px;
+  color:#8ec5ff;
+  font-family:Inter,'Noto Sans KR',sans-serif;
+  font-size:.76rem;
+  font-weight:900;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+}
+.book-call-center-ai-survival .book-v2-overline{
+  display:none;
+}
+.book-call-center-ai-survival .book-v2-hero__copy{
+  min-width:0;
+  align-self:center;
+}
+.book-call-center-ai-survival .book-v2-hero__copy h1{
+  max-width:680px;
+  font-family:'Noto Sans KR',Arial,sans-serif;
+  font-weight:900;
+  font-size:clamp(3.3rem,4.4vw,4.9rem);
+  line-height:1.04;
+  letter-spacing:-.055em;
+}
+.book-call-center-ai-survival .book-v2-subtitle{
+  max-width:720px;
+  margin-top:20px;
+  color:#dcecff;
+  font-family:'Noto Sans KR',Arial,sans-serif;
+  font-size:1.04rem;
+  font-weight:600;
+  line-height:1.65;
+  word-break:keep-all;
+}
+.book-call-center-ai-survival .book-v2-byline{
+  margin-top:12px;
+  color:#afc6df;
+  font-size:.88rem;
+}
+.book-call-center-ai-survival .book-v2-hero__copy blockquote{
+  max-width:660px;
+  margin-top:20px;
+  color:#f4c36f;
+  font-family:'Noto Sans KR',Arial,sans-serif;
+  font-size:1.05rem;
+  font-weight:700;
+  line-height:1.65;
+}
+.book-call-center-ai-survival .book-v2-actions{
+  margin-top:24px;
+  gap:12px;
+}
+.book-call-center-ai-survival .book-v2-actions a{
+  min-height:52px;
+  padding:0 22px;
+  border-radius:10px;
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.book-call-center-ai-survival .book-v2-primary{
+  background:linear-gradient(135deg,#1687ff,#0b63d7);
+  border:1px solid #7dc3ff;
+  box-shadow:0 12px 30px rgba(0,94,220,.28);
+}
+.book-call-center-ai-survival .book-v2-primary:hover{
+  box-shadow:0 16px 36px rgba(0,94,220,.36);
+}
+.book-call-center-ai-survival .book-v2-secondary{
+  background:rgba(255,255,255,.08);
+  color:#eff7ff;
+  border:1px solid rgba(197,226,255,.42);
+  backdrop-filter:blur(8px);
+}
+.book-call-center-ai-survival .book-v2-topics{
+  gap:8px;
+  margin-top:22px;
+  max-width:760px;
+  color:#cfe2f6;
+  font-size:.72rem;
+}
+.book-call-center-ai-survival .book-v2-topics span{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:0 10px;
+  border-radius:999px;
+  border:1px solid rgba(148,197,246,.18);
+  background:rgba(8,40,78,.42);
+}
+.book-call-center-ai-survival .book-v2-topics span::before{
+  content:"";
+  width:5px;
+  height:5px;
+  margin-right:7px;
+  border-radius:50%;
+  background:#f3b95e;
+}
+.book-call-center-ai-survival .book-v2-hero__quote{
+  align-self:center;
+  width:360px;
+  aspect-ratio:16/10;
+  padding:0;
+  border:0;
+  border-radius:24px;
+  background:url('/books/call-center-ai-survival/hero-v2.svg') center/cover no-repeat;
+  box-shadow:0 24px 70px rgba(0,0,0,.18);
+}
+.book-call-center-ai-survival .book-v2-hero__quote p,
+.book-call-center-ai-survival .book-v2-hero__quote span,
+.book-call-center-ai-survival .book-v2-hero__quote small{
+  display:none;
+}
+
+@media (max-width:1180px){
+  .book-call-center-ai-survival .book-v2-hero__shell{
+    grid-template-columns:230px minmax(0,1fr) 300px;
+    gap:30px;
+  }
+  .book-call-center-ai-survival .book-v2-hero__cover,
+  .book-call-center-ai-survival .book-v2-hero__cover img{width:220px}
+  .book-call-center-ai-survival .book-v2-hero__quote{width:300px}
+  .book-call-center-ai-survival .book-v2-hero__copy h1{font-size:clamp(3rem,5vw,4rem)}
+}
+
+@media (max-width:1080px){
+  .book-call-center-ai-survival .book-v2-hero__shell{
+    grid-template-columns:210px minmax(0,1fr);
+    gap:30px;
+  }
+  .book-call-center-ai-survival .book-v2-hero__quote{display:none}
+  .book-call-center-ai-survival .book-v2-hero__cover,
+  .book-call-center-ai-survival .book-v2-hero__cover img{width:200px}
+}
+
+@media (max-width:760px){
+  .book-call-center-ai-survival .book-v2-hero{min-height:auto}
+  .book-call-center-ai-survival .book-v2-hero__shell{
+    width:min(100% - 28px,680px);
+    grid-template-columns:1fr;
+    gap:28px;
+    padding:34px 0 42px;
+  }
+  .book-call-center-ai-survival .book-v2-hero__cover{
+    width:min(68vw,260px);
+    justify-self:center;
+  }
+  .book-call-center-ai-survival .book-v2-hero__cover img{width:100%}
+  .book-call-center-ai-survival .book-v2-hero__copy h1{font-size:2.7rem}
+  .book-call-center-ai-survival .book-v2-subtitle{font-size:.98rem}
+  .book-call-center-ai-survival .book-v2-actions{display:grid;grid-template-columns:1fr}
+  .book-call-center-ai-survival .book-v2-actions a{width:100%}
+  .book-call-center-ai-survival .book-v2-topics{gap:6px}
+}

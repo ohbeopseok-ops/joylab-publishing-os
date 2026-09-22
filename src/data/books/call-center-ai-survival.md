@@ -15,8 +15,8 @@ tags:
   - 고객응대
   - 민원처리
   - AI보안
-coverImage: "/books/call-center-ai-survival/cover.svg"
-heroQuote: "AI가 상담사를 대신하는 것이 아니라, 상담사가 더 빨리 찾고 더 정확히 정리하고 더 차분하게 말하도록 돕는다."
+coverImage: "/books/call-center-ai-survival/cover-v2.svg"
+heroQuote: "AI의 답을 대신 믿는 것이 아니라, AI로 더 잘 판단하는 상담사가 되는 법."
 landingHeading: "검색부터 ACW 요약, 고객응대, 복합 민원까지 — 상담석에서 바로 쓰는 생성형 AI 실무 가이드"
 readerProfiles:
   - "매뉴얼 검색과 상담 후처리 시간을 줄이고 싶은 신입·경력 상담사"

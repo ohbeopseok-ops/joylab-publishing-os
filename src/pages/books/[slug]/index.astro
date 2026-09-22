@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BookSchema from '../../../components/BookSchema.astro';
 import { getCollection, render } from 'astro:content';
 import '../../../styles/books.css';
+import '../../../styles/book-call-center-ai.css';
 
 export async function getStaticPaths() {
   const books = (await getCollection('books')).filter((book) => !book.data.draft);
@@ -46,7 +47,7 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
   title={`${book.data.title} | JoyLab Books`}
   description={book.data.description}
   canonical={canonical}
-  bodyClass="book-landing-page book-landing-v2"
+  bodyClass={`book-landing-page book-landing-v2 book-${book.id}`}
   image={book.data.ogImage}
   imageWidth={book.id === 'ax-customer-center' ? 1200 : 1600}
   imageHeight={book.id === 'ax-customer-center' ? 630 : 900}
