@@ -26,8 +26,8 @@ readerProfiles:
 format: web
 access: full
 previewChapterCount: 0
-readerPath: "/books/call-center-ai-survival/resources.html"
-readerCta: "Reader Resources 열기"
+readerPath: "/books/call-center-ai-survival/interactive.html"
+readerCta: "인터랙티브 웹 전자책 읽기"
 overline: "JOYLAB BOOKS · CUSTOMER CENTER AI"
 topics:
   - "매뉴얼 검색"
@@ -41,7 +41,7 @@ benefits:
   - "현장에서 복사·수정해 쓸 수 있는 R-C-I 프롬프트와 치트시트"
   - "공감(Empathy) → 확인(Validation) → 행동(Action)의 E-V-A 응대 구조"
   - "AI 출력의 금액·날짜·정책을 사람이 재확인하는 Human-in-the-Loop 원칙"
-  - "A5 PDF + 인터랙티브 마인드맵 + 프롬프트 10종 Reader Pack 구성"
+  - "10장 전체를 읽고 프롬프트 실습·검증까지 기록하는 Interactive Workbook 제공"
 tocItems:
   - "시작하며: 첫 콜 헤드셋을 끼고 심장이 쿵쾅거리는 당신에게"
   - "1장. 상담사를 위한 제미나이 기초 개념과 핵심 용어"
