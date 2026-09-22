@@ -1144,5 +1144,81 @@
         "caption": "Skill → MCP → plugin.json → Local Test → Workspace Share 순서로 패키징합니다."
       }
     ]
+  },
+  "us-august-retail-sales-fed-nasdaq-2026": {
+    "hero": {
+      "src": "/images/research/us-august-retail-sales-fed-nasdaq-2026.svg",
+      "alt": "미국 8월 소매판매 실제 +1.2%와 예상 +0.8%, Fed 정책금리 3.75~4.00%를 데이터 카드와 상승 그래프로 표현한 JoyLab 리서치 이미지",
+      "caption": "예상보다 강한 미국 소비는 경기 회복력을 확인하는 동시에 높은 금리가 더 오래 유지될 가능성을 키웁니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미국 소매판매 서프라이즈가 경기와 금리 기대에 주는 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "소매판매 서프라이즈를 성장 신호와 금리 신호로 분리해 봅니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "소매판매에서 Fed와 국채금리, 나스닥 밸류에이션으로 이어지는 분석 프레임워크 이미지",
+        "caption": "소비 → Fed → 국채금리 → 할인율 → 나스닥 순서로 전송경로를 추적합니다."
+      }
+    ]
+  },
+  "strong-retail-sales-nasdaq-rally-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "강한 미국 소비에도 나스닥이 오를 수 있는 이유를 금리와 EPS의 경쟁으로 설명하는 JoyLab 리서치 대표 이미지",
+      "caption": "나스닥의 방향은 경제지표 자체보다 금리 상승폭과 이익 기대의 상대강도로 결정됩니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "금리 부담과 이익 성장 기대가 나스닥 방향을 결정하는 핵심 신호 이미지",
+        "caption": "금리와 EPS 중 어느 쪽의 변화가 더 강한지 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "경제지표에서 국채금리와 EPS 리비전을 거쳐 나스닥으로 이어지는 JoyLab 분석 프레임워크 이미지",
+        "caption": "Macro Surprise → Yield → EPS Revision → Valuation → Price의 순서로 해석합니다."
+      }
+    ]
+  },
+  "us-cpi-fed-nasdaq-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "2026년 8월 미국 CPI 3.4%와 근원 CPI 2.4%, Fed 금리와 나스닥 연결 구조를 표현한 JoyLab 리서치 대표 이미지",
+      "caption": "CPI는 숫자 하나가 아니라 헤드라인·근원·주거비·에너지·시장금리 반응을 함께 봐야 합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미국 CPI의 헤드라인 근원 주거비 에너지 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "헤드라인보다 물가의 구성과 지속성을 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "CPI에서 Fed 2년물 10년물 나스닥으로 이어지는 JoyLab 분석 프레임워크 이미지",
+        "caption": "CPI → Fed → 2Y → 10Y → EPS → Nasdaq 순서로 읽습니다."
+      }
+    ]
+  },
+  "us-economic-indicators-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "미국 소매판매 CPI PPI 비농업고용 PCE를 Fed 금리와 나스닥으로 연결한 JoyLab 경제지표 허브 대표 이미지",
+      "caption": "미국 핵심 경제지표를 하나의 전송경로로 연결합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미국 핵심 경제지표의 변화 신호를 한 화면에 정리한 JoyLab Visual Research 이미지",
+        "caption": "소비·물가·고용의 신호를 같은 기준으로 비교합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "고용 소득 소비 물가 Fed 국채금리 EPS 주가 연결 구조를 보여주는 JoyLab 리서치 프레임워크 이미지",
+        "caption": "고용 → 소득 → 소비 → 물가 → Fed → 금리 → EPS → 주가로 연결합니다."
+      }
+    ]
   }
 }
