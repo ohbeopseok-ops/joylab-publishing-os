@@ -11,6 +11,7 @@ on:
       - 'src/layouts/BaseLayout.astro'
       - 'src/components/BookSchema.astro'
       - 'src/styles/books.css'
+      - 'src/styles/book-call-center-ai.css'
       - 'src/styles/homepage-books-v2.css'
       - 'src/styles/book-reader.css'
       - 'scripts/qa-books-visual.mjs'
