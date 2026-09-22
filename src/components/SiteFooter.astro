@@ -100,3 +100,33 @@ const officialChannels = [
   @media(max-width:640px){.site-footer-v2{--footer-gap:var(--m-footer-gap,26px);--footer-link-min:var(--m-footer-link-h,44px);padding:42px 0 22px}.site-footer-v2__grid{grid-template-columns:1fr;gap:var(--footer-gap)}.site-footer-v2__brand{grid-column:auto}.site-footer-v2__column{padding-top:4px}.site-footer-v2__socials{grid-template-columns:1fr 1fr}.site-footer-v2__bottom{align-items:flex-start;flex-direction:column;margin-top:34px;gap:6px}.site-footer-v2__desc{font-size:.81rem}.site-footer-v2__socials a{padding:8px}}
   @media(max-width:400px){.site-footer-v2__socials{grid-template-columns:1fr}}
 </style>
+
+<script is:inline>
+  (() => {
+    const isEditable = (target) => {
+      if (!(target instanceof Element)) return false;
+      return Boolean(target.closest('input, textarea, select, [contenteditable="true"], [role="textbox"]'));
+    };
+
+    const focusSearch = () => {
+      const searchInput = document.getElementById('search-input');
+      if (searchInput instanceof HTMLInputElement) {
+        searchInput.focus();
+        searchInput.select();
+        return true;
+      }
+      return false;
+    };
+
+    document.addEventListener('keydown', (event) => {
+      if (event.defaultPrevented || event.isComposing || isEditable(event.target)) return;
+      const commandK = (event.metaKey || event.ctrlKey) && !event.altKey && event.key.toLowerCase() === 'k';
+      const slash = !event.metaKey && !event.ctrlKey && !event.altKey && event.key === '/';
+      if (!commandK && !slash) return;
+
+      event.preventDefault();
+      if (focusSearch()) return;
+      window.location.assign('/search?focus=1');
+    });
+  })();
+</script>
