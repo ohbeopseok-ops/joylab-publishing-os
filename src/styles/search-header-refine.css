@@ -34,10 +34,24 @@
     color:var(--blue)!important;
   }
   .site-header .nav-search-link.is-active{color:var(--blue)!important}
-  body.homepage-v2 .nav-search-link{color:#d9e3f2!important}
+
+  /* Dark desktop header themes: preserve the same hierarchy without losing contrast. */
+  body.homepage-v2 .nav-search-link,
+  body.research-article-page .nav-search-link,
+  .semiconductor-guide-v2 .nav-search-link{color:#d9e3f2!important}
   body.homepage-v2 .nav-search-link:hover,
-  body.homepage-v2 .nav-search-link:focus-visible{background:rgba(255,255,255,.08);color:#fff!important}
-  body.homepage-v2 .nav-search-link.is-active{color:#fff!important}
+  body.homepage-v2 .nav-search-link:focus-visible,
+  body.research-article-page .nav-search-link:hover,
+  body.research-article-page .nav-search-link:focus-visible,
+  .semiconductor-guide-v2 .nav-search-link:hover,
+  .semiconductor-guide-v2 .nav-search-link:focus-visible{
+    background:rgba(255,255,255,.08);
+    color:#fff!important;
+  }
+  body.homepage-v2 .nav-search-link.is-active,
+  body.research-article-page .nav-search-link.is-active,
+  .semiconductor-guide-v2 .nav-search-link.is-active{color:#fff!important}
+
   body.homepage-v2 .home-v2{padding-top:8px!important}
 }
 @media(max-width:640px){
