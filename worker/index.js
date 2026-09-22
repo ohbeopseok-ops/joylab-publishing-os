@@ -25,6 +25,8 @@ const analyticsContracts = {
   book_reader_progress_75: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['web_reader']) },
   book_reader_complete: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['web_reader']) },
   search_query: { targetPattern: /^[-A-Za-z0-9가-힣ㄱ-ㅎㅏ-ㅣ·._ ]{2,60}$/, placements: new Set(['search_page']) },
+  search_query_click: { targetPattern: /^[-A-Za-z0-9가-힣ㄱ-ㅎㅏ-ㅣ·._ ]{2,60}$/, placements: new Set(['search_page']) },
+  search_zero_result: { targetPattern: /^[-A-Za-z0-9가-힣ㄱ-ㅎㅏ-ㅣ·._ ]{2,60}$/, placements: new Set(['search_page']) },
   search_result_click: { targetPattern: /^\/(?:articles|guides)\/[A-Za-z0-9_-]{1,120}\/?$/, placements: new Set(['search_page']) }
 };
 

@@ -85,6 +85,9 @@ const categories = ['전체','투자·경제','AI·생산성','성장·리더십
         <label class="search-box" for="search-input">
           <span aria-hidden="true">⌕</span>
           <input id="search-input" name="q" type="search" autocomplete="off" placeholder="Codex, HBM, 금리, 리더십..." />
+          <span class="search-shortcut-hint" aria-label="검색 단축키">
+            <kbd>/</kbd><kbd>⌘K</kbd>
+          </span>
         </label>
         <button type="submit">검색</button>
       </form>
@@ -138,6 +141,7 @@ const categories = ['전체','투자·경제','AI·생산성','성장·리더십
       const params = new URLSearchParams(location.search);
       let activeCategory = params.get('category') || '';
       let lastTrackedQuery = '';
+      let lastTrackedZeroQuery = '';
 
       const normalize = (value) => String(value || '')
         .toLocaleLowerCase('ko-KR')
@@ -148,6 +152,31 @@ const categories = ['전체','투자·경제','AI·생산성','성장·리더십
       const safeQueryForAnalytics = (value) => normalize(value)
         .replace(/[^0-9a-z가-힣ㄱ-ㅎㅏ-ㅣ·._\- ]/gi, '')
         .slice(0, 60);
+
+      const escapeHtml = (value) => String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+
+      const escapeRegex = (value) => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const highlightText = (value, query) => {
+        const raw = String(value ?? '');
+        const words = Array.from(new Set(String(query || '').trim().split(/\s+/).filter((word) => word.length > 0)))
+          .sort((a,b) => b.length - a.length);
+        if (!words.length) return escapeHtml(raw);
+        const matcher = new RegExp(`(${words.map(escapeRegex).join('|')})`, 'giu');
+        let cursor = 0;
+        let html = '';
+        for (const match of raw.matchAll(matcher)) {
+          const index = match.index ?? 0;
+          html += escapeHtml(raw.slice(cursor, index));
+          html += `<mark>${escapeHtml(match[0])}</mark>`;
+          cursor = index + match[0].length;
+        }
+        return html + escapeHtml(raw.slice(cursor));
+      };
 
       const typeLabel = (type) => type === 'hub' ? 'HUB' : type === 'article' ? 'ARTICLE' : 'SERIES';
       const typeBase = (type) => type === 'hub' ? 3000 : type === 'article' ? 2000 : 1000;
@@ -185,14 +214,19 @@ const categories = ['전체','투자·경제','AI·생산성','성장·리더십
         const next = new URL(location.href);
         if (query) next.searchParams.set('q', query); else next.searchParams.delete('q');
         if (activeCategory) next.searchParams.set('category', activeCategory); else next.searchParams.delete('category');
+        next.searchParams.delete('focus');
         history.replaceState({}, '', next.pathname + next.search);
       };
 
-      const trackQuery = (query) => {
+      const trackQuery = (query, resultCount) => {
         const cleaned = safeQueryForAnalytics(query);
         if (cleaned.length < 2 || cleaned === lastTrackedQuery) return;
         lastTrackedQuery = cleaned;
         window.setTimeout(() => window.joylabTrack?.('search_query', cleaned, 'search_page'), 0);
+        if (resultCount === 0 && cleaned !== lastTrackedZeroQuery) {
+          lastTrackedZeroQuery = cleaned;
+          window.setTimeout(() => window.joylabTrack?.('search_zero_result', cleaned, 'search_page'), 0);
+        }
       };
 
       const render = ({ track = false } = {}) => {
@@ -220,7 +254,7 @@ const categories = ['전체','투자·경제','AI·생산성','성장·리더십
         empty.hidden = ranked.length !== 0;
 
         results.innerHTML = ranked.map(({item}) => {
-          const tags = (item.tags || []).slice(0, 4).map((tag) => `<span>#${tag}</span>`).join('');
+          const tags = (item.tags || []).slice(0, 4).map((tag) => `<span>#${escapeHtml(tag)}</span>`).join('');
           const meta = item.type === 'article'
             ? `${item.category} · ${item.readingTime}`
             : item.type === 'hub'
@@ -233,9 +267,9 @@ const categories = ['전체','투자·경제','AI·생산성','성장·리더십
                data-analytics-placement="search_page">
               <div class="search-result__type">${typeLabel(item.type)}</div>
               <div class="search-result__body">
-                <div class="search-result__meta">${meta}</div>
-                <h2>${item.title}</h2>
-                <p>${item.description}</p>
+                <div class="search-result__meta">${escapeHtml(meta)}</div>
+                <h2>${highlightText(item.title, query)}</h2>
+                <p>${highlightText(item.description, query)}</p>
                 <div class="search-result__tags">${tags}</div>
               </div>
               <div class="search-result__arrow" aria-hidden="true">→</div>
@@ -243,7 +277,7 @@ const categories = ['전체','투자·경제','AI·생산성','성장·리더십
           `;
         }).join('');
 
-        if (track) trackQuery(query);
+        if (track) trackQuery(query, ranked.length);
       };
 
       form.addEventListener('submit', (event) => {
@@ -262,10 +296,20 @@ const categories = ['전체','투자·경제','AI·생산성','성장·리더십
         render({ track: false });
       }));
 
+      results.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof Element) || !target.closest('.search-result')) return;
+        const cleaned = safeQueryForAnalytics(input.value);
+        if (cleaned.length >= 2) window.joylabTrack?.('search_query_click', cleaned, 'search_page');
+      }, { passive: true });
+
       input.value = params.get('q') || '';
       categoryButtons.forEach((button) => button.classList.toggle('is-active', (button.dataset.searchCategory || '') === activeCategory));
       render({ track: Boolean(input.value.trim()) });
-      if (!input.value) input.focus();
+      if (!input.value || params.has('focus')) {
+        input.focus();
+        if (input.value) input.select();
+      }
     })();
   </script>
 </BaseLayout>

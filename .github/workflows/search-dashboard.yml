@@ -1,0 +1,55 @@
+name: Search Dashboard
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/search-dashboard.yml'
+      - 'scripts/report-search-dashboard.mjs'
+      - 'src/pages/search.astro'
+      - 'worker/index.js'
+  schedule:
+    - cron: '5 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  search-dashboard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_ANALYTICS_READ_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_READ_TOKEN || secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Validate Search Dashboard generator
+        run: |
+          node --check scripts/report-search-dashboard.mjs
+          node scripts/report-search-dashboard.mjs --self-test
+
+      - name: Build rolling 7-day dashboard
+        run: node scripts/report-search-dashboard.mjs --days=7 --out-dir=qa-artifacts/search-dashboard
+
+      - name: Publish dashboard to job summary
+        shell: bash
+        run: cat qa-artifacts/search-dashboard/search-dashboard-7d.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload Search Dashboard
+        uses: actions/upload-artifact@v6
+        with:
+          name: search-dashboard-7d
+          path: qa-artifacts/search-dashboard
+          if-no-files-found: error
+          retention-days: 30

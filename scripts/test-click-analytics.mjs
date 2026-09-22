@@ -56,13 +56,28 @@ if (homeClick.status !== 204) throw new Error(`home_section_click expected 204, 
 const guideClick = await post({ event: 'home_section_click', target: '/guides/ai-productivity', placement: 'guide', path: '/' });
 if (guideClick.status !== 204) throw new Error(`guide home_section_click expected 204, got ${guideClick.status}`);
 
-if (writes.length !== 10) throw new Error(`Expected ten analytics writes, got ${writes.length}`);
+const searchQuery = await post({ event: 'search_query', target: 'codex', placement: 'search_page', path: '/search' });
+if (searchQuery.status !== 204) throw new Error(`search_query expected 204, got ${searchQuery.status}`);
+
+const searchQueryClick = await post({ event: 'search_query_click', target: 'codex', placement: 'search_page', path: '/search' });
+if (searchQueryClick.status !== 204) throw new Error(`search_query_click expected 204, got ${searchQueryClick.status}`);
+
+const searchZero = await post({ event: 'search_zero_result', target: '없는검색', placement: 'search_page', path: '/search' });
+if (searchZero.status !== 204) throw new Error(`search_zero_result expected 204, got ${searchZero.status}`);
+
+const searchResult = await post({ event: 'search_result_click', target: '/articles/codex-guide-6-steps-2026', placement: 'search_page', path: '/search' });
+if (searchResult.status !== 204) throw new Error(`search_result_click expected 204, got ${searchResult.status}`);
+
+if (writes.length !== 14) throw new Error(`Expected fourteen analytics writes, got ${writes.length}`);
 if (writes[1].blobs.join('|') !== 'social_click|threads|about|/about') throw new Error(`Unexpected About social payload: ${JSON.stringify(writes[1])}`);
 if (writes[2].blobs.join('|') !== 'social_click|x|footer|/') throw new Error(`Unexpected X social payload: ${JSON.stringify(writes[2])}`);
 if (writes[3].blobs.join('|') !== 'social_click|youtube|about|/about') throw new Error(`Unexpected YouTube social payload: ${JSON.stringify(writes[3])}`);
 if (writes[4].blobs.join('|') !== 'article_view|foreign-investor-flow|article_page|/articles/foreign-investor-flow') throw new Error(`Unexpected article view payload: ${JSON.stringify(writes[4])}`);
 if (writes[7].blobs.join('|') !== 'home_section_impression|major|home|/') throw new Error(`Unexpected home impression payload: ${JSON.stringify(writes[7])}`);
 if (writes[8].blobs.join('|') !== 'home_section_click|anthropic-ipo-ai-safety-2026|major|/') throw new Error(`Unexpected home click payload: ${JSON.stringify(writes[8])}`);
+if (writes[10].blobs.join('|') !== 'search_query|codex|search_page|/search') throw new Error(`Unexpected search query payload: ${JSON.stringify(writes[10])}`);
+if (writes[11].blobs.join('|') !== 'search_query_click|codex|search_page|/search') throw new Error(`Unexpected search query click payload: ${JSON.stringify(writes[11])}`);
+if (writes[12].blobs.join('|') !== 'search_zero_result|없는검색|search_page|/search') throw new Error(`Unexpected zero-result payload: ${JSON.stringify(writes[12])}`);
 
 const invalid = await post({ event: 'article_internal_link_click', target: 'https://evil.example/', placement: 'article_body', path: '/articles/foreign-investor-flow' });
 if (invalid.status !== 400) throw new Error(`Expected 400, got ${invalid.status}`);
@@ -82,6 +97,9 @@ if (invalidExternalHomeTarget.status !== 400) throw new Error(`Expected external
 const invalidRssSocial = await post({ event: 'social_click', target: 'rss', placement: 'about', path: '/about' });
 if (invalidRssSocial.status !== 400) throw new Error(`Expected RSS social target 400, got ${invalidRssSocial.status}`);
 
-if (writes.length !== 10) throw new Error('Invalid events must not be written');
+const invalidSearchQuery = await post({ event: 'search_query_click', target: 'https://evil.example', placement: 'search_page', path: '/search' });
+if (invalidSearchQuery.status !== 400) throw new Error(`Expected invalid search query 400, got ${invalidSearchQuery.status}`);
+
+if (writes.length !== 14) throw new Error('Invalid events must not be written');
 
 console.log('Click Analytics V3 worker contract passed.');
