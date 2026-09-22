@@ -4,6 +4,7 @@ import { chromium } from 'playwright';
 
 const base = process.env.QA_BASE_URL || 'http://127.0.0.1:4321';
 const slug = '완벽하지-않아서-스며들-수-있었다';
+const callCenterSlug = 'call-center-ai-survival';
 const out = path.join(process.cwd(), 'qa-artifacts', 'books');
 fs.mkdirSync(out, { recursive: true });
 
@@ -15,7 +16,9 @@ const cases = [
   { name: 'landing-desktop', url: `/books/${slug}`, width: 1440, height: 1100 },
   { name: 'landing-mobile', url: `/books/${slug}`, width: 390, height: 844 },
   { name: 'reader-desktop', url: `/books/${slug}/read`, width: 1440, height: 1100 },
-  { name: 'reader-mobile', url: `/books/${slug}/read`, width: 390, height: 844 }
+  { name: 'reader-mobile', url: `/books/${slug}/read`, width: 390, height: 844 },
+  { name: 'call-center-ai-gold-1440', url: `/books/${callCenterSlug}`, width: 1440, height: 1000 },
+  { name: 'call-center-ai-gold-1920', url: `/books/${callCenterSlug}`, width: 1920, height: 1080 }
 ];
 
 const browser = await chromium.launch({ headless: true });
@@ -45,6 +48,55 @@ const assertCoverDecoded = async (page, name) => {
   if (!(await textCover.count()) || !(await textCover.isVisible())) {
     throw new Error(`${name}: featured image cover or text cover is not visible`);
   }
+};
+
+const assertCallCenterHeroGold = async (page, c) => {
+  const hero = page.locator('.book-call-center-ai-survival .book-v2-hero');
+  if (!(await hero.isVisible())) throw new Error(`${c.name}: scoped call-center hero missing`);
+
+  const cover = page.locator('.book-call-center-ai-survival .book-v2-hero__cover img');
+  await cover.waitFor({ state: 'visible' });
+  const coverBox = await cover.evaluate((el) => {
+    const r = el.getBoundingClientRect();
+    return { left: r.left, right: r.right, top: r.top, bottom: r.bottom, width: r.width, height: r.height, ratio: r.width / r.height };
+  });
+  if (coverBox.left < 0 || coverBox.right > c.width) {
+    throw new Error(`${c.name}: cover clipped outside viewport ${JSON.stringify(coverBox)}`);
+  }
+  if (coverBox.width > 280 || coverBox.width < 190) {
+    throw new Error(`${c.name}: cover width outside desktop contract ${JSON.stringify(coverBox)}`);
+  }
+  if (Math.abs(coverBox.ratio - (2 / 3)) > 0.03) {
+    throw new Error(`${c.name}: cover ratio drifted ${JSON.stringify(coverBox)}`);
+  }
+
+  const title = page.getByRole('heading', { level: 1, name: '콜센터 AI 생존기' });
+  if (!(await title.isVisible())) throw new Error(`${c.name}: title not visible`);
+
+  const primary = page.getByRole('link', { name: /인터랙티브 웹 전자책 읽기/ }).first();
+  const secondary = page.getByRole('link', { name: '전체 목차 보기' }).first();
+  if (!(await primary.isVisible())) throw new Error(`${c.name}: primary CTA not visible`);
+  if (!(await secondary.isVisible())) throw new Error(`${c.name}: secondary CTA not visible`);
+
+  const visual = page.locator('.book-call-center-ai-survival .book-v2-hero__quote');
+  if (!(await visual.isVisible())) throw new Error(`${c.name}: right-side hero visual missing`);
+  const visualBox = await visual.evaluate((el) => {
+    const r = el.getBoundingClientRect();
+    const bg = getComputedStyle(el).backgroundImage;
+    return { left: r.left, right: r.right, width: r.width, height: r.height, bg };
+  });
+  if (!visualBox.bg.includes('hero-v2.svg')) throw new Error(`${c.name}: right-side visual asset not applied`);
+  if (visualBox.right > c.width || visualBox.left < 0) {
+    throw new Error(`${c.name}: right hero visual clipped ${JSON.stringify(visualBox)}`);
+  }
+
+  const oldOverline = page.locator('.book-call-center-ai-survival .book-v2-overline');
+  if (await oldOverline.isVisible()) throw new Error(`${c.name}: duplicate overline still visible`);
+
+  const topics = page.locator('.book-call-center-ai-survival .book-v2-topics span');
+  if ((await topics.count()) < 5) throw new Error(`${c.name}: compact topic chips missing`);
+  const maxTopicHeight = Math.max(...await topics.evaluateAll((els) => els.map((el) => el.getBoundingClientRect().height)));
+  if (maxTopicHeight > 34) throw new Error(`${c.name}: topic chips too tall (${maxTopicHeight}px)`);
 };
 
 for (const c of cases) {
@@ -112,6 +164,9 @@ for (const c of cases) {
 
     const locked = page.getByText('전체본 준비 중', { exact: true }).first();
     if (!(await locked.isVisible())) throw new Error(`${c.name}: locked chapter state missing`);
+  } else if (c.name.startsWith('call-center-ai-gold')) {
+    await assertCoverDecoded(page, c.name);
+    await assertCallCenterHeroGold(page, c);
   } else {
     const previewEnd = page.getByText('PREVIEW END', { exact: true }).first();
     if (!(await previewEnd.isVisible())) throw new Error(`${c.name}: preview end not visible`);
