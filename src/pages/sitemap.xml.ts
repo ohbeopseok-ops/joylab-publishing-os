@@ -11,6 +11,7 @@ export async function GET({ site }: { site: URL }) {
     `${origin}/`,
     `${origin}/about`,
     `${origin}/contact`,
+    `${origin}/search`,
     `${origin}/privacy`,
     `${origin}/guides/investing`,
     `${origin}/guides/ai-productivity`,
