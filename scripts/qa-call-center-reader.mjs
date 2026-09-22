@@ -21,6 +21,7 @@ for (const c of cases) {
   if (!response || !response.ok()) throw new Error(`${c.name}: HTTP ${response?.status()}`);
 
   await page.locator('#publication-info').waitFor({ state: 'visible' });
+  await page.locator('#ch1').waitFor({ state: 'visible' });
   await page.waitForTimeout(150);
 
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
@@ -38,11 +39,18 @@ for (const c of cases) {
     const header = box('body > header');
     const viewport = box('#viewport');
     const versionNode = document.querySelector('body > header > div:first-child > div > div:last-child');
-    const versionLabel = versionNode ? getComputedStyle(versionNode, '::after').content.replaceAll('"', '') : '';
+    const versionLabel = versionNode?.textContent?.trim() || '';
     const links = [...document.querySelectorAll('body > header a')].map((el) => el.getBoundingClientRect().height);
     const expectedCenter = sidebar && viewport ? sidebar.right + viewport.width / 2 : 0;
     const paperCenter = paper ? paper.left + paper.width / 2 : 0;
-    return { sidebar, paper, header, viewport, versionLabel, links, centerDelta: Math.abs(paperCenter - expectedCenter) };
+    const bodyCopy = document.querySelector('#ch1 p.leading-relaxed');
+    const bodyFont = bodyCopy ? parseFloat(getComputedStyle(bodyCopy).fontSize) : 0;
+    const bodyLineHeight = bodyCopy ? parseFloat(getComputedStyle(bodyCopy).lineHeight) : 0;
+    const smallCopy = document.querySelector('#ch1 .text-xs');
+    const smallFont = smallCopy ? parseFloat(getComputedStyle(smallCopy).fontSize) : 0;
+    const mono = document.querySelector('#ch3 pre');
+    const monoFont = mono ? parseFloat(getComputedStyle(mono).fontSize) : 0;
+    return { sidebar, paper, header, viewport, versionLabel, links, centerDelta: Math.abs(paperCenter - expectedCenter), bodyFont, bodyLineHeight, smallFont, monoFont };
   });
 
   await page.screenshot({ path: path.join(out, `${c.name}.png`), fullPage: false });
@@ -59,12 +67,16 @@ for (const c of cases) {
   if (!metrics.header || metrics.header.height < 50 || metrics.header.height > 54) {
     throw new Error(`${c.name}: header height outside 52px contract ${JSON.stringify(metrics.header)}`);
   }
-  if (!metrics.versionLabel.includes('Interactive Workbook V1.2')) {
-    throw new Error(`${c.name}: V1.2 reader label missing (${metrics.versionLabel})`);
+  if (!metrics.versionLabel.includes('Interactive Workbook V1.2.1')) {
+    throw new Error(`${c.name}: V1.2.1 reader label missing (${metrics.versionLabel})`);
   }
   if (metrics.links.some((h) => h < 35)) {
     throw new Error(`${c.name}: header link click target below 36px ${JSON.stringify(metrics.links)}`);
   }
+  if (metrics.bodyFont < 16.4) throw new Error(`${c.name}: long-reading body type too small (${metrics.bodyFont}px)`);
+  if (metrics.bodyLineHeight < 29) throw new Error(`${c.name}: long-reading line height too tight (${metrics.bodyLineHeight}px)`);
+  if (metrics.smallFont < 13.9) throw new Error(`${c.name}: small content type too small (${metrics.smallFont}px)`);
+  if (metrics.monoFont < 13.4) throw new Error(`${c.name}: prompt/mono type too small (${metrics.monoFont}px)`);
 
   const tocSize = await page.locator('#toc').evaluate((el) => parseFloat(getComputedStyle(el).fontSize));
   if (tocSize < 12.5) throw new Error(`${c.name}: TOC type too small (${tocSize}px)`);
@@ -72,7 +84,21 @@ for (const c of cases) {
   const publicationWidth = await page.locator('#publication-info').evaluate((el) => el.getBoundingClientRect().width);
   if (publicationWidth < 650) throw new Error(`${c.name}: chapter content not using widened paper (${publicationWidth}px)`);
 
-  results.push({ ...c, overflow, metrics, tocSize, publicationWidth });
+  const readingMode = await page.evaluate(() => ({
+    hiddenWorkbooks: [...document.querySelectorAll('.workbook-card')].every((el) => getComputedStyle(el).display === 'none'),
+    hasBottomPill: !!document.querySelector('.progress-pill'),
+    sidebarProgress: !!document.querySelector('.sidebar-progress')
+  }));
+  if (!readingMode.hiddenWorkbooks) throw new Error(`${c.name}: reading mode must hide workbook cards by default`);
+  if (readingMode.hasBottomPill) throw new Error(`${c.name}: legacy bottom progress pill still present`);
+  if (!readingMode.sidebarProgress) throw new Error(`${c.name}: sidebar progress card missing`);
+
+  await page.locator('[data-mode="practice"]').first().click();
+  const practiceVisible = await page.locator('.workbook-card').first().evaluate((el) => getComputedStyle(el).display !== 'none');
+  if (!practiceVisible) throw new Error(`${c.name}: practice mode did not reveal workbook card`);
+  await page.locator('[data-mode="reading"]').first().click();
+
+  results.push({ ...c, overflow, metrics, tocSize, publicationWidth, readingMode });
   await page.close();
 }
 
