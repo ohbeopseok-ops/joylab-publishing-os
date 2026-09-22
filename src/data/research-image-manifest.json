@@ -1220,5 +1220,62 @@
         "caption": "고용 → 소득 → 소비 → 물가 → Fed → 금리 → EPS → 주가로 연결합니다."
       }
     ]
+  },
+  "us-ppi-fed-margin-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "2026년 8월 미국 PPI 5.4%와 기업 원가, Fed 금리, 나스닥 연결 구조를 표현한 JoyLab 리서치 대표 이미지",
+      "caption": "PPI는 소비자물가보다 앞단에서 기업의 원가와 마진 압력을 보여주는 지표입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "2026년 8월 미국 PPI 5.4%와 기업 원가, Fed 금리, 나스닥 연결 구조를 표현한 JoyLab 리서치 대표 이미지 핵심 신호 이미지",
+        "caption": "핵심 수치와 시장 반응을 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "2026년 8월 미국 PPI 5.4%와 기업 원가, Fed 금리, 나스닥 연결 구조를 표현한 JoyLab 리서치 대표 이미지 전송경로 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Fed → Yield → EPS → Price 순서로 구조화합니다."
+      }
+    ]
+  },
+  "us-jobs-report-fed-nasdaq-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "2026년 8월 미국 비농업고용 16만2천 명과 실업률 4.1%, 임금과 Fed를 연결한 JoyLab 리서치 대표 이미지",
+      "caption": "고용지표는 신규고용 하나가 아니라 실업률·임금·참가율을 함께 봐야 합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "2026년 8월 미국 비농업고용 16만2천 명과 실업률 4.1%, 임금과 Fed를 연결한 JoyLab 리서치 대표 이미지 핵심 신호 이미지",
+        "caption": "핵심 수치와 시장 반응을 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "2026년 8월 미국 비농업고용 16만2천 명과 실업률 4.1%, 임금과 Fed를 연결한 JoyLab 리서치 대표 이미지 전송경로 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Fed → Yield → EPS → Price 순서로 구조화합니다."
+      }
+    ]
+  },
+  "us-pce-fed-nasdaq-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "2026년 7월 미국 PCE 3.7%와 근원 PCE 3.3%, 개인소득·소비와 Fed를 연결한 JoyLab 리서치 대표 이미지",
+      "caption": "PCE는 소득·소비와 함께 Fed의 정책 판단을 읽는 핵심 데이터입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "2026년 7월 미국 PCE 3.7%와 근원 PCE 3.3%, 개인소득·소비와 Fed를 연결한 JoyLab 리서치 대표 이미지 핵심 신호 이미지",
+        "caption": "핵심 수치와 시장 반응을 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "2026년 7월 미국 PCE 3.7%와 근원 PCE 3.3%, 개인소득·소비와 Fed를 연결한 JoyLab 리서치 대표 이미지 전송경로 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Fed → Yield → EPS → Price 순서로 구조화합니다."
+      }
+    ]
   }
 }
