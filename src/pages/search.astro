@@ -89,6 +89,8 @@ const categories = ['전체','투자·경제','AI·생산성','성장·리더십
         <button type="submit">검색</button>
       </form>
 
+      <p class="search-privacy">검색어는 사이트 개선용 통계에 집계될 수 있으며, 브라우저의 GPC·Do Not Track 설정을 존중합니다. 쿠키는 추가하지 않습니다.</p>
+
       <div class="search-chips" role="group" aria-label="카테고리 필터">
         {categories.map((category, index) => (
           <button type="button" class:list={{'is-active':index===0}} data-search-category={category === '전체' ? '' : category}>{category}</button>
