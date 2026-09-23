@@ -371,3 +371,22 @@ jobs:
           test "$www_location" = "https://aijoylab.kr/articles/samsung-vs-sk-hynix-ai-memory"
 
           echo 'Production smoke test passed.'
+
+      - name: Install Production Reader QA runtime
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Weight of Silence Production Reader GOLD QA
+        env:
+          QA_BASE_URL: https://aijoylab.kr
+        run: node scripts/qa-weight-of-silence-reader.mjs
+
+      - name: Upload Production Reader GOLD QA
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: weight-of-silence-production-reader-gold
+          path: qa-artifacts/weight-of-silence-reader
+          if-no-files-found: error
+          retention-days: 30

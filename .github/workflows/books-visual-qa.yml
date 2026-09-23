@@ -17,6 +17,9 @@ on:
       - 'public/books/**'
       - 'scripts/qa-books-visual.mjs'
       - 'scripts/qa-call-center-reader.mjs'
+      - 'scripts/qa-weight-of-silence-reader.mjs'
+      - 'scripts/check-reader-binary-immutability.mjs'
+      - 'config/reader-binary-assets.json'
       - '.github/workflows/books-visual-qa.yml'
   workflow_dispatch:
 
@@ -58,6 +61,8 @@ jobs:
         run: node scripts/qa-books-visual.mjs
       - name: Call-center Reader 1440/1920 GOLD QA
         run: node scripts/qa-call-center-reader.mjs
+      - name: Weight of Silence Reader 1440/390 GOLD QA
+        run: node scripts/qa-weight-of-silence-reader.mjs
       - name: Stop preview
         if: always()
         shell: bash
