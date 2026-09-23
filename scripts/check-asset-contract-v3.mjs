@@ -57,10 +57,8 @@ function localAssetExists(assetPath) {
 function pageFiles(base, kind) {
   return walk(base).filter((file) => {
     if (path.basename(file) !== 'index.html') return false;
-    if (kind === 'book') {
-      const rel = path.relative(base, file).split(path.sep);
-      return rel.length === 2;
-    }
+    const rel = path.relative(base, file).split(path.sep);
+    if (kind === 'book' || kind === 'article') return rel.length === 2;
     return true;
   });
 }

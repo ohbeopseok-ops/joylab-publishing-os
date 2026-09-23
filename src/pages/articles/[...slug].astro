@@ -470,11 +470,22 @@ const scoreCriteria = [
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Article',
+    '@id': new URL(`/articles/${article.id}#article`, Astro.site ?? Astro.url.origin).toString(),
     headline: article.data.title,
     description: article.data.description,
+    inLanguage: 'ko-KR',
     datePublished: article.data.publishedAt.toISOString(),
-    ...(articleImageUrl ? { image: articleImageUrl } : {}),
-    author: { '@type': 'Organization', name: article.data.author },
-    publisher: { '@type': 'Organization', name: 'JoyLab' }
+    dateModified: (article.data.updatedAt ?? article.data.publishedAt).toISOString(),
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': article.data.canonical ?? new URL(`/articles/${article.id}`, Astro.site ?? Astro.url.origin).toString()
+    },
+    ...(articleImageUrl ? { image: [articleImageUrl] } : {}),
+    author: {
+      '@type': article.data.author === 'JoyLab' ? 'Organization' : 'Person',
+      name: article.data.author
+    },
+    publisher: { '@id': 'https://aijoylab.kr/#organization' },
+    isPartOf: { '@id': 'https://aijoylab.kr/#website' }
   })}></script>
 </BaseLayout>

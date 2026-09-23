@@ -3,6 +3,15 @@ const identityGraph = {
   '@context': 'https://schema.org',
   '@graph': [
     {
+      '@type': 'WebSite',
+      '@id': 'https://aijoylab.kr/#website',
+      name: 'JoyLab',
+      alternateName: 'AIJoyLab',
+      url: 'https://aijoylab.kr/',
+      inLanguage: 'ko-KR',
+      publisher: { '@id': 'https://aijoylab.kr/#organization' }
+    },
+    {
       '@type': 'Organization',
       '@id': 'https://aijoylab.kr/#organization',
       name: 'JoyLab',

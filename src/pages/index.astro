@@ -43,7 +43,12 @@ const latestResearch = homeSlotContractActive
 const tags = Array.from(new Set(articles.flatMap((item) => item.data.tags))).sort((a,b) => a.localeCompare(b, 'ko'));
 const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더십'];
 ---
-<BaseLayout title="JoyLab｜생각을 분석하고, 분석을 실행으로." bodyClass="homepage-v2">
+<BaseLayout
+  title="JoyLab｜투자·경제, AI·생산성, 성장·리더십 리서치"
+  description="JoyLab은 투자·경제, AI·생산성, 성장·리더십을 연결해 복잡한 정보를 실행 가능한 판단으로 바꾸는 독립 리서치 미디어입니다."
+  canonical="https://aijoylab.kr/"
+  bodyClass="homepage-v2"
+>
   <div class="home-v2">
     <section class="home-hero" aria-labelledby="home-title">
       <div class="home-hero__lead">
