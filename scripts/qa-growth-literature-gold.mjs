@@ -27,6 +27,11 @@ const targets = [
     required: ['.le-hero', '.le-visual--ep02', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
   },
   {
+    name: 'ep03',
+    route: '/guides/growth-leadership/literature/demian',
+    required: ['.le-hero', '.le-visual--ep03', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
     name: 'playbook',
     route: '/guides/growth-leadership/playbook/performance-coaching',
     required: ['.lp-hero', '.lp-principle', '.lp-questions', '.lp-gold'],
