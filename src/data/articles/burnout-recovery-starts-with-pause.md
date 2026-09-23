@@ -15,6 +15,8 @@ draft: false
 seoTitle: "번아웃 회복｜더 강한 루틴보다 멈춤이 먼저 필요한 이유"
 series: "침묵의 기술"
 readingTime: "약 8분"
+heroImage: "/images/research/reader-pack/burnout-pause.svg"
+heroAlt: "끊어진 수평선과 쉼표로 번아웃 이후 감속과 회복을 표현한 JoyLab Research 이미지"
 ---
 
 지쳤을 때 우리는 이상하게도 새로운 계획부터 세웁니다.
