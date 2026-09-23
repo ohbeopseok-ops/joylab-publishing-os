@@ -90,9 +90,9 @@ for(const file of files){
   const hasExplicitType=Boolean(meta.researchType || meta.articleType);
 
   const minClaims=cfg.claimSource.minMappedClaims[type] ?? 2;
-  const minPrimary=cfg.claimSource.minPrimarySources[type] ?? 0;
+  const minTrusted=cfg.claimSource.minTrustedSources[type] ?? 0;\n  const trustedTypes=cfg.claimSource.acceptedTrustedTypes[type] ?? ["primary"];
   const validMapped=mapped.filter(x=>x.claim && /^https?:\/\//.test(x.source));
-  const primaryCount=validMapped.filter(x=>x.sourceType==="primary").length;
+  const trustedCount=validMapped.filter(x=>trustedTypes.includes(x.sourceType)).length;
   const staleMap=validMapped.filter(x=>!/^\d{4}-\d{2}-\d{2}$/.test(x.checkedAt));
 
   let status="PASS";
@@ -117,11 +117,11 @@ for(const file of files){
     if(sourceWeak) hardFailures.push("changed/new article violates source hard gate");
     if(templateError) hardFailures.push("changed/new article contains template contamination");
     if(validMapped.length<minClaims) hardFailures.push(`claim-source map requires at least ${minClaims} mapped claims for ${type}; found ${validMapped.length}`);
-    if(primaryCount<minPrimary) hardFailures.push(`claim-source map requires at least ${minPrimary} primary source(s) for ${type}; found ${primaryCount}`);
+    if(trustedCount<minTrusted) hardFailures.push(`claim-source map requires at least ${minTrusted} trusted source(s) for ${type}; found ${trustedCount}`);
     if(staleMap.length>0) hardFailures.push(`claim-source map has ${staleMap.length} item(s) without checkedAt YYYY-MM-DD`);
   }
 
-  results.push({file,type,changed,status,urls,explicitSources,hasExplicitType,mappedClaims:validMapped.length,primarySources:primaryCount,reasons,hardFailures});
+  results.push({file,type,changed,status,urls,explicitSources,hasExplicitType,mappedClaims:validMapped.length,trustedSources:trustedCount,reasons,hardFailures});
 }
 
 const statuses=["PASS","REVISION","TEMPLATE ERROR","SOURCE WEAK"];
@@ -137,9 +137,9 @@ const lines=[
   "## Summary","",
   ...Object.entries(counts).map(([k,v])=>`- **${k}**: ${v}`),"",
   "## Articles","",
-  "| Article | Type | Changed | Status | URLs | Claim Map | Primary | Reasons / Hard failures |",
+  "| Article | Type | Changed | Status | URLs | Claim Map | Trusted | Reasons / Hard failures |",
   "|---|---|---:|---|---:|---:|---:|---|",
-  ...results.map(r=>`| ${r.file} | ${r.type} | ${r.changed?"yes":"no"} | ${r.status} | ${r.urls} | ${r.mappedClaims} | ${r.primarySources} | ${[...r.reasons,...r.hardFailures].join("; ").replaceAll("|","/")} |`)
+  ...results.map(r=>`| ${r.file} | ${r.type} | ${r.changed?"yes":"no"} | ${r.status} | ${r.urls} | ${r.mappedClaims} | ${r.trustedSources} | ${[...r.reasons,...r.hardFailures].join("; ").replaceAll("|","/")} |`)
 ];
 fs.mkdirSync("artifacts",{recursive:true});
 fs.writeFileSync("artifacts/research-v2-audit.md",lines.join("\n"));
