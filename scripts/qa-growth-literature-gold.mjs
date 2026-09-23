@@ -92,7 +92,7 @@ for (const target of targets) {
         requiredVisible: Object.fromEntries(required.map((selector) => [selector, visible(selector)])),
         hero01BackgroundConnected: hero01 ? hero01Bg.includes('ep01-old-man-and-the-sea.webp') : null,
         hero02BackgroundConnected: hero02 ? hero02Bg.includes('ep02-little-prince.webp') : null,
-        hero03BackgroundConnected: hero03 ? hero03Bg.includes('ep03-demian-v4-compact.webp') : null,
+        hero03BackgroundConnected: hero03 ? hero03Bg.includes('ep03-demian-v2.webp') : null,
         title: document.title,
       };
     }, target.required);
