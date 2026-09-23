@@ -88,6 +88,7 @@ jobs:
 
           check_200 https://aijoylab.kr/
           grep -Fq 'JoyLab' /tmp/body
+          grep -Fq '/images/home/joylab-decision-card.jpg' /tmp/body
           grep -Fq 'https://aijoylab.kr/' /tmp/body
           grep -Fq 'content-search' /tmp/body
           grep -Fq 'tag-filter' /tmp/body
@@ -268,6 +269,13 @@ jobs:
           grep -Fq '/articles/sk-hynix-outlook' /tmp/body
           grep -Fq '/articles/samsung-vs-sk-hynix-ai-memory' /tmp/body
 
+          check_200 https://aijoylab.kr/articles
+          grep -Fq 'JOYLAB RESEARCH' /tmp/body
+          grep -Fq '전체 리서치' /tmp/body
+          grep -Fq '/articles/what-is-hbm' /tmp/body
+          grep -Fq 'https://aijoylab.kr/articles' /tmp/body
+          grep -Fq 'CollectionPage' /tmp/body
+
           check_200 https://aijoylab.kr/articles/what-is-hbm
           grep -Fq 'HBM' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/what-is-hbm' /tmp/body
@@ -355,6 +363,7 @@ jobs:
           grep -Fq 'https://aijoylab.kr/about' /tmp/body
           grep -Fq 'https://aijoylab.kr/contact' /tmp/body
           grep -Fq 'https://aijoylab.kr/privacy' /tmp/body
+          grep -Fq '<loc>https://aijoylab.kr/articles</loc>' /tmp/body
           grep -Fq '<loc>https://aijoylab.kr/books</loc>' /tmp/body
           ! grep -Fq '<loc>https://aijoylab.kr/books/</loc>' /tmp/body
           ! grep -Fq '<loc>https://aijoylab.kr/search</loc>' /tmp/body
