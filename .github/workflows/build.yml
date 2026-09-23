@@ -54,6 +54,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          node --check scripts/materialize-ep03-demian-v5.mjs
           node --check scripts/audit-visual-system.mjs
           node --check scripts/sync-cloudflare-visual-metrics.mjs
           node --check scripts/sync-gsc-visual-metrics.mjs
