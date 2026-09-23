@@ -35,6 +35,10 @@ function extractMeta(html, name) {
   return '';
 }
 
+function normalizeUrl(value) {
+  try { return new URL(value).toString(); } catch { return value; }
+}
+
 function extractCanonical(html) {
   for (const tag of html.match(/<link\b[^>]*>/gi) ?? []) {
     const rel = tag.match(/rel=["']([^"']+)["']/i)?.[1]?.toLowerCase();
@@ -47,7 +51,7 @@ if (!fs.existsSync(sitemapPath)) failures.push('dist/sitemap.xml is missing');
 
 const sitemap = fs.existsSync(sitemapPath) ? read(sitemapPath) : '';
 const locs = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) =>
-  m[1].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&apos;/g, "'")
+  normalizeUrl(m[1].replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&apos;/g, "'"))
 );
 
 const duplicates = locs.filter((loc, index) => locs.indexOf(loc) !== index);
@@ -65,7 +69,7 @@ for (const loc of locs) {
     continue;
   }
   const html = read(file);
-  const canonical = extractCanonical(html);
+  const canonical = normalizeUrl(extractCanonical(html));
   const robots = extractMeta(html, 'robots').toLowerCase();
   if (canonical !== loc) failures.push('canonical mismatch: sitemap=' + loc + ' canonical=' + canonical);
   if (robots.includes('noindex')) failures.push('noindex page present in sitemap: ' + loc);
@@ -79,7 +83,7 @@ function expectedIndexablePages(base, prefix) {
       const rel = path.relative(base, file).split(path.sep);
       if (prefix === 'books' && rel.length !== 2) return null;
       const slug = rel.slice(0, -1).join('/');
-      return new URL('/' + prefix + '/' + slug, 'https://aijoylab.kr').toString();
+      return normalizeUrl(new URL('/' + prefix + '/' + slug, 'https://aijoylab.kr').toString());
     })
     .filter(Boolean);
 }
