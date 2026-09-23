@@ -23,7 +23,29 @@ for (const c of cases) {
   const response = await page.goto(base + url, { waitUntil: 'domcontentloaded' });
   if (!response || !response.ok()) throw new Error(c.name + ': HTTP ' + response?.status());
 
-  await page.waitForFunction(() => document.querySelectorAll('#markmapSvg text').length >= 5, null, { timeout: 20000 });
+  await page.waitForTimeout(1200);
+  const shellState = await page.evaluate(() => ({
+    hasSvg: Boolean(document.querySelector('#markmapSvg')),
+    textCount: document.querySelectorAll('#markmapSvg text').length,
+    runtime: window.__joylabMindmapRuntime || null,
+    bodyText: (document.body?.innerText || '').slice(0, 500)
+  }));
+  if (!shellState.hasSvg) {
+    throw new Error(c.name + ': mindmap shell missing; state=' + JSON.stringify(shellState) + '; pageErrors=' + pageErrors.join(' | '));
+  }
+
+  try {
+    await page.waitForFunction(() => document.querySelectorAll('#markmapSvg text').length >= 5, null, { timeout: 12000 });
+  } catch (error) {
+    const debugState = await page.evaluate(() => ({
+      textCount: document.querySelectorAll('#markmapSvg text').length,
+      runtime: window.__joylabMindmapRuntime || null,
+      hasFallbackGroup: Boolean(document.querySelector('#fallbackMindmapGroup')),
+      markmapApi: Boolean(window.markmap),
+      bodyText: (document.body?.innerText || '').slice(0, 500)
+    }));
+    throw new Error(c.name + ': mindmap nodes did not render; state=' + JSON.stringify(debugState) + '; pageErrors=' + pageErrors.join(' | '));
+  }
 
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   if (overflow > 2) throw new Error(c.name + ': horizontal overflow ' + overflow + 'px');
