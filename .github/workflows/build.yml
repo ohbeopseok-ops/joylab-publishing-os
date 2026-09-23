@@ -135,6 +135,7 @@ jobs:
           set -euo pipefail
           grep -Fq 'id="joylab-identity-schema"' dist/index.html
           grep -Fq '"@id":"https://aijoylab.kr/#organization"' dist/index.html
+          grep -Fq '"@id":"https://aijoylab.kr/#website"' dist/index.html
           grep -Fq '"@id":"https://aijoylab.kr/#founder"' dist/index.html
           grep -Fq 'https://x.com/ohbeopseok' dist/index.html
           ! grep -Fq 'https://www.youtube.com/@superhalabe100' dist/index.html
@@ -145,6 +146,18 @@ jobs:
           ! grep -Fq 'data-analytics-target="youtube"' dist/about/index.html
           grep -Fq '오법석 · AIJoyLab' dist/about/index.html
           test "$(tr -d '\r\n' < dist/1793952a193325da594f7015ca133737.txt)" = '1793952a193325da594f7015ca133737'
+
+      - name: Verify Research SEO contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f dist/articles/index.html
+          grep -Fq '<link rel="canonical" href="https://aijoylab.kr/articles"' dist/articles/index.html
+          grep -Fq 'CollectionPage' dist/articles/index.html
+          grep -Fq '/articles/what-is-hbm' dist/articles/index.html
+          grep -Fq '"dateModified":' dist/articles/what-is-hbm/index.html
+          grep -Fq '"mainEntityOfPage":' dist/articles/what-is-hbm/index.html
+          grep -Fq '"@id":"https://aijoylab.kr/#website"' dist/articles/what-is-hbm/index.html
 
       - name: Verify Click Analytics V3 contract
         shell: bash
