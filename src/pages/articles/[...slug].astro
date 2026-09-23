@@ -64,13 +64,20 @@ const isAiPowerSeries = article.data.series?.startsWith('AI 전력');
 const isMoneyBasics = article.data.series === '돈 공부 기초';
 const isUsRatesSeries = article.data.series === '미국 금리 리서치';
 const isUsMacroSeries = article.data.series === '미국 경제지표 읽는 법';
+const isGrowthResearch = article.data.category === '성장·리더십' || article.data.series === '침묵의 기술';
 const aiEconomicsClusterIds = new Set(['ai-bubble-vs-compute-supercycle-2026','openai-anthropic-ipo-cash-burn-2026','ai-infrastructure-hbm-mlcc-power-grid-2026','samsung-hbm4-memory-outlook-2026-09-20','ai-api-key-compute-theft-2026']);
 const isAiEconomicsCluster = aiEconomicsClusterIds.has(article.id);
 const aiSecurityClusterIds = new Set(['ai-api-key-compute-theft-2026','ai-agent-security-prompt-to-rce-2026','mcp-security-tool-poisoning-2026','ai-database-security-data-layer-2026']);
 const aiInfrastructureClusterIds = new Set(['gpu-compute-economics-rubin-2026','what-is-hbm','ai-infrastructure-hbm-mlcc-power-grid-2026','ai-data-center-capacity-stack-2026','ai-power-next-bottleneck','ai-data-center-cooling-bottleneck']);
 const isAiSecurityCluster = aiSecurityClusterIds.has(article.id);
 const isAiInfrastructureCluster = aiInfrastructureClusterIds.has(article.id);
-const guideCta = isAiSecurityCluster
+const guideCta = isGrowthResearch
+  ? {
+      title: 'Growth & Leadership Research Hub',
+      href: '/guides/growth-leadership',
+      label: '성장·회복·관계·리더십 리서치 전체 보기 →'
+    }
+  : isAiSecurityCluster
   ? {
       title: 'AI Security Research Hub',
       href: '/guides/ai-security',
@@ -117,7 +124,13 @@ const guideCta = isAiSecurityCluster
           href: '/guides/semiconductor-investing',
           label: 'HBM부터 비교까지 한 번에 보기 →'
         };
-const takeaways = isSamsung
+const takeaways = isGrowthResearch
+  ? [
+      ['핵심 질문', `${article.data.tags.slice(0, 2).join('·')}를 중심으로 삶과 조직의 문제를 다시 정의합니다.`],
+      ['해석 기준', '개념과 사례를 분리해 보고, 무엇이 구조적 원인인지 살펴봅니다.'],
+      ['실행 연결', '읽고 끝내지 않고 일상과 업무에서 바로 적용할 작은 행동으로 번역합니다.']
+    ]
+  : isSamsung
   ? [
       ['실적 추정치', '현재 실적보다 다음 분기와 연간 EPS 추정치의 방향을 먼저 봅니다.'],
       ['HBM 실행력', '기술 발표보다 인증·양산·수율·공급 물량이 이익으로 연결되는지 확인합니다.'],
@@ -180,8 +193,8 @@ const scoreCriteria = [
           <h2 class="research-panel__title" id="brief-title">Research Brief</h2>
           <ul>
             <li>{article.data.description}</li>
-            <li>JoyLab은 단일 뉴스보다 여러 변수를 한 흐름으로 연결해 판단합니다.</li>
-            <li>이 글은 매수·매도 지시가 아니라 판단 기준과 재점검 조건을 제공하는 리서치입니다.</li>
+            <li>{isGrowthResearch ? 'JoyLab은 개념, 경험, 행동을 하나의 흐름으로 연결해 해석합니다.' : 'JoyLab은 단일 뉴스보다 여러 변수를 한 흐름으로 연결해 판단합니다.'}</li>
+            <li>{isGrowthResearch ? '이 글은 정답을 제시하기보다 스스로 판단하고 적용할 기준을 남기는 리서치입니다.' : '이 글은 매수·매도 지시가 아니라 판단 기준과 재점검 조건을 제공하는 리서치입니다.'}</li>
           </ul>
         </section>
 
@@ -209,12 +222,23 @@ const scoreCriteria = [
         )}
 
         <section class="research-panel" aria-labelledby="framework-title">
-          <h2 class="research-panel__title" id="framework-title">JoyLab 투자 프레임워크</h2>
+          <h2 class="research-panel__title" id="framework-title">{isGrowthResearch ? 'JoyLab 성장·리더십 프레임워크' : 'JoyLab 투자 프레임워크'}</h2>
           <div class="framework-grid">
-            <div class="framework-step"><em>FACT</em><strong>무엇이 사실인가?</strong><p>데이터와 공시, 확인 가능한 사건을 먼저 분리합니다.</p></div>
-            <div class="framework-step"><em>INTERPRETATION</em><strong>무엇을 의미하는가?</strong><p>변수의 방향과 구조적 의미를 연결합니다.</p></div>
-            <div class="framework-step"><em>SCENARIO</em><strong>어떤 가능성이 있는가?</strong><p>Bull·Base·Bear 조건을 나누어 봅니다.</p></div>
-            <div class="framework-step"><em>ACTION</em><strong>무엇을 확인할 것인가?</strong><p>다음 판단 전 반드시 확인할 체크포인트를 남깁니다.</p></div>
+            {isGrowthResearch ? (
+              <>
+                <div class="framework-step"><em>OBSERVE</em><strong>무엇이 일어나고 있는가?</strong><p>감정과 평가보다 먼저 실제 상황과 반복 패턴을 관찰합니다.</p></div>
+                <div class="framework-step"><em>INTERPRET</em><strong>왜 이런 일이 생기는가?</strong><p>개인 성향, 관계, 구조, 환경 요인을 나누어 해석합니다.</p></div>
+                <div class="framework-step"><em>CHOOSE</em><strong>무엇을 선택할 것인가?</strong><p>통제 가능한 범위와 우선순위를 정해 한 가지 행동을 선택합니다.</p></div>
+                <div class="framework-step"><em>REFLECT</em><strong>무엇을 다시 볼 것인가?</strong><p>결과뿐 아니라 판단 과정과 다음 수정점을 돌아봅니다.</p></div>
+              </>
+            ) : (
+              <>
+                <div class="framework-step"><em>FACT</em><strong>무엇이 사실인가?</strong><p>데이터와 공시, 확인 가능한 사건을 먼저 분리합니다.</p></div>
+                <div class="framework-step"><em>INTERPRETATION</em><strong>무엇을 의미하는가?</strong><p>변수의 방향과 구조적 의미를 연결합니다.</p></div>
+                <div class="framework-step"><em>SCENARIO</em><strong>어떤 가능성이 있는가?</strong><p>Bull·Base·Bear 조건을 나누어 봅니다.</p></div>
+                <div class="framework-step"><em>ACTION</em><strong>무엇을 확인할 것인가?</strong><p>다음 판단 전 반드시 확인할 체크포인트를 남깁니다.</p></div>
+              </>
+            )}
           </div>
         </section>
 
