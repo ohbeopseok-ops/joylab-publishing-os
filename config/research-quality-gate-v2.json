@@ -1,5 +1,5 @@
 {
-  "version": "2.1",
+  "version": "2.2",
   "contentRoot": "src/data/articles",
   "thresholds": {
     "publish": 85,
@@ -15,6 +15,26 @@
     "counter_evidence",
     "recheck"
   ],
+  "claimSource": {
+    "minMappedClaims": {
+      "research": 3,
+      "framework": 2,
+      "guide": 2,
+      "benchmark": 3
+    },
+    "minPrimarySources": {
+      "research": 1,
+      "framework": 0,
+      "guide": 1,
+      "benchmark": 1
+    },
+    "requiredFields": [
+      "claim",
+      "source",
+      "sourceType",
+      "checkedAt"
+    ]
+  },
   "investmentOnlyPatterns": [
     "반도체 투자 가이드",
     "JoyLab 투자 프레임워크",
