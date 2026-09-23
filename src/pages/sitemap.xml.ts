@@ -30,6 +30,7 @@ export async function GET({ site }: { site: URL }) {
     '/about',
     '/contact',
     '/privacy',
+    '/articles',
     '/guides/investing',
     '/guides/ai-productivity',
     '/guides/codex',
