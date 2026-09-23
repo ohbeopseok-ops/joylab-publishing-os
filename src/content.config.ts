@@ -10,6 +10,7 @@ const articles = defineCollection({
     cardTitle: z.string().optional(),
     cardDescription: z.string().optional(),
     category: z.string(),
+    researchType: z.enum(['research', 'framework', 'guide', 'benchmark']).optional(),
     tags: z.array(z.string()).default([]),
     publishedAt: z.coerce.date(),
     updatedAt: z.coerce.date().optional(),
