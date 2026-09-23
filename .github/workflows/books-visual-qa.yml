@@ -18,6 +18,7 @@ on:
       - 'scripts/qa-books-visual.mjs'
       - 'scripts/qa-call-center-reader.mjs'
       - 'scripts/qa-weight-of-silence-reader.mjs'
+      - 'scripts/qa-weight-of-silence-mindmap.mjs'
       - 'scripts/check-reader-binary-immutability.mjs'
       - 'config/reader-binary-assets.json'
       - '.github/workflows/books-visual-qa.yml'
@@ -63,6 +64,8 @@ jobs:
         run: node scripts/qa-call-center-reader.mjs
       - name: Weight of Silence Reader 1440/390 GOLD QA
         run: node scripts/qa-weight-of-silence-reader.mjs
+      - name: Weight of Silence Mindmap 1440/390 GOLD QA
+        run: node scripts/qa-weight-of-silence-mindmap.mjs
       - name: Stop preview
         if: always()
         shell: bash
