@@ -16,10 +16,16 @@ const chapters = (await getCollection('bookChapters'))
   .filter((chapter) => chapter.data.bookSlug === book.id)
   .sort((a, b) => a.data.order - b.data.order);
 
-const relatedArticles = (await getCollection('articles'))
-  .filter((article) => !article.data.draft && article.data.category === book.data.category)
-  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
-  .slice(0, 3);
+const allArticles = (await getCollection('articles')).filter((article) => !article.data.draft);
+const explicitRelatedIds = book.data.relatedArticleIds ?? [];
+const relatedArticles = explicitRelatedIds.length > 0
+  ? explicitRelatedIds
+      .map((id) => allArticles.find((article) => article.id === id))
+      .filter(Boolean)
+  : allArticles
+      .filter((article) => article.data.category === book.data.category)
+      .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+      .slice(0, 3);
 
 const relatedGuide = book.data.category === '투자·경제'
   ? { href: '/guides/investing', label: '투자·경제 전체 보기' }
@@ -31,6 +37,7 @@ const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site
 const cover = book.data.coverImage;
 const readerPath = book.data.readerPath ?? `/books/${book.id}/read`;
 const readerCta = book.data.readerCta ?? '지금 읽기 · 작가의 말 + 1장';
+const mindmapPath = book.data.mindmapPath;
 const overline = book.data.overline ?? '오늘도 조금 더 나답게 살아가는 당신에게';
 const topics = book.data.topics ?? ['성장과 회복', '관계와 공감', '일과 삶의 균형', '리더에게 필요한 태도'];
 const defaultBenefits = [
@@ -85,6 +92,15 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
             data-analytics-target={book.id}
             data-analytics-placement="book_hero_v2"
           >{readerCta} <span aria-hidden="true">→</span></a>
+          {mindmapPath && (
+            <a
+              class="book-v2-secondary"
+              href={mindmapPath}
+              data-analytics-event="book_mindmap_open"
+              data-analytics-target={book.id}
+              data-analytics-placement="book_hero_v2"
+            >마인드맵으로 보기</a>
+          )}
           <a class="book-v2-secondary" href="#toc">전체 목차 보기</a>
         </div>
         <div class="book-v2-topics" aria-label="책의 핵심 주제">
@@ -106,6 +122,7 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
       <a href="#recommend">추천 대상</a>
       <a href="#toc">목차</a>
       <a href={readerPath}>{book.data.access === 'full' ? '웹 리더' : '미리보기'}</a>
+      {mindmapPath && <a href={mindmapPath}>마인드맵</a>}
       <a href="#author">저자 소개</a>
       <a href="#related">함께 읽으면 좋은 글</a>
     </div>
@@ -180,12 +197,17 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
 
     <section id="related" class="book-v2-section book-v2-related">
       <div class="book-v2-section-head">
-        <div><p class="book-v2-label">READ TOGETHER</p><h2>함께 읽으면 좋은 글</h2></div>
+        <div><p class="book-v2-label">READ TOGETHER</p><h2>{explicitRelatedIds.length > 0 ? '이 책에서 확장된 리서치' : '함께 읽으면 좋은 글'}</h2></div>
         <a href={relatedGuide.href}>{relatedGuide.label} →</a>
       </div>
       <div class="book-v2-related-grid">
         {relatedArticles.map((article) => (
-          <a href={`/articles/${article.id}`}>
+          <a
+            href={`/articles/${article.id}`}
+            data-analytics-event="book_related_research_click"
+            data-analytics-target={article.id}
+            data-analytics-placement={book.id}
+          >
             <small>{article.data.category}</small>
             <h3>{article.data.cardTitle ?? article.data.title}</h3>
             <p>{article.data.cardDescription ?? article.data.description}</p>
