@@ -32,6 +32,11 @@ const targets = [
     required: ['.le-hero', '.le-visual--ep03', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
   },
   {
+    name: 'ep04',
+    route: '/guides/growth-leadership/literature/metamorphosis',
+    required: ['.le-hero', '.le-visual--ep04', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
     name: 'playbook',
     route: '/guides/growth-leadership/playbook/performance-coaching',
     required: ['.lp-hero', '.lp-principle', '.lp-questions', '.lp-gold'],

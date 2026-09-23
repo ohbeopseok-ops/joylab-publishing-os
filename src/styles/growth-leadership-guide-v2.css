@@ -410,3 +410,52 @@
     background-position:58% center;
   }
 }
+
+
+/* EP04 Metamorphosis dignity visual */
+.literature-essay-page .le-visual--ep04{
+  min-height:430px;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(7,23,47,.96),rgba(11,31,77,.86) 48%,rgba(72,82,94,.78)),
+    linear-gradient(145deg,#07172f,#111827);
+}
+.literature-essay-page .le-visual--ep04:before{
+  content:"";
+  position:absolute;
+  right:20%;
+  top:20%;
+  width:180px;
+  height:230px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:12px;
+  transform:skewY(-4deg);
+  box-shadow:34px 18px 0 rgba(255,255,255,.03);
+}
+.literature-essay-page .le-visual--ep04:after{
+  content:"";
+  position:absolute;
+  right:calc(20% + 72px);
+  top:calc(20% + 92px);
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:#d6a84b;
+  opacity:.75;
+  box-shadow:0 0 40px rgba(214,168,75,.35);
+}
+.literature-essay-page .le-visual--ep04 i{
+  position:absolute;
+  left:55%;
+  right:18%;
+  top:63%;
+  height:1px;
+  background:linear-gradient(90deg,rgba(143,186,255,.55),rgba(255,255,255,.08));
+}
+@media(max-width:760px){
+  .literature-essay-page .le-visual--ep04{min-height:300px}
+  .literature-essay-page .le-visual--ep04:before{right:10%;width:125px;height:165px}
+  .literature-essay-page .le-visual--ep04:after{right:calc(10% + 48px);top:calc(20% + 62px)}
+  .literature-essay-page .le-visual--ep04 i{left:42%;right:10%}
+}
