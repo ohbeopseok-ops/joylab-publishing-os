@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "retired": [
+    {
+      "path": "public/books/weight-of-silence/interactive.bin",
+      "reason": "corrupted production reader payload; replaced by interactive-v2.bin"
+    },
+    {
+      "path": "public/books/weight-of-silence/mindmap.bin",
+      "reason": "retired production mindmap payload; replaced by mindmap-v2.bin"
+    },
+    {
+      "path": "public/images/leadership/literature/ep03-demian.webp",
+      "reason": "retired EP03 Hero path"
+    },
+    {
+      "path": "public/images/leadership/literature/ep03-demian-v3-fixed.webp",
+      "reason": "retired EP03 recovery asset"
+    },
+    {
+      "path": "public/images/leadership/literature/ep03-demian-v4.webp",
+      "reason": "retired EP03 recovery asset"
+    },
+    {
+      "path": "public/images/leadership/literature/ep03-demian-v4-compact.webp",
+      "reason": "retired EP03 recovery asset"
+    },
+    {
+      "path": "public/images/leadership/literature/ep03-demian-v5.webp",
+      "reason": "retired public path; v5 source chunks remain only as build source for active v7"
+    },
+    {
+      "path": "public/images/leadership/literature/ep03-demian-v6.webp",
+      "reason": "retired EP03 cache-bust path"
+    }
+  ],
+  "allowedRegistryFiles": [
+    "config/reader-binary-assets.json",
+    "config/legacy-assets.json",
+    "docs/IMAGE_CACHE_BUSTING.md"
+  ]
+}
