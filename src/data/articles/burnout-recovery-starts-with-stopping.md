@@ -15,6 +15,9 @@ featured: false
 draft: false
 seoTitle: "번아웃 회복에 필요한 것은 더 강한 루틴이 아니다｜멈춤이 필요한 이유"
 series: "침묵의 기술"
+heroImage: "/images/books/weight-of-silence/research/burnout-recovery-starts-with-stopping.webp"
+heroAlt: "비 오는 밤의 피아노와 창가로 멈춤과 회복을 표현한 이미지"
+ogImage: "/images/books/weight-of-silence/research/burnout-recovery-starts-with-stopping.webp"
 readingTime: "약 9분"
 ---
 
