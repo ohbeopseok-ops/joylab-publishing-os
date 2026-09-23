@@ -1,5 +1,5 @@
 {
-  "version": "2.0",
+  "version": "2.1",
   "contentRoot": "src/data/articles",
   "thresholds": {
     "publish": 85,
@@ -15,7 +15,7 @@
     "counter_evidence",
     "recheck"
   ],
-  "templateErrorPatterns": [
+  "investmentOnlyPatterns": [
     "반도체 투자 가이드",
     "JoyLab 투자 프레임워크",
     "매수·매도 지시",
@@ -35,38 +35,22 @@
     "### Sources",
     "### 출처"
   ],
-  "investmentSlugHints": [
-    "samsung",
-    "hynix",
-    "semiconductor",
-    "treasury",
-    "fed",
-    "nasdaq",
-    "shipbuilding",
-    "foreign-investor",
-    "economic",
-    "company",
-    "outlook",
-    "rates",
-    "retail-sales",
-    "cpi",
-    "ppi",
-    "pce",
-    "jobs"
-  ],
-  "nonInvestmentSlugHints": [
-    "codex",
-    "aside",
-    "ai-agent",
-    "ai-workflow",
-    "ai-productivity",
-    "leadership",
-    "performance",
-    "recognition",
-    "fairness",
-    "feedback",
-    "learning",
-    "mcp-security",
-    "what-is-ai-agent"
-  ]
+  "crossPillarPatterns": {
+    "framework": [
+      "반도체 투자 가이드",
+      "미국채 START HERE",
+      "투자·경제 START HERE"
+    ],
+    "guide": [
+      "반도체 투자 가이드",
+      "미국채 START HERE",
+      "JoyLab 투자 프레임워크"
+    ],
+    "benchmark": [
+      "반도체 투자 가이드",
+      "미국채 START HERE",
+      "JoyLab 투자 프레임워크"
+    ],
+    "research": []
+  }
 }
