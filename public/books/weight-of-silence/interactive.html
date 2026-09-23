@@ -14,7 +14,7 @@
   <main><div class="loading"><b>JoyLab Books</b><span>콘텐츠를 여는 중입니다.</span></div></main>
   <script>
     (async () => {
-      const response = await fetch('./interactive.bin', { cache: 'no-store' });
+      const response = await fetch('./interactive-v2.bin', { cache: 'no-store' });
       if (!response.ok) throw new Error('asset load failed');
 
       const bytes = new Uint8Array(await response.arrayBuffer());
