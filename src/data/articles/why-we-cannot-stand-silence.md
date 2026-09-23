@@ -15,6 +15,8 @@ draft: false
 seoTitle: "스마트폰 시대 우리는 왜 침묵을 불안해할까｜공백 공포와 주의력"
 series: "침묵의 기술"
 readingTime: "약 8분"
+heroImage: "/images/research/reader-pack/silence-attention.svg"
+heroAlt: "딥 네이비 여백과 쉼표로 공백 공포와 주의력을 표현한 JoyLab Research 이미지"
 ---
 
 엘리베이터 문이 닫히고 낯선 사람과 둘만 남았을 때 우리는 왜 곧바로 스마트폰을 꺼낼까요.
