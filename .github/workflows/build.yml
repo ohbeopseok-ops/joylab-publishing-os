@@ -71,6 +71,7 @@ jobs:
           node --check scripts/check-asset-contract-v3.mjs
           node --check scripts/check-legacy-asset-cleanup.mjs
           node --check scripts/write-release-gate-v1.mjs
+          node --check scripts/check-indexability.mjs
           node scripts/report-homepage-funnel.mjs --self-test
           node scripts/submit-indexnow.mjs --self-test
           node scripts/report-gsc-7d.mjs --self-test
@@ -124,6 +125,9 @@ jobs:
 
       - name: Legacy Asset Cleanup Gate
         run: node scripts/check-legacy-asset-cleanup.mjs
+
+      - name: Indexability Gate
+        run: node scripts/check-indexability.mjs
 
       - name: Verify JoyLab identity schema
         shell: bash
