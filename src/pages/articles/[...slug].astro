@@ -152,7 +152,7 @@ const scoreCriteria = [
 <BaseLayout title={`${title} | JoyLab`} description={article.data.description} canonical={article.data.canonical} type="article" bodyClass="research-article-page" image={articleImage}>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
 
-  <article class="research-v2-shell article-shell">
+  <article class="research-v2-shell article-shell" data-asset-contract-kind="article" data-asset-contract-hero={heroImage ?? ''} data-asset-contract-og={articleImage ?? ''}>
     <header class="research-cover" style={heroImage ? 'grid-template-columns:1fr' : undefined}>
       <div class="research-cover__copy">
         <div class="research-kicker">JOYLAB RESEARCH · {article.data.category}</div>
