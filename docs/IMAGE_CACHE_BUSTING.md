@@ -15,7 +15,7 @@ Use a monotonically new immutable filename instead:
 ```
 ep01-<slug>-v2.webp
 ep02-<slug>-v2.webp
-ep03-<slug>-v6.webp
+ep03-<slug>-v7.webp
 ```
 
 A filename that appeared in any previous production deployment is **not** considered new, even if the file is currently absent from `main`.
@@ -70,8 +70,8 @@ Do not delete the immediately previous verified asset in the same change unless 
 ## EP01–EP03 application
 
 - EP01 and EP02 keep their current verified paths until replacement is required.
-- EP03 cache-bust path for this rollout: `/images/leadership/literature/ep03-demian-v6.webp`.
-- `ep03-demian-v2.webp` is not a valid fresh cache-bust path because that filename was deployed previously.
+- EP03 cache-bust path for this rollout: `/images/leadership/literature/ep03-demian-v7.webp`.
+- `ep03-demian-v2.webp` and `ep03-demian-v6.webp` are not valid fresh cache-bust paths because those filenames were deployed previously.
 
 
 ## CI enforcement
