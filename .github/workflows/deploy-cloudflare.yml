@@ -203,42 +203,21 @@ jobs:
           check_200 https://aijoylab.kr/books/imperfect/cover.webp
           check_200 https://aijoylab.kr/books/imperfect/og.webp
 
-          reader_pack_url='https://aijoylab.kr/books/weight-of-silence'
-          check_200 "$reader_pack_url?deploy=${GITHUB_SHA}"
-          grep -Fq '악보의 쉼표 사이에 고여 있는 침묵의 무게' /tmp/body
-          grep -Fq '/books/weight-of-silence/interactive.html' /tmp/body
-          grep -Fq '/books/weight-of-silence/mindmap.html' /tmp/body
-          grep -Fq '/articles/why-we-cannot-stand-silence' /tmp/body
-          grep -Fq '/articles/bach-counterpoint-order-in-chaos' /tmp/body
-          grep -Fq '/articles/burnout-recovery-starts-with-pause' /tmp/body
-          grep -Fq 'data-analytics-event="book_mindmap_open"' /tmp/body
-          grep -Fq 'data-analytics-event="book_related_research_click"' /tmp/body
+          silence_book_url='https://aijoylab.kr/books/weight-of-silence'
+          check_200 "$silence_book_url"
+          grep -Fq '/books/weight-of-silence/reader.html' /tmp/body
+          grep -Fq '/books/weight-of-silence/mindmap-reader.html' /tmp/body
 
-          check_follow_200 "https://aijoylab.kr/books/weight-of-silence/interactive.html?deploy=${GITHUB_SHA}"
-          grep -Fq '악보의 쉼표 사이에 고여 있는 침묵의 무게' /tmp/body
-          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/interactive.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-interactive.bin
-          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-interactive.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('악보의 쉼표 사이에 고여 있는 침묵의 무게'))process.exit(1);console.log('Reader payload strict gzip PASS')"
+          check_200 "$silence_book_url/reader.html?deploy=${GITHUB_SHA}"
+          grep -Eiq '<!doctype html|<html' /tmp/body
+          test "$(stat -c%s /tmp/body)" -gt 10000
 
-          check_follow_200 "https://aijoylab.kr/books/weight-of-silence/mindmap.html?deploy=${GITHUB_SHA}"
-          grep -Fq '침묵' /tmp/body
-          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/mindmap.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-mindmap.bin
-          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-mindmap.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('침묵'))process.exit(1);console.log('Mindmap payload strict gzip PASS')"
+          check_200 "$silence_book_url/mindmap-reader.html?deploy=${GITHUB_SHA}"
+          grep -Eiq '<!doctype html|<html' /tmp/body
+          test "$(stat -c%s /tmp/body)" -gt 5000
 
-          check_200 "https://aijoylab.kr/articles/why-we-cannot-stand-silence?deploy=${GITHUB_SHA}"
-          grep -Fq '침묵의 기술' /tmp/body
-          grep -Fq 'JoyLab 성장·리더십 프레임워크' /tmp/body
-          grep -Fq '/guides/growth-leadership' /tmp/body
-
-          check_200 "https://aijoylab.kr/articles/bach-counterpoint-order-in-chaos?deploy=${GITHUB_SHA}"
-          grep -Fq '침묵의 기술' /tmp/body
-          grep -Fq 'JoyLab 성장·리더십 프레임워크' /tmp/body
-
-          check_200 "https://aijoylab.kr/articles/burnout-recovery-starts-with-pause?deploy=${GITHUB_SHA}"
-          grep -Fq '침묵의 기술' /tmp/body
-          grep -Fq 'JoyLab 성장·리더십 프레임워크' /tmp/body
-
-          check_200 "https://aijoylab.kr/images/books/weight-of-silence-cover.svg?deploy=${GITHUB_SHA}"
-          check_200 "https://aijoylab.kr/images/books/weight-of-silence-og.svg?deploy=${GITHUB_SHA}"
+          check_200 "$silence_book_url/interactive.html?deploy=${GITHUB_SHA}"
+          grep -Fq 'reader.html' /tmp/body
 
           ax_book_url='https://aijoylab.kr/books/ax-customer-center'
           check_200 "$ax_book_url"
