@@ -85,16 +85,11 @@ The gate performs:
 - 16:9 enforcement for Literature Hero/OG raster assets
 
 
-## Asset Contract V2
+## Asset Contract V3
 
-After Astro build, `scripts/check-asset-contract-v2.mjs` compares the built page `og:image` with the CSS Hero background path for Literature EP01–EP03. Any mismatch fails the required Build check.
+After Astro build, `scripts/check-asset-contract-v3.mjs` validates every published Article and Book detail page. It compares each page's declared Hero/Cover and OG roles with the actually rendered high-priority image and `og:image`, then verifies local assets exist in `dist`.
 
-Current contract scope:
-- EP01 `old-man-and-the-sea`
-- EP02 `little-prince`
-- EP03 `demian`
-
-This catches partial replacements where metadata points to a new image but the visible Hero still points to an old path, or vice versa.
+Articles and Books use one common contract, while Books may intentionally use a portrait Cover and a separate social OG image.
 
 ## PR checklist
 
@@ -121,3 +116,11 @@ Reader Pack payloads such as `.bin` files follow the same immutable-path rule as
 - An active reader/mindmap payload must match `-vN.bin`.
 - If a registered source HTML changes without bumping the active binary filename, `Reader Binary Immutable Asset Gate` fails CI.
 - Production Smoke must download and strict-decode the currently active binary path.
+
+## Legacy Asset Cleanup Gate
+
+Retired paths are registered in `config/legacy-assets.json`. `scripts/check-legacy-asset-cleanup.mjs` blocks Build if a retired file still exists or is referenced by active code. Historical registry/document references are exempt.
+
+## Release authority
+
+A successful Build is necessary but not sufficient for GOLD. `docs/RELEASE_GATE_V1.md` defines the final production authority: Production Smoke and Production Reader QA must both be GREEN before a release can be marked GOLD.

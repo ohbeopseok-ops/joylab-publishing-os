@@ -16,6 +16,7 @@ tags:
   - 민원처리
   - AI보안
 coverImage: "/books/call-center-ai-survival/cover-v2.svg"
+ogImage: "/books/call-center-ai-survival/hero-v2.svg"
 heroQuote: "AI의 답을 대신 믿는 것이 아니라, AI로 더 잘 판단하는 상담사가 되는 법."
 landingHeading: "검색부터 ACW 요약, 고객응대, 복합 민원까지 — 상담석에서 바로 쓰는 생성형 AI 실무 가이드"
 readerProfiles:
