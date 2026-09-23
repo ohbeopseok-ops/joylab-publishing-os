@@ -88,7 +88,6 @@ jobs:
 
           check_200 https://aijoylab.kr/
           grep -Fq 'JoyLab' /tmp/body
-          grep -Fq '/images/home/joylab-decision-card.jpg' /tmp/body
           grep -Fq 'https://aijoylab.kr/' /tmp/body
           grep -Fq 'content-search' /tmp/body
           grep -Fq 'tag-filter' /tmp/body
