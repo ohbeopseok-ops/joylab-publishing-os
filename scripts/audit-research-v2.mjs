@@ -40,13 +40,18 @@ function evidenceMap(text){
     if(/^\S/.test(line) && line.trim()) break;
     lines.push(line);
   }
-  const joined=lines.join("\n");
+  const joined="\n"+lines.join("\n");
   const chunks=joined.split(/\n\s*-\s+claim:\s*/).slice(1);
+  const value=(chunk,key)=>{
+    const line=chunk.split("\n").find(x=>x.trim().startsWith(key+":"));
+    if(!line) return "";
+    return line.trim().slice(key.length+1).trim().replace(/^["']|["']$/g,"");
+  };
   return chunks.map(chunk=>{
     const claim=(chunk.split("\n")[0]||"").trim().replace(/^["']|["']$/g,"");
-    const source=(chunk.match(/^\\s+source:\\s*["']?(https?:\\/\\/[^"'\\s]+)/m)||[])[1]||"";
-    const sourceType=((chunk.match(/^\s+sourceType:\s*([A-Za-z_-]+)/m)||[])[1]||"").toLowerCase();
-    const checkedAt=((chunk.match(/^\\s+checkedAt:\\s*([^\\n]+)/m)||[])[1]||"").trim().replace(/^["']|["']$/g,"");
+    const source=value(chunk,"source");
+    const sourceType=value(chunk,"sourceType").toLowerCase();
+    const checkedAt=value(chunk,"checkedAt");
     return {claim,source,sourceType,checkedAt};
   }).filter(x=>x.claim||x.source);
 }
