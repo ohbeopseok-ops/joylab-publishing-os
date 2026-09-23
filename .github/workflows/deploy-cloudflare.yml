@@ -37,11 +37,9 @@ jobs:
         run: node scripts/materialize-ep03-demian-v5.mjs
 
       - name: Build Astro site
-        id: build_site
         run: npm run build
 
       - name: Deploy to Cloudflare Workers
-        id: cloudflare_deploy
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -49,7 +47,6 @@ jobs:
           command: deploy
 
       - name: Wait for custom domain
-        id: custom_domain
         shell: bash
         run: |
           set -euo pipefail
@@ -65,7 +62,6 @@ jobs:
           exit 1
 
       - name: Production smoke test
-        id: production_smoke
         shell: bash
         run: |
           set -euo pipefail
@@ -220,13 +216,13 @@ jobs:
 
           check_follow_200 "https://aijoylab.kr/books/weight-of-silence/interactive.html?deploy=${GITHUB_SHA}"
           grep -Fq '악보의 쉼표 사이에 고여 있는 침묵의 무게' /tmp/body
-          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/interactive-v2.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-interactive-v2.bin
-          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-interactive-v2.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('악보의 쉼표 사이에 고여 있는 침묵의 무게'))process.exit(1);console.log('Reader payload strict gzip PASS')"
+          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/interactive-v3.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-interactive-v3.bin
+          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-interactive-v3.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('악보의 쉼표 사이에 고여 있는 침묵의 무게'))process.exit(1);console.log('Reader payload strict gzip PASS')"
 
           check_follow_200 "https://aijoylab.kr/books/weight-of-silence/mindmap.html?deploy=${GITHUB_SHA}"
           grep -Fq '침묵' /tmp/body
-          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/mindmap-v2.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-mindmap-v2.bin
-          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-mindmap-v2.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('침묵'))process.exit(1);console.log('Mindmap payload strict gzip PASS')"
+          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/mindmap-v3.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-mindmap-v3.bin
+          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-mindmap-v3.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('침묵'))process.exit(1);console.log('Mindmap payload strict gzip PASS')"
 
           check_200 "https://aijoylab.kr/articles/why-we-cannot-stand-silence?deploy=${GITHUB_SHA}"
           grep -Fq '침묵의 기술' /tmp/body
@@ -382,10 +378,14 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Weight of Silence Production Reader GOLD QA
-        id: production_reader_qa
         env:
           QA_BASE_URL: https://aijoylab.kr
         run: node scripts/qa-weight-of-silence-reader.mjs
+
+      - name: Weight of Silence Production Mindmap GOLD QA
+        env:
+          QA_BASE_URL: https://aijoylab.kr
+        run: node scripts/qa-weight-of-silence-mindmap.mjs
 
       - name: Upload Production Reader GOLD QA
         if: always()
@@ -396,22 +396,11 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-      - name: JoyLab Release Gate V1
-        if: always()
-        env:
-          RELEASE_BUILD_RESULT: ${{ steps.build_site.outcome }}
-          RELEASE_DEPLOY_RESULT: ${{ steps.cloudflare_deploy.outcome }}
-          RELEASE_DOMAIN_RESULT: ${{ steps.custom_domain.outcome }}
-          RELEASE_SMOKE_RESULT: ${{ steps.production_smoke.outcome }}
-          RELEASE_READER_QA_RESULT: ${{ steps.production_reader_qa.outcome }}
-        run: node scripts/write-release-gate-v1.mjs
-
-      - name: Upload JoyLab Release Gate V1
+      - name: Upload Production Mindmap GOLD QA
         if: always()
         uses: actions/upload-artifact@v6
         with:
-          name: joylab-release-gate-v1
-          path: qa-artifacts/release-gate/release-gate.json
+          name: weight-of-silence-production-mindmap-gold
+          path: qa-artifacts/weight-of-silence-mindmap
           if-no-files-found: error
-          retention-days: 90
-
+          retention-days: 30
