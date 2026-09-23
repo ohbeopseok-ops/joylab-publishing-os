@@ -19,7 +19,12 @@ format: web
 access: full
 previewChapterCount: 0
 readerPath: "/books/weight-of-silence/interactive.html"
-readerCta: "인터랙티브 웹 전자책 읽기"
+readerCta: "웹 리더로 읽기"
+mindmapPath: "/books/weight-of-silence/mindmap.html"
+relatedArticleIds:
+  - "why-we-cannot-stand-silence"
+  - "bach-counterpoint-order-in-chaos"
+  - "burnout-recovery-starts-with-pause"
 heroQuote: "음악을 완성하는 것은 화려한 음표가 아니라, 음과 음 사이에 우뚝 멈추어 선 쉼표의 결단이다."
 landingHeading: "끊임없이 채워 넣지 않으면 도태될 것 같은 시대, 우리는 언제부터 고요를 두려워하게 되었을까?"
 readerProfiles:
@@ -72,6 +77,16 @@ draft: false
 ### 함께 보는 사유도
 
 책의 핵심 상징과 장별 흐름을 한눈에 보고 싶다면 **[인터랙티브 마인드맵 열기](/books/weight-of-silence/mindmap.html)**를 이용하세요.
+
+### Reader Pack V2
+
+책을 읽는 것에서 끝내지 않고 핵심 구조와 관련 리서치로 생각을 확장할 수 있습니다.
+
+- **[웹 리더로 읽기](/books/weight-of-silence/interactive.html)** — 본문을 긴 호흡으로 읽습니다.
+- **[마인드맵으로 보기](/books/weight-of-silence/mindmap.html)** — 핵심 상징과 장별 구조를 한눈에 봅니다.
+- **[우리는 왜 침묵을 견디지 못하게 되었을까](/articles/why-we-cannot-stand-silence)** — 공백 공포와 주의력의 시대
+- **[바흐의 대위법은 왜 혼란한 삶에 질서를 느끼게 할까](/articles/bach-counterpoint-order-in-chaos)** — 복잡함 속 질서와 균형
+- **[번아웃 이후 회복은 왜 멈추기에서 시작될까](/articles/burnout-recovery-starts-with-pause)** — 회복을 위한 감속과 쉼표
 
 ### 책 속의 문장
 
