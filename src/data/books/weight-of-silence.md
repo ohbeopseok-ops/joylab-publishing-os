@@ -5,8 +5,11 @@ description: "악보 위 쉼표와 오케스트라 총주 뒤의 2초간의 진�
 author: "오법석"
 publishedAt: 2026-09-25
 updatedAt: 2026-09-23
-coverImage: "/images/books/weight-of-silence-cover.svg"
-ogImage: "/images/books/weight-of-silence-og.svg"
+coverImage: "/images/books/weight-of-silence-cover.webp"
+ogImage: "/images/books/weight-of-silence-og.webp"
+ogImageWidth: 1200
+ogImageHeight: 675
+assetContractVersion: 2
 category: "성장·리더십"
 tags:
   - 에세이
