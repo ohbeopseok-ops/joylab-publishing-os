@@ -15,6 +15,8 @@ draft: false
 seoTitle: "바흐의 대위법이 주는 질서｜복잡함 속 균형을 만드는 구조"
 series: "침묵의 기술"
 readingTime: "약 8분"
+heroImage: "/images/research/reader-pack/bach-counterpoint.svg"
+heroAlt: "서로 교차하는 금빛 선율로 바흐의 대위법과 균형을 표현한 JoyLab Research 이미지"
 ---
 
 바흐의 음악을 들으면 이상한 경험을 하게 됩니다.
