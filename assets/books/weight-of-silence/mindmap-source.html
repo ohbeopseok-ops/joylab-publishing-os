@@ -7,6 +7,7 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    window.tailwind = window.tailwind || {};
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -540,12 +541,23 @@
       }
     });
 
-    // Start on DOM Ready
-    window.addEventListener('DOMContentLoaded', () => {
+    let mindmapBooted = false;
+    function bootMindmap() {
+      if (mindmapBooted) return;
+      mindmapBooted = true;
       initMarkmap();
       setupControls();
       setupSidebarTabs();
-    });
+    }
+
+    // document.write() based Reader Pack loaders can replace the document after the
+    // original DOMContentLoaded event. Boot immediately when DOM is already ready.
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', bootMindmap, { once: true });
+    } else {
+      bootMindmap();
+    }
+    setTimeout(bootMindmap, 0);
     // Toolbar and search controls setup
     function setupControls() {
       const btnZoomIn = document.getElementById('btnZoomIn');
