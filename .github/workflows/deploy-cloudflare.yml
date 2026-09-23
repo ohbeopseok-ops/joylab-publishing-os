@@ -155,7 +155,12 @@ jobs:
           grep -Fq 'KEY TAKEAWAYS' /tmp/body
           grep -Fq 'LEADERSHIP ACTION' /tmp/body
           grep -Fq 'NEXT · EP04' /tmp/body
+          grep -Fq '/images/leadership/literature/ep03-demian.webp' /tmp/body
+          grep -Fq 'og:image:width" content="1200"' /tmp/body
+          grep -Fq 'og:image:height" content="675"' /tmp/body
           grep -Fq '/guides/growth-leadership/literature#ep04' /tmp/body
+
+          check_200 https://aijoylab.kr/images/leadership/literature/ep03-demian.webp
 
           check_200 "https://aijoylab.kr/guides/growth-leadership/playbook/performance-coaching?deploy=${GITHUB_SHA}"
           grep -Fq '성과부진 상담사' /tmp/body
