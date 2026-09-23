@@ -7,6 +7,7 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    window.tailwind = window.tailwind || {};
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -39,9 +40,9 @@
     }
   </script>
   <!-- D3 & Markmap Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-  <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.17.0"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.0"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/markmap-lib@0.17.0"></script>
   <!-- FontAwesome for Classical/Music Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -412,6 +413,83 @@
   <script>
     let mmInstance = null;
 
+    let fallbackScale = 1;
+
+    function renderFallbackMindmap() {
+      const svg = document.getElementById('markmapSvg');
+      if (!svg) return;
+      const nodes = [
+        { x: 50, y: 50, text: '침묵의 무게', size: 24, weight: 700 },
+        { x: 22, y: 28, text: '악보의 쉼표 · Rest', size: 16, weight: 600 },
+        { x: 78, y: 28, text: '2초간의 진공 · Vacuum', size: 16, weight: 600 },
+        { x: 22, y: 72, text: '내면의 배음 · Overtone', size: 16, weight: 600 },
+        { x: 78, y: 72, text: '공백 공포 · Horror Vacui', size: 16, weight: 600 },
+        { x: 50, y: 16, text: '1부 · 진공의 시간', size: 13, weight: 500 },
+        { x: 50, y: 84, text: '3부 · 침묵의 밀도', size: 13, weight: 500 },
+        { x: 10, y: 50, text: '2부 · 서늘한 여백', size: 13, weight: 500 },
+        { x: 90, y: 50, text: '멈춤 → 직면 → 수용 → 회복', size: 13, weight: 500 }
+      ];
+
+      const ns = 'http://www.w3.org/2000/svg';
+      svg.innerHTML = '';
+      svg.setAttribute('viewBox', '0 0 1000 700');
+      svg.dataset.runtime = 'fallback';
+
+      const group = document.createElementNS(ns, 'g');
+      group.id = 'fallbackMindmapGroup';
+      group.style.transformOrigin = '500px 350px';
+      group.style.transition = 'transform 180ms ease';
+
+      const centerX = 500;
+      const centerY = 350;
+      nodes.slice(1).forEach((node) => {
+        const line = document.createElementNS(ns, 'line');
+        line.setAttribute('x1', centerX);
+        line.setAttribute('y1', centerY);
+        line.setAttribute('x2', String(node.x * 10));
+        line.setAttribute('y2', String(node.y * 7));
+        line.setAttribute('stroke', 'rgba(217,119,6,0.38)');
+        line.setAttribute('stroke-width', '2');
+        group.appendChild(line);
+      });
+
+      nodes.forEach((node, idx) => {
+        const circle = document.createElementNS(ns, 'circle');
+        circle.setAttribute('cx', String(node.x * 10));
+        circle.setAttribute('cy', String(node.y * 7));
+        circle.setAttribute('r', idx === 0 ? '10' : '6');
+        circle.setAttribute('fill', '#0b0f19');
+        circle.setAttribute('stroke', '#d97706');
+        circle.setAttribute('stroke-width', '2');
+        group.appendChild(circle);
+
+        const text = document.createElementNS(ns, 'text');
+        text.setAttribute('x', String(node.x * 10));
+        text.setAttribute('y', String(node.y * 7 - 14));
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('fill', idx === 0 ? '#fbbf24' : '#e2e8f0');
+        text.setAttribute('font-size', String(node.size));
+        text.setAttribute('font-weight', String(node.weight));
+        text.textContent = node.text;
+        group.appendChild(text);
+      });
+
+      svg.appendChild(group);
+      window.__joylabMindmapRuntime = 'fallback';
+    }
+
+    function fallbackRescale(factor) {
+      fallbackScale = Math.max(0.6, Math.min(2.2, fallbackScale * factor));
+      const group = document.getElementById('fallbackMindmapGroup');
+      if (group) group.style.transform = 'scale(' + fallbackScale + ')';
+    }
+
+    function fallbackFit() {
+      fallbackScale = 1;
+      const group = document.getElementById('fallbackMindmapGroup');
+      if (group) group.style.transform = 'scale(1)';
+    }
+
     // Load Markmap from script template
     function initMarkmap() {
       try {
@@ -442,14 +520,17 @@
         };
 
         mmInstance = markmap.Markmap.create(svgElement, customColorOptions, root);
+        window.__joylabMindmapRuntime = 'markmap';
         
         // Auto fit to screen after initial render
         setTimeout(() => {
           if (mmInstance) mmInstance.fit();
+          else fallbackFit();
         }, 300);
 
       } catch (err) {
-        console.error('Markmap initialization error:', err);
+        console.warn('Markmap initialization failed; using built-in fallback:', err);
+        renderFallbackMindmap();
       }
     }
 
@@ -460,12 +541,40 @@
       }
     });
 
-    // Start on DOM Ready
-    window.addEventListener('DOMContentLoaded', () => {
+    let mindmapBooted = false;
+    function bootMindmap() {
+      if (mindmapBooted) return;
+      mindmapBooted = true;
       initMarkmap();
       setupControls();
       setupSidebarTabs();
-    });
+    }
+
+    // document.write() based Reader Pack loaders can replace the document after the
+    // original DOMContentLoaded event. Boot immediately when DOM is already ready.
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', bootMindmap, { once: true });
+    } else {
+      bootMindmap();
+    }
+    setTimeout(bootMindmap, 0);
+
+    function tryUpgradeMindmap() {
+      const api = window.markmap;
+      if (
+        window.__joylabMindmapRuntime === 'fallback' &&
+        api &&
+        typeof api.Transformer === 'function' &&
+        api.Markmap
+      ) {
+        mmInstance = null;
+        initMarkmap();
+      }
+    }
+    window.addEventListener('load', () => setTimeout(tryUpgradeMindmap, 0), { once: true });
+    setTimeout(tryUpgradeMindmap, 1500);
+    setTimeout(tryUpgradeMindmap, 5000);
+
     // Toolbar and search controls setup
     function setupControls() {
       const btnZoomIn = document.getElementById('btnZoomIn');
@@ -479,18 +588,21 @@
       if (btnZoomIn) {
         btnZoomIn.addEventListener('click', () => {
           if (mmInstance) mmInstance.rescale(1.25);
+          else fallbackRescale(1.25);
         });
       }
 
       if (btnZoomOut) {
         btnZoomOut.addEventListener('click', () => {
           if (mmInstance) mmInstance.rescale(0.8);
+          else fallbackRescale(0.8);
         });
       }
 
       if (btnFit) {
         btnFit.addEventListener('click', () => {
           if (mmInstance) mmInstance.fit();
+          else fallbackFit();
         });
       }
 
