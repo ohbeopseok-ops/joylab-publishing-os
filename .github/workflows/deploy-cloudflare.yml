@@ -37,9 +37,11 @@ jobs:
         run: node scripts/materialize-ep03-demian-v5.mjs
 
       - name: Build Astro site
+        id: build_site
         run: npm run build
 
       - name: Deploy to Cloudflare Workers
+        id: cloudflare_deploy
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -47,6 +49,7 @@ jobs:
           command: deploy
 
       - name: Wait for custom domain
+        id: custom_domain
         shell: bash
         run: |
           set -euo pipefail
@@ -62,6 +65,7 @@ jobs:
           exit 1
 
       - name: Production smoke test
+        id: production_smoke
         shell: bash
         run: |
           set -euo pipefail
@@ -378,6 +382,7 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Weight of Silence Production Reader GOLD QA
+        id: production_reader_qa
         env:
           QA_BASE_URL: https://aijoylab.kr
         run: node scripts/qa-weight-of-silence-reader.mjs
@@ -390,3 +395,23 @@ jobs:
           path: qa-artifacts/weight-of-silence-reader
           if-no-files-found: error
           retention-days: 30
+
+      - name: JoyLab Release Gate V1
+        if: always()
+        env:
+          RELEASE_BUILD_RESULT: ${{ steps.build_site.outcome }}
+          RELEASE_DEPLOY_RESULT: ${{ steps.cloudflare_deploy.outcome }}
+          RELEASE_DOMAIN_RESULT: ${{ steps.custom_domain.outcome }}
+          RELEASE_SMOKE_RESULT: ${{ steps.production_smoke.outcome }}
+          RELEASE_READER_QA_RESULT: ${{ steps.production_reader_qa.outcome }}
+        run: node scripts/write-release-gate-v1.mjs
+
+      - name: Upload JoyLab Release Gate V1
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: joylab-release-gate-v1
+          path: qa-artifacts/release-gate/release-gate.json
+          if-no-files-found: error
+          retention-days: 90
+
