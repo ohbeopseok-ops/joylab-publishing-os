@@ -46,7 +46,7 @@ for (const ref of refs) {
   }
 
   try {
-    const image = sharp(file, { failOn: 'error' });
+    const image = sharp(file, { failOn: 'warning' });
     const meta = await image.metadata();
     if (!meta.width || !meta.height) throw new Error('missing dimensions');
     await image.raw().toBuffer();
