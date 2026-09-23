@@ -22,18 +22,36 @@
       "guide": 2,
       "benchmark": 3
     },
-    "minPrimarySources": {
-      "research": 1,
-      "framework": 0,
-      "guide": 1,
-      "benchmark": 1
-    },
     "requiredFields": [
       "claim",
       "source",
       "sourceType",
       "checkedAt"
-    ]
+    ],
+    "minTrustedSources": {
+      "research": 1,
+      "framework": 0,
+      "guide": 1,
+      "benchmark": 1
+    },
+    "acceptedTrustedTypes": {
+      "research": [
+        "primary",
+        "institutional"
+      ],
+      "framework": [
+        "primary",
+        "institutional",
+        "reporting"
+      ],
+      "guide": [
+        "primary"
+      ],
+      "benchmark": [
+        "primary",
+        "institutional"
+      ]
+    }
   },
   "investmentOnlyPatterns": [
     "반도체 투자 가이드",
