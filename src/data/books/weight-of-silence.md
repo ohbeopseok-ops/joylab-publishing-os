@@ -19,7 +19,12 @@ format: web
 access: full
 previewChapterCount: 0
 readerPath: "/books/weight-of-silence/interactive.html"
-readerCta: "인터랙티브 웹 전자책 읽기"
+readerCta: "웹 리더로 읽기"
+mindmapPath: "/books/weight-of-silence/mindmap.html"
+relatedResearchSlugs:
+  - "why-we-cannot-tolerate-silence"
+  - "bach-counterpoint-order-in-complexity"
+  - "burnout-recovery-starts-with-stopping"
 heroQuote: "음악을 완성하는 것은 화려한 음표가 아니라, 음과 음 사이에 우뚝 멈추어 선 쉼표의 결단이다."
 landingHeading: "끊임없이 채워 넣지 않으면 도태될 것 같은 시대, 우리는 언제부터 고요를 두려워하게 되었을까?"
 readerProfiles:
@@ -69,9 +74,20 @@ draft: false
 - **도시인의 일상을 정밀하게 포착한 산문** — 퇴근길 전동차, 비 오는 골목, 혼자 남은 방의 피아노를 통해 공백과 회복을 이야기합니다.
 - **여백을 읽는 문장** — 문장의 호흡과 행간에 의도적인 여백을 두어 독자가 스스로 생각하고 숨을 고를 수 있게 합니다.
 
-### 함께 보는 사유도
+### Reader Pack V2
 
-책의 핵심 상징과 장별 흐름을 한눈에 보고 싶다면 **[인터랙티브 마인드맵 열기](/books/weight-of-silence/mindmap.html)**를 이용하세요.
+이 책은 상세페이지에서 끝나지 않습니다. 읽고, 구조를 보고, 책 밖의 연구로 확장할 수 있도록 하나의 Reader Pack으로 구성했습니다.
+
+- **[웹 리더로 읽기 →](/books/weight-of-silence/interactive.html)**
+- **[마인드맵으로 보기 →](/books/weight-of-silence/mindmap.html)**
+
+### 책 밖에서 더 깊이 생각하기
+
+『악보의 쉼표 사이에 고여 있는 침묵의 무게』가 던진 질문을 주의력·음악인지·직무회복 연구로 확장합니다.
+
+1. **[우리는 왜 침묵을 견디지 못하게 되었을까｜공백 공포와 주의력의 시대 →](/articles/why-we-cannot-tolerate-silence)**
+2. **[바흐의 대위법은 왜 혼란한 삶에 질서를 느끼게 할까｜복잡함 속 균형의 구조 →](/articles/bach-counterpoint-order-in-complexity)**
+3. **[번아웃 이후 회복은 왜 ‘더 하기’가 아니라 ‘멈추기’에서 시작될까 →](/articles/burnout-recovery-starts-with-stopping)**
 
 ### 책 속의 문장
 
