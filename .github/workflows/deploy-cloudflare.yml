@@ -144,8 +144,8 @@ jobs:
           grep -Fq 'LEADERSHIP ACTION' /tmp/body
           grep -Fq 'NEXT · EP03' /tmp/body
           grep -Fq '/images/leadership/literature/ep02-little-prince.webp' /tmp/body
-          grep -Fq 'og:image:width" content="1200"' /tmp/body
-          grep -Fq 'og:image:height" content="675"' /tmp/body
+          grep -Fq 'og:image:width" content="480"' /tmp/body
+          grep -Fq 'og:image:height" content="270"' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/demian' /tmp/body
 
           check_200 https://aijoylab.kr/images/leadership/literature/ep02-little-prince.webp
