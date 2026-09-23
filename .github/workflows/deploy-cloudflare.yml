@@ -374,6 +374,18 @@ jobs:
           grep -Fq '<link>https://aijoylab.kr</link>' /tmp/body
           grep -Fq '삼성전자 vs SK하이닉스' /tmp/body
 
+          legacy_https='https://aijoylab.kr/index.html'
+          legacy_https_code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "$legacy_https")
+          legacy_https_location=$(curl -sSI --max-time 20 "$legacy_https" | tr -d '\r' | awk 'tolower($1)=="location:" {$1=""; sub(/^ /,""); print; exit}')
+          echo "$legacy_https_code $legacy_https -> $legacy_https_location"
+          test "$legacy_https_code" = "301"
+          test "$legacy_https_location" = "https://aijoylab.kr/"
+
+          legacy_http='http://aijoylab.kr/index.html'
+          legacy_http_final=$(curl -LsS -o /dev/null -w '%{url_effective}' --max-time 20 "$legacy_http")
+          echo "$legacy_http -> $legacy_http_final"
+          test "$legacy_http_final" = "https://aijoylab.kr/"
+
           www_url='https://www.aijoylab.kr/articles/samsung-vs-sk-hynix-ai-memory'
           www_code=$(curl -sS -o /dev/null -w '%{http_code}' --max-time 20 "$www_url")
           www_location=$(curl -sSI --max-time 20 "$www_url" | tr -d '\r' | awk 'tolower($1)=="location:" {$1=""; sub(/^ /,""); print; exit}')
