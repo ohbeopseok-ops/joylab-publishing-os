@@ -20,6 +20,11 @@ access: full
 previewChapterCount: 0
 readerPath: "/books/weight-of-silence/interactive.html"
 readerCta: "웹 리더로 읽기"
+mindmapPath: "/books/weight-of-silence/mindmap.html"
+relatedResearchSlugs:
+  - "why-we-cannot-tolerate-silence"
+  - "bach-counterpoint-order-in-complexity"
+  - "burnout-recovery-starts-with-stopping"
 heroQuote: "음악을 완성하는 것은 화려한 음표가 아니라, 음과 음 사이에 우뚝 멈추어 선 쉼표의 결단이다."
 landingHeading: "끊임없이 채워 넣지 않으면 도태될 것 같은 시대, 우리는 언제부터 고요를 두려워하게 되었을까?"
 readerProfiles:
