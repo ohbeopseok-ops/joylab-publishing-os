@@ -27,7 +27,31 @@ function frontmatter(text){
   return out;
 }
 
-function inferType(file, meta, body){
+function evidenceMap(text){
+  if(!text.startsWith("---")) return [];
+  const end=text.indexOf("\n---",3);
+  if(end<0) return [];
+  const block=text.slice(3,end);
+  const start=block.search(/^evidenceMap:\s*$/m);
+  if(start<0) return [];
+  const tail=block.slice(start).split("\n").slice(1);
+  const lines=[];
+  for(const line of tail){
+    if(/^\S/.test(line) && line.trim()) break;
+    lines.push(line);
+  }
+  const joined=lines.join("\n");
+  const chunks=joined.split(/\n\s*-\s+claim:\s*/).slice(1);
+  return chunks.map(chunk=>{
+    const claim=(chunk.split("\n")[0]||"").trim().replace(/^["']|["']$/g,"");
+    const source=(chunk.match(/^\s+source:\s*(https?:\/\/\S+)/m)||[])[1]||"";
+    const sourceType=((chunk.match(/^\s+sourceType:\s*([A-Za-z_-]+)/m)||[])[1]||"").toLowerCase();
+    const checkedAt=(chunk.match(/^\s+checkedAt:\s*([^\n]+)/m)||[])[1]?.trim()||"";
+    return {claim,source,sourceType,checkedAt};
+  }).filter(x=>x.claim||x.source);
+}
+
+function inferType(file, meta){
   const explicit=(meta.researchType || meta.articleType || "").toLowerCase();
   if(["research","framework","guide","benchmark"].includes(explicit)) return explicit;
   const hay=`${file} ${meta.category||""} ${meta.title||""}`.toLowerCase();
@@ -42,7 +66,8 @@ for(const file of files){
   const full=path.join(root,file);
   const s=fs.readFileSync(full,"utf8");
   const meta=frontmatter(s);
-  const type=inferType(file,meta,s);
+  const mapped=evidenceMap(s);
+  const type=inferType(file,meta);
   const changed=changedSet.has(file);
   const reasons=[];
   const hardFailures=[];
@@ -58,6 +83,12 @@ for(const file of files){
   const hasRecheck=/재점검|recheck|다시 확인|업데이트 조건|review trigger/i.test(s);
   const hasQuestion=/research question|핵심 질문|질문[:：]|무엇을.*\?/i.test(s);
   const hasExplicitType=Boolean(meta.researchType || meta.articleType);
+
+  const minClaims=cfg.claimSource.minMappedClaims[type] ?? 2;
+  const minPrimary=cfg.claimSource.minPrimarySources[type] ?? 0;
+  const validMapped=mapped.filter(x=>x.claim && /^https?:\/\//.test(x.source));
+  const primaryCount=validMapped.filter(x=>x.sourceType==="primary").length;
+  const staleMap=validMapped.filter(x=>!/^\d{4}-\d{2}-\d{2}$/.test(x.checkedAt));
 
   let status="PASS";
   if(templateError){
@@ -80,37 +111,37 @@ for(const file of files){
     if(!hasExplicitType) hardFailures.push("changed/new article must declare researchType: research|framework|guide|benchmark");
     if(sourceWeak) hardFailures.push("changed/new article violates source hard gate");
     if(templateError) hardFailures.push("changed/new article contains template contamination");
+    if(validMapped.length<minClaims) hardFailures.push(`claim-source map requires at least ${minClaims} mapped claims for ${type}; found ${validMapped.length}`);
+    if(primaryCount<minPrimary) hardFailures.push(`claim-source map requires at least ${minPrimary} primary source(s) for ${type}; found ${primaryCount}`);
+    if(staleMap.length>0) hardFailures.push(`claim-source map has ${staleMap.length} item(s) without checkedAt YYYY-MM-DD`);
   }
 
-  results.push({file,type,changed,status,urls,explicitSources,hasExplicitType,reasons,hardFailures});
+  results.push({file,type,changed,status,urls,explicitSources,hasExplicitType,mappedClaims:validMapped.length,primarySources:primaryCount,reasons,hardFailures});
 }
 
 const statuses=["PASS","REVISION","TEMPLATE ERROR","SOURCE WEAK"];
 const counts=Object.fromEntries(statuses.map(k=>[k,results.filter(x=>x.status===k).length]));
 const hardFailCount=results.reduce((n,r)=>n+r.hardFailures.length,0);
 const lines=[
-  "# JoyLab Research V2.1 Corpus Audit",
-  "",
+  "# JoyLab Research V2.2 Corpus Audit","",
   `Generated: ${new Date().toISOString()}`,
   `Mode: ${auditMode}`,
   `Articles: ${results.length}`,
   `Changed articles in gate scope: ${results.filter(x=>x.changed).length}`,
-  `Hard failures: ${hardFailCount}`,
-  "",
+  `Hard failures: ${hardFailCount}`,"",
   "## Summary","",
-  ...Object.entries(counts).map(([k,v])=>`- **${k}**: ${v}`),
-  "",
+  ...Object.entries(counts).map(([k,v])=>`- **${k}**: ${v}`),"",
   "## Articles","",
-  "| Article | Type | Changed | Status | Sources | Reasons / Hard failures |",
-  "|---|---|---:|---|---:|---|",
-  ...results.map(r=>`| ${r.file} | ${r.type} | ${r.changed?"yes":"no"} | ${r.status} | ${r.urls} | ${[...r.reasons,...r.hardFailures].join("; ").replaceAll("|","/")} |`)
+  "| Article | Type | Changed | Status | URLs | Claim Map | Primary | Reasons / Hard failures |",
+  "|---|---|---:|---|---:|---:|---:|---|",
+  ...results.map(r=>`| ${r.file} | ${r.type} | ${r.changed?"yes":"no"} | ${r.status} | ${r.urls} | ${r.mappedClaims} | ${r.primarySources} | ${[...r.reasons,...r.hardFailures].join("; ").replaceAll("|","/")} |`)
 ];
 fs.mkdirSync("artifacts",{recursive:true});
 fs.writeFileSync("artifacts/research-v2-audit.md",lines.join("\n"));
-fs.writeFileSync("artifacts/research-v2-audit.json",JSON.stringify({version:"2.1",auditMode,counts,hardFailCount,results},null,2));
-console.log(JSON.stringify({version:"2.1",auditMode,counts,hardFailCount,total:results.length},null,2));
+fs.writeFileSync("artifacts/research-v2-audit.json",JSON.stringify({version:"2.2",auditMode,counts,hardFailCount,results},null,2));
+console.log(JSON.stringify({version:"2.2",auditMode,counts,hardFailCount,total:results.length},null,2));
 
 if(auditMode==="gate" && hardFailCount>0){
-  console.error(`Research V2.1 gate failed: ${hardFailCount} hard-gate violation(s) in changed/new articles.`);
+  console.error(`Research V2.2 gate failed: ${hardFailCount} hard-gate violation(s) in changed/new articles.`);
   process.exitCode=1;
 }
