@@ -107,6 +107,7 @@ const required = [
   'https://aijoylab.kr/about',
   'https://aijoylab.kr/contact',
   'https://aijoylab.kr/privacy',
+  'https://aijoylab.kr/articles',
   'https://aijoylab.kr/books'
 ];
 for (const loc of required) {
