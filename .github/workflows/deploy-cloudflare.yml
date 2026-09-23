@@ -220,13 +220,13 @@ jobs:
 
           check_follow_200 "https://aijoylab.kr/books/weight-of-silence/interactive.html?deploy=${GITHUB_SHA}"
           grep -Fq '악보의 쉼표 사이에 고여 있는 침묵의 무게' /tmp/body
-          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/interactive-v2.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-interactive-v2.bin
-          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-interactive-v2.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('악보의 쉼표 사이에 고여 있는 침묵의 무게'))process.exit(1);console.log('Reader payload strict gzip PASS')"
+          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/interactive-v3.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-interactive-v3.bin
+          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-interactive-v3.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('악보의 쉼표 사이에 고여 있는 침묵의 무게'))process.exit(1);console.log('Reader payload strict gzip PASS')"
 
           check_follow_200 "https://aijoylab.kr/books/weight-of-silence/mindmap.html?deploy=${GITHUB_SHA}"
           grep -Fq '침묵' /tmp/body
-          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/mindmap-v2.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-mindmap-v2.bin
-          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-mindmap-v2.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('침묵'))process.exit(1);console.log('Mindmap payload strict gzip PASS')"
+          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/mindmap-v3.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-mindmap-v3.bin
+          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-mindmap-v3.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('침묵'))process.exit(1);console.log('Mindmap payload strict gzip PASS')"
 
           check_200 "https://aijoylab.kr/articles/why-we-cannot-stand-silence?deploy=${GITHUB_SHA}"
           grep -Fq '침묵의 기술' /tmp/body
@@ -387,12 +387,27 @@ jobs:
           QA_BASE_URL: https://aijoylab.kr
         run: node scripts/qa-weight-of-silence-reader.mjs
 
+      - name: Weight of Silence Production Mindmap GOLD QA
+        id: production_mindmap_qa
+        env:
+          QA_BASE_URL: https://aijoylab.kr
+        run: node scripts/qa-weight-of-silence-mindmap.mjs
+
       - name: Upload Production Reader GOLD QA
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: weight-of-silence-production-reader-gold
           path: qa-artifacts/weight-of-silence-reader
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload Production Mindmap GOLD QA
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: weight-of-silence-production-mindmap-gold
+          path: qa-artifacts/weight-of-silence-mindmap
           if-no-files-found: error
           retention-days: 30
 
@@ -404,6 +419,7 @@ jobs:
           RELEASE_DOMAIN_RESULT: ${{ steps.custom_domain.outcome }}
           RELEASE_SMOKE_RESULT: ${{ steps.production_smoke.outcome }}
           RELEASE_READER_QA_RESULT: ${{ steps.production_reader_qa.outcome }}
+          RELEASE_MINDMAP_QA_RESULT: ${{ steps.production_mindmap_qa.outcome }}
         run: node scripts/write-release-gate-v1.mjs
 
       - name: Upload JoyLab Release Gate V1

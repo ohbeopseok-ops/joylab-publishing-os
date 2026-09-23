@@ -71,19 +71,22 @@ const baseRef = getBaseRef();
 const baseRegistry = readRegistryAt(baseRef);
 if (baseRef && baseRegistry) {
   for (const [slug, asset] of Object.entries(registry.assets ?? {})) {
-    const changedSources = (asset.sourceFiles ?? []).filter((file) => {
-      const diff = git(['diff', '--name-only', baseRef + '..HEAD', '--', file]);
-      return Boolean(diff);
-    });
-    if (!changedSources.length) continue;
-
     const oldAsset = baseRegistry.assets?.[slug];
     for (const kind of ['reader', 'mindmap']) {
+      const contract = asset[kind];
+      const sourceFile = contract?.sourceFile;
+      if (!sourceFile) {
+        failures.push(slug + '/' + kind + ': sourceFile is not registered');
+        continue;
+      }
+      const changed = Boolean(git(['diff', '--name-only', baseRef + '..HEAD', '--', sourceFile]));
+      if (!changed) continue;
+
       const previous = oldAsset?.[kind]?.active;
-      const current = asset[kind]?.active;
+      const current = contract?.active;
       if (previous && current === previous) {
         failures.push(
-          slug + '/' + kind + ': source HTML changed (' + changedSources.join(', ') +
+          slug + '/' + kind + ': source HTML changed (' + sourceFile +
           ') but immutable payload name was not bumped from ' + current
         );
       }
