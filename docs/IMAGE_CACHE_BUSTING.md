@@ -109,3 +109,15 @@ This catches partial replacements where metadata points to a new image but the v
 - [ ] Direct production asset decodes at expected dimensions
 - [ ] Superseded active path search returns 0
 - [ ] Production Gate marked GOLD
+
+
+## Reader binary immutable assets
+
+Reader Pack payloads such as `.bin` files follow the same immutable-path rule as Hero/OG images.
+
+- Never overwrite a binary path that has been served in Production.
+- Use a new versioned filename for each payload revision, for example `interactive-v2.bin` → `interactive-v3.bin`.
+- Keep retired filenames in `config/reader-binary-assets.json`.
+- An active reader/mindmap payload must match `-vN.bin`.
+- If a registered source HTML changes without bumping the active binary filename, `Reader Binary Immutable Asset Gate` fails CI.
+- Production Smoke must download and strict-decode the currently active binary path.
