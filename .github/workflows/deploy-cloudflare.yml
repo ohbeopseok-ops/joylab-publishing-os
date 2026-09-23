@@ -114,19 +114,19 @@ jobs:
           echo "$analytics_code https://aijoylab.kr/__analytics/event"
           test "$analytics_code" = "204"
 
-          check_200 https://aijoylab.kr/guides/growth-leadership
+          check_200 "https://aijoylab.kr/guides/growth-leadership?deploy=${GITHUB_SHA}"
           grep -Fq '완벽하지 않아서 스며들 수 있었다' /tmp/body
           grep -Fq '/books/' /tmp/body
           grep -Fq '/guides/growth-leadership/literature' /tmp/body
           grep -Fq '/guides/growth-leadership/playbook/performance-coaching' /tmp/body
 
-          check_200 https://aijoylab.kr/guides/growth-leadership/literature
+          check_200 "https://aijoylab.kr/guides/growth-leadership/literature?deploy=${GITHUB_SHA}"
           grep -Fq '문학에서 배우는 리더십' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/old-man-and-the-sea' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/little-prince' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/demian' /tmp/body
 
-          check_200 https://aijoylab.kr/guides/growth-leadership/literature/old-man-and-the-sea
+          check_200 "https://aijoylab.kr/guides/growth-leadership/literature/old-man-and-the-sea?deploy=${GITHUB_SHA}"
           grep -Fq '성과가 무너졌을 때' /tmp/body
           grep -Fq 'RESEARCH BRIEF' /tmp/body
           grep -Fq 'KEY TAKEAWAYS' /tmp/body
@@ -136,7 +136,7 @@ jobs:
           grep -Fq '/guides/growth-leadership/playbook/performance-coaching' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/little-prince' /tmp/body
 
-          check_200 https://aijoylab.kr/guides/growth-leadership/literature/little-prince
+          check_200 "https://aijoylab.kr/guides/growth-leadership/literature/little-prince?deploy=${GITHUB_SHA}"
           grep -Fq '관계를 만든다는 것은' /tmp/body
           grep -Fq 'RESEARCH BRIEF' /tmp/body
           grep -Fq 'KEY TAKEAWAYS' /tmp/body
@@ -149,7 +149,7 @@ jobs:
 
           check_200 https://aijoylab.kr/images/leadership/literature/ep02-little-prince.webp
 
-          check_200 https://aijoylab.kr/guides/growth-leadership/literature/demian
+          check_200 "https://aijoylab.kr/guides/growth-leadership/literature/demian?deploy=${GITHUB_SHA}"
           grep -Fq '리더는 답을 줘야 하는가' /tmp/body
           grep -Fq 'RESEARCH BRIEF' /tmp/body
           grep -Fq 'KEY TAKEAWAYS' /tmp/body
@@ -157,7 +157,7 @@ jobs:
           grep -Fq 'NEXT · EP04' /tmp/body
           grep -Fq '/guides/growth-leadership/literature#ep04' /tmp/body
 
-          check_200 https://aijoylab.kr/guides/growth-leadership/playbook/performance-coaching
+          check_200 "https://aijoylab.kr/guides/growth-leadership/playbook/performance-coaching?deploy=${GITHUB_SHA}"
           grep -Fq '성과부진 상담사' /tmp/body
           grep -Fq '코칭 질문 12개' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/old-man-and-the-sea' /tmp/body
