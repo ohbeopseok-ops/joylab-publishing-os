@@ -15,7 +15,7 @@ const articles = defineCollection({
       claim: z.string().min(1),
       source: z.string().url(),
       sourceType: z.enum(['primary', 'institutional', 'reporting', 'secondary', 'community']),
-      checkedAt: z.string().regex(/^\\d{4}-\\d{2}-\\d{2}$/)
+      checkedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
     })).optional(),
     tags: z.array(z.string()).default([]),
     publishedAt: z.coerce.date(),
