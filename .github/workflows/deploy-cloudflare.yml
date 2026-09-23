@@ -203,6 +203,22 @@ jobs:
           check_200 https://aijoylab.kr/books/imperfect/cover.webp
           check_200 https://aijoylab.kr/books/imperfect/og.webp
 
+          silence_book_url='https://aijoylab.kr/books/weight-of-silence'
+          check_200 "$silence_book_url"
+          grep -Fq '/books/weight-of-silence/reader.html' /tmp/body
+          grep -Fq '/books/weight-of-silence/mindmap-reader.html' /tmp/body
+
+          check_200 "$silence_book_url/reader.html?deploy=${GITHUB_SHA}"
+          grep -Eiq '<!doctype html|<html' /tmp/body
+          test "$(stat -c%s /tmp/body)" -gt 10000
+
+          check_200 "$silence_book_url/mindmap-reader.html?deploy=${GITHUB_SHA}"
+          grep -Eiq '<!doctype html|<html' /tmp/body
+          test "$(stat -c%s /tmp/body)" -gt 5000
+
+          check_200 "$silence_book_url/interactive.html?deploy=${GITHUB_SHA}"
+          grep -Fq 'reader.html' /tmp/body
+
           ax_book_url='https://aijoylab.kr/books/ax-customer-center'
           check_200 "$ax_book_url"
           grep -Fq 'AX 시대 살아남는 고객센터' /tmp/body
