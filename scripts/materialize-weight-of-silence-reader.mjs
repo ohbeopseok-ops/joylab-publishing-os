@@ -5,41 +5,31 @@ import zlib from 'node:zlib';
 const root = process.cwd();
 const targets = [
   {
-    file: 'public/books/weight-of-silence/interactive.bin',
-    markers: ['<!doctype html', '악보의 쉼표 사이에 고여 있는 침묵의 무게']
+    source: 'assets/books/weight-of-silence/interactive-source.html',
+    output: 'public/books/weight-of-silence/interactive.bin',
+    markers: ['<!DOCTYPE html', '악보의 쉼표 사이에 고여 있는 침묵의 무게', 'const BOOK_DATA = [']
   },
   {
-    file: 'public/books/weight-of-silence/mindmap.bin',
-    markers: ['<!doctype html', '침묵']
+    source: 'assets/books/weight-of-silence/mindmap-source.html',
+    output: 'public/books/weight-of-silence/mindmap.bin',
+    markers: ['<!DOCTYPE html', '악보의 쉼표 사이에 고여 있는 침묵의 무게', 'markmapContent']
   }
 ];
 
 for (const target of targets) {
-  const file = path.join(root, target.file);
-  const input = fs.readFileSync(file);
-  let html;
-  let repaired = false;
+  const sourcePath = path.join(root, target.source);
+  const outputPath = path.join(root, target.output);
+  const html = fs.readFileSync(sourcePath, 'utf8');
 
-  try {
-    html = zlib.gunzipSync(input).toString('utf8');
-  } catch {
-    const salvaged = zlib.gunzipSync(input, { finishFlush: zlib.constants.Z_SYNC_FLUSH });
-    html = salvaged.toString('utf8');
-    repaired = true;
-  }
-
-  const lower = html.trim().toLowerCase();
-  if (!lower.includes('<!doctype html') && !lower.includes('<html')) {
-    throw new Error(`${target.file}: recovered payload is not HTML`);
-  }
   for (const marker of target.markers) {
-    if (!html.includes(marker)) throw new Error(`${target.file}: missing marker ${marker}`);
+    if (!html.includes(marker)) throw new Error(`${target.source}: missing marker ${marker}`);
   }
 
   const output = zlib.gzipSync(Buffer.from(html, 'utf8'), { level: 9, mtime: 0 });
   const verify = zlib.gunzipSync(output).toString('utf8');
-  if (verify !== html) throw new Error(`${target.file}: strict gzip round-trip failed`);
+  if (verify !== html) throw new Error(`${target.output}: strict gzip round-trip failed`);
 
-  fs.writeFileSync(file, output);
-  console.log(`Reader payload materialized: ${target.file} (${output.length} bytes, source=${repaired ? 'salvaged' : 'valid'})`);
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+  fs.writeFileSync(outputPath, output);
+  console.log(`Reader payload materialized: ${target.output} (${output.length} bytes, source=${target.source})`);
 }
