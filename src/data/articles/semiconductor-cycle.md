@@ -17,6 +17,24 @@ draft: false
 seoTitle: "반도체 사이클 보는 법｜D램·재고·CAPEX·HBM 핵심 지표"
 series: "반도체 투자 가이드"
 readingTime: "약 10분"
+researchType: research
+evidenceMap:
+  - claim: "Global semiconductor sales reached USD 403.3 billion in Q2 2026, up 35.1% from Q1, according to SIA data compiled from WSTS."
+    source: "https://www.semiconductors.org/global-semiconductor-sales-increase-35-1-from-q1-2026-to-q2-2026/"
+    sourceType: institutional
+    checkedAt: "2026-09-23"
+  - claim: "Global semiconductor sales reached USD 146.8 billion in July 2026, marking a 17th consecutive month of month-over-month growth."
+    source: "https://www.semiconductors.org/global-semiconductor-sales-increase-6-4-month-to-month-in-july/"
+    sourceType: institutional
+    checkedAt: "2026-09-23"
+  - claim: "SEMI forecast 2026 semiconductor manufacturing equipment sales at USD 165.9 billion, up 23.2% year over year, driven by AI, leading-edge logic, advanced memory, test and packaging."
+    source: "https://www.semi.org/en/semi-press-release/global-semiconductor-equipment-sales-forecast-to-reach-a-record-229-billion-dollars-in-2028-semi-reports"
+    sourceType: institutional
+    checkedAt: "2026-09-23"
+  - claim: "SEMI projected 300mm memory equipment investment above USD 50 billion in 2026, with advanced memory and HBM-related demand supporting spending."
+    source: "https://www.semi.org/en/taxonomy/term/45726"
+    sourceType: institutional
+    checkedAt: "2026-09-23"
 ---
 
 **반도체 사이클은 한 개의 지표로 판단하지 않습니다.** 실전에서는 **수요 → 재고 → 가격 → 가동률·CAPEX → 실적 추정치(EPS Revision) → 밸류에이션 → 외국인 수급**의 순서를 봐야 합니다.
