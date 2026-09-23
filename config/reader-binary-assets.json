@@ -13,9 +13,10 @@
       },
       "mindmap": {
         "loader": "public/books/weight-of-silence/mindmap.html",
-        "active": "mindmap-v2.bin",
+        "active": "mindmap-v3.bin",
         "retired": [
-          "mindmap.bin"
+          "mindmap.bin",
+          "mindmap-v2.bin"
         ],
         "sourceFile": "assets/books/weight-of-silence/mindmap-source.html"
       }
