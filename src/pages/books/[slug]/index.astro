@@ -61,7 +61,7 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
 >
   <BookSchema book={book} canonical={canonical} />
 
-  <section class="book-v2-hero" style={cover ? `--book-cover-image:url("${cover}")` : undefined}>
+  <section class="book-v2-hero" data-asset-contract-kind="book" data-asset-contract-hero={cover ?? ''} data-asset-contract-og={book.data.ogImage ?? ''} style={cover ? `--book-cover-image:url("${cover}")` : undefined}>
     <div class="book-v2-hero__veil" aria-hidden="true"></div>
     <div class="book-v2-hero__shell">
       <div class:list={['book-v2-hero__cover', { 'is-text-cover': !cover }]}>
