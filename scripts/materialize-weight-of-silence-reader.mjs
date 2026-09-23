@@ -11,7 +11,7 @@ const targets = [
   },
   {
     source: 'assets/books/weight-of-silence/mindmap-source.html',
-    output: 'public/books/weight-of-silence/mindmap-v2.bin',
+    output: 'public/books/weight-of-silence/mindmap-v3.bin',
     markers: ['<!DOCTYPE html', '악보의 쉼표 사이에 고여 있는 침묵의 무게', 'markmapContent']
   }
 ];
