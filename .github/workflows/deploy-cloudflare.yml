@@ -156,17 +156,17 @@ jobs:
           grep -Fq 'KEY TAKEAWAYS' /tmp/body
           grep -Fq 'LEADERSHIP ACTION' /tmp/body
           grep -Fq 'NEXT · EP04' /tmp/body
-          grep -Fq '/images/leadership/literature/ep03-demian-v3-fixed.webp' /tmp/body
+          grep -Fq '/images/leadership/literature/ep03-demian-v4-compact.webp' /tmp/body
           grep -Fq 'og:image:width" content="1200"' /tmp/body
           grep -Fq 'og:image:height" content="675"' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/metamorphosis' /tmp/body
 
-          ep03_asset="https://aijoylab.kr/images/leadership/literature/ep03-demian-v3-fixed.webp?deploy=${GITHUB_SHA}"
-          ep03_code=$(curl -sS -o /tmp/ep03-demian-v3-fixed.webp -w '%{http_code}' --max-time 20 "$ep03_asset")
+          ep03_asset="https://aijoylab.kr/images/leadership/literature/ep03-demian-v4-compact.webp?deploy=${GITHUB_SHA}"
+          ep03_code=$(curl -sS -o /tmp/ep03-demian-v4-compact.webp -w '%{http_code}' --max-time 20 "$ep03_asset")
           echo "$ep03_code $ep03_asset"
           test "$ep03_code" = "200"
-          test "$(stat -c%s /tmp/ep03-demian-v3-fixed.webp)" -gt 1000
-          node scripts/check-production-image.mjs /tmp/ep03-demian-v3-fixed.webp 1200 675
+          test "$(stat -c%s /tmp/ep03-demian-v4-compact.webp)" -gt 1000
+          node scripts/check-production-image.mjs /tmp/ep03-demian-v4-compact.webp 1200 675
 
           check_200 "https://aijoylab.kr/guides/growth-leadership/literature/metamorphosis?deploy=${GITHUB_SHA}"
           grep -Fq '쓸모를 잃으면' /tmp/body
