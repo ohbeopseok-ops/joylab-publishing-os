@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ko" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>악보의 쉼표 사이에 고여 있는 침묵의 무게 - 마인드맵</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            noir: {
+              900: '#0b0f19',
+              850: '#111827',
+              800: '#1e293b',
+              700: '#334155'
+            },
+            brass: {
+              300: '#fde68a',
+              400: '#f59e0b',
+              500: '#d97706',
+              600: '#b45309'
+            },
+            parchment: {
+              50: '#fbfbf9',
+              100: '#f7f6f2',
+              200: '#ede9df'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Apple SD Gothic Neo', 'Malgun Gothic', 'sans-serif'],
+            serif: ['Georgia', 'Batang', 'Times New Roman', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <!-- D3 & Markmap Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.17.0"></script>
+  <!-- FontAwesome for Classical/Music Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(15, 23, 42, 0.6);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(217, 119, 6, 0.4);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(217, 119, 6, 0.8);
+    }
+    /* Markmap specific adjustments */
+    .markmap-svg {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      user-select: none;
+    }
+    .markmap-node text {
+      fill: #e2e8f0 !important;
+      font-size: 13.5px !important;
+      font-weight: 500 !important;
+      font-family: 'Inter', 'Apple SD Gothic Neo', sans-serif !important;
+      transition: all 0.2s ease;
+    }
+    .markmap-node:hover text {
+      fill: #f59e0b !important;
+      font-weight: 700 !important;
+    }
+    .markmap-node circle {
+      fill: #0b0f19 !important;
+      stroke: #d97706 !important;
+      stroke-width: 2px !important;
+      cursor: pointer;
+    }
+    .markmap-link {
+      stroke: rgba(217, 119, 6, 0.45) !important;
+      stroke-width: 1.8px !important;
+    }
+    /* Subtle classical vinyl texture */
+    .vinyl-grain {
+      background-image: radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.04) 0%, transparent 80%);
+    }
+  </style>
+</head>
+<body class="bg-noir-900 text-slate-200 h-screen w-screen overflow-hidden flex flex-col font-sans select-none">
+  <!-- Top Global Header -->
+  <header class="h-16 bg-noir-850/90 backdrop-blur border-b border-noir-700/60 px-5 flex items-center justify-between z-30 shrink-0">
+    <div class="flex items-center gap-3.5">
+      <div class="w-9 h-9 rounded-lg bg-brass-500/20 border border-brass-500/40 flex items-center justify-center text-brass-400 shadow-inner">
+        <i class="fa-solid fa-music text-base"></i>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1 class="text-sm md:text-base font-semibold text-slate-100 tracking-tight font-serif">
+            악보의 쉼표 사이에 고여 있는 침묵의 무게
+          </h1>
+          <span class="text-[11px] px-2 py-0.5 rounded-full bg-brass-500/15 text-brass-400 border border-brass-500/30 font-medium">
+            마인드맵 사유도
+          </span>
+        </div>
+        <p class="text-xs text-slate-400 hidden sm:block">
+          오법석 작가 · 총 180쪽 · 쉼표(Rest)와 2초간의 진공이 빚어낸 인문 철학 에세이
+        </p>
+      </div>
+    </div>
+
+    <!-- Quick Action Controls -->
+    <div class="flex items-center gap-2">
+      <!-- Search input -->
+      <div class="relative hidden lg:block w-52">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-xs text-slate-400"></i>
+        <input 
+          id="nodeSearchInput"
+          type="text" 
+          placeholder="개념/목차 검색..."
+          class="w-full bg-noir-800/90 text-xs rounded-lg pl-8 pr-3 py-1.5 border border-noir-700 focus:outline-none focus:border-brass-500 text-slate-200 placeholder-slate-500 transition-colors"
+        >
+      </div>
+
+      <!-- Toolbar Buttons -->
+      <button id="btnZoomIn" title="확대" class="p-2 w-8 h-8 rounded-lg bg-noir-800 hover:bg-noir-700 border border-noir-700 text-slate-300 hover:text-brass-400 flex items-center justify-center text-xs transition">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <button id="btnZoomOut" title="축소" class="p-2 w-8 h-8 rounded-lg bg-noir-800 hover:bg-noir-700 border border-noir-700 text-slate-300 hover:text-brass-400 flex items-center justify-center text-xs transition">
+        <i class="fa-solid fa-minus"></i>
+      </button>
+      <button id="btnFit" title="화면 맞춤" class="p-2 w-8 h-8 rounded-lg bg-noir-800 hover:bg-noir-700 border border-noir-700 text-slate-300 hover:text-brass-400 flex items-center justify-center text-xs transition">
+        <i class="fa-solid fa-compress"></i>
+      </button>
+      <button id="btnToggleSidebar" title="사색 가이드 패널" class="px-2.5 py-1.5 h-8 rounded-lg bg-brass-500/15 hover:bg-brass-500/25 border border-brass-500/40 text-brass-400 flex items-center gap-1.5 text-xs font-medium transition ml-1">
+        <i class="fa-solid fa-book-open"></i>
+        <span class="hidden md:inline">철학·목차 해설</span>
+      </button>
+    </div>
+  </header>
+  <!-- Main Workspace Area -->
+  <div class="relative flex-1 flex overflow-hidden">
+    <!-- SVG Canvas Area -->
+    <div id="canvasContainer" class="relative flex-1 h-full w-full vinyl-grain overflow-hidden">
+      <svg id="markmapSvg" class="markmap-svg"></svg>
+      
+      <!-- Ambient Quote Floating Card (Bottom Left) -->
+      <div class="absolute bottom-4 left-4 max-w-sm p-3.5 rounded-xl bg-noir-850/85 backdrop-blur-md border border-noir-700/60 shadow-2xl pointer-events-auto">
+        <div class="flex items-start gap-2.5">
+          <span class="text-brass-400 text-sm mt-0.5"><i class="fa-solid fa-quote-left"></i></span>
+          <div>
+            <p class="text-xs text-slate-300 font-serif leading-relaxed italic">
+              "악보의 쉼표는 침묵이 아니다. 앞선 소리의 파동을 품고 다음 선율을 팽팽하게 준비하는 가장 격렬한 음악적 사건이다."
+            </p>
+            <span class="block mt-1.5 text-[10px] text-brass-400/90 font-mono tracking-wider">
+              - 오법석, 『악보의 쉼표 사이에 고여 있는 침묵의 무게』
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Canvas Help Tooltip (Bottom Right) -->
+      <div class="absolute bottom-4 right-4 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-noir-850/70 border border-noir-700/50 text-[11px] text-slate-400">
+        <span><i class="fa-solid fa-hand-pointer mr-1 text-brass-400"></i> 드래그: 이동</span>
+        <span class="text-slate-600">|</span>
+        <span><i class="fa-solid fa-arrows-up-down mr-1 text-brass-400"></i> 휠: 줌</span>
+        <span class="text-slate-600">|</span>
+        <span><i class="fa-regular fa-circle-dot mr-1 text-brass-400"></i> 노드 클릭: 펼치기/접기</span>
+      </div>
+    </div>
+    <!-- Collapsible Philosophical Sidebar -->
+    <aside id="sidebarPanel" class="w-80 sm:w-96 bg-noir-850/95 backdrop-blur-md border-l border-noir-700/70 h-full flex flex-col z-20 transition-all duration-300 shrink-0">
+      <!-- Sidebar Header -->
+      <div class="p-4 border-b border-noir-700/60 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-compass-drafting text-brass-400"></i>
+          <h2 class="text-sm font-semibold text-slate-200">핵심 철학 & 챕터 가이드</h2>
+        </div>
+        <button id="btnCloseSidebar" class="text-slate-400 hover:text-slate-200 p-1 rounded-md transition">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <!-- Tab Navigation inside Sidebar -->
+      <div class="flex border-b border-noir-700/60 text-xs">
+        <button id="tabBtnConcepts" class="flex-1 py-2.5 text-center font-medium border-b-2 border-brass-500 text-brass-400 transition">
+          핵심 4대 상징
+        </button>
+        <button id="tabBtnOutline" class="flex-1 py-2.5 text-center font-medium border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition">
+          목차 구조 (180p)
+        </button>
+        <button id="tabBtnJourney" class="flex-1 py-2.5 text-center font-medium border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition">
+          치유의 4단계
+        </button>
+      </div>
+
+      <!-- Sidebar Scrollable Body -->
+      <div class="flex-1 overflow-y-auto p-4 space-y-4 text-xs">
+        
+        <!-- Tab 1: Concepts -->
+        <div id="tabContentConcepts" class="space-y-3.5">
+          <!-- Card 1 -->
+          <div class="p-3 rounded-xl bg-noir-800/80 border border-noir-700 hover:border-brass-500/50 transition">
+            <div class="flex items-center gap-2 text-brass-400 font-semibold mb-1">
+              <i class="fa-solid fa-pause"></i>
+              <span>악보의 쉼표 (Rest)</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed">
+              연주를 멈추는 단순한 '쉼'이 아닌, 앞선 음의 여운을 가슴에 품고 다가올 선율의 장력을 조율하는 가장 무거운 음악적 기호.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="p-3 rounded-xl bg-noir-800/80 border border-noir-700 hover:border-brass-500/50 transition">
+            <div class="flex items-center gap-2 text-brass-400 font-semibold mb-1">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <span>2초간의 진공 (Vacuum)</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed">
+              오케스트라 총주(Tutti) 후 지휘봉이 멈춘 찰나의 침묵. 홀 안의 공기마저 얼어붙으며 소음이 사라진 자리에 차오르는 존재의 긴장.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="p-3 rounded-xl bg-noir-800/80 border border-noir-700 hover:border-brass-500/50 transition">
+            <div class="flex items-center gap-2 text-brass-400 font-semibold mb-1">
+              <i class="fa-solid fa-wave-square"></i>
+              <span>내면의 배음 (Overtone)</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed">
+              피아노 건반에서 손을 떼었을 때 공명판을 타고 서늘하게 지속되는 잔향. 분주한 말을 거두었을 때 비로소 들리는 내면의 음색.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="p-3 rounded-xl bg-noir-800/80 border border-noir-700 hover:border-brass-500/50 transition">
+            <div class="flex items-center gap-2 text-brass-400 font-semibold mb-1">
+              <i class="fa-solid fa-hourglass-half"></i>
+              <span>공백 공포 (Horror Vacui)</span>
+            </div>
+            <p class="text-slate-300 leading-relaxed">
+              1초의 침묵이나 비어 있는 시간을 견디지 못하고 활자와 영상, 소음으로 끊임없이 채워 넣으려는 현대인의 불안과 방어기제.
+            </p>
+          </div>
+        </div>
+        <!-- Tab 2: Outline -->
+        <div id="tabContentOutline" class="hidden space-y-3">
+          <div class="border-l-2 border-brass-500 pl-3 py-1">
+            <h3 class="font-semibold text-slate-100">작가의 말 (4p)</h3>
+            <p class="text-slate-400 text-[11px]">소음의 시대를 건너는 당신에게 바치는 정적의 마디</p>
+          </div>
+
+          <div class="p-2.5 rounded-lg bg-noir-800/60 border border-noir-700 space-y-1.5">
+            <span class="text-brass-400 font-medium font-mono text-[11px]">1부 · 48p</span>
+            <h4 class="font-semibold text-slate-200">진공의 시간</h4>
+            <p class="text-slate-400 text-[11px]">가득 채워야 한다는 강박을 멈추다</p>
+            <ul class="text-[11px] text-slate-300 space-y-1 pt-1 border-t border-noir-700/50">
+              <li>• 1장: 2초간의 진공, 지휘봉 끝에 걸린 숨소리 (16p)</li>
+              <li>• 2장: 채워지지 않으면 불안한 세상의 공백 공포 (16p)</li>
+              <li>• 3장: 악보 위 가장 무거운 기호, 쉼표의 선언 (16p)</li>
+            </ul>
+          </div>
+
+          <div class="p-2.5 rounded-lg bg-noir-800/60 border border-noir-700 space-y-1.5">
+            <span class="text-brass-400 font-medium font-mono text-[11px]">2부 · 60p</span>
+            <h4 class="font-semibold text-slate-200">서늘한 여백</h4>
+            <p class="text-slate-400 text-[11px]">퇴근길 차창에 스미는 바흐의 침묵</p>
+            <ul class="text-[11px] text-slate-300 space-y-1 pt-1 border-t border-noir-700/50">
+              <li>• 4장: 멈추지 못하는 기차에서 뛰어내리고 싶을 때 (20p)</li>
+              <li>• 5장: 소음의 포화 속 바흐의 균형 (20p)</li>
+              <li>• 6장: 건반에서 손을 뗀 후 울려 퍼지는 배음 (20p)</li>
+            </ul>
+          </div>
+
+          <div class="p-2.5 rounded-lg bg-noir-800/60 border border-noir-700 space-y-1.5">
+            <span class="text-brass-400 font-medium font-mono text-[11px]">3부 · 56p</span>
+            <h4 class="font-semibold text-slate-200">침묵의 밀도</h4>
+            <p class="text-slate-400 text-[11px]">비워냄으로써 단단해지는 삶의 화음</p>
+            <ul class="text-[11px] text-slate-300 space-y-1 pt-1 border-t border-noir-700/50">
+              <li>• 7장: 말을 거두고 생각의 잔향을 응시하는 법 (18p)</li>
+              <li>• 8장: 일상의 쉼표를 감내하는 태도와 용기 (18p)</li>
+              <li>• 9장: 멈추었기에 다시 흐르는 가장 완전한 선율 (20p)</li>
+            </ul>
+          </div>
+
+          <div class="border-l-2 border-brass-500 pl-3 py-1">
+            <h3 class="font-semibold text-slate-100">에필로그 (6p)</h3>
+            <p class="text-slate-400 text-[11px]">침묵이 음악이 되는 찰나의 순간에 머물며</p>
+          </div>
+        </div>
+
+        <!-- Tab 3: Journey -->
+        <div id="tabContentJourney" class="hidden space-y-3">
+          <div class="relative pl-5 border-l border-brass-500/40 space-y-4">
+            <div class="relative">
+              <span class="absolute -left-[25px] top-1 w-3 h-3 rounded-full bg-noir-900 border-2 border-red-400"></span>
+              <span class="text-[10px] font-mono text-red-400 uppercase tracking-wider">1단계</span>
+              <h4 class="font-semibold text-slate-200">소음의 포화와 탈진</h4>
+              <p class="text-slate-400 text-[11px] mt-0.5">끝없는 성과의 독촉과 알림음 속에서 자신의 목소리를 잃어버린 일상적 마모.</p>
+            </div>
+
+            <div class="relative">
+              <span class="absolute -left-[25px] top-1 w-3 h-3 rounded-full bg-noir-900 border-2 border-amber-400"></span>
+              <span class="text-[10px] font-mono text-amber-400 uppercase tracking-wider">2단계</span>
+              <h4 class="font-semibold text-slate-200">공백 공포와의 충돌</h4>
+              <p class="text-slate-400 text-[11px] mt-0.5">멈추면 도태된다는 불안과 침묵의 빈자리를 자극으로 덧칠하려는 습관적 저항.</p>
+            </div>
+
+            <div class="relative">
+              <span class="absolute -left-[25px] top-1 w-3 h-3 rounded-full bg-noir-900 border-2 border-brass-400"></span>
+              <span class="text-[10px] font-mono text-brass-400 uppercase tracking-wider">3단계</span>
+              <h4 class="font-semibold text-slate-200">바흐의 쉼표와 진공의 목격</h4>
+              <p class="text-slate-400 text-[11px] mt-0.5">지휘자의 손끝과 퇴근길 이어폰 속에서 쉼표가 품은 음악적 절대성을 직관.</p>
+            </div>
+
+            <div class="relative">
+              <span class="absolute -left-[25px] top-1 w-3 h-3 rounded-full bg-noir-900 border-2 border-emerald-400"></span>
+              <span class="text-[10px] font-mono text-emerald-400 uppercase tracking-wider">4단계</span>
+              <h4 class="font-semibold text-slate-200">침묵의 수용과 내적 회복</h4>
+              <p class="text-slate-400 text-[11px] mt-0.5">비워낸 여백에서 존재의 밀도를 발견하고 삶의 온전한 멜로디를 복원함.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Chapter Request Action -->
+      <div class="p-3 bg-noir-900 border-t border-noir-700/60">
+        <div class="text-[11px] text-slate-400 mb-1.5 flex items-center justify-between">
+          <span>다음 단계 : 챕터 집필</span>
+          <span class="text-brass-400 font-mono">B타입 행갈이</span>
+        </div>
+        <div class="text-[11px] text-slate-300 bg-noir-800 p-2 rounded-lg border border-noir-700/80 leading-relaxed">
+          채팅창에 <strong class="text-brass-300">"1장 16페이지 작성해 줘"</strong>처럼 요청하시면 여백 중심의 유려한 산문 원고가 집필됩니다.
+        </div>
+      </div>
+    </aside>
+  </div>
+  <!-- Markdown Data Definition for the Mindmap -->
+  <script type="text/template" id="markmapContent">
+# 🎼 악보의 쉼표 사이에 고여 있는 침묵의 무게 (오법석)
+
+## 🌍 기획 철학과 상징 체계
+### 쉼표 (Rest)
+- 단순한 소리의 결핍이나 연주의 휴식이 아님
+- 앞선 소리의 여운을 품고 다가올 음을 긴장시키는 가장 능동적인 기호
+- 쉼표가 증발한 삶은 음악이 아니라 고통스러운 소음의 연타
+### 2초간의 진공 (Vacuum)
+- 콘서트홀 오케스트라 총주(Tutti) 후 지휘봉이 멎는 찰나
+- 천장의 공기마저 얼어붙는 팽팽한 존재론적 장력
+- 소음 속 현대인이 마주할 수 있는 가장 숭고한 정적의 순간
+### 내면의 배음 (Overtone)
+- 건반에서 손을 떼었을 때 피아노 공명판에 남는 서늘한 울림
+- 분주한 말과 행위를 멈추었을 때 비로소 들리는 내면의 기저음
+### 공백 공포 (Horror Vacui)
+- 1초의 틈도 견디지 못하고 스마트폰과 소음을 채워 넣는 현대인의 불안
+- 자기 자신과 대면하는 침묵을 회피하려는 심리적 방어기제
+
+## 👥 관찰자와 시공간 무대
+### 인물 페르소나
+- 나 (오법석): 번아웃과 생산성 강박 속에서 소진되던 관찰자이자 기록자
+- 마에스트로: 100인의 음향을 일순간 침묵으로 조각하는 정적의 장인
+- 도시의 익명들: 쉼표 없는 악보 위를 가쁜 숨으로 질주하는 현대인의 자화상
+### 배경 공간
+- 콘서트홀 아치 아래: 소리가 단칼에 베어지는 2초간의 진공
+- 오후 7시 40분 2호선 지하철: 피로와 닿아 있는 어깨, 빗물 젖은 차창
+- 사적 고립 공간: 노이즈 캔슬링 헤드폰 너머 바흐의 대위법이 흐르는 방
+
+## 📚 확정 목차 구조 (총 180쪽)
+### 프롤로그 (4p)
+- 작가의 말: 소음의 시대를 건너는 당신에게 바치는 정적의 마디
+### 1부: 진공의 시간 (48p)
+- 부제: 가득 채워야 한다는 강박을 멈추다
+- 1장: 2초간의 진공, 지휘봉 끝에 걸린 숨소리 (16p)
+- 2장: 채워지지 않으면 불안한 세상의 공백 공포 (16p)
+- 3장: 악보 위 가장 무거운 기호, 쉼표(Rest)의 선언 (16p)
+### 2부: 서늘한 여백 (60p)
+- 부제: 퇴근길 차창에 스미는 바흐의 침묵
+- 4장: 멈추지 못하는 기차에서 뛰어내리고 싶을 때 (20p)
+- 5장: 소음의 포화 속, 헤드폰 너머로 차오르는 바흐의 균형 (20p)
+- 6장: 건반에서 손을 뗀 후에야 울려 퍼지는 내면의 배음 (20p)
+### 3부: 침묵의 밀도 (56p)
+- 부제: 비워냄으로써 단단해지는 삶의 화음
+- 7장: 말을 거두고 생각의 잔향을 응시하는 법 (18p)
+- 8장: 일상의 쉼표를 감내하는 태도와 용기 (18p)
+- 9장: 멈추었기에 다시 흐르는 가장 완전한 선율 (20p)
+### 에필로그 (6p)
+- 침묵이 음악이 되는 찰나의 순간에 머물며
+
+## 🔄 내적 치유의 4단계 여정
+### 1단계: 소음 포화와 번아웃
+- 채워야만 살아남는다는 강박
+- 끊임없는 알림과 성과의 독촉 속 내적 마모
+### 2단계: 공백 공포 직면
+- 잠시 멈추면 도태된다는 불안
+- 대화의 침묵을 견디지 못하는 관성적 조급함
+### 3단계: 쉼표의 절대성 목격
+- 콘서트홀 2초 진공과 바흐의 정갈한 여백
+- 멈춤이야말로 선율을 살려내는 음악적 사건임을 인지
+### 4단계: 침묵의 능동적 수용
+- 말을 줄이고 차창 밖 잔향을 응시하는 여유
+- 비워진 여백 속에서 회복되는 삶의 단단한 균형
+  </script>
+  <!-- Application Logic -->
+  <script>
+    let mmInstance = null;
+
+    // Load Markmap from script template
+    function initMarkmap() {
+      try {
+        const markdownSource = document.getElementById('markmapContent').textContent.trim();
+        const transformer = new markmap.Transformer();
+        const { root } = transformer.transform(markdownSource);
+
+        const svgElement = document.getElementById('markmapSvg');
+        
+        // Custom color options harmonized with dark/brass theme
+        const customColorOptions = {
+          color: (node) => {
+            const depth = node.depth || 0;
+            const colors = [
+              '#f59e0b', // root: brass amber
+              '#38bdf8', // level 1: sky blue
+              '#34d399', // level 1: emerald
+              '#fb923c', // level 1: orange
+              '#a78bfa'  // level 1: purple
+            ];
+            return colors[depth % colors.length];
+          },
+          duration: 400,
+          maxWidth: 320,
+          nodeMinHeight: 22,
+          spacingVertical: 8,
+          spacingHorizontal: 80
+        };
+
+        mmInstance = markmap.Markmap.create(svgElement, customColorOptions, root);
+        
+        // Auto fit to screen after initial render
+        setTimeout(() => {
+          if (mmInstance) mmInstance.fit();
+        }, 300);
+
+      } catch (err) {
+        console.error('Markmap initialization error:', err);
+      }
+    }
+
+    // Window resize handler
+    window.addEventListener('resize', () => {
+      if (mmInstance) {
+        mmInstance.fit();
+      }
+    });
+
+    // Start on DOM Ready
+    window.addEventListener('DOMContentLoaded', () => {
+      initMarkmap();
+      setupControls();
+      setupSidebarTabs();
+    });
+    // Toolbar and search controls setup
+    function setupControls() {
+      const btnZoomIn = document.getElementById('btnZoomIn');
+      const btnZoomOut = document.getElementById('btnZoomOut');
+      const btnFit = document.getElementById('btnFit');
+      const searchInput = document.getElementById('nodeSearchInput');
+      const sidebarPanel = document.getElementById('sidebarPanel');
+      const btnToggleSidebar = document.getElementById('btnToggleSidebar');
+      const btnCloseSidebar = document.getElementById('btnCloseSidebar');
+
+      if (btnZoomIn) {
+        btnZoomIn.addEventListener('click', () => {
+          if (mmInstance) mmInstance.rescale(1.25);
+        });
+      }
+
+      if (btnZoomOut) {
+        btnZoomOut.addEventListener('click', () => {
+          if (mmInstance) mmInstance.rescale(0.8);
+        });
+      }
+
+      if (btnFit) {
+        btnFit.addEventListener('click', () => {
+          if (mmInstance) mmInstance.fit();
+        });
+      }
+
+      // Sidebar Toggle
+      if (btnToggleSidebar) {
+        btnToggleSidebar.addEventListener('click', () => {
+          sidebarPanel.classList.toggle('hidden');
+          setTimeout(() => {
+            if (mmInstance) mmInstance.fit();
+          }, 320);
+        });
+      }
+
+      if (btnCloseSidebar) {
+        btnCloseSidebar.addEventListener('click', () => {
+          sidebarPanel.classList.add('hidden');
+          setTimeout(() => {
+            if (mmInstance) mmInstance.fit();
+          }, 320);
+        });
+      }
+
+      // Simple node text highlight / search
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.trim().toLowerCase();
+          const textElements = document.querySelectorAll('#markmapSvg text');
+          textElements.forEach(el => {
+            const content = (el.textContent || '').toLowerCase();
+            if (query && content.includes(query)) {
+              el.style.fill = '#fbbf24';
+              el.style.fontWeight = 'bold';
+              el.style.filter = 'drop-shadow(0 0 6px rgba(251, 191, 36, 0.8))';
+            } else {
+              el.style.fill = '';
+              el.style.fontWeight = '';
+              el.style.filter = '';
+            }
+          });
+        });
+      }
+    }
+    // Setup Sidebar Tabs
+    function setupSidebarTabs() {
+      const tabBtnConcepts = document.getElementById('tabBtnConcepts');
+      const tabBtnOutline = document.getElementById('tabBtnOutline');
+      const tabBtnJourney = document.getElementById('tabBtnJourney');
+
+      const contentConcepts = document.getElementById('tabContentConcepts');
+      const contentOutline = document.getElementById('tabContentOutline');
+      const contentJourney = document.getElementById('tabContentJourney');
+
+      function switchTab(activeBtn, activeContent) {
+        [tabBtnConcepts, tabBtnOutline, tabBtnJourney].forEach(btn => {
+          btn.classList.remove('border-brass-500', 'text-brass-400');
+          btn.classList.add('border-transparent', 'text-slate-400');
+        });
+        [contentConcepts, contentOutline, contentJourney].forEach(cnt => {
+          cnt.classList.add('hidden');
+        });
+
+        activeBtn.classList.remove('border-transparent', 'text-slate-400');
+        activeBtn.classList.add('border-brass-500', 'text-brass-400');
+        activeContent.classList.remove('hidden');
+      }
+
+      tabBtnConcepts.addEventListener('click', () => switchTab(tabBtnConcepts, contentConcepts));
+      tabBtnOutline.addEventListener('click', () => switchTab(tabBtnOutline, contentOutline));
+      tabBtnJourney.addEventListener('click', () => switchTab(tabBtnJourney, contentJourney));
+    }
+  </script>
+</body>
+</html>
