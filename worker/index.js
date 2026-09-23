@@ -105,6 +105,11 @@ export default {
       return withSecurityHeaders(new Response(null, { status: 301, headers: { Location: url.toString() } }));
     }
 
+    if (url.pathname === '/index.html') {
+      const canonical = new URL('https://aijoylab.kr/');
+      return withSecurityHeaders(new Response(null, { status: 301, headers: { Location: canonical.toString() } }));
+    }
+
     if (url.pathname === '/__analytics/event') return collectAnalyticsEvent(request, env);
 
     const response = await env.ASSETS.fetch(request);
