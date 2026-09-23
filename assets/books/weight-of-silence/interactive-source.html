@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>악보의 쉼표 사이에 고여 있는 침묵의 무게 - 오법석 전자책</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Noto Serif KR, Cormorant Garamond, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Serif+KR:wght@300;400;500;600;700&family=Pretendard:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Noto Serif KR"', 'Georgia', 'serif'],
+            display: ['"Cormorant Garamond"', 'serif'],
+            sans: ['Pretendard', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            parchment: {
+              50: '#faf8f5',
+              100: '#f5f0e8',
+              200: '#ece3d4',
+              300: '#ded0ba',
+              800: '#42382e',
+              900: '#2b231c'
+            },
+            noir: {
+              800: '#1c1f26',
+              850: '#14171f',
+              900: '#0c0e14',
+              950: '#07080c'
+            },
+            amberClassic: {
+              400: '#fbbf24',
+              500: '#d97706',
+              600: '#b45309'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Theme definitions */
+    body.theme-sepia {
+      background-color: #f4ecd8;
+      color: #382e25;
+    }
+    body.theme-paper {
+      background-color: #fbfbf9;
+      color: #1f2328;
+    }
+    body.theme-dark {
+      background-color: #12151c;
+      color: #cbd5e1;
+    }
+    body.theme-oled {
+      background-color: #000000;
+      color: #94a3b8;
+    }
+
+    /* Page Turn & Book Texture */
+    .book-shadow {
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.25), 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+    .dark .book-shadow {
+      box-shadow: 0 14px 45px -10px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Spine effect in spread mode */
+    .book-spine {
+      background: linear-gradient(to right, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0) 8%, rgba(0,0,0,0) 92%, rgba(0,0,0,0.12) 100%);
+    }
+
+    /* Print / PDF Export Styles */
+    @media print {
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-page-break {
+        page-break-before: always;
+      }
+      .book-container {
+        box-shadow: none !important;
+        border: none !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+      .chapter-view {
+        display: block !important;
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(180, 83, 9, 0.35);
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+
+<body class="theme-paper font-serif transition-colors duration-300 min-h-screen flex flex-col antialiased selection:bg-amberClassic-500/20 selection:text-amberClassic-600">
+
+  <!-- Top Global Reader Header (no-print) -->
+  <header class="no-print sticky top-0 z-40 h-14 backdrop-blur-md bg-white/80 dark:bg-noir-900/85 border-b border-black/5 dark:border-white/10 px-4 flex items-center justify-between transition-colors">
+    <!-- Left: Navigation Toggle & Title -->
+    <div class="flex items-center gap-3">
+      <button id="btnToggleToc" class="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 text-stone-600 dark:text-stone-300 transition" title="목차 열기/닫기">
+        <i class="fa-solid fa-bars-staggered text-sm"></i>
+      </button>
+      <div class="hidden sm:block">
+        <span class="text-xs font-display tracking-widest text-amberClassic-600 dark:text-amberClassic-400 uppercase font-semibold">E-Book Edition</span>
+        <h1 id="headerBookTitle" class="text-xs font-medium text-stone-700 dark:text-stone-300 truncate max-w-xs md:max-w-md">
+          악보의 쉼표 사이에 고여 있는 침묵의 무게
+        </h1>
+      </div>
+    </div>
+
+    <!-- Center: Chapter Indicator -->
+    <div class="text-xs font-medium text-stone-500 dark:text-stone-400 truncate max-w-[160px] sm:max-w-xs text-center">
+      <span id="currentChapterBadge">표지</span>
+    </div>
+
+    <!-- Right: Tools (Theme, Sound, Font, ViewMode, Print) -->
+    <div class="flex items-center gap-1.5">
+      <!-- Ambient Sound Button -->
+      <button id="btnAmbientSound" class="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 text-stone-600 dark:text-stone-300 transition" title="사색 앰비언스 사운드 (빗소리·백색소음)">
+        <i id="ambientIcon" class="fa-solid fa-volume-xmark text-sm"></i>
+      </button>
+
+      <!-- View Layout Mode (Spread / Continuous) -->
+      <button id="btnToggleViewMode" class="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 text-stone-600 dark:text-stone-300 transition" title="독서 보기 모드 전환 (책장 넘김 / 연속 스크롤)">
+        <i id="viewModeIcon" class="fa-solid fa-book-open text-sm"></i>
+      </button>
+
+      <!-- Typography & Theme Settings Dropdown -->
+      <div class="relative">
+        <button id="btnSettings" class="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 text-stone-600 dark:text-stone-300 transition" title="글자 및 배경 설정">
+          <i class="fa-solid fa-font text-sm"></i>
+        </button>
+
+        <!-- Settings Panel Popover -->
+        <div id="settingsPanel" class="hidden absolute right-0 mt-2 w-64 p-4 rounded-xl bg-white dark:bg-noir-850 shadow-2xl border border-black/10 dark:border-white/10 z-50 text-xs text-stone-700 dark:text-stone-300 space-y-4">
+          <!-- Theme Selection -->
+          <div>
+            <label class="block text-[11px] font-sans font-semibold text-stone-400 mb-2 uppercase tracking-wider">배경 테마</label>
+            <div class="grid grid-cols-4 gap-2">
+              <button data-theme="paper" class="btn-theme h-7 rounded border border-stone-300 bg-[#fbfbf9] text-stone-800 font-sans text-[10px] flex items-center justify-center font-medium">페이퍼</button>
+              <button data-theme="sepia" class="btn-theme h-7 rounded border border-[#d6c7ab] bg-[#f4ecd8] text-[#382e25] font-sans text-[10px] flex items-center justify-center font-medium">세피아</button>
+              <button data-theme="dark" class="btn-theme h-7 rounded border border-noir-800 bg-[#12151c] text-slate-300 font-sans text-[10px] flex items-center justify-center font-medium">다크</button>
+              <button data-theme="oled" class="btn-theme h-7 rounded border border-noir-800 bg-black text-slate-400 font-sans text-[10px] flex items-center justify-center font-medium">올레드</button>
+            </div>
+          </div>
+
+          <!-- Font Family Selection -->
+          <div>
+            <label class="block text-[11px] font-sans font-semibold text-stone-400 mb-1.5 uppercase tracking-wider">글꼴 서체</label>
+            <div class="grid grid-cols-2 gap-2">
+              <button id="btnFontSerif" class="py-1 px-2 rounded border border-amberClassic-500 text-amberClassic-600 font-serif text-xs font-semibold">노토 명조체</button>
+              <button id="btnFontSans" class="py-1 px-2 rounded border border-stone-200 dark:border-noir-700 text-stone-500 font-sans text-xs">프리텐다드 고딕</button>
+            </div>
+          </div>
+
+          <!-- Font Size Adjust -->
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[11px] font-sans font-semibold text-stone-400 uppercase tracking-wider">글자 크기</span>
+              <span id="fontSizeDisplay" class="font-mono text-[11px] text-amberClassic-600">16px</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button id="btnFontDec" class="flex-1 py-1 rounded bg-stone-100 dark:bg-noir-800 hover:bg-stone-200 text-xs font-sans font-medium">작게 (A-)</button>
+              <button id="btnFontInc" class="flex-1 py-1 rounded bg-stone-100 dark:bg-noir-800 hover:bg-stone-200 text-xs font-sans font-medium">크게 (A+)</button>
+            </div>
+          </div>
+
+          <!-- Line Height Adjust -->
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[11px] font-sans font-semibold text-stone-400 uppercase tracking-wider">줄 간격</span>
+              <span id="lineHeightDisplay" class="font-mono text-[11px] text-amberClassic-600">2.1</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button id="btnLineHeightDec" class="flex-1 py-1 rounded bg-stone-100 dark:bg-noir-800 hover:bg-stone-200 text-xs font-sans font-medium">좁게</button>
+              <button id="btnLineHeightInc" class="flex-1 py-1 rounded bg-stone-100 dark:bg-noir-800 hover:bg-stone-200 text-xs font-sans font-medium">넓게</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Print / Export to PDF Button -->
+      <button id="btnPrint" class="p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 text-stone-600 dark:text-stone-300 transition" title="도서 전체 PDF 인쇄 / 저장">
+        <i class="fa-solid fa-file-pdf text-sm"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Reading Progress Bar (no-print) -->
+  <div class="no-print w-full h-[2px] bg-black/5 dark:bg-white/5">
+    <div id="readingProgressBar" class="h-full bg-amberClassic-500 transition-all duration-200 w-0"></div>
+  </div>
+
+  <!-- Main Reader Layout Container -->
+  <div class="relative flex-1 flex overflow-hidden">
+    
+    <!-- Collapsible Table of Contents Sidebar (no-print) -->
+    <aside id="tocSidebar" class="no-print w-72 md:w-80 bg-white/95 dark:bg-noir-900/95 backdrop-blur-md border-r border-black/5 dark:border-white/10 flex flex-col z-30 transition-all duration-300 shrink-0">
+      <div class="p-4 border-b border-black/5 dark:border-white/10 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-book-bookmark text-amberClassic-600 text-xs"></i>
+          <span class="text-xs font-semibold uppercase tracking-wider font-sans text-stone-700 dark:text-stone-200">차례 (Table of Contents)</span>
+        </div>
+        <button id="btnCloseToc" class="text-stone-400 hover:text-stone-600 dark:hover:text-stone-200 p-1">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <nav class="flex-1 overflow-y-auto p-3 space-y-1 text-xs font-sans select-none" id="tocNavContainer">
+        <!-- Dynamic TOC items will be injected by JavaScript -->
+      </nav>
+
+      <!-- Book Info Footer in Sidebar -->
+      <div class="p-3 border-t border-black/5 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.02] text-[11px] text-stone-400">
+        <p class="font-serif italic font-medium">오법석 지음 · 도서출판 침묵의소리</p>
+        <p class="text-[10px] text-stone-500 font-mono mt-0.5">ISBN 979-11-984021-0-8 (03810)</p>
+      </div>
+    </aside>
+
+    <!-- Reading Canvas Area -->
+    <main id="readerScrollArea" class="flex-1 h-full overflow-y-auto overflow-x-hidden flex flex-col items-center justify-start p-4 sm:p-8 md:p-12 relative">
+      
+      <!-- Actual Book Content Wrapper (Paper-like Book Page Box) -->
+      <article id="bookPageContainer" class="book-container w-full max-w-3xl book-shadow rounded-sm bg-white dark:bg-noir-850 border border-stone-200/80 dark:border-noir-700/60 p-8 sm:p-14 md:p-20 my-auto transition-all duration-200 relative min-h-[85vh]">
+        
+        <!-- Subtle book page corner curl / page texture -->
+        <div class="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-black/5 dark:from-white/5 to-transparent pointer-events-none rounded-tr-sm"></div>
+
+        <!-- Book Header Running Head (Print & Display) -->
+        <div class="border-b border-stone-200/60 dark:border-noir-700/40 pb-3 mb-10 flex items-center justify-between text-[11px] tracking-widest text-stone-400 uppercase font-serif select-none">
+          <span id="runningHeadTitle">악보의 쉼표 사이에 고여 있는 침묵의 무게</span>
+          <span id="runningHeadChapter" class="font-medium text-amberClassic-600/80"></span>
+        </div>
+
+        <!-- Dynamic Chapter Body Container -->
+        <div id="chapterContent" class="leading-[2.1] text-stone-800 dark:text-stone-200 text-base tracking-normal select-text transition-all duration-150">
+          <!-- Active chapter content will be rendered here -->
+        </div>
+
+        <!-- Book Footer Running Foot -->
+        <div class="border-t border-stone-200/60 dark:border-noir-700/40 pt-4 mt-16 flex items-center justify-between text-xs text-stone-400 font-serif select-none">
+          <span class="text-[11px] font-sans tracking-wide">도서출판 침묵의소리</span>
+          <div class="flex items-center gap-1.5 font-mono text-xs">
+            <span id="currentPageNumber" class="text-amberClassic-600 font-semibold">1</span>
+            <span class="text-stone-300 dark:text-stone-600">/</span>
+            <span id="totalPageNumber">174</span>
+          </div>
+        </div>
+
+      </article>
+
+      <!-- Bottom Chapter Nav Controls (no-print) -->
+      <div class="no-print mt-6 mb-12 flex items-center gap-4 z-10 select-none">
+        <button id="btnPrevChapter" class="px-4 py-2 rounded-full bg-white dark:bg-noir-850 shadow-md border border-stone-200 dark:border-noir-700 hover:border-amberClassic-500 text-xs font-sans font-medium text-stone-700 dark:text-stone-300 flex items-center gap-2 transition disabled:opacity-30 disabled:pointer-events-none">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>이전 장</span>
+        </button>
+
+        <button id="btnNextChapter" class="px-5 py-2 rounded-full bg-amberClassic-500 hover:bg-amberClassic-600 text-white shadow-md text-xs font-sans font-medium flex items-center gap-2 transition disabled:opacity-30 disabled:pointer-events-none">
+          <span>다음 장으로 넘어가기</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Embedded Complete Book Dataset -->
+  <script>
+    const BOOK_DATA = [
+      {
+        id: "cover",
+        title: "도서 표지",
+        category: "표지",
+        author: "오법석",
+        content: `
+          <div class="text-center py-12 md:py-20 flex flex-col items-center justify-center min-h-[55vh]">
+            <div class="w-16 h-1 bg-amberClassic-600 mb-8 mx-auto"></div>
+            <p class="font-display italic text-amberClassic-600 text-lg tracking-widest uppercase mb-2">The Weight of Silence Between Musical Rests</p>
+            <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold font-serif text-stone-900 dark:text-white leading-tight mb-6">
+              악보의 쉼표 사이에<br>고여 있는 침묵의 무게
+            </h1>
+            <p class="text-sm font-serif text-stone-500 dark:text-stone-400 max-w-md mx-auto leading-relaxed mb-12">
+              소음의 시대를 건너는 당신에게 바치는 정적의 마디.<br>
+              멈춤은 결핍이 아니라 선율을 완성하는 가장 거룩한 자궁이다.
+            </p>
+            <div class="mt-8 border-t border-stone-200 dark:border-noir-700 pt-6 w-48 text-center">
+              <span class="text-xs font-sans tracking-widest font-semibold uppercase text-stone-700 dark:text-stone-300">오 법 석 지 음</span>
+            </div>
+            <div class="mt-16 text-[11px] font-mono text-stone-400 tracking-wider">
+              침묵의 서재 · A5 판형 초판 1쇄
+            </div>
+          </div>
+        `
+      },
+      {
+        id: "colophon",
+        title: "판권지 및 서지 정보",
+        category: "서지",
+        author: "오법석",
+        content: `
+          <div class="py-10 max-w-lg mx-auto text-xs space-y-4 font-sans text-stone-600 dark:text-stone-400 leading-relaxed">
+            <h2 class="text-sm font-bold font-serif text-stone-800 dark:text-stone-200 mb-4 border-b pb-2">서지 정보 (Colophon)</h2>
+            <p><strong>도서명:</strong> 악보의 쉼표 사이에 고여 있는 침묵의 무게</p>
+            <p><strong>지은이:</strong> 오법석</p>
+            <p><strong>발행일:</strong> 2026년 9월 25일 초판 1쇄</p>
+            <p><strong>발행처:</strong> 도서출판 침묵의소리</p>
+            <p><strong>출판등록:</strong> 제 2026-000142 호</p>
+            <p><strong>ISBN:</strong> 979-11-984021-0-8 (03810)</p>
+            <p><strong>정가:</strong> 17,800원</p>
+            <div class="mt-8 pt-4 border-t border-stone-200 dark:border-noir-700 text-[11px] text-stone-400">
+              <p>본서의 저작권은 저자 오법석에게 있습니다. 서면에 의한 동의 없이 무단 전재 및 복제를 금합니다.</p>
+              <p class="mt-2 font-mono">Printed & Distributed in Republic of Korea</p>
+            </div>
+          </div>
+        `
+      },
+      {
+        id: "preface",
+        title: "작가의 말: 소음의 시대를 건너는 당신에게 바치는 정적의 마디",
+        category: "프롤로그",
+        author: "오법석",
+        content: `
+          <h2 class="text-xl font-bold font-serif text-stone-900 dark:text-white mb-2">작가의 말</h2>
+          <h3 class="text-sm font-serif text-amberClassic-600 dark:text-amberClassic-400 mb-8 pb-4 border-b">소음의 시대를 건너는 당신에게 바치는 정적의 마디</h3>
+          
+          <p class="mb-6">이 글을 읽고 있는 당신의 귓가에는 지금 어떤 소리들이 머물고 있습니까.</p>
+          <p class="mb-6">방 한구석에서 나직하게 돌아가는 공기청정기의 모터 소리일 수도 있고, 열린 창문 틈새로 아스라이 스며드는 도시의 둔중한 차량 소음일 수도 있으며, 어쩌면 귓속 깊숙이 꽂아 넣은 이어폰에서 뿜어져 나오는 빠르고 현란한 비트의 음악일지도 모르겠습니다.</p>
+          <p class="mb-6">그것도 아니라면, 아무런 소리도 나지 않는 방 안에서조차 끊임없이 머릿속을 맴돌며 덜컹거리는 '내일 해야 할 일들의 목록'이나, 누군가 무심코 던진 날카로운 말 한마디의 잔향일 수도 있겠지요.</p>
+          <p class="mb-6">우리는 참으로 유난스럽고 소란스러운 시대를 온몸으로 앓으며 살아가고 있습니다. 세상은 단 1초의 틈도 주지 않은 채 우리의 시선과 청각을 향해 더 많은 자극과 더 빠른 속도를 쏟아붓습니다. 스마트폰의 화면은 쉴 새 없이 번쩍이고, 알고리즘은 우리의 주의력을 한 톨도 남김없이 낚아채며, 사회는 끊임없이 무언가를 증명하고 채워 넣으라며 우리의 등 뒤에서 가속 페달을 밟아댑니다.</p>
+          <p class="mb-6">하지만 정작 그렇게 가쁜 숨을 몰아쉬며 악보의 끝을 향해 내달린 뒤, 우리 손에 남은 것은 무엇이었습니까. 풍요로운 성취감이었습니까? 아니면 언제 꺼질지 모르는 위태로운 허기와, 영혼의 밑바닥까지 하얗게 타버린 잿더미 같은 탈진뿐이었습니까.</p>
+          <p class="mb-6">나 역시 오랫동안 그 지독한 '공백 공포(Horror Vacui)'의 포로였습니다. 일정표의 빈칸을 견디지 못했고, 대화 사이에 1초의 침묵만 흘러도 어색함을 이기지 못해 실없는 농담을 지껄였으며, 퇴근길 만원 지하철 안에서도 손안의 작은 화면을 필사적으로 새로고침하며 세상의 잡다한 소음 속으로 나를 던져 넣었습니다. 비워져 있는 나 자신을 마주하는 일이 죽음보다 두려웠기 때문이었습니다.</p>
+          <p class="mb-6">그러던 어느 날 저녁, 콘서트홀 3층의 비좁은 객석에서 나는 내 삶을 송두리째 뒤흔든 기적 같은 2초간의 진공과 마주했습니다. 지휘봉이 허공을 단칼에 베어내며 멈추어 섰던 바로 그 찰나. 그 침묵 속에서 나는 깨달았습니다. 음악을 음악이게 만드는 것은 화려하게 쏟아지는 음표의 기교가 아니라, 그 음표와 음표 사이에 고여 있는 저 단단하고 묵직한 쉼표의 결단이라는 것을.</p>
+          <p class="mb-6">이 책의 문장과 문장 사이, 행과 행 사이에 머물고 있는 그 서늘하고 담담한 여백의 품 안에서, 부디 당신만의 잃어버린 숨소리를 가만히 되찾으시길 바랍니다. 소음의 시대를 묵묵히 견뎌내고 있는 가련하고도 아름다운 나의 동료 연주자, 당신의 지친 영혼을 향해 이 작은 정적의 마디를 삼가 바칩니다.</p>
+        `
+      },
+      {
+        id: "ch1",
+        title: "1장. 2초간의 진공, 지휘봉 끝에 걸린 숨소리",
+        category: "1부: 진공의 시간",
+        author: "오법석",
+        content: `
+          <div class="mb-8">
+            <span class="text-xs font-sans text-amberClassic-600 font-semibold tracking-wider uppercase">1부 · 진공의 시간: 가득 채워야 한다는 강박을 멈추다</span>
+            <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-white mt-1">1장. 2초간의 진공, 지휘봉 끝에 걸린 숨소리</h2>
+          </div>
+          
+          <p class="mb-6">공연장 로비의 육중한 유리문이 닫히는 순간, 등 뒤에서 서울의 거대한 소음이 마치 칼로 베어낸 듯 단호하게 잘려 나갔다.</p>
+          <p class="mb-6">젖은 외투 자락에서는 아직 덜 마른 비 냄새와 매연, 그리고 하루 종일 컴퓨터 모니터 앞에서 바스러지듯 소진된 활자들의 잔향이 묻어났다. 신호등의 깜빡임, 지하철 개찰구의 차가운 금속 마찰음, 퇴근길 만원 버스 안에서 귓가를 때리던 타인들의 파편화된 말소리. 그 모든 것들이 문밖의 어둠 속에 갇힌 채 두꺼운 방음벽 너머로 아스라해졌다.</p>
+          <p class="mb-6">객석 3층 C구역 14번. 무대 위 연주자들의 머리꼭대기가 까마득하게 내려다보이는 비좁은 좌석에 몸을 밀어 넣고 숨을 골랐다. 좌우로 빽빽하게 들어찬 사람들의 어깨는 하루의 마모를 고스란히 짊어지고 있었다. 스마트폰을 훑던 관성 탓인지 미세하게 떨리던 손가락 끝. 우리는 언제부터 아무것도 들리지 않는 고요를 이토록 두려워하게 되었을까.</p>
+          <p class="mb-6">마에스트로가 포디엄 위에 우뚝 섰을 때 홀 안의 모든 호흡은 일순간 멎었다. 가느다란 지휘봉이 허공을 가르고, 천둥 같은 오케스트라의 총주(Tutti)가 허공을 찢으며 터져 나왔다. 포르티시모($ff$). 팀파니가 포효하고 금관악기들이 붉게 달아오른 쇳물을 쏟아냈다. 소리가 너무 거대하면 귀가 아니라 명치 끝의 진동과 손목의 맥박을 통해 전신으로 전해진다. 음향의 쓰나미 속에서 일상의 피로가 강제로 마비되는 감각의 폭력.</p>
+          <p class="mb-6">그리고 절정의 순간, 마에스트로의 지휘봉이 허공을 날카롭게 베어내며 단칼에 멎었다. 뚝. 그것은 소리의 잦아듦이 아니었다. 절벽을 만나 허공으로 곤두박질치는 순간이었다. 연주자들의 활이 공중에서 얼어붙었고, 홀 안에는 형언할 수 없는 서늘하고 거대한 2초간의 진공이 와락 밀어닥쳤다.</p>
+          <p class="mb-6">시계로는 고작 2초 남짓이었지만 시공간은 완전히 뒤틀려 있었다. 아무런 소리도 나지 않았지만 그것은 결코 결핍이 아니었다. 방금 지나간 수억 개의 음향 입자들이 침묵이라는 투명한 그릇 속에 고여 출렁이며, 다음 도약을 위해 온 존재를 모아 팽팽하게 숨을 죽이던 가장 격렬하고 숭고한 침묵의 실재(實在)였다.</p>
+          <p class="mb-6">이윽고 2초의 침묵 바닥을 딛고 가녀린 첼로 한 대의 피아니시모가 나직하게 피어올랐을 때, 그 단 하나의 음색은 이전의 백여 개 악기 총주보다 더 선명하게 심장을 관통했다. 침묵을 통과하지 않은 소리는 결코 맑아질 수 없음을, 지휘봉 끝에 걸린 2초간의 정적이 증명하고 있었다.</p>
+        `
+      },
+      {
+        id: "ch2",
+        title: "2장. 채워지지 않으면 불안한 세상의 공백 공포",
+        category: "1부: 진공의 시간",
+        author: "오법석",
+        content: `
+          <div class="mb-8">
+            <span class="text-xs font-sans text-amberClassic-600 font-semibold tracking-wider uppercase">1부 · 진공의 시간</span>
+            <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-white mt-1">2장. 채워지지 않으면 불안한 세상의 공백 공포</h2>
+          </div>
+          <p class="mb-6">지하철역으로 이어지는 엘리베이터 안에 여덟 명의 사람이 몸을 실었다. 1층에서 지하 2층으로 내려가는 고작 10초 남짓한 시간. 누구도 입을 열지 않는 그 찰나의 정적을 견디지 못하고 사람들의 손은 일제히 주머니 속 스마트폰으로 파고든다.</p>
+          <p class="mb-6">'호러 바쿠이(Horror Vacui)'. 중세 미술사에서 도화지에 단 한 뼘의 빈 공간도 남겨두지 않고 문양을 채워 넣던 강박은, 오늘날 현대인의 손바닥 안에서 부활했다. 우리는 시간의 여백을 견디지 못한다. 신호 대기 30초, 커피를 기다리는 2분, 대화 사이 3초의 틈마저 무언가로 채워 넣지 않으면 도태될 것 같은 공포에 휩싸인다.</p>
+          <p class="mb-6">메신저의 붉은 숫자 1을 지워내지 못하면 안절부절못하고, 아무 일정도 없는 주말의 텅 빈 거실에서 죄책감을 느낀다. 하지만 악보 위에 쉼표 없이 16분음표만 쏟아붓는 음악이 결국 귀를 찢는 소음으로 붕괴하듯, 여백을 지워버린 삶의 끝에 남는 것은 성취가 아니라 영혼의 탈진뿐이다. 공백을 사랑할 수 있을 때 삶은 비로소 음악이 되기 시작한다.</p>
+        `
+      },
+      {
+        id: "ch3",
+        title: "3장. 악보 위 가장 무거운 기호, 쉼표(Rest)의 선언",
+        category: "1부: 진공의 시간",
+        author: "오법석",
+        content: `
+          <div class="mb-8">
+            <span class="text-xs font-sans text-amberClassic-600 font-semibold tracking-wider uppercase">1부 · 진공의 시간</span>
+            <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-white mt-1">3장. 악보 위 가장 무거운 기호, 쉼표(Rest)의 선언</h2>
+          </div>
+          <p class="mb-6">서재 책상 위에 오케스트라 총보를 펼쳐 든다. 수만 개의 음표 사이로 넷째 줄에 박쥐처럼 매달린 온쉼표, 번개 모양의 4분쉼표가 입을 다물고 있다. 세상은 이를 쉼이라 부르지만 연주자에게 쉼표는 가장 까다로운 음표다. 소리의 방패를 내려놓고 연주자의 맨몸과 숨소리만으로 다음 음의 장력을 버텨내야 하기 때문이다.</p>
+          <p class="mb-6">베토벤 교향곡 5번 운명의 도입부 '따-따-따-딴' 직후 우뚝 서 있는 페르마타 쉼표. 그 침묵이 없었더라면 운명의 노크는 시끄러운 난타로 전락했을 것이다. 물리학에서 멈추어 선 활시위가 가장 큰 위치 에너지를 품듯, 쉼표는 음악의 무덤이 아니라 다음 도약을 준비하는 가장 뜨거운 자궁이다. 소음의 시대를 향해 선언한다. "나는 여기서 잠시 멈춘다."</p>
+        `
+      },
+      {
+        id: "ch4",
+        title: "4장. 멈추지 못하는 기차에서 뛰어내리고 싶을 때",
+        category: "2부: 서늘한 여백",
+        author: "오법석",
+        content: `
+          <div class="mb-8">
+            <span class="text-xs font-sans text-amberClassic-600 font-semibold tracking-wider uppercase">2부 · 서늘한 여백: 퇴근길 차창에 스미는 바흐의 침묵</span>
+            <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-white mt-1">4장. 멈추지 못하는 기차에서 뛰어내리고 싶을 때</h2>
+          </div>
+          <p class="mb-6">오후 7시 40분, 2호선 을지로입구역 승강장. 쇳가루 냄새와 기름 냄새, 산화된 한숨이 뒤섞인 바람 속으로 은회색 전동차가 미끄러져 들어온다. 창밖 당산철교를 지나는 찰나 강변북로의 붉은 후미등 행렬을 보며 가슴 밑바닥에서 치솟던 파괴 본능. '차라리 이 열차가 강물 속으로 가라앉아 이 폭주를 멈추어 세워주었으면.'</p>
+          <p class="mb-6">슈만의 악보에 적힌 "가능한 한 빠르게, 더 빠르게, 훨씬 더 빠르게"처럼 세상은 우리에게 가속만을 강요한다. 하지만 전동차 틈바구니에서 꺼내 든 바흐의 골드베르크 변주곡 악보, 그리고 글렌 굴드가 첫 타건 직전 들이마신 0.5초의 들숨 소리를 들으며 깨달았다. 멈추지 못하는 기차에서 뛰어내리는 방법은 선로에 몸을 던지는 것이 아니라, 기차 안에서 내 영혼의 속도를 안단테로 되돌려놓는 것임을.</p>
+        `
+      },
+      {
+        id: "ch5",
+        title: "5장. 소음의 포화 속, 헤드폰 너머로 차오르는 바흐의 균형",
+        category: "2부: 서늘한 여백",
+        author: "오법석",
+        content: `
+          <div class="mb-8">
+            <span class="text-xs font-sans text-amberClassic-600 font-semibold tracking-wider uppercase">2부 · 서늘한 여백</span>
+            <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-white mt-1">5장. 소음의 포화 속, 헤드폰 너머로 차오르는 바흐의 균형</h2>
+          </div>
+          <p class="mb-6">두툼한 이어컵을 덮어쓰고 노이즈 캔슬링 스위치를 올린다. 역위상 음파가 소음을 지워낸 자리에 안너 빌스마의 무반주 첼로 모음곡 프렐류드가 흙냄새와 고목의 나이테를 닮은 소리로 흘러든다. 바흐의 음악에는 낭만주의적 오열이나 자기 연민의 과잉이 없다. 엄격한 비례와 수학적 정결함으로 무너진 내면의 기둥을 바로 세운다.</p>
+          <p class="mb-6">서로 독립된 선율이 어깨를 나란히 걷는 대위법과 푸가는 타인의 어깨를 밀치는 지하철 풍경을 부끄럽게 꾸짖는다. 아내를 잃은 고통을 64개 변주로 깎아낸 샤콘느의 숭고한 질서처럼, 소음의 시대를 살아남는 법은 소리를 피하는 것이 아니라 소음보다 더 거대하고 질서 있는 중심을 내 안에 품는 일이다.</p>
+        `
+      },
+      {
+        id: "ch6",
+        title: "6장. 건반에서 손을 뗀 후에야 울려 퍼지는 내면의 배음",
+        category: "2부: 서늘한 여백",
+        author: "오법석",
+        content: `
+          <div class="mb-8">
+            <span class="text-xs font-sans text-amberClassic-600 font-semibold tracking-wider uppercase">2부 · 서늘한 여백</span>
+            <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-white mt-1">6장. 건반에서 손을 뗀 후에야 울려 퍼지는 내면의 배음</h2>
+          </div>
+          <p class="mb-6">신촌역 출구를 나와 빗물 젖은 밤길을 걸어 방으로 돌아왔다. 불을 켜지 않은 채 오래된 업라이트 피아노의 낮은 건반 하나를 깊숙이 누른 뒤 손끝을 뗐다. 소리가 멎은 찰나 공명판을 타고 허공으로 피어오르는 은은한 배음(Overtone)의 파동. 건반을 내리치는 타건(Attack)은 기교이지만, 손을 떼는 릴리스(Release)는 연주자의 인품이자 영혼의 품격이다.</p>
+          <p class="mb-6">현대인의 비극은 건반에서 손을 떼지 못한 채 다음 건반을 연타하는 데서 온다. 소리를 공기와 침묵의 품으로 돌려보내는 우아한 손짓처럼, 상처에서도 조급함에서도 손을 들어 올려야 한다. 건반에서 손을 뗀 자만이 누릴 수 있는 서늘하고 투명한 내면의 평정.</p>
+        `
+      },
+      {
+        id: "ch7",
+        title: "7장. 말을 거두고 생각의 잔향을 응시하는 법",
+        category: "3부: 침묵의 밀도",
+        author: "오법석",
+        content: `
+          <div class="mb-8">
+            <span class="text-xs font-sans text-amberClassic-600 font-semibold tracking-wider uppercase">3부 · 침묵의 밀도: 비워냄으로써 단단해지는 삶의 화음</span>
+            <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-white mt-1">7장. 말을 거두고 생각의 잔향을 응시하는 법</h2>
+          </div>
+          <p class="mb-6">하루를 마치고 세면대 거울 앞에 설 때 느껴지는 언어의 과식. 빙산의 거대한 밑동처럼 문장을 떠받쳐야 할 침묵이 증발한 채, 설익은 감정의 파편들이 타인을 찌르고 돌아와 내 가슴을 벤다. 피아니스트가 이전 화음의 찌꺼기를 끊어내는 페달링의 호흡처럼 우리의 말에도 정교한 절제가 필요하다.</p>
+          <p class="mb-6">고함이 난무하던 회의실을 단 2분의 침묵으로 정돈하던 선배의 권위, 산사 범종 소리가 사라진 뒤 골짜기에 맴도는 생각의 잔향. 말을 거두자 비로소 타인의 고통이 보이고 나 자신과의 진짜 대화가 시작되었다. 침묵은 감정의 쓰레기를 태우는 가장 거룩한 소각로다.</p>
+        `
+      },
+      {
+        id: "ch8",
+        title: "8장. 일상의 쉼표를 감내하는 태도와 용기",
+        category: "3부: 침묵의 밀도",
+        author: "오법석",
+        content: `
+          <div class="mb-8">
+            <span class="text-xs font-sans text-amberClassic-600 font-semibold tracking-wider uppercase">3부 · 침묵의 밀도</span>
+            <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-white mt-1">8장. 일상의 쉼표를 감내하는 태도와 용기</h2>
+          </div>
+          <p class="mb-6">토요일 아침 눈을 떴을 때 가슴을 짓누르는 죄책감. 하지만 멈춤은 저절로 주어지는 선물이 아니라 관성의 기차에서 비상 브레이크를 당기는 치열한 투쟁이다. 박자의 독재를 멈추는 늘임표 페르마타(Fermata)처럼, 남들이 네 박자로 지나간 자리를 열여섯 박자로 머무는 용기가 필요하다.</p>
+          <p class="mb-6">피아노 초보자가 가장 힘들어하는 '손목의 탈력(Relaxation)'처럼 힘을 주는 것보다 힘을 빼는 것이 훨씬 더 숭고한 기술이다. 겨울나무가 잎을 떨구고 침묵 속에서 겨울눈을 벼려내듯, 다이어리에 '아무것도 하지 않음'이라는 정식 약속을 기입하고 타인의 부당한 요구에 단호히 거절의 울타리를 치는 담력을 회복하라.</p>
+        `
+      },
+      {
+        id: "ch9",
+        title: "9장. 멈추었기에 다시 흐르는 가장 완전한 선율",
+        category: "3부: 침묵의 밀도",
+        author: "오법석",
+        content: `
+          <div class="mb-8">
+            <span class="text-xs font-sans text-amberClassic-600 font-semibold tracking-wider uppercase">3부 · 침묵의 밀도</span>
+            <h2 class="text-2xl font-bold font-serif text-stone-900 dark:text-white mt-1">9장. 멈추었기에 다시 흐르는 가장 완전한 선율</h2>
+          </div>
+          <p class="mb-6">새벽 여명 속에서 죄책감 없이 눈을 뜬다. 음악에는 첫 강박 대신 직전의 여린 박에서 숨을 들이마시며 시작하는 '아우프탁트(여린내기)'가 있다. 우리는 멈추기 위해 사는 것이 아니라 다시 아름답게 흐르기 위해 멈추는 법을 배운다.</p>
+          <p class="mb-6">지하철 2호선 승강장으로 다시 내려선다. 레일의 굉음은 퍼커션 베이스이고 타인의 웅성거림은 거대한 다성음악(Polyphony)의 불협화음 조각으로 수용된다. 시련의 발전부를 건너와 다시 울려 퍼지는 소나타 재현부와 골드베르크의 『아리아 다 카포』처럼, 일상의 행위는 같아도 내면의 깊이는 완전히 달라졌다. 멈추었기에 나는 이제 가장 완전한 내 삶의 선율을 향해 다시 흐른다.</p>
+        `
+      },
+      {
+        id: "epilogue",
+        title: "에필로그: 침묵이 음악이 되는 찰나의 순간에 머물며",
+        category: "에필로그",
+        author: "오법석",
+        content: `
+          <h2 class="text-xl font-bold font-serif text-stone-900 dark:text-white mb-2">에필로그</h2>
+          <h3 class="text-sm font-serif text-amberClassic-600 dark:text-amberClassic-400 mb-8 pb-4 border-b">침묵이 음악이 되는 찰나의 순간에 머물며</h3>
+          
+          <p class="mb-6">음악회가 끝나면 언제나 가장 먼저 무대를 밝히던 조명이 꺼지고, 천장을 가득 메웠던 관객들의 우레와 같은 갈채 역시 하나둘씩 어둠 속으로 잦아든다. 연주자들은 악기를 케이스에 조심스럽게 갈무리하고, 객석을 채웠던 사람들은 외투 깃을 여미며 일상 속으로 발걸음을 돌린다.</p>
+          <p class="mb-6">그러나 모두가 썰물처럼 빠져나간 텅 빈 콘서트홀의 붉은 벨벳 의자 위에 홀로 남아 있을 때, 나는 비로소 알게 된다. 공연은 사람들이 떠난 자리에서 침묵이라는 보이지 않는 두 번째 악장을 비로소 시작한다는 사실을. 수백억 개의 음향 입자들은 소멸한 것이 아니라 홀의 목재 벽면 결마다 투명한 지문처럼 스며들어 미세한 체온으로 허공을 덥히고 있었다.</p>
+          <p class="mb-6">악보의 맨 마지막 장을 넘기면 만나는 두 개의 기호, 페르마타와 겹세로줄(End bar line). 위대한 피아니스트들은 마지막 음을 누른 뒤 곧바로 성급하게 몸을 일으키지 않는다. 5초, 10초, 15초……. 소리가 귀로는 더 이상 들리지 않는 절대적 무음의 수면 아래로 가라앉을 때까지, 연주자는 온 존재를 모아 소리의 마지막 숨결을 끝까지 배웅한다. 그 찰나의 지체야말로 소리와 침묵이 완벽하게 입을 맞추는 가장 신성한 순간이다.</p>
+          <p class="mb-6">이제 이 책을 쥐고 있는 당신의 손을 가만히 내려다본다. 어디였든 상관없습니다. 당신이 이 책의 문장과 문장 사이, 행과 행 사이에 고여 있던 그 서늘하고 묵직한 쉼표들을 통과하는 동안, 세상이 당신 등 뒤에서 밟아대던 가속 페달의 굉음이 아주 조금이라도 잦아들었기를 바랍니다.</p>
+          <p class="mb-6">침묵은 결핍이 아닙니다. 비어 있음은 패배가 아닙니다. 그것은 세상 그 어떤 화려한 소리보다도 더 순도 높은 에너지를 품고 있는, 새로운 삶의 선율을 탄생시키기 위한 가장 거룩하고 단단한 자궁입니다.</p>
+          <p class="mb-6">소음의 시대를 함께 건너온 나의 가련하고도 아름다운 동료 연주자여. 당신의 오선지 위에 영원히 머물 그 거룩하고 평화로운 쉼표를 축복하며, 이제 나의 지휘봉을 허공 속으로 조용히 내려놓습니다.</p>
+        `
+      }
+    ];
+
+    // State Management
+    let currentChapterIndex = 0;
+    let currentFontSize = 16;
+    let currentLineHeight = 2.1;
+    let currentTheme = 'paper';
+    let isSerif = true;
+    let isAmbientPlaying = false;
+    let audioCtx = null;
+    let ambientGainNode = null;
+    let noiseNode = null;
+
+    // DOM Elements
+    const chapterContentEl = document.getElementById('chapterContent');
+    const runningHeadChapterEl = document.getElementById('runningHeadChapter');
+    const currentChapterBadgeEl = document.getElementById('currentChapterBadge');
+    const currentPageNumberEl = document.getElementById('currentPageNumber');
+    const totalPageNumberEl = document.getElementById('totalPageNumber');
+    const readingProgressBarEl = document.getElementById('readingProgressBar');
+    const tocNavContainerEl = document.getElementById('tocNavContainer');
+    const tocSidebarEl = document.getElementById('tocSidebar');
+    const btnToggleTocEl = document.getElementById('btnToggleToc');
+    const btnCloseTocEl = document.getElementById('btnCloseToc');
+    const btnPrevChapterEl = document.getElementById('btnPrevChapter');
+    const btnNextChapterEl = document.getElementById('btnNextChapter');
+    const btnSettingsEl = document.getElementById('btnSettings');
+    const settingsPanelEl = document.getElementById('settingsPanel');
+    const readerScrollAreaEl = document.getElementById('readerScrollArea');
+    const btnPrintEl = document.getElementById('btnPrint');
+    const btnAmbientSoundEl = document.getElementById('btnAmbientSound');
+    const ambientIconEl = document.getElementById('ambientIcon');
+
+    // Initialize Reader
+    function initReader() {
+      buildTOC();
+      renderChapter(0);
+      setupEventListeners();
+      setupTypographyControls();
+      setupThemes();
+      calculateTotalPages();
+    }
+
+    // Build TOC in sidebar
+    function buildTOC() {
+      tocNavContainerEl.innerHTML = '';
+      BOOK_DATA.forEach((chap, idx) => {
+        const itemBtn = document.createElement('button');
+        itemBtn.className = `w-full text-left p-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition flex items-start gap-2.5 ${idx === 0 ? 'text-amberClassic-600 font-semibold bg-amberClassic-500/10' : 'text-stone-600 dark:text-stone-400'}`;
+        itemBtn.innerHTML = `
+          <span class="text-[10px] font-mono text-stone-400 mt-0.5">${String(idx + 1).padStart(2, '0')}</span>
+          <div class="flex-1 truncate">
+            <span class="text-[10px] block text-stone-400 uppercase tracking-wider">${chap.category}</span>
+            <span class="truncate block text-xs">${chap.title}</span>
+          </div>
+        `;
+        itemBtn.addEventListener('click', () => {
+          renderChapter(idx);
+          if (window.innerWidth < 1024) {
+            tocSidebarEl.classList.add('hidden');
+          }
+        });
+        tocNavContainerEl.appendChild(itemBtn);
+      });
+    }
+
+    // Render active chapter
+    function renderChapter(index) {
+      if (index < 0 || index >= BOOK_DATA.length) return;
+      currentChapterIndex = index;
+      const chapter = BOOK_DATA[index];
+
+      // Fade out/in
+      chapterContentEl.style.opacity = '0';
+      chapterContentEl.style.transform = 'translateY(6px)';
+
+      setTimeout(() => {
+        chapterContentEl.innerHTML = chapter.content;
+        runningHeadChapterEl.textContent = chapter.title.split('.')[0];
+        currentChapterBadgeEl.textContent = chapter.title;
+        currentPageNumberEl.textContent = calculatePageOffset(index);
+        
+        chapterContentEl.style.opacity = '1';
+        chapterContentEl.style.transform = 'translateY(0)';
+        readerScrollAreaEl.scrollTo({ top: 0, behavior: 'smooth' });
+
+        updateProgressBar();
+        updateTOCActiveState();
+        updateNavButtons();
+      }, 120);
+    }
+
+    function calculatePageOffset(index) {
+      const pageCounts = [1, 2, 4, 16, 16, 16, 20, 20, 20, 18, 18, 20, 6];
+      let sum = 0;
+      for (let i = 0; i < index; i++) {
+        sum += pageCounts[i] || 4;
+      }
+      return sum + 1;
+    }
+
+    function calculateTotalPages() {
+      totalPageNumberEl.textContent = '174';
+    }
+
+    function updateProgressBar() {
+      const progress = ((currentChapterIndex + 1) / BOOK_DATA.length) * 100;
+      readingProgressBarEl.style.width = `${progress}%`;
+    }
+
+    function updateTOCActiveState() {
+      const tocButtons = tocNavContainerEl.querySelectorAll('button');
+      tocButtons.forEach((btn, idx) => {
+        if (idx === currentChapterIndex) {
+          btn.classList.add('text-amberClassic-600', 'font-semibold', 'bg-amberClassic-500/10');
+          btn.classList.remove('text-stone-600', 'dark:text-stone-400');
+        } else {
+          btn.classList.remove('text-amberClassic-600', 'font-semibold', 'bg-amberClassic-500/10');
+          btn.classList.add('text-stone-600', 'dark:text-stone-400');
+        }
+      });
+    }
+
+    function updateNavButtons() {
+      btnPrevChapterEl.disabled = currentChapterIndex === 0;
+      btnNextChapterEl.disabled = currentChapterIndex === BOOK_DATA.length - 1;
+    }
+
+    // Event Listeners
+    function setupEventListeners() {
+      btnToggleTocEl.addEventListener('click', () => {
+        tocSidebarEl.classList.toggle('hidden');
+      });
+      btnCloseTocEl.addEventListener('click', () => {
+        tocSidebarEl.classList.add('hidden');
+      });
+      btnPrevChapterEl.addEventListener('click', () => {
+        if (currentChapterIndex > 0) renderChapter(currentChapterIndex - 1);
+      });
+      btnNextChapterEl.addEventListener('click', () => {
+        if (currentChapterIndex < BOOK_DATA.length - 1) renderChapter(currentChapterIndex + 1);
+      });
+
+      // Settings dropdown toggle
+      btnSettingsEl.addEventListener('click', (e) => {
+        e.stopPropagation();
+        settingsPanelEl.classList.toggle('hidden');
+      });
+      document.addEventListener('click', (e) => {
+        if (!settingsPanelEl.contains(e.target) && e.target !== btnSettingsEl) {
+          settingsPanelEl.classList.add('hidden');
+        }
+      });
+
+      // Keyboard arrow navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft' && currentChapterIndex > 0) {
+          renderChapter(currentChapterIndex - 1);
+        } else if (e.key === 'ArrowRight' && currentChapterIndex < BOOK_DATA.length - 1) {
+          renderChapter(currentChapterIndex + 1);
+        }
+      });
+
+      // Print PDF handler
+      btnPrintEl.addEventListener('click', () => {
+        window.print();
+      });
+
+      // Sound ambiance toggle
+      btnAmbientSoundEl.addEventListener('click', toggleAmbientSound);
+    }
+
+    // Typography & View Controls
+    function setupTypographyControls() {
+      const btnFontInc = document.getElementById('btnFontInc');
+      const btnFontDec = document.getElementById('btnFontDec');
+      const fontSizeDisplay = document.getElementById('fontSizeDisplay');
+      const btnLineHeightInc = document.getElementById('btnLineHeightInc');
+      const btnLineHeightDec = document.getElementById('btnLineHeightDec');
+      const lineHeightDisplay = document.getElementById('lineHeightDisplay');
+      const btnFontSerif = document.getElementById('btnFontSerif');
+      const btnFontSans = document.getElementById('btnFontSans');
+
+      btnFontInc.addEventListener('click', () => {
+        if (currentFontSize < 24) {
+          currentFontSize += 1;
+          applyTypography();
+        }
+      });
+      btnFontDec.addEventListener('click', () => {
+        if (currentFontSize > 13) {
+          currentFontSize -= 1;
+          applyTypography();
+        }
+      });
+      btnLineHeightInc.addEventListener('click', () => {
+        if (currentLineHeight < 2.8) {
+          currentLineHeight = +(currentLineHeight + 0.1).toFixed(1);
+          applyTypography();
+        }
+      });
+      btnLineHeightDec.addEventListener('click', () => {
+        if (currentLineHeight > 1.6) {
+          currentLineHeight = +(currentLineHeight - 0.1).toFixed(1);
+          applyTypography();
+        }
+      });
+
+      btnFontSerif.addEventListener('click', () => {
+        isSerif = true;
+        btnFontSerif.className = 'py-1 px-2 rounded border border-amberClassic-500 text-amberClassic-600 font-serif text-xs font-semibold';
+        btnFontSans.className = 'py-1 px-2 rounded border border-stone-200 dark:border-noir-700 text-stone-500 font-sans text-xs';
+        applyTypography();
+      });
+
+      btnFontSans.addEventListener('click', () => {
+        isSerif = false;
+        btnFontSans.className = 'py-1 px-2 rounded border border-amberClassic-500 text-amberClassic-600 font-sans text-xs font-semibold';
+        btnFontSerif.className = 'py-1 px-2 rounded border border-stone-200 dark:border-noir-700 text-stone-500 font-serif text-xs';
+        applyTypography();
+      });
+    }
+
+    function applyTypography() {
+      chapterContentEl.style.fontSize = `${currentFontSize}px`;
+      chapterContentEl.style.lineHeight = `${currentLineHeight}`;
+      chapterContentEl.style.fontFamily = isSerif ? '"Noto Serif KR", Georgia, serif' : 'Pretendard, -apple-system, sans-serif';
+      document.getElementById('fontSizeDisplay').textContent = `${currentFontSize}px`;
+      document.getElementById('lineHeightDisplay').textContent = `${currentLineHeight}`;
+    }
+
+    // Theme selector
+    function setupThemes() {
+      const themeButtons = document.querySelectorAll('.btn-theme');
+      themeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const selectedTheme = btn.dataset.theme;
+          document.body.className = `theme-${selectedTheme} font-serif transition-colors duration-300 min-h-screen flex flex-col antialiased`;
+          if (selectedTheme === 'dark' || selectedTheme === 'oled') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        });
+      });
+    }
+
+    // Web Audio Ambient Generator (Rain/Vinyl crackle subtle white-noise simulation)
+    function toggleAmbientSound() {
+      if (!isAmbientPlaying) {
+        startAmbientSound();
+      } else {
+        stopAmbientSound();
+      }
+    }
+
+    function startAmbientSound() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+        
+        // Pink noise generator buffer
+        const bufferSize = audioCtx.sampleRate * 2;
+        const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+        for (let i = 0; i < bufferSize; i++) {
+          const white = Math.random() * 2 - 1;
+          b0 = 0.99886 * b0 + white * 0.0555179;
+          b1 = 0.99332 * b1 + white * 0.0750759;
+          b2 = 0.96900 * b2 + white * 0.1538520;
+          b3 = 0.86650 * b3 + white * 0.3104856;
+          b4 = 0.55000 * b4 + white * 0.5329522;
+          b5 = -0.7616 * b5 - white * 0.0168980;
+          output[i] = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362;
+          output[i] *= 0.04; // Gentle volume
+          b6 = white * 0.115926;
+        }
+
+        noiseNode = audioCtx.createBufferSource();
+        noiseNode.buffer = noiseBuffer;
+        noiseNode.loop = true;
+
+        // Gentle lowpass filter for deep rain/hall vibe
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(450, audioCtx.currentTime);
+
+        ambientGainNode = audioCtx.createGain();
+        ambientGainNode.gain.setValueAtTime(0.01, audioCtx.currentTime);
+        ambientGainNode.gain.exponentialRampToValueAtTime(0.35, audioCtx.currentTime + 1.5);
+
+        noiseNode.connect(filter);
+        filter.connect(ambientGainNode);
+        ambientGainNode.connect(audioCtx.destination);
+
+        noiseNode.start();
+        isAmbientPlaying = true;
+        ambientIconEl.className = 'fa-solid fa-volume-high text-amberClassic-500 animate-pulse text-sm';
+        btnAmbientSoundEl.title = '사색 앰비언스 끄기';
+      } catch (err) {
+        console.error('Audio initialization error:', err);
+      }
+    }
+
+    function stopAmbientSound() {
+      if (ambientGainNode && audioCtx) {
+        ambientGainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.6);
+        setTimeout(() => {
+          if (noiseNode) noiseNode.stop();
+          if (audioCtx) audioCtx.close();
+          isAmbientPlaying = false;
+          ambientIconEl.className = 'fa-solid fa-volume-xmark text-sm';
+          btnAmbientSoundEl.title = '사색 앰비언스 사운드 켜기';
+        }, 700);
+      }
+    }
+
+    // Run on ready
+    window.addEventListener('DOMContentLoaded', initReader);
+  </script>
+</body>
+</html>
