@@ -221,8 +221,8 @@ jobs:
 
           check_follow_200 "https://aijoylab.kr/books/weight-of-silence/mindmap.html?deploy=${GITHUB_SHA}"
           grep -Fq '침묵' /tmp/body
-          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/mindmap-v2.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-mindmap-v2.bin
-          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-mindmap-v2.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('침묵'))process.exit(1);console.log('Mindmap payload strict gzip PASS')"
+          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/mindmap-v3.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-mindmap-v3.bin
+          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-mindmap-v3.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('침묵'))process.exit(1);console.log('Mindmap payload strict gzip PASS')"
 
           check_200 "https://aijoylab.kr/articles/why-we-cannot-stand-silence?deploy=${GITHUB_SHA}"
           grep -Fq '침묵의 기술' /tmp/body
