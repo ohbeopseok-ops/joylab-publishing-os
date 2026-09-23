@@ -110,6 +110,9 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      - name: Asset Integrity Gate
+        run: node scripts/check-asset-integrity.mjs
+
       - name: Verify JoyLab identity schema
         shell: bash
         run: |
