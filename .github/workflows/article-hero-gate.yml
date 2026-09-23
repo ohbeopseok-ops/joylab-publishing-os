@@ -11,6 +11,8 @@ on:
       - 'public/images/**'
       - 'scripts/check-article-heroes.mjs'
       - 'scripts/apply-curated-research-images.mjs'
+      - 'scripts/materialize-ep03-demian-v5.mjs'
+      - 'assets/ep03-demian-v5/**'
       - 'scripts/assemble-generated-hero-assets.mjs'
       - '.github/workflows/article-hero-gate.yml'
   pull_request:
@@ -23,6 +25,8 @@ on:
       - 'public/images/**'
       - 'scripts/check-article-heroes.mjs'
       - 'scripts/apply-curated-research-images.mjs'
+      - 'scripts/materialize-ep03-demian-v5.mjs'
+      - 'assets/ep03-demian-v5/**'
       - 'scripts/assemble-generated-hero-assets.mjs'
       - '.github/workflows/article-hero-gate.yml'
   workflow_dispatch:
