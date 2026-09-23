@@ -4,7 +4,10 @@ import crypto from 'node:crypto';
 
 const root = process.cwd();
 const sourceDir = path.join(root, 'assets/ep03-demian-v5');
-const output = path.join(root, 'public/images/leadership/literature/ep03-demian-v5.webp');
+const outputs = [
+  path.join(root, 'public/images/leadership/literature/ep03-demian-v5.webp'),
+  path.join(root, 'public/images/leadership/literature/ep03-demian-v2-fixed.webp')
+];
 const chunks = ['00.b64', '01.b64', '02.b64', '03.b64', '04.b64', '05.b64'];
 const expectedBytes = 38946;
 const expectedSha256 = 'd11716a27324b8725efdcce61b82aaca524673b408da1036d6187d7a304862ff';
@@ -28,6 +31,8 @@ if (sha256 !== expectedSha256) {
   throw new Error(`EP03 v5 sha256 mismatch: expected ${expectedSha256}, got ${sha256}`);
 }
 
-fs.mkdirSync(path.dirname(output), { recursive: true });
-fs.writeFileSync(output, buffer);
-console.log(`Materialized EP03 Demian v5: ${path.relative(root, output)} (${buffer.length} bytes, sha256 ${sha256})`);
+for (const output of outputs) {
+  fs.mkdirSync(path.dirname(output), { recursive: true });
+  fs.writeFileSync(output, buffer);
+  console.log(`Materialized verified EP03 Demian asset: ${path.relative(root, output)} (${buffer.length} bytes, sha256 ${sha256})`);
+}
