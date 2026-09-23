@@ -49,6 +49,8 @@ const defaultBenefits = [
 const benefits = book.data.benefits?.map((text) => ({ icon: '✓', text })) ?? defaultBenefits;
 const tocItems = book.data.tocItems ?? [];
 const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 더 나답게.';
+const ogImageWidth = book.data.ogImageWidth ?? (book.id === 'ax-customer-center' ? 1200 : 1600);
+const ogImageHeight = book.data.ogImageHeight ?? (book.id === 'ax-customer-center' ? 630 : 900);
 ---
 <BaseLayout
   title={`${book.data.title} | JoyLab Books`}
@@ -56,8 +58,8 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
   canonical={canonical}
   bodyClass={`book-landing-page book-landing-v2 book-${book.id}`}
   image={book.data.ogImage}
-  imageWidth={book.id === 'ax-customer-center' ? 1200 : book.id === 'weight-of-silence' ? 1200 : 1600}
-  imageHeight={book.id === 'ax-customer-center' ? 630 : book.id === 'weight-of-silence' ? 675 : 900}
+  imageWidth={ogImageWidth}
+  imageHeight={ogImageHeight}
 >
   <BookSchema book={book} canonical={canonical} />
 
