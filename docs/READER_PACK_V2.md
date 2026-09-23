@@ -162,6 +162,25 @@ relatedArticleIds:
 - Cover와 OG는 동일한 상징 체계를 유지한다.
 - 이미지 안 텍스트와 HTML title을 이중 검수한다.
 
+## 6.1 Image Immutable Path Gate
+
+Reader Pack의 Cover, OG, Hero가 이미 Production에 노출된 경로를 교체해야 할 경우 기존 URL을 덮어쓰지 않는다.
+
+필수 규칙:
+- 한 번이라도 Production에 사용된 이미지 파일명은 새 캐시 키로 재사용하지 않는다.
+- 교체 시 새 immutable filename을 사용한다. 예: `book-slug-og-v2.webp`, `article-slug-hero-v3.webp`.
+- Book Detail, Web Reader, Research Hero, Open Graph, JSON-LD, CSS/manifest 참조를 같은 PR에서 새 경로로 통일한다.
+- 배포 전 full image decode, 배포 후 direct asset 200 및 Production Smoke를 통과해야 한다.
+- 이전 검증 자산은 신규 Production Gate가 GREEN이 될 때까지 rollback용으로 유지한다.
+
+공통 배포 규칙은 [IMAGE_CACHE_BUSTING.md](./IMAGE_CACHE_BUSTING.md)를 따른다.
+
+Reader Pack GOLD 조건에 다음을 추가한다.
+- [ ] 신규 이미지 경로가 과거 Production 경로를 재사용하지 않음
+- [ ] Hero/OG/JSON-LD/manifest 참조가 동일 immutable path로 정렬됨
+- [ ] Asset Integrity Gate GREEN
+- [ ] Superseded active image reference 0
+
 ## 7. GOLD Release Gate
 
 ### Required
