@@ -3,42 +3,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="refresh" content="0; url=./mindmap-reader.html">
+  <meta name="robots" content="noindex,follow">
   <title>악보의 쉼표 사이에 고여 있는 침묵의 무게 - 마인드맵</title>
   <style>
     html,body{height:100%;margin:0;background:#0c0e14;color:#e5e7eb;font-family:system-ui,-apple-system,sans-serif}
-    main{min-height:100%;display:grid;place-items:center;padding:24px;box-sizing:border-box}
-    .loading{text-align:center;opacity:.8}.loading b{display:block;font-size:14px;margin-bottom:8px}.loading span{font-size:12px;color:#9ca3af}
+    main{min-height:100%;display:grid;place-items:center;padding:24px;box-sizing:border-box;text-align:center}
+    a{color:#f0c777}
   </style>
 </head>
 <body>
-  <main><div class="loading"><b>JoyLab Books</b><span>콘텐츠를 여는 중입니다.</span></div></main>
+  <main>
+    <div>
+      <b>JoyLab Books</b>
+      <p>안정적인 웹 리더로 이동합니다.</p>
+      <a href="./mindmap-reader.html">자동으로 이동하지 않으면 여기를 눌러주세요 →</a>
+    </div>
+  </main>
   <script>
-    (async () => {
-      const response = await fetch('./mindmap.bin', { cache: 'no-store' });
-      if (!response.ok) throw new Error('asset load failed');
-
-      const bytes = new Uint8Array(await response.arrayBuffer());
-      const isGzip = bytes.length >= 2 && bytes[0] === 0x1f && bytes[1] === 0x8b;
-
-      let html;
-      if (isGzip) {
-        const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
-        html = await new Response(stream).text();
-      } else {
-        html = new TextDecoder('utf-8').decode(bytes);
-      }
-
-      if (!html.trim().toLowerCase().includes('<!doctype html') && !html.trim().toLowerCase().includes('<html')) {
-        throw new Error('unexpected reader payload');
-      }
-
-      document.open();
-      document.write(html);
-      document.close();
-    })().catch((error) => {
-      console.error(error);
-      document.body.innerHTML = '<main><div class="loading"><b>JoyLab Books</b><span>콘텐츠를 불러오지 못했습니다. 새로고침해 주세요.</span></div></main>';
-    });
+    location.replace('./mindmap-reader.html' + location.search + location.hash);
   </script>
 </body>
 </html>
