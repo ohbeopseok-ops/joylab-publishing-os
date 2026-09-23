@@ -79,7 +79,7 @@ Do not delete the immediately previous verified asset in the same change unless 
 `Build` is the repository's required merge check. The Build workflow runs `scripts/check-asset-integrity.mjs` after Astro build, so a corrupt or missing referenced raster asset fails the required Build check and blocks merge.
 
 The gate performs:
-- full Sharp decode for raster assets under `public/images`
+- full Sharp decode for active raster assets referenced by current source/manifest files
 - width/height metadata validation
 - source-reference existence checks for `/images/...` paths
 - 16:9 enforcement for Literature Hero/OG raster assets
