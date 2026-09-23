@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  ['『데미안』에서 리더십과 가장 직접적으로 연결되는 주제는 무엇인가요?', '성장은 정답을 전달받는 과정이라기보다 자신의 기준을 만들고 스스로 선택하는 과정에 가깝다는 점입니다. 리더는 답을 대신 주기보다 판단 기준과 질문을 제공하는 역할을 할 수 있습니다.'],
+  ['리더는 언제 답을 직접 줘야 하나요?', '안전, 법규, 고객 피해, 품질 사고처럼 즉시 기준이 필요한 상황에서는 분명한 답이 필요합니다. 반대로 성장 과제와 판단 훈련이 핵심인 상황에서는 질문과 선택의 여지를 남기는 편이 더 효과적입니다.'],
+  ['코칭에서 질문만 하면 구성원이 답답해하지 않나요?', '질문의 목적이 책임을 회피하는 것이 아니라 사고를 돕는 것이라면 정보와 기준을 충분히 제공한 뒤 선택을 맡길 수 있습니다. 질문과 방임은 다릅니다.'],
+  ['자기결정을 돕는 리더의 핵심 행동은 무엇인가요?', '선택 가능한 범위를 분명히 하고, 판단 기준을 보여주며, 구성원이 직접 결정한 뒤 결과를 돌아보게 하는 것입니다.']
+];
+
+const takeaways = [
+  ['01', '성장은 정답을 배우는 것보다 자기 기준을 만드는 과정이다', '구성원이 리더의 답을 그대로 따라가는 데 익숙해지면 실행은 빨라질 수 있지만 판단력은 자라기 어렵습니다. 성장에는 자신의 언어로 기준을 설명할 수 있는 단계가 필요합니다.'],
+  ['02', '좋은 멘토는 답을 독점하지 않는다', '리더의 경험은 중요한 자산이지만 경험을 정답처럼 전달하면 구성원은 문제를 푸는 법보다 리더의 취향을 배우게 될 수 있습니다.'],
+  ['03', '질문은 생각을 대신하는 도구가 아니라 생각을 확장하는 도구다', '좋은 질문은 정답을 숨기는 기술이 아니라 관찰 범위, 선택지, 리스크를 넓혀 스스로 판단할 수 있게 돕는 장치입니다.'],
+  ['04', '자율성에는 경계가 필요하다', '아무 기준 없이 맡기는 것은 자율이 아니라 방임에 가깝습니다. 목적, 금지선, 성공 기준은 분명히 하고 방법과 선택은 열어두는 편이 효과적입니다.'],
+  ['05', '결정 경험이 쌓여야 책임도 자란다', '스스로 결정한 경험이 있어야 결과를 해석하고 다음 선택을 수정할 수 있습니다. 리더가 모든 판단을 대신하면 책임도 리더에게만 남습니다.']
+];
+
+const coachingQuestions = [
+  '지금 이 구성원에게 필요한 것은 정답, 기준, 질문, 경험 중 무엇인가요?',
+  '내가 답을 빨리 줘서 구성원이 생각할 기회를 빼앗고 있지는 않나요?',
+  '이 과제에서 반드시 지켜야 할 기준과 자유롭게 선택해도 되는 부분은 무엇인가요?',
+  '구성원이 현재 상황을 자신의 말로 설명할 수 있나요?',
+  '가능한 선택지를 최소 두 가지 이상 스스로 제시하게 했나요?',
+  '각 선택의 장점과 리스크를 비교하도록 질문했나요?',
+  '내 경험을 정답이 아니라 참고 정보로 전달하고 있나요?',
+  '실패해도 학습 가능한 범위와 절대 실패하면 안 되는 범위를 구분했나요?',
+  '이 결정의 최종 책임자는 누구인가요?',
+  '결정 이후 무엇을 기준으로 돌아볼 것인지 합의했나요?',
+  '이번 주 리더가 대신 결정하지 않고 맡겨볼 한 가지는 무엇인가요?',
+  '다음 1:1에서 판단 결과보다 판단 과정부터 리뷰할 수 있나요?'
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '리더는 답을 줘야 하는가, 찾게 해야 하는가',
+  alternativeHeadline: '『데미안』에서 배우는 성장과 자기결정의 리더십',
+  description: '『데미안』을 성장, 자기결정, 멘토링, 리더의 개입 관점에서 분석하고 구성원의 판단력을 키우는 실제 리더 행동으로 번역한 JoyLab Literature & Leadership Research.',
+  mainEntityOfPage: 'https://aijoylab.kr/guides/growth-leadership/literature/demian',
+  author: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  publisher: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  about: ['Leadership', 'Growth', 'Self-determination', 'Mentoring', 'Demian']
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(([q, a]) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a }
+  }))
+};
+---
+
+<BaseLayout
+  title="데미안 리더십｜리더는 답을 줘야 하는가, 찾게 해야 하는가 | JoyLab"
+  description="『데미안』을 성장과 자기결정의 리더십 관점에서 다시 읽습니다. 멘토링, 자율성, 질문, 판단력과 리더의 개입 기준을 실제 조직 행동으로 번역합니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/demian"
+  type="article"
+  bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP RESEARCH · EP03</div>
+      <h1>리더는 답을 줘야 하는가,<br /><span>찾게 해야 하는가</span></h1>
+      <p class="le-subtitle">『데미안』에서 배우는 성장과 자기결정의 리더십</p>
+      <p class="le-intro">빠르게 답을 주는 리더는 유능해 보입니다. 하지만 모든 질문에 리더가 답을 주기 시작하면 구성원은 실행자는 될 수 있어도 판단자는 되기 어렵습니다. 성장하는 조직에는 ‘답을 주는 순간’과 ‘스스로 찾게 하는 순간’을 구분하는 기준이 필요합니다.</p>
+      <div class="le-meta" aria-label="리서치 핵심 주제">
+        <span>Growth</span>
+        <span>Self-determination</span>
+        <span>Mentoring</span>
+        <span>Judgment</span>
+      </div>
+    </header>
+
+    <section class="le-visual le-visual--ep03" aria-label="데미안 성장 리더십 비주얼">
+      <div><span>EP03</span><b>GROWTH × SELF-DETERMINATION</b></div>
+      <i aria-hidden="true"></i>
+    </section>
+
+    <article class="le-body">
+      <section class="le-research-brief">
+        <div class="sg-eyebrow">RESEARCH BRIEF</div>
+        <h2>성장은 답을 얻는 속도보다 자기 판단을 만드는 과정에 가깝다.</h2>
+        <p>『데미안』의 성장 서사는 누군가에게 정답을 전달받고 그대로 따라가는 이야기가 아닙니다. 익숙한 세계의 기준이 흔들리고, 기존의 답으로 설명되지 않는 경험을 통과하면서 자신만의 기준을 만들어가는 과정에 가깝습니다.</p>
+        <p>조직에서도 성장의 핵심은 비슷합니다. 리더가 모든 문제의 답을 제공하면 단기 실행 속도는 빨라질 수 있지만, 구성원이 스스로 문제를 정의하고 선택하는 힘은 늦게 자랄 수 있습니다.</p>
+        <blockquote>좋은 리더는 답을 많이 가진 사람이 아니라,<br />구성원이 자신의 답을 만들 수 있게 돕는 사람이다.</blockquote>
+        <div class="le-diagnosis">
+          <article><b>FRAME</b><span>목적과 판단 기준을 제공하는가</span></article>
+          <article><b>CHOICE</b><span>실제 선택의 여지를 남기는가</span></article>
+          <article><b>OWNERSHIP</b><span>결정의 주체가 분명한가</span></article>
+          <article><b>REFLECTION</b><span>결과보다 판단 과정을 리뷰하는가</span></article>
+        </div>
+      </section>
+
+      <section class="le-key-takeaways">
+        <div class="sg-eyebrow">KEY TAKEAWAYS</div>
+        <h2>『데미안』이 리더에게 남기는 5가지 성장 원칙</h2>
+        <div class="le-takeaway-list">
+          {takeaways.map(([no, title, body]) => (
+            <article>
+              <div class="le-takeaway-list__no">{no}</div>
+              <div><h3>{title}</h3><p>{body}</p></div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · MENTORING</div>
+        <h2>리더의 경험이 많을수록 답을 늦게 말해야 할 때가 있다</h2>
+        <p>경험이 많은 리더는 문제를 보는 순간 해결책이 떠오르기 쉽습니다. 그래서 구성원의 설명이 끝나기 전에 답을 제시하기도 합니다. 이 방식은 긴급 상황에서는 효율적이지만 반복되면 구성원은 생각보다 ‘정답 요청’을 먼저 배우게 됩니다.</p>
+        <div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>멘토링의 목적은 리더의 답을 복제하는 것이 아니라 구성원의 판단 구조를 키우는 것이다.</p></div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · AUTONOMY</div>
+        <h2>자율성은 아무것도 말하지 않는 것이 아니다</h2>
+        <p>“네가 알아서 해”라는 말은 자율적으로 들리지만 목적과 기준, 금지선이 없다면 방임이 될 수 있습니다. 좋은 자율성에는 명확한 경계가 필요합니다.</p>
+        <div class="le-control">
+          <article><small>LEADER SETS</small><h3>리더가 정해야 할 것</h3><p>목적, 고객 영향, 품질 기준, 금지선, 리스크 허용 범위</p></article>
+          <article><small>MEMBER CHOOSES</small><h3>구성원이 선택할 것</h3><p>접근 방법, 순서, 표현, 세부 실행, 대안 제시</p></article>
+        </div>
+        <blockquote class="is-dark">자율성은 기준이 없는 자유가 아니라,<br />경계 안에서 선택하고 책임지는 경험이다.</blockquote>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · JUDGMENT</div>
+        <h2>판단력을 키우려면 결과보다 판단 과정을 리뷰해야 한다</h2>
+        <p>좋은 결과가 항상 좋은 판단에서 나오는 것은 아닙니다. 반대로 좋은 판단이 우연히 나쁜 결과로 이어질 수도 있습니다. 그래서 성장 코칭에서는 결과만 묻기보다 어떤 정보를 봤고, 어떤 선택지를 비교했고, 어떤 리스크를 감수했는지를 돌아봐야 합니다.</p>
+        <ul>
+          <li>무엇을 문제로 정의했는가</li>
+          <li>어떤 정보를 중요하게 봤는가</li>
+          <li>대안은 몇 개였는가</li>
+          <li>어떤 기준으로 선택했는가</li>
+          <li>다음에는 무엇을 다르게 판단할 것인가</li>
+        </ul>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">COACHING QUESTIONS</div>
+        <h2>구성원의 판단력을 키우는 12개 리더 질문</h2>
+        <p>질문은 상황 정의 → 기준 설정 → 선택 → 책임 → 회고 순서로 사용합니다.</p>
+        <ol class="le-question-list">
+          {coachingQuestions.map((question) => <li>{question}</li>)}
+        </ol>
+        <div class="le-gold-question">
+          <small>GOLD QUESTION</small>
+          <p>내가 답을 주지 않는다면, 당신은 어떤 기준으로 결정하겠습니까?</p>
+        </div>
+      </section>
+
+      <section class="le-action">
+        <div class="sg-eyebrow">LEADERSHIP ACTION</div>
+        <h2>이번 주 한 번은 답을 말하기 전에 판단 기준부터 묻는다.</h2>
+        <div class="le-action-grid">
+          <article><b>01 · FRAME</b><p>업무의 목적, 반드시 지켜야 할 기준, 허용 가능한 리스크를 먼저 설명합니다.</p></article>
+          <article><b>02 · ASK</b><p>구성원이 상황을 어떻게 보고 있는지, 가능한 선택지는 무엇인지 먼저 질문합니다.</p></article>
+          <article><b>03 · CHOOSE</b><p>리더가 결론을 대신 말하지 않고 구성원이 한 가지 선택을 직접 확정하게 합니다.</p></article>
+          <article><b>04 · REVIEW</b><p>결과가 나온 뒤 성공·실패보다 판단 과정과 다음 수정점을 먼저 리뷰합니다.</p></article>
+        </div>
+        <a href="/guides/growth-leadership/literature">Literature & Leadership 전체 보기 →</a>
+      </section>
+
+      <section class="le-conclusion">
+        <div class="sg-eyebrow">JOYLAB CONCLUSION</div>
+        <p>리더가 모든 답을 알고 있는 조직보다 더 강한 조직은, 리더가 없어도 구성원이 판단할 수 있는 조직입니다.</p>
+        <h2>당신은 구성원에게<br />답을 주고 있는가, 판단력을 남기고 있는가.</h2>
+        <p>빠른 실행인가, 스스로 선택하는 성장인가, 아니면 둘을 구분하는 리더의 기준인가.</p>
+      </section>
+    </article>
+
+    <section class="le-faq">
+      <div class="sg-eyebrow">FAQ</div>
+      <h2>『데미안』과 성장 리더십</h2>
+      {faq.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <section class="le-next" aria-labelledby="ep04-next-title">
+      <div>
+        <small>NEXT · EP04</small>
+        <h2 id="ep04-next-title">『변신』 — 쓸모를 잃으면 사람의 가치도 사라지는가</h2>
+        <p>다음 Research에서는 성과와 존엄의 관점에서 조직이 사람의 가치를 무엇으로 판단하는지 살펴봅니다.</p>
+      </div>
+      <a href="/guides/growth-leadership/literature#ep04">EP04 미리 보기 →</a>
+    </section>
+
+    <footer class="le-back">
+      <a href="/guides/growth-leadership/literature">← 문학에서 배우는 리더십 전체 보기</a>
+    </footer>
+  </main>
+</BaseLayout>

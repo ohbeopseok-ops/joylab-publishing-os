@@ -124,6 +124,7 @@ jobs:
           grep -Fq '문학에서 배우는 리더십' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/old-man-and-the-sea' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/little-prince' /tmp/body
+          grep -Fq '/guides/growth-leadership/literature/demian' /tmp/body
 
           check_200 https://aijoylab.kr/guides/growth-leadership/literature/old-man-and-the-sea
           grep -Fq '성과가 무너졌을 때' /tmp/body
@@ -144,9 +145,17 @@ jobs:
           grep -Fq '/images/leadership/literature/ep02-little-prince.webp' /tmp/body
           grep -Fq 'og:image:width" content="1200"' /tmp/body
           grep -Fq 'og:image:height" content="675"' /tmp/body
-          grep -Fq '/guides/growth-leadership/literature#ep03' /tmp/body
+          grep -Fq '/guides/growth-leadership/literature/demian' /tmp/body
 
           check_200 https://aijoylab.kr/images/leadership/literature/ep02-little-prince.webp
+
+          check_200 https://aijoylab.kr/guides/growth-leadership/literature/demian
+          grep -Fq '리더는 답을 줘야 하는가' /tmp/body
+          grep -Fq 'RESEARCH BRIEF' /tmp/body
+          grep -Fq 'KEY TAKEAWAYS' /tmp/body
+          grep -Fq 'LEADERSHIP ACTION' /tmp/body
+          grep -Fq 'NEXT · EP04' /tmp/body
+          grep -Fq '/guides/growth-leadership/literature#ep04' /tmp/body
 
           check_200 https://aijoylab.kr/guides/growth-leadership/playbook/performance-coaching
           grep -Fq '성과부진 상담사' /tmp/body
