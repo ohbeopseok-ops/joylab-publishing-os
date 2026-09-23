@@ -78,13 +78,16 @@ for (const target of targets) {
       };
       const hero01 = document.querySelector('.le-visual--ep01');
       const hero02 = document.querySelector('.le-visual--ep02');
+      const hero03 = document.querySelector('.le-visual--ep03');
       const hero01Bg = hero01 ? getComputedStyle(hero01).backgroundImage : '';
       const hero02Bg = hero02 ? getComputedStyle(hero02).backgroundImage : '';
+      const hero03Bg = hero03 ? getComputedStyle(hero03).backgroundImage : '';
       return {
         overflow: Math.max(bodyWidth, docWidth) - viewportWidth,
         requiredVisible: Object.fromEntries(required.map((selector) => [selector, visible(selector)])),
         hero01BackgroundConnected: hero01 ? hero01Bg.includes('ep01-old-man-and-the-sea.webp') : null,
         hero02BackgroundConnected: hero02 ? hero02Bg.includes('ep02-little-prince.webp') : null,
+        hero03BackgroundConnected: hero03 ? hero03Bg.includes('ep03-demian.webp') : null,
         title: document.title,
       };
     }, target.required);
@@ -96,7 +99,8 @@ for (const target of targets) {
       requiredVisible: Object.values(metrics.requiredVisible).every(Boolean),
       heroConnected:
         target.name === 'ep01' ? metrics.hero01BackgroundConnected === true :
-        target.name === 'ep02' ? metrics.hero02BackgroundConnected === true : true,
+        target.name === 'ep02' ? metrics.hero02BackgroundConnected === true :
+        target.name === 'ep03' ? metrics.hero03BackgroundConnected === true : true,
       titlePresent: Boolean(metrics.title),
     };
 
