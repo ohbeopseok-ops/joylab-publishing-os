@@ -122,7 +122,7 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
       <a href="#recommend">추천 대상</a>
       <a href="#toc">목차</a>
       <a href={readerPath}>{book.data.access === 'full' ? '웹 리더' : '미리보기'}</a>
-      {mindmapPath && <a href={mindmapPath}>마인드맵</a>}
+      {mindmapPath && <a href={mindmapPath} data-analytics-event="book_mindmap_open" data-analytics-target={book.id} data-analytics-placement="book_tabs">마인드맵</a>}
       <a href="#author">저자 소개</a>
       <a href="#related">함께 읽으면 좋은 글</a>
     </div>
