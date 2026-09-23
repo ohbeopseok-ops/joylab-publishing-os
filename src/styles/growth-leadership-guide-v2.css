@@ -393,7 +393,7 @@
   overflow:hidden;
   background:
     linear-gradient(90deg,rgba(7,23,47,.78) 0%,rgba(7,23,47,.46) 36%,rgba(7,23,47,.10) 70%,rgba(7,23,47,.02) 100%),
-    url('/images/leadership/literature/ep03-demian-v2.webp') center/cover no-repeat;
+    url('/images/leadership/literature/ep03-demian-v2-fixed.webp') center/cover no-repeat;
 }
 .literature-essay-page .le-visual--ep03:before{
   content:"";
