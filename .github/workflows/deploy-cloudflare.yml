@@ -156,12 +156,12 @@ jobs:
           grep -Fq 'KEY TAKEAWAYS' /tmp/body
           grep -Fq 'LEADERSHIP ACTION' /tmp/body
           grep -Fq 'NEXT · EP04' /tmp/body
-          grep -Fq '/images/leadership/literature/ep03-demian-v2.webp' /tmp/body
+          grep -Fq '/images/research/generated/ep03-demian-v3.webp' /tmp/body
           grep -Fq 'og:image:width" content="1200"' /tmp/body
           grep -Fq 'og:image:height" content="675"' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/metamorphosis' /tmp/body
 
-          check_200 https://aijoylab.kr/images/leadership/literature/ep03-demian-v2.webp
+          check_200 https://aijoylab.kr/images/research/generated/ep03-demian-v3.webp
 
           check_200 "https://aijoylab.kr/guides/growth-leadership/literature/metamorphosis?deploy=${GITHUB_SHA}"
           grep -Fq '쓸모를 잃으면' /tmp/body
