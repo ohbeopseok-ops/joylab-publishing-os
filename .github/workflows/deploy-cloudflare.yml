@@ -382,11 +382,25 @@ jobs:
           QA_BASE_URL: https://aijoylab.kr
         run: node scripts/qa-weight-of-silence-reader.mjs
 
+      - name: Weight of Silence Production Mindmap GOLD QA
+        env:
+          QA_BASE_URL: https://aijoylab.kr
+        run: node scripts/qa-weight-of-silence-mindmap.mjs
+
       - name: Upload Production Reader GOLD QA
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: weight-of-silence-production-reader-gold
           path: qa-artifacts/weight-of-silence-reader
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload Production Mindmap GOLD QA
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: weight-of-silence-production-mindmap-gold
+          path: qa-artifacts/weight-of-silence-mindmap
           if-no-files-found: error
           retention-days: 30
