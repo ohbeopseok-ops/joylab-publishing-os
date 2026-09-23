@@ -53,8 +53,10 @@ for (const c of cases) {
   if (beforeSize === afterSize) throw new Error(c.name + ': font-size control did not change');
 
   await page.locator('#btnFontSans').click();
-  const fontClass = await page.locator('#chapterContent').getAttribute('class');
-  if (!fontClass?.includes('font-sans')) throw new Error(c.name + ': font-family control did not apply sans font');
+  const fontFamily = await page.locator('#chapterContent').evaluate((el) => el.style.fontFamily);
+  if (!fontFamily || !fontFamily.toLowerCase().includes('pretendard')) {
+    throw new Error(c.name + ': font-family control did not apply sans font; got ' + fontFamily);
+  }
 
   const beforeChapter = await page.locator('#currentChapterBadge').textContent();
   const next = page.locator('#btnNextChapter');
@@ -71,7 +73,7 @@ for (const c of cases) {
   if (!progressWidth || progressWidth === '0px') throw new Error(c.name + ': reading progress did not advance');
 
   await page.screenshot({ path: path.join(out, c.name + '.png'), fullPage: true });
-  results.push({ ...c, beforeSize, afterSize, beforeChapter, afterChapter, progressWidth, overflow });
+  results.push({ ...c, beforeSize, afterSize, fontFamily, beforeChapter, afterChapter, progressWidth, overflow });
   await page.close();
 }
 
