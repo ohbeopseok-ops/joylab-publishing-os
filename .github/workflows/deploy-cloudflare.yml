@@ -203,6 +203,43 @@ jobs:
           check_200 https://aijoylab.kr/books/imperfect/cover.webp
           check_200 https://aijoylab.kr/books/imperfect/og.webp
 
+          reader_pack_url='https://aijoylab.kr/books/weight-of-silence'
+          check_200 "$reader_pack_url?deploy=${GITHUB_SHA}"
+          grep -Fq '악보의 쉼표 사이에 고여 있는 침묵의 무게' /tmp/body
+          grep -Fq '/books/weight-of-silence/interactive.html' /tmp/body
+          grep -Fq '/books/weight-of-silence/mindmap.html' /tmp/body
+          grep -Fq '/articles/why-we-cannot-stand-silence' /tmp/body
+          grep -Fq '/articles/bach-counterpoint-order-in-chaos' /tmp/body
+          grep -Fq '/articles/burnout-recovery-starts-with-pause' /tmp/body
+          grep -Fq 'data-analytics-event="book_mindmap_open"' /tmp/body
+          grep -Fq 'data-analytics-event="book_related_research_click"' /tmp/body
+
+          check_follow_200 "https://aijoylab.kr/books/weight-of-silence/interactive.html?deploy=${GITHUB_SHA}"
+          grep -Fq '악보의 쉼표 사이에 고여 있는 침묵의 무게' /tmp/body
+          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/interactive-v2.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-interactive-v2.bin
+          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-interactive-v2.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('악보의 쉼표 사이에 고여 있는 침묵의 무게'))process.exit(1);console.log('Reader payload strict gzip PASS')"
+
+          check_follow_200 "https://aijoylab.kr/books/weight-of-silence/mindmap.html?deploy=${GITHUB_SHA}"
+          grep -Fq '침묵' /tmp/body
+          curl -fsS --max-time 20 "https://aijoylab.kr/books/weight-of-silence/mindmap-v2.bin?deploy=${GITHUB_SHA}" -o /tmp/weight-of-silence-mindmap-v2.bin
+          node -e "const fs=require('fs'),z=require('zlib');const s=z.gunzipSync(fs.readFileSync('/tmp/weight-of-silence-mindmap-v2.bin')).toString('utf8');if(!s.includes('<!doctype html')&&!s.includes('<html'))process.exit(1);if(!s.includes('침묵'))process.exit(1);console.log('Mindmap payload strict gzip PASS')"
+
+          check_200 "https://aijoylab.kr/articles/why-we-cannot-stand-silence?deploy=${GITHUB_SHA}"
+          grep -Fq '침묵의 기술' /tmp/body
+          grep -Fq 'JoyLab 성장·리더십 프레임워크' /tmp/body
+          grep -Fq '/guides/growth-leadership' /tmp/body
+
+          check_200 "https://aijoylab.kr/articles/bach-counterpoint-order-in-chaos?deploy=${GITHUB_SHA}"
+          grep -Fq '침묵의 기술' /tmp/body
+          grep -Fq 'JoyLab 성장·리더십 프레임워크' /tmp/body
+
+          check_200 "https://aijoylab.kr/articles/burnout-recovery-starts-with-pause?deploy=${GITHUB_SHA}"
+          grep -Fq '침묵의 기술' /tmp/body
+          grep -Fq 'JoyLab 성장·리더십 프레임워크' /tmp/body
+
+          check_200 "https://aijoylab.kr/images/books/weight-of-silence-cover.webp?deploy=${GITHUB_SHA}"
+          check_200 "https://aijoylab.kr/images/books/weight-of-silence-og.webp?deploy=${GITHUB_SHA}"
+
           ax_book_url='https://aijoylab.kr/books/ax-customer-center'
           check_200 "$ax_book_url"
           grep -Fq 'AX 시대 살아남는 고객센터' /tmp/body
@@ -334,3 +371,22 @@ jobs:
           test "$www_location" = "https://aijoylab.kr/articles/samsung-vs-sk-hynix-ai-memory"
 
           echo 'Production smoke test passed.'
+
+      - name: Install Production Reader QA runtime
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Weight of Silence Production Reader GOLD QA
+        env:
+          QA_BASE_URL: https://aijoylab.kr
+        run: node scripts/qa-weight-of-silence-reader.mjs
+
+      - name: Upload Production Reader GOLD QA
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: weight-of-silence-production-reader-gold
+          path: qa-artifacts/weight-of-silence-reader
+          if-no-files-found: error
+          retention-days: 30
