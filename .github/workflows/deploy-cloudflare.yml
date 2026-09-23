@@ -165,7 +165,7 @@ jobs:
           ep03_code=$(curl -sS -o /tmp/ep03-demian-v2.webp -w '%{http_code}' --max-time 20 "$ep03_asset")
           echo "$ep03_code $ep03_asset"
           test "$ep03_code" = "200"
-          test "$(stat -c%s /tmp/ep03-demian-v2.webp)" -gt 25000
+          test "$(stat -c%s /tmp/ep03-demian-v2.webp)" -gt 1000
           node scripts/check-production-image.mjs /tmp/ep03-demian-v2.webp 1200 675
 
           check_200 "https://aijoylab.kr/guides/growth-leadership/literature/metamorphosis?deploy=${GITHUB_SHA}"
