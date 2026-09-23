@@ -2,19 +2,22 @@
   "version": 1,
   "assets": {
     "weight-of-silence": {
-      "sourceFiles": [
-        "assets/books/weight-of-silence/interactive-source.html",
-        "assets/books/weight-of-silence/mindmap-source.html"
-      ],
       "reader": {
         "loader": "public/books/weight-of-silence/interactive.html",
-        "active": "interactive-v2.bin",
-        "retired": ["interactive.bin"]
+        "active": "interactive-v3.bin",
+        "retired": [
+          "interactive.bin",
+          "interactive-v2.bin"
+        ],
+        "sourceFile": "assets/books/weight-of-silence/interactive-source.html"
       },
       "mindmap": {
         "loader": "public/books/weight-of-silence/mindmap.html",
         "active": "mindmap-v2.bin",
-        "retired": ["mindmap.bin"]
+        "retired": [
+          "mindmap.bin"
+        ],
+        "sourceFile": "assets/books/weight-of-silence/mindmap-source.html"
       }
     }
   }
