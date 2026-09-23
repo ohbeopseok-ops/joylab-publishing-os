@@ -90,7 +90,8 @@ for(const file of files){
   const hasExplicitType=Boolean(meta.researchType || meta.articleType);
 
   const minClaims=cfg.claimSource.minMappedClaims[type] ?? 2;
-  const minTrusted=cfg.claimSource.minTrustedSources[type] ?? 0;\n  const trustedTypes=cfg.claimSource.acceptedTrustedTypes[type] ?? ["primary"];
+  const minTrusted=cfg.claimSource.minTrustedSources[type] ?? 0;
+  const trustedTypes=cfg.claimSource.acceptedTrustedTypes[type] ?? ["primary"];
   const validMapped=mapped.filter(x=>x.claim && /^https?:\/\//.test(x.source));
   const trustedCount=validMapped.filter(x=>trustedTypes.includes(x.sourceType)).length;
   const staleMap=validMapped.filter(x=>!/^\d{4}-\d{2}-\d{2}$/.test(x.checkedAt));
