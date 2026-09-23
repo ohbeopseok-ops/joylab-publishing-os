@@ -10,7 +10,8 @@ const checks = {
   cloudflareDeploy: process.env.RELEASE_DEPLOY_RESULT || 'unknown',
   customDomain: process.env.RELEASE_DOMAIN_RESULT || 'unknown',
   productionSmoke: process.env.RELEASE_SMOKE_RESULT || 'unknown',
-  productionReaderQa: process.env.RELEASE_READER_QA_RESULT || 'unknown'
+  productionReaderQa: process.env.RELEASE_READER_QA_RESULT || 'unknown',
+  productionMindmapQa: process.env.RELEASE_MINDMAP_QA_RESULT || 'unknown'
 };
 
 const gold = Object.values(checks).every((value) => value === 'success');
