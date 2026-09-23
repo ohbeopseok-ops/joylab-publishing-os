@@ -1,0 +1,72 @@
+{
+  "version": "2.0",
+  "contentRoot": "src/data/articles",
+  "thresholds": {
+    "publish": 85,
+    "revision": 75
+  },
+  "primarySourcePreferred": true,
+  "requiredConcepts": [
+    "question",
+    "evidence",
+    "fact_interpretation",
+    "joylab_insight",
+    "action_watch",
+    "counter_evidence",
+    "recheck"
+  ],
+  "templateErrorPatterns": [
+    "반도체 투자 가이드",
+    "JoyLab 투자 프레임워크",
+    "매수·매도 지시",
+    "매수/매도 지시",
+    "Bull / Base / Bear",
+    "Bull/Base/Bear"
+  ],
+  "genericPatterns": [
+    "JoyLab은 단일 뉴스보다",
+    "판단 기준과 재점검 조건을 제공하는 리서치"
+  ],
+  "sourceSectionPatterns": [
+    "## Sources",
+    "## 출처",
+    "## References",
+    "## 근거",
+    "### Sources",
+    "### 출처"
+  ],
+  "investmentSlugHints": [
+    "samsung",
+    "hynix",
+    "semiconductor",
+    "treasury",
+    "fed",
+    "nasdaq",
+    "shipbuilding",
+    "foreign-investor",
+    "economic",
+    "company",
+    "outlook",
+    "rates",
+    "retail-sales",
+    "cpi",
+    "ppi",
+    "pce",
+    "jobs"
+  ],
+  "nonInvestmentSlugHints": [
+    "codex",
+    "aside",
+    "ai-agent",
+    "ai-workflow",
+    "ai-productivity",
+    "leadership",
+    "performance",
+    "recognition",
+    "fairness",
+    "feedback",
+    "learning",
+    "mcp-security",
+    "what-is-ai-agent"
+  ]
+}
