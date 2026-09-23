@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t d">
+<title id="t">공백 공포와 주의력의 시대</title><desc id="d">딥 네이비 배경과 빛나는 쉼표, 여백으로 침묵과 주의력을 표현한 JoyLab Research 이미지</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07172f"/><stop offset="1" stop-color="#111827"/></linearGradient><radialGradient id="r"><stop stop-color="#f0c98b" stop-opacity=".24"/><stop offset="1" stop-color="#f0c98b" stop-opacity="0"/></radialGradient></defs>
+<rect width="1200" height="675" fill="url(#g)"/><circle cx="920" cy="180" r="280" fill="url(#r)"/>
+<text x="92" y="92" fill="#d7b77a" font-family="serif" font-size="24" letter-spacing="5">JOYLAB RESEARCH · 침묵의 기술 01</text>
+<text x="92" y="235" fill="#fff7ea" font-family="sans-serif" font-size="54" font-weight="700">우리는 왜 침묵을</text><text x="92" y="305" fill="#fff7ea" font-family="sans-serif" font-size="54" font-weight="700">견디지 못하게 되었을까</text>
+<text x="92" y="380" fill="#cbd5e1" font-family="sans-serif" font-size="26">공백 공포 · 스마트폰 · 주의력의 시대</text>
+<path d="M850 250c70 0 102 54 74 113-16 33-46 51-86 51-52 0-88-31-88-79 0-51 40-85 100-85z" fill="none" stroke="#d7b77a" stroke-width="8"/>
+<path d="M925 407c0 70-42 117-105 117-38 0-68-17-84-47" fill="none" stroke="#d7b77a" stroke-width="8" stroke-linecap="round"/>
+<line x1="92" y1="530" x2="520" y2="530" stroke="#d7b77a" stroke-opacity=".45"/><text x="92" y="580" fill="#94a3b8" font-family="serif" font-size="22">The Weight of Silence · Reader Pack V2</text>
+</svg>

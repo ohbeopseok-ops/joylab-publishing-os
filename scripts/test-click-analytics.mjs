@@ -56,7 +56,19 @@ if (homeClick.status !== 204) throw new Error(`home_section_click expected 204, 
 const guideClick = await post({ event: 'home_section_click', target: '/guides/ai-productivity', placement: 'guide', path: '/' });
 if (guideClick.status !== 204) throw new Error(`guide home_section_click expected 204, got ${guideClick.status}`);
 
-if (writes.length !== 10) throw new Error(`Expected ten analytics writes, got ${writes.length}`);
+const bookPreview = await post({ event: 'book_preview_start', target: 'weight-of-silence', placement: 'book_hero_v2', path: '/books/weight-of-silence' });
+if (bookPreview.status !== 204) throw new Error(`book_preview_start V2 expected 204, got ${bookPreview.status}`);
+
+const mindmapHero = await post({ event: 'book_mindmap_open', target: 'weight-of-silence', placement: 'book_hero_v2', path: '/books/weight-of-silence' });
+if (mindmapHero.status !== 204) throw new Error(`book_mindmap_open hero expected 204, got ${mindmapHero.status}`);
+
+const mindmapTab = await post({ event: 'book_mindmap_open', target: 'weight-of-silence', placement: 'book_tabs', path: '/books/weight-of-silence' });
+if (mindmapTab.status !== 204) throw new Error(`book_mindmap_open tab expected 204, got ${mindmapTab.status}`);
+
+const relatedResearch = await post({ event: 'book_related_research_click', target: 'why-we-cannot-stand-silence', placement: 'weight-of-silence', path: '/books/weight-of-silence' });
+if (relatedResearch.status !== 204) throw new Error(`book_related_research_click expected 204, got ${relatedResearch.status}`);
+
+if (writes.length !== 14) throw new Error(`Expected fourteen analytics writes, got ${writes.length}`);
 if (writes[1].blobs.join('|') !== 'social_click|threads|about|/about') throw new Error(`Unexpected About social payload: ${JSON.stringify(writes[1])}`);
 if (writes[2].blobs.join('|') !== 'social_click|x|footer|/') throw new Error(`Unexpected X social payload: ${JSON.stringify(writes[2])}`);
 if (writes[3].blobs.join('|') !== 'social_click|youtube|about|/about') throw new Error(`Unexpected YouTube social payload: ${JSON.stringify(writes[3])}`);
@@ -82,6 +94,6 @@ if (invalidExternalHomeTarget.status !== 400) throw new Error(`Expected external
 const invalidRssSocial = await post({ event: 'social_click', target: 'rss', placement: 'about', path: '/about' });
 if (invalidRssSocial.status !== 400) throw new Error(`Expected RSS social target 400, got ${invalidRssSocial.status}`);
 
-if (writes.length !== 10) throw new Error('Invalid events must not be written');
+if (writes.length !== 14) throw new Error('Invalid events must not be written');
 
 console.log('Click Analytics V3 worker contract passed.');
