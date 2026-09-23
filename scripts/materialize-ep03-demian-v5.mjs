@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 
 const root = process.cwd();
 const sourceDir = path.join(root, 'assets/ep03-demian-v5');
-const output = path.join(root, 'public/images/leadership/literature/ep03-demian-v5.webp');
+const output = path.join(root, 'public/images/leadership/literature/ep03-demian-v5-hires.webp');
 const chunks = ['00.b64', '01.b64', '02.b64', '03.b64', '04.b64', '05.b64'];
 const expectedBytes = 38946;
 const expectedSha256 = 'd11716a27324b8725efdcce61b82aaca524673b408da1036d6187d7a304862ff';
