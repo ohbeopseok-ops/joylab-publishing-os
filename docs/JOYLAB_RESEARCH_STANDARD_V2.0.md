@@ -1,4 +1,4 @@
-# JoyLab Research Standard V2.0
+# JoyLab Research Standard V2.2
 
 Status: Proposed
 Owner: JoyLab
@@ -109,5 +109,39 @@ Research Question
 → Production Smoke Test
 → Recheck registration
 
-## 11. Enforcement
+## 11. Claim ↔ Source contract
+Every new or materially revised article must declare `evidenceMap` in frontmatter.
+
+Example:
+
+```yaml
+researchType: research
+evidenceMap:
+  - claim: "Samsung disclosed HBM-related production or customer progress."
+    source: "https://..."
+    sourceType: primary
+    checkedAt: "2026-09-23"
+```
+
+Required fields:
+- `claim`: concise material claim.
+- `source`: direct supporting URL.
+- `sourceType`: primary | institutional | reporting | secondary | community.
+- `checkedAt`: YYYY-MM-DD verification date.
+
+Minimum mapped claims:
+- Research: 3
+- Framework: 2
+- Guide: 2
+- Benchmark: 3
+
+Minimum primary sources:
+- Research: 1
+- Guide: 1
+- Benchmark: 1
+- Framework: 0
+
+A source list without a claim mapping does not satisfy the V2.2 hard gate.
+
+## 12. Enforcement
 The repository-level Research Quality Gate audits all markdown in `src/data/articles` on pull requests and pushes that touch research content, standards, templates, or the auditor itself.
