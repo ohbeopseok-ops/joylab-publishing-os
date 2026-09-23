@@ -92,7 +92,7 @@ function walkTextFiles(dir, output = []) {
   return output;
 }
 
-const failures = [];
+// Books baseline applies to every published title; strict V2 is opt-in during migration.\nconst failures = [];
 const report = [];
 
 for (const contract of literatureContracts) {
