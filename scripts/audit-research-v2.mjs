@@ -44,9 +44,9 @@ function evidenceMap(text){
   const chunks=joined.split(/\n\s*-\s+claim:\s*/).slice(1);
   return chunks.map(chunk=>{
     const claim=(chunk.split("\n")[0]||"").trim().replace(/^["']|["']$/g,"");
-    const source=(chunk.match(/^\s+source:\s*(https?:\/\/\S+)/m)||[])[1]||"";
+    const source=(chunk.match(/^\\s+source:\\s*["']?(https?:\\/\\/[^"'\\s]+)/m)||[])[1]||"";
     const sourceType=((chunk.match(/^\s+sourceType:\s*([A-Za-z_-]+)/m)||[])[1]||"").toLowerCase();
-    const checkedAt=(chunk.match(/^\s+checkedAt:\s*([^\n]+)/m)||[])[1]?.trim()||"";
+    const checkedAt=((chunk.match(/^\\s+checkedAt:\\s*([^\\n]+)/m)||[])[1]||"").trim().replace(/^["']|["']$/g,"");
     return {claim,source,sourceType,checkedAt};
   }).filter(x=>x.claim||x.source);
 }
