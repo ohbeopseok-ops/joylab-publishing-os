@@ -7,7 +7,7 @@
     "node": ">=22.19.0"
   },
   "scripts": {
-    "dev": "node scripts/build-book-assets.mjs && node scripts/apply-curated-research-images.mjs && astro dev",
+    "dev": "node scripts/materialize-weight-of-silence-reader.mjs && node scripts/build-book-assets.mjs && node scripts/apply-curated-research-images.mjs && astro dev",
     "check:heroes": "node scripts/check-hero-quality.mjs",
     "treasury:sync": "node scripts/sync-treasury-structure.mjs",
     "treasury:self-test": "node scripts/sync-treasury-structure.mjs --self-test",
