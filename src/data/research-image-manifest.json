@@ -1277,5 +1277,62 @@
         "caption": "Fact → Interpretation → Fed → Yield → EPS → Price 순서로 구조화합니다."
       }
     ]
+  },
+  "why-we-cannot-tolerate-silence": {
+    "hero": {
+      "src": "/images/books/weight-of-silence/research/why-we-cannot-tolerate-silence.webp",
+      "alt": "비 오는 도시 창가와 피아노로 표현한 침묵과 주의력의 이미지",
+      "caption": "공백은 비어 있는 시간이 아니라 주의가 다시 연결되는 공간입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "침묵과 주의력 연구의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "알림·스마트폰 존재·주의 전환의 연구 신호를 함께 읽습니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "침묵과 주의력 문제를 Fact Interpretation Scenario Action 구조로 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "공백 공포를 개인 의지보다 환경 설계의 문제로 구조화합니다."
+      }
+    ]
+  },
+  "bach-counterpoint-order-in-complexity": {
+    "hero": {
+      "src": "/images/books/weight-of-silence/research/bach-counterpoint-order-in-complexity.webp",
+      "alt": "악보와 피아노를 중심으로 복잡함 속 질서를 표현한 바흐 대위법 이미지",
+      "caption": "복잡함은 질서가 없을 때 소음이 됩니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "바흐 대위법과 음악 복잡성 연구의 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "복잡성과 선호, 예측 가능성과 놀라움의 균형을 살펴봅니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "바흐 대위법을 조직과 리더십 구조로 번역한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "독립성을 없애는 대신 관계와 공통 박자를 설계합니다."
+      }
+    ]
+  },
+  "burnout-recovery-starts-with-stopping": {
+    "hero": {
+      "src": "/images/books/weight-of-silence/research/burnout-recovery-starts-with-stopping.webp",
+      "alt": "비 오는 밤의 피아노와 창가로 멈춤과 회복을 표현한 이미지",
+      "caption": "쉼표는 멈춤이 아니라 다시 돌아오기 위한 회복 구간입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "번아웃과 직무 회복 경험의 핵심 연구 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "심리적 분리·이완·자기성취·통제의 네 회복 경험을 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "번아웃 이후 회복을 실행 구조로 정리한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "더 하기보다 업무 요구에서 벗어나는 회복 구조를 먼저 설계합니다."
+      }
+    ]
   }
 }
