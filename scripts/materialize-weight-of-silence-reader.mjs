@@ -6,7 +6,7 @@ const root = process.cwd();
 const targets = [
   {
     source: 'assets/books/weight-of-silence/interactive-source.html',
-    output: 'public/books/weight-of-silence/interactive-v2.bin',
+    output: 'public/books/weight-of-silence/interactive-v3.bin',
     markers: ['<!DOCTYPE html', '악보의 쉼표 사이에 고여 있는 침묵의 무게', 'const BOOK_DATA = [']
   },
   {
