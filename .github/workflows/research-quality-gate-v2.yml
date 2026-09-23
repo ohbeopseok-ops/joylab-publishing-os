@@ -1,0 +1,55 @@
+name: Research Quality Gate V2
+
+on:
+  pull_request:
+    paths:
+      - "src/data/articles/**"
+      - "docs/JOYLAB_RESEARCH_STANDARD_V2.0.md"
+      - "docs/prompts/**"
+      - "config/research-quality-gate-v2.json"
+      - "scripts/audit-research-v2.mjs"
+      - ".github/workflows/research-quality-gate-v2.yml"
+  push:
+    branches: [main]
+    paths:
+      - "src/data/articles/**"
+      - "docs/JOYLAB_RESEARCH_STANDARD_V2.0.md"
+      - "docs/prompts/**"
+      - "config/research-quality-gate-v2.json"
+      - "scripts/audit-research-v2.mjs"
+      - ".github/workflows/research-quality-gate-v2.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Resolve changed research articles
+        shell: bash
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
+            git fetch origin "$GITHUB_BASE_REF" --depth=1
+            CHANGED="$(git diff --name-only "origin/$GITHUB_BASE_REF"...HEAD -- 'src/data/articles/*.md' | tr '\n' ',')"
+          elif [ "$GITHUB_EVENT_NAME" = "push" ]; then
+            CHANGED="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" -- 'src/data/articles/*.md' | tr '\n' ',')"
+          else
+            CHANGED=""
+          fi
+          echo "CHANGED_ARTICLES=$CHANGED" >> "$GITHUB_ENV"
+          echo "Changed research files: $CHANGED"
+      - name: Audit research corpus and enforce changed/new articles
+        env:
+          AUDIT_MODE: gate
+        run: node scripts/audit-research-v2.mjs
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-v2-audit
+          path: artifacts/research-v2-audit.*

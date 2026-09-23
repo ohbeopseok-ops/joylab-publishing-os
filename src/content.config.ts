@@ -10,6 +10,13 @@ const articles = defineCollection({
     cardTitle: z.string().optional(),
     cardDescription: z.string().optional(),
     category: z.string(),
+    researchType: z.enum(['research', 'framework', 'guide', 'benchmark']).optional(),
+    evidenceMap: z.array(z.object({
+      claim: z.string().min(1),
+      source: z.string().url(),
+      sourceType: z.enum(['primary', 'institutional', 'reporting', 'secondary', 'community']),
+      checkedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/)
+    })).optional(),
     tags: z.array(z.string()).default([]),
     publishedAt: z.coerce.date(),
     updatedAt: z.coerce.date().optional(),

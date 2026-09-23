@@ -1,0 +1,94 @@
+{
+  "version": "2.2",
+  "contentRoot": "src/data/articles",
+  "thresholds": {
+    "publish": 85,
+    "revision": 75
+  },
+  "primarySourcePreferred": true,
+  "requiredConcepts": [
+    "question",
+    "evidence",
+    "fact_interpretation",
+    "joylab_insight",
+    "action_watch",
+    "counter_evidence",
+    "recheck"
+  ],
+  "claimSource": {
+    "minMappedClaims": {
+      "research": 3,
+      "framework": 2,
+      "guide": 2,
+      "benchmark": 3
+    },
+    "requiredFields": [
+      "claim",
+      "source",
+      "sourceType",
+      "checkedAt"
+    ],
+    "minTrustedSources": {
+      "research": 1,
+      "framework": 0,
+      "guide": 1,
+      "benchmark": 1
+    },
+    "acceptedTrustedTypes": {
+      "research": [
+        "primary",
+        "institutional"
+      ],
+      "framework": [
+        "primary",
+        "institutional",
+        "reporting"
+      ],
+      "guide": [
+        "primary"
+      ],
+      "benchmark": [
+        "primary",
+        "institutional"
+      ]
+    }
+  },
+  "investmentOnlyPatterns": [
+    "반도체 투자 가이드",
+    "JoyLab 투자 프레임워크",
+    "매수·매도 지시",
+    "매수/매도 지시",
+    "Bull / Base / Bear",
+    "Bull/Base/Bear"
+  ],
+  "genericPatterns": [
+    "JoyLab은 단일 뉴스보다",
+    "판단 기준과 재점검 조건을 제공하는 리서치"
+  ],
+  "sourceSectionPatterns": [
+    "## Sources",
+    "## 출처",
+    "## References",
+    "## 근거",
+    "### Sources",
+    "### 출처"
+  ],
+  "crossPillarPatterns": {
+    "framework": [
+      "반도체 투자 가이드",
+      "미국채 START HERE",
+      "투자·경제 START HERE"
+    ],
+    "guide": [
+      "반도체 투자 가이드",
+      "미국채 START HERE",
+      "JoyLab 투자 프레임워크"
+    ],
+    "benchmark": [
+      "반도체 투자 가이드",
+      "미국채 START HERE",
+      "JoyLab 투자 프레임워크"
+    ],
+    "research": []
+  }
+}

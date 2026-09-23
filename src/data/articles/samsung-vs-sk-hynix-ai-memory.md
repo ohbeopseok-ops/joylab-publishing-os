@@ -16,6 +16,24 @@ draft: false
 seoTitle: "삼성전자 vs SK하이닉스｜AI 메모리 투자 비교 핵심 정리"
 series: "AI 메모리 투자 가이드"
 readingTime: "약 12분"
+researchType: research
+evidenceMap:
+  - claim: "Samsung's Q2 2026 memory business expanded HBM4 sales, shipped HBM4E samples and reached a record-high server revenue mix."
+    source: "https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results"
+    sourceType: primary
+    checkedAt: "2026-09-23"
+  - claim: "SK hynix's Q2 2026 results showed HBM4 mass shipments, long-term agreements with around 10 key customers and record profitability driven by AI memory."
+    source: "https://news.skhynix.com/en/q2-2026-business-results/"
+    sourceType: primary
+    checkedAt: "2026-09-23"
+  - claim: "SK hynix committed approximately KRW 54 trillion to Yongin Y2 and Cheongju M17, illustrating the scale of planned capacity expansion."
+    source: "https://news.skhynix.com/en/fab-facility-investment-2026/"
+    sourceType: primary
+    checkedAt: "2026-09-23"
+  - claim: "Samsung's AI-memory portfolio spans HBM4E, HBM5 and enterprise storage, supporting a broader integrated memory and foundry positioning."
+    source: "https://news.samsung.com/global/samsung-unveils-next-gen-3d-memory-vision-at-fms-2026-charting-the-future-of-ai-infrastructure"
+    sourceType: primary
+    checkedAt: "2026-09-23"
 ---
 
 삼성전자와 SK하이닉스는 모두 AI 메모리 수혜주이지만 같은 방식으로 보면 안 됩니다.
