@@ -46,6 +46,74 @@
   <!-- FontAwesome for Classical/Music Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* Critical layout: works even when Tailwind CDN is slow or unavailable */
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: #0b0f19;
+      color: #e2e8f0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    body > header {
+      flex: 0 0 64px;
+      min-height: 64px;
+    }
+    #mindmapWorkspace {
+      position: relative;
+      display: flex;
+      flex: 1 1 auto;
+      min-height: 0;
+      min-width: 0;
+      overflow: hidden;
+    }
+    #canvasContainer {
+      position: relative;
+      flex: 1 1 auto;
+      min-width: 0;
+      min-height: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    #markmapSvg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+    }
+    #sidebarPanel {
+      flex: 0 0 384px;
+      width: 384px;
+      max-width: 86vw;
+      height: 100%;
+      overflow: hidden;
+    }
+    #sidebarPanel.hidden {
+      display: none !important;
+    }
+    @media (max-width: 640px) {
+      body > header {
+        flex-basis: 64px;
+        min-height: 64px;
+      }
+      #sidebarPanel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 40;
+        width: min(320px, 86vw);
+      }
+      #markmapSvg {
+        min-height: calc(100vh - 64px);
+      }
+    }
+
     /* Custom scrollbars */
     ::-webkit-scrollbar {
       width: 6px;
@@ -147,7 +215,7 @@
     </div>
   </header>
   <!-- Main Workspace Area -->
-  <div class="relative flex-1 flex overflow-hidden">
+  <div id="mindmapWorkspace" class="relative flex-1 flex overflow-hidden">
     <!-- SVG Canvas Area -->
     <div id="canvasContainer" class="relative flex-1 h-full w-full vinyl-grain overflow-hidden">
       <svg id="markmapSvg" class="markmap-svg"></svg>
@@ -527,6 +595,17 @@
           if (mmInstance) mmInstance.fit();
           else fallbackFit();
         }, 300);
+
+        // A loaded Markmap API can still produce an empty SVG when its container
+        // has no usable geometry. Never leave the user with a blank canvas.
+        setTimeout(() => {
+          const renderedNodes = svgElement.querySelectorAll('text').length;
+          if (renderedNodes === 0) {
+            console.warn('Markmap rendered zero nodes; switching to built-in fallback.');
+            mmInstance = null;
+            renderFallbackMindmap();
+          }
+        }, 800);
 
       } catch (err) {
         console.warn('Markmap initialization failed; using built-in fallback:', err);
