@@ -97,7 +97,19 @@ Mindmap checks:
 - desktop concept search;
 - browser runtime errors.
 
-### 4. Reader Pack completion loop
+### 4. Mindmap runtime resilience
+
+The mindmap originally depended on parser-blocking CDN scripts for D3 and Markmap. A slow or unavailable external CDN could delay the application script itself, preventing even a local fallback from starting.
+
+Permanent rule:
+
+- external visualization scripts must not block the built-in fallback runtime;
+- D3/Markmap scripts load with `defer`;
+- the page boots a built-in SVG mindmap when the Markmap API is unavailable;
+- once the external Markmap runtime becomes available, the page may progressively upgrade from fallback to the full interactive renderer;
+- GOLD QA must pass even when the fallback runtime is the one serving the user.
+
+### 5. Reader Pack completion loop
 
 The final Reader chapter links to:
 
