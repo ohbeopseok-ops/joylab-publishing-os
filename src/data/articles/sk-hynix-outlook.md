@@ -16,6 +16,24 @@ draft: false
 seoTitle: "SK하이닉스 AI 메모리 분석｜HBM4·장기계약·CAPEX 핵심 체크"
 series: "SK하이닉스 투자 가이드"
 readingTime: "약 12분"
+researchType: research
+evidenceMap:
+  - claim: "SK hynix reported Q2 2026 revenue of KRW 79.3187 trillion and operating profit of KRW 60.5426 trillion, with strong AI-memory demand and high-value products driving record results."
+    source: "https://news.skhynix.com/en/q2-2026-business-results/"
+    sourceType: primary
+    checkedAt: "2026-09-23"
+  - claim: "SK hynix said HBM4 mass shipments began in Q2 2026 and that it had long-term agreements with around 10 key customers."
+    source: "https://news.skhynix.com/en/q2-2026-business-results/"
+    sourceType: primary
+    checkedAt: "2026-09-23"
+  - claim: "SK hynix approved approximately KRW 54 trillion for Yongin Y2 and Cheongju M17 fabs in August 2026."
+    source: "https://news.skhynix.com/en/fab-facility-investment-2026/"
+    sourceType: primary
+    checkedAt: "2026-09-23"
+  - claim: "SK hynix approved a KRW 40 trillion share repurchase and cancellation program and targeted shareholder returns above 50% of cumulative 2025-2027 FCF."
+    source: "https://news.skhynix.com/en/share-buyback-and-retirement/"
+    sourceType: primary
+    checkedAt: "2026-09-23"
 ---
 
 SK하이닉스를 AI 메모리 관점에서 볼 때 가장 중요한 질문은 **HBM 리더십이 실제 장기 수요·생산능력·현금흐름으로 얼마나 오래 연결되는가**입니다.
