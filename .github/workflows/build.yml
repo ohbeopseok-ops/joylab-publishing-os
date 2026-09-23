@@ -113,6 +113,9 @@ jobs:
       - name: Asset Integrity Gate
         run: node scripts/check-asset-integrity.mjs
 
+      - name: Asset Contract V2
+        run: node scripts/check-asset-contract-v2.mjs
+
       - name: Verify JoyLab identity schema
         shell: bash
         run: |
