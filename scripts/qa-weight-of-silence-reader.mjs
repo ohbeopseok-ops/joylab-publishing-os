@@ -72,8 +72,22 @@ for (const c of cases) {
   const progressWidth = await page.locator('#readingProgressBar').evaluate((el) => getComputedStyle(el).width);
   if (!progressWidth || progressWidth === '0px') throw new Error(c.name + ': reading progress did not advance');
 
+  await page.evaluate(() => renderChapter(BOOK_DATA.length - 1));
+  await page.waitForTimeout(320);
+  const completion = page.locator('#readerPackNext');
+  if (!(await completion.isVisible())) throw new Error(c.name + ': Reader Pack completion CTA missing');
+
+  const mindmapHref = await completion.locator('[data-reader-pack-cta="mindmap"]').getAttribute('href');
+  const booksHref = await completion.locator('[data-reader-pack-cta="books-hub"]').getAttribute('href');
+  const researchHrefs = await completion.locator('[data-reader-pack-cta="research"]').evaluateAll((els) => els.map((el) => el.getAttribute('href')));
+  if (mindmapHref !== '/books/weight-of-silence/mindmap.html') throw new Error(c.name + ': mindmap CTA path drifted');
+  if (booksHref !== '/books') throw new Error(c.name + ': Books Hub CTA path drifted');
+  if (researchHrefs.length !== 3 || researchHrefs.some((href) => !href?.startsWith('/articles/'))) {
+    throw new Error(c.name + ': related research CTA contract failed');
+  }
+
   await page.screenshot({ path: path.join(out, c.name + '.png'), fullPage: true });
-  results.push({ ...c, beforeSize, afterSize, fontFamily, beforeChapter, afterChapter, progressWidth, overflow });
+  results.push({ ...c, beforeSize, afterSize, fontFamily, beforeChapter, afterChapter, progressWidth, overflow, mindmapHref, booksHref, researchHrefs });
   await page.close();
 }
 
