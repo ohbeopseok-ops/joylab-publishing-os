@@ -125,6 +125,7 @@ jobs:
           grep -Fq '/guides/growth-leadership/literature/old-man-and-the-sea' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/little-prince' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/demian' /tmp/body
+          grep -Fq '/guides/growth-leadership/literature/metamorphosis' /tmp/body
 
           check_200 "https://aijoylab.kr/guides/growth-leadership/literature/old-man-and-the-sea?deploy=${GITHUB_SHA}"
           grep -Fq '성과가 무너졌을 때' /tmp/body
@@ -158,9 +159,17 @@ jobs:
           grep -Fq '/images/leadership/literature/ep03-demian.webp' /tmp/body
           grep -Fq 'og:image:width" content="1200"' /tmp/body
           grep -Fq 'og:image:height" content="675"' /tmp/body
-          grep -Fq '/guides/growth-leadership/literature#ep04' /tmp/body
+          grep -Fq '/guides/growth-leadership/literature/metamorphosis' /tmp/body
 
           check_200 https://aijoylab.kr/images/leadership/literature/ep03-demian.webp
+
+          check_200 "https://aijoylab.kr/guides/growth-leadership/literature/metamorphosis?deploy=${GITHUB_SHA}"
+          grep -Fq '쓸모를 잃으면' /tmp/body
+          grep -Fq 'RESEARCH BRIEF' /tmp/body
+          grep -Fq 'KEY TAKEAWAYS' /tmp/body
+          grep -Fq 'LEADERSHIP ACTION' /tmp/body
+          grep -Fq 'NEXT · EP05' /tmp/body
+          grep -Fq '/guides/growth-leadership/literature#ep05' /tmp/body
 
           check_200 "https://aijoylab.kr/guides/growth-leadership/playbook/performance-coaching?deploy=${GITHUB_SHA}"
           grep -Fq '성과부진 상담사' /tmp/body
