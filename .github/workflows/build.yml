@@ -103,6 +103,9 @@ jobs:
       - name: Validate production configuration baseline JSON
         run: node -e "JSON.parse(require('node:fs').readFileSync('config/production-baseline.json','utf8'))"
 
+      - name: Verify EP03 source artwork decodes
+        run: node scripts/check-production-image.mjs public/images/leadership/literature/ep03-demian-v3.webp 1200 675
+
       - name: Build Astro site
         run: npm run build
 
