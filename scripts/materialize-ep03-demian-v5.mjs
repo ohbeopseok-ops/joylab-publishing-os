@@ -6,7 +6,8 @@ const root = process.cwd();
 const sourceDir = path.join(root, 'assets/ep03-demian-v5');
 const outputs = [
   path.join(root, 'public/images/leadership/literature/ep03-demian-v5.webp'),
-  path.join(root, 'public/images/leadership/literature/ep03-demian-v2-fixed.webp')
+  path.join(root, 'public/images/leadership/literature/ep03-demian-v2-fixed.webp'),
+  path.join(root, 'public/images/leadership/literature/ep03-demian-v6.webp')
 ];
 const chunks = ['00.b64', '01.b64', '02.b64', '03.b64', '04.b64', '05.b64'];
 const expectedBytes = 38946;
