@@ -73,6 +73,17 @@ Do not delete the immediately previous verified asset in the same change unless 
 - EP03 cache-bust path for this rollout: `/images/leadership/literature/ep03-demian-v6.webp`.
 - `ep03-demian-v2.webp` is not a valid fresh cache-bust path because that filename was deployed previously.
 
+
+## CI enforcement
+
+`Build` is the repository's required merge check. The Build workflow runs `scripts/check-asset-integrity.mjs` after Astro build, so a corrupt or missing referenced raster asset fails the required Build check and blocks merge.
+
+The gate performs:
+- full Sharp decode for raster assets under `public/images`
+- width/height metadata validation
+- source-reference existence checks for `/images/...` paths
+- 16:9 enforcement for Literature Hero/OG raster assets
+
 ## PR checklist
 
 - [ ] Filename has never been used in a prior production rollout
