@@ -84,6 +84,18 @@ The gate performs:
 - source-reference existence checks for `/images/...` paths
 - 16:9 enforcement for Literature Hero/OG raster assets
 
+
+## Asset Contract V2
+
+After Astro build, `scripts/check-asset-contract-v2.mjs` compares the built page `og:image` with the CSS Hero background path for Literature EP01–EP03. Any mismatch fails the required Build check.
+
+Current contract scope:
+- EP01 `old-man-and-the-sea`
+- EP02 `little-prince`
+- EP03 `demian`
+
+This catches partial replacements where metadata points to a new image but the visible Hero still points to an old path, or vice versa.
+
 ## PR checklist
 
 - [ ] Filename has never been used in a prior production rollout
