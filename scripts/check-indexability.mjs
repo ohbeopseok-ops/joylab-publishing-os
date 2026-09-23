@@ -81,7 +81,7 @@ function expectedIndexablePages(base, prefix) {
     .filter((file) => path.basename(file) === 'index.html')
     .map((file) => {
       const rel = path.relative(base, file).split(path.sep);
-      if (prefix === 'books' && rel.length !== 2) return null;
+      if ((prefix === 'books' || prefix === 'articles') && rel.length !== 2) return null;
       const slug = rel.slice(0, -1).join('/');
       return normalizeUrl(new URL('/' + prefix + '/' + slug, 'https://aijoylab.kr').toString());
     })
