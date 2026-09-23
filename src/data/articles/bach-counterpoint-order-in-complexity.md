@@ -15,6 +15,9 @@ featured: false
 draft: false
 seoTitle: "바흐의 대위법이 주는 안정감｜복잡함 속 질서를 만드는 구조"
 series: "침묵의 기술"
+heroImage: "/images/books/weight-of-silence/research/bach-counterpoint-order-in-complexity.webp"
+heroAlt: "악보와 피아노를 중심으로 복잡함 속 질서를 표현한 바흐 대위법 이미지"
+ogImage: "/images/books/weight-of-silence/research/bach-counterpoint-order-in-complexity.webp"
 readingTime: "약 8분"
 ---
 
