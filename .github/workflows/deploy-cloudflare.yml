@@ -355,6 +355,13 @@ jobs:
           grep -Fq 'https://aijoylab.kr/about' /tmp/body
           grep -Fq 'https://aijoylab.kr/contact' /tmp/body
           grep -Fq 'https://aijoylab.kr/privacy' /tmp/body
+          grep -Fq '<loc>https://aijoylab.kr/books</loc>' /tmp/body
+          ! grep -Fq '<loc>https://aijoylab.kr/books/</loc>' /tmp/body
+          ! grep -Fq '<loc>https://aijoylab.kr/search</loc>' /tmp/body
+          grep -Fq 'https://aijoylab.kr/guides/ai-economics' /tmp/body
+          grep -Fq 'https://aijoylab.kr/guides/ai-infrastructure' /tmp/body
+          grep -Fq 'https://aijoylab.kr/guides/ai-security' /tmp/body
+          grep -Fq 'https://aijoylab.kr/guides/living-research' /tmp/body
           grep -Fq 'https://aijoylab.kr/guides/semiconductor-investing' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/what-is-hbm' /tmp/body
           grep -Fq 'https://aijoylab.kr/articles/semiconductor-cycle' /tmp/body
