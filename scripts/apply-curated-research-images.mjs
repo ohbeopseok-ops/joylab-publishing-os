@@ -3,6 +3,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
 const root = process.cwd();
+execFileSync(process.execPath, [path.join(root, 'scripts/materialize-ep03-demian-v5.mjs')], { stdio: 'inherit' });
 execFileSync(process.execPath, [path.join(root, 'scripts/assemble-generated-hero-assets.mjs')], { stdio: 'inherit' });
 execFileSync(process.execPath, [path.join(root, 'scripts/generate-curated-research-visuals.mjs')], { stdio: 'inherit' });
 execFileSync(process.execPath, [path.join(root, 'scripts/generate-supporting-visual-sprint.mjs')], { stdio: 'inherit' });
