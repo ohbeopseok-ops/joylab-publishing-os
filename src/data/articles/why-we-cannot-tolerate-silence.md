@@ -15,6 +15,9 @@ featured: false
 draft: false
 seoTitle: "스마트폰 시대 우리는 왜 침묵을 불안해할까｜공백 공포와 주의력"
 series: "침묵의 기술"
+heroImage: "/images/books/weight-of-silence/research/why-we-cannot-tolerate-silence.webp"
+heroAlt: "비 오는 도시 창가와 피아노로 표현한 침묵과 주의력의 이미지"
+ogImage: "/images/books/weight-of-silence/research/why-we-cannot-tolerate-silence.webp"
 readingTime: "약 8분"
 ---
 
