@@ -135,11 +135,13 @@ Minimum mapped claims:
 - Guide: 2
 - Benchmark: 3
 
-Minimum primary sources:
-- Research: 1
-- Guide: 1
-- Benchmark: 1
-- Framework: 0
+Minimum trusted sources:
+- Research: at least 1 primary or institutional source.
+- Guide: at least 1 primary source.
+- Benchmark: at least 1 primary or institutional source.
+- Framework: no mandatory Tier-1 count, but claims still require mapped evidence.
+
+Trusted source class is article-type aware: official company/agency material is primary; recognized official statistics and industry institutions such as SIA/WSTS or SEMI qualify as institutional.
 
 A source list without a claim mapping does not satisfy the V2.2 hard gate.
 
