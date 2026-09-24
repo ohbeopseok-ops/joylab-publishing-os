@@ -72,6 +72,7 @@ jobs:
           node --check scripts/check-legacy-asset-cleanup.mjs
           node --check scripts/write-release-gate-v1.mjs
           node --check scripts/check-indexability.mjs
+          node --check scripts/check-legacy-public-email.mjs
           node scripts/report-homepage-funnel.mjs --self-test
           node scripts/submit-indexnow.mjs --self-test
           node scripts/report-gsc-7d.mjs --self-test
@@ -113,6 +114,9 @@ jobs:
 
       - name: Build Astro site
         run: npm run build
+
+      - name: Legacy Public Email Gate
+        run: node scripts/check-legacy-public-email.mjs
 
       - name: Asset Integrity Gate
         run: node scripts/check-asset-integrity.mjs
