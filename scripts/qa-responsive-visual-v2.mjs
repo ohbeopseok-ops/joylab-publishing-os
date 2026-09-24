@@ -35,7 +35,7 @@ const pages = [
   {
     name: 'books',
     path: '/books',
-    selectors: ['.books-v2-hero', '.books-v2-featured', '.books-v2-library', '#site-footer-v2'],
+    selectors: ['.books-v2-launch-hero', '.books-v2-launch-hero__cover', '.books-v2-library', '#site-footer-v2'],
     maxScreens: { 'iphone-390': 10.5, 'iphone-430': 9.8, 'ipad-820': 8, 'desktop-1440': 9 }
   },
   {
