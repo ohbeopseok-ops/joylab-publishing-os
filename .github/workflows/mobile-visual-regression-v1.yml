@@ -8,6 +8,7 @@ on:
       - 'src/components/**'
       - 'src/layouts/**'
       - 'src/styles/**'
+      - 'src/data/**'
       - 'scripts/qa-mobile-visual-regression-v1.mjs'
       - '.github/workflows/mobile-visual-regression-v1.yml'
   push:
@@ -17,6 +18,7 @@ on:
       - 'src/components/**'
       - 'src/layouts/**'
       - 'src/styles/**'
+      - 'src/data/**'
       - 'scripts/qa-mobile-visual-regression-v1.mjs'
       - '.github/workflows/mobile-visual-regression-v1.yml'
   workflow_dispatch:
