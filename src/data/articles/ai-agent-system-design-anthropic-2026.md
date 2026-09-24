@@ -21,6 +21,10 @@ seoTitle: "AI 에이전트 시스템 설계｜Anthropic에서 배우는 위임·
 canonical: "https://aijoylab.kr/articles/ai-agent-system-design-anthropic-2026"
 series: "AI·생산성"
 readingTime: "약 11분"
+heroImage: "/images/research/ai-agent-system-design-anthropic-2026.svg"
+heroAlt: "Orchestrator, Worker, Verifier, Risk Approval, Recovery, Kill Switch 흐름을 표현한 JoyLab AI Agent System 설계 대표 이미지"
+heroCaption: "Agent의 자율성은 위임만으로 완성되지 않습니다. 검증·권한·승인·복구·중단 구조가 함께 있어야 운영 가능한 시스템이 됩니다."
+ogImage: "/images/research/ai-agent-system-design-anthropic-2026.svg"
 ---
 
 AI 활용의 중심이 빠르게 이동하고 있습니다.
