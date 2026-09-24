@@ -30,6 +30,8 @@ export async function GET({ site }: { site: URL }) {
     '/about',
     '/contact',
     '/privacy',
+    '/terms',
+    '/advertising-disclosure',
     '/articles',
     '/guides/investing',
     '/guides/ai-productivity',
