@@ -6,6 +6,20 @@ const articlesRoot = path.join(root, 'src/data/articles');
 const outDir = path.join(root, 'artifacts');
 const claimSignal = /(?:\d+(?:\.\d+)?\s?(?:%|퍼센트|조|억|만|원|달러|배|건|명|개|년|월|일)|20\d{2}|발표했|공개했|기록했|증가했|감소했|상승했|하락했|설명했|밝혔|보고했|확인됐|나타났)/;
 
+const gscPath = path.join(root, 'data/gsc/latest.json');
+let gscSnapshot = null;
+try {
+  if (fs.existsSync(gscPath)) gscSnapshot = JSON.parse(fs.readFileSync(gscPath, 'utf8'));
+} catch {
+  gscSnapshot = null;
+}
+const gscByUrl = new Map((gscSnapshot?.pages ?? []).map((x) => [x.url, x]));
+
+function articleUrl(file) {
+  const slug = path.basename(file, '.md');
+  return 'https://aijoylab.kr/articles/' + slug;
+}
+
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
     const p = path.join(dir, e.name);
@@ -57,10 +71,22 @@ function analyze(text, file) {
   const hits = (investmentText.match(/투자|주가|종목|증시|etf|수익률|밸류에이션|실적|공시|삼성전자|하이닉스|금리|환율|코스피|코스닥/g) || []).length;
   const investmentRisk = Math.min(20, hits * 2);
   const gapScore = Math.min(40, unmappedCount * 3 + weakCount);
-  const trafficScore = 0;
+  const matchedGsc = gscByUrl.get(articleUrl(file));
+  const trafficScore = matchedGsc?.trafficScore ?? 0;
+  const trafficStatus = matchedGsc ? 'MATCHED' : gscSnapshot ? 'NO_DATA' : 'UNKNOWN';
   const priorityScore = gapScore + importance + investmentRisk + trafficScore;
   const tier = priorityScore >= 60 ? 'P0' : priorityScore >= 35 ? 'P1' : 'P2';
-  return { file,title,category,featured,homeFeatured,homePriority,claims,claimCount,mappedCount,weakCount,unmappedCount,scoring:{priorityScore,tier,gapScore,importance,investmentRisk,trafficScore,trafficStatus:'UNKNOWN'} };
+  return {
+    file,title,category,featured,homeFeatured,homePriority,claims,claimCount,mappedCount,weakCount,unmappedCount,
+    traffic: matchedGsc ? {
+      url: matchedGsc.url,
+      clicks: matchedGsc.clicks,
+      impressions: matchedGsc.impressions,
+      ctr: matchedGsc.ctr,
+      position: matchedGsc.position
+    } : null,
+    scoring:{priorityScore,tier,gapScore,importance,investmentRisk,trafficScore,trafficStatus}
+  };
 }
 
 if (process.argv.includes('--self-test')) {
@@ -77,10 +103,46 @@ const totals = articles.reduce((a,x)=>{ a.articles++; a.claims+=x.claimCount; a.
 const priority = articles.filter((x)=>x.unmappedCount||x.weakCount).sort((a,b)=>b.scoring.priorityScore-a.scoring.priorityScore||b.unmappedCount-a.unmappedCount).slice(0,50);
 const top20 = priority.slice(0,20);
 const tierCounts = articles.reduce((a,x)=>{ if(x.unmappedCount||x.weakCount)a[x.scoring.tier]=(a[x.scoring.tier]||0)+1; return a; }, {P0:0,P1:0,P2:0});
-const report = { contract:'JoyLab Claim-Source Corpus Audit V1', checkedAt:new Date().toISOString(), trafficDataStatus:'UNKNOWN — no URL-level current GSC baseline available in repository', totals, tierCounts, top20, articles };
+const report = {
+  contract:'JoyLab Claim-Source Corpus Audit V1',
+  checkedAt:new Date().toISOString(),
+  trafficDataStatus: gscSnapshot
+    ? 'AVAILABLE — GSC Manual Import V1 (' + (gscSnapshot.range?.status ?? 'UNKNOWN') + ' range)'
+    : 'UNKNOWN — no URL-level current GSC baseline available in repository',
+  gscSnapshot: gscSnapshot ? {
+    importedAt: gscSnapshot.importedAt,
+    sourceHash: gscSnapshot.sourceHash,
+    sourceFiles: gscSnapshot.sourceFiles,
+    range: gscSnapshot.range,
+    totals: gscSnapshot.totals
+  } : null,
+  totals, tierCounts, top20, articles
+};
 fs.mkdirSync(outDir,{recursive:true});
 fs.writeFileSync(path.join(outDir,'research-corpus-evidence-audit.json'), JSON.stringify(report,null,2)+'\n');
-const md = ['# JoyLab Research Claim ↔ Source Corpus Audit V1','', 'Traffic component: **UNKNOWN / 0 points** until URL-level GSC data is connected.','', '| Tier | Score | Article | Claims | Direct | Weak | Unmapped | Importance | Investment Risk | Traffic |','|---|---:|---|---:|---:|---:|---:|---:|---:|---:|', ...top20.map((x)=>'| '+x.scoring.tier+' | '+x.scoring.priorityScore+' | '+x.title.replaceAll('|','/')+' | '+x.claimCount+' | '+x.mappedCount+' | '+x.weakCount+' | '+x.unmappedCount+' | '+x.scoring.importance+' | '+x.scoring.investmentRisk+' | '+x.scoring.trafficScore+' |'), '', 'V1 is report-only for the legacy corpus.'].join('\n');
+const md = [
+  '# JoyLab Research Claim ↔ Source Corpus Audit V1','',
+  'Traffic: **' + report.trafficDataStatus + '**','',
+  '| Tier | Score | Article | Claims | Direct | Weak | Unmapped | Importance | Investment Risk | Traffic | Clicks | Impressions |',
+  '|---|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|',
+  ...top20.map((x)=>'| '+x.scoring.tier+' | '+x.scoring.priorityScore+' | '+x.title.replaceAll('|','/')+' | '+x.claimCount+' | '+x.mappedCount+' | '+x.weakCount+' | '+x.unmappedCount+' | '+x.scoring.importance+' | '+x.scoring.investmentRisk+' | '+x.scoring.trafficScore+' | '+(x.traffic?.clicks ?? '—')+' | '+(x.traffic?.impressions ?? '—')+' |'),
+  '', 'V1 is report-only for the legacy corpus.'
+].join('\n');
 fs.writeFileSync(path.join(outDir,'research-corpus-evidence-audit.md'), md+'\n');
-console.log(JSON.stringify({totals,tierCounts,trafficDataStatus:report.trafficDataStatus,top20:top20.map(x=>({tier:x.scoring.tier,score:x.scoring.priorityScore,title:x.title,file:x.file,unmapped:x.unmappedCount,weak:x.weakCount,importance:x.scoring.importance,investmentRisk:x.scoring.investmentRisk,traffic:x.scoring.trafficScore}))},null,2));
+console.log(JSON.stringify({
+  totals,
+  tierCounts,
+  trafficDataStatus:report.trafficDataStatus,
+  gscSnapshot: report.gscSnapshot,
+  top20:top20.map(x=>({
+    tier:x.scoring.tier,score:x.scoring.priorityScore,title:x.title,file:x.file,
+    unmapped:x.unmappedCount,weak:x.weakCount,importance:x.scoring.importance,
+    investmentRisk:x.scoring.investmentRisk,trafficScore:x.scoring.trafficScore,
+    trafficStatus:x.scoring.trafficStatus,
+    clicks:x.traffic?.clicks ?? null,
+    impressions:x.traffic?.impressions ?? null,
+    ctr:x.traffic?.ctr ?? null,
+    position:x.traffic?.position ?? null
+  }))
+},null,2));
 if (process.argv.includes('--enforce') && (totals.weak || totals.unmapped)) process.exit(2);
