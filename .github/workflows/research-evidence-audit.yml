@@ -4,12 +4,18 @@ on:
   schedule:
     - cron: '5 22 * * 0'
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'scripts/research-corpus-evidence-audit.mjs'
+      - '.github/workflows/research-evidence-audit.yml'
 
 permissions:
   contents: read
 
 concurrency:
-  group: research-evidence-audit
+  group: research-evidence-audit-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -26,12 +32,21 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Validate Evidence Engine
+      - name: Validate AI Economics Evidence Engine
         run: node scripts/research-evidence-engine.mjs
 
-      - name: Upload Evidence Audit
+      - name: Corpus Audit self-test
+        run: node scripts/research-corpus-evidence-audit.mjs --self-test
+
+      - name: Audit full Research corpus
+        run: node scripts/research-corpus-evidence-audit.mjs
+
+      - name: Upload Evidence Audits
         uses: actions/upload-artifact@v4
         with:
           name: research-evidence-audit
-          path: artifacts/research-evidence-audit.json
+          path: |
+            artifacts/research-evidence-audit.json
+            artifacts/research-corpus-evidence-audit.json
+            artifacts/research-corpus-evidence-audit.md
           if-no-files-found: error
