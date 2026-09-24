@@ -117,7 +117,11 @@ for (const viewport of viewports) {
         const el = document.querySelector(selector);
         if (!el) return [selector, null];
         const r = el.getBoundingClientRect();
-        return [selector, { width: Math.round(r.width), height: Math.round(r.height) }];
+        return [selector, {
+          width: Math.round(r.width),
+          height: Math.round(r.height),
+          visible: visible(el)
+        }];
       }));
 
       const criticalSelector = [
@@ -184,7 +188,10 @@ for (const viewport of viewports) {
       noPageErrors: errors.length === 0,
       noHorizontalOverflow: metrics.overflow <= 1,
       noBrokenImages: metrics.brokenImages.length === 0,
-      requiredSectionsPresent: item.selectors.every((selector) => metrics.selectorMetrics[selector]),
+      requiredSectionsPresent: item.selectors.every((selector) => {
+        const section = metrics.selectorMetrics[selector];
+        return Boolean(section && section.visible && section.width > 0 && section.height > 0);
+      }),
       densityWithinContract: metrics.screenCount <= item.maxScreens[viewport.name],
       responsiveNav: metrics.toggleVisible === expectedToggle,
       footerWithinContract: metrics.footerHeight === null || metrics.footerHeight <= footerBudget,
