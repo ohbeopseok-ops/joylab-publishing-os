@@ -60,7 +60,7 @@ for (const viewport of viewports) {
         if (!el) return false;
         const s = getComputedStyle(el);
         const r = el.getBoundingClientRect();
-        return s.display !== 'none' && s.visibility !== 'hidden' && r.width > 0 && r.height > 0;
+        return s.display !== 'none' && s.visibility !== 'hidden' && s.opacity !== '0' && s.pointerEvents !== 'none' && r.width > 0 && r.height > 0;
       };
       const selectorMetrics = Object.fromEntries(selectors.map((selector) => {
         const el = document.querySelector(selector);
@@ -86,6 +86,7 @@ for (const viewport of viewports) {
           const r = el.getBoundingClientRect();
           return {
             tag: el.tagName,
+            type: el instanceof HTMLInputElement ? el.type : '',
             width: Math.round(r.width),
             height: Math.round(r.height),
             text: (el.textContent || el.getAttribute('aria-label') || '').trim().slice(0, 60)
@@ -93,9 +94,9 @@ for (const viewport of viewports) {
         });
 
       const tinyTargets = interactive.filter((x) => {
-        if (x.tag === 'INPUT') return false;
-        if (['SELECT','TEXTAREA'].includes(x.tag)) return x.height < 44;
-        return x.height < 44 && x.width < 44;
+        if (x.tag === 'INPUT' && ['checkbox','radio','hidden'].includes(x.type)) return false;
+        if (['INPUT','SELECT','TEXTAREA'].includes(x.tag)) return x.height < 44;
+        return x.height < 44 || x.width < 44;
       });
 
       const footer = document.querySelector('#site-footer-v2');
