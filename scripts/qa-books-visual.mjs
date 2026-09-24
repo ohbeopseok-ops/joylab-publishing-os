@@ -26,7 +26,7 @@ const results = [];
 
 const assertCoverDecoded = async (page, name) => {
   const cover = page.locator(
-    '.home-books-v2__cover img, .books-v2-featured__cover img, .book-v2-hero__cover img'
+    '.home-books-v2__cover img, .books-v2-launch-hero__cover img, .books-v2-featured__cover img, .book-v2-hero__cover img'
   ).first();
 
   if (await cover.count()) {
@@ -43,7 +43,7 @@ const assertCoverDecoded = async (page, name) => {
   }
 
   const textCover = page.locator(
-    '.home-books-v2__text-cover, .books-v2-featured__cover .books-v2-text-cover, .book-v2-hero__cover .book-v2-text-cover'
+    '.home-books-v2__text-cover, .books-v2-launch-hero__cover .books-v2-text-cover, .books-v2-featured__cover .books-v2-text-cover, .book-v2-hero__cover .book-v2-text-cover'
   ).first();
   if (!(await textCover.count()) || !(await textCover.isVisible())) {
     throw new Error(`${name}: featured image cover or text cover is not visible`);
@@ -120,8 +120,10 @@ for (const c of cases) {
       if (!(await researchNav.isVisible())) throw new Error(`${c.name}: global Research nav not visible`);
     }
   } else if (c.name.startsWith('hub')) {
-    const heading = page.getByText('분석한 생각을,', { exact: false }).first();
-    if (!(await heading.isVisible())) throw new Error(`${c.name}: Books hub hero missing`);
+    const heading = page.getByRole('heading', { level: 1, name: /시니어인 우리 엄마도 제미나이를 쓴다/ }).first();
+    if (!(await heading.isVisible())) throw new Error(`${c.name}: launch hero title missing`);
+    const launchReaderCta = page.locator('.books-v2-launch-hero a[href="/books/senior-mom-gemini/read"]').first();
+    if (!(await launchReaderCta.isVisible())) throw new Error(`${c.name}: launch reader CTA missing`);
     await assertCoverDecoded(page, c.name);
     const library = page.getByText('현재 출간된 JoyLab Books', { exact: true });
     if (!(await library.isVisible())) throw new Error(`${c.name}: Books library heading missing`);
@@ -130,7 +132,7 @@ for (const c of cases) {
       const shellWidth = await page.locator('.books-v2-shell').first().evaluate((el) => el.getBoundingClientRect().width);
       if (shellWidth > 1182) throw new Error(`${c.name}: desktop shell wider than 1180px contract (${shellWidth}px)`);
 
-      const featuredBox = await page.locator('.books-v2-featured__cover').evaluate((el) => {
+      const featuredBox = await page.locator('.books-v2-launch-hero__cover').evaluate((el) => {
         const r = el.getBoundingClientRect();
         return { width: r.width, height: r.height, ratio: r.width / r.height };
       });

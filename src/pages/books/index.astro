@@ -9,6 +9,7 @@ const books = (await getCollection('books'))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 
 const featured = books[0];
+const launchBook = books.find((book) => book.id === 'senior-mom-gemini') ?? featured;
 const getReaderPath = (book) => book.data.readerPath ?? `/books/${book.id}/read`;
 const getReaderCta = (book) => book.data.readerCta ?? '작가의 말과 1장 읽기';
 ---
@@ -17,45 +18,39 @@ const getReaderCta = (book) => book.data.readerCta ?? '작가의 말과 1장 읽
   description="리서치에서 시작된 생각을 더 오래 남기는 JoyLab의 책과 에세이 아카이브입니다."
   bodyClass="books-page books-hub-v2"
 >
-  <section class="books-v2-hero">
-    <div class="books-v2-shell">
-      <p class="books-v2-kicker">JOYLAB BOOKS</p>
-      <h1>분석한 생각을,<br />오래 남기는 책으로.</h1>
-      <p>JoyLab Research가 복잡한 정보를 판단 가능한 구조로 바꾼다면, JoyLab Books는 그 생각을 한 사람의 삶과 일에 오래 머무르게 합니다.</p>
-    </div>
-  </section>
-
-  {featured && (
-    <section class="books-v2-featured">
-      <div class="books-v2-shell books-v2-featured__grid">
-        <a class="books-v2-featured__cover" href={`/books/${featured.id}`}>
-          {featured.data.coverImage ? (
-            <img src={featured.data.coverImage} alt={`${featured.data.title} 표지`} width="640" height="960" loading="eager" decoding="async" />
+  {launchBook && (
+    <section class="books-v2-launch-hero">
+      <div class="books-v2-shell books-v2-launch-hero__grid">
+        <a class="books-v2-launch-hero__cover" href={`/books/${launchBook.id}`}>
+          {launchBook.data.coverImage ? (
+            <img src={launchBook.data.coverImage} alt={`${launchBook.data.title} 표지`} width="640" height="960" loading="eager" decoding="async" />
           ) : (
             <span class="books-v2-text-cover">
               <small>JOYLAB BOOKS</small>
-              <strong>{featured.data.title}</strong>
-              {featured.data.subtitle && <em>{featured.data.subtitle}</em>}
-              <b>{featured.data.author}</b>
+              <strong>{launchBook.data.title}</strong>
+              {launchBook.data.subtitle && <em>{launchBook.data.subtitle}</em>}
+              <b>{launchBook.data.author}</b>
             </span>
           )}
         </a>
-        <div class="books-v2-featured__copy">
-          <p class="books-v2-label">NOW PUBLISHED · {featured.data.category}</p>
-          <h2>{featured.data.title}</h2>
-          {featured.data.subtitle && <p class="books-v2-subtitle">{featured.data.subtitle}</p>}
-          <p class="books-v2-description">{featured.data.description}</p>
-          {featured.data.heroQuote && <blockquote>“{featured.data.heroQuote}”</blockquote>}
-          <div class="books-v2-actions">
-            <a class="books-v2-primary" href={`/books/${featured.id}`}>책 만나보기 →</a>
+        <div class="books-v2-launch-hero__copy">
+          <p class="books-v2-kicker">JOYLAB BOOKS · NEW EBOOK</p>
+          <p class="books-v2-label">NOW PUBLISHED · {launchBook.data.category}</p>
+          <h1>{launchBook.data.title}</h1>
+          {launchBook.data.subtitle && <p class="books-v2-launch-subtitle">{launchBook.data.subtitle}</p>}
+          <p class="books-v2-launch-description">{launchBook.data.description}</p>
+          {launchBook.data.heroQuote && <blockquote>“{launchBook.data.heroQuote}”</blockquote>}
+          <div class="books-v2-actions books-v2-launch-actions">
             <a
-              class="books-v2-secondary"
-              href={getReaderPath(featured)}
+              class="books-v2-primary"
+              href={getReaderPath(launchBook)}
               data-analytics-event="book_preview_start"
-              data-analytics-target={featured.id}
-              data-analytics-placement="books_hub_v2"
-            >{getReaderCta(featured)}</a>
+              data-analytics-target={launchBook.id}
+              data-analytics-placement="books_hub_launch_hero"
+            >전자책 바로 읽기 →</a>
+            <a class="books-v2-secondary" href={`/books/${launchBook.id}`}>책 소개 보기</a>
           </div>
+          <p class="books-v2-launch-note">말로 묻고 · 사진으로 해결하고 · 안전하게 확인하는 생활형 AI 입문서</p>
         </div>
       </div>
     </section>
