@@ -151,3 +151,11 @@
 @media (min-width: 641px) and (max-width: 900px) {
   .site-footer-v2__socials a{min-height:48px!important}
 }
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .site-header .homepage-nav-toggle{
+    min-width:44px!important;
+    width:44px!important;
+    height:44px!important;
+  }
+}
