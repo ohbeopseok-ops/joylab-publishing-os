@@ -17,5 +17,24 @@
         "caption": "기능 목록보다 실제 업무 완료율과 Human Approval 구조를 함께 검증합니다."
       }
     ]
+  },
+  "ai-agent-system-design-anthropic-2026": {
+    "hero": {
+      "src": "/images/research/ai-agent-system-design-anthropic-2026.svg",
+      "alt": "Orchestrator, Worker, Verifier, Risk Approval, Recovery, Kill Switch 흐름을 표현한 JoyLab AI Agent System 설계 대표 이미지",
+      "caption": "Agent의 자율성은 위임만으로 완성되지 않습니다. 검증·권한·승인·복구·중단 구조가 함께 있어야 운영 가능한 시스템이 됩니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI Agent System에서 위임과 검증, 권한 통제, 복구가 하나의 운영 흐름으로 연결되는 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화는 Agent 기능의 증가보다 검증·권한·복구를 실행 경로에 내장하는 것입니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Goal Orchestrator Worker Verifier Risk Approval Recovery 순서로 AI Agent System을 설계하는 JoyLab 프레임워크 이미지",
+        "caption": "Goal → Delegate → Verify → Govern → Execute → Recover 순서로 Agent System을 점검합니다."
+      }
+    ]
   }
 }
