@@ -109,7 +109,43 @@ async function checkHub() {
   await page.close();
 }
 
+
+
+async function checkMidWidth() {
+  const page = await browser.newPage({ viewport: { width: 1024, height: 900 }, deviceScaleFactor: 1 });
+  const response = await page.goto(base + '/books/senior-mom-gemini', { waitUntil: 'networkidle' });
+  if (!response || !response.ok()) throw new Error('detail-1024: HTTP ' + response?.status());
+
+  const metrics = await page.evaluate(() => {
+    const rect = (selector) => {
+      const el = document.querySelector(selector);
+      if (!el) return null;
+      const r = el.getBoundingClientRect();
+      return { width:r.width, height:r.height, left:r.left, right:r.right };
+    };
+    const quote = document.querySelector('.book-senior-mom-gemini .book-v2-hero__quote');
+    return {
+      shell: rect('.book-senior-mom-gemini .book-v2-hero__shell'),
+      cover: rect('.book-senior-mom-gemini .book-v2-hero__cover img'),
+      copy: rect('.book-senior-mom-gemini .book-v2-hero__copy'),
+      title: rect('.book-senior-mom-gemini .book-v2-hero__copy h1'),
+      quoteDisplay: quote ? getComputedStyle(quote).display : null,
+      overflow: document.documentElement.scrollWidth - innerWidth
+    };
+  });
+
+  if (metrics.quoteDisplay !== 'none') throw new Error('detail-1024: quote should be hidden');
+  if (!metrics.copy || metrics.copy.width < 500) throw new Error('detail-1024: copy column too narrow ' + JSON.stringify(metrics.copy));
+  if (!metrics.cover || metrics.cover.width !== 250) throw new Error('detail-1024: cover width drifted ' + JSON.stringify(metrics.cover));
+  if (metrics.overflow > 2) throw new Error('detail-1024: horizontal overflow ' + metrics.overflow);
+
+  await page.screenshot({ path: path.join(out, 'detail-1024.png'), fullPage: true });
+  results.push({ page:'detail-1024', ...metrics });
+  await page.close();
+}
+
 await checkDetail();
+await checkMidWidth();
 await checkHub();
 await browser.close();
 
