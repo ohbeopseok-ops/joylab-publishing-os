@@ -1,10 +1,11 @@
 ---
 const officialChannels = [
+  { label: 'YouTube', href: 'https://www.youtube.com/@superhalabe100', mark: '▶', analyticsKey: 'youtube' },
   { label: 'Naver Blog', href: 'https://blog.naver.com/joy014', mark: 'N', analyticsKey: 'naver' },
   { label: 'Threads', href: 'https://www.threads.com/@ohbeopseok', mark: '@', analyticsKey: 'threads' },
-  { label: 'X', href: 'https://x.com/ohbeopseok', mark: 'X', analyticsKey: 'x' },
   { label: 'Instagram', href: 'https://www.instagram.com/aijoylab/', mark: '◎', analyticsKey: 'instagram' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/', mark: 'in', analyticsKey: 'linkedin' }
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/', mark: 'in', analyticsKey: 'linkedin' },
+  { label: 'X', href: 'https://x.com/ohbeopseok', mark: 'X', analyticsKey: 'x' }
 ];
 ---
 <footer class="site-footer-v2" id="site-footer-v2">
@@ -20,7 +21,7 @@ const officialChannels = [
       </div>
     </section>
 
-    <nav class="site-footer-v2__column" aria-label="JoyLab 공식 채널">
+    <nav class="site-footer-v2__column site-footer-v2__official" aria-label="JoyLab 공식 채널">
       <strong>OFFICIAL</strong>
       <div class="site-footer-v2__socials">
         {officialChannels.map((channel) => (
@@ -41,14 +42,14 @@ const officialChannels = [
       </div>
     </nav>
 
-    <nav class="site-footer-v2__column" aria-label="비즈니스 메뉴">
+    <nav class="site-footer-v2__column site-footer-v2__business" aria-label="비즈니스 메뉴">
       <strong>BUSINESS</strong>
       <a href="/about">About JoyLab</a>
       <a href="/contact" data-analytics-event="footer_contact_click" data-analytics-target="contact" data-analytics-placement="footer">프로젝트 문의</a>
       <a href="mailto:contact@aijoylab.kr">contact@aijoylab.kr</a>
     </nav>
 
-    <nav class="site-footer-v2__column" aria-label="정책 및 리소스 메뉴">
+    <nav class="site-footer-v2__column site-footer-v2__resources" aria-label="정책 및 리소스 메뉴">
       <strong>LEGAL & RESOURCES</strong>
       <a href="/books/">JoyLab Books</a>
       <a href="/privacy">Privacy</a>
