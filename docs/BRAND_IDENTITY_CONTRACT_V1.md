@@ -88,9 +88,9 @@ A new or refreshed channel is complete when these six items are consistent:
 
 The legacy personal Gmail address must not appear in the generated public website.
 
-CI runs `scripts/check-legacy-public-email.mjs` after the Astro build. If a legacy public email is found in a text-based file under `dist/`, the build and production deployment are blocked before release.
+CI runs `scripts/check-legacy-public-email.mjs` after the Astro build. The gate scans text-based generated files under `dist/` and text-based reader/book source files under `assets/books/`, including sources that are later compressed into public reader payloads. Matching is case-insensitive. If a legacy public email is found, the build and production deployment are blocked before release.
 
-Historical Git commits and internal documents are not scanned by this gate.
+Historical Git commits and unrelated internal documents are not scanned by this gate.
 
 ## 9. Audit cadence
 
