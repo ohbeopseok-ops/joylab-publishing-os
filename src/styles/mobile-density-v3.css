@@ -83,3 +83,25 @@
   body.homepage-v2 .home-hero__lead{min-height:260px!important}
   body.semiconductor-guide-v2 .sg-hero h1{font-size:2rem!important}
 }
+
+
+/* Responsive control hardening */
+.homepage-nav-toggle{display:none}
+
+@media (max-width:640px){
+  .site-header .homepage-nav-toggle{display:inline-flex}
+  body.homepage-v2 #content-search,
+  body.homepage-v2 #tag-filter,
+  body.homepage-v2 #clear-filter,
+  body.homepage-v2 #load-more{min-height:44px!important}
+  body.research-article-page .reader-toolbar button,
+  body.research-article-page .reader-toolbar a{min-width:44px!important;min-height:44px!important}
+}
+
+@media (min-width:641px) and (max-width:900px){
+  body.semiconductor-guide-v2 .sg-card__cta{
+    display:inline-flex!important;
+    align-items:center!important;
+    min-height:44px!important;
+  }
+}
