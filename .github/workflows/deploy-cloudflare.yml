@@ -97,10 +97,12 @@ jobs:
           grep -Fq 'load-more' /tmp/body
           grep -Fq '/guides/semiconductor-investing' /tmp/body
           grep -Fq 'id="site-footer-v2"' /tmp/body
+          grep -Fq 'https://www.youtube.com/@JoyLabResearch' /tmp/body
           grep -Fq 'https://blog.naver.com/joy014' /tmp/body
           grep -Fq 'https://www.threads.com/@ohbeopseok' /tmp/body
           grep -Fq 'https://www.instagram.com/aijoylab/' /tmp/body
-          grep -Fq 'linkedin.com/in/' /tmp/body
+          grep -Fq 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/' /tmp/body
+          grep -Fq 'https://x.com/ohbeopseok' /tmp/body
           grep -Fq 'contact@aijoylab.kr' /tmp/body
           grep -Fq '/__analytics/event' /tmp/body
           grep -Fq 'data-analytics-event="social_click"' /tmp/body
@@ -331,6 +333,12 @@ jobs:
 
           check_200 https://aijoylab.kr/about
           grep -Fq 'ABOUT JOYLAB' /tmp/body
+          grep -Fq 'https://www.youtube.com/@JoyLabResearch' /tmp/body
+          grep -Fq 'https://blog.naver.com/joy014' /tmp/body
+          grep -Fq 'https://www.threads.com/@ohbeopseok' /tmp/body
+          grep -Fq 'https://www.instagram.com/aijoylab/' /tmp/body
+          grep -Fq 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/' /tmp/body
+          grep -Fq 'https://x.com/ohbeopseok' /tmp/body
 
           check_200 https://aijoylab.kr/contact
           grep -Fq 'CONTACT' /tmp/body
@@ -343,10 +351,11 @@ jobs:
           grep -Fq '메일 앱에서 문의하기' /tmp/body
           grep -Fq 'contact@aijoylab.kr' /tmp/body
           grep -Fq 'OFFICIAL CHANNELS' /tmp/body
+          grep -Fq 'https://www.youtube.com/@JoyLabResearch' /tmp/body
           grep -Fq 'https://blog.naver.com/joy014' /tmp/body
           grep -Fq 'https://www.threads.com/@ohbeopseok' /tmp/body
           grep -Fq 'https://www.instagram.com/aijoylab/' /tmp/body
-          grep -Fq 'linkedin.com/in/' /tmp/body
+          grep -Fq 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/' /tmp/body
           grep -Fq 'data-analytics-placement="contact"' /tmp/body
           grep -Fq 'github.com/ohbeopseok-ops/joylab-publishing-os/issues' /tmp/body
           grep -Fq '개별 종목 매수·매도 상담이나 개인 맞춤형 투자자문을 제공하지 않습니다' /tmp/body
