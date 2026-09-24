@@ -224,7 +224,8 @@ for (const r of results) {
     ' overflow=' + r.metrics.overflow +
     ' screens=' + r.metrics.screenCount.toFixed(2) +
     ' footer=' + r.metrics.footerHeight +
-    ' failed=' + failed.join('|')
+    ' failed=' + failed.join('|') +
+    (r.metrics.tinyTargets.length ? ' tiny=' + JSON.stringify(r.metrics.tinyTargets) : '')
   );
 }
 
