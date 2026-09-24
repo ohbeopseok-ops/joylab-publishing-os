@@ -1,49 +1,51 @@
 ---
+import { SITE_IDENTITY } from '../config/siteIdentity';
+
 const identityGraph = {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'WebSite',
-      '@id': 'https://aijoylab.kr/#website',
-      name: 'JoyLab',
+      '@id': `${SITE_IDENTITY.domain}/#website`,
+      name: SITE_IDENTITY.brand,
       alternateName: 'AIJoyLab',
-      url: 'https://aijoylab.kr/',
+      url: `${SITE_IDENTITY.domain}/`,
       inLanguage: 'ko-KR',
-      publisher: { '@id': 'https://aijoylab.kr/#organization' }
+      publisher: { '@id': `${SITE_IDENTITY.domain}/#organization` }
     },
     {
       '@type': 'Organization',
-      '@id': 'https://aijoylab.kr/#organization',
-      name: 'JoyLab',
+      '@id': `${SITE_IDENTITY.domain}/#organization`,
+      name: SITE_IDENTITY.brand,
       alternateName: 'AIJoyLab',
-      url: 'https://aijoylab.kr/',
-      email: 'contact@aijoylab.kr',
+      url: `${SITE_IDENTITY.domain}/`,
+      email: SITE_IDENTITY.publicEmail,
       sameAs: [
-        'https://www.youtube.com/@JoyLabResearch',
-        'https://blog.naver.com/joy014',
-        'https://www.instagram.com/aijoylab/',
-        'https://x.com/ohbeopseok'
+        SITE_IDENTITY.channels.youtube,
+        SITE_IDENTITY.channels.naver,
+        SITE_IDENTITY.channels.instagram,
+        SITE_IDENTITY.channels.x
       ],
       founder: {
-        '@id': 'https://aijoylab.kr/#founder'
+        '@id': `${SITE_IDENTITY.domain}/#founder`
       },
       contactPoint: {
         '@type': 'ContactPoint',
         contactType: 'business inquiries',
-        email: 'contact@aijoylab.kr',
-        url: 'https://aijoylab.kr/contact'
+        email: SITE_IDENTITY.publicEmail,
+        url: `${SITE_IDENTITY.domain}/contact`
       }
     },
     {
       '@type': 'Person',
-      '@id': 'https://aijoylab.kr/#founder',
+      '@id': `${SITE_IDENTITY.domain}/#founder`,
       name: '오법석',
       sameAs: [
-        'https://www.threads.com/@ohbeopseok',
-        'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/'
+        SITE_IDENTITY.channels.threads,
+        SITE_IDENTITY.channels.linkedin
       ],
       worksFor: {
-        '@id': 'https://aijoylab.kr/#organization'
+        '@id': `${SITE_IDENTITY.domain}/#organization`
       }
     }
   ]
