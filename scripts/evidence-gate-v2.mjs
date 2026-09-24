@@ -17,9 +17,9 @@ function unmappedClaims(text){
 
 let added=[];
 try {
-  const out=execSync('git diff --name-only --diff-filter=A '+base+'...HEAD -- src/data/articles',{encoding:'utf8'}).trim();
+  const out=execSync('git diff --name-only --diff-filter=A '+base+'..HEAD -- src/data/articles',{encoding:'utf8'}).trim();
   added=out?out.split('\n').filter(x=>x.endsWith('.md')):[];
-} catch { added=[]; }
+} catch (error) { console.error('Evidence Gate V2 diff failed:', error.message); process.exit(3); }
 
 const failures=[];
 for(const file of added){
