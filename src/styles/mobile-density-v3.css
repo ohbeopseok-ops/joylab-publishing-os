@@ -105,3 +105,21 @@
     min-height:44px!important;
   }
 }
+
+
+@media (max-width:900px){
+  body.homepage-v2 button,
+  body.homepage-v2 select,
+  body.homepage-v2 input[type="search"],
+  body.homepage-v2 input[type="text"]{min-height:44px!important}
+
+  body.research-article-page button,
+  body.research-article-page select{min-height:44px!important}
+
+  body.growth-leadership-guide-v2 .growth-hero__cta,
+  body.growth-leadership-guide-v2 .growth-book-feature__actions a{
+    display:inline-flex!important;
+    align-items:center!important;
+    min-height:44px!important;
+  }
+}
