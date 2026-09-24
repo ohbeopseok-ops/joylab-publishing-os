@@ -73,6 +73,7 @@ jobs:
           node --check scripts/write-release-gate-v1.mjs
           node --check scripts/check-indexability.mjs
           node --check scripts/check-legacy-public-email.mjs
+          node --check scripts/check-official-channel-contract.mjs
           node scripts/report-homepage-funnel.mjs --self-test
           node scripts/submit-indexnow.mjs --self-test
           node scripts/report-gsc-7d.mjs --self-test
@@ -118,6 +119,9 @@ jobs:
       - name: Legacy Public Email Gate
         run: node scripts/check-legacy-public-email.mjs
 
+      - name: Official Channel Contract Gate
+        run: node scripts/check-official-channel-contract.mjs
+
       - name: Asset Integrity Gate
         run: node scripts/check-asset-integrity.mjs
 
@@ -142,12 +146,14 @@ jobs:
           grep -Fq '"@id":"https://aijoylab.kr/#website"' dist/index.html
           grep -Fq '"@id":"https://aijoylab.kr/#founder"' dist/index.html
           grep -Fq 'https://x.com/ohbeopseok' dist/index.html
-          ! grep -Fq 'https://www.youtube.com/@superhalabe100' dist/index.html
+          grep -Fq 'https://www.youtube.com/@JoyLabResearch' dist/index.html
           grep -Fq 'https://www.threads.com/@ohbeopseok' dist/index.html
           grep -Fq 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/' dist/index.html
           grep -Fq 'OFFICIAL CHANNELS' dist/about/index.html
           grep -Fq 'data-analytics-target="x"' dist/about/index.html
-          ! grep -Fq 'data-analytics-target="youtube"' dist/about/index.html
+          grep -Fq 'data-analytics-target="youtube"' dist/about/index.html
+          grep -Fq 'https://www.youtube.com/@JoyLabResearch' dist/about/index.html
+          grep -Fq 'https://www.youtube.com/@JoyLabResearch' dist/contact/index.html
           grep -Fq '오법석 · AIJoyLab' dist/about/index.html
           test "$(tr -d '\r\n' < dist/1793952a193325da594f7015ca133737.txt)" = '1793952a193325da594f7015ca133737'
 
