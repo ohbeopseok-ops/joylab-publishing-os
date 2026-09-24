@@ -653,6 +653,7 @@
 
   .book-senior-mom-gemini .book-v2-hero__cover img {
     width: 280px;
+    height: 420px;
     aspect-ratio: 2/3;
     object-fit: contain;
     border-radius: 10px;
@@ -800,8 +801,15 @@
 
   .books-hub-v2 .books-v2-launch-hero__cover {
     width: 260px;
+    height: 390px;
     border-radius: 10px;
     box-shadow: 0 22px 50px rgba(0,0,0,.3);
+  }
+
+  .books-hub-v2 .books-v2-launch-hero__cover img {
+    width: 260px;
+    height: 390px;
+    object-fit: contain;
   }
 
   .books-hub-v2 .books-v2-launch-hero__copy {
