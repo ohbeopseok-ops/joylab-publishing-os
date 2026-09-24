@@ -132,3 +132,18 @@
     margin-top:28px!important;
   }
 }
+
+
+/* Final footer compression: remove duplicated brand prose on small screens. */
+@media (max-width: 640px) {
+  .site-footer-v2__desc{display:none!important}
+  .site-footer-v2__pillars{margin-top:10px!important}
+  .site-footer-v2__grid{gap:20px 14px!important}
+  .site-footer-v2__socials{gap:6px!important}
+  .site-footer-v2__socials a{min-height:48px!important;padding:7px 9px!important}
+  .site-footer-v2__bottom{margin-top:18px!important}
+}
+@media (min-width: 641px) and (max-width: 900px) {
+  .site-footer-v2__grid{gap:22px 20px!important}
+  .site-footer-v2__bottom{margin-top:22px!important}
+}
