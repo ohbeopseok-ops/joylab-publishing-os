@@ -40,6 +40,9 @@ jobs:
         id: build_site
         run: npm run build
 
+      - name: Legacy Public Email Gate
+        run: node scripts/check-legacy-public-email.mjs
+
       - name: Deploy to Cloudflare Workers
         id: cloudflare_deploy
         uses: cloudflare/wrangler-action@v4
