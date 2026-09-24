@@ -88,3 +88,47 @@
   body.books-hub-v2 .books-v2-book{grid-template-columns:96px minmax(0,1fr)!important}
   body.books-hub-v2 .books-v2-book__cover{width:96px!important}
 }
+
+
+/* Footer density hardening: wins against component-scoped mobile rules. */
+@media (max-width: 640px) {
+  .site-footer-v2{
+    padding:30px 0 max(20px,env(safe-area-inset-bottom))!important;
+  }
+  .site-footer-v2__brand,
+  .site-footer-v2__official{
+    grid-column:1 / -1!important;
+  }
+  .site-footer-v2__business,
+  .site-footer-v2__resources{
+    grid-column:auto!important;
+  }
+  .site-footer-v2__socials{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  .site-footer-v2__bottom{
+    margin-top:22px!important;
+    padding-top:14px!important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .site-footer-v2{
+    padding:40px 0 22px!important;
+  }
+  .site-footer-v2__grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:26px 22px!important;
+  }
+  .site-footer-v2__brand,
+  .site-footer-v2__official{
+    grid-column:1 / -1!important;
+  }
+  .site-footer-v2__socials{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:8px!important;
+  }
+  .site-footer-v2__bottom{
+    margin-top:28px!important;
+  }
+}
