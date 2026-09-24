@@ -147,3 +147,7 @@
   .site-footer-v2__grid{gap:22px 20px!important}
   .site-footer-v2__bottom{margin-top:22px!important}
 }
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .site-footer-v2__socials a{min-height:48px!important}
+}
