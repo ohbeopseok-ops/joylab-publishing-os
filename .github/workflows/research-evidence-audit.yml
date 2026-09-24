@@ -9,6 +9,7 @@ on:
     paths:
       - 'src/data/articles/**'
       - 'scripts/research-corpus-evidence-audit.mjs'
+      - 'scripts/evidence-gate-v2.mjs'
       - '.github/workflows/research-evidence-audit.yml'
 
 permissions:
@@ -40,6 +41,14 @@ jobs:
 
       - name: Audit full Research corpus
         run: node scripts/research-corpus-evidence-audit.mjs
+
+      - name: Evidence Gate V2 — new research direct mapping
+        if: github.event_name == 'pull_request'
+        env:
+          EVIDENCE_BASE: origin/${{ github.base_ref }}
+        run: |
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          node scripts/evidence-gate-v2.mjs
 
       - name: Upload Evidence Audits
         uses: actions/upload-artifact@v4
