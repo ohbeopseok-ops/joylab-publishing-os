@@ -20,6 +20,7 @@ on:
       - 'scripts/qa-weight-of-silence-reader.mjs'
       - 'scripts/qa-weight-of-silence-mindmap.mjs'
       - 'scripts/qa-senior-mom-gemini-390.mjs'
+      - 'scripts/qa-senior-mom-gemini-pc.mjs'
       - 'scripts/check-reader-binary-immutability.mjs'
       - 'config/reader-binary-assets.json'
       - '.github/workflows/books-visual-qa.yml'
@@ -69,6 +70,8 @@ jobs:
         run: node scripts/qa-weight-of-silence-mindmap.mjs
       - name: Senior Mom Gemini Detail 390 GOLD QA
         run: node scripts/qa-senior-mom-gemini-390.mjs
+      - name: Senior Mom Gemini PC 1440 GOLD QA
+        run: node scripts/qa-senior-mom-gemini-pc.mjs
       - name: Stop preview
         if: always()
         shell: bash
