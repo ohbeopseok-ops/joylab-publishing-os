@@ -611,3 +611,236 @@
     line-height:1.55;
   }
 }
+
+
+/* Senior Mom Gemini PC GOLD V1 */
+@media (min-width: 901px) {
+  .book-senior-mom-gemini .book-v2-hero {
+    min-height: 540px;
+    background: linear-gradient(135deg,#071a35 0%,#0a2849 58%,#103a65 100%);
+  }
+
+  .book-senior-mom-gemini .book-v2-hero::before {
+    background-image:
+      radial-gradient(circle at 78% 28%,rgba(22,119,255,.14),transparent 30%),
+      radial-gradient(circle at 60% 78%,rgba(242,201,137,.08),transparent 28%),
+      linear-gradient(135deg,#071a35 0%,#0a2849 60%,#103a65 100%);
+    background-size: cover;
+    background-position: center;
+    filter: none;
+  }
+
+  .book-senior-mom-gemini .book-v2-hero::after {
+    background: linear-gradient(180deg,rgba(0,0,0,0),rgba(2,12,25,.18));
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__veil {
+    display: none;
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__shell {
+    width: min(1180px,calc(100% - 56px));
+    min-height: 540px;
+    grid-template-columns: 280px minmax(0,1fr) 210px;
+    gap: 42px;
+    padding: 34px 0 38px;
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__cover {
+    width: 280px;
+    justify-self: start;
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__cover img {
+    width: 280px;
+    aspect-ratio: 2/3;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 22px 48px rgba(0,0,0,.34);
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__copy {
+    max-width: 650px;
+    min-width: 0;
+  }
+
+  .book-senior-mom-gemini .book-v2-kicker {
+    margin-bottom: 6px;
+    font-size: .78rem;
+    letter-spacing: .22em;
+  }
+
+  .book-senior-mom-gemini .book-v2-overline {
+    margin-bottom: 16px;
+    font-size: .86rem;
+    color: #a9bdd6;
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__copy h1 {
+    max-width: 640px;
+    font-size: clamp(3.05rem,3.55vw,3.8rem);
+    line-height: 1.08;
+    letter-spacing: -.05em;
+  }
+
+  .book-senior-mom-gemini .book-v2-subtitle {
+    max-width: 610px;
+    margin-top: 16px;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #e8edf4;
+  }
+
+  .book-senior-mom-gemini .book-v2-byline {
+    margin-top: 10px;
+    font-size: .86rem;
+    color: #c8d4e2;
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__copy blockquote {
+    max-width: 610px;
+    margin-top: 16px;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: #f2c989;
+  }
+
+  .book-senior-mom-gemini .book-v2-actions {
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .book-senior-mom-gemini .book-v2-actions a {
+    min-height: 46px;
+    padding: 0 18px;
+    border-radius: 10px;
+    font-size: .9rem;
+  }
+
+  .book-senior-mom-gemini .book-v2-topics {
+    gap: 10px 16px;
+    margin-top: 18px;
+    font-size: .78rem;
+    color: #cbd7e5;
+  }
+
+  .book-senior-mom-gemini .book-v2-topics span::before {
+    margin-right: 6px;
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__quote {
+    align-self: center;
+    padding-left: 18px;
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__quote p {
+    font-size: 1.08rem;
+    line-height: 1.68;
+    color: #f2f5f8;
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__quote span {
+    margin: 16px 0;
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__quote small {
+    font-size: .72rem;
+  }
+
+  .book-senior-mom-gemini .book-v2-tabs__inner,
+  .book-senior-mom-gemini .book-v2-section {
+    width: min(1180px,calc(100% - 56px));
+  }
+
+  .book-senior-mom-gemini .book-v2-tabs__inner {
+    gap: 30px;
+  }
+
+  .book-senior-mom-gemini .book-v2-tabs a {
+    padding: 15px 0 13px;
+    font-size: .84rem;
+  }
+
+  .book-senior-mom-gemini .book-v2-section {
+    padding: 56px 0;
+  }
+
+  .book-senior-mom-gemini .book-v2-about {
+    grid-template-columns: minmax(0,1.25fr) minmax(320px,.75fr);
+    gap: 42px;
+  }
+
+  .book-senior-mom-gemini .book-v2-about h2 {
+    max-width: 720px;
+    font-size: clamp(2.2rem,2.7vw,3rem);
+    line-height: 1.32;
+  }
+
+  .book-senior-mom-gemini .book-v2-prose {
+    max-width: 720px;
+    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+
+  .book-senior-mom-gemini .book-v2-benefits {
+    padding: 24px 26px;
+  }
+
+  .books-hub-v2 .books-v2-launch-hero {
+    padding: 42px 0 46px;
+  }
+
+  .books-hub-v2 .books-v2-launch-hero__grid {
+    width: min(1180px,calc(100% - 56px));
+    grid-template-columns: 260px minmax(0,1fr);
+    gap: 44px;
+  }
+
+  .books-hub-v2 .books-v2-launch-hero__cover {
+    width: 260px;
+    border-radius: 10px;
+    box-shadow: 0 22px 50px rgba(0,0,0,.3);
+  }
+
+  .books-hub-v2 .books-v2-launch-hero__copy {
+    max-width: 690px;
+  }
+
+  .books-hub-v2 .books-v2-launch-hero__copy h1 {
+    max-width: 660px;
+    font-size: clamp(3rem,3.8vw,4.05rem);
+    line-height: 1.08;
+  }
+
+  .books-hub-v2 .books-v2-launch-subtitle {
+    max-width: 650px;
+    margin-top: 14px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .books-hub-v2 .books-v2-launch-description {
+    max-width: 650px;
+    margin-top: 12px;
+    font-size: .96rem;
+    line-height: 1.7;
+  }
+
+  .books-hub-v2 .books-v2-launch-hero__copy blockquote {
+    max-width: 640px;
+    margin-top: 16px;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .books-hub-v2 .books-v2-launch-actions {
+    margin-top: 18px;
+  }
+
+  .books-hub-v2 .books-v2-launch-note {
+    margin-top: 13px;
+    font-size: .8rem;
+  }
+}
