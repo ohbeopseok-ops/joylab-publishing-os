@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleGrowthPath from '../../components/ArticleGrowthPath.astro';
 import '../../styles/interactive.css';
 import '../../styles/research-v2.css';
 import '../../styles/visual-placement.css';
@@ -341,6 +342,13 @@ const scoreCriteria = [
       </aside>
     </div>
   </article>
+
+  <ArticleGrowthPath
+    related={related}
+    guideCta={guideCta}
+    articleId={article.id}
+    category={article.data.category}
+  />
 
   <button id="back-to-top" class="back-to-top" type="button" aria-label="맨 위로 이동" title="맨 위로 이동">↑</button>
 
