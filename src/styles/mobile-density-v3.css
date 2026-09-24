@@ -123,3 +123,7 @@
     min-height:44px!important;
   }
 }
+
+@media (max-width:900px){
+  body.research-article-page button{min-width:44px!important}
+}
