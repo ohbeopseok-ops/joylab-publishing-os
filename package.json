@@ -32,7 +32,9 @@
     "distribution:state": "node scripts/distribution-state.mjs",
     "distribution:handoff": "node scripts/distribution-adapters.mjs",
     "distribution:published": "node scripts/distribution-publish-log.mjs",
-    "distribution:scorecard": "node scripts/distribution-scorecard.mjs"
+    "distribution:scorecard": "node scripts/distribution-scorecard.mjs",
+    "gsc:import": "node scripts/gsc-manual-import.mjs --input data/gsc/inbox",
+    "gsc:priority": "node scripts/research-corpus-evidence-audit.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"

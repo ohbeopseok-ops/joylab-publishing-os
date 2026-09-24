@@ -1,0 +1,120 @@
+name: GSC Manual Import
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'data/gsc/inbox/*.csv'
+      - 'data/gsc/inbox/import.json'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/gsc-manual-import.mjs'
+      - 'scripts/research-corpus-evidence-audit.mjs'
+      - 'scripts/gsc-import-latest.ps1'
+      - 'data/gsc/**'
+      - '.github/workflows/gsc-manual-import.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gsc-manual-import-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  adapter-self-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Parse GSC fixture
+        run: |
+          rm -rf /tmp/joylab-gsc-test
+          mkdir -p /tmp/joylab-gsc-test/history
+          node scripts/gsc-manual-import.mjs             --input data/gsc/fixtures/pages-example.csv             --output /tmp/joylab-gsc-test/latest.json             --history /tmp/joylab-gsc-test/history
+
+      - name: Verify normalized fixture
+        run: |
+          node -e '
+            const fs=require("fs");
+            const d=JSON.parse(fs.readFileSync("/tmp/joylab-gsc-test/latest.json","utf8"));
+            if(d.totals.pages!==3) throw new Error("expected 3 pages");
+            if(d.pages[0].trafficScore!==10) throw new Error("top page should score 10");
+            if(!d.pages.every(x=>x.url.startsWith("https://aijoylab.kr/articles/"))) throw new Error("URL normalization failed");
+            console.log("GSC adapter fixture PASS", d.totals);
+          '
+
+  import-main:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: adapter-self-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Detect inbox
+        id: inbox
+        run: |
+          count=$(find data/gsc/inbox -maxdepth 1 -type f -name '*.csv' | wc -l)
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+
+      - name: Import GSC page performance
+        if: steps.inbox.outputs.count != '0'
+        run: node scripts/gsc-manual-import.mjs --input data/gsc/inbox
+
+      - name: Re-score Evidence Priority
+        if: steps.inbox.outputs.count != '0'
+        run: node scripts/research-corpus-evidence-audit.mjs
+
+      - name: Archive raw GSC export
+        if: steps.inbox.outputs.count != '0'
+        run: |
+          stamp=$(date -u +%Y%m%dT%H%M%SZ)
+          mkdir -p "data/gsc/archive/$stamp"
+          mv data/gsc/inbox/*.csv "data/gsc/archive/$stamp/"
+          if [ -f data/gsc/inbox/import.json ]; then
+            mv data/gsc/inbox/import.json "data/gsc/archive/$stamp/"
+          fi
+
+      - name: Persist normalized snapshot
+        if: steps.inbox.outputs.count != '0'
+        run: |
+          git config user.name "joylab-gsc-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/gsc/latest.json data/gsc/history data/gsc/archive data/gsc/inbox
+          if git diff --cached --quiet; then
+            echo "No derived GSC changes"
+          else
+            git commit -m "gsc: ingest Search Console snapshot [skip ci]"
+            git push
+          fi
+
+      - name: Upload priority report
+        if: steps.inbox.outputs.count != '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gsc-evidence-priority
+          path: |
+            data/gsc/latest.json
+            artifacts/research-corpus-evidence-audit.json
+            artifacts/research-corpus-evidence-audit.md
+          if-no-files-found: error
