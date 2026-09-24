@@ -1,0 +1,49 @@
+name: Search Growth Gate V1
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'src/pages/articles/**'
+      - 'src/components/ArticleGrowthPath.astro'
+      - 'src/components/ArticleContactCta.astro'
+      - 'src/config/siteIdentity.ts'
+      - 'scripts/check-search-growth-v1.mjs'
+      - '.github/workflows/search-growth-gate-v1.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'src/pages/articles/**'
+      - 'src/components/ArticleGrowthPath.astro'
+      - 'src/components/ArticleContactCta.astro'
+      - 'src/config/siteIdentity.ts'
+      - 'scripts/check-search-growth-v1.mjs'
+      - '.github/workflows/search-growth-gate-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  search-growth:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: npm ci
+      - run: npm run build
+      - name: Search Growth Gate
+        run: node scripts/check-search-growth-v1.mjs
+      - name: Upload Search Growth report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: search-growth-v1
+          path: qa-artifacts/search-growth-v1
+          if-no-files-found: error
+          retention-days: 30
