@@ -9,8 +9,9 @@ const sequence = [
   { id: 'ai-workflow-automation', step: '02', role: 'WORKFLOW', short: 'Workflow', note: 'Model → Tool → Workflow → Human Approval로 실제 업무자동화 구조를 설계합니다.' },
   { id: 'ai-productivity-roi', step: '03', role: 'MEASUREMENT', short: 'ROI', note: '사용량이 아니라 Task Completion·Quality·Cost·Rework로 AI 성과를 측정합니다.' },
   { id: 'ai-agent-governance', step: '04', role: 'GOVERNANCE', short: 'Governance', note: '권한·승인·로그·관측성·실패 복구를 실제 운영 통제로 묶습니다.' },
-  { id: 'ai-productivity-operating-model', step: '05', role: 'OPERATING MODEL', short: 'Operating', note: '개인 AI 활용을 팀 표준·역할·측정·개선 루프를 갖춘 조직 운영모델로 확장합니다.' },
-  { id: 'ai-productivity-platforms-compare', step: '06', role: 'COMPARE HUB', short: 'Compare', note: 'ChatGPT·Claude·Gemini·Copilot을 기능 수가 아니라 업무 적합성·통제·측정 기준으로 비교합니다.' }
+  { id: 'ai-agent-system-design-anthropic-2026', step: '05', role: 'SYSTEM DESIGN', short: 'System', note: 'Anthropic의 Orchestrator·Worker·Context·Containment 원칙을 실제 운영 가능한 Agent System 구조로 연결합니다.' },
+  { id: 'ai-productivity-operating-model', step: '06', role: 'OPERATING MODEL', short: 'Operating', note: '개인 AI 활용을 팀 표준·역할·측정·개선 루프를 갖춘 조직 운영모델로 확장합니다.' },
+  { id: 'ai-productivity-platforms-compare', step: '07', role: 'COMPARE HUB', short: 'Compare', note: 'ChatGPT·Claude·Gemini·Copilot을 기능 수가 아니라 업무 적합성·통제·측정 기준으로 비교합니다.' }
 ];
 
 const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
@@ -29,7 +30,7 @@ const published = steps.filter((entry) => entry.article);
         <div class="sg-hero__copy">
           <div class="sg-eyebrow">AI PRODUCTIVITY RESEARCH · JOYLAB</div>
           <h1>AI는 도구보다<br /><span>업무 구조입니다.</span></h1>
-          <p class="sg-hero__lead">AI를 더 많이 쓰는 것이 목표가 아닙니다. <strong>Agent → Workflow → ROI → Governance → Operating Model → Compare</strong>로 연결해, 어떤 일을 어디까지 위임하고 어떻게 통제·측정할지 하나의 판단 구조로 읽습니다.</p>
+          <p class="sg-hero__lead">AI를 더 많이 쓰는 것이 목표가 아닙니다. <strong>Agent → Workflow → ROI → Governance → System Design → Operating Model → Compare</strong>로 연결해, 어떤 일을 어디까지 위임하고 어떻게 통제·측정할지 하나의 판단 구조로 읽습니다.</p>
           <div class="sg-hero__chips" aria-label="AI 생산성 핵심 주제">
             <span>#AI에이전트</span><span>#업무자동화</span><span>#ROI</span><span>#거버넌스</span><span>#생산성</span>
           </div>
@@ -124,8 +125,8 @@ const published = steps.filter((entry) => entry.article);
         </section>
         <section class="sg-rail-card">
           <small>CORE RESEARCH</small>
-          <h3>6개 Gold Case 완성</h3>
-          <ol><li>AI 에이전트</li><li>AI 업무자동화 구조</li><li>AI 도입 ROI</li><li>Agent Governance</li><li>Operating Model</li><li>플랫폼 Compare Hub</li></ol>
+          <h3>7개 Gold Case 연결</h3>
+          <ol><li>AI 에이전트</li><li>AI 업무자동화 구조</li><li>AI 도입 ROI</li><li>Agent Governance</li><li>Agent System Design</li><li>Operating Model</li><li>플랫폼 Compare Hub</li></ol>
         </section>
         <section class="sg-rail-card">
           <small>CODEX HUB</small>
