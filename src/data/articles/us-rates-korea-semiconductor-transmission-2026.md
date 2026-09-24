@@ -66,13 +66,13 @@ AI·반도체 기업은 장기 성장 기대가 크고, 동시에 데이터센�
 
 ## 1. FACT | 미국채 5%는 다시 주식시장의 경쟁자가 됐다
 
-2026년 9월 15일 미국 10년물 국채수익률은 장중 다시 **5%를 돌파**했다. Reuters는 같은 날 S&P500이 0.45%, Nasdaq이 0.78% 하락했다고 전했다.
+2026년 9월 15일 미국 10년물 국채수익률은 **5.00%**까지 올라갔다. [미 재무부 Daily Treasury Rates](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202609&type=daily_treasury_yield_curve)
 
-9월 16일 아시아 거래에서는 10년물이 약 **4.9875%**까지 내려왔지만, 시장의 핵심 질문은 5%를 하루 넘었느냐가 아니다.
+9월 16일 미 재무부 종가 기준 10년물은 **5.01%**였다. 하루의 돌파 여부보다 5% 부근의 장기금리가 얼마나 오래 유지되는지가 더 중요하다. [미 재무부](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202609&type=daily_treasury_yield_curve)
 
 **5% 부근의 장기금리가 얼마나 오래 유지되는가**다.
 
-미 재무부는 2026년 7~9월 민간 순시장성 차입을 **7,390억 달러**, 10~12월을 **6,280억 달러**로 예상하고 있다. 높은 재정 차입과 장기물 공급 부담이 동시에 존재하는 상황이다.
+미 재무부는 2026년 7~9월 민간 순시장성 차입을 **7,390억 달러**, 10~12월을 **6,280억 달러**로 예상했다. [U.S. Treasury, 2026-08-03](https://home.treasury.gov/news/press-releases/sb0584)
 
 이 때문에 미국채 5%는 단순한 채권 투자자의 문제가 아니다.
 
@@ -261,7 +261,7 @@ SK하이닉스는 HBM과 AI 메모리 성장 기대가 더 직접적으로 반�
 
 → 삼성전자·SK하이닉스 밸류에이션 압력
 
-2026년 9월 10~11일 외국인은 삼성전자와 SK하이닉스를 합쳐 약 **5.18조원** 순매도했다.
+2026년 9월 10~11일 외국인이 삼성전자와 SK하이닉스를 대규모 순매도했다는 시장 집계가 있었지만, 이 글에서는 현재 직접 검증 가능한 공식 URL을 확보하지 못했으므로 **5.18조원이라는 단일 수치는 판단 근거에서 제외**한다.
 
 ![2026년 9월 10~11일 삼성전자와 SK하이닉스 외국인 순매도 비교](/images/research/us-rates-korea-flow-chart.svg)
 
