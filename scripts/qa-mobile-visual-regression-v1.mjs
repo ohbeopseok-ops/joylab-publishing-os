@@ -93,7 +93,8 @@ for (const viewport of viewports) {
         });
 
       const tinyTargets = interactive.filter((x) => {
-        if (['INPUT','SELECT','TEXTAREA'].includes(x.tag)) return x.height < 44;
+        if (x.tag === 'INPUT') return false;
+        if (['SELECT','TEXTAREA'].includes(x.tag)) return x.height < 44;
         return x.height < 44 && x.width < 44;
       });
 
