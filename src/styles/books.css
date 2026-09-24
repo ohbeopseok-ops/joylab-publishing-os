@@ -852,3 +852,24 @@
     font-size: .8rem;
   }
 }
+
+
+@media (min-width: 901px) and (max-width: 1080px) {
+  .book-senior-mom-gemini .book-v2-hero__shell {
+    grid-template-columns: 250px minmax(0,1fr);
+    gap: 34px;
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__cover,
+  .book-senior-mom-gemini .book-v2-hero__cover img {
+    width: 250px;
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__cover img {
+    height: 375px;
+  }
+
+  .book-senior-mom-gemini .book-v2-hero__copy h1 {
+    font-size: clamp(2.55rem,5vw,3.25rem);
+  }
+}
