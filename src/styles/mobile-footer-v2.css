@@ -1,0 +1,127 @@
+/* JoyLab Mobile Footer V2
+   Goal: reduce vertical scroll cost on 390px while preserving brand hierarchy. */
+@media (max-width: 640px) {
+  .site-footer-v2 {
+    --footer-gap: 22px;
+    --footer-link-min: 48px;
+    margin-top: 16px;
+    padding: 32px 0 max(20px, env(safe-area-inset-bottom));
+  }
+
+  .site-footer-v2 > .container {
+    width: min(calc(100% - 40px), var(--max));
+  }
+
+  .site-footer-v2__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 24px 16px !important;
+    align-items: start;
+  }
+
+  .site-footer-v2__brand,
+  .site-footer-v2__official {
+    grid-column: 1 / -1;
+  }
+
+  .site-footer-v2__brand {
+    padding-bottom: 2px;
+  }
+
+  .site-footer-v2__logo {
+    font-size: 1.55rem;
+  }
+
+  .site-footer-v2__positioning {
+    margin: 10px 0 6px;
+    font-size: .93rem;
+    line-height: 1.45;
+  }
+
+  .site-footer-v2__desc {
+    max-width: 34rem;
+    font-size: .78rem !important;
+    line-height: 1.58;
+  }
+
+  .site-footer-v2__pillars {
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .site-footer-v2__pillars a {
+    padding: 5px 8px;
+    font-size: .68rem;
+  }
+
+  .site-footer-v2__column {
+    gap: 7px;
+    padding-top: 0 !important;
+  }
+
+  .site-footer-v2__column > strong {
+    margin-bottom: 3px;
+    font-size: .68rem;
+    letter-spacing: .1em;
+  }
+
+  .site-footer-v2__column > a {
+    min-height: 36px !important;
+    display: flex;
+    align-items: center;
+    font-size: .78rem;
+    line-height: 1.35;
+  }
+
+  .site-footer-v2__business > a[href^="mailto:"] {
+    font-size: .7rem;
+    overflow-wrap: anywhere;
+  }
+
+  .site-footer-v2__socials {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px;
+  }
+
+  .site-footer-v2__socials a {
+    min-height: 52px !important;
+    grid-template-columns: 30px minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 8px 10px !important;
+    border-radius: 13px;
+    font-size: .76rem;
+  }
+
+  .site-footer-v2__mark {
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    font-size: .68rem;
+  }
+
+  .site-footer-v2__bottom {
+    margin-top: 28px;
+    padding-top: 16px;
+    gap: 5px;
+    font-size: .68rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-footer-v2 > .container {
+    width: min(calc(100% - 32px), var(--max));
+  }
+
+  .site-footer-v2__grid {
+    gap: 22px 12px !important;
+  }
+
+  .site-footer-v2__socials {
+    grid-template-columns: 1fr !important;
+  }
+
+  .site-footer-v2__business,
+  .site-footer-v2__resources {
+    grid-column: 1 / -1;
+  }
+}
