@@ -20,7 +20,7 @@ readingTime: "약 12분"
 
 ## Research Brief
 
-2026년 9월 미국 장기채 시장에서 더 주목해야 할 숫자는 10년물 5%만이 아니다. 미국 재무부 공식 장기금리 자료에서 9월 11일 장기 평균금리는 **5.34%**, 30년물 추정 장기금리는 **5.38%** 수준이었다. 시장 거래에서도 30년물 수익률은 5.3%대까지 올라 2007년 이후 최고권을 시험했다.
+2026년 9월 미국 장기채 시장에서 더 주목해야 할 숫자는 10년물 5%만이 아니다. 미국 재무부의 [2026년 9월 Daily Treasury Rates](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202609&type=daily_treasury_yield_curve)에서 9월 11일 30년물 수익률은 **5.38%**였고, 장기물 금리는 5%대 중반까지 올라 있었다. Reuters도 8월 19일 30년물 수익률이 5.337%까지 올라 2007년 이후 최고 수준을 기록했다고 [보도했다](https://www.reuters.com/business/us-30-year-treasury-yields-drop-multi-year-highs-2026-08-19/).
 
 10년물은 경기·물가·연준 기대를 강하게 반영한다. 반면 30년물은 여기에 **재정 지속가능성, 장기 국채 공급, 기간 프리미엄, 장기 인플레이션 불확실성**을 더 크게 반영한다.
 
@@ -38,9 +38,9 @@ readingTime: "약 12분"
 
 ## 1. FACT | 30년물은 이미 5%를 훨씬 넘었다
 
-미국 재무부의 Daily Treasury Rates에 따르면 2026년 9월 10일 장기 평균금리는 5.35%, 30년물 추정치는 5.39%였고, 9월 11일에는 각각 **5.34%, 5.38%**였다.
+[미국 재무부 Daily Treasury Rates](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202609&type=daily_treasury_yield_curve)에 따르면 2026년 9월 10일 30년물 수익률은 **5.39%**, 9월 11일에는 **5.38%**였다.
 
-Reuters는 8월 19일 30년물 수익률이 장중 **5.337%**까지 상승해 19년 만의 최고치를 기록했다고 보도했다. 같은 날 미 재무부가 장기채 바이백 확대를 발표하면서 30년물은 약 10bp 하락해 5.187% 부근으로 밀렸다.
+Reuters는 8월 19일 30년물 수익률이 **5.337%**까지 올라 19년 만의 최고치를 기록한 뒤 장기채 바이백 확대 발표 후 5.187%까지 내려왔다고 [보도했다](https://www.reuters.com/business/us-30-year-treasury-yields-drop-multi-year-highs-2026-08-19/).
 
 하지만 9월 들어 다시 장기금리가 상승했고, 재무부가 장기채 바이백 규모를 최대 60억 달러로 확대했음에도 시장의 불안은 완전히 진정되지 않았다.
 
@@ -96,11 +96,11 @@ Reuters는 8월 19일 30년물 수익률이 장중 **5.337%**까지 상승해 19
 
 ## 4. FISCAL RISK | 40조 달러 부채와 1.97조 달러 적자
 
-2026년 미국 연방정부 부채는 40조 달러를 넘어섰다.
+2026년 미국 연방정부 부채가 40조 달러를 넘어선 환경에서 장기물 공급과 이자비용 부담이 시장의 핵심 변수로 부각됐다. 관련 재정 부담은 Reuters의 [9월 11일 보도](https://www.reuters.com/markets/us/us-budget-deficit-shrinks-august-year-to-date-flat-197-trillion-2026-09-11/)에서도 확인된다.
 
-Reuters가 보도한 미 재무부 자료에 따르면 2026 회계연도 8월까지 누적 재정적자는 **1.97조 달러**였다. 이미 2025 회계연도 전체 적자 1.775조 달러를 넘어섰다.
+Reuters가 인용한 미 재무부 자료에 따르면 2026 회계연도 8월까지 누적 재정적자는 **1.97조 달러**였고, 2025 회계연도 전체 적자 1.775조 달러를 이미 넘어섰다. [Reuters 원문](https://www.reuters.com/markets/us/us-budget-deficit-shrinks-august-year-to-date-flat-197-trillion-2026-09-11/)
 
-이자비용도 증가하고 있다. 2026 회계연도 누적 이자지출은 전년 동기 대비 13%, 1,430억 달러 증가했다.
+같은 자료에서 2026 회계연도 누적 이자지출은 전년 동기 대비 **13%, 1,430억 달러 증가**한 것으로 집계됐다. [Reuters](https://www.reuters.com/markets/us/us-budget-deficit-shrinks-august-year-to-date-flat-197-trillion-2026-09-11/)
 
 재정적자가 크면 국채 발행이 늘어난다.
 
@@ -116,9 +116,9 @@ Reuters가 보도한 미 재무부 자료에 따르면 2026 회계연도 8월까
 
 미 재무부는 장기물 시장의 유동성을 개선하기 위해 바이백 규모를 확대했다.
 
-9월에는 10~20년 만기 채권 매입 한도를 최대 **60억 달러**까지 늘렸다. 이전 최대 20억 달러보다 세 배다.
+9월에는 10~20년 만기 채권 매입 한도를 최대 **60억 달러**까지 늘렸다. 이전 최대 20억 달러보다 세 배다. [Reuters](https://www.reuters.com/legal/transactional/edgy-bond-investors-unconsoled-by-bessents-big-buyback-2026-09-10/)
 
-하지만 Reuters는 이 조치에도 10년물·20년물·30년물 금리가 다시 상승했다고 전했다.
+하지만 Reuters는 이 조치에도 장기물 금리가 다시 상승했다고 [전했다](https://www.reuters.com/legal/transactional/edgy-bond-investors-unconsoled-by-bessents-big-buyback-2026-09-10/).
 
 이 반응은 중요하다.
 
