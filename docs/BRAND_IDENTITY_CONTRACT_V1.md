@@ -76,7 +76,22 @@ Canonical official channels:
 | LinkedIn | https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/ |
 | X | https://x.com/ohbeopseok |
 
-CI runs `scripts/check-official-channel-contract.mjs` to block legacy YouTube handles, verify the canonical source, and prevent direct YouTube URL duplication in public identity components.
+CI runs `scripts/check-official-channel-contract.mjs` to block legacy YouTube handles and verify official-channel consumers. In addition, `scripts/check-brand-identity-single-source-v2.mjs` enforces the stronger Single Source Gate V2: canonical domain, public email, and all official SNS URLs may be defined only in `src/config/siteIdentity.ts` within production source (`src/components`, `src/layouts`, `src/pages`, `src/lib`). Direct hardcoding in those runtime surfaces fails CI.
+
+### Brand Identity Single Source Gate V2
+
+Protected identity values:
+
+- Canonical domain
+- Public contact email
+- YouTube
+- Naver Blog
+- Threads
+- Instagram
+- LinkedIn
+- X
+
+Rule: production source consumes these values from `siteIdentity.ts`. Documentation, CI assertions, test fixtures, and generated output may reference canonical literals when they are explicitly verifying the contract.
 
 ## 6. Search entity consistency
 

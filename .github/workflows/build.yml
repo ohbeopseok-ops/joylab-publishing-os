@@ -74,6 +74,7 @@ jobs:
           node --check scripts/check-indexability.mjs
           node --check scripts/check-legacy-public-email.mjs
           node --check scripts/check-official-channel-contract.mjs
+          node --check scripts/check-brand-identity-single-source-v2.mjs
           node scripts/report-homepage-funnel.mjs --self-test
           node scripts/submit-indexnow.mjs --self-test
           node scripts/report-gsc-7d.mjs --self-test
@@ -121,6 +122,9 @@ jobs:
 
       - name: Official Channel Contract Gate
         run: node scripts/check-official-channel-contract.mjs
+
+      - name: Brand Identity Single Source Gate V2
+        run: node scripts/check-brand-identity-single-source-v2.mjs
 
       - name: Asset Integrity Gate
         run: node scripts/check-asset-integrity.mjs
