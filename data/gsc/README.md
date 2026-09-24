@@ -57,3 +57,36 @@ Clicks percentile × 6
 ```
 
 원본 CSV는 Evidence로 보존하고, 날짜나 값이 없는 항목을 임의 보정하지 않습니다.
+
+
+## 완전 자동화 모드 — Google Search Console 공식 API
+
+CSV 방식은 fallback입니다. 최종 운영은 Google 공식 Search Console API를 GitHub Actions가 매일 직접 조회할 수 있습니다.
+
+필요한 설정은 최초 1회입니다.
+
+1. Google Cloud에서 Search Console API 활성화
+2. Service Account 생성
+3. 해당 Service Account 이메일을 Search Console의 `aijoylab.kr` 속성 사용자로 추가
+4. GitHub Repository Secret에 `GSC_SERVICE_ACCOUNT_JSON` 등록
+5. GitHub Repository Variable에 `GSC_SITE_URL=sc-domain:aijoylab.kr` 등록
+
+그 뒤 `GSC Direct API Sync`가 매일 **06:30 KST**에 실행됩니다.
+
+데이터 지연을 고려해 기본 조회구간은 **오늘-3일을 종료일로 하는 최근 28일 final 데이터**입니다.
+
+```text
+Google Search Console API
+→ page dimension / web
+→ 최근 28 settled days
+→ clicks / impressions / CTR / position
+→ Traffic Score
+→ data/gsc/latest.json
+→ Evidence Priority 재점수
+→ TOP20 artifact
+→ Git commit
+```
+
+Secret이 없거나 API 설정이 아직 안 된 경우 workflow는 실패하지 않고 CSV fallback을 유지합니다.
+
+장기적으로는 Service Account JSON Key 대신 GitHub OIDC + Google Workload Identity Federation으로 바꾸면 장기 키도 없앨 수 있습니다.
