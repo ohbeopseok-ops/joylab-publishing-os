@@ -6,7 +6,7 @@ author: "오법석"
 publishedAt: 2026-09-24
 updatedAt: 2026-09-24
 category: "AI·생산성"
-coverImage: "/books/senior-mom-gemini/cover.svg"
+coverImage: "/books/senior-mom-gemini/cover-v2.webp"
 ogImage: "/books/senior-mom-gemini/og.svg"
 tags:
   - 시니어

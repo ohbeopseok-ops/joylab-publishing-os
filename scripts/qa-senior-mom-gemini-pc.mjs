@@ -55,15 +55,31 @@ async function checkDetail() {
   }
   if (metrics.scrollWidth - metrics.viewportWidth > 2) throw new Error('detail-1440: horizontal overflow');
 
-  const assetText = await page.evaluate(async () => {
-    const res = await fetch('/books/senior-mom-gemini/cover.svg', { cache: 'no-store' });
-    return await res.text();
+  const asset = await page.evaluate(async () => {
+    const img = document.querySelector('.book-senior-mom-gemini .book-v2-hero__cover img');
+    const res = await fetch('/books/senior-mom-gemini/cover-v2.webp', { cache: 'no-store' });
+    return {
+      src: img?.getAttribute('src') || '',
+      naturalWidth: img?.naturalWidth || 0,
+      naturalHeight: img?.naturalHeight || 0,
+      ok: res.ok,
+      contentType: res.headers.get('content-type') || ''
+    };
   });
-  if (assetText.includes('data:image/')) throw new Error('detail-1440: cover still embeds raster data');
-  if (!assetText.includes('<svg')) throw new Error('detail-1440: cover is not SVG');
+  if (asset.src !== '/books/senior-mom-gemini/cover-v2.webp') {
+    throw new Error('detail-1440: metadata is not using cover V2 ' + asset.src);
+  }
+  if (!asset.ok) throw new Error('detail-1440: cover-v2.webp fetch failed');
+  if (asset.naturalWidth < 512 || asset.naturalHeight < 768) {
+    throw new Error('detail-1440: cover source resolution too small ' + JSON.stringify(asset));
+  }
+  const sourceRatio = asset.naturalWidth / asset.naturalHeight;
+  if (Math.abs(sourceRatio - 2/3) > 0.01) {
+    throw new Error('detail-1440: cover source ratio drifted ' + sourceRatio);
+  }
 
   await page.screenshot({ path: path.join(out, 'detail-1440.png'), fullPage: true });
-  results.push({ page:'detail', ...metrics, coverRatio:ratio, vectorOnly:true });
+  results.push({ page:'detail', ...metrics, coverRatio:ratio, sourceRatio, asset });
   await page.close();
 }
 
