@@ -158,9 +158,10 @@ await fs.writeFile(
 );
 
 for (const r of results) {
+  const failedChecks = Object.entries(r.checks).filter(([, ok]) => !ok).map(([name]) => name);
   console.log((r.passed ? 'PASS ' : 'FAIL ') + r.page.name + '/' + r.viewport.name +
     ' overflow=' + r.metrics.overflow + 'px screens=' + r.metrics.screenCount.toFixed(2) +
-    ' footer=' + r.metrics.footerHeight + 'px');
+    ' footer=' + r.metrics.footerHeight + 'px failed=' + failedChecks.join('|'));
 }
 
 if (failures.length) {
