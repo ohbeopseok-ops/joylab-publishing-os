@@ -468,3 +468,146 @@
     margin-top:12px;
   }
 }
+
+
+/* JoyLab Books Launch Hero V1 — latest title as top-of-page focus */
+.books-v2-launch-hero{
+  padding:52px 0 58px;
+  background:
+    radial-gradient(circle at 84% 18%,rgba(34,119,255,.18),transparent 26%),
+    linear-gradient(135deg,#071a35 0%,#0b2d55 58%,#153f73 100%);
+  color:#fff;
+}
+.books-v2-launch-hero__grid{
+  display:grid;
+  grid-template-columns:300px minmax(0,1fr);
+  gap:54px;
+  align-items:center;
+}
+.books-v2-launch-hero__cover{
+  display:block;
+  width:300px;
+  aspect-ratio:2/3;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 28px 64px rgba(0,0,0,.34);
+}
+.books-v2-launch-hero__cover img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.books-v2-launch-hero__copy{
+  max-width:760px;
+}
+.books-v2-launch-hero__copy .books-v2-label{
+  color:#96b7e6;
+  margin-bottom:12px;
+}
+.books-v2-launch-hero__copy h1{
+  margin:0;
+  max-width:760px;
+  font-family:Georgia,'Noto Serif KR',serif;
+  font-size:clamp(3rem,5vw,5rem);
+  font-weight:500;
+  line-height:1.08;
+  letter-spacing:-.055em;
+  word-break:keep-all;
+  text-wrap:balance;
+}
+.books-v2-launch-subtitle{
+  margin:18px 0 0;
+  color:#f2e8d9;
+  font-family:Georgia,'Noto Serif KR',serif;
+  font-size:1.18rem;
+  line-height:1.7;
+  word-break:keep-all;
+}
+.books-v2-launch-description{
+  max-width:700px;
+  margin:16px 0 0;
+  color:#d9e5f3;
+  line-height:1.78;
+}
+.books-v2-launch-hero__copy blockquote{
+  margin:20px 0 0;
+  padding-left:18px;
+  border-left:3px solid #f0c98e;
+  color:#f2cf97;
+  font-family:Georgia,'Noto Serif KR',serif;
+  font-size:1.08rem;
+  line-height:1.65;
+}
+.books-v2-launch-actions{
+  margin-top:22px;
+}
+.books-v2-launch-actions .books-v2-secondary{
+  background:transparent;
+  color:#fff;
+  border-color:rgba(255,255,255,.44);
+}
+.books-v2-launch-note{
+  margin:16px 0 0;
+  color:#aebfd4;
+  font-size:.86rem;
+  letter-spacing:.01em;
+}
+
+@media(max-width:900px){
+  .books-v2-launch-hero__grid{
+    grid-template-columns:240px minmax(0,1fr);
+    gap:34px;
+  }
+  .books-v2-launch-hero__cover{width:240px}
+}
+@media(max-width:640px){
+  .books-v2-launch-hero{
+    padding:30px 0 36px;
+  }
+  .books-v2-launch-hero__grid{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  .books-v2-launch-hero__cover{
+    width:min(64vw,238px);
+    margin:0 auto;
+    border-radius:8px;
+  }
+  .books-v2-launch-hero__copy{
+    text-align:left;
+    min-width:0;
+  }
+  .books-v2-launch-hero__copy .books-v2-kicker{
+    margin-bottom:8px;
+  }
+  .books-v2-launch-hero__copy h1{
+    font-size:clamp(2.18rem,10.8vw,3.1rem);
+    line-height:1.12;
+    letter-spacing:-.045em;
+  }
+  .books-v2-launch-subtitle{
+    font-size:1.02rem;
+    line-height:1.62;
+  }
+  .books-v2-launch-description{
+    font-size:.96rem;
+    line-height:1.72;
+  }
+  .books-v2-launch-hero__copy blockquote{
+    font-size:1rem;
+  }
+  .books-v2-launch-actions{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .books-v2-launch-actions a{
+    width:100%;
+    min-height:48px;
+  }
+  .books-v2-launch-note{
+    font-size:.8rem;
+    line-height:1.55;
+  }
+}
