@@ -1,0 +1,99 @@
+---
+import { SITE_IDENTITY } from '../config/siteIdentity';
+
+const { related = [], guideCta, articleId = '', category = '' } = Astro.props;
+const nextResearch = related.slice(0, 3);
+---
+<section class="article-growth-path" aria-labelledby="article-growth-title" data-search-growth-path="v1">
+  <div class="article-growth-path__head">
+    <small>CONTINUE THE RESEARCH</small>
+    <h2 id="article-growth-title">읽은 내용을 다음 판단으로 연결하세요</h2>
+    <p>관련 리서치로 맥락을 넓힌 뒤, JoyLab Books와 YouTube에서 다른 형식으로 이어볼 수 있습니다.</p>
+  </div>
+
+  {nextResearch.length > 0 && (
+    <div class="article-growth-path__related" aria-label="다음에 읽을 관련 리서치">
+      {nextResearch.map((item) => (
+        <a
+          href={`/articles/${item.id}`}
+          data-analytics-event="article_growth_click"
+          data-analytics-target={item.id}
+          data-analytics-placement="next_research"
+        >
+          <small>{item.data.category}</small>
+          <strong>{item.data.title}</strong>
+          <span>관련 리서치 읽기 →</span>
+        </a>
+      ))}
+    </div>
+  )}
+
+  <div class="article-growth-path__actions">
+    <a
+      class="is-guide"
+      href={guideCta.href}
+      data-analytics-event="article_growth_click"
+      data-analytics-target={guideCta.href}
+      data-analytics-placement="guide"
+    >
+      <small>RESEARCH HUB</small>
+      <strong>{guideCta.title}</strong>
+      <span>{guideCta.label}</span>
+    </a>
+
+    <a
+      href="/books"
+      data-analytics-event="article_growth_click"
+      data-analytics-target="books"
+      data-analytics-placement="books"
+    >
+      <small>JOYLAB BOOKS</small>
+      <strong>리서치 밖의 긴 호흡으로 읽기</strong>
+      <span>JoyLab Books 보기 →</span>
+    </a>
+
+    <a
+      href={SITE_IDENTITY.channels.youtube}
+      target="_blank"
+      rel="me noreferrer"
+      data-analytics-event="article_growth_click"
+      data-analytics-target="youtube"
+      data-analytics-placement="youtube"
+    >
+      <small>JOYLAB YOUTUBE</small>
+      <strong>영상으로 핵심 구조 다시 보기</strong>
+      <span>YouTube 열기 ↗</span>
+    </a>
+  </div>
+
+  <p class="article-growth-path__route" aria-label="JoyLab 콘텐츠 이동 경로">
+    Article <span>→</span> Related Research <span>→</span> Books / YouTube <span>→</span> Contact
+  </p>
+</section>
+
+<style>
+  .article-growth-path{width:min(calc(100% - 40px),1080px);margin:0 auto 34px;padding:30px;border:1px solid #dfe7f2;border-radius:22px;background:linear-gradient(180deg,#f8fbff 0%,#fff 100%)}
+  .article-growth-path__head small{display:block;color:#1677ff;font-size:.72rem;font-weight:950;letter-spacing:.12em}
+  .article-growth-path__head h2{margin:6px 0 8px;color:#0b1f4d;font-size:clamp(1.45rem,3vw,2rem);line-height:1.25;letter-spacing:-.035em}
+  .article-growth-path__head p{max-width:760px;margin:0;color:#617086;font-size:.9rem;line-height:1.65}
+  .article-growth-path__related{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:20px}
+  .article-growth-path__related a{display:flex;min-height:150px;flex-direction:column;padding:16px;border:1px solid #e0e7f1;border-radius:14px;background:#fff}
+  .article-growth-path__related small,.article-growth-path__actions small{color:#1677ff;font-size:.67rem;font-weight:900;letter-spacing:.08em}
+  .article-growth-path__related strong{margin-top:8px;color:#0b1f4d;font-size:.94rem;line-height:1.45}
+  .article-growth-path__related span{margin-top:auto;padding-top:14px;color:#59708e;font-size:.75rem;font-weight:800}
+  .article-growth-path__actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+  .article-growth-path__actions>a{display:flex;min-height:126px;flex-direction:column;padding:16px;border:1px solid #dfe7f2;border-radius:14px;background:#fff}
+  .article-growth-path__actions>a.is-guide{background:#0b1f4d;border-color:#0b1f4d}
+  .article-growth-path__actions>a.is-guide small{color:#8ebcff}
+  .article-growth-path__actions>a.is-guide strong,.article-growth-path__actions>a.is-guide span{color:#fff}
+  .article-growth-path__actions strong{margin-top:7px;color:#0b1f4d;font-size:.94rem;line-height:1.4}
+  .article-growth-path__actions span{margin-top:auto;padding-top:12px;color:#526d90;font-size:.75rem;font-weight:850}
+  .article-growth-path__route{margin:18px 0 0;color:#7b899d;font-size:.72rem;font-weight:800;text-align:center}
+  .article-growth-path__route span{padding:0 5px;color:#1677ff}
+  @media(max-width:760px){
+    .article-growth-path{width:min(calc(100% - 36px),1080px);padding:20px 16px;border-radius:18px}
+    .article-growth-path__related,.article-growth-path__actions{grid-template-columns:1fr}
+    .article-growth-path__related a,.article-growth-path__actions>a{min-height:0}
+    .article-growth-path__route{line-height:1.7}
+  }
+</style>
