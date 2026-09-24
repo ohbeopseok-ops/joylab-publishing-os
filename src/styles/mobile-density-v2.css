@@ -1,0 +1,161 @@
+/* JoyLab Mobile Density V2
+   Scope: About / Contact / Books
+   Goal: reduce scroll cost without shrinking touch targets or body readability. */
+
+@media (max-width: 640px) {
+  body.about-v2 .about-v2-page{padding:32px 18px 52px!important}
+  body.about-v2 .about-v2-hero{gap:18px!important;padding-bottom:28px!important}
+  body.about-v2 .about-v2-hero h1{margin:8px 0 14px!important}
+  body.about-v2 .about-v2-lead{font-size:.98rem!important;line-height:1.68!important}
+  body.about-v2 .about-v2-summary{gap:8px!important;padding:16px!important;border-radius:16px!important}
+  body.about-v2 .about-v2-summary div{padding-bottom:8px!important}
+  body.about-v2 .about-v2-summary small{margin-bottom:2px!important;font-size:.66rem!important}
+  body.about-v2 .about-v2-summary strong{font-size:.88rem!important;line-height:1.42!important}
+  body.about-v2 .about-v2-section{padding:36px 0!important}
+  body.about-v2 .about-v2-section-head{gap:8px!important;margin-bottom:18px!important}
+  body.about-v2 .about-v2-section-head p{font-size:.93rem!important;line-height:1.66!important}
+  body.about-v2 .about-v2-step,body.about-v2 .about-v2-pillar,body.about-v2 .about-v2-principle,body.about-v2 .about-v2-trust-card{padding:18px!important}
+  body.about-v2 .about-v2-step b,body.about-v2 .about-v2-pillar span{margin-bottom:16px!important}
+  body.about-v2 .about-v2-pillar{min-height:0!important}
+  body.about-v2 .about-v2-pillar p{margin-bottom:14px!important;line-height:1.62!important}
+  body.about-v2 .about-v2-principle p,body.about-v2 .about-v2-trust-card p{line-height:1.58!important}
+  body.about-v2 .about-v2-founder{gap:14px!important}
+  body.about-v2 .about-v2-founder-card,body.about-v2 .about-v2-founder-copy{padding:18px!important}
+  body.about-v2 .about-v2-founder-links{margin-top:16px!important}
+  body.about-v2 .about-v2-cta{gap:18px!important;margin-top:36px!important;padding:20px!important;border-radius:18px!important}
+  body.about-v2 .about-v2-cta-actions{gap:8px!important}
+  body.about-v2 .about-official{padding:36px 0!important}
+  body.about-v2 .about-official-head{gap:8px!important;margin-bottom:16px!important}
+  body.about-v2 .about-official-head p{font-size:.93rem!important;line-height:1.62!important}
+  body.about-v2 .about-official-list{gap:8px!important}
+  body.about-v2 .about-official-link{min-height:60px!important;padding:10px 12px!important;border-radius:14px!important}
+
+  body.contact-v2 .contact-page{padding:28px 0 52px!important}
+  body.contact-v2 .contact-hero{margin-bottom:20px!important}
+  body.contact-v2 .contact-lead{font-size:.96rem!important;line-height:1.66!important}
+  body.contact-v2 .contact-grid{gap:16px!important}
+  body.contact-v2 .contact-aside{gap:10px!important}
+  body.contact-v2 .contact-brand-block{padding-bottom:14px!important}
+  body.contact-v2 .contact-brand-block h2{font-size:1.35rem!important}
+  body.contact-v2 .contact-brand-block p{font-size:.9rem!important;line-height:1.6!important}
+  body.contact-v2 .contact-pillars{gap:6px!important;margin-top:12px!important}
+  body.contact-v2 .contact-pillars span{padding:5px 8px!important;font-size:.72rem!important}
+  body.contact-v2 .contact-aside-card{padding:16px!important}
+  body.contact-v2 .contact-aside-card p{font-size:.86rem!important;line-height:1.58!important}
+  body.contact-v2 .contact-aside-links{gap:7px!important;margin-top:12px!important}
+  body.contact-v2 .contact-investment-note{padding:14px 16px!important;font-size:.82rem!important;line-height:1.58!important}
+  body.contact-v2 .contact-form-card{padding:18px 16px!important}
+  body.contact-v2 .contact-form-head{margin-bottom:16px!important}
+  body.contact-v2 .contact-form-head h2{font-size:1.45rem!important}
+  body.contact-v2 .contact-type-fieldset{margin-bottom:18px!important}
+  body.contact-v2 .contact-type-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  body.contact-v2 .contact-type-option span{min-height:46px!important;padding:7px 8px!important;font-size:.78rem!important}
+  body.contact-v2 .contact-form-grid{gap:10px!important}
+  body.contact-v2 .contact-field{gap:6px!important}
+  body.contact-v2 .contact-field textarea{min-height:132px!important}
+  body.contact-v2 .contact-consent{margin-top:16px!important;padding:13px 14px!important;font-size:.8rem!important;line-height:1.55!important}
+  body.contact-v2 .contact-actions{margin-top:16px!important}
+
+  body.books-hub-v2 .books-v2-hero{padding:34px 0 30px!important}
+  body.books-hub-v2 .books-v2-kicker{margin-bottom:8px!important}
+  body.books-hub-v2 .books-v2-hero>div>p:last-child{margin-top:14px!important;font-size:.96rem!important;line-height:1.65!important}
+  body.books-hub-v2 .books-v2-featured,body.books-hub-v2 .books-v2-philosophy,body.books-hub-v2 .books-v2-categories,body.books-hub-v2 .books-v2-library{padding:34px 0!important}
+  body.books-hub-v2 .books-v2-featured__grid{gap:22px!important}
+  body.books-hub-v2 .books-v2-featured__cover{width:min(58vw,220px)!important}
+  body.books-hub-v2 .books-v2-featured__copy h2{font-size:clamp(1.9rem,9vw,2.55rem)!important}
+  body.books-hub-v2 .books-v2-subtitle{margin-top:12px!important;font-size:.98rem!important}
+  body.books-hub-v2 .books-v2-description{margin-top:12px!important;font-size:.94rem!important;line-height:1.66!important}
+  body.books-hub-v2 .books-v2-featured__copy blockquote{margin-top:16px!important;padding-left:14px!important;font-size:.98rem!important;line-height:1.58!important}
+  body.books-hub-v2 .books-v2-actions{gap:8px!important;margin-top:20px!important}
+  body.books-hub-v2 .books-v2-philosophy{gap:18px!important}
+  body.books-hub-v2 .books-v2-philosophy__grid{gap:10px!important}
+  body.books-hub-v2 .books-v2-philosophy__grid article{padding:17px!important;border-radius:14px!important}
+  body.books-hub-v2 .books-v2-philosophy__grid p{margin-top:8px!important;font-size:.9rem!important;line-height:1.58!important}
+  body.books-hub-v2 .books-v2-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;margin-top:18px!important}
+  body.books-hub-v2 .books-v2-category-grid article{min-height:150px!important;padding:16px!important;border-radius:14px!important}
+  body.books-hub-v2 .books-v2-category-grid strong{margin-top:14px!important;font-size:1.08rem!important}
+  body.books-hub-v2 .books-v2-category-grid p{margin-top:8px!important;font-size:.82rem!important;line-height:1.5!important}
+  body.books-hub-v2 .books-v2-library-grid{gap:12px!important;margin-top:16px!important}
+  body.books-hub-v2 .books-v2-book{grid-template-columns:112px minmax(0,1fr)!important;gap:14px!important;padding:14px!important;border-radius:14px!important}
+  body.books-hub-v2 .books-v2-book__cover{width:112px!important;margin:0!important;align-self:start!important}
+  body.books-hub-v2 .books-v2-book h3{margin:6px 0 8px!important;font-size:1.2rem!important;line-height:1.25!important}
+  body.books-hub-v2 .books-v2-book p{display:-webkit-box!important;margin:0!important;overflow:hidden!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:3!important;font-size:.86rem!important;line-height:1.55!important}
+  body.books-hub-v2 .books-v2-link{margin-top:10px!important;font-size:.86rem!important}
+}
+
+@media (max-width: 360px) {
+  body.contact-v2 .contact-type-grid,body.books-hub-v2 .books-v2-category-grid{grid-template-columns:1fr!important}
+  body.books-hub-v2 .books-v2-book{grid-template-columns:96px minmax(0,1fr)!important}
+  body.books-hub-v2 .books-v2-book__cover{width:96px!important}
+}
+
+
+/* Footer density hardening: wins against component-scoped mobile rules. */
+@media (max-width: 640px) {
+  .site-footer-v2{
+    padding:30px 0 max(20px,env(safe-area-inset-bottom))!important;
+  }
+  .site-footer-v2__brand,
+  .site-footer-v2__official{
+    grid-column:1 / -1!important;
+  }
+  .site-footer-v2__business,
+  .site-footer-v2__resources{
+    grid-column:auto!important;
+  }
+  .site-footer-v2__socials{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  .site-footer-v2__bottom{
+    margin-top:22px!important;
+    padding-top:14px!important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .site-footer-v2{
+    padding:40px 0 22px!important;
+  }
+  .site-footer-v2__grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:26px 22px!important;
+  }
+  .site-footer-v2__brand,
+  .site-footer-v2__official{
+    grid-column:1 / -1!important;
+  }
+  .site-footer-v2__socials{
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:8px!important;
+  }
+  .site-footer-v2__bottom{
+    margin-top:28px!important;
+  }
+}
+
+
+/* Final footer compression: remove duplicated brand prose on small screens. */
+@media (max-width: 640px) {
+  .site-footer-v2__desc{display:none!important}
+  .site-footer-v2__pillars{margin-top:10px!important}
+  .site-footer-v2__grid{gap:20px 14px!important}
+  .site-footer-v2__socials{gap:6px!important}
+  .site-footer-v2__socials a{min-height:48px!important;padding:7px 9px!important}
+  .site-footer-v2__bottom{margin-top:18px!important}
+}
+@media (min-width: 641px) and (max-width: 900px) {
+  .site-footer-v2__grid{gap:22px 20px!important}
+  .site-footer-v2__bottom{margin-top:22px!important}
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .site-footer-v2__socials a{min-height:48px!important}
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .site-header .homepage-nav-toggle{
+    min-width:44px!important;
+    width:44px!important;
+    height:44px!important;
+  }
+}
