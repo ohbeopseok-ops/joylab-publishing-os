@@ -1,0 +1,74 @@
+name: GSC Direct API Sync
+
+on:
+  schedule:
+    - cron: '30 21 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gsc-direct-api-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Check direct API configuration
+        id: config
+        run: |
+          if [ -n "$GSC_SERVICE_ACCOUNT_JSON" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "GSC_SERVICE_ACCOUNT_JSON not configured — CSV fallback remains active."
+          fi
+
+      - name: Sync 28 settled days from Google Search Console
+        if: steps.config.outputs.configured == 'true'
+        run: node scripts/gsc-api-sync.mjs
+
+      - name: Re-score Evidence Priority
+        if: steps.config.outputs.configured == 'true'
+        run: node scripts/research-corpus-evidence-audit.mjs
+
+      - name: Persist latest GSC snapshot
+        if: steps.config.outputs.configured == 'true'
+        run: |
+          git config user.name "joylab-gsc-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/gsc/latest.json data/gsc/history
+          if git diff --cached --quiet; then
+            echo "No new settled GSC data"
+          else
+            git commit -m "gsc: sync official Search Console API [skip ci]"
+            git push
+          fi
+
+      - name: Upload Evidence Priority report
+        if: steps.config.outputs.configured == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gsc-direct-evidence-priority
+          path: |
+            data/gsc/latest.json
+            artifacts/research-corpus-evidence-audit.json
+            artifacts/research-corpus-evidence-audit.md
+          if-no-files-found: error
