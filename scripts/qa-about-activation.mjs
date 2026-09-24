@@ -81,8 +81,8 @@ for (const viewport of viewports) {
     socialAnalyticsWired: socialLinks.length === 6 && socialLinks.every((item) => item.event === 'social_click' && item.placement === 'about'),
     rssNotMisclassifiedAsSocial: Boolean(rssLink) && rssLink.event === '' && rssLink.placement === '',
     operatorIdentityClear: metrics.operatorLabel === 'FOUNDER & OPERATOR' && metrics.operatorValue === '오법석 · AIJoyLab',
-    organizationSameAs: ['https://www.youtube.com/@superhalabe100', 'https://blog.naver.com/joy014', 'https://www.instagram.com/aijoylab/', 'https://x.com/ohbeopseok'].every((url) => metrics.organizationSameAs.includes(url)),
-    youtubeEnabled: metrics.channelLinks.some((item) => item.label === 'YouTube') && metrics.organizationSameAs.includes('https://www.youtube.com/@superhalabe100'),
+    organizationSameAs: ['https://www.youtube.com/@JoyLabResearch', 'https://blog.naver.com/joy014', 'https://www.instagram.com/aijoylab/', 'https://x.com/ohbeopseok'].every((url) => metrics.organizationSameAs.includes(url)),
+    youtubeEnabled: metrics.channelLinks.some((item) => item.label === 'YouTube') && metrics.organizationSameAs.includes('https://www.youtube.com/@JoyLabResearch'),
     founderSameAs: ['https://www.threads.com/@ohbeopseok', 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/'].every((url) => metrics.founderSameAs.includes(url)),
     navToggleResponsive: viewport.mobile ? metrics.toggleVisible === true : metrics.toggleVisible === false,
   };
