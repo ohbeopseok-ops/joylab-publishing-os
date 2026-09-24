@@ -1,0 +1,85 @@
+/* JoyLab Mobile Density V3
+   Scope: Homepage / Research / Guide families
+   Extends Mobile Density V2 without changing desktop composition. */
+
+@media (max-width:640px){
+  /* Homepage */
+  body.homepage-v2 .home-hero__lead{min-height:280px!important;padding:20px 16px 18px!important}
+  body.homepage-v2 .home-hero h1{margin:8px 0 12px!important;font-size:1.95rem!important;line-height:1.06!important}
+  body.homepage-v2 .home-hero__desc{font-size:.84rem!important;line-height:1.54!important}
+  body.homepage-v2 .home-hero__cta{min-height:44px!important;margin-top:14px!important;padding:9px 13px!important}
+  body.homepage-v2 .home-hero__stats{margin-top:16px!important}
+  body.homepage-v2 .home-hero__today{padding:14px!important}
+  body.homepage-v2 .home-today-item{padding:9px 0!important}
+  body.homepage-v2 .home-section{padding-top:22px!important}
+  body.homepage-v2 .home-section-head{margin-bottom:12px!important}
+  body.homepage-v2 .home-pillars{gap:7px!important}
+  body.homepage-v2 .home-pillar{min-height:88px!important;padding:13px 14px!important}
+  body.homepage-v2 .home-pillar strong{margin-top:6px!important}
+  body.homepage-v2 .home-pillar p{margin-top:4px!important}
+  body.homepage-v2 .home-guide,
+  body.homepage-v2 .home-archive{margin-top:22px!important}
+  body.homepage-v2 .article-card{padding:14px!important}
+  body.homepage-v2 .home-treasury-card{padding:16px!important}
+  body.homepage-v2 .home-treasury-card__flow{gap:6px!important}
+
+  /* Research article family */
+  body.research-article-page .research-v2-shell.article-shell{padding:8px 0 48px!important}
+  body.research-article-page .research-cover__art{min-height:140px!important}
+  body.research-article-page .research-cover__copy{padding:18px 16px 18px!important}
+  body.research-article-page .research-cover h1{margin:8px 0 10px!important;font-size:1.65rem!important;line-height:1.12!important}
+  body.research-article-page .research-cover__desc{font-size:.88rem!important;line-height:1.58!important}
+  body.research-article-page .research-cover__meta{margin-top:14px!important}
+  body.research-article-page .research-cover__tags{margin-top:10px!important}
+  body.research-article-page .research-quote{padding:14px 16px!important;gap:8px!important}
+  body.research-article-page .research-layout{margin-top:10px!important;gap:10px!important}
+  body.research-article-page .research-panel{padding:16px!important;margin-bottom:10px!important}
+  body.research-article-page .research-panel__title{margin-bottom:12px!important}
+  body.research-article-page .takeaway-grid{gap:8px!important}
+  body.research-article-page .takeaway{padding:13px!important}
+  body.research-article-page .framework-step{min-height:98px!important;padding:12px 10px!important}
+  body.research-article-page .research-v2-content{padding:20px 16px!important}
+  body.research-article-page .research-v2-content .article-body{font-size:1rem!important;line-height:1.78!important}
+  body.research-article-page .research-rail{gap:10px!important}
+  body.research-article-page .research-rail__card{padding:16px!important}
+  body.research-article-page .research-guide-cta{padding:16px!important}
+  body.research-article-page .codex-series-nav__head{padding:14px 16px!important;gap:10px!important}
+  body.research-article-page .codex-series-nav__item{min-height:82px!important;padding:14px 16px!important}
+
+  /* Guide family */
+  body.semiconductor-guide-v2 .sg-hero__inner{padding:8px 0 18px!important}
+  body.semiconductor-guide-v2 .sg-hero__copy{padding:24px 18px 18px!important}
+  body.semiconductor-guide-v2 .sg-hero h1{margin:8px 0 12px!important;font-size:2.16rem!important;line-height:1.03!important}
+  body.semiconductor-guide-v2 .sg-hero__lead{font-size:.86rem!important;line-height:1.56!important}
+  body.semiconductor-guide-v2 .sg-hero__chips{margin-top:12px!important}
+  body.semiconductor-guide-v2 .sg-hero__meta{margin-top:14px!important}
+  body.semiconductor-guide-v2 .sg-lens{padding:12px 16px!important}
+  body.semiconductor-guide-v2 .sg-lens__item{padding:9px 0!important}
+  body.semiconductor-guide-v2 .sg-map-head{margin-top:14px!important}
+  body.semiconductor-guide-v2 .sg-map{margin-top:8px!important}
+  body.semiconductor-guide-v2 .sg-map__step{min-height:78px!important;padding:10px!important}
+  body.semiconductor-guide-v2 .sg-main{padding:26px 0 44px!important}
+  body.semiconductor-guide-v2 .sg-section-head{margin-bottom:14px!important}
+  body.semiconductor-guide-v2 .sg-section-head h2{font-size:1.48rem!important;line-height:1.2!important}
+  body.semiconductor-guide-v2 .sg-section-head p{margin-top:7px!important;line-height:1.58!important}
+  body.semiconductor-guide-v2 .sg-card{gap:12px!important;padding:14px 0!important}
+  body.semiconductor-guide-v2 .sg-card p{line-height:1.55!important}
+  body.semiconductor-guide-v2 .sg-card__cta{min-height:44px!important;display:flex!important;align-items:center!important}
+  body.semiconductor-guide-v2 .sg-insights{margin-top:24px!important}
+  body.semiconductor-guide-v2 .sg-insights__grid>div{padding:14px!important}
+  body.semiconductor-guide-v2 .sg-rule{margin-top:24px!important;padding:16px!important}
+  body.semiconductor-guide-v2 .sg-rule__step{padding:10px!important}
+  body.semiconductor-guide-v2 .sg-rail{gap:10px!important}
+  body.semiconductor-guide-v2 .sg-rail-card{padding:16px!important}
+
+  /* Page-specific guide additions */
+  body.growth-leadership-guide-v2 .growth-book-feature{gap:18px!important;padding:18px!important}
+  body.growth-leadership-guide-v2 .growth-book-feature__actions a{min-height:44px!important}
+  body.growth-leadership-guide-v2 .growth-hero__actions{gap:8px!important;margin-top:16px!important}
+  body.growth-leadership-guide-v2 .growth-hero__cta{min-height:44px!important}
+}
+
+@media (max-width:360px){
+  body.homepage-v2 .home-hero__lead{min-height:260px!important}
+  body.semiconductor-guide-v2 .sg-hero h1{font-size:2rem!important}
+}
