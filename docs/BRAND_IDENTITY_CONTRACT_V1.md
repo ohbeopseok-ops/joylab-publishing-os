@@ -9,6 +9,7 @@ Scope: Website, Research, Books, YouTube, Instagram, Threads, Naver Blog, Blogge
 - Brand: `JoyLab`
 - Canonical domain: `https://aijoylab.kr`
 - Public contact: `contact@aijoylab.kr`
+- Official YouTube: `https://www.youtube.com/@JoyLabResearch`
 - Primary message: **분석에서 실행까지**
 - Extended positioning: **생각을 분석하고, 분석을 실행으로.**
 - Pillars: **투자·경제 / AI·생산성 / 성장·리더십**
@@ -33,6 +34,7 @@ Where the platform allows it:
 - Display name: `JoyLab`
 - Website: `https://aijoylab.kr`
 - Public email: `contact@aijoylab.kr`
+- Official YouTube: `https://www.youtube.com/@JoyLabResearch`
 - Profile image: current official JoyLab 1:1 brand image
 - Bio: one of the approved JoyLab bios
 - Preferred handle for new accounts: `@aijoylab`
@@ -63,6 +65,10 @@ Keep the following relationship stable:
 
 Organization `sameAs` must contain only channels that are actively operated and intentionally presented as official.
 
+The canonical YouTube entity is:
+
+`https://www.youtube.com/@JoyLabResearch`
+
 ## 6. Public identity exclusions
 
 Do not expose these as JoyLab brand identity:
@@ -75,14 +81,15 @@ Do not expose these as JoyLab brand identity:
 
 ## 7. Brand Identity GOLD Gate
 
-A new or refreshed channel is complete when these six items are consistent:
+A new or refreshed channel is complete when these seven items are consistent:
 
 1. Brand name: JoyLab
 2. Profile image: official JoyLab image
 3. Website: aijoylab.kr
 4. Public email: contact@aijoylab.kr
-5. Bio: approved JoyLab positioning
-6. Pillars: 투자·경제 / AI·생산성 / 성장·리더십
+5. Official YouTube: https://www.youtube.com/@JoyLabResearch
+6. Bio: approved JoyLab positioning
+7. Pillars: 투자·경제 / AI·생산성 / 성장·리더십
 
 ## 8. Legacy Public Email Gate
 
@@ -110,8 +117,9 @@ Recommended periodic review: once per quarter.
 | Brand | JoyLab |
 | Domain | https://aijoylab.kr |
 | Public contact | contact@aijoylab.kr |
+| Official YouTube | https://www.youtube.com/@JoyLabResearch |
 | Primary message | 분석에서 실행까지 |
 | Extended positioning | 생각을 분석하고, 분석을 실행으로. |
 | Pillars | 투자·경제 / AI·생산성 / 성장·리더십 |
 
-**One Brand. One Domain. One Public Contact.**
+**One Brand. One Domain. One Public Contact. One Official YouTube.**
