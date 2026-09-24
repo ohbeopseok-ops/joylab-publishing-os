@@ -1,12 +1,10 @@
 ---
-const officialChannels = [
-  { label: 'YouTube', href: 'https://www.youtube.com/@JoyLabResearch', mark: '▶', analyticsKey: 'youtube' },
-  { label: 'Naver Blog', href: 'https://blog.naver.com/joy014', mark: 'N', analyticsKey: 'naver' },
-  { label: 'Threads', href: 'https://www.threads.com/@ohbeopseok', mark: '@', analyticsKey: 'threads' },
-  { label: 'Instagram', href: 'https://www.instagram.com/aijoylab/', mark: '◎', analyticsKey: 'instagram' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/%EB%B2%95%EC%84%9D-%EC%98%A4-b3273633b/', mark: 'in', analyticsKey: 'linkedin' },
-  { label: 'X', href: 'https://x.com/ohbeopseok', mark: 'X', analyticsKey: 'x' }
-];
+import { OFFICIAL_CHANNELS, SITE_IDENTITY } from '../config/siteIdentity';
+
+const officialChannels = OFFICIAL_CHANNELS.map((channel) => ({
+  ...channel,
+  analyticsKey: channel.key
+}));
 ---
 <footer class="site-footer-v2" id="site-footer-v2">
   <div class="container site-footer-v2__grid">
@@ -46,7 +44,7 @@ const officialChannels = [
       <strong>BUSINESS</strong>
       <a href="/about">About JoyLab</a>
       <a href="/contact" data-analytics-event="footer_contact_click" data-analytics-target="contact" data-analytics-placement="footer">프로젝트 문의</a>
-      <a href="mailto:contact@aijoylab.kr">contact@aijoylab.kr</a>
+      <a href={`mailto:${SITE_IDENTITY.publicEmail}`}>{SITE_IDENTITY.publicEmail}</a>
     </nav>
 
     <nav class="site-footer-v2__column site-footer-v2__resources" aria-label="정책 및 리소스 메뉴">
