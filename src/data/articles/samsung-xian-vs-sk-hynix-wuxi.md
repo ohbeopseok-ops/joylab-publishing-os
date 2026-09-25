@@ -10,6 +10,9 @@ featured: false
 draft: false
 series: "미·중 반도체 전쟁"
 seriesOrder: 3
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "samsung xian vs sk hynix wuxi를 분석한 JoyLab Research 대표 이미지"
+ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
 ---
 
