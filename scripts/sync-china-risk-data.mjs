@@ -223,6 +223,49 @@ function parseTrendForce(docs) {
 
 function parseCounterpoint(docs) {
   const found = { ymtcShare:[], enterpriseSsdShare:[] };
+
+  const rawCounterpointFacts = (doc) => {
+    const raw = String(doc.html ?? '')
+      .replaceAll('\\u0025','%')
+      .replaceAll('\\u003c','<')
+      .replaceAll('\\u003e','>')
+      .replaceAll('\\/','/')
+      .replace(/\\n/g,' ')
+      .replace(/&quot;/g,'"')
+      .replace(/&#34;/g,'"')
+      .replace(/&amp;/g,'&');
+
+    const ymtcWindows = [];
+    for (const match of raw.matchAll(/YMTC/gi)) {
+      const start = Math.max(0,(match.index ?? 0)-160);
+      ymtcWindows.push(raw.slice(start,start+900).replace(/<[^>]+>/g,' ').replace(/\s+/g,' '));
+    }
+    const ymtc = ymtcWindows
+      .map((window) => {
+        const patterns = [
+          /YMTC[^%]{0,420}?(?:shipment share|share|점유율)[^%]{0,100}?(\d+(?:\.\d+)?)%/i,
+          /YMTC[^%]{0,420}?(?:with|at)\s+(?:a\s+)?(\d+(?:\.\d+)?)%/i,
+          /(?:third place|third-place|top\s*3|top three)[^%]{0,240}?YMTC[^%]{0,240}?(\d+(?:\.\d+)?)%/i,
+          /YMTC[^%]{0,240}?(\d+(?:\.\d+)?)%[^.!?]{0,180}?(?:third place|third-place|top\s*3|top three|shipment share)/i
+        ];
+        for (const pattern of patterns) {
+          const m = window.match(pattern);
+          const value = Number(m?.[1]);
+          if (Number.isFinite(value) && value > 0 && value < 50) return {value,evidence:window.slice(0,240)};
+        }
+        return null;
+      })
+      .find(Boolean);
+
+    const essd = raw.match(/enterprise\s+SSDs?[^%]{0,260}?(\d+(?:\.\d+)?)%[^.!?]{0,180}?(?:NAND|bits? shipped|shipments?)/i)
+      || raw.match(/(\d+(?:\.\d+)?)%[^.!?]{0,180}?enterprise\s+SSDs?[^.!?]{0,180}?(?:NAND|bits? shipped|shipments?)/i);
+
+    return {
+      ymtc,
+      enterpriseSsdShare:Number(essd?.[1])
+    };
+  };
+
   for (const doc of docs) {
     for (const s of sentenceChunks(doc.text)) {
       if (/YMTC/i.test(s) && /(share|shipment|third|3rd|점유율)/i.test(s) && /NAND/i.test(doc.text)) {
@@ -241,6 +284,17 @@ function parseCounterpoint(docs) {
         }
       }
     }
+    const rawFacts = rawCounterpointFacts(doc);
+    if (!found.ymtcShare.some((item) => item.sourceUrl === doc.url) && rawFacts.ymtc) {
+      found.ymtcShare.push(sourceMetric('ymtcShare',rawFacts.ymtc.value,'% bit shipments',scoreShare(rawFacts.ymtc.value),doc,rawFacts.ymtc.evidence,{extraction:'raw-html'}));
+    }
+    if (!found.enterpriseSsdShare.some((item) => item.sourceUrl === doc.url) && Number.isFinite(rawFacts.enterpriseSsdShare) && rawFacts.enterpriseSsdShare > 5 && rawFacts.enterpriseSsdShare < 90) {
+      found.enterpriseSsdShare.push({
+        status:'OK', value:rawFacts.enterpriseSsdShare, unit:'% NAND bit shipments', source:doc.source, sourceUrl:doc.url,
+        observedAt:doc.observedAt, fetchedAt:doc.fetchedAt, evidence:'Counterpoint raw HTML/JSON metadata extraction', extraction:'raw-html'
+      });
+    }
+
     if (!found.ymtcShare.some((item) => item.sourceUrl === doc.url) && /YMTC/i.test(doc.text) && /NAND/i.test(doc.text)) {
       let contextual = null;
       for (const ymtc of doc.text.matchAll(/YMTC/gi)) {
@@ -264,11 +318,27 @@ function parseCounterpoint(docs) {
 
 function parseBis(docs) {
   const events = [];
+  const currentRules = [];
   for (const doc of docs) {
     const title = doc.text.match(/(?:FOR IMMEDIATE RELEASE[^]{0,180})?((?:Department|Commerce|BIS)[^.]{15,180}(?:China|Semiconductor|Chip|Export)[^.]{0,100})/i)?.[1]
       || doc.text.slice(0,160);
-    const relevant = /(semiconductor|chip|HBM|high-bandwidth memory)/i.test(doc.text) && /(China|PRC)/i.test(doc.text);
+    const relevant = /(semiconductor|chip|HBM|high-bandwidth memory)/i.test(doc.text) && /(China|PRC|Macau|D:5)/i.test(doc.text);
     if (!relevant || doc.kind === 'discovery') continue;
+
+    if (/\/regulations\/ear\/(740|742)/.test(doc.url)) {
+      const hbmLicense = /license is required[^.]{0,260}(?:3A090\.c|high bandwidth memory|HBM)/i.test(doc.text)
+        || /high bandwidth memory[^.]{0,260}license/i.test(doc.text);
+      const exceptionHbm = /License Exception High Bandwidth Memory|§\s*740\.25/i.test(doc.text);
+      currentRules.push({
+        title:/\/742/.test(doc.url) ? 'EAR 742 HBM license requirement' : 'EAR 740 License Exception HBM',
+        observedAt:doc.observedAt,
+        sourceUrl:doc.url,
+        hbmLicenseRequired:hbmLicense,
+        licenseExceptionHbm:exceptionHbm,
+        fetchedAt:doc.fetchedAt
+      });
+      continue;
+    }
     events.push({
       title:title.replace(/\s+/g,' ').trim().slice(0,180),
       observedAt:doc.observedAt,
@@ -277,10 +347,14 @@ function parseBis(docs) {
       fetchedAt:doc.fetchedAt
     });
   }
-  return events
-    .sort((a,b) => String(b.observedAt ?? '').localeCompare(String(a.observedAt ?? '')))
-    .filter((item,index,arr) => arr.findIndex((x) => x.sourceUrl === item.sourceUrl) === index)
-    .slice(0,10);
+  return {
+    events: events
+      .sort((a,b) => String(b.observedAt ?? '').localeCompare(String(a.observedAt ?? '')))
+      .filter((item,index,arr) => arr.findIndex((x) => x.sourceUrl === item.sourceUrl) === index)
+      .slice(0,10),
+    currentRules: currentRules
+      .filter((item,index,arr) => arr.findIndex((x) => x.sourceUrl === item.sourceUrl) === index)
+  };
 }
 
 function preserveOrUnknown(id, metric, errors) {
@@ -302,7 +376,7 @@ function selfTest() {
   assert.equal(tf.dramAsp.value,15.5);
   assert.equal(tf.nandAsp.value,12.5);
   assert.equal(tf.cxmtShare.value,9.5);
-  const cp = parseCounterpoint([{source:'counterpoint',url:'https://example.com',observedAt:'2026-08-12',fetchedAt:'x',text:'Server-Led eSSDs Hit 48% of NAND Shipments; YMTC Enters Global Top Three Login Register. NAND market update. YMTC climbed to third place with 14%, narrowly edging Kioxia. enterprise SSDs reached 48% of global NAND bit shipments.',kind:'article'}]);
+  const cp = parseCounterpoint([{source:'counterpoint',url:'https://example.com',observedAt:'2026-08-12',fetchedAt:'x',text:'Server-Led eSSDs Hit 48% of NAND Shipments; YMTC Enters Global Top Three Login Register. NAND market update. enterprise SSDs reached 48% of global NAND bit shipments.',html:'<script>window.__DATA__={"body":"YMTC entered the global Top 3 with a 14% shipment share. enterprise SSDs reached 48% of global NAND bit shipments."}</script>',kind:'article'}]);
   assert.equal(cp.ymtcShare.value,14);
   assert.equal(cp.enterpriseSsdShare.value,48);
   console.log('China Risk Data Adapter V1 self-test PASS');
@@ -320,7 +394,7 @@ for (const [name, provider] of Object.entries(config.sources)) {
 
 const tf = parseTrendForce(results.trendforce.docs);
 const cp = parseCounterpoint(results.counterpoint.docs);
-const bisEvents = parseBis(results.bis.docs);
+const bis = parseBis(results.bis.docs);
 
 const metrics = {
   cxmtShare:preserveOrUnknown('cxmtShare',tf.cxmtShare,results.trendforce.errors),
@@ -342,7 +416,8 @@ const snapshot = {
   metrics,
   auxiliary:{
     enterpriseSsdShare:cp.enterpriseSsdShare ?? previous.auxiliary?.enterpriseSsdShare ?? {status:'UNKNOWN'},
-    bisEvents:bisEvents.length ? bisEvents : (previous.auxiliary?.bisEvents ?? [])
+    bisEvents:bis.events.length ? bis.events : (previous.auxiliary?.bisEvents ?? []),
+    bisCurrentRules:bis.currentRules.length ? bis.currentRules : (previous.auxiliary?.bisCurrentRules ?? [])
   },
   provenance:Object.entries(results).map(([source,result]) => ({
     source, documentsFetched:result.docs.length, errors:result.errors
@@ -354,5 +429,5 @@ if (DRY_RUN) {
   process.stdout.write(output);
 } else {
   fs.writeFileSync(SNAPSHOT_PATH, output, 'utf8');
-  console.log(`China Risk Data Adapter V1: READY=${snapshot.ready} OK=${metricsReady}/${metricValues.length} STALE=${stale}; BIS events=${snapshot.auxiliary.bisEvents.length}`);
+  console.log(`China Risk Data Adapter V1: READY=${snapshot.ready} OK=${metricsReady}/${metricValues.length} STALE=${stale}; BIS events=${snapshot.auxiliary.bisEvents.length}; BIS rules=${snapshot.auxiliary.bisCurrentRules.length}`);
 }

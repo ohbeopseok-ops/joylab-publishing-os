@@ -58,7 +58,9 @@
       "seeds": [
         "https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military",
         "https://www.bis.gov/press-release/department-commerce-revises-license-review-policy-semiconductors-exported-china",
-        "https://www.bis.gov/press-release/department-commerce-closes-export-controls-loophole-foreign-owned-semiconductor-fabs-china"
+        "https://www.bis.gov/press-release/department-commerce-closes-export-controls-loophole-foreign-owned-semiconductor-fabs-china",
+        "https://www.bis.gov/regulations/ear/742",
+        "https://media.bis.gov/regulations/ear/740"
       ],
       "allowHosts": [
         "www.bis.gov",
