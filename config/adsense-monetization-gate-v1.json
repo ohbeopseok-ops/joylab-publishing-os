@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "name": "JoyLab AdSense Monetization Gate V1",
+  "stages": [
+    "article-end",
+    "article-mid65",
+    "article-mid30"
+  ],
+  "minimumEvidence": {
+    "days": 7,
+    "adImpressions": 2000
+  },
+  "hardStops": {
+    "policyWarning": true,
+    "consentFailure": true,
+    "adOverlap": true,
+    "horizontalOverflow": true,
+    "navigationObstruction": true
+  },
+  "ux": {
+    "clsAbsoluteMax": 0.1,
+    "clsDeltaMax": 0.03,
+    "readingDepthDropPctMax": 10,
+    "ctaConversionDropPctMax": 15,
+    "exitRateIncreasePctMax": 15,
+    "pagesPerSessionDropPctMax": 10
+  },
+  "safety": {
+    "ctrAbsoluteMaxPct": 5,
+    "ctrVsBaselineMultiplierMax": 3
+  },
+  "revenue": {
+    "first7DaysDoesNotBlock": true,
+    "rpmUsedForExpansionOnlyAfterEvidence": true
+  },
+  "decisions": {
+    "ADVANCE": "Current slot may stay on and the next placement can enter a separate integration + QA change.",
+    "HOLD": "Keep current placement only; collect more evidence or improve UX before expansion.",
+    "ROLLBACK": "Disable the newest placement and rerun Production GOLD QA.",
+    "COLLECT": "Minimum evidence window has not been reached."
+  }
+}
