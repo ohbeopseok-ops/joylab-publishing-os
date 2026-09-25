@@ -47,6 +47,16 @@ DRAM, NAND, 반도체 장비, HBM의 자립 속도는 서로 다릅니다. 따�
 
 ## 이 지표를 어떻게 사용할까
 
-JoyLab Risk Score는 매수·매도 신호가 아니라 **분기별 재점검 우선순위**를 정하는 도구입니다. GREEN·YELLOW·ORANGE·RED는 경쟁과 공급 리스크의 강도를 동일한 기준으로 비교하기 위한 상태값입니다.
+JoyLab Risk Score V1.1은 매수·매도 신호가 아니라 **분기별 재점검 우선순위**를 정하는 도구입니다. GREEN·YELLOW·ORANGE·RED는 경쟁과 공급 리스크의 강도를 동일한 기준으로 비교하기 위한 상태값입니다.
+
+V1.1에서는 점유율 가중치를 낮추고 DRAM·NAND ASP와 해외 고객·수입대체 가중치를 높였습니다. 이유는 과거 메모리 하락 사이클에서 실적 훼손이 점유율 변화보다 **가격 하락·재고 과잉**과 더 직접적으로 연결됐기 때문입니다.
+
+2019년 1분기에는 DRAM ASP가 20% 이상 하락했고 공급사 재고가 약 6주 수준까지 높아졌습니다. 이후 1분기 DRAM 산업 매출은 전분기 대비 28.6% 감소했습니다. [TrendForce 2019 DRAM 자료](https://www.trendforce.com/presscenter/news/20190325-10115.html)
+
+2022년 4분기 NAND는 ASP가 22.8% 하락했고 산업 매출은 전분기 대비 25% 감소했습니다. [TrendForce 4Q22 NAND 자료](https://www.trendforce.com/presscenter/news/20230317-11618.html)
+
+반대로 2026년 2분기에는 AI 서버 수요와 공급 제약으로 일반 DRAM 계약가격이 58~63%, NAND 계약가격이 70~75% 상승하는 강한 가격 환경이 형성됐습니다. 같은 분기 DRAM 산업 매출은 59.5% 증가했습니다. [TrendForce 2Q26 가격 전망](https://www.trendforce.com/presscenter/news/20260331-12995.html) · [TrendForce 2Q26 DRAM 매출](https://www.trendforce.com/presscenter/news/20260907-13219.html)
+
+따라서 Dashboard에서는 **Structural Risk**와 **Earnings Transmission Risk**를 분리해서 보여주고, 확인되지 않은 지표는 임의 추정하지 않고 `UNKNOWN`으로 남깁니다.
 
 [미·중 반도체 전쟁 전체 허브 →](/articles/us-china-semiconductor-war)
