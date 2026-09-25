@@ -13,7 +13,10 @@ import { getCollection } from 'astro:content';
 const books = (await getCollection('books'))
   .filter((item) => !item.data.draft)
   .sort((a,b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
-const featuredBook = books[0];
+const featuredBook = [...books].sort((a, b) => {
+  const featuredDelta = (b.data.featuredAt?.valueOf() ?? 0) - (a.data.featuredAt?.valueOf() ?? 0);
+  return featuredDelta || b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf();
+})[0];
 
 const articles = (await getCollection('articles'))
   .filter((item) => !item.data.draft)
@@ -35,6 +38,7 @@ const majorResearch = homeSlotContractActive
   ? [...configuredMajor, ...articles.filter((item) => !majorSeedIds.has(item.id))].slice(0, 4)
   : articles.slice(0, 4);
 const majorIds = new Set(majorResearch.map((item) => item.id));
+// LATEST is an article-only surface. Books are intentionally isolated in the dedicated Books slot.
 const latestResearch = homeSlotContractActive
   ? articles
       .filter((item) => !item.data.excludeFromLatest && !editorialIds.has(item.id) && !majorIds.has(item.id))
