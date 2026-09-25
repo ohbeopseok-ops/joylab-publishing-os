@@ -1,6 +1,8 @@
 ---
 title: "CXMT는 삼성전자·SK하이닉스 DRAM을 얼마나 따라왔나"
 description: "CXMT의 DRAM 점유율 상승, 모바일·범용 DRAM 기술 추격, HBM 격차와 삼성전자·SK하이닉스에 미칠 영향을 분석합니다."
+seoTitle: "CXMT DRAM 추격｜삼성전자·SK하이닉스와 기술·수율·HBM 격차 | JoyLab"
+canonical: "https://aijoylab.kr/articles/cxmt-dram-vs-samsung-sk-hynix"
 category: "투자·경제"
 tags: ["CXMT", "DRAM", "삼성전자", "SK하이닉스", "중국메모리"]
 publishedAt: 2026-09-25
@@ -17,6 +19,8 @@ readingTime: "약 7분"
 ---
 
 ## CXMT는 더 이상 작은 중국 로컬 업체가 아니다
+
+> **AI 메모리 전체 구조부터 보고 싶다면:** [AI 추론 시대 메모리 투자 가이드 →](/guides/ai-inference-memory)
 
 CXMT는 글로벌 DRAM 시장에서 4위권으로 성장했습니다. 선두 3사와 절대 점유율 차이는 크지만 중국 내수 기반과 생산능력 확대를 통해 범용·모바일 DRAM에서 존재감을 키우고 있습니다.
 

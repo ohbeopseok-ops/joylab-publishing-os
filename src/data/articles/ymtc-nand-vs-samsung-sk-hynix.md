@@ -1,6 +1,8 @@
 ---
 title: "YMTC는 삼성전자·SK하이닉스 NAND를 얼마나 따라왔나"
 description: "YMTC의 NAND 출하량 확대와 Xtacking, Enterprise SSD 진입, 삼성전자·SK하이닉스 대비 남은 경쟁력 격차를 분석합니다."
+seoTitle: "YMTC NAND 추격｜Enterprise SSD와 삼성전자·SK하이닉스 경쟁 구조 | JoyLab"
+canonical: "https://aijoylab.kr/articles/ymtc-nand-vs-samsung-sk-hynix"
 category: "투자·경제"
 tags: ["YMTC", "NAND", "삼성전자", "SK하이닉스", "EnterpriseSSD"]
 publishedAt: 2026-09-25
@@ -17,6 +19,8 @@ readingTime: "약 7분"
 ---
 
 ## YMTC는 물량에서 주요 NAND 업체가 됐다
+
+> **AI 메모리 전체 구조부터 보고 싶다면:** [AI 추론 시대 메모리 투자 가이드 →](/guides/ai-inference-memory)
 
 YMTC는 중국 NAND 자립의 핵심 기업입니다. 비트 출하량 기준으로 글로벌 주요 공급자 위치까지 올라왔지만, 물량 점유율과 매출·수익성 점유율은 구분해서 봐야 합니다.
 

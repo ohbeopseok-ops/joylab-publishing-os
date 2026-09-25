@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "articleClusters": [
+    {
+      "id": "investment",
+      "categories": ["투자·경제"],
+      "hubAny": [
+        "/guides/investing",
+        "/guides/semiconductor-investing",
+        "/guides/ai-inference-memory",
+        "/guides/ai-power",
+        "/guides/shipbuilding",
+        "/guides/us-rates"
+      ],
+      "minRelatedArticles": 2
+    },
+    {
+      "id": "ai",
+      "categories": ["AI·생산성"],
+      "hubAny": [
+        "/guides/ai-productivity",
+        "/guides/ai-economics",
+        "/guides/ai-infrastructure",
+        "/guides/ai-security",
+        "/guides/codex"
+      ],
+      "minRelatedArticles": 2
+    }
+  ],
+  "books": {
+    "minRelatedArticleIds": 1
+  }
+}

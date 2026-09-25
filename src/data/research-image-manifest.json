@@ -1524,5 +1524,62 @@
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
+  },
+  "ai-agent-hbm-demand": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 에이전트가 HBM 수요를 늘리는 이유 — JoyLab Research 대표 이미지",
+      "caption": "AI Agent → 추론 → KV Cache → HBM으로 이어지는 메모리 수요 구조를 분석합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 에이전트와 KV Cache가 HBM 수요를 확대하는 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "Agentic inference의 핵심 신호와 메모리 병목을 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI Agent에서 HBM까지 이어지는 수요 전송 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Agent → Token → Context → KV Cache → HBM 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "hbm3e-hbm4-zhbm": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "HBM3E에서 HBM4와 zHBM으로 이어지는 AI 메모리 기술 진화 — JoyLab Research 대표 이미지",
+      "caption": "현재 HBM 세대와 미래 3D 메모리 아키텍처를 같은 시간축에 놓지 않고 구분합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "HBM3E HBM4 HBM4E zHBM의 기술 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "대역폭·I/O·적층·로직 베이스다이·3D 통합의 변화를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "HBM 세대에서 zHBM 3D 아키텍처로 이어지는 기술 프레임워크를 설명한 이미지",
+        "caption": "현재 매출 → 다음 세대 → 미래 옵션 순서로 기술과 실적의 시간을 분리합니다."
+      }
+    ]
+  },
+  "ai-inference-hbm-earnings": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 추론 증가가 HBM 수요와 삼성전자 SK하이닉스 실적으로 연결되는 구조 — JoyLab Research 대표 이미지",
+      "caption": "Inference → Memory Content → ASP → Yield → Margin → EPS의 실적 전환 구조를 분석합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 추론과 HBM 수요가 기업 실적으로 전환되는 핵심 지표를 정리한 JoyLab Visual Research 이미지",
+        "caption": "추론 수요·HBM 출하·ASP·수율·제품 믹스의 변화를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 추론에서 삼성전자 SK하이닉스 EPS까지 이어지는 실적 전송 프레임워크 이미지",
+        "caption": "Inference → Shipment → ASP → Yield → Margin → EPS 순서로 실적 연결고리를 점검합니다."
+      }
+    ]
   }
 }

@@ -37,7 +37,7 @@ const showTreasuryLearnAssist = bodyClasses.includes('rates-hub-v2');
 const showTreasuryTodayReading = bodyClasses.includes('rates-hub-v2');
 const pathname = Astro.url.pathname;
 const navState = {
-  investing: pathname.startsWith('/guides/investing') || pathname.startsWith('/guides/semiconductor') || pathname.startsWith('/guides/ai-power') || pathname.startsWith('/guides/shipbuilding') || pathname.startsWith('/guides/us-rates'),
+  investing: pathname.startsWith('/guides/investing') || pathname.startsWith('/guides/semiconductor') || pathname.startsWith('/guides/ai-inference-memory') || pathname.startsWith('/guides/ai-power') || pathname.startsWith('/guides/shipbuilding') || pathname.startsWith('/guides/us-rates'),
   ai: pathname.startsWith('/guides/ai-productivity') || pathname.startsWith('/guides/ai-economics') || pathname.startsWith('/guides/ai-infrastructure') || pathname.startsWith('/guides/ai-security'),
   growth: pathname.startsWith('/guides/growth-leadership'),
   research: pathname.startsWith('/articles'),
