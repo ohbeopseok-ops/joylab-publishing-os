@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "generatedAt": null,
+  "ready": false,
+  "coverage": {
+    "metricsReady": 0,
+    "metricsTotal": 6
+  },
+  "metrics": {
+    "cxmtShare": {
+      "status": "UNKNOWN"
+    },
+    "ymtcShare": {
+      "status": "UNKNOWN"
+    },
+    "dramAsp": {
+      "status": "UNKNOWN"
+    },
+    "nandAsp": {
+      "status": "UNKNOWN"
+    },
+    "equipment": {
+      "status": "UNKNOWN"
+    },
+    "cxmtCapa": {
+      "status": "UNKNOWN"
+    }
+  },
+  "auxiliary": {
+    "enterpriseSsdShare": {
+      "status": "UNKNOWN"
+    },
+    "bisEvents": []
+  },
+  "provenance": []
+}
