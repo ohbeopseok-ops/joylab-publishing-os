@@ -40,7 +40,7 @@ Record only the actual AdSense slot IDs in `src/config/adPlacement.ts`.
 Never invent slot IDs.
 
 Before enabling a placement, confirm it is actually mounted in the target page/layout:
-- `article-end` is pre-wired in the article template and remains dormant until approval + slot ID + global enable.
+- `article-end` is pre-wired in standard article templates and remains dormant until approval + slot ID + global enable. Codex-series articles are excluded because their previous/next navigation occupies the article-end zone.
 - `article-mid30`, `article-mid65`, and `archive-in-feed` are contract-defined but must be integrated and QA-tested in a separate placement change before they can be enabled.
 - A configured slot ID without a mounted `<AdSlot>` is not considered release-ready.
 
