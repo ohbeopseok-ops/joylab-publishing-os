@@ -94,8 +94,14 @@ for (const name of fs.readdirSync(articleDir).filter((name) => name.endsWith('.m
 
 if (process.env.GITHUB_EVENT_NAME === 'pull_request' && process.env.GITHUB_BASE_REF) {
   try {
-    execSync(`git fetch origin ${process.env.GITHUB_BASE_REF} --depth=1`, { stdio: 'ignore' });
-    const changed = execSync(`git diff --name-only --diff-filter=A origin/${process.env.GITHUB_BASE_REF}...HEAD -- src/data/articles`, { encoding: 'utf8' })
+    execSync(`git fetch origin ${process.env.GITHUB_BASE_REF} --depth=100`, { stdio: 'ignore' });
+    let diffOutput = '';
+    try {
+      diffOutput = execSync(`git diff --name-only --diff-filter=A origin/${process.env.GITHUB_BASE_REF}...HEAD -- src/data/articles`, { encoding: 'utf8' });
+    } catch {
+      diffOutput = execSync(`git diff --name-only --diff-filter=A origin/${process.env.GITHUB_BASE_REF}..HEAD -- src/data/articles`, { encoding: 'utf8' });
+    }
+    const changed = diffOutput
       .split('\n').map((v) => v.trim()).filter((v) => v.endsWith('.md'));
     for (const rel of changed) {
       const file = path.join(root, rel);
