@@ -1,0 +1,35 @@
+name: Internal Link Recommender V3
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'config/internal-link-recommender-v3.json'
+      - 'scripts/recommend-internal-links-v3.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  recommend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Recommend Hub + 2 related articles
+        env:
+          RECOMMENDER_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: node scripts/recommend-internal-links-v3.mjs
+      - name: Upload recommendation report
+        uses: actions/upload-artifact@v6
+        with:
+          name: internal-link-recommender-v3
+          path: qa-artifacts/internal-link-recommender-v3
+          if-no-files-found: error
+          retention-days: 30
