@@ -1752,5 +1752,24 @@
         "caption": "Power → Signal Integrity → Latency → Reach → Serviceability 순서로 비교합니다."
       }
     ]
+  },
+  "ai-data-center-interconnect-dci": {
+    "hero": {
+      "src": "/images/research/ai-data-center-network/ai-data-center-interconnect-dci-hero.svg",
+      "alt": "AI 데이터센터의 Rack에서 Campus, Metro DCI, Region, Global Backbone까지 광네트워크가 이어지는 구조를 보여주는 JoyLab 대표 이미지",
+      "caption": "DCI는 Rack과 Campus를 넘어 여러 데이터센터와 리전을 하나의 AI 인프라로 연결하는 네트워크 계층입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 데이터센터 DCI에서 PAM4 coherent-lite coherent DSP가 거리별로 쓰이는 구조를 정리한 JoyLab Visual Research 이미지",
+        "caption": "Rack → Campus → Metro → Region으로 갈수록 필요한 광기술과 reach 조건이 달라집니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 데이터센터 DCI를 Reach Latency Signal Integrity Resilience 순서로 분석한 JoyLab 프레임워크 이미지",
+        "caption": "Reach → Latency → Signal Integrity → Resilience 순서로 DCI를 판단합니다."
+      }
+    ]
   }
 }
