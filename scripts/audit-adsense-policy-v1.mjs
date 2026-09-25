@@ -49,7 +49,9 @@ for(const file of files){
   const quality=[];
   if(bodyChars<rules.quality.minBodyChars) quality.push({id:'thin-body',label:`본문 길이 ${bodyChars}자 < ${rules.quality.minBodyChars}자`});
   if(headingCount<rules.quality.minHeadings) quality.push({id:'few-headings',label:`H2 ${headingCount}개 < ${rules.quality.minHeadings}개`});
-  if(outbound<rules.quality.minOutboundLinksForResearch) quality.push({id:'no-outbound-source',label:'외부 출처 링크 0개'});
+  if((rules.quality.sourceRequiredCategories||[]).includes(fm.category) && outbound<rules.quality.minOutboundLinksForResearch) {
+    quality.push({id:'no-outbound-source',label:'외부 출처 링크 0개'});
+  }
   const uniq=new Map(hits.map(h=>[h.severity+'|'+h.ruleId+'|'+h.phrase,h]));
   hits=[...uniq.values()];
   const status=hits.some(h=>h.severity==='HOLD')?'HOLD':(hits.length||quality.length)?'FIX':'PASS';
