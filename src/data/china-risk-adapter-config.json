@@ -2,7 +2,7 @@
   "version": "1.0",
   "userAgent": "JoyLab-RiskDataAdapter/1.0 (+https://aijoylab.kr)",
   "timeoutMs": 15000,
-  "maxCandidatesPerSource": 12,
+  "maxCandidatesPerSource": 8,
   "sources": {
     "trendforce": {
       "discovery": [
