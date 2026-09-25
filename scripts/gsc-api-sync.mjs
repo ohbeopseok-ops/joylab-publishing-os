@@ -141,15 +141,20 @@ const rawPages = [...aggregate.values()].map(x => ({
   position: x.positionWeight > 0 ? x.positionWeighted / x.positionWeight : 0
 }));
 
-const clickValues = rawPages.map(x=>x.clicks);
+const positiveClickValues = rawPages.map(x=>x.clicks).filter(x=>x>0);
 const impressionValues = rawPages.map(x=>x.impressions);
-const pages = rawPages.map(x => ({
-  ...x,
-  trafficScore: Math.round((percentile(clickValues,x.clicks)*6 + percentile(impressionValues,x.impressions)*4)*10)/10
-})).sort((a,b)=>b.trafficScore-a.trafficScore || b.clicks-a.clicks || b.impressions-a.impressions);
+const scoringVersion = "traffic-v2";
+const pages = rawPages.map(x => {
+  const clickPct = x.clicks > 0 ? percentile(positiveClickValues, x.clicks) : 0;
+  const impressionPct = x.impressions > 0 ? percentile(impressionValues, x.impressions) : 0;
+  return {
+    ...x,
+    trafficScore: Math.round((clickPct*6 + impressionPct*4)*10)/10
+  };
+}).sort((a,b)=>b.trafficScore-a.trafficScore || b.clicks-a.clicks || b.impressions-a.impressions);
 
 const sourceHash = crypto.createHash("sha256")
-  .update(JSON.stringify({siteUrl,startDate,endDate,pages:rawPages}))
+  .update(JSON.stringify({siteUrl,startDate,endDate,pages:rawPages,scoringVersion}))
   .digest("hex");
 
 const snapshot = {
@@ -162,8 +167,8 @@ const snapshot = {
   rejectedFiles:[],
   range:{startDate,endDate,status:"FINAL_MINUS_3D"},
   scoring:{
-    version:"traffic-v1",
-    formula:"click percentile × 6 + impression percentile × 4",
+    version:"traffic-v2",
+    formula:"positive-click percentile × 6 + impression percentile × 4; zero clicks = zero click points",
     maxScore:10
   },
   totals:{
