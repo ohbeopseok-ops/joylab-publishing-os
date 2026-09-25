@@ -177,9 +177,9 @@ function parseTrendForce(docs) {
         if (Number.isFinite(v) && v > 0 && v < 50) found.cxmtShare.push(sourceMetric('cxmtShare',v,'%',scoreShare(v),doc,s));
       }
 
-      if (/(conventional|general|overall)?\s*DRAM/i.test(s) && /(contract prices?|ASP|average selling price)/i.test(s) && /(rise|increase|gain|decline|drop|fall|decrease|down)/i.test(s)) {
-        const p = s.match(/(rise|increase|gain|decline|drop|fall|decrease|down)[^\d]{0,35}(\d+(?:\.\d+)?)\s*[–~-]\s*(\d+(?:\.\d+)?)%/i)
-          || s.match(/(rise|increase|gain|decline|drop|fall|decrease|down)[^\d]{0,35}(\d+(?:\.\d+)?)%/i);
+      if (/DRAM/i.test(s) && /(contract prices?|ASP|average selling price)/i.test(s)) {
+        const p = s.match(/DRAM[^.!?]{0,180}?(?:contract prices?|ASP|average selling price)[^.!?]{0,100}?(rise|increase|gain|decline|drop|fall|decrease|down)[^\d]{0,35}(\d+(?:\.\d+)?)\s*[–~-]\s*(\d+(?:\.\d+)?)%/i)
+          || s.match(/DRAM[^.!?]{0,180}?(?:contract prices?|ASP|average selling price)[^.!?]{0,100}?(rise|increase|gain|decline|drop|fall|decrease|down)[^\d]{0,35}(\d+(?:\.\d+)?)%/i);
         if (p) {
           const mid = pctMid(p[2], p[3] ?? p[2]);
           const v = signed(p[1], mid);
@@ -187,9 +187,9 @@ function parseTrendForce(docs) {
         }
       }
 
-      if (/NAND/i.test(s) && /(contract prices?|ASP|average selling price)/i.test(s) && /(rise|increase|gain|decline|drop|fall|decrease|down)/i.test(s)) {
-        const p = s.match(/NAND[^.!?]{0,180}?(rise|increase|gain|decline|drop|fall|decrease|down)[^\d]{0,35}(\d+(?:\.\d+)?)\s*[–~-]\s*(\d+(?:\.\d+)?)%/i)
-          || s.match(/NAND[^.!?]{0,180}?(rise|increase|gain|decline|drop|fall|decrease|down)[^\d]{0,35}(\d+(?:\.\d+)?)%/i);
+      if (/NAND/i.test(s) && /(contract prices?|ASP|average selling price)/i.test(s)) {
+        const p = s.match(/NAND[^.!?]{0,180}?(?:contract prices?|ASP|average selling price)[^.!?]{0,100}?(rise|increase|gain|decline|drop|fall|decrease|down)[^\d]{0,35}(\d+(?:\.\d+)?)\s*[–~-]\s*(\d+(?:\.\d+)?)%/i)
+          || s.match(/NAND[^.!?]{0,180}?(?:contract prices?|ASP|average selling price)[^.!?]{0,100}?(rise|increase|gain|decline|drop|fall|decrease|down)[^\d]{0,35}(\d+(?:\.\d+)?)%/i);
         if (p) {
           const mid = pctMid(p[2], p[3] ?? p[2]);
           const v = signed(p[1], mid);
@@ -235,6 +235,12 @@ function parseCounterpoint(docs) {
         }
       }
     }
+    if (!found.ymtcShare.some((item) => item.sourceUrl === doc.url) && /YMTC/i.test(doc.text) && /NAND/i.test(doc.text)) {
+      const direct = doc.text.match(/YMTC[^.!?]{0,220}?(?:third place|top\s*3|top three|shipment share|share)[^.!?%]{0,80}?(\d+(?:\.\d+)?)%/i)
+        || doc.text.match(/YMTC[^.!?]{0,140}?(\d+(?:\.\d+)?)%[^.!?]{0,80}?(?:third place|top\s*3|top three|shipment share)/i);
+      const v = Number(direct?.[1]);
+      if (Number.isFinite(v) && v > 0 && v < 50) found.ymtcShare.push(sourceMetric('ymtcShare',v,'% bit shipments',scoreShare(v),doc,direct[0]));
+    }
   }
   return Object.fromEntries(Object.entries(found).map(([k,v]) => [k,latestMetric(v)]));
 }
@@ -275,7 +281,7 @@ function selfTest() {
   assert.equal(scoreDramAsp(-6),75);
   assert.equal(scoreDramAsp(-20),100);
   assert.equal(scoreNandAsp(-22.8),100);
-  const tf = parseTrendForce([{source:'trendforce',url:'https://example.com',observedAt:'2026-09-25',fetchedAt:'x',text:'Conventional DRAM contract prices are forecast to rise 13–18% QoQ, while NAND Flash contract prices are expected to increase 10–15% QoQ. CXMT global DRAM revenue share reached 9.5%.',kind:'article'}]);
+  const tf = parseTrendForce([{source:'trendforce',url:'https://example.com',observedAt:'2026-09-25',fetchedAt:'x',text:'DRAM Industry Revenue Rises 59.5% QoQ. Conventional DRAM contract prices are forecast to rise 13–18% QoQ, while NAND Flash contract prices are expected to increase 10–15% QoQ. CXMT global DRAM revenue share reached 9.5%.',kind:'article'}]);
   assert.equal(tf.dramAsp.value,15.5);
   assert.equal(tf.nandAsp.value,12.5);
   assert.equal(tf.cxmtShare.value,9.5);
