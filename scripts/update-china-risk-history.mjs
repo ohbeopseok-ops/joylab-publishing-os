@@ -58,6 +58,9 @@ function materialMetrics(metrics) {
   return Object.fromEntries(metrics.map((metric) => [
     metric.id,
     metric.current ? {
+      name:metric.name,
+      dimension:metric.dimension,
+      weight:metric.weight,
       value:metric.current.value,
       unit:metric.current.unit,
       score:metric.current.score,
@@ -65,6 +68,9 @@ function materialMetrics(metrics) {
       source:metric.current.source,
       freshness:metric.current.freshness
     } : {
+      name:metric.name,
+      dimension:metric.dimension,
+      weight:metric.weight,
       value:null,
       score:null,
       freshness:'UNKNOWN'
@@ -102,21 +108,99 @@ function snapshotState(model, snapshot) {
   return state;
 }
 
+function signed(n, digits = 0) {
+  const rounded = Number(Number(n).toFixed(digits));
+  return `${rounded > 0 ? '+' : ''}${rounded}`;
+}
+
+function normalizedContribution(metric, coveredWeight) {
+  if (!metric || typeof metric.score !== 'number' || !coveredWeight) return 0;
+  return metric.score * metric.weight / coveredWeight;
+}
+
+function buildAttribution(previous, current, metricDeltas) {
+  const drivers = Object.keys({ ...(previous.metrics ?? {}), ...(current.metrics ?? {}) })
+    .map((id) => {
+      const prev = previous.metrics?.[id];
+      const curr = current.metrics?.[id];
+      const reference = curr ?? prev;
+      const before = normalizedContribution(prev, previous.coveredWeight);
+      const after = normalizedContribution(curr, current.coveredWeight);
+      return {
+        id,
+        name:reference?.name ?? id,
+        dimension:reference?.dimension ?? 'unknown',
+        weight:reference?.weight ?? null,
+        contribution:Math.round((after - before) * 10) / 10,
+        scoreDelta:metricDeltas[id]?.score ?? null,
+        valueDelta:metricDeltas[id]?.value ?? null,
+        beforeScore:typeof prev?.score === 'number' ? prev.score : null,
+        afterScore:typeof curr?.score === 'number' ? curr.score : null
+      };
+    })
+    .filter((item) => Math.abs(item.contribution) >= 0.05)
+    .sort((a,b) => Math.abs(b.contribution) - Math.abs(a.contribution));
+
+  const rising = drivers.filter((item) => item.contribution > 0);
+  const easing = drivers.filter((item) => item.contribution < 0);
+  const primary = rising[0] ?? easing[0] ?? null;
+  const secondary = rising[1] ?? null;
+  const mitigator = easing[0] ?? null;
+  const totalDelta = current.totalScore - previous.totalScore;
+  const bandChanged = previous.totalBand !== current.totalBand;
+  const coverageDelta = current.coveredWeight - previous.coveredWeight;
+
+  let headline;
+  if (totalDelta > 0) headline = `${current.quarter} Risk Score는 전분기보다 ${totalDelta}점 상승해 ${current.totalScore}점(${current.totalBand})이 됐습니다.`;
+  else if (totalDelta < 0) headline = `${current.quarter} Risk Score는 전분기보다 ${Math.abs(totalDelta)}점 하락해 ${current.totalScore}점(${current.totalBand})이 됐습니다.`;
+  else headline = `${current.quarter} Risk Score는 ${current.totalScore}점(${current.totalBand})으로 전분기와 같았습니다.`;
+
+  const driverParts = [];
+  if (primary) {
+    const verb = primary.contribution > 0 ? '높인' : '낮춘';
+    driverParts.push(`가장 큰 요인은 ${primary.name}로 Total Risk를 ${signed(primary.contribution,1)}p ${verb} 것으로 계산됩니다`);
+  }
+  if (secondary && secondary.id !== primary?.id) {
+    driverParts.push(`${secondary.name}도 ${signed(secondary.contribution,1)}p 기여했습니다`);
+  }
+  if (mitigator && mitigator.id !== primary?.id) {
+    driverParts.push(`반면 ${mitigator.name}는 ${signed(mitigator.contribution,1)}p 완화했습니다`);
+  }
+
+  const notes = [];
+  if (bandChanged) notes.push(`등급은 ${previous.totalBand}에서 ${current.totalBand}로 변경됐습니다`);
+  if (coverageDelta !== 0) notes.push(`데이터 커버리지는 ${previous.coveredWeight}%에서 ${current.coveredWeight}%로 ${signed(coverageDelta)}%p 변했습니다`);
+  if (current.structuralScore !== previous.structuralScore || current.earningsScore !== previous.earningsScore) {
+    notes.push(`Structural ${signed(current.structuralScore - previous.structuralScore)}점, Earnings ${signed(current.earningsScore - previous.earningsScore)}점 변화입니다`);
+  }
+
+  return {
+    headline,
+    summary:[headline, driverParts.length ? `${driverParts.join('. ')}.` : '', notes.length ? `${notes.join('. ')}.` : ''].filter(Boolean).join(' '),
+    primaryDriver:primary,
+    secondaryDriver:secondary,
+    mitigatingDriver:mitigator,
+    drivers,
+    bandChanged,
+    coverageChanged:coverageDelta !== 0
+  };
+}
+
 function computeDelta(previous, current) {
   if (!previous) return null;
   const metricDeltas = {};
-  for (const [id, value] of Object.entries(current.metrics)) {
+  for (const id of new Set([...Object.keys(previous.metrics ?? {}), ...Object.keys(current.metrics ?? {})])) {
+    const value = current.metrics?.[id];
     const prev = previous.metrics?.[id];
-    if (typeof value?.score === 'number' && typeof prev?.score === 'number') {
-      metricDeltas[id] = {
-        score:value.score - prev.score,
-        value:(typeof value.value === 'number' && typeof prev.value === 'number')
-          ? Math.round((value.value - prev.value) * 1000) / 1000
-          : null
-      };
-    }
+    metricDeltas[id] = {
+      score:(typeof value?.score === 'number' && typeof prev?.score === 'number') ? value.score - prev.score : null,
+      value:(typeof value?.value === 'number' && typeof prev?.value === 'number')
+        ? Math.round((value.value - prev.value) * 1000) / 1000
+        : null,
+      status:`${prev?.freshness ?? 'UNKNOWN'}→${value?.freshness ?? 'UNKNOWN'}`
+    };
   }
-  return {
+  const delta = {
     fromQuarter:previous.quarter,
     toQuarter:current.quarter,
     total:current.totalScore - previous.totalScore,
@@ -125,6 +209,8 @@ function computeDelta(previous, current) {
     coveredWeight:current.coveredWeight - previous.coveredWeight,
     metrics:metricDeltas
   };
+  delta.attribution = buildAttribution(previous,current,metricDeltas);
+  return delta;
 }
 
 function selfTest() {
@@ -144,7 +230,28 @@ function selfTest() {
   assert.equal(state.totalScore,45);
   assert.equal(state.structuralScore,75);
   assert.equal(state.earningsScore,0);
-  console.log('China semiconductor risk history self-test PASS');
+
+  const prev = {
+    quarter:'2026Q3', totalScore:30, totalBand:'YELLOW', structuralScore:50, earningsScore:0, coveredWeight:100,
+    metrics:{
+      a:{name:'CXMT DRAM 점유율',dimension:'structural',weight:60,value:1,score:50,freshness:'LIVE'},
+      b:{name:'DRAM ASP 압력',dimension:'earnings',weight:40,value:10,score:0,freshness:'LIVE'}
+    }
+  };
+  const curr = {
+    quarter:'2026Q4', totalScore:55, totalBand:'ORANGE', structuralScore:50, earningsScore:63, coveredWeight:100,
+    metrics:{
+      a:{name:'CXMT DRAM 점유율',dimension:'structural',weight:60,value:1,score:50,freshness:'LIVE'},
+      b:{name:'DRAM ASP 압력',dimension:'earnings',weight:40,value:-6,score:63,freshness:'LIVE'}
+    }
+  };
+  const delta = computeDelta(prev,curr);
+  assert.equal(delta.total,25);
+  assert.equal(delta.attribution.primaryDriver.id,'b');
+  assert.equal(delta.attribution.bandChanged,true);
+  assert.match(delta.attribution.summary,/DRAM ASP 압력/);
+  assert.match(delta.attribution.summary,/YELLOW에서 ORANGE/);
+  console.log('China semiconductor risk history + attribution self-test PASS');
 }
 
 if (SELF_TEST) {
