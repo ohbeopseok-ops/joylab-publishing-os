@@ -12,9 +12,9 @@ featured: false
 draft: false
 series: "AI 추론 시대 메모리"
 seriesOrder: 3
-heroImage: "/images/research/joylab-research-default-hero.svg"
-heroAlt: "AI 추론 증가가 HBM 수요와 ASP, 수율, 마진을 거쳐 삼성전자와 SK하이닉스 EPS로 연결되는 구조"
-ogImage: "/images/research/joylab-research-default-hero.svg"
+heroImage: "/images/research/ai-inference-hbm-earnings.webp"
+heroAlt: "AI 추론 수요가 HBM과 서버 메모리를 거쳐 ASP·마진·실적 성장으로 연결되는 구조"
+ogImage: "/images/research/ai-inference-hbm-earnings.webp"
 readingTime: "약 9분"
 ---
 
