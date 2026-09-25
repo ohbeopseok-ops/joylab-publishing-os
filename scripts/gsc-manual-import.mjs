@@ -167,7 +167,8 @@ if (!acceptedFiles.length) {
   throw new Error("No page-level GSC CSV recognized. Required columns: Page/Top pages + Clicks + Impressions.");
 }
 
-const sourceHash = sha256(sourceChunks.join("\n---FILE---\n"));
+const scoringVersion = "traffic-v2";
+const sourceHash = sha256(sourceChunks.join("\n---FILE---\n") + "\nSCORING=" + scoringVersion);
 let manifest = {};
 const manifestPath = fs.statSync(inputPath).isDirectory() ? path.join(inputPath, "import.json") : "";
 if (manifestPath && fs.existsSync(manifestPath)) {
@@ -183,12 +184,12 @@ const rawPages = [...aggregate.values()].map(x => ({
   position: x.positionWeight > 0 ? x.positionWeighted / x.positionWeight : 0,
 }));
 
-const clickValues = rawPages.map(x=>x.clicks);
+const positiveClickValues = rawPages.map(x=>x.clicks).filter(x=>x>0);
 const impressionValues = rawPages.map(x=>x.impressions);
 
 const pages = rawPages.map(x => {
-  const clickPct = percentile(clickValues, x.clicks);
-  const impressionPct = percentile(impressionValues, x.impressions);
+  const clickPct = x.clicks > 0 ? percentile(positiveClickValues, x.clicks) : 0;
+  const impressionPct = x.impressions > 0 ? percentile(impressionValues, x.impressions) : 0;
   const trafficScore = Math.round((clickPct * 6 + impressionPct * 4) * 10) / 10;
   return {...x, trafficScore};
 }).sort((a,b)=>b.trafficScore-a.trafficScore || b.clicks-a.clicks || b.impressions-a.impressions);
@@ -205,8 +206,8 @@ const snapshot = {
     status: manifest.startDate && manifest.endDate ? "DECLARED" : "UNKNOWN"
   },
   scoring: {
-    version: "traffic-v1",
-    formula: "click percentile × 6 + impression percentile × 4",
+    version: "traffic-v2",
+    formula: "positive-click percentile × 6 + impression percentile × 4; zero clicks = zero click points",
     maxScore: 10
   },
   totals: {
