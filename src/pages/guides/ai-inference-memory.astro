@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import { getCollection } from 'astro:content';
+
+const sequence = [
+  { id: 'what-is-hbm', step: '01', role: 'FOUNDATION', short: 'HBM', note: 'HBM 구조와 HBM3E·HBM4의 차이를 먼저 이해합니다.' },
+  { id: 'samsung-hbm4-memory-outlook-2026-09-20', step: '02', role: 'TECHNOLOGY', short: 'HBM4', note: 'HBM4·HBM4E 전환이 성능·전력·수익성에 어떤 변화를 만드는지 봅니다.' },
+  { id: 'samsung-electronics-outlook', step: '03', role: 'COMPANY', short: 'Samsung', note: 'HBM 수요가 삼성전자 DS 이익과 어떻게 연결되는지 확인합니다.' },
+  { id: 'sk-hynix-outlook', step: '04', role: 'COMPANY', short: 'SK hynix', note: 'HBM 리더십과 AI 메모리 이익 레버리지를 확인합니다.' },
+  { id: 'cxmt-dram-hbm-china-memory-2026', step: '05', role: 'COMPETITION', short: 'CXMT', note: '중국 DRAM 자립과 CXMT의 추격이 범용 DRAM·HBM 경쟁에 미치는 영향을 봅니다.' },
+  { id: 'ymtc-nand-ai-storage-2026', step: '06', role: 'STORAGE', short: 'YMTC', note: '중국 NAND·AI 스토리지 확대가 eSSD와 NAND 경쟁 구도를 어떻게 바꾸는지 봅니다.' }
+];
+
+const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
+const byId = new Map(collection.map((item) => [item.id, item]));
+const articles = sequence.map((entry) => ({ ...entry, article: byId.get(entry.id) })).filter((entry) => entry.article);
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'JoyLab', item: 'https://aijoylab.kr/' },
+    { '@type': 'ListItem', position: 2, name: '투자·경제', item: 'https://aijoylab.kr/guides/investing' },
+    { '@type': 'ListItem', position: 3, name: '반도체 투자 가이드', item: 'https://aijoylab.kr/guides/semiconductor-investing' },
+    { '@type': 'ListItem', position: 4, name: 'AI 추론 시대 메모리 투자 가이드', item: 'https://aijoylab.kr/guides/ai-inference-memory' }
+  ]
+};
+---
+<BaseLayout
+  title="AI 추론 시대 메모리 투자 가이드｜HBM4·삼성전자·SK하이닉스 | JoyLab"
+  description="AI 에이전트와 실시간 추론이 왜 HBM 수요를 늘리는지부터 HBM3E·HBM4·HBM4E, 삼성전자·SK하이닉스, CXMT·YMTC까지 AI 메모리 투자 구조를 연결합니다."
+  canonical="https://aijoylab.kr/guides/ai-inference-memory"
+  bodyClass="semiconductor-guide-v2"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
+  <section class="sg-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">AI MEMORY RESEARCH · JOYLAB</div>
+          <h1>AI 추론 시대,<br /><span>메모리 병목을 읽습니다.</span></h1>
+          <p class="sg-hero__lead">AI Agent → Token → KV Cache → HBM → 기업 실적. JoyLab은 AI 메모리를 제품명이 아니라 <strong>수요가 이익으로 전환되는 구조</strong>로 봅니다.</p>
+          <div class="sg-hero__chips" aria-label="핵심 주제"><span>#Inference</span><span>#HBM4</span><span>#KVCache</span><span>#Samsung</span><span>#SKhynix</span><span>#CXMT</span></div>
+          <div class="sg-hero__meta" aria-label="가이드 정보"><span><strong>{articles.length}</strong> Core Research</span><span><strong>4</strong> Decision Layers</span><span><strong>1</strong> Memory Map</span></div>
+        </div>
+        <aside class="sg-lens" aria-label="JoyLab AI 메모리 리서치 관점">
+          <div class="sg-lens__brand">JOYLAB<br /><b>AI MEMORY</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>DEMAND</b><span>AI Agent와 추론량이 실제 메모리 수요를 키우는지 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>TECHNOLOGY</b><span>HBM3E → HBM4 → HBM4E의 세대 전환을 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>EARNINGS</b><span>출하·ASP·수율이 EPS와 FCF로 전환되는지 확인합니다.</span></div></div>
+        </aside>
+      </div>
+      <div class="sg-map-head"><div><span>START HERE</span><b>AI Memory Research Map</b></div><a href="#memory-path">핵심 리서치 전체 보기 →</a></div>
+      <nav class="sg-map" aria-label="AI 메모리 리서치 경로">
+        {articles.map(({ article, step, short, role }, index) => (
+          <a class={'sg-map__step ' + (index === 0 ? 'is-start' : '')} href={'/articles/' + article!.id}><em>{step}</em><b>{short}</b><span>{role}</span></a>
+        ))}
+      </nav>
+    </div>
+  </section>
+  <main class="sg-main">
+    <div class="sg-wrap sg-layout">
+      <section id="memory-path">
+        <div class="sg-section-head"><div><div class="sg-eyebrow">CORE THESIS</div><h2>추론 증가가 HBM 실적으로 이어지는 연결고리를 봅니다</h2></div><p>GPU 출하량만 보지 않습니다. Agent 사용량, KV Cache, GPU당 HBM Content, ASP, 수율과 고객 인증이 같은 방향으로 움직이는지 확인합니다.</p></div>
+        <section class="sg-rule" aria-label="AI 메모리 전달 구조">
+          <div class="sg-eyebrow">MEMORY TRANSMISSION</div>
+          <h2>Agent → Inference → KV Cache → HBM Content → ASP · Yield → EPS</h2>
+          <div class="sg-rule__grid">
+            <div class="sg-rule__step"><b>DEMAND</b><span>Agent·추론 토큰 증가</span></div>
+            <div class="sg-rule__step"><b>MEMORY</b><span>HBM 용량·대역폭 확대</span></div>
+            <div class="sg-rule__step"><b>EXECUTION</b><span>고객 인증·수율·출하</span></div>
+            <div class="sg-rule__step"><b>EARNINGS</b><span>ASP·마진·EPS·FCF</span></div>
+          </div>
+        </section>
+        <div class="sg-section-head"><div><div class="sg-eyebrow">RESEARCH PATH · 01 → 06</div><h2>기초 → 기술 → 기업 → 중국 경쟁까지</h2></div><p>HBM의 원리를 먼저 이해하고, 세대 전환과 국내 메모리 기업의 수익 구조를 본 뒤 CXMT·YMTC를 경쟁 변수로 분리해 봅니다.</p></div>
+        <div class="sg-path">
+          {articles.map(({ article, step, role, note }, index) => (
+            <article class={'sg-card ' + (index === 2 || index === 3 ? 'is-key' : '')}>
+              <div class="sg-card__no">{step}</div>
+              <div><div class="sg-card__role">{role}</div><h3><a href={'/articles/' + article!.id}>{article!.data.title}</a></h3><p>{note}</p><div class="sg-card__foot">{article!.data.tags.slice(0, 3).map((tag) => <span>#{tag}</span>)}<a class="sg-card__cta" href={'/articles/' + article!.id}>리서치 읽기 →</a></div></div>
+            </article>
+          ))}
+        </div>
+        <section class="sg-insights" aria-labelledby="memory-insights-title">
+          <div class="sg-section-head sg-section-head--compact"><div><div class="sg-eyebrow">INVESTMENT FRAME</div><h2 id="memory-insights-title">세 가지 질문만 끝까지 추적합니다</h2></div></div>
+          <div class="sg-insights__grid">
+            <div><em>DEMAND</em><b>추론량이 실제로 늘고 있는가</b><p>Agent 사용량과 AI 서버 수요가 메모리 Content 증가로 이어지는지 봅니다.</p></div>
+            <div><em>EXECUTION</em><b>기술이 양산으로 전환되는가</b><p>HBM4 발표보다 고객 인증·수율·출하량을 우선 확인합니다.</p></div>
+            <div><em>PROFIT</em><b>출하가 이익으로 남는가</b><p>Bit Growth와 ASP가 원가·CAPEX를 넘어서 마진과 FCF를 개선하는지 봅니다.</p></div>
+          </div>
+        </section>
+        <section class="sg-rule" aria-labelledby="memory-method-title">
+          <div class="sg-eyebrow">JOYLAB METHOD</div><h2 id="memory-method-title">Demand → Supply → Price → Margin → EPS Revision</h2>
+          <div class="sg-rule__grid">
+            <div class="sg-rule__step"><b>DEMAND</b><span>AI 서버·Agent·Inference</span></div>
+            <div class="sg-rule__step"><b>SUPPLY</b><span>HBM Capacity·Packaging</span></div>
+            <div class="sg-rule__step"><b>PRICE</b><span>ASP·제품 Mix</span></div>
+            <div class="sg-rule__step"><b>MARGIN</b><span>Yield·Cost·FCF</span></div>
+          </div>
+        </section>
+      </section>
+      <aside class="sg-rail" aria-label="가이드 사용법">
+        <section class="sg-rail-card sg-rail-card--dark"><small>START HERE</small><h3>HBM 기초부터</h3><p>HBM 구조와 메모리 병목을 이해한 뒤 HBM4와 기업 분석으로 넘어갑니다.</p><a href="/articles/what-is-hbm">HBM부터 시작하기 →</a></section>
+        <section class="sg-rail-card"><small>UPPER GUIDE</small><h3>반도체 전체 지도</h3><p>메모리 사이클·수급·기업 비교까지 넓게 보려면 상위 반도체 투자 가이드로 이동합니다.</p><a href="/guides/semiconductor-investing">반도체 투자 가이드 →</a></section>
+        <section class="sg-rail-card"><small>INFRA BRIDGE</small><h3>AI Infrastructure와 연결</h3><p>HBM 이후 전력·냉각·데이터센터 병목까지 확장해서 봅니다.</p><a href="/guides/ai-infrastructure">AI Infrastructure Hub →</a></section>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>
