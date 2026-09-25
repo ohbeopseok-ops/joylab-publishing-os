@@ -175,10 +175,78 @@ PASS/FAIL과 검토 필요 문항을 보고
 
 이럴 때는 계획 단계부터 시작하는 편이 낫습니다.
 
+
+## 실전 시나리오｜모바일 QA를 Goal로 맡기기
+
+Goal을 가장 잘 활용하는 방식 중 하나는 **성공 기준이 명확하고 중간 수정이 필요한 작업**입니다.
+
+예를 들어 모바일 페이지 QA를 맡긴다면 단순히 “모바일을 고쳐줘”가 아니라 다음처럼 목표 계약을 만들 수 있습니다.
+
+~~~text
+Goal:
+이 페이지가 390px, 430px, 820px에서 정상 동작하도록 완성한다.
+
+Success Criteria:
+- 가로 스크롤 없음
+- CTA 잘림 없음
+- 이미지 비율 유지
+- 입력 폼 사용 가능
+- build 통과
+- visual regression 통과
+
+Constraints:
+- 디자인 토큰 변경 금지
+- unrelated page 수정 금지
+- 외부 서비스 설정 변경 금지
+
+Verification:
+1. 세 viewport 캡처
+2. overflow 검사
+3. 버튼과 폼 직접 동작 확인
+4. build
+5. visual gate 재실행
+
+Stop Conditions:
+- 성공 기준을 만족하려면 전역 디자인 변경이 필요한 경우
+- 권한이 필요한 외부 설정이 필요한 경우
+- 기존 요구사항과 충돌하는 경우
+~~~
+
+이 구조를 쓰면 Codex는 작업 도중 발견한 문제를 바탕으로 다음 액션을 선택하되, **완료 여부는 사용자가 정의한 기준으로 판정**할 수 있습니다.
+
+## Goal이 길어질수록 중간 Evidence가 필요하다
+
+장기 작업에서는 마지막 결과만 보는 것보다 중간 증거를 남기는 편이 좋습니다.
+
+예를 들어 다음을 기록하게 할 수 있습니다.
+
+- 수정한 파일
+- 실행한 테스트
+- 실패한 테스트와 원인
+- 다시 실행한 결과
+- 성공 기준별 현재 상태
+- 아직 확인하지 못한 항목
+
+이 기록이 있으면 “AI가 끝났다고 말했다”가 아니라 **무엇을 근거로 완료라고 판단했는지** 확인할 수 있습니다.
+
+## 실패·롤백 기준도 Goal의 일부다
+
+Goal은 성공만 정의하면 충분하지 않습니다. 잘못된 방향으로 수정이 누적되는 것을 막기 위해 롤백 조건도 함께 두는 편이 좋습니다.
+
+예:
+
+- 테스트 실패가 2회 이상 반복되면 원인을 다시 분석
+- 기존 PASS 영역을 깨뜨리면 직전 변경부터 되돌림
+- 외부 배포가 필요하면 사람 승인 후 진행
+- 원본 데이터 수정이 필요한 경우 중단
+- 완료 기준을 만족하려면 범위를 확장해야 한다면 먼저 보고
+
+이렇게 하면 Goal은 단순 장기 실행이 아니라 **성공 기준과 복구 기준이 함께 있는 운영 계약**이 됩니다.
+
 ## 참고 자료
 
-- [OpenAI Help — ChatGPT Release Notes](https://help.openai.com/en/articles/6825453)
-- [OpenAI — Codex for every role, tool, and workflow](https://openai.com/index/codex-for-every-role-tool-workflow/)
+- [OpenAI Developers — Using Goals in Codex](https://developers.openai.com/cookbook/examples/codex/using_goals_in_codex)
+- [OpenAI Developers — Codex](https://developers.openai.com/learn/codex)
 
 ---
 
