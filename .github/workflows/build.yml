@@ -71,6 +71,11 @@ jobs:
           node --check scripts/check-asset-contract-v3.mjs
           node --check scripts/check-legacy-asset-cleanup.mjs
           node --check scripts/write-release-gate-v1.mjs
+          node --check scripts/fetch-adsense-metrics-v1.mjs
+          node --check scripts/fetch-cloudflare-monetization-ux-v1.mjs
+          node --check scripts/compose-adsense-monetization-snapshot-v1.mjs
+          node --check scripts/evaluate-adsense-monetization-v1.mjs
+          node --check scripts/generate-adsense-monetization-dashboard-v1.mjs
           node --check scripts/check-indexability.mjs
           node --check scripts/check-legacy-public-email.mjs
           node --check scripts/check-official-channel-contract.mjs
