@@ -123,6 +123,14 @@ GPU, CPU, HBM, 스토리지.
 
 NVLink, InfiniBand, Ethernet.
 
+데이터센터 내부의 Network가 GPU와 서버를 연결한다면, 데이터센터 밖에서는 또 다른 네트워크 계층이 필요하다.
+
+클라우드 리전과 다른 국가·대륙의 데이터센터를 연결하는 장거리 구간에서는 육상 광통신망과 해저 광케이블이 글로벌 백본 역할을 한다.
+
+→ [인터넷은 어떻게 세계를 연결하는가｜해저 케이블·데이터센터·위성까지](/guides/how-internet-connects-the-world)
+
+→ [AI 시대에 해저 광케이블이 더 중요해지는 이유](/articles/submarine-cables-ai-infrastructure)
+
 ### Cooling
 
 공랭, Direct-to-Chip, CDU, 열교환.
@@ -165,6 +173,7 @@ AI Data Center Economics를 다음처럼 본다.
 4. **Data Center｜Capacity Stack**
 5. [Power｜GPU 다음 병목은 발전소다](/articles/ai-power-next-bottleneck)
 6. [Cooling｜AI 데이터센터 냉각 병목](/articles/ai-data-center-cooling-bottleneck)
+7. [Network｜AI 시대 글로벌 네트워크와 해저 광케이블](/articles/submarine-cables-ai-infrastructure)
 
 ---
 
@@ -174,7 +183,7 @@ AI Data Center Economics를 다음처럼 본다.
 - IEA, Energy demand from AI: https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai
 - NVIDIA, Data Centers for the Era of AI Reasoning: https://www.nvidia.com/en-us/data-center/
 
-**Site → Grid → Power → Compute → Network → Cooling**
+**Site → Grid → Power → Compute → Network → Cooling → Global Connectivity**
 
 복잡한 정보를 실행 가능한 판단으로.
 
