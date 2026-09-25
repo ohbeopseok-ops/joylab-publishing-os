@@ -1,0 +1,79 @@
+name: China Risk Brief Distribution V1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/china-semiconductor-risk-brief.json'
+      - 'public/data/china-semiconductor-risk-brief.json'
+  pull_request:
+    paths:
+      - 'scripts/build-china-risk-brief-distribution.mjs'
+      - 'scripts/sync-memory-earnings-impact.mjs'
+      - 'scripts/compose-china-risk-earnings-impact.mjs'
+      - 'src/data/memory-earnings-source-config.json'
+      - 'src/data/memory-earnings-snapshot.json'
+      - 'src/data/china-risk-brief-distribution.json'
+      - 'src/data/china-risk-earnings-impact-brief.json'
+      - '.github/workflows/china-risk-brief-distribution.yml'
+      - 'package.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: china-risk-brief-distribution
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Distribution adapter self-test
+        run: npm run china-risk-distribution:self-test
+      - name: Earnings adapter self-test
+        run: npm run memory-earnings:self-test
+      - name: Earnings public-source dry run
+        run: npm run memory-earnings:dry-run
+      - name: Earnings impact self-test
+        run: npm run china-risk-earnings:self-test
+
+  distribute:
+    if: github.event_name != 'pull_request'
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Build Risk Brief distribution payloads
+        run: npm run china-risk-distribution:build
+      - name: Refresh official memory earnings baseline
+        run: npm run memory-earnings:sync
+      - name: Compose Earnings Impact Brief
+        run: npm run china-risk-earnings:compose
+      - name: Commit event outputs
+        shell: bash
+        run: |
+          PATHS="src/data/china-risk-brief-distribution.json public/data/china-risk-brief-distribution.json public/data/china-risk-kakao.json public/data/china-risk-premarket-0700.json public/data/china-risk-blog-summary.json public/data/china-risk-notification-event.json src/data/memory-earnings-snapshot.json public/data/memory-earnings-snapshot.json src/data/china-risk-earnings-impact-brief.json public/data/china-risk-earnings-impact-brief.json distribution/china-risk-kakao-handoff.json"
+          if git diff --quiet -- $PATHS; then
+            echo "No distribution or earnings changes."
+            exit 0
+          fi
+          git config user.name "joylab-risk-distribution-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add $PATHS
+          git commit -m "data: distribute China risk brief and earnings impact"
+          git push origin HEAD:main

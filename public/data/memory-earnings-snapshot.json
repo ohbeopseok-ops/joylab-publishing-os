@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-07-30T00:00:00Z",
+  "quarter": "2026Q2",
+  "companies": {
+    "samsung": {
+      "quarter": "2026Q2",
+      "consolidatedRevenueT": 171.5,
+      "consolidatedOperatingProfitT": 89.5,
+      "dsRevenueT": 127.5,
+      "dsOperatingProfitT": 89.2,
+      "hbm4SalesScaled": true,
+      "hbm4eSamplesShipped": true,
+      "priceTailwind": true,
+      "source": "https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results",
+      "sourceType": "OFFICIAL"
+    },
+    "skHynix": {
+      "quarter": "2026Q2",
+      "revenueT": 79.3187,
+      "operatingProfitT": 60.5426,
+      "operatingMarginPct": 76,
+      "q1RevenueT": 52.5763,
+      "q1OperatingProfitT": 37.6103,
+      "hbm4MassShipments": true,
+      "dramNandPriceIncrease": true,
+      "aiHighValueMix": true,
+      "source": "https://news.skhynix.com/en/q2-2026-business-results/",
+      "sourceType": "OFFICIAL"
+    }
+  },
+  "derived": {
+    "samsung": {
+      "memoryEarningsCondition": "STRONG_WITH_PRICE_TAILWIND",
+      "hbmExecution": "ADVANCING",
+      "nextNumbers": [
+        "DS operating profit",
+        "Memory revenue mix",
+        "HBM4/HBM4E shipment progress",
+        "DRAM/NAND ASP"
+      ]
+    },
+    "skHynix": {
+      "memoryEarningsCondition": "STRONG_WITH_PRICE_TAILWIND",
+      "hbmExecution": "MASS_SHIPMENT",
+      "nextNumbers": [
+        "Operating margin",
+        "HBM revenue mix",
+        "HBM4 shipment ramp",
+        "DRAM/NAND ASP",
+        "Enterprise SSD mix"
+      ]
+    }
+  }
+}

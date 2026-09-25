@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "quarter": "2026Q2",
+  "sources": {
+    "samsung": {
+      "company": "Samsung Electronics",
+      "url": "https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results",
+      "official": true
+    },
+    "skHynix": {
+      "company": "SK hynix",
+      "url": "https://news.skhynix.com/en/q2-2026-business-results/",
+      "official": true
+    }
+  }
+}
