@@ -18,6 +18,9 @@ draft: false
 seoTitle: "위성 인터넷 vs 해저 광케이블｜스타링크가 있어도 케이블이 필요한 이유"
 series: "글로벌 인터넷 인프라"
 seriesOrder: 5
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "저궤도 위성 인터넷과 해저 광케이블의 역할 차이를 비교하는 JoyLab Research 대표 이미지"
+ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 9분"
 ---
 
