@@ -168,6 +168,8 @@ GPU 성능이 높아질수록 메모리 대역폭 요구가 커지고, 동시에
 
 그래서 HBM을 이해하는 것은 삼성전자나 SK하이닉스 한 종목을 보는 데서 끝나지 않습니다. **AI 데이터센터 밸류체인을 읽는 출발점**입니다.
 
+HBM 다음 단계의 물리 인프라까지 이어서 보고 싶다면 [AI Infrastructure Research Hub](/guides/ai-infrastructure)에서 Compute → Memory → Data Center → Power → Cooling → Network 순서로 전체 구조를 볼 수 있습니다.
+
 반도체 전체 투자 지도를 보고 싶다면 [반도체 투자 가이드](/guides/semiconductor-investing)에서 HBM → 반도체 사이클 → 삼성전자·SK하이닉스 → 외국인 수급 순으로 이어서 볼 수 있습니다.
 
 ## 결론
