@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">AI 추론 시대 메모리 투자 가이드</title>
+<desc id="desc">AI 에이전트에서 HBM 수요, HBM3E에서 HBM4와 zHBM 기술 진화, AI 추론에서 삼성전자·SK하이닉스 실적으로 이어지는 구조를 3단으로 표현한 JoyLab 벡터 인포그래픽</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#041426"/><stop offset="1" stop-color="#071b34"/></linearGradient>
+  <linearGradient id="blue" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#29a8ff"/><stop offset="1" stop-color="#67d3ff"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd27b"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+  <linearGradient id="violet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#6ea8ff"/><stop offset="1" stop-color="#9b6cff"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <style>
+    text{font-family:Arial,'Noto Sans KR',sans-serif}
+    .eyebrow{font-size:18px;letter-spacing:2px;fill:#8fb3d9;font-weight:700}
+    .h1{font-size:48px;fill:#fff;font-weight:800}
+    .sub{font-size:22px;fill:#b7c9dc}
+    .tag{font-size:15px;fill:#c8d9eb}
+    .label{font-size:17px;fill:#dbeafe;font-weight:700}
+    .small{font-size:14px;fill:#9fb8d0}
+  </style>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<path d="M0 300H1600M0 600H1600" stroke="#31506f" stroke-width="2"/>
+
+<!-- PANEL 1 -->
+<text x="40" y="45" class="eyebrow">01 · AI MEMORY</text>
+<text x="40" y="100" class="h1">AI 에이전트가</text>
+<text x="40" y="154" class="h1" fill="#46b9ff">HBM 수요를 늘리는 이유</text>
+<text x="40" y="194" class="sub">AI Agent → 반복 추론 → KV Cache → HBM → 인프라 투자</text>
+<g transform="translate(685 35)">
+  <circle cx="85" cy="110" r="68" fill="#0d2746" stroke="#2ba7ff" stroke-width="3"/>
+  <circle cx="85" cy="110" r="44" fill="none" stroke="#43c3ff" stroke-width="2" stroke-dasharray="6 6"/>
+  <circle cx="85" cy="110" r="10" fill="#f7b955" filter="url(#glow)"/>
+  <path d="M150 110H230" stroke="#45b9ff" stroke-width="5"/>
+  <polygon points="230,110 214,100 214,120" fill="#45b9ff"/>
+  <g transform="translate(245 58)">
+    <rect width="135" height="104" rx="12" fill="#0a203b" stroke="#3a8bc6"/>
+    <text x="18" y="28" class="label">Token</text>
+    <rect x="18" y="42" width="20" height="42" fill="#4aa8ff"/><rect x="46" y="34" width="20" height="50" fill="#67c8ff"/><rect x="74" y="26" width="20" height="58" fill="#85d8ff"/>
+  </g>
+  <path d="M385 110H455" stroke="#45b9ff" stroke-width="5"/><polygon points="455,110 439,100 439,120" fill="#45b9ff"/>
+  <g transform="translate(470 42)">
+    <text x="52" y="15" class="label">KV Cache</text>
+    <rect x="0" y="36" width="160" height="110" rx="10" fill="#0a203b" stroke="#3a8bc6"/>
+    <rect x="16" y="52" width="128" height="18" fill="#143f67"/><rect x="16" y="78" width="128" height="18" fill="#1b5b8d"/><rect x="16" y="104" width="128" height="18" fill="#2678b5"/>
+  </g>
+  <path d="M640 110H715" stroke="#f2b852" stroke-width="5"/><polygon points="715,110 699,100 699,120" fill="#f2b852"/>
+  <g transform="translate(735 35)">
+    <text x="40" y="10" font-size="26" fill="#ffd88a" font-weight="800">HBM</text>
+    <rect x="0" y="110" width="150" height="22" rx="4" fill="#cb7b13"/>
+    <rect x="10" y="82" width="130" height="22" rx="4" fill="#e09219"/>
+    <rect x="20" y="54" width="110" height="22" rx="4" fill="#f0a629"/>
+    <rect x="30" y="26" width="90" height="22" rx="4" fill="#ffc75e" filter="url(#glow)"/>
+  </g>
+</g>
+<g transform="translate(40 235)">
+  <rect width="110" height="34" rx="17" fill="#0b2440" stroke="#2b5478"/><text x="22" y="22" class="tag">AI Agent</text>
+  <rect x="125" width="120" height="34" rx="17" fill="#0b2440" stroke="#2b5478"/><text x="149" y="22" class="tag">Inference</text>
+  <rect x="260" width="125" height="34" rx="17" fill="#0b2440" stroke="#2b5478"/><text x="282" y="22" class="tag">KV Cache</text>
+  <rect x="400" width="80" height="34" rx="17" fill="#0b2440" stroke="#2b5478"/><text x="424" y="22" class="tag">HBM</text>
+</g>
+
+<!-- PANEL 2 -->
+<text x="40" y="345" class="eyebrow">02 · TECHNOLOGY</text>
+<text x="40" y="405" class="h1">HBM3E → <tspan fill="#42b5ff">HBM4</tspan> → <tspan fill="#9b7cff">zHBM</tspan></text>
+<text x="40" y="448" class="sub">차세대 AI 메모리의 기술 진화와 핵심 포인트</text>
+<text x="40" y="485" class="small">대역폭 · 용량 · 전력 효율 · 열 관리 · 3D 적층</text>
+<g transform="translate(760 332)">
+  <g>
+    <text x="52" y="18" class="label">HBM3E</text>
+    <rect x="20" y="145" width="135" height="18" fill="#7f8da0"/>
+    <rect x="30" y="121" width="115" height="18" fill="#93a0b3"/>
+    <rect x="40" y="97" width="95" height="18" fill="#a9b4c4"/>
+    <rect x="50" y="73" width="75" height="18" fill="#c1cad6"/>
+    <text x="28" y="190" class="small">~1.2 TB/s · 8–12 Hi</text>
+  </g>
+  <path d="M190 108H265" stroke="#43b8ff" stroke-width="4"/><polygon points="265,108 249,98 249,118" fill="#43b8ff"/>
+  <g transform="translate(280 0)">
+    <text x="52" y="18" class="label">HBM4</text>
+    <rect x="18" y="150" width="145" height="18" fill="#b66d0e"/>
+    <rect x="28" y="124" width="125" height="18" fill="#ce7f12"/>
+    <rect x="38" y="98" width="105" height="18" fill="#e49519"/>
+    <rect x="48" y="72" width="85" height="18" fill="#f9b34a" filter="url(#glow)"/>
+    <text x="22" y="190" class="small">~2.0+ TB/s · 12–16 Hi</text>
+  </g>
+  <path d="M475 108H550" stroke="#6f93ff" stroke-width="4"/><polygon points="550,108 534,98 534,118" fill="#6f93ff"/>
+  <g transform="translate(565 0)">
+    <text x="58" y="18" font-size="23" fill="#b49cff" font-weight="800">zHBM</text>
+    <rect x="10" y="158" width="150" height="18" fill="#3f52c5"/>
+    <rect x="18" y="132" width="134" height="18" fill="#5066dc"/>
+    <rect x="26" y="106" width="118" height="18" fill="#6279ed"/>
+    <rect x="34" y="80" width="102" height="18" fill="#718aff"/>
+    <rect x="42" y="54" width="86" height="18" fill="#8ba0ff" filter="url(#glow)"/>
+    <text x="18" y="203" class="small">3D integration · next architecture</text>
+  </g>
+</g>
+
+<!-- PANEL 3 -->
+<text x="40" y="645" class="eyebrow">03 · EARNINGS</text>
+<text x="40" y="705" class="h1">AI 추론이 바꾸는</text>
+<text x="40" y="759" class="h1"><tspan fill="#4dc4ff">삼성전자·SK하이닉스</tspan>의 실적</text>
+<text x="40" y="800" class="sub">Inference → HBM → ASP → Margin → EPS</text>
+<g transform="translate(735 640)">
+  <rect x="0" y="115" width="120" height="70" rx="8" fill="#0e2a49" stroke="#2e7caf"/><text x="28" y="155" class="label">Inference</text>
+  <path d="M125 150H205" stroke="#45baff" stroke-width="5"/><polygon points="205,150 189,140 189,160" fill="#45baff"/>
+  <g transform="translate(220 70)">
+    <text x="45" y="20" class="label">HBM</text>
+    <rect x="5" y="100" width="130" height="20" fill="#cc7912"/><rect x="15" y="74" width="110" height="20" fill="#e49319"/><rect x="25" y="48" width="90" height="20" fill="#ffbd55"/>
+  </g>
+  <path d="M365 150H445" stroke="#f0b84f" stroke-width="5"/><polygon points="445,150 429,140 429,160" fill="#f0b84f"/>
+  <rect x="460" y="95" width="100" height="90" rx="8" fill="#0d2948" stroke="#3c81b5"/><text x="489" y="135" class="label">ASP ↑</text><rect x="480" y="154" width="12" height="20" fill="#4aa8ff"/><rect x="500" y="144" width="12" height="30" fill="#68c2ff"/><rect x="520" y="132" width="12" height="42" fill="#86d6ff"/>
+  <rect x="580" y="95" width="110" height="90" rx="8" fill="#0d2948" stroke="#3c81b5"/><text x="602" y="135" class="label">Margin ↑</text><polyline points="598,166 620,154 640,160 666,130" fill="none" stroke="#67c8ff" stroke-width="4"/>
+  <rect x="710" y="95" width="110" height="90" rx="8" fill="#0d2948" stroke="#3c81b5"/><text x="740" y="135" class="label">EPS ↑</text><rect x="730" y="158" width="12" height="16" fill="#4aa8ff"/><rect x="750" y="146" width="12" height="28" fill="#68c2ff"/><rect x="770" y="128" width="12" height="46" fill="#86d6ff"/>
+  <text x="510" y="225" font-size="20" fill="#d7e8f8" font-weight="800">SAMSUNG</text>
+  <text x="675" y="225" font-size="20" fill="#ffd27b" font-weight="800">SK hynix</text>
+</g>
+<text x="40" y="870" class="small">JOYLAB · AI MEMORY INVESTMENT GUIDE · VECTOR HERO</text>
+</svg>
