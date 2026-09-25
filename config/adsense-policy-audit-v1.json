@@ -37,7 +37,6 @@
         "id": "absolute-claim",
         "label": "과도한 단정·절대 표현",
         "patterns": [
-          "무조건",
           "확실히 오른다",
           "반드시 성공",
           "절대 손해",
@@ -138,6 +137,10 @@
     "minBodyChars": 2200,
     "minHeadings": 3,
     "minOutboundLinksForResearch": 1,
-    "maxDuplicateTitlePrefixRatio": 0.35
+    "maxDuplicateTitlePrefixRatio": 0.35,
+    "sourceRequiredCategories": [
+      "투자·경제",
+      "AI·생산성"
+    ]
   }
 }
