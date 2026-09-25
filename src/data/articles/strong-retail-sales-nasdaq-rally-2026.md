@@ -170,3 +170,8 @@ JoyLab에서는 최종 판단을 다음 세 항목으로 미룹니다.
 - Reuters, Robust US retail sales underscore economy's resilience, inflation pressures building, September 16, 2026
 - Reuters, Tech leads Wall St to higher close as oil eases, Treasury yields dip, September 17, 2026
 - Reuters, Nasdaq notches record-high close, AI optimism reignites and Treasury yields retreat, September 21, 2026
+
+## 검증용 1차 자료
+
+- [U.S. Census Bureau — Monthly Retail Trade](https://www.census.gov/retail/sales.html)
+- [Federal Reserve — September 2026 FOMC Statement](https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm)
