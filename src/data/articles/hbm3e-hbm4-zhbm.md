@@ -20,7 +20,7 @@ readingTime: "약 8분"
 
 ## 먼저 구분해야 한다: HBM3E → HBM4와 zHBM은 같은 종류의 세대 표기가 아니다
 
-HBM3E와 HBM4는 HBM 제품 세대의 진화입니다. 반면 **zHBM은 삼성전자가 2026년 공개한 차세대 3D 메모리 아키텍처 개념**입니다.
+HBM3E와 HBM4는 HBM 제품 세대의 진화입니다. 반면 **zHBM은 삼성전자가 2026년 공개한 차세대 3D 메모리 아키텍처 개념**입니다. [Samsung zHBM](https://semiconductor.samsung.com/news-events/tech-blog/the-evolution-of-ai-era-memory-faster-denser-computing/)
 
 따라서 HBM3E → HBM4 → zHBM을 단순히 3세대 연속 제품처럼 이해하면 정확하지 않습니다.
 
@@ -46,7 +46,7 @@ NVIDIA Blackwell Ultra 계열처럼 대규모 AI 시스템은 수백 GB 수준�
 
 HBM4의 가장 큰 구조 변화 중 하나는 **2,048 I/O**입니다.
 
-삼성전자는 2026년 2월 HBM4 양산 출하를 발표했고, 1c DRAM과 4nm 로직 베이스 다이를 적용했다고 밝혔습니다. 회사 제품 페이지 기준 HBM4는 최대 13Gbps per pin, 최대 3.3TB/s 대역폭을 제시합니다.
+삼성전자는 2026년 2월 HBM4 양산 출하를 발표했고, 1c DRAM과 4nm 로직 베이스 다이를 적용했다고 밝혔습니다. 회사 제품 페이지 기준 HBM4는 최대 13Gbps per pin, 최대 3.3TB/s 대역폭을 제시합니다. [Samsung HBM4](https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing)
 
 SK하이닉스도 HBM4에서 2,048 I/O를 적용하고 HBM3E 대비 대역폭과 전력 효율을 높였다고 설명하고 있습니다.
 
@@ -72,13 +72,13 @@ HBM4E는 HBM4 아키텍처를 기반으로 속도·용량·전력 효율을 더 
 6. 고객별 Customization
 7. ASP와 원가
 
-[삼성전자 HBM4·HBM4E 분석 →](/articles/samsung-hbm4-memory-outlook-2026-09-20)
+[삼성전자 HBM4·HBM4E 분석 →](https://aijoylab.kr/articles/samsung-hbm4-memory-outlook-2026-09-20)
 
 ## zHBM: 메모리를 가속기 옆에서 위로 올린다
 
 기존 HBM은 일반적으로 실리콘 인터포저 위에서 AI 가속기 옆에 HBM 스택을 배치하는 2.5D 구조입니다.
 
-삼성전자가 FMS 2026에서 공개한 zHBM은 이 물리적 배치를 바꿉니다. **HBM을 AI 가속기 위에 직접 수직 적층하는 3D 구조**를 지향합니다.
+삼성전자가 FMS 2026에서 공개한 zHBM은 이 물리적 배치를 바꿉니다. **HBM을 AI 가속기 위에 직접 수직 적층하는 3D 구조**를 지향합니다. [Samsung zHBM architecture](https://semiconductor.samsung.com/news-events/tech-blog/memory-innovation-powering-a-new-ai-infrastructure-cycle-ep2/)
 
 삼성 설명의 핵심은 데이터 이동 거리를 더 줄여 대역폭과 전력 효율을 높이는 것입니다. Hybrid Copper Bonding과 wafer-on-wafer 통합이 중요한 기반 기술로 제시됩니다.
 
