@@ -128,6 +128,7 @@ NVIDIA는 CPO 기반 1.6T 인터커넥트와 200G PAM4를 AI Factory 네트워�
 AI 인프라 전체 병목 구조는 [AI Infrastructure Research Hub](/guides/ai-infrastructure)에서 확인할 수 있습니다.
 
 관련 리서치:
+- [CPO란 무엇인가｜플러거블 광모듈 대신 스위치 옆에 광학을 붙이는 이유](/articles/what-is-co-packaged-optics)
 - [HBM은 왜 AI GPU의 핵심 메모리인가](/articles/what-is-hbm)
 - [AI 시대 글로벌 네트워크와 해저 광케이블](/articles/submarine-cables-ai-infrastructure)
 
