@@ -57,6 +57,7 @@ const liveTotalLine = liveChart.map((point) => `${point.x},${point.totalY}`).joi
 const liveStructuralLine = liveChart.map((point) => `${point.x},${point.structuralY}`).join(' ');
 const liveEarningsLine = liveChart.map((point) => `${point.x},${point.earningsY}`).join(' ');
 const latestHistoryDelta = history.latestDelta ?? null;
+const latestAttribution = latestHistoryDelta?.attribution ?? null;
 ---
 <section class="china-risk-score" aria-labelledby="china-risk-score-title">
   <div class="china-risk-score__head">
@@ -143,12 +144,29 @@ const latestHistoryDelta = history.latestDelta ?? null;
             <span><b class="legend-earnings"></b>Earnings</span>
           </div>
           {latestHistoryDelta && (
-            <p class="history-delta">
-              <strong>{latestHistoryDelta.fromQuarter} → {latestHistoryDelta.toQuarter}</strong>
-              Total {latestHistoryDelta.total >= 0 ? '+' : ''}{latestHistoryDelta.total} ·
-              Structural {latestHistoryDelta.structural >= 0 ? '+' : ''}{latestHistoryDelta.structural} ·
-              Earnings {latestHistoryDelta.earnings >= 0 ? '+' : ''}{latestHistoryDelta.earnings}
-            </p>
+            <>
+              <p class="history-delta">
+                <strong>{latestHistoryDelta.fromQuarter} → {latestHistoryDelta.toQuarter}</strong>
+                Total {latestHistoryDelta.total >= 0 ? '+' : ''}{latestHistoryDelta.total} ·
+                Structural {latestHistoryDelta.structural >= 0 ? '+' : ''}{latestHistoryDelta.structural} ·
+                Earnings {latestHistoryDelta.earnings >= 0 ? '+' : ''}{latestHistoryDelta.earnings}
+              </p>
+              {latestAttribution && (
+                <div class="delta-attribution">
+                  <small>Δ ATTRIBUTION</small>
+                  <p>{latestAttribution.summary}</p>
+                  {latestAttribution.drivers?.length > 0 && (
+                    <div class="delta-driver-list">
+                      {latestAttribution.drivers.slice(0,4).map((driver) => (
+                        <span class:list={{up:driver.contribution>0,down:driver.contribution<0}}>
+                          {driver.name} {driver.contribution > 0 ? '+' : ''}{driver.contribution}p
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+            </>
           )}
         </>
       ) : (
@@ -264,6 +282,13 @@ const latestHistoryDelta = history.latestDelta ?? null;
   .legend-structural{opacity:.62;border-top-style:dashed!important}
   .legend-earnings{opacity:.35;border-top-style:dotted!important}
   .history-delta{font-size:.8rem;margin:12px 0 0;padding:10px 12px;background:#f8fafc;border-radius:10px}
+  .delta-attribution{margin-top:10px;padding:14px;border-radius:12px;background:#f9fafb;border:1px solid #e4e7ec}
+  .delta-attribution small{font-size:.68rem;font-weight:800;letter-spacing:.08em;color:#2563eb}
+  .delta-attribution p{font-size:.82rem;line-height:1.6;margin:6px 0 0;color:#344054}
+  .delta-driver-list{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  .delta-driver-list span{font-size:.72rem;font-weight:700;border-radius:999px;padding:5px 8px;background:#f2f4f7;color:#475467}
+  .delta-driver-list span.up{background:#fff4ed;color:#b54708}
+  .delta-driver-list span.down{background:#ecfdf3;color:#027a48}
   .history-empty{font-size:.82rem;color:#667085;padding:18px 0}
   .backtest-details{margin-top:14px;border-top:1px solid #e8edf3;padding-top:12px}
   .backtest-details summary{cursor:pointer;font-size:.8rem;font-weight:700;color:#475467}
