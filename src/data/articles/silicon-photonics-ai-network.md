@@ -159,6 +159,8 @@ Marvell은 2026년 ECOC에서 2nm 기반 400G/lane optical PAM4 시연을 공개
 
 패키징 구조는 [CPO란 무엇인가｜플러거블 광모듈 대신 스위치 옆에 광학을 붙이는 이유](/articles/what-is-co-packaged-optics)에서 이어집니다.
 
+다음 단계인 신호처리 아키텍처 비교는 [Optical DSP·LPO·LRO는 무엇이 다른가｜1.6T 광모듈의 전력 전쟁](/articles/optical-dsp-lpo-lro-1-6t)에서 이어집니다.
+
 데이터센터 밖의 글로벌 연결은 [AI 시대 글로벌 네트워크와 해저 광케이블](/articles/submarine-cables-ai-infrastructure)에서 이어집니다.
 
 ## FAQ
