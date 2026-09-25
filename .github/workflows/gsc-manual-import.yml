@@ -50,6 +50,10 @@ jobs:
             const d=JSON.parse(fs.readFileSync("/tmp/joylab-gsc-test/latest.json","utf8"));
             if(d.totals.pages!==3) throw new Error("expected 3 pages");
             if(d.pages[0].trafficScore!==10) throw new Error("top page should score 10");
+            const zero=d.pages.find(x=>x.clicks===0);
+            if(!zero) throw new Error("zero-click fixture missing");
+            if(zero.trafficScore>4) throw new Error("zero-click page received click contribution");
+            if(d.scoring.version!=="traffic-v2") throw new Error("traffic-v2 expected");
             if(!d.pages.every(x=>x.url.startsWith("https://aijoylab.kr/articles/"))) throw new Error("URL normalization failed");
             console.log("GSC adapter fixture PASS", d.totals);
           '
@@ -95,18 +99,23 @@ jobs:
             mv data/gsc/inbox/import.json "data/gsc/archive/$stamp/"
           fi
 
-      - name: Persist normalized snapshot
+      - name: Persist CSV fallback to GSC data plane
         if: steps.inbox.outputs.count != '0'
+        env:
+          BOT_BRANCH: automation/gsc-data
         run: |
           git config user.name "joylab-gsc-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/gsc/latest.json data/gsc/history data/gsc/archive data/gsc/inbox
+          git add data/gsc/latest.json data/gsc/history data/gsc/archive data/gsc/inbox             artifacts/research-corpus-evidence-audit.json             artifacts/research-corpus-evidence-audit.md
+
           if git diff --cached --quiet; then
             echo "No derived GSC changes"
-          else
-            git commit -m "gsc: ingest Search Console snapshot [skip ci]"
-            git push
+            exit 0
           fi
+
+          git checkout -B "$BOT_BRANCH"
+          git commit -m "gsc: refresh data plane from CSV fallback"
+          git push --force origin "HEAD:$BOT_BRANCH"
 
       - name: Upload priority report
         if: steps.inbox.outputs.count != '0'
