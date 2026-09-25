@@ -1676,5 +1676,100 @@
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
+  },
+  "ai-network-800g-1-6t": {
+    "hero": {
+      "src": "/images/research/ai-data-center-network/ai-network-800g-1-6t-hero.svg",
+      "alt": "800G에서 1.6T로 전환되는 AI 데이터센터 광네트워크와 200G PAM4 링크 구조를 보여주는 JoyLab 대표 이미지",
+      "caption": "AI 데이터센터 네트워크가 800G에서 1.6T로 이동하는 이유를 bandwidth density와 power per bit 관점에서 봅니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "800G와 1.6T AI 데이터센터 네트워크 전환의 핵심 기술 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "200G/lane, 포트 밀도, 전력/bit, CPO 전환 신호를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 데이터센터 네트워크를 Bandwidth Lane Speed Power per Bit Reach Thermal 순서로 정리한 JoyLab 프레임워크 이미지",
+        "caption": "Bandwidth → Lane Speed → Power/bit → Reach → Thermal → Serviceability 순서로 봅니다."
+      }
+    ]
+  },
+  "what-is-co-packaged-optics": {
+    "hero": {
+      "src": "/images/research/ai-data-center-network/what-is-co-packaged-optics-hero.svg",
+      "alt": "AI 데이터센터 스위치 ASIC 옆에 광학 엔진을 통합한 CPO 구조와 플러거블 광모듈 차이를 보여주는 JoyLab 대표 이미지",
+      "caption": "CPO는 광학 엔진을 ASIC 가까이 가져와 대역폭 밀도와 전력/bit 문제를 줄이는 아키텍처입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "CPO와 플러거블 광모듈 차이의 핵심 기술 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "200G SerDes, 전기 손실, 전력 효율, 서비스성 변화를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "CPO를 Bandwidth Density Power per Bit Reach Thermal Serviceability 순서로 정리한 JoyLab 프레임워크 이미지",
+        "caption": "Bandwidth Density → Power/bit → Reach → Thermal → Serviceability 순서로 판단합니다."
+      }
+    ]
+  },
+  "silicon-photonics-ai-network": {
+    "hero": {
+      "src": "/images/research/ai-data-center-network/silicon-photonics-ai-network-hero.svg",
+      "alt": "실리콘 칩 위의 광도파로와 광학 엔진이 스위치 ASIC과 광섬유를 연결하는 Silicon Photonics 구조를 보여주는 JoyLab 대표 이미지",
+      "caption": "Silicon Photonics는 광학 기능을 실리콘 칩 수준에 집적해 AI 네트워크의 대역폭 밀도와 전력 효율을 높이는 기술입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Silicon Photonics와 400G lane AI 네트워크 전환의 핵심 기술 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "광도파로, 광변조기, 200G·400G lane, CPO 전환 신호를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Silicon Photonics를 Bandwidth Density Power per Bit Yield Thermal Serviceability 순서로 정리한 JoyLab 프레임워크 이미지",
+        "caption": "Bandwidth Density → Power/bit → Yield → Thermal → Serviceability 순서로 판단합니다."
+      }
+    ]
+  },
+  "optical-dsp-lpo-lro-1-6t": {
+    "hero": {
+      "src": "/images/research/ai-data-center-network/optical-dsp-lpo-lro-1-6t-hero.svg",
+      "alt": "1.6T AI 데이터센터 광모듈에서 DSP 기반 플러거블과 LPO, LRO/TRO의 신호처리 구조를 비교한 JoyLab 대표 이미지",
+      "caption": "1.6T 광모듈 경쟁은 속도보다 DSP 위치와 전력, 신호무결성, 도달거리의 균형이 핵심입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Optical DSP LPO LRO TRO의 전력과 신호처리 차이를 정리한 JoyLab Visual Research 이미지",
+        "caption": "DSP·LPO·LRO/TRO의 전력, 지연, 신호보정, reach 차이를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "1.6T 광모듈을 Power Signal Integrity Latency Reach Serviceability 순서로 비교한 JoyLab 프레임워크 이미지",
+        "caption": "Power → Signal Integrity → Latency → Reach → Serviceability 순서로 비교합니다."
+      }
+    ]
+  },
+  "ai-data-center-interconnect-dci": {
+    "hero": {
+      "src": "/images/research/ai-data-center-network/ai-data-center-interconnect-dci-hero.svg",
+      "alt": "AI 데이터센터의 Rack에서 Campus, Metro DCI, Region, Global Backbone까지 광네트워크가 이어지는 구조를 보여주는 JoyLab 대표 이미지",
+      "caption": "DCI는 Rack과 Campus를 넘어 여러 데이터센터와 리전을 하나의 AI 인프라로 연결하는 네트워크 계층입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 데이터센터 DCI에서 PAM4 coherent-lite coherent DSP가 거리별로 쓰이는 구조를 정리한 JoyLab Visual Research 이미지",
+        "caption": "Rack → Campus → Metro → Region으로 갈수록 필요한 광기술과 reach 조건이 달라집니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 데이터센터 DCI를 Reach Latency Signal Integrity Resilience 순서로 분석한 JoyLab 프레임워크 이미지",
+        "caption": "Reach → Latency → Signal Integrity → Resilience 순서로 DCI를 판단합니다."
+      }
+    ]
   }
 }

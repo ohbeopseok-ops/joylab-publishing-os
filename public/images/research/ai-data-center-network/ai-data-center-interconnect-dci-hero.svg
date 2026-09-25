@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">AI 데이터센터 DCI란 무엇인가</title>
+<desc id="desc">Rack에서 Campus, Metro DCI, Region, Global Backbone까지 연결되는 AI 광네트워크 구조</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07111f"/><stop offset=".58" stop-color="#0a1930"/><stop offset="1" stop-color="#102b4d"/></linearGradient><radialGradient id="g"><stop offset="0" stop-color="#38bdf8" stop-opacity=".34"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></radialGradient></defs>
+<rect width="1600" height="900" fill="url(#bg)"/><circle cx="1270" cy="445" r="390" fill="url(#g)"/>
+<text x="105" y="118" font-family="Arial,'Noto Sans KR',sans-serif" font-size="28" font-weight="700" letter-spacing="2" fill="#60a5fa">JOYLAB · AI DATA CENTER NETWORK</text>
+<text x="105" y="245" font-family="Arial,'Noto Sans KR',sans-serif" font-size="64" font-weight="800" fill="#f8fafc">AI 데이터센터 DCI</text>
+<text x="108" y="320" font-family="Arial,'Noto Sans KR',sans-serif" font-size="31" font-weight="600" fill="#93c5fd">Rack → Campus → Region → Global Backbone</text>
+<text x="108" y="415" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" fill="#cbd5e1">PAM4 · Coherent-lite · Coherent DSP</text>
+<g transform="translate(850 190)">
+  <rect x="0" y="0" width="600" height="445" rx="38" fill="#0d2038" stroke="#2563eb" stroke-width="4"/>
+  <g fill="#132b4a" stroke="#60a5fa" stroke-width="3">
+    <rect x="45" y="85" width="105" height="190" rx="20"/>
+    <rect x="205" y="85" width="105" height="190" rx="20"/>
+    <rect x="365" y="85" width="105" height="190" rx="20"/>
+  </g>
+  <g font-family="Arial" fill="#e2e8f0" text-anchor="middle">
+    <text x="97" y="65" font-size="20">DC-A</text><text x="257" y="65" font-size="20">DC-B</text><text x="417" y="65" font-size="20">REGION</text>
+  </g>
+  <g stroke="#38bdf8" stroke-width="8" fill="none">
+    <path d="M150 180 H205"/><path d="M310 180 H365"/><path d="M470 180 C520 180 535 230 550 285"/>
+  </g>
+  <circle cx="550" cy="305" r="48" fill="none" stroke="#93c5fd" stroke-width="4"/>
+  <path d="M520 305 H580 M550 275 V335" stroke="#93c5fd" stroke-width="3"/>
+  <text x="300" y="345" text-anchor="middle" font-family="Arial" font-size="24" font-weight="700" fill="#f8fafc">CAMPUS / DCI / BACKBONE</text>
+  <text x="300" y="390" text-anchor="middle" font-family="Arial" font-size="20" fill="#93c5fd">2 km → 20 km → Metro → Global</text>
+</g>
+<text x="105" y="815" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#64748b">REACH → LATENCY → COHERENT → RESILIENCE</text>
+</svg>

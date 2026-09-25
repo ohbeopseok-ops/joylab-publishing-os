@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">800G에서 1.6T로</title>
+<desc id="desc">AI 데이터센터 네트워크가 800G에서 1.6T로 전환되는 구조</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07111f"/><stop offset=".55" stop-color="#0a1830"/><stop offset="1" stop-color="#102b4c"/></linearGradient>
+  <radialGradient id="g"><stop offset="0" stop-color="#0ea5e9" stop-opacity=".35"/><stop offset="1" stop-color="#0ea5e9" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/><circle cx="1260" cy="450" r="390" fill="url(#g)"/>
+<text x="105" y="120" font-family="Arial,'Noto Sans KR',sans-serif" font-size="28" font-weight="700" letter-spacing="2" fill="#60a5fa">JOYLAB · AI DATA CENTER NETWORK</text>
+<text x="105" y="250" font-family="Arial,'Noto Sans KR',sans-serif" font-size="74" font-weight="800" fill="#f8fafc">800G → 1.6T</text>
+<text x="108" y="325" font-family="Arial,'Noto Sans KR',sans-serif" font-size="32" font-weight="600" fill="#93c5fd">왜 AI 네트워크는 두 배 빨라져야 하나</text>
+<text x="108" y="420" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" fill="#cbd5e1">8 × 200G PAM4 · Port Density · Power / Bit</text>
+<g transform="translate(905 210)">
+  <rect x="0" y="0" width="520" height="360" rx="38" fill="#0d2038" stroke="#2563eb" stroke-width="4"/>
+  <text x="260" y="72" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#e2e8f0">1.6T SWITCH PORT</text>
+  <g fill="#2563eb">
+    <rect x="65" y="125" width="390" height="36" rx="12"/>
+    <rect x="65" y="178" width="390" height="36" rx="12"/>
+    <rect x="65" y="231" width="390" height="36" rx="12"/>
+    <rect x="65" y="284" width="390" height="36" rx="12"/>
+  </g>
+  <g font-family="Arial" font-size="18" fill="#dbeafe">
+    <text x="260" y="149" text-anchor="middle">8 lanes × 200G PAM4</text>
+    <text x="260" y="202" text-anchor="middle">Higher bandwidth density</text>
+    <text x="260" y="255" text-anchor="middle">Lower power per bit target</text>
+    <text x="260" y="308" text-anchor="middle">Pluggable → CPO</text>
+  </g>
+</g>
+<path d="M760 620 C950 560 1190 565 1455 635" fill="none" stroke="#38bdf8" stroke-width="20" stroke-linecap="round"/>
+<circle cx="910" cy="586" r="25" fill="#0f172a" stroke="#93c5fd" stroke-width="4"/><circle cx="1110" cy="575" r="25" fill="#0f172a" stroke="#93c5fd" stroke-width="4"/><circle cx="1325" cy="605" r="25" fill="#0f172a" stroke="#93c5fd" stroke-width="4"/>
+<text x="105" y="815" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#64748b">BANDWIDTH → LANE SPEED → POWER / BIT → OPTICS</text>
+</svg>

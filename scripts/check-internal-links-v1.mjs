@@ -20,6 +20,16 @@ const globalConnectivityArticles = [
   'satellite-vs-submarine-cable'
 ];
 
+const aiDataCenterNetworkPillarRoute = '/guides/ai-data-center-network';
+const aiDataCenterNetworkPillarFile = path.join(root, 'src/pages/guides/ai-data-center-network.astro');
+const aiDataCenterNetworkPlannedArticles = [
+  'ai-network-800g-1-6t',
+  'what-is-co-packaged-optics',
+  'silicon-photonics-ai-network',
+  'optical-dsp-lpo-lro-1-6t',
+  'ai-data-center-interconnect-dci'
+];
+
 function read(file){ return fs.readFileSync(file,'utf8'); }
 function slugFromArticle(file){ return path.basename(file).replace(/\.md$/,''); }
 function tagsFromFrontmatter(src){
@@ -132,8 +142,69 @@ if (touchesGlobalConnectivity) {
   }
 }
 
+
+// AI Data Center Network Cluster Gate — staged rollout
+const touchesAiDataCenterNetwork = changed.some((rel) =>
+  rel === 'src/pages/guides/ai-data-center-network.astro' ||
+  aiDataCenterNetworkPlannedArticles.some((slug) => rel === `src/data/articles/${slug}.md`)
+);
+
+if (touchesAiDataCenterNetwork) {
+  if (!fs.existsSync(aiDataCenterNetworkPillarFile)) {
+    errors.push(`missing AI data center network pillar file: ${aiDataCenterNetworkPillarFile}`);
+  } else {
+    const pillar = read(aiDataCenterNetworkPillarFile);
+
+    if (!pillar.includes('/guides/ai-infrastructure')) {
+      errors.push('AI data center network pillar must link to /guides/ai-infrastructure');
+    }
+    if (!pillar.includes('/guides/how-internet-connects-the-world')) {
+      errors.push('AI data center network pillar must bridge to /guides/how-internet-connects-the-world');
+    }
+
+    aiDataCenterNetworkPlannedArticles.forEach((slug, index) => {
+      if (!pillar.includes(`'${slug}'`) && !pillar.includes(`"${slug}"`)) {
+        errors.push(`AI data center network pillar missing planned registration for ${slug}`);
+      }
+
+      const file = path.join(articleDir, `${slug}.md`);
+      if (!fs.existsSync(file)) return;
+
+      const src = read(file);
+      const internal = [...new Set(links(src))];
+
+      if (!internal.includes(aiDataCenterNetworkPillarRoute)) {
+        errors.push(`${file}: must link back to ${aiDataCenterNetworkPillarRoute}`);
+      }
+
+      if (!src.match(/\bseries:\s*["']AI 데이터센터 네트워크["']/)) {
+        errors.push(`${file}: series must be "AI 데이터센터 네트워크"`);
+      }
+
+      const orderMatch = src.match(/\bseriesOrder:\s*(\d+)/);
+      if (!orderMatch || Number(orderMatch[1]) !== index + 1) {
+        errors.push(`${file}: seriesOrder must be ${index + 1}`);
+      }
+
+      const existingSiblingLinks = internal.filter((link) =>
+        aiDataCenterNetworkPlannedArticles.some((other) => link === `/articles/${other}`) &&
+        link !== `/articles/${slug}`
+      );
+
+      const existingCount = aiDataCenterNetworkPlannedArticles.filter((other) =>
+        fs.existsSync(path.join(articleDir, `${other}.md`))
+      ).length;
+      const requiredSiblings = existingCount >= 3 ? 2 : existingCount >= 2 ? 1 : 0;
+
+      if (existingSiblingLinks.length < requiredSiblings) {
+        errors.push(`${file}: needs at least ${requiredSiblings} existing sibling link(s), found ${existingSiblingLinks.length}`);
+      }
+    });
+  }
+}
+
 if(errors.length){
   console.error('Internal Link Gate V1 failed:\n- '+errors.join('\n- '));
   process.exit(1);
 }
-console.log(`Internal Link Gate V1 passed. Checked ${changedArticles.length} changed article(s); global connectivity cluster ${touchesGlobalConnectivity ? 'validated' : 'not touched'}.`);
+console.log(`Internal Link Gate V1 passed. Checked ${changedArticles.length} changed article(s); global connectivity ${touchesGlobalConnectivity ? 'validated' : 'not touched'}; AI data center network ${touchesAiDataCenterNetwork ? 'validated' : 'not touched'}.`);
