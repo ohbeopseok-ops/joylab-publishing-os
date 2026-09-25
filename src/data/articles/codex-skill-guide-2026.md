@@ -219,3 +219,11 @@ Input → Process → Quality Gate → Output으로 구조화해 **업무 자산
 Skill의 처리 방식이 안정화됐다면 다음 단계는 필요한 외부 데이터와 도구를 연결하는 것입니다.
 
 → [4부｜Codex Plugin 활용법｜Gmail·Google Drive·GitHub 연결](/articles/codex-plugin-guide-2026)
+
+## 공식 참고 자료
+
+- [OpenAI Developers — Plugin architecture](https://developers.openai.com/plugins/concepts/plugins)
+- [OpenAI Developers — Plugins](https://developers.openai.com/plugins)
+- [OpenAI API — Plugins](https://developers.openai.com/api/docs/guides/agents-api/tools/plugins)
+
+OpenAI의 현재 Plugin 구조에서도 Skill은 반복 가능한 워크플로우를 위한 지침과 리소스를 제공하는 구성 요소로 설명됩니다. JoyLab의 Input → Process → Quality Gate → Output 구조는 이 개념을 실무 운영 관점으로 확장한 프레임입니다.

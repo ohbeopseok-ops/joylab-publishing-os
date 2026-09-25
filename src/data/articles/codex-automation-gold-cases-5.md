@@ -245,3 +245,11 @@ JoyLab Distribution OS는 실제로 DRAFT → REVIEW → APPROVED → PUBLISHED 
 GOLD CASE 기준을 잡았다면 다음은 GUI가 꼭 필요한 업무를 Computer Use로 안전하게 실행하는 방법입니다.
 
 → [6부｜Codex Computer Use 실전](/articles/codex-computer-use-guide-2026)
+
+## 공식 참고 자료
+
+- [OpenAI Developers — Codex](https://developers.openai.com/learn/codex)
+- [OpenAI Developers — Plugins](https://developers.openai.com/plugins)
+- [OpenAI Developers — Computer Use](https://developers.openai.com/api/docs/guides/tools-computer-use)
+
+JoyLab의 GOLD CASE는 위 기능 설명을 그대로 복제한 것이 아니라, 실제 운영에서 필요한 Input·Process·Quality Gate·Human Review를 JoyLab 방식으로 재구성한 사례입니다.

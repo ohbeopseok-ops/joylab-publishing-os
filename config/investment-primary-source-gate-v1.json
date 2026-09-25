@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "name": "JoyLab Investment Primary Source Gate V1",
+  "category": "투자·경제",
+  "minimumPrimaryLinks": 2,
+  "acceptedHosts": [
+    "dart.fss.or.kr",
+    "kind.krx.co.kr",
+    "data.krx.co.kr",
+    "krx.co.kr",
+    "samsung.com",
+    "skhynix.com",
+    "news.skhynix.com",
+    "doosanenerbility.com",
+    "hyosungheavyindustries.com",
+    "ls-electric.com",
+    "hd-hhi.com",
+    "hdksoe.co.kr",
+    "samsungshi.com",
+    "hanwhaocean.com",
+    "federalreserve.gov",
+    "bls.gov",
+    "bea.gov",
+    "census.gov",
+    "treasury.gov",
+    "sec.gov"
+  ],
+  "acceptedHostSuffixes": [
+    ".go.kr",
+    ".gov"
+  ],
+  "rule": "Only newly added published articles in the Investing & Economy category are blocked by this gate. Existing corpus remediation remains covered by AdSense Policy Audit V1."
+}

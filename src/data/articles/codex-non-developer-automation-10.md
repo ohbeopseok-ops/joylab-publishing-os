@@ -305,3 +305,11 @@ Codex의 가치가 가장 크게 나타나는 지점은 화려한 데모보다 *
 
 
 → [Codex Hub에서 전체 시리즈 보기](/guides/codex)
+
+## 공식 참고 자료
+
+- [OpenAI Developers — Codex](https://developers.openai.com/learn/codex)
+- [OpenAI Developers — Plugin architecture](https://developers.openai.com/plugins/concepts/plugins)
+- [OpenAI Developers — Plugins Quickstart](https://developers.openai.com/plugins/quickstart)
+
+위 10개 사례는 특정 제품 기능을 그대로 나열한 것이 아니라, 비개발자가 반복 업무를 Input·Output·완료 기준으로 구조화하는 JoyLab 실무 예시입니다.

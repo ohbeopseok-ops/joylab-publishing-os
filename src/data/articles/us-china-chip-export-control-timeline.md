@@ -43,3 +43,29 @@ readingTime: "약 7분"
 정상회담이나 무역휴전 뉴스와 반도체 수출통제는 분리해서 봐야 합니다. 실제 변화 여부는 BIS 규정, 라이선스 범위, 장비 반입, 중국 Fab의 공정 전환 속도로 확인해야 합니다.
 
 [미·중 반도체 전쟁 전체 허브 →](/articles/us-china-semiconductor-war)
+
+## 타임라인을 읽는 방법
+
+미·중 반도체 정책 타임라인은 날짜를 외우는 것보다 **어떤 범위가 추가됐고 기업의 실제 행동이 어떻게 바뀌었는지**를 연결해서 보는 것이 중요합니다. 정책 발표가 나와도 모든 품목과 기업에 같은 방식으로 적용되는 것은 아니며, 이후 정정·해석·예외 적용이 이어질 수 있습니다.
+
+2022년 이후 미국 BIS의 관련 규정은 첨단 컴퓨팅 품목과 반도체 제조 장비를 중심으로 시작해 이후 적용 범위와 세부 기준이 보완됐습니다. 2023년에는 기존 규정이 업데이트됐고, 2024년에는 추가적인 장비·소프트웨어와 HBM 관련 항목까지 범위가 넓어졌습니다. 투자자는 발표 제목보다 실제 규정의 대상과 시행 시점을 확인해야 합니다.
+
+JoyLab에서는 타임라인을 네 단계로 읽습니다.
+
+1. Announcement — 어떤 정책이 발표됐는가
+2. Scope — 대상 품목·장비·지역·기업이 어디까지인가
+3. Implementation — 시행일과 세부 지침이 어떻게 정해졌는가
+4. Corporate Response — 삼성전자·SK하이닉스·글로벌 장비사의 투자·운영 계획이 실제로 바뀌었는가
+
+이 네 단계를 분리하면 정책 뉴스의 영향력을 과대평가하거나 과소평가하는 오류를 줄일 수 있습니다. 특히 투자 판단에서는 규정 변화가 회사의 생산량, CAPEX, 고객 구성, 제품 믹스에 반영되는지 확인해야 합니다.
+
+또한 같은 정책이라도 메모리, 파운드리, 장비 기업의 영향은 다릅니다. 메모리 업체는 중국 생산거점의 공정 전환과 장비 접근성을, 장비 업체는 중국 매출 비중과 제품별 허가 범위를, AI 반도체 업체는 제품 사양과 판매지역 변화를 각각 봐야 합니다.
+
+따라서 타임라인의 목적은 “규제가 강화됐다”는 한 줄 결론이 아니라 **어떤 기업의 어떤 이익 변수에 언제 반영될지를 찾는 것**입니다.
+
+## 1차 자료
+
+- [미국 BIS — 2022년 관련 정책 발표](https://www.bis.gov/node/20292)
+- [미국 BIS — 2023년 업데이트 정보](https://www.bis.gov/press-release/bis-updated-public-information-page-export-controls-imposed-advanced-computing-semiconductor)
+- [미국 BIS — 2024년 규정 정정·명확화](https://www.bis.gov/press-release/commerce-releases-clarifications-export-control-rules-restrict-prcs-access-advanced-computing)
+- [미국 BIS — 2024년 추가 정책 발표](https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military)
