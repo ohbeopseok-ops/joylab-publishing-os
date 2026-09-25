@@ -62,11 +62,7 @@ if(finite(exitIncrease)){
   metrics.exitRateIncreasePct=exitIncrease;
   if(exitIncrease>cfg.ux.exitRateIncreasePctMax) reasons.push({severity:'UX_STOP',id:'exit_rate_increase',value:exitIncrease,limit:cfg.ux.exitRateIncreasePctMax});
 }
-const ppsDrop=pctDrop(s.ux?.pagesPerSession,s.ux?.baselinePagesPerSession);
-if(finite(ppsDrop)){
-  metrics.pagesPerSessionDropPct=ppsDrop;
-  if(ppsDrop>cfg.ux.pagesPerSessionDropPctMax) reasons.push({severity:'UX_STOP',id:'pages_per_session_drop',value:ppsDrop,limit:cfg.ux.pagesPerSessionDropPctMax});
-}
+
 
 const ctr=s.revenue?.ctrPct;
 const baselineCtr=s.revenue?.baselineCtrPct;
