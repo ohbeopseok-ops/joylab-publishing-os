@@ -72,3 +72,6 @@ readingTime: "약 7분"
 - [미국 BIS — 2022년 대중국 첨단 컴퓨팅·반도체 제조 수출통제](https://www.bis.gov/node/20292)
 - [미국 BIS — 2024년 대중국 첨단 반도체 제조 통제 강화](https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military)
 
+## 다음 분기 재점검 질문
+
+자립도 분석은 한 번의 결론으로 끝내지 않습니다. 다음 분기에는 CXMT·YMTC의 공식 제품 업데이트가 실제 고객 채택으로 이어졌는지, 글로벌 DRAM·NAND 가격이 중국 공급 확대와 같은 방향으로 움직였는지, 삼성전자·SK하이닉스가 고부가 제품 비중을 더 높였는지를 다시 확인해야 합니다. 특히 공급 증가와 가격 하락이 동시에 나타날 때는 범용 메모리 이익 추정치가 먼저 영향을 받을 수 있으므로 제품 믹스별 실적을 분리해서 봐야 합니다.
