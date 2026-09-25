@@ -60,29 +60,27 @@ const token=await accessToken();
 const account=await accountResource(token);
 const end=kstDate(-1);
 const start=previousDate(end,DAYS-1);
-const params=new URLSearchParams();
-for(const metric of ['PAGE_VIEWS','IMPRESSIONS','ESTIMATED_EARNINGS','PAGE_VIEWS_RPM','ACTIVE_VIEW_VIEWABILITY','AD_REQUESTS_COVERAGE','PAGE_VIEWS_CTR']){
-  params.append('metrics',metric);
-}
-params.append('filters',`OWNED_SITE_DOMAIN_NAME==${DOMAIN}`);
-params.set('currencyCode','KRW');
-params.set('startDate.year',String(start.year));
-params.set('startDate.month',String(start.month));
-params.set('startDate.day',String(start.day));
-params.set('endDate.year',String(end.year));
-params.set('endDate.month',String(end.month));
-params.set('endDate.day',String(end.day));
+const baselineEnd=previousDate(start,1);
+const baselineStart=previousDate(baselineEnd,DAYS-1);
 
-const url=`https://adsense.googleapis.com/v2/${account}/reports:generate?${params.toString()}`;
-const result=await api(url,token);
-const m=cellMap(result);
-const num=(key)=>m[key]==null?null:Number(m[key]);
-const payload={
-  source:'adsense-management-api-v2',
-  site:DOMAIN,
-  accountResource:account,
-  period:{days:DAYS,startDate:iso(start),endDate:iso(end)},
-  metrics:{
+async function fetchPeriod(periodStart, periodEnd){
+  const params=new URLSearchParams();
+  for(const metric of ['PAGE_VIEWS','IMPRESSIONS','ESTIMATED_EARNINGS','PAGE_VIEWS_RPM','ACTIVE_VIEW_VIEWABILITY','AD_REQUESTS_COVERAGE','PAGE_VIEWS_CTR']){
+    params.append('metrics',metric);
+  }
+  params.append('filters',`OWNED_SITE_DOMAIN_NAME==${DOMAIN}`);
+  params.set('currencyCode','KRW');
+  params.set('startDate.year',String(periodStart.year));
+  params.set('startDate.month',String(periodStart.month));
+  params.set('startDate.day',String(periodStart.day));
+  params.set('endDate.year',String(periodEnd.year));
+  params.set('endDate.month',String(periodEnd.month));
+  params.set('endDate.day',String(periodEnd.day));
+  const url=`https://adsense.googleapis.com/v2/${account}/reports:generate?${params.toString()}`;
+  const result=await api(url,token);
+  const m=cellMap(result);
+  const num=(key)=>m[key]==null?null:Number(m[key]);
+  return {
     pageViews:num('PAGE_VIEWS'),
     adImpressions:num('IMPRESSIONS'),
     estimatedEarningsKrw:num('ESTIMATED_EARNINGS'),
@@ -90,7 +88,18 @@ const payload={
     viewabilityPct:num('ACTIVE_VIEW_VIEWABILITY')==null?null:num('ACTIVE_VIEW_VIEWABILITY')*100,
     fillRatePct:num('AD_REQUESTS_COVERAGE')==null?null:num('AD_REQUESTS_COVERAGE')*100,
     ctrPct:num('PAGE_VIEWS_CTR')==null?null:num('PAGE_VIEWS_CTR')*100
-  }
+  };
+}
+const metrics=await fetchPeriod(start,end);
+const baselineMetrics=await fetchPeriod(baselineStart,baselineEnd);
+const payload={
+  source:'adsense-management-api-v2',
+  site:DOMAIN,
+  accountResource:account,
+  period:{days:DAYS,startDate:iso(start),endDate:iso(end)},
+  baselinePeriod:{days:DAYS,startDate:iso(baselineStart),endDate:iso(baselineEnd)},
+  metrics,
+  baselineMetrics
 };
 fs.mkdirSync(path.dirname(OUT),{recursive:true});
 fs.writeFileSync(OUT,JSON.stringify(payload,null,2)+'\n');
