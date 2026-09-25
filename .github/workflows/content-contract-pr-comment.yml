@@ -1,0 +1,119 @@
+name: Content Contract PR Comment
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  explain:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Run Date Contract audit
+        id: date_audit
+        continue-on-error: true
+        env:
+          DATE_CONTRACT_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: node scripts/check-content-date-contract-v1.mjs
+
+      - name: Run Home Slot Contract audit
+        id: slot_audit
+        continue-on-error: true
+        run: node scripts/check-home-content-slot-contract-v1.mjs
+
+      - name: Explain contract results on PR
+        if: always()
+        uses: actions/github-script@v8
+        env:
+          DATE_OUTCOME: ${{ steps.date_audit.outcome }}
+          SLOT_OUTCOME: ${{ steps.slot_audit.outcome }}
+        with:
+          script: |
+            const fs = require('fs');
+            const marker = '<!-- joylab-content-contract-bot-v1 -->';
+
+            const readJson = (file) => {
+              try { return JSON.parse(fs.readFileSync(file, 'utf8')); }
+              catch { return null; }
+            };
+
+            const date = readJson('qa-artifacts/content-date-contract-v1/report.json');
+            const slot = readJson('qa-artifacts/home-content-slot-contract-v1/report.json');
+
+            const icon = (ok) => ok ? '✅' : '❌';
+            const lines = [
+              marker,
+              '## JoyLab Content Contract Bot',
+              '',
+              `${icon(process.env.DATE_OUTCOME === 'success')} **Date Contract** — ${process.env.DATE_OUTCOME}`,
+              `${icon(process.env.SLOT_OUTCOME === 'success')} **Home Slot Contract** — ${process.env.SLOT_OUTCOME}`,
+              '',
+              '**날짜 필드 의미**',
+              '- `publishedAt`: 최초 공개 발행일. 기존 콘텐츠에서 임의 최신화 금지.',
+              '- `updatedAt`: 실질적인 본문·데이터 수정일.',
+              '- `featuredAt`: 홈/추천 재노출을 위한 편집 날짜. 발행일을 바꾸지 않음.',
+              ''
+            ];
+
+            if (date) {
+              lines.push(`### Date Contract 상세 — failures ${date.totals?.failures ?? 0} / warnings ${date.totals?.warnings ?? 0}`);
+              for (const item of (date.failures || [])) {
+                lines.push(`- ❌ \`${item.rule}\` — ${item.file || 'content'}${item.before && item.after ? ` (${item.before} → ${item.after})` : ''}`);
+              }
+              for (const item of (date.warnings || [])) {
+                lines.push(`- ⚠️ \`${item.rule}\` — ${item.file || 'content'}`);
+              }
+              if (!(date.failures || []).length && !(date.warnings || []).length) lines.push('- ✅ 날짜 계약 위반 없음');
+              lines.push('');
+            }
+
+            if (slot) {
+              lines.push(`### Home Slot 상세 — failures ${slot.totals?.failures ?? 0}`);
+              lines.push(`- 에디터 추천: ${(slot.slots?.editorial || []).join(', ') || '없음'}`);
+              lines.push(`- 주요 리서치: ${(slot.slots?.major || []).join(', ') || '없음'}`);
+              lines.push(`- 최신 업데이트: ${(slot.slots?.latest || []).join(', ') || '없음'}`);
+              lines.push(`- Books: ${slot.slots?.featuredBook || '없음'}`);
+              for (const item of (slot.failures || [])) {
+                lines.push(`- ❌ \`${item.rule}\`${item.id ? ` — ${item.id}` : ''}`);
+              }
+              if (!(slot.failures || []).length) lines.push('- ✅ 슬롯 계약 위반 없음');
+              lines.push('');
+            }
+
+            if (process.env.DATE_OUTCOME !== 'success') {
+              lines.push('**수정 가이드:** 기존 `publishedAt` 정정이 정말 필요한 경우 같은 PR에서 `dateCorrectionReason`을 기록하세요.');
+            }
+            if (process.env.SLOT_OUTCOME !== 'success') {
+              lines.push('**수정 가이드:** Books를 `latestResearch`에 합치지 말고 Books 전용 슬롯에 유지하며, 최신 업데이트는 Articles에서만 선발하세요.');
+            }
+
+            const body = lines.join('\n');
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner, repo, issue_number, per_page: 100
+            });
+            const existing = comments.find((c) => c.user?.type === 'Bot' && c.body?.includes(marker));
+
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }
