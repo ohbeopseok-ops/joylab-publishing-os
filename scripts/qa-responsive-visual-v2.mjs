@@ -75,10 +75,7 @@ for (const viewport of viewports) {
       deviceScaleFactor: 1
     });
     const page = await context.newPage();
-
-    if (item.name === 'research') {
-      await page.route('**/__analytics/event', (route) => route.fulfill({ status: 204, body: '' }));
-    }
+    await page.route('**/__analytics/event', (route) => route.fulfill({ status: 204, body: '' }));
 
     const errors = [];
     page.on('pageerror', (error) => errors.push(String(error)));

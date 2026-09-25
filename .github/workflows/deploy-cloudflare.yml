@@ -411,17 +411,51 @@ jobs:
           npm install --no-save --package-lock=false playwright@1.55.0
           npx playwright install --with-deps chromium
 
+      - name: Production Mobile Visual GOLD QA
+        if: ${{ !cancelled() }}
+        id: production_mobile_visual_qa
+        env:
+          QA_BASE_URL: https://aijoylab.kr
+        run: node scripts/qa-mobile-visual-regression-v1.mjs
+
+      - name: Production Responsive Visual GOLD QA
+        if: ${{ !cancelled() }}
+        id: production_responsive_visual_qa
+        env:
+          QA_BASE_URL: https://aijoylab.kr
+        run: node scripts/qa-responsive-visual-v2.mjs
+
       - name: Weight of Silence Production Reader GOLD QA
+        if: ${{ !cancelled() }}
         id: production_reader_qa
         env:
           QA_BASE_URL: https://aijoylab.kr
         run: node scripts/qa-weight-of-silence-reader.mjs
 
       - name: Weight of Silence Production Mindmap GOLD QA
+        if: ${{ !cancelled() }}
         id: production_mindmap_qa
         env:
           QA_BASE_URL: https://aijoylab.kr
         run: node scripts/qa-weight-of-silence-mindmap.mjs
+
+      - name: Upload Production Mobile Visual GOLD QA
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: production-mobile-visual-gold
+          path: qa-artifacts/mobile-visual-regression-v1
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload Production Responsive Visual GOLD QA
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: production-responsive-visual-gold
+          path: qa-artifacts/responsive-visual-gate-v2
+          if-no-files-found: error
+          retention-days: 30
 
       - name: Upload Production Reader GOLD QA
         if: always()
@@ -448,6 +482,8 @@ jobs:
           RELEASE_DEPLOY_RESULT: ${{ steps.cloudflare_deploy.outcome }}
           RELEASE_DOMAIN_RESULT: ${{ steps.custom_domain.outcome }}
           RELEASE_SMOKE_RESULT: ${{ steps.production_smoke.outcome }}
+          RELEASE_MOBILE_VISUAL_QA_RESULT: ${{ steps.production_mobile_visual_qa.outcome }}
+          RELEASE_RESPONSIVE_VISUAL_QA_RESULT: ${{ steps.production_responsive_visual_qa.outcome }}
           RELEASE_READER_QA_RESULT: ${{ steps.production_reader_qa.outcome }}
           RELEASE_MINDMAP_QA_RESULT: ${{ steps.production_mindmap_qa.outcome }}
         run: node scripts/write-release-gate-v1.mjs

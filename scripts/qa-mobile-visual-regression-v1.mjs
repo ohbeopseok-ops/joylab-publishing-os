@@ -44,6 +44,7 @@ for (const viewport of viewports) {
       deviceScaleFactor: 1
     });
     const page = await context.newPage();
+    await page.route('**/__analytics/event', (route) => route.fulfill({ status: 204, body: '' }));
     const errors = [];
     page.on('pageerror', (error) => errors.push(String(error)));
     page.on('console', (msg) => {

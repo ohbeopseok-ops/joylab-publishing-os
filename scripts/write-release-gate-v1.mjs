@@ -10,6 +10,8 @@ const checks = {
   cloudflareDeploy: process.env.RELEASE_DEPLOY_RESULT || 'unknown',
   customDomain: process.env.RELEASE_DOMAIN_RESULT || 'unknown',
   productionSmoke: process.env.RELEASE_SMOKE_RESULT || 'unknown',
+  productionMobileVisualQa: process.env.RELEASE_MOBILE_VISUAL_QA_RESULT || 'unknown',
+  productionResponsiveVisualQa: process.env.RELEASE_RESPONSIVE_VISUAL_QA_RESULT || 'unknown',
   productionReaderQa: process.env.RELEASE_READER_QA_RESULT || 'unknown',
   productionMindmapQa: process.env.RELEASE_MINDMAP_QA_RESULT || 'unknown'
 };
@@ -48,7 +50,7 @@ if (summary) {
 
 console.log(JSON.stringify(result, null, 2));
 if (!gold) {
-  console.error('JoyLab Release Gate V1 BLOCKED: Production Smoke GREEN and every required production check are mandatory for GOLD.');
+  console.error('JoyLab Release Gate V1 BLOCKED: Production Smoke GREEN, production viewport QA, and every required production check are mandatory for GOLD.');
   process.exit(1);
 }
 console.log('JoyLab Release Gate V1 GOLD');
