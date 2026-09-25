@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "type": "JOYLAB_CHINA_SEMICONDUCTOR_RISK_BRIEF",
+  "status": "WAITING_FOR_MATERIAL_DELTA",
+  "quarter": null,
+  "previousQuarter": null,
+  "generatedAt": null,
+  "lines": [],
+  "fields": {},
+  "publishGate": {
+    "publish": false,
+    "reasons": [
+      "NO_QUARTERLY_DELTA"
+    ]
+  },
+  "destinations": {
+    "dashboard": true,
+    "blogSummary": true,
+    "kakao": true,
+    "premarketBrief": true
+  },
+  "disclaimer": "투자 판단 신호가 아니라 다음 분기 재점검을 위한 모니터링 브리핑입니다."
+}
