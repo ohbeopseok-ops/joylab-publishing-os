@@ -29,7 +29,8 @@
         "/guides/ai-infrastructure",
         "/guides/ai-security",
         "/guides/codex",
-        "/guides/how-internet-connects-the-world"
+        "/guides/how-internet-connects-the-world",
+        "/guides/ai-data-center-network"
       ],
       "minRelatedArticles": 2
     }
