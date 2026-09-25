@@ -39,6 +39,11 @@ Recommended unit names:
 Record only the actual AdSense slot IDs in `src/config/adPlacement.ts`.
 Never invent slot IDs.
 
+Before enabling a placement, confirm it is actually mounted in the target page/layout:
+- `article-end` is pre-wired in the article template and remains dormant until approval + slot ID + global enable.
+- `article-mid30`, `article-mid65`, and `archive-in-feed` are contract-defined but must be integrated and QA-tested in a separate placement change before they can be enabled.
+- A configured slot ID without a mounted `<AdSlot>` is not considered release-ready.
+
 Keep:
 - anchor/sticky ads OFF initially;
 - vignette/interstitial-style auto formats OFF initially;
@@ -46,10 +51,10 @@ Keep:
 
 ## Phase 3 — Limited rollout
 Rollout order:
-1. article-end only;
-2. article-mid65 + article-end;
-3. article-mid30 + article-mid65 + article-end;
-4. optional archive in-feed after at least six organic cards.
+1. article-end only (already pre-wired);
+2. integrate + QA article-mid65, then enable article-mid65 + article-end;
+3. integrate + QA article-mid30, then enable article-mid30 + article-mid65 + article-end;
+4. integrate + QA optional archive in-feed after at least six organic cards.
 
 Do not activate all slots in one release.
 
