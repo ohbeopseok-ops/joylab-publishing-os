@@ -62,7 +62,9 @@ for(const rel of changedArticles){
   else {
     const pillar = read(pillarFile);
     const route = '/articles/'+slugFromArticle(rel);
-    if(!pillar.includes(route)) errors.push(`pillar missing backlink to changed semiconductor article ${route}`);
+    const slug = slugFromArticle(rel);
+    const hasBacklink = pillar.includes(route) || pillar.includes(`id: '${slug}'`) || pillar.includes(`id: "${slug}"`);
+    if(!hasBacklink) errors.push(`pillar missing backlink registration for changed semiconductor article ${route}`);
   }
 }
 
