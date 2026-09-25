@@ -10,6 +10,9 @@ featured: false
 draft: false
 series: "미·중 반도체 전쟁"
 seriesOrder: 8
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "hbm us china ai chip war를 분석한 JoyLab Research 대표 이미지"
+ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
 ---
 
@@ -37,4 +40,4 @@ SK하이닉스는 HBM 선두권을 유지하고 있고 삼성전자는 HBM4를 �
 
 HBM 점유율, HBM3E→HBM4 전환, 주요 고객 인증, TSV·패키징 CAPA, ASP와 중국 HBM 자립 속도를 함께 봐야 합니다.
 
-[중국 반도체 리스크 숫자 10개 →](/articles/china-semiconductor-risk-indicators)
+[중국 반도체 리스크 핵심 지표 →](/articles/china-semiconductor-risk-indicators)
