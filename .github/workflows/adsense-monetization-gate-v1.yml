@@ -1,10 +1,20 @@
 name: AdSense Monetization Gate V1
 
 on:
+  schedule:
+    - cron: "30 0 * * *"
   workflow_dispatch:
     inputs:
+      mode:
+        description: "live = fetch AdSense + Cloudflare; snapshot = evaluate an existing JSON"
+        required: true
+        default: "live"
+        type: choice
+        options:
+          - live
+          - snapshot
       snapshot_path:
-        description: "Path to production monetization snapshot JSON"
+        description: "Used only in snapshot mode"
         required: false
         default: "ops/adsense/monetization-snapshot.json"
 
@@ -13,7 +23,10 @@ permissions:
 
 jobs:
   evaluate:
+    if: ${{ github.event_name == 'workflow_dispatch' || vars.ADSENSE_MONETIZATION_ENABLED == 'true' }}
     runs-on: ubuntu-latest
+    env:
+      OUT_DIR: qa-artifacts/adsense-monetization-gate-v1
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -24,17 +37,89 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Evaluate Monetization Gate
+      - name: Fetch AdSense article metrics
+        if: ${{ github.event_name == 'schedule' || inputs.mode == 'live' }}
         env:
-          ADSENSE_MONETIZATION_SNAPSHOT: ${{ inputs.snapshot_path }}
+          ADSENSE_OAUTH_CLIENT_ID: ${{ secrets.ADSENSE_OAUTH_CLIENT_ID }}
+          ADSENSE_OAUTH_CLIENT_SECRET: ${{ secrets.ADSENSE_OAUTH_CLIENT_SECRET }}
+          ADSENSE_OAUTH_REFRESH_TOKEN: ${{ secrets.ADSENSE_OAUTH_REFRESH_TOKEN }}
+          ADSENSE_ACCOUNT_RESOURCE: ${{ vars.ADSENSE_ACCOUNT_RESOURCE }}
+          ADSENSE_SITE_DOMAIN: aijoylab.kr
+          ADSENSE_REPORT_DAYS: "7"
+          ADSENSE_METRICS_OUT: qa-artifacts/adsense-monetization-gate-v1/adsense.json
         run: |
-          mkdir -p qa-artifacts/adsense-monetization-gate-v1
-          node scripts/evaluate-adsense-monetization-v1.mjs "$ADSENSE_MONETIZATION_SNAPSHOT" | tee qa-artifacts/adsense-monetization-gate-v1/result.json
+          mkdir -p "$OUT_DIR"
+          node scripts/fetch-adsense-metrics-v1.mjs
 
-      - name: Upload result
+      - name: Fetch Cloudflare article UX
+        if: ${{ github.event_name == 'schedule' || inputs.mode == 'live' }}
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ANALYTICS_READ_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_READ_TOKEN }}
+          MONETIZATION_UX_DAYS: "7"
+          CLOUDFLARE_UX_OUT: qa-artifacts/adsense-monetization-gate-v1/cloudflare-ux.json
+        run: node scripts/fetch-cloudflare-monetization-ux-v1.mjs
+
+      - name: Compose live monetization snapshot
+        if: ${{ github.event_name == 'schedule' || inputs.mode == 'live' }}
+        env:
+          ADSENSE_MONETIZATION_STAGE: article-end
+          ADSENSE_METRICS_JSON: qa-artifacts/adsense-monetization-gate-v1/adsense.json
+          CLOUDFLARE_UX_JSON: qa-artifacts/adsense-monetization-gate-v1/cloudflare-ux.json
+          MONETIZATION_SNAPSHOT_OUT: qa-artifacts/adsense-monetization-gate-v1/snapshot.json
+        run: node scripts/compose-adsense-monetization-snapshot-v1.mjs
+
+      - name: Evaluate Monetization Gate
+        id: gate
+        continue-on-error: true
+        env:
+          LIVE_SNAPSHOT: qa-artifacts/adsense-monetization-gate-v1/snapshot.json
+          MANUAL_SNAPSHOT: ${{ inputs.snapshot_path }}
+        run: |
+          mkdir -p "$OUT_DIR"
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.mode }}" = "live" ]; then
+            SNAPSHOT="$LIVE_SNAPSHOT"
+          else
+            SNAPSHOT="$MANUAL_SNAPSHOT"
+          fi
+          node scripts/evaluate-adsense-monetization-v1.mjs "$SNAPSHOT" | tee "$OUT_DIR/result.json"
+
+      - name: Generate Monetization Dashboard V1
+        if: always()
+        env:
+          MONETIZATION_RESULT_JSON: qa-artifacts/adsense-monetization-gate-v1/result.json
+          MONETIZATION_DASHBOARD_OUT: qa-artifacts/adsense-monetization-gate-v1/dashboard
+        run: node scripts/generate-adsense-monetization-dashboard-v1.mjs
+
+      - name: Publish decision to job summary
+        if: always()
+        shell: bash
+        run: |
+          DECISION="$(cat "$OUT_DIR/dashboard/decision.txt" 2>/dev/null || echo UNKNOWN)"
+          {
+            echo "# JoyLab Monetization Dashboard V1"
+            echo
+            echo "## $DECISION"
+            echo
+            echo "Artifact: adsense-monetization-gate-v1"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload dashboard and evidence
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: adsense-monetization-gate-v1
           path: qa-artifacts/adsense-monetization-gate-v1
           if-no-files-found: error
+          retention-days: 90
+
+      - name: Enforce rollback decision
+        if: always()
+        shell: bash
+        run: |
+          DECISION="$(cat "$OUT_DIR/dashboard/decision.txt" 2>/dev/null || echo UNKNOWN)"
+          if [ "$DECISION" = "ROLLBACK" ]; then
+            echo "Monetization Gate requested ROLLBACK."
+            exit 1
+          fi
+          test "$DECISION" = "ADVANCE" -o "$DECISION" = "COLLECT"
