@@ -73,8 +73,8 @@ async function windowMetrics(fromDaysAgo,toDaysAgo){
     clsSamples:totalSamples
   };
 }
-const current=await windowMetrics(days,0);
-const baseline=await windowMetrics(days*2,days);
+const current=await windowMetrics(days+1,1);
+const baseline=await windowMetrics(days*2+1,days+1);
 const payload={
   source:'cloudflare-analytics-engine',
   dataset,
