@@ -57,7 +57,7 @@ NVIDIA는 AI Factory 네트워크를 NVLink 기반 Scale-up, InfiniBand 또는 S
 
 ## 1.6T는 어떻게 두 배의 대역폭을 만들까
 
-대표적인 1.6T 링크는 **200Gb/s 채널 8개**를 묶어 1.6Tb/s를 만듭니다.
+대표적인 1.6T 링크는 **200Gb/s 채널 8개**를 묶어 1.6Tb/s를 만듭니다. https://www.marvell.com/content/dam/marvell/en/public-collateral/dsp/marvell-ara-t-1-6t-transmit-retimed-pam4-product-brief.pdf
 
 NVIDIA의 1.6T Active Copper Cable도 8개의 200G-PAM4 채널로 1,600Gb/s를 구성합니다. https://networking-docs.nvidia.com/mca4k00hw
 
@@ -131,6 +131,8 @@ AI 인프라 전체 병목 구조는 [AI Infrastructure Research Hub](/guides/ai
 - [GPU Compute Economics｜GPU가 많아질수록 네트워크가 병목이 되는 이유](/articles/gpu-compute-economics-rubin-2026)
 - [AI Data Center Capacity Stack｜서버를 사도 바로 돌릴 수 없는 이유](/articles/ai-data-center-capacity-stack-2026)
 - [AI 시대 글로벌 네트워크와 해저 광케이블](/articles/submarine-cables-ai-infrastructure)
+
+이 연결 구조의 기술 기준은 NVIDIA의 AI Factory networking 계층 설명을 참고했습니다. https://perspectives.nvidia.com/networking/
 
 ## FAQ
 
