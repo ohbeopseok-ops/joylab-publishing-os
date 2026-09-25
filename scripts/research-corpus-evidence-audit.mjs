@@ -107,7 +107,7 @@ const report = {
   contract:'JoyLab Claim-Source Corpus Audit V1',
   checkedAt:new Date().toISOString(),
   trafficDataStatus: gscSnapshot
-    ? 'AVAILABLE — GSC Manual Import V1 (' + (gscSnapshot.range?.status ?? 'UNKNOWN') + ' range)'
+    ? 'AVAILABLE — ' + (gscSnapshot.contract ?? gscSnapshot.source ?? 'GSC snapshot') + ' (' + (gscSnapshot.range?.status ?? 'UNKNOWN') + ' range)'
     : 'UNKNOWN — no URL-level current GSC baseline available in repository',
   gscSnapshot: gscSnapshot ? {
     importedAt: gscSnapshot.importedAt,
