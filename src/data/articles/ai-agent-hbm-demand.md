@@ -77,7 +77,7 @@ NVIDIA는 HBM에 모든 KV Cache를 계속 보관하는 대신 CPU DRAM과 NVMe 
 
 따라서 AI Agent 확산은 HBM뿐 아니라 서버 DRAM과 Enterprise SSD 수요까지 연결해서 봐야 합니다.
 
-[AI 인프라 HBM·MLCC·전력망 연결 구조 →](/articles/ai-infrastructure-hbm-mlcc-power-grid-2026)
+[AI 인프라 HBM·MLCC·전력망 연결 구조 →](https://aijoylab.kr/articles/ai-infrastructure-hbm-mlcc-power-grid-2026)
 
 ## 투자에서는 Agent 성장률보다 Memory Content를 본다
 
