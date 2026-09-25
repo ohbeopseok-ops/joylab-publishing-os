@@ -1,0 +1,20 @@
+{
+  "clusters": [
+    {
+      "name": "AI Memory",
+      "pillarSource": "src/pages/guides/ai-inference-memory.astro",
+      "pillarRoute": "/guides/ai-inference-memory",
+      "parentSource": "src/pages/guides/semiconductor-investing.astro",
+      "series": "AI 메모리 투자 가이드",
+      "requiredArticles": [
+        "what-is-hbm",
+        "samsung-hbm4-memory-outlook-2026-09-20",
+        "samsung-electronics-outlook",
+        "sk-hynix-outlook",
+        "samsung-vs-sk-hynix-ai-memory",
+        "cxmt-dram-hbm-china-memory-2026",
+        "ymtc-nand-ai-storage-2026"
+      ]
+    }
+  ]
+}
