@@ -12,9 +12,9 @@ featured: false
 draft: false
 series: "AI 추론 시대 메모리"
 seriesOrder: 1
-heroImage: "/images/research/ai-agent-hbm-demand.webp"
-heroAlt: "AI 에이전트 반복 추론과 KV Cache가 GPU HBM 수요로 이어지는 구조"
-ogImage: "/images/research/ai-agent-hbm-demand.webp"
+heroImage: "/images/research/ai-agent-hbm-demand-vector.svg"
+heroAlt: "AI 에이전트 반복 추론과 KV Cache가 HBM 수요로 이어지는 구조"
+ogImage: "/images/research/ai-agent-hbm-demand-vector.svg"
 readingTime: "약 8분"
 ---
 
