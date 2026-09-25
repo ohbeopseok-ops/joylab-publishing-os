@@ -1,0 +1,53 @@
+---
+const metrics = [
+  ['CXMT DRAM 점유율',14,'글로벌 DRAM 매출 점유율과 상승 속도'],
+  ['YMTC NAND 점유율',12,'비트 출하량·매출 점유율과 해외 확장'],
+  ['CXMT CAPA·생산성',10,'웨이퍼 투입·다이 생산성·수율 개선'],
+  ['YMTC eSSD 침투',8,'기업용 SSD와 CSP 고객 확대'],
+  ['중국 장비 국산화',10,'식각·증착·세정 등 양산 채택'],
+  ['노광·계측 국산화',8,'첨단 공정의 핵심 병목 완화 정도'],
+  ['중국 HBM 자립',12,'HBM 양산·패키징·고객 인증'],
+  ['DRAM ASP 압력',10,'중국 공급 증가가 가격 하락으로 연결되는지'],
+  ['NAND ASP 압력',8,'YMTC·신규 공급이 가격에 미치는 영향'],
+  ['해외 고객·수입대체',8,'중국 밖 고객 확대와 중국 수입 감소']
+];
+---
+<section class="china-risk-score" aria-labelledby="china-risk-score-title">
+  <div class="china-risk-score__head">
+    <small>JOYLAB RISK MODEL V1.0</small>
+    <h2 id="china-risk-score-title">China Semiconductor Risk Score · 100점</h2>
+    <p>각 지표를 0~100으로 정규화한 뒤 가중치를 적용합니다. 총점은 전망이 아니라 경쟁·공급 리스크의 강도를 일관되게 비교하기 위한 모니터링 지표입니다.</p>
+  </div>
+  <div class="china-risk-score__formula">
+    <strong>총점 = Σ(지표 점수 × 가중치) ÷ 100</strong>
+    <span>GREEN 0–29 · YELLOW 30–49 · ORANGE 50–69 · RED 70–100</span>
+  </div>
+  <div class="china-risk-score__table-wrap">
+    <table>
+      <thead><tr><th>지표</th><th>가중치</th><th>판단 기준</th></tr></thead>
+      <tbody>
+        {metrics.map(([name, weight, note]) => <tr><td><strong>{name}</strong></td><td>{weight}%</td><td>{note}</td></tr>)}
+      </tbody>
+    </table>
+  </div>
+  <div class="china-risk-score__gate">
+    <strong>RED Gate 보조 조건</strong>
+    <p>CXMT·YMTC 점유율 상승 + CAPA 확대 + 중국 외 고객 증가 + DRAM/NAND ASP 하락이 동시에 확인되면 총점과 별개로 재점검 우선순위를 높입니다.</p>
+  </div>
+</section>
+
+<style>
+  .china-risk-score{margin:30px 0;border:1px solid #dbe5f0;border-radius:18px;overflow:hidden;background:#fff}
+  .china-risk-score__head{padding:22px;background:#08162f;color:#fff}
+  .china-risk-score__head small{color:#86c7ff;font-weight:800;letter-spacing:.08em}
+  .china-risk-score__head h2{margin:7px 0 8px;font-size:1.35rem;color:#fff}
+  .china-risk-score__head p{margin:0;color:#dce8f7}
+  .china-risk-score__formula{padding:16px 20px;background:#eef6ff;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .china-risk-score__formula span{color:#475467}
+  .china-risk-score__table-wrap{overflow-x:auto}
+  .china-risk-score table{width:100%;border-collapse:collapse;font-size:.9rem}
+  .china-risk-score th,.china-risk-score td{padding:11px 12px;border-bottom:1px solid #e8edf3;text-align:left;vertical-align:top}
+  .china-risk-score th{background:#f8fafc}
+  .china-risk-score__gate{padding:18px 20px;background:#fff7ed}
+  .china-risk-score__gate p{margin:6px 0 0}
+</style>
