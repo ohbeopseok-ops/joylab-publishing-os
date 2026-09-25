@@ -30,8 +30,16 @@ const cutoff=new Date(cfg.effectivePublishedAt+'T00:00:00Z');
 const failures=[];
 const checked=[];
 
-for(const file of fs.readdirSync(dir).filter(x=>x.endsWith('.md')).sort()){
-  const full=path.join(dir,file);
+function walkMarkdown(currentDir){
+  return fs.readdirSync(currentDir,{withFileTypes:true}).flatMap((entry)=>{
+    const full=path.join(currentDir,entry.name);
+    if(entry.isDirectory()) return walkMarkdown(full);
+    return entry.isFile() && entry.name.endsWith('.md') ? [full] : [];
+  });
+}
+
+for(const full of walkMarkdown(dir).sort()){
+  const file=path.relative(dir,full).replace(/\\/g,'/');
   const text=fs.readFileSync(full,'utf8');
   if(fm(text,'draft')==='true') continue;
   if(fm(text,'category')!==cfg.category) continue;
