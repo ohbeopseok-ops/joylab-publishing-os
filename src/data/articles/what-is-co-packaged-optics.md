@@ -144,6 +144,8 @@ CPO는 다음 구조의 가운데에 위치합니다.
 
 바로 앞 단계인 링크 속도 전환은 [800G에서 1.6T로｜AI 데이터센터 네트워크는 왜 두 배 빨라져야 하나](/articles/ai-network-800g-1-6t)에서 확인할 수 있습니다.
 
+구현 기술은 [Silicon Photonics란 무엇인가｜AI 네트워크에서 빛을 칩으로 가져오는 기술](/articles/silicon-photonics-ai-network)에서 이어집니다.
+
 데이터센터 밖의 장거리 글로벌 연결은 [AI 시대 글로벌 네트워크와 해저 광케이블](/articles/submarine-cables-ai-infrastructure)에서 이어집니다.
 
 ## FAQ
