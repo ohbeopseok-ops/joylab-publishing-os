@@ -69,6 +69,7 @@ async function fetchPeriod(periodStart, periodEnd){
     params.append('metrics',metric);
   }
   params.append('filters',`OWNED_SITE_DOMAIN_NAME==${DOMAIN}`);
+  params.append('filters',`PAGE_URL=@${DOMAIN}/articles/`);
   params.set('currencyCode','KRW');
   params.set('startDate.year',String(periodStart.year));
   params.set('startDate.month',String(periodStart.month));
