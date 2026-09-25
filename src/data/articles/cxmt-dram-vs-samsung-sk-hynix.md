@@ -67,3 +67,9 @@ CXMT와 삼성전자·SK하이닉스를 비교할 때는 제품 스펙, 양산 �
 - [CXMT — 5세대 DRAM 기술 플랫폼 양산 발표](https://www.cxmt.com/en/news/info_22.html)
 - [삼성전자 실적발표](https://www.samsung.com/global/ir/financial-information/earnings-release/)
 - [SK하이닉스 IR](https://www.skhynix.com/ir/UI-FR-IR99/)
+
+## CXMT가 커져도 선두 업체의 이익이 바로 줄어드는 것은 아니다
+
+메모리 시장은 하나의 제품으로 구성되지 않습니다. 모바일 DRAM, PC DRAM, 서버 DRAM, HBM은 고객 요구와 가격 구조가 다릅니다. CXMT가 특정 범용 제품에서 출하를 늘리더라도 삼성전자·SK하이닉스가 HBM과 서버용 고부가 제품 비중을 높이면 전체 이익 충격은 제한될 수 있습니다. 반대로 범용 DRAM 공급 증가와 글로벌 수요 둔화가 겹치면 가격 압력은 더 커질 수 있습니다.
+
+따라서 경쟁 분석은 시장점유율만 보지 않고 **제품 믹스 × 가격 × 원가 × 고객 구조**로 봐야 합니다. 다음 분기에는 CXMT의 제품 발표가 실제 공급 확대와 연결되는지, 한국 업체의 HBM·서버 DRAM 매출 비중이 얼마나 높아지는지, 범용 DRAM 가격이 재고 변화에 어떻게 반응하는지를 함께 확인하는 것이 좋습니다.
