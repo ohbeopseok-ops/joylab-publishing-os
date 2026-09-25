@@ -51,7 +51,8 @@ function analyze(text, file) {
   const category = fmValue(fm, 'category');
   const featured = boolFm(fm, 'featured');
   const homeFeatured = boolFm(fm, 'homeFeatured');
-  const hp = Number(fmValue(fm, 'homePriority'));
+  const hpRaw = fmValue(fm, 'homePriority');
+  const hp = hpRaw === '' ? Number.NaN : Number(hpRaw);
   const homePriority = Number.isFinite(hp) ? hp : null;
   const sourceSection = (body.match(/(?:^|\n)##\s+(?:Sources?|출처|근거)\s*\n([\s\S]*?)(?=\n##\s+|$)/i) || [,''])[1];
   const hasArticleSources = /https?:\/\//.test(sourceSection);
