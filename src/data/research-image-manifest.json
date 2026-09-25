@@ -1695,5 +1695,24 @@
         "caption": "Bandwidth → Lane Speed → Power/bit → Reach → Thermal → Serviceability 순서로 봅니다."
       }
     ]
+  },
+  "what-is-co-packaged-optics": {
+    "hero": {
+      "src": "/images/research/ai-data-center-network/what-is-co-packaged-optics-hero.svg",
+      "alt": "AI 데이터센터 스위치 ASIC 옆에 광학 엔진을 통합한 CPO 구조와 플러거블 광모듈 차이를 보여주는 JoyLab 대표 이미지",
+      "caption": "CPO는 광학 엔진을 ASIC 가까이 가져와 대역폭 밀도와 전력/bit 문제를 줄이는 아키텍처입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "CPO와 플러거블 광모듈 차이의 핵심 기술 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "200G SerDes, 전기 손실, 전력 효율, 서비스성 변화를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "CPO를 Bandwidth Density Power per Bit Reach Thermal Serviceability 순서로 정리한 JoyLab 프레임워크 이미지",
+        "caption": "Bandwidth Density → Power/bit → Reach → Thermal → Serviceability 순서로 판단합니다."
+      }
+    ]
   }
 }
