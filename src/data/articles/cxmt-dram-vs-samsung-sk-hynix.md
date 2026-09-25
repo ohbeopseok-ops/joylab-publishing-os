@@ -10,6 +10,9 @@ featured: false
 draft: false
 series: "미·중 반도체 전쟁"
 seriesOrder: 4
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "cxmt dram vs samsung sk hynix를 분석한 JoyLab Research 대표 이미지"
+ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
 ---
 
