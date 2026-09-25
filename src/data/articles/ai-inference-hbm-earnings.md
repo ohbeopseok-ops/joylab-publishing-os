@@ -58,7 +58,7 @@ NVIDIA는 agentic inference에서 KV Cache 관리가 핵심 인프라 문제라�
 5. 장기공급계약
 6. DRAM과 HBM 사이 생산 배분
 
-삼성전자와 SK하이닉스 모두 2026년 실적 발표에서 AI 인프라 투자와 Agentic AI 확산을 메모리 수요의 핵심 변수로 언급했고, HBM4 공급 확대를 진행하고 있습니다.
+삼성전자와 SK하이닉스 모두 2026년 실적 발표에서 AI 인프라 투자와 Agentic AI 확산을 메모리 수요의 핵심 변수로 언급했고, HBM4 공급 확대를 진행하고 있습니다. [Samsung 2Q26](https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results) · [SK hynix 2Q26](https://news.skhynix.com/en/q2-2026-business-results/)
 
 ## 3단계: 출하가 늘어도 ASP가 유지돼야 한다
 
@@ -88,23 +88,23 @@ HBM4 이후 기술 구조는 다음 글에서 더 자세히 볼 수 있습니다
 
 ## 삼성전자 2Q26에서 확인되는 연결고리
 
-삼성전자는 2026년 2분기 DS부문 매출 127.5조원, 영업이익 89.2조원을 발표했습니다.
+삼성전자는 2026년 2분기 DS부문 매출 127.5조원, 영업이익 89.2조원을 발표했습니다. [Samsung 2Q26 Results](https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results)
 
-회사는 메모리 사업이 Agentic AI 확산에 따른 서버 제품 수요에 대응하면서 분기 최대 실적을 기록했다고 설명했고, HBM4 공급 확대와 HBM4E 샘플 출하도 언급했습니다.
+회사는 메모리 사업이 Agentic AI 확산에 따른 서버 제품 수요에 대응하면서 분기 최대 실적을 기록했다고 설명했고, HBM4 공급 확대와 HBM4E 샘플 출하도 언급했습니다. [Samsung 2Q26 Memory](https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results)
 
 또한 서버 DRAM, eSSD, HBM 수요가 AI 인프라 CAPEX와 Agentic AI 확산에 따라 강세를 보일 것으로 전망했습니다.
 
-여기서 중요한 것은 **AI 수요 → 서버 제품 믹스 → 가격 → HBM4 공급 → 이익**이라는 연결이 회사 실적 설명에 직접 나타났다는 점입니다.
+여기서 중요한 것은 **AI 수요 → 서버 제품 믹스 → 가격 → HBM4 공급 → 이익**이라는 연결이 회사 실적 설명에 직접 나타났다는 점입니다. [Samsung 2Q26 Results](https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results)
 
 [삼성전자 AI 메모리 투자 구조 →](/articles/samsung-electronics-outlook)
 
 ## SK하이닉스 2Q26에서 확인되는 연결고리
 
-SK하이닉스는 2026년 2분기 매출 79.3187조원, 영업이익 60.5426조원을 발표했습니다.
+SK하이닉스는 2026년 2분기 매출 79.3187조원, 영업이익 60.5426조원을 발표했습니다. [SK hynix 2Q26 Results](https://news.skhynix.com/en/q2-2026-business-results/)
 
-회사는 AI 인프라 투자 확대와 고부가 AI 서버용 메모리 판매가 가격 상승과 실적 개선을 이끌었다고 설명했습니다. HBM4는 2분기에 양산 출하를 시작했고, 하반기 생산 확대를 계획했습니다.
+회사는 AI 인프라 투자 확대와 고부가 AI 서버용 메모리 판매가 가격 상승과 실적 개선을 이끌었다고 설명했습니다. HBM4는 2분기에 양산 출하를 시작했고, 하반기 생산 확대를 계획했습니다. [SK hynix 2Q26](https://news.skhynix.com/en/q2-2026-business-results/)
 
-또한 약 10개 핵심 고객과 장기공급계약을 체결했다고 밝혔습니다.
+또한 약 10개 핵심 고객과 장기공급계약을 체결했다고 밝혔습니다. [SK hynix LTAs](https://news.skhynix.com/en/q2-2026-business-results/)
 
 이는 HBM 투자에서 다음 연결고리가 중요하다는 사례입니다.
 
