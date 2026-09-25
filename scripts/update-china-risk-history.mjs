@@ -118,6 +118,46 @@ function normalizedContribution(metric, coveredWeight) {
   return metric.score * metric.weight / coveredWeight;
 }
 
+
+const WATCH_MAP = {
+  cxmtShare: '삼성전자·SK하이닉스의 중국향 범용 DRAM 매출 비중과 DRAM ASP',
+  ymtcShare: '삼성전자 NAND·SK하이닉스/Solidigm Enterprise SSD 매출 비중과 NAND ASP',
+  cxmtCapa: 'CXMT 유효 Bit Supply 증가율과 삼성전자·SK하이닉스 DRAM Bit Growth',
+  ymtcEssd: 'YMTC 해외 eSSD 고객 수와 삼성전자·Solidigm Enterprise SSD 매출 성장률',
+  equipment: '중국 장비 실제 양산 채택률과 CXMT·YMTC 수율 개선 속도',
+  lithography: '중국 첨단 노광·계측의 반복 양산 사용 여부와 첨단공정 수율',
+  hbm: '삼성전자·SK하이닉스 HBM4 고객 인증·출하량·HBM 매출 비중',
+  dramAsp: '삼성전자·SK하이닉스 분기 DRAM ASP와 HBM 매출 비중',
+  nandAsp: '삼성전자 NAND·Solidigm 분기 ASP와 Enterprise SSD 매출 비중',
+  overseas: '중국 메모리의 중국 외 고객 수와 삼성전자·SK하이닉스 중국향 매출 비중'
+};
+
+function buildInvestmentBrief(previous,current,delta) {
+  const attribution = delta?.attribution ?? null;
+  const primary = attribution?.primaryDriver ?? null;
+  const primaryName = primary?.name ?? '주요 지표';
+  const primaryContribution = typeof primary?.contribution === 'number' ? signed(primary.contribution,1) : '0';
+  const nextNumber = WATCH_MAP[primary?.id] ?? '삼성전자·SK하이닉스의 DRAM·NAND ASP, HBM 매출 비중, 중국향 매출 비중';
+
+  const direction = delta.total > 0 ? '상승' : delta.total < 0 ? '하락' : '보합';
+  const riskLine = `현재 Risk: ${current.totalScore}점(${current.totalBand}) · Structural ${current.structuralScore} · Earnings ${current.earningsScore} · Coverage ${current.coveredWeight}%`;
+  const deltaLine = `전분기 변화: ${previous.quarter} → ${current.quarter}, Total ${signed(delta.total)}점(${direction}) · Structural ${signed(delta.structural)} · Earnings ${signed(delta.earnings)}`;
+  const causeLine = primary
+    ? `가장 큰 원인: ${primaryName}이 Total Risk에 ${primaryContribution}p 기여했습니다.`
+    : '가장 큰 원인: 단일 지표의 유의미한 기여도 변화가 확인되지 않았습니다.';
+  const nextLine = `다음 확인 숫자: ${nextNumber}`;
+
+  return {
+    currentRisk:riskLine,
+    quarterChange:deltaLine,
+    primaryCause:causeLine,
+    nextNumber:nextLine,
+    lines:[riskLine,deltaLine,causeLine,nextLine],
+    primaryDriverId:primary?.id ?? null,
+    generatedRule:'JOYLAB_CHINA_SEMICONDUCTOR_BRIEF_V1'
+  };
+}
+
 function buildAttribution(previous, current, metricDeltas) {
   const drivers = Object.keys({ ...(previous.metrics ?? {}), ...(current.metrics ?? {}) })
     .map((id) => {
@@ -210,6 +250,7 @@ function computeDelta(previous, current) {
     metrics:metricDeltas
   };
   delta.attribution = buildAttribution(previous,current,metricDeltas);
+  delta.investmentBrief = buildInvestmentBrief(previous,current,delta);
   return delta;
 }
 
@@ -251,7 +292,12 @@ function selfTest() {
   assert.equal(delta.attribution.bandChanged,true);
   assert.match(delta.attribution.summary,/DRAM ASP 압력/);
   assert.match(delta.attribution.summary,/YELLOW에서 ORANGE/);
-  console.log('China semiconductor risk history + attribution self-test PASS');
+  assert.equal(delta.investmentBrief.lines.length,4);
+  assert.match(delta.investmentBrief.currentRisk,/현재 Risk:/);
+  assert.match(delta.investmentBrief.quarterChange,/전분기 변화:/);
+  assert.match(delta.investmentBrief.primaryCause,/DRAM ASP 압력/);
+  assert.match(delta.investmentBrief.nextNumber,/삼성전자·SK하이닉스 분기 DRAM ASP/);
+  console.log('China semiconductor risk history + attribution + investment brief self-test PASS');
 }
 
 if (SELF_TEST) {
