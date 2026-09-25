@@ -10,16 +10,19 @@ featured: false
 draft: false
 series: "미·중 반도체 전쟁"
 seriesOrder: 2
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "us china chip export control timeline를 분석한 JoyLab Research 대표 이미지"
+ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
 ---
 
 ## 2022년: 첨단 칩과 제조능력 통제가 시작됐다
 
-현재의 대규모 대중 반도체 통제 체계는 2022년 미국 상무부 BIS가 첨단 컴퓨팅 칩과 반도체 제조장비에 대한 규제를 강화하면서 본격화됐습니다. 목표는 중국이 첨단 AI·슈퍼컴퓨팅용 칩을 확보하거나 직접 생산하는 능력을 제한하는 것이었습니다.
+현재의 대규모 대중 반도체 통제 체계는 2022년 미국 상무부 BIS가 첨단 컴퓨팅 칩과 반도체 제조장비에 대한 규제를 강화하면서 본격화됐습니다. 목표는 중국이 첨단 AI·슈퍼컴퓨팅용 칩을 확보하거나 직접 생산하는 능력을 제한하는 것이었습니다. [미국 BIS 공식 자료](https://www.bis.gov/)
 
 ## 2023~2024년: 규제가 장비와 HBM으로 확대됐다
 
-규제는 우회 수출과 성능 기준을 보완하는 방향으로 계속 강화됐습니다. 2024년에는 반도체 제조장비와 관련 소프트웨어뿐 아니라 **HBM까지 통제 범위에 포함**되며 AI 시스템 전체 공급망을 겨냥하는 형태로 확대됐습니다.
+규제는 우회 수출과 성능 기준을 보완하는 방향으로 계속 강화됐습니다. 2024년에는 반도체 제조장비와 관련 소프트웨어뿐 아니라 **HBM까지 통제 범위에 포함**되며 AI 시스템 전체 공급망을 겨냥하는 형태로 확대됐습니다. [BIS 2024년 12월 발표](https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military)
 
 [HBM이 미·중 반도체 전쟁의 핵심인 이유 →](/articles/hbm-us-china-ai-chip-war)
 
