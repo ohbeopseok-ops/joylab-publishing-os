@@ -1334,5 +1334,195 @@
         "caption": "새 루틴을 더하기 전에 먼저 하지 않을 일을 줄입니다."
       }
     ]
+  },
+  "us-china-semiconductor-war": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "미·중 반도체 전쟁 총정리 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미·중 반도체 전쟁 총정리 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "미·중 반도체 전쟁 총정리 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "us-china-chip-export-control-timeline": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "미·중 반도체 규제 타임라인 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미·중 반도체 규제 타임라인 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "미·중 반도체 규제 타임라인 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "samsung-xian-vs-sk-hynix-wuxi": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "삼성전자 시안 vs SK하이닉스 우시 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "삼성전자 시안 vs SK하이닉스 우시 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "삼성전자 시안 vs SK하이닉스 우시 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "cxmt-dram-vs-samsung-sk-hynix": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "CXMT는 삼성·SK DRAM을 얼마나 따라왔나 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "CXMT는 삼성·SK DRAM을 얼마나 따라왔나 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "CXMT는 삼성·SK DRAM을 얼마나 따라왔나 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ymtc-nand-vs-samsung-sk-hynix": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "YMTC는 삼성·SK NAND를 얼마나 따라왔나 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "YMTC는 삼성·SK NAND를 얼마나 따라왔나 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "YMTC는 삼성·SK NAND를 얼마나 따라왔나 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "china-memory-self-sufficiency": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "중국 메모리 자립을 봐야 하는 이유 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "중국 메모리 자립을 봐야 하는 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "중국 메모리 자립을 봐야 하는 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "china-semiconductor-equipment-localization": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "중국 반도체 장비 국산화 어디까지 왔나 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "중국 반도체 장비 국산화 어디까지 왔나 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "중국 반도체 장비 국산화 어디까지 왔나 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "hbm-us-china-ai-chip-war": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "HBM이 미·중 반도체 전쟁의 핵심인 이유 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "HBM이 미·중 반도체 전쟁의 핵심인 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "HBM이 미·중 반도체 전쟁의 핵심인 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "cxmt-ymtc-memory-oversupply": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "CXMT·YMTC 증설이 메모리 공급과잉을 만들까 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "CXMT·YMTC 증설이 메모리 공급과잉을 만들까 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "CXMT·YMTC 증설이 메모리 공급과잉을 만들까 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "china-semiconductor-risk-indicators": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "중국 반도체 자립｜투자자가 볼 숫자 10개 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "중국 반도체 자립｜투자자가 볼 숫자 10개 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "중국 반도체 자립｜투자자가 볼 숫자 10개 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
   }
 }

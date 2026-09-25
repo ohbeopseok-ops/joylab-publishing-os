@@ -1,0 +1,41 @@
+---
+const { currentId } = Astro.props;
+const items = [
+  ['us-china-semiconductor-war','01','미·중 반도체 전쟁 총정리'],
+  ['us-china-chip-export-control-timeline','02','미·중 반도체 규제 타임라인'],
+  ['samsung-xian-vs-sk-hynix-wuxi','03','삼성전자 시안 vs SK하이닉스 우시'],
+  ['cxmt-dram-vs-samsung-sk-hynix','04','CXMT는 삼성·SK DRAM을 얼마나 따라왔나'],
+  ['ymtc-nand-vs-samsung-sk-hynix','05','YMTC는 삼성·SK NAND를 얼마나 따라왔나'],
+  ['china-memory-self-sufficiency','06','중국 메모리 자립을 봐야 하는 이유'],
+  ['china-semiconductor-equipment-localization','07','중국 반도체 장비 국산화 어디까지 왔나'],
+  ['hbm-us-china-ai-chip-war','08','HBM이 미·중 반도체 전쟁의 핵심인 이유'],
+  ['cxmt-ymtc-memory-oversupply','09','CXMT·YMTC 증설이 공급과잉을 만들까'],
+  ['china-semiconductor-risk-indicators','10','중국 반도체 자립｜투자자가 볼 숫자 10개']
+];
+const currentIndex = items.findIndex(([id]) => id === currentId);
+const prev = currentIndex > 0 ? items[currentIndex - 1] : null;
+const next = currentIndex >= 0 && currentIndex < items.length - 1 ? items[currentIndex + 1] : null;
+---
+<nav class="china-semiconductor-series" aria-label="미·중 반도체 전쟁 10편 시리즈">
+  <div class="china-semiconductor-series__head">
+    <small>JOYLAB · US-CHINA SEMICONDUCTOR WAR</small>
+    <strong>10편 콘텐츠 허브</strong>
+    <a href="/articles/us-china-semiconductor-war">전체 허브 보기 →</a>
+  </div>
+  <div class="china-semiconductor-series__links">
+    {prev ? <a href={`/articles/${prev[0]}`}>← {prev[1]}. {prev[2]}</a> : <span></span>}
+    {next ? <a href={`/articles/${next[0]}`}>{next[1]}. {next[2]} →</a> : <a href="/articles/us-china-semiconductor-war">허브로 돌아가기 →</a>}
+  </div>
+</nav>
+
+<style>
+  .china-semiconductor-series{margin:28px 0;border:1px solid #dfe7f1;border-radius:18px;background:#f7f9fc;padding:20px}
+  .china-semiconductor-series__head{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+  .china-semiconductor-series__head small{font-size:.72rem;letter-spacing:.08em;color:#2563eb;font-weight:800}
+  .china-semiconductor-series__head strong{font-size:1rem;color:#101828}
+  .china-semiconductor-series__head>a{margin-left:auto;color:#175cd3;text-decoration:none;font-weight:700}
+  .china-semiconductor-series__links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+  .china-semiconductor-series__links a{display:block;padding:12px 14px;border-radius:12px;background:#fff;border:1px solid #e5eaf1;color:#172033;text-decoration:none;font-weight:700;line-height:1.45}
+  .china-semiconductor-series__links a:last-child{text-align:right}
+  @media (max-width:640px){.china-semiconductor-series__links{grid-template-columns:1fr}.china-semiconductor-series__links a:last-child{text-align:left}.china-semiconductor-series__head>a{margin-left:0;width:100%}}
+</style>

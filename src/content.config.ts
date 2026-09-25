@@ -22,6 +22,7 @@ const articles = defineCollection({
     seoTitle: z.string().optional(),
     canonical: z.string().optional(),
     series: z.string().optional(),
+    seriesOrder: z.number().int().min(1).max(999).optional(),
     readingTime: z.string().optional(),
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),

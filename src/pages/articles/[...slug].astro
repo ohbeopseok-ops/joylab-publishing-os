@@ -2,6 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleGrowthPath from '../../components/ArticleGrowthPath.astro';
 import AdSlot from '../../components/AdSlot.astro';
+import ArticleSeoSchema from '../../components/ArticleSeoSchema.astro';
+import ChinaSemiconductorSeriesNav from '../../components/ChinaSemiconductorSeriesNav.astro';
+import ChinaSemiconductorRiskScore from '../../components/ChinaSemiconductorRiskScore.astro';
 import '../../styles/interactive.css';
 import '../../styles/research-v2.css';
 import '../../styles/visual-placement.css';
@@ -28,11 +31,16 @@ export async function getStaticPaths() {
       .slice(0, 4)
       .map(({ item }) => item);
 
-    return { params: { slug: article.id }, props: { article, related } };
+    const seriesItems = article.data.series
+      ? articles
+          .filter((item) => item.data.series === article.data.series)
+          .sort((a, b) => (a.data.seriesOrder ?? 999) - (b.data.seriesOrder ?? 999) || a.data.publishedAt.getTime() - b.data.publishedAt.getTime() || a.id.localeCompare(b.id))
+      : [];
+    return { params: { slug: article.id }, props: { article, related, seriesItems } };
   });
 }
 
-const { article, related } = Astro.props;
+const { article, related, seriesItems } = Astro.props;
 const { Content } = await render(article);
 const title = article.data.seoTitle ?? article.data.title;
 const researchVisual = researchImageManifest[article.id as keyof typeof researchImageManifest];
@@ -67,6 +75,8 @@ const isMoneyBasics = article.data.series === '돈 공부 기초';
 const isUsRatesSeries = article.data.series === '미국 금리 리서치';
 const isUsMacroSeries = article.data.series === '미국 경제지표 읽는 법';
 const isGrowthResearch = article.data.category === '성장·리더십' || article.data.series === '침묵의 기술';
+const isChinaSemiconductorSeries = article.data.series === '미·중 반도체 전쟁';
+const isChinaSemiconductorRiskArticle = article.id === 'china-semiconductor-risk-indicators';
 const aiEconomicsClusterIds = new Set(['ai-bubble-vs-compute-supercycle-2026','openai-anthropic-ipo-cash-burn-2026','ai-infrastructure-hbm-mlcc-power-grid-2026','samsung-hbm4-memory-outlook-2026-09-20','ai-api-key-compute-theft-2026']);
 const isAiEconomicsCluster = aiEconomicsClusterIds.has(article.id);
 const aiSecurityClusterIds = new Set(['ai-api-key-compute-theft-2026','ai-agent-security-prompt-to-rce-2026','mcp-security-tool-poisoning-2026','ai-database-security-data-layer-2026']);
@@ -288,6 +298,8 @@ const scoreCriteria = [
           <div id="article-content" class="article-body"><Content /></div>
         </div>
 
+        {isChinaSemiconductorRiskArticle && <ChinaSemiconductorRiskScore />}
+        {isChinaSemiconductorSeries && <ChinaSemiconductorSeriesNav currentId={article.id} />}
         <AdSlot placement="article-end" />
 
         {isCodexSeries && (
@@ -478,25 +490,5 @@ const scoreCriteria = [
     })();
   </script>
 
-  <script type="application/ld+json" set:html={JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    '@id': new URL(`/articles/${article.id}#article`, Astro.site ?? Astro.url.origin).toString(),
-    headline: article.data.title,
-    description: article.data.description,
-    inLanguage: 'ko-KR',
-    datePublished: article.data.publishedAt.toISOString(),
-    dateModified: (article.data.updatedAt ?? article.data.publishedAt).toISOString(),
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': article.data.canonical ?? new URL(`/articles/${article.id}`, Astro.site ?? Astro.url.origin).toString()
-    },
-    ...(articleImageUrl ? { image: [articleImageUrl] } : {}),
-    author: {
-      '@type': article.data.author === 'JoyLab' ? 'Organization' : 'Person',
-      name: article.data.author
-    },
-    publisher: { '@id': 'https://aijoylab.kr/#organization' },
-    isPartOf: { '@id': 'https://aijoylab.kr/#website' }
-  })}></script>
+  <ArticleSeoSchema article={article} articleImageUrl={articleImageUrl} seriesItems={seriesItems} />
 </BaseLayout>
