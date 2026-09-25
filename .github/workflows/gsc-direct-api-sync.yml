@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '30 21 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/gsc-direct-api-sync.yml'
+      - 'scripts/gsc-api-sync.mjs'
   pull_request:
     branches: [main]
     paths:
