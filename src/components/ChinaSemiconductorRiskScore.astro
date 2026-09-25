@@ -1,53 +1,207 @@
 ---
-const metrics = [
-  ['CXMT DRAM 점유율',14,'글로벌 DRAM 매출 점유율과 상승 속도'],
-  ['YMTC NAND 점유율',12,'비트 출하량·매출 점유율과 해외 확장'],
-  ['CXMT CAPA·생산성',10,'웨이퍼 투입·다이 생산성·수율 개선'],
-  ['YMTC eSSD 침투',8,'기업용 SSD와 CSP 고객 확대'],
-  ['중국 장비 국산화',10,'식각·증착·세정 등 양산 채택'],
-  ['노광·계측 국산화',8,'첨단 공정의 핵심 병목 완화 정도'],
-  ['중국 HBM 자립',12,'HBM 양산·패키징·고객 인증'],
-  ['DRAM ASP 압력',10,'중국 공급 증가가 가격 하락으로 연결되는지'],
-  ['NAND ASP 압력',8,'YMTC·신규 공급이 가격에 미치는 영향'],
-  ['해외 고객·수입대체',8,'중국 밖 고객 확대와 중국 수입 감소']
-];
+import model from '../data/china-semiconductor-risk-v1.1.json';
+
+const known = model.metrics.filter((metric) => metric.current);
+const coveredWeight = known.reduce((sum, metric) => sum + metric.weight, 0);
+const weightedPoints = known.reduce((sum, metric) => sum + (metric.current?.score ?? 0) * metric.weight / 100, 0);
+const provisionalScore = Math.round((weightedPoints / coveredWeight) * 100);
+
+const structuralKnown = known.filter((metric) => metric.dimension === 'structural');
+const structuralWeight = structuralKnown.reduce((sum, metric) => sum + metric.weight, 0);
+const structuralPoints = structuralKnown.reduce((sum, metric) => sum + (metric.current?.score ?? 0) * metric.weight / 100, 0);
+const structuralScore = structuralWeight ? Math.round((structuralPoints / structuralWeight) * 100) : null;
+
+const earningsKnown = known.filter((metric) => metric.dimension === 'earnings');
+const earningsWeight = earningsKnown.reduce((sum, metric) => sum + metric.weight, 0);
+const earningsPoints = earningsKnown.reduce((sum, metric) => sum + (metric.current?.score ?? 0) * metric.weight / 100, 0);
+const earningsScore = earningsWeight ? Math.round((earningsPoints / earningsWeight) * 100) : null;
+
+const getBand = (score) => model.bands.find((band) => score >= band.min && score <= band.max) ?? model.bands[0];
+const currentBand = getBand(provisionalScore);
+
+const scenarioRows = model.scenarios.map((scenario) => {
+  const cxmt = model.metrics.find((metric) => metric.id === 'cxmtShare');
+  const currentCxmtContribution = ((cxmt?.current?.score ?? 0) * (cxmt?.weight ?? 0)) / 100;
+  const scenarioCxmtContribution = (scenario.shareScore * (cxmt?.weight ?? 0)) / 100;
+  const adjustedPoints = weightedPoints - currentCxmtContribution + scenarioCxmtContribution;
+  const score = Math.round((adjustedPoints / coveredWeight) * 100);
+  return { ...scenario, score, band: getBand(score).label };
+});
+
+const chartPoints = model.backtest.map((row, index) => {
+  const x = 30 + index * 120;
+  const y = 110 - row.score;
+  return { ...row, x, y };
+});
+const polyline = chartPoints.map((point) => `${point.x},${point.y}`).join(' ');
 ---
 <section class="china-risk-score" aria-labelledby="china-risk-score-title">
   <div class="china-risk-score__head">
-    <small>JOYLAB RISK MODEL V1.0</small>
-    <h2 id="china-risk-score-title">China Semiconductor Risk Score · 100점</h2>
-    <p>각 지표를 0~100으로 정규화한 뒤 가중치를 적용합니다. 총점은 전망이 아니라 경쟁·공급 리스크의 강도를 일관되게 비교하기 위한 모니터링 지표입니다.</p>
+    <small>JOYLAB RISK MODEL V{model.version}</small>
+    <h2 id="china-risk-score-title">China Semiconductor Risk Dashboard</h2>
+    <p>점유율 자체보다 가격·고객·생산능력으로 실적 전달 여부를 확인합니다. 미확인 지표는 임의 추정하지 않고 데이터 커버리지에서 제외합니다.</p>
   </div>
+
+  <div class="china-risk-score__summary">
+    <div>
+      <span>Provisional Total</span>
+      <strong>{provisionalScore}</strong>
+      <em>{currentBand.label}</em>
+    </div>
+    <div>
+      <span>Structural Risk</span>
+      <strong>{structuralScore ?? '—'}</strong>
+      <em>{structuralScore === null ? 'UNKNOWN' : getBand(structuralScore).label}</em>
+    </div>
+    <div>
+      <span>Earnings Transmission</span>
+      <strong>{earningsScore ?? '—'}</strong>
+      <em>{earningsScore === null ? 'UNKNOWN' : getBand(earningsScore).label}</em>
+    </div>
+    <div>
+      <span>Data Coverage</span>
+      <strong>{coveredWeight}%</strong>
+      <em>{known.length}/10 metrics</em>
+    </div>
+  </div>
+
   <div class="china-risk-score__formula">
-    <strong>총점 = Σ(지표 점수 × 가중치) ÷ 100</strong>
+    <strong>총점 = Σ(지표 점수 × 가중치) ÷ 확인된 가중치</strong>
     <span>GREEN 0–29 · YELLOW 30–49 · ORANGE 50–69 · RED 70–100</span>
   </div>
+
   <div class="china-risk-score__table-wrap">
     <table>
-      <thead><tr><th>지표</th><th>가중치</th><th>판단 기준</th></tr></thead>
+      <thead>
+        <tr><th>지표</th><th>가중치</th><th>0 / 25 / 50 / 75 / 100점 기준</th><th>현재</th></tr>
+      </thead>
       <tbody>
-        {metrics.map(([name, weight, note]) => <tr><td><strong>{name}</strong></td><td>{weight}%</td><td>{note}</td></tr>)}
+        {model.metrics.map((metric) => (
+          <tr>
+            <td><strong>{metric.name}</strong><small>{metric.dimension === 'earnings' ? 'Earnings' : 'Structural'}</small></td>
+            <td>{metric.weight}%</td>
+            <td>{metric.bands.join(' → ')}</td>
+            <td>
+              {metric.current
+                ? <><strong>{metric.current.value}{metric.current.unit.startsWith('%') ? metric.current.unit : ` ${metric.current.unit}`}</strong><small>{metric.current.score}점 · {metric.current.asOf}</small></>
+                : <span class="unknown">UNKNOWN</span>}
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   </div>
+
+  <div class="china-risk-score__split">
+    <div class="panel">
+      <small>QUARTERLY SCORE HISTORY · BACKTEST SEED</small>
+      <h3>Earnings Transmission 검증</h3>
+      <svg viewBox="0 0 300 130" role="img" aria-label="2019년 1분기, 2022년 4분기, 2026년 2분기 Earnings Transmission Score">
+        <line x1="20" y1="110" x2="280" y2="110"></line>
+        <line x1="20" y1="10" x2="20" y2="110"></line>
+        <polyline points={polyline}></polyline>
+        {chartPoints.map((point) => (
+          <g>
+            <circle cx={point.x} cy={point.y} r="5"></circle>
+            <text x={point.x} y={Math.min(126, point.y + 18)} text-anchor="middle">{point.period}</text>
+            <text x={point.x} y={Math.max(12, point.y - 10)} text-anchor="middle">{point.score}</text>
+          </g>
+        ))}
+      </svg>
+      <div class="backtest-list">
+        {model.backtest.map((row) => (
+          <p><strong>{row.period} · {row.score}점</strong> — {row.observed} → {row.industryOutcome}</p>
+        ))}
+      </div>
+      <p class="note">과거 구간은 중국 구조 리스크를 소급 추정하지 않고, 공개 ASP·재고·매출 데이터로 Earnings Transmission 층만 검증합니다.</p>
+    </div>
+
+    <div class="panel">
+      <small>CXMT SHARE STRESS TEST</small>
+      <h3>9.5% → 15% → 20% 시나리오</h3>
+      <div class="scenario-buttons" data-risk-scenario>
+        {scenarioRows.map((row, index) => (
+          <button type="button" class:list={{active:index===0}} data-score={row.score} data-band={row.band} data-share={row.share}>
+            CXMT {row.share}%
+          </button>
+        ))}
+      </div>
+      <div class="scenario-result">
+        <span>Provisional Total</span>
+        <strong id="risk-scenario-score">{scenarioRows[0].score}</strong>
+        <em id="risk-scenario-band">{scenarioRows[0].band}</em>
+      </div>
+      <p id="risk-scenario-copy">
+        CXMT 점유율 항목만 변경하고 나머지 확인 데이터는 현재 기준으로 고정한 민감도입니다.
+      </p>
+      <p class="note">15%부터 점유율 점수는 100점으로 포화됩니다. 20%의 추가 위험은 CAPA·해외 고객·ASP 하락이 함께 움직일 때 Gate에서 반영합니다.</p>
+    </div>
+  </div>
+
   <div class="china-risk-score__gate">
-    <strong>RED Gate 보조 조건</strong>
-    <p>CXMT·YMTC 점유율 상승 + CAPA 확대 + 중국 외 고객 증가 + DRAM/NAND ASP 하락이 동시에 확인되면 총점과 별개로 재점검 우선순위를 높입니다.</p>
+    <strong>Gate V1.1</strong>
+    <p><b>ORANGE WATCH:</b> {model.gate.orange}</p>
+    <p><b>RED REVIEW:</b> {model.gate.red}</p>
   </div>
 </section>
+
+<script is:inline>
+  document.querySelectorAll('[data-risk-scenario]').forEach((group) => {
+    const score = document.getElementById('risk-scenario-score');
+    const band = document.getElementById('risk-scenario-band');
+    const copy = document.getElementById('risk-scenario-copy');
+    group.querySelectorAll('button').forEach((button) => {
+      button.addEventListener('click', () => {
+        group.querySelectorAll('button').forEach((item) => item.classList.remove('active'));
+        button.classList.add('active');
+        if (score) score.textContent = button.dataset.score || '—';
+        if (band) band.textContent = button.dataset.band || '—';
+        if (copy) copy.textContent = `CXMT ${button.dataset.share}%만 반영한 민감도입니다. 점유율 외 데이터는 현재 확인값으로 고정합니다.`;
+      });
+    });
+  });
+</script>
 
 <style>
   .china-risk-score{margin:30px 0;border:1px solid #dbe5f0;border-radius:18px;overflow:hidden;background:#fff}
   .china-risk-score__head{padding:22px;background:#08162f;color:#fff}
-  .china-risk-score__head small{color:#86c7ff;font-weight:800;letter-spacing:.08em}
+  .china-risk-score__head small,.panel>small{color:#86c7ff;font-weight:800;letter-spacing:.08em}
   .china-risk-score__head h2{margin:7px 0 8px;font-size:1.35rem;color:#fff}
   .china-risk-score__head p{margin:0;color:#dce8f7}
+  .china-risk-score__summary{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#dbe5f0}
+  .china-risk-score__summary>div{background:#fff;padding:16px;display:grid;gap:3px}
+  .china-risk-score__summary span{font-size:.76rem;color:#667085}
+  .china-risk-score__summary strong{font-size:1.6rem;color:#101828}
+  .china-risk-score__summary em{font-style:normal;font-size:.76rem;font-weight:800;color:#475467}
   .china-risk-score__formula{padding:16px 20px;background:#eef6ff;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   .china-risk-score__formula span{color:#475467}
   .china-risk-score__table-wrap{overflow-x:auto}
-  .china-risk-score table{width:100%;border-collapse:collapse;font-size:.9rem}
+  .china-risk-score table{width:100%;border-collapse:collapse;font-size:.86rem;min-width:760px}
   .china-risk-score th,.china-risk-score td{padding:11px 12px;border-bottom:1px solid #e8edf3;text-align:left;vertical-align:top}
   .china-risk-score th{background:#f8fafc}
+  .china-risk-score td small{display:block;margin-top:3px;color:#667085}
+  .unknown{font-size:.74rem;font-weight:800;color:#98a2b3}
+  .china-risk-score__split{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px;background:#f8fafc}
+  .panel{background:#fff;border:1px solid #e4eaf1;border-radius:14px;padding:18px}
+  .panel>small{color:#2563eb}
+  .panel h3{margin:6px 0 14px;font-size:1rem}
+  .panel svg{width:100%;height:auto;overflow:visible}
+  .panel svg line{stroke:#d0d5dd;stroke-width:1}
+  .panel svg polyline{fill:none;stroke:currentColor;stroke-width:2}
+  .panel svg circle{fill:currentColor}
+  .panel svg text{font-size:9px;fill:#667085}
+  .backtest-list p{font-size:.8rem;margin:7px 0}
+  .note{font-size:.76rem;color:#667085;margin:12px 0 0}
+  .scenario-buttons{display:flex;gap:8px;flex-wrap:wrap}
+  .scenario-buttons button{border:1px solid #d0d5dd;background:#fff;border-radius:999px;padding:8px 11px;font:inherit;font-size:.8rem;cursor:pointer}
+  .scenario-buttons button.active{background:#08162f;color:#fff;border-color:#08162f}
+  .scenario-result{margin:16px 0;padding:16px;border-radius:12px;background:#eef6ff;display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center}
+  .scenario-result strong{font-size:1.5rem}
+  .scenario-result em{font-style:normal;font-weight:800}
   .china-risk-score__gate{padding:18px 20px;background:#fff7ed}
   .china-risk-score__gate p{margin:6px 0 0}
+  @media (max-width:760px){
+    .china-risk-score__summary{grid-template-columns:1fr 1fr}
+    .china-risk-score__split{grid-template-columns:1fr}
+  }
 </style>

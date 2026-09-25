@@ -1,0 +1,4 @@
+period,layer,metric,observed_value,score,industry_outcome,source
+2019Q1,Earnings Transmission,DRAM ASP,"overall ASP decline >20%; supplier inventory ~6 weeks",100,"DRAM industry revenue -28.6% QoQ","TrendForce 2019-03-25 / 2019-05-28"
+2022Q4,Earnings Transmission,NAND ASP,"ASP -22.8% QoQ",100,"NAND revenue -25% QoQ","TrendForce 2023-03-17"
+2026Q2,Earnings Transmission,DRAM/NAND ASP,"Conventional DRAM +58~63% QoQ; NAND +70~75% QoQ",0,"DRAM industry revenue +59.5% QoQ","TrendForce 2026-03-31 / 2026-09-07"

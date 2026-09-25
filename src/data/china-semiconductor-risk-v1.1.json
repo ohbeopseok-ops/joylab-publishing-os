@@ -1,0 +1,325 @@
+{
+  "version": "1.1",
+  "updatedAt": "2026-09-25",
+  "bands": [
+    {
+      "min": 0,
+      "max": 29,
+      "label": "GREEN",
+      "meaning": "중국 자립 확대가 글로벌 가격에 미치는 영향 제한"
+    },
+    {
+      "min": 30,
+      "max": 49,
+      "label": "YELLOW",
+      "meaning": "중국 내수 수입대체와 범용 메모리 경쟁 확대"
+    },
+    {
+      "min": 50,
+      "max": 69,
+      "label": "ORANGE",
+      "meaning": "글로벌 가격·고객 경쟁으로 전이 시작"
+    },
+    {
+      "min": 70,
+      "max": 100,
+      "label": "RED",
+      "meaning": "한국 메모리 이익 구조에 직접 영향 가능"
+    }
+  ],
+  "metrics": [
+    {
+      "id": "cxmtShare",
+      "name": "CXMT DRAM 점유율",
+      "weight": 10,
+      "dimension": "structural",
+      "bands": [
+        "<5%",
+        "5~7.4%",
+        "7.5~9.9%",
+        "10~14.9%",
+        "≥15%"
+      ],
+      "scores": [
+        0,
+        25,
+        50,
+        75,
+        100
+      ],
+      "current": {
+        "value": 9.5,
+        "unit": "%",
+        "score": 50,
+        "asOf": "2026Q2",
+        "source": "TrendForce"
+      }
+    },
+    {
+      "id": "ymtcShare",
+      "name": "YMTC NAND 점유율",
+      "weight": 8,
+      "dimension": "structural",
+      "bands": [
+        "<5%",
+        "5~7.4%",
+        "7.5~9.9%",
+        "10~14.9%",
+        "≥15%"
+      ],
+      "scores": [
+        0,
+        25,
+        50,
+        75,
+        100
+      ],
+      "current": {
+        "value": 14,
+        "unit": "% bit shipments",
+        "score": 75,
+        "asOf": "2026Q2",
+        "source": "Counterpoint Research"
+      }
+    },
+    {
+      "id": "cxmtCapa",
+      "name": "CXMT CAPA·생산성",
+      "weight": 10,
+      "dimension": "structural",
+      "bands": [
+        "<5% YoY",
+        "5~14.9%",
+        "15~24.9%",
+        "25~39.9%",
+        "≥40%"
+      ],
+      "scores": [
+        0,
+        25,
+        50,
+        75,
+        100
+      ],
+      "current": null
+    },
+    {
+      "id": "ymtcEssd",
+      "name": "YMTC eSSD 침투",
+      "weight": 8,
+      "dimension": "structural",
+      "bands": [
+        "소비자 위주",
+        "중국 CSP 시험",
+        "중국 CSP 복수 공급",
+        "해외 OEM/CSP 인증",
+        "해외 CSP/OEM 복수 양산"
+      ],
+      "scores": [
+        0,
+        25,
+        50,
+        75,
+        100
+      ],
+      "current": null
+    },
+    {
+      "id": "equipment",
+      "name": "중국 장비 국산화",
+      "weight": 8,
+      "dimension": "structural",
+      "bands": [
+        "<10%",
+        "10~19%",
+        "20~34%",
+        "35~49%",
+        "≥50%"
+      ],
+      "scores": [
+        0,
+        25,
+        50,
+        75,
+        100
+      ],
+      "current": {
+        "value": 35,
+        "unit": "% adoption estimate",
+        "score": 75,
+        "asOf": "2025",
+        "source": "TrendForce"
+      }
+    },
+    {
+      "id": "lithography",
+      "name": "노광·계측 국산화",
+      "weight": 6,
+      "dimension": "structural",
+      "bands": [
+        "연구단계",
+        "Pilot",
+        "제한적 양산",
+        "첨단 Fab 반복 사용",
+        "글로벌 수준 양산"
+      ],
+      "scores": [
+        0,
+        25,
+        50,
+        75,
+        100
+      ],
+      "current": null
+    },
+    {
+      "id": "hbm",
+      "name": "중국 HBM 자립",
+      "weight": 10,
+      "dimension": "structural",
+      "bands": [
+        "샘플 이전",
+        "샘플",
+        "제한 양산",
+        "HBM3E급+고객 인증",
+        "HBM4급 대량양산"
+      ],
+      "scores": [
+        0,
+        25,
+        50,
+        75,
+        100
+      ],
+      "current": null
+    },
+    {
+      "id": "dramAsp",
+      "name": "DRAM ASP 압력",
+      "weight": 16,
+      "dimension": "earnings",
+      "bands": [
+        "≥+10% QoQ",
+        "0~+9.9%",
+        "0~-4.9%",
+        "-5~-9.9%",
+        "≤-10%"
+      ],
+      "scores": [
+        0,
+        25,
+        50,
+        75,
+        100
+      ],
+      "current": {
+        "value": 60.5,
+        "unit": "% QoQ midpoint",
+        "score": 0,
+        "asOf": "2026Q2",
+        "source": "TrendForce (conventional DRAM 58~63%)"
+      }
+    },
+    {
+      "id": "nandAsp",
+      "name": "NAND ASP 압력",
+      "weight": 12,
+      "dimension": "earnings",
+      "bands": [
+        "≥+10% QoQ",
+        "0~+9.9%",
+        "0~-7.4%",
+        "-7.5~-14.9%",
+        "≤-15%"
+      ],
+      "scores": [
+        0,
+        25,
+        50,
+        75,
+        100
+      ],
+      "current": {
+        "value": 72.5,
+        "unit": "% QoQ midpoint",
+        "score": 0,
+        "asOf": "2026Q2",
+        "source": "TrendForce (contract 70~75%)"
+      }
+    },
+    {
+      "id": "overseas",
+      "name": "해외 고객·수입대체",
+      "weight": 12,
+      "dimension": "structural",
+      "bands": [
+        "변화 없음",
+        "중국 내수 일부",
+        "중국 주요 OEM 확대",
+        "해외 OEM 진입",
+        "해외 CSP/OEM 본격 침투"
+      ],
+      "scores": [
+        0,
+        25,
+        50,
+        75,
+        100
+      ],
+      "current": null
+    }
+  ],
+  "backtest": [
+    {
+      "period": "2019Q1",
+      "label": "DRAM 하락",
+      "dimension": "earnings",
+      "metric": "DRAM ASP",
+      "observed": "전체 DRAM ASP -20% 이상, 재고 6주 이상",
+      "score": 100,
+      "industryOutcome": "DRAM 산업 매출 1Q19 -28.6% QoQ",
+      "source": "TrendForce"
+    },
+    {
+      "period": "2022Q4",
+      "label": "NAND 하락",
+      "dimension": "earnings",
+      "metric": "NAND ASP",
+      "observed": "NAND ASP -22.8% QoQ",
+      "score": 100,
+      "industryOutcome": "NAND 매출 -25% QoQ",
+      "source": "TrendForce"
+    },
+    {
+      "period": "2026Q2",
+      "label": "AI 메모리 상승",
+      "dimension": "earnings",
+      "metric": "DRAM/NAND ASP",
+      "observed": "Conventional DRAM +58~63%, NAND +70~75% QoQ",
+      "score": 0,
+      "industryOutcome": "DRAM 산업 매출 +59.5% QoQ",
+      "source": "TrendForce"
+    }
+  ],
+  "scenarios": [
+    {
+      "share": 9.5,
+      "shareScore": 50,
+      "label": "현재 기준선"
+    },
+    {
+      "share": 15,
+      "shareScore": 100,
+      "label": "15% 스트레스"
+    },
+    {
+      "share": 20,
+      "shareScore": 100,
+      "label": "20% 스트레스"
+    }
+  ],
+  "gate": {
+    "orange": "점유율 상승·CAPA 확대·해외 고객 증가·ASP 하락 중 3개 이상 동시 발생",
+    "red": "4개 모두 동시 발생"
+  }
+}
