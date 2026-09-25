@@ -1,0 +1,43 @@
+{
+  "version": 3,
+  "topN": 2,
+  "minimumScore": 18,
+  "weights": {
+    "sameCategory": 18,
+    "sharedTag": 10,
+    "sameSeries": 24,
+    "titleToken": 3,
+    "sameHub": 12,
+    "alreadyLinkedPenalty": -8
+  },
+  "hubProfiles": [
+    {
+      "route": "/guides/ai-inference-memory",
+      "keywords": ["HBM","HBM3E","HBM4","HBM4E","zHBM","AI메모리","KVCache","반도체","삼성전자","SK하이닉스","CXMT","YMTC"]
+    },
+    {
+      "route": "/guides/semiconductor-investing",
+      "keywords": ["반도체","HBM","DRAM","NAND","삼성전자","SK하이닉스","CXMT","YMTC"]
+    },
+    {
+      "route": "/guides/investing",
+      "keywords": ["투자","경제","주식","ETF","금리","실적","밸류에이션"]
+    },
+    {
+      "route": "/guides/ai-productivity",
+      "keywords": ["AI생산성","업무자동화","Copilot","ChatGPT","Claude","Gemini","AI에이전트"]
+    },
+    {
+      "route": "/guides/ai-infrastructure",
+      "keywords": ["AI인프라","데이터센터","GPU","HBM","전력","냉각","네트워크"]
+    },
+    {
+      "route": "/guides/ai-economics",
+      "keywords": ["AI경제","CAPEX","ROI","수익화","AI인프라","컴퓨팅"]
+    },
+    {
+      "route": "/guides/ai-security",
+      "keywords": ["AI보안","API키","보안","거버넌스","감사로그"]
+    }
+  ]
+}
