@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Silicon Photonics란 무엇인가</title>
+<desc id="desc">실리콘 칩 위 광도파로와 광학 엔진이 스위치 ASIC과 광섬유를 연결하는 구조</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07111f"/><stop offset=".58" stop-color="#0a1930"/><stop offset="1" stop-color="#102b4d"/></linearGradient><radialGradient id="g"><stop offset="0" stop-color="#38bdf8" stop-opacity=".36"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></radialGradient></defs>
+<rect width="1600" height="900" fill="url(#bg)"/><circle cx="1270" cy="440" r="390" fill="url(#g)"/>
+<text x="105" y="118" font-family="Arial,'Noto Sans KR',sans-serif" font-size="28" font-weight="700" letter-spacing="2" fill="#60a5fa">JOYLAB · AI DATA CENTER NETWORK</text>
+<text x="105" y="245" font-family="Arial,'Noto Sans KR',sans-serif" font-size="66" font-weight="800" fill="#f8fafc">Silicon Photonics</text>
+<text x="108" y="320" font-family="Arial,'Noto Sans KR',sans-serif" font-size="31" font-weight="600" fill="#93c5fd">AI 네트워크에서 빛을 칩으로 가져오는 기술</text>
+<text x="108" y="415" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" fill="#cbd5e1">Electrical I/O → Optical Engine → Fiber</text>
+<g transform="translate(865 190)">
+  <rect x="0" y="0" width="575" height="440" rx="38" fill="#0d2038" stroke="#2563eb" stroke-width="4"/>
+  <rect x="120" y="95" width="335" height="245" rx="30" fill="#132b4a" stroke="#60a5fa" stroke-width="4"/>
+  <text x="287" y="145" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="#e2e8f0">SILICON PHOTONICS DIE</text>
+  <path d="M165 215 H410" stroke="#38bdf8" stroke-width="10" stroke-linecap="round"/>
+  <path d="M200 180 V250 M255 180 V250 M320 180 V250 M375 180 V250" stroke="#2563eb" stroke-width="5"/>
+  <circle cx="165" cy="215" r="18" fill="#f8fafc"/><circle cx="410" cy="215" r="18" fill="#f8fafc"/>
+  <text x="287" y="300" text-anchor="middle" font-family="Arial" font-size="22" fill="#93c5fd">Waveguide · Modulator · Detector</text>
+  <path d="M455 215 H535" stroke="#38bdf8" stroke-width="12" stroke-linecap="round"/>
+  <text x="505" y="190" text-anchor="middle" font-family="Arial" font-size="18" fill="#cbd5e1">FIBER</text>
+</g>
+<text x="105" y="815" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#64748b">BANDWIDTH DENSITY → POWER / BIT → 400G / LANE</text>
+</svg>
