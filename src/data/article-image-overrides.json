@@ -36,5 +36,43 @@
         "caption": "Goal → Delegate → Verify → Govern → Execute → Recover 순서로 Agent System을 점검합니다."
       }
     ]
+  },
+  "cxmt-dram-hbm-china-memory-2026": {
+    "hero": {
+      "src": "/images/research/generated/cxmt-dram-hbm-china-memory-2026.svg",
+      "alt": "CXMT DRAM과 서버 메모리 경쟁을 표현한 JoyLab 반도체 리서치 이미지",
+      "caption": "CXMT의 DRAM 점유율 확대와 서버 메모리 경쟁을 분석합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "CXMT DRAM 점유율과 서버 메모리 확장 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "점유율·서버 DRAM·고객 확대 신호를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "CXMT 경쟁 영향을 Fact Interpretation Scenario Action 구조로 정리한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "범용 DRAM에서 고부가 메모리로 이동하는 조건을 구분합니다."
+      }
+    ]
+  },
+  "ymtc-nand-ai-storage-2026": {
+    "hero": {
+      "src": "/images/research/generated/ymtc-nand-ai-storage-2026.svg",
+      "alt": "YMTC NAND와 AI 데이터센터 eSSD 경쟁을 표현한 JoyLab 반도체 리서치 이미지",
+      "caption": "YMTC의 NAND·Enterprise SSD 확대와 AI Storage 경쟁을 분석합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "YMTC NAND 생산능력과 AI eSSD 수요 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "NAND Bit Growth·AI Storage·중국 CSP 수요를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "YMTC NAND 경쟁 영향을 Fact Interpretation Scenario Action 구조로 정리한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Capacity가 실제 Bit Output과 수익성으로 이어지는지 구분합니다."
+      }
+    ]
   }
 }

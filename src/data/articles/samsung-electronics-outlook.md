@@ -209,3 +209,8 @@ AI 메모리 수요는 강하지만 이미 높은 실적과 주가 기대 때문
 - [삼성전자 실적발표](https://www.samsung.com/global/ir/financial-information/earnings-release/)
 - [삼성전자 투자자정보](https://www.samsung.com/sec/ir/)
 - [금융감독원 DART](https://dart.fss.or.kr/)
+
+
+## AI 메모리 전체 지도
+
+AI Agent → 추론 → HBM → 기업 실적과 중국 메모리 경쟁까지 한 흐름으로 보려면 [AI 추론 시대 메모리 투자 가이드](/guides/ai-inference-memory)에서 이어서 볼 수 있습니다.

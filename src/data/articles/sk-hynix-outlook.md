@@ -185,3 +185,8 @@ SK하이닉스의 AI 메모리 투자 논리는 **HBM 리더십 그 자체보다
 - [SK하이닉스 IR](https://www.skhynix.com/ir/UI-FR-IR99/)
 - [SK하이닉스 2026년 2분기 실적](https://news.skhynix.com/en/q2-2026-business-results/)
 - [금융감독원 DART](https://dart.fss.or.kr/)
+
+
+## AI 메모리 전체 지도
+
+AI Agent → 추론 → HBM → 기업 실적과 중국 메모리 경쟁까지 한 흐름으로 보려면 [AI 추론 시대 메모리 투자 가이드](/guides/ai-inference-memory)에서 이어서 볼 수 있습니다.

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs><linearGradient id="bg" x1="0" x2="1"><stop stop-color="#071422"/><stop offset="1" stop-color="#16385a"/></linearGradient><linearGradient id="ssd" x1="0" x2="1"><stop stop-color="#123958"/><stop offset="1" stop-color="#39bdf2"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<g opacity=".18" stroke="#5ecfff" stroke-width="3"><path d="M90 170h640M90 250h520M90 330h680M90 410h560M90 490h620"/><circle cx="760" cy="170" r="8" fill="#5ecfff"/><circle cx="640" cy="250" r="8" fill="#5ecfff"/></g>
+<g transform="translate(905 185)">
+<rect x="0" y="0" width="470" height="360" rx="30" fill="#0a1c2d" stroke="#62d5ff" stroke-width="4"/>
+<rect x="55" y="70" width="360" height="220" rx="22" fill="url(#ssd)"/>
+<g fill="#d6f3ff"><rect x="90" y="105" width="130" height="65" rx="8"/><rect x="250" y="105" width="130" height="65" rx="8"/><rect x="90" y="195" width="130" height="65" rx="8"/><rect x="250" y="195" width="130" height="65" rx="8"/></g>
+<text x="235" y="340" text-anchor="middle" fill="#eaf8ff" font-family="Arial,sans-serif" font-size="42" font-weight="700">NAND · eSSD</text>
+</g>
+<text x="90" y="675" fill="#ffffff" font-family="Arial,sans-serif" font-size="72" font-weight="800">YMTC · AI STORAGE</text>
+<text x="90" y="745" fill="#7fd7ff" font-family="Arial,sans-serif" font-size="34">NAND · Enterprise SSD</text>
+<text x="90" y="810" fill="#9fb3c8" font-family="Arial,sans-serif" font-size="26">Cloud demand · Capacity · Bit output</text>
+</svg>

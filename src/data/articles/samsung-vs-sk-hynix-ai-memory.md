@@ -236,3 +236,8 @@ SK하이닉스가 더 직접적입니다.
 - [삼성전자 실적발표](https://www.samsung.com/global/ir/financial-information/earnings-release/)
 - [SK하이닉스 IR](https://www.skhynix.com/ir/UI-FR-IR99/)
 - [SK하이닉스 분기 실적](https://news.skhynix.com/en/category/ir/?tag=quartely-earnings)
+
+
+## AI 메모리 전체 지도
+
+AI Agent → 추론 → HBM → 기업 실적과 중국 메모리 경쟁까지 한 흐름으로 보려면 [AI 추론 시대 메모리 투자 가이드](/guides/ai-inference-memory)에서 이어서 볼 수 있습니다.
