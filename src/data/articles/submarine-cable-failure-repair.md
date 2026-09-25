@@ -18,9 +18,9 @@ draft: false
 seoTitle: "해저 케이블이 끊기면 인터넷은 멈출까｜장애·우회·수리 원리"
 series: "글로벌 인터넷 인프라"
 seriesOrder: 3
-heroImage: "/images/research/joylab-research-default-hero.svg"
+heroImage: "/images/research/global-connectivity/submarine-cable-failure-repair-hero.svg"
 heroAlt: "해저 케이블 단선과 트래픽 우회, 수리선 복구 과정을 설명하는 JoyLab Research 대표 이미지"
-ogImage: "/images/research/joylab-research-default-hero.svg"
+ogImage: "/images/research/global-connectivity/submarine-cable-failure-repair-hero.svg"
 readingTime: "약 9분"
 ---
 
