@@ -318,11 +318,27 @@ function parseCounterpoint(docs) {
 
 function parseBis(docs) {
   const events = [];
+  const currentRules = [];
   for (const doc of docs) {
     const title = doc.text.match(/(?:FOR IMMEDIATE RELEASE[^]{0,180})?((?:Department|Commerce|BIS)[^.]{15,180}(?:China|Semiconductor|Chip|Export)[^.]{0,100})/i)?.[1]
       || doc.text.slice(0,160);
-    const relevant = /(semiconductor|chip|HBM|high-bandwidth memory)/i.test(doc.text) && /(China|PRC)/i.test(doc.text);
+    const relevant = /(semiconductor|chip|HBM|high-bandwidth memory)/i.test(doc.text) && /(China|PRC|Macau|D:5)/i.test(doc.text);
     if (!relevant || doc.kind === 'discovery') continue;
+
+    if (/\/regulations\/ear\/(740|742)/.test(doc.url)) {
+      const hbmLicense = /license is required[^.]{0,260}(?:3A090\.c|high bandwidth memory|HBM)/i.test(doc.text)
+        || /high bandwidth memory[^.]{0,260}license/i.test(doc.text);
+      const exceptionHbm = /License Exception High Bandwidth Memory|§\s*740\.25/i.test(doc.text);
+      currentRules.push({
+        title:/\/742/.test(doc.url) ? 'EAR 742 HBM license requirement' : 'EAR 740 License Exception HBM',
+        observedAt:doc.observedAt,
+        sourceUrl:doc.url,
+        hbmLicenseRequired:hbmLicense,
+        licenseExceptionHbm:exceptionHbm,
+        fetchedAt:doc.fetchedAt
+      });
+      continue;
+    }
     events.push({
       title:title.replace(/\s+/g,' ').trim().slice(0,180),
       observedAt:doc.observedAt,
@@ -331,10 +347,14 @@ function parseBis(docs) {
       fetchedAt:doc.fetchedAt
     });
   }
-  return events
-    .sort((a,b) => String(b.observedAt ?? '').localeCompare(String(a.observedAt ?? '')))
-    .filter((item,index,arr) => arr.findIndex((x) => x.sourceUrl === item.sourceUrl) === index)
-    .slice(0,10);
+  return {
+    events: events
+      .sort((a,b) => String(b.observedAt ?? '').localeCompare(String(a.observedAt ?? '')))
+      .filter((item,index,arr) => arr.findIndex((x) => x.sourceUrl === item.sourceUrl) === index)
+      .slice(0,10),
+    currentRules: currentRules
+      .filter((item,index,arr) => arr.findIndex((x) => x.sourceUrl === item.sourceUrl) === index)
+  };
 }
 
 function preserveOrUnknown(id, metric, errors) {
@@ -374,7 +394,7 @@ for (const [name, provider] of Object.entries(config.sources)) {
 
 const tf = parseTrendForce(results.trendforce.docs);
 const cp = parseCounterpoint(results.counterpoint.docs);
-const bisEvents = parseBis(results.bis.docs);
+const bis = parseBis(results.bis.docs);
 
 const metrics = {
   cxmtShare:preserveOrUnknown('cxmtShare',tf.cxmtShare,results.trendforce.errors),
@@ -396,7 +416,8 @@ const snapshot = {
   metrics,
   auxiliary:{
     enterpriseSsdShare:cp.enterpriseSsdShare ?? previous.auxiliary?.enterpriseSsdShare ?? {status:'UNKNOWN'},
-    bisEvents:bisEvents.length ? bisEvents : (previous.auxiliary?.bisEvents ?? [])
+    bisEvents:bis.events.length ? bis.events : (previous.auxiliary?.bisEvents ?? []),
+    bisCurrentRules:bis.currentRules.length ? bis.currentRules : (previous.auxiliary?.bisCurrentRules ?? [])
   },
   provenance:Object.entries(results).map(([source,result]) => ({
     source, documentsFetched:result.docs.length, errors:result.errors
@@ -408,5 +429,5 @@ if (DRY_RUN) {
   process.stdout.write(output);
 } else {
   fs.writeFileSync(SNAPSHOT_PATH, output, 'utf8');
-  console.log(`China Risk Data Adapter V1: READY=${snapshot.ready} OK=${metricsReady}/${metricValues.length} STALE=${stale}; BIS events=${snapshot.auxiliary.bisEvents.length}`);
+  console.log(`China Risk Data Adapter V1: READY=${snapshot.ready} OK=${metricsReady}/${metricValues.length} STALE=${stale}; BIS events=${snapshot.auxiliary.bisEvents.length}; BIS rules=${snapshot.auxiliary.bisCurrentRules.length}`);
 }
