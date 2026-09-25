@@ -16,6 +16,9 @@ draft: false
 seoTitle: "YMTC NAND 추격｜중국 AI eSSD가 삼성전자·SK하이닉스에 미치는 영향"
 series: "AI 메모리 투자 가이드"
 readingTime: "약 9분"
+heroImage: "/images/research/generated/ymtc-nand-ai-storage-2026.svg"
+heroAlt: "YMTC NAND와 AI 데이터센터 eSSD 경쟁을 표현한 JoyLab 반도체 리서치 이미지"
+ogImage: "/images/research/generated/ymtc-nand-ai-storage-2026.svg"
 ---
 
 YMTC(Yangtze Memory Technologies)를 볼 때는 CXMT와 같은 방식으로 보면 안 됩니다.
@@ -24,13 +27,13 @@ YMTC(Yangtze Memory Technologies)를 볼 때는 CXMT와 같은 방식으로 보�
 
 AI 인프라에서는 GPU와 HBM만 중요한 것이 아닙니다. 대규모 데이터와 모델 체크포인트, Vector DB, KV Cache의 보조 계층을 저장하는 **고용량 enterprise SSD(eSSD)** 수요도 함께 커집니다.
 
-TrendForce는 2026년 중국 AI·클라우드 수요가 고용량 NAND와 enterprise storage 수요를 밀어 올리고 있으며, YMTC가 기술 개선과 Capacity 확대로 글로벌 공급 비중을 높이고 있다고 평가했습니다.
+TrendForce는 2026년 중국 AI·클라우드 수요가 고용량 NAND와 enterprise storage 수요를 밀어 올리고 있으며, YMTC가 기술 개선과 Capacity 확대로 글로벌 공급 비중을 높이고 있다고 평가했습니다. ([TrendForce](https://www.trendforce.com/news/2026/09/24/news-cxmt-ymtc-ramp-memory-capacity-but-chinas-ai-cloud-boom-could-soak-up-new-supply-through-2027/))
 
 ## YMTC는 지금 어디까지 왔나
 
 YMTC의 경쟁력은 독자적인 3D NAND 적층 구조와 중국 내수 고객 기반에서 시작합니다.
 
-TrendForce의 2026년 NAND 시장 분석에서는 YMTC의 주요 첨단 공정 수율이 크게 개선되고 차세대 제품 개발이 진행 중이며, 신규 Fab 생산과 수율 상승이 Bit Growth와 시장 점유율 확대에 기여하고 있다고 설명했습니다.
+TrendForce의 2026년 NAND 시장 분석에서는 YMTC의 주요 첨단 공정 수율이 크게 개선되고 차세대 제품 개발이 진행 중이며, 신규 Fab 생산과 수율 상승이 Bit Growth와 시장 점유율 확대에 기여하고 있다고 설명했습니다. ([TrendForce](https://www.trendforce.com/research/download/RP260617OH))
 
 현재 판단에서 중요한 것은 “몇 단 NAND인가”보다 다음 네 가지입니다.
 
@@ -51,7 +54,7 @@ NAND는 세대 숫자가 높아도 수율과 원가가 받쳐주지 않으면 �
 
 AI 서비스가 커질수록 HBM뿐 아니라 대용량 NAND 기반 eSSD도 중요해질 수 있습니다.
 
-TrendForce는 2026년 AI Infrastructure 확대로 Cloud·Server Storage 수요가 강하고, 공급업체 재고가 매우 낮은 수준을 유지했다고 분석했습니다.
+TrendForce는 2026년 AI Infrastructure 확대로 Cloud·Server Storage 수요가 강하고, 공급업체 재고가 매우 낮은 수준을 유지했다고 분석했습니다. ([TrendForce](https://www.trendforce.com/research/download/RP260729KA))
 
 ## YMTC가 중국 AI 클라우드에서 유리한 이유
 
@@ -68,7 +71,7 @@ TrendForce는 YMTC가 Controller 기술 제약 속에서도 중국 Cloud Service
 
 ## YMTC의 Capacity 확대는 언제 중요해질까
 
-TrendForce는 YMTC의 세 번째 우한 Fab이 **2027년 Ramp-up 단계**에 들어갈 것으로 전망했습니다.
+TrendForce는 YMTC의 세 번째 우한 Fab이 **2027년 Ramp-up 단계**에 들어갈 것으로 전망했습니다. ([TrendForce](https://www.trendforce.com/news/2026/09/24/news-cxmt-ymtc-ramp-memory-capacity-but-chinas-ai-cloud-boom-could-soak-up-new-supply-through-2027/))
 
 다만 Fab 건설이 곧바로 공급 증가를 의미하지는 않습니다.
 
@@ -76,7 +79,7 @@ TrendForce는 YMTC의 세 번째 우한 Fab이 **2027년 Ramp-up 단계**에 들
 
 이 단계가 필요하기 때문입니다.
 
-따라서 2027년 공급량이 얼마나 늘어나는지는 Fab 규모보다 수율과 장비 제약을 함께 확인해야 합니다.
+따라서 2027년 공급량이 얼마나 늘어나는지는 Fab 규모보다 수율과 장비 제약을 함께 확인해야 합니다. ([TrendForce](https://www.trendforce.com/presscenter/news/20260721-13148.html))
 
 ## 삼성전자 NAND에는 어떤 의미인가
 
@@ -121,7 +124,7 @@ AI 데이터센터용 Storage 수요가 늘어나는 환경은 기회지만, YMT
 
 중국 메모리 자립이라는 큰 방향은 같지만, **실적에 전달되는 경로는 서로 다릅니다.**
 
-CXMT 분석은 [CXMT는 삼성전자·SK하이닉스를 얼마나 따라왔나](/articles/cxmt-dram-hbm-china-memory-2026)에서 이어서 볼 수 있습니다.
+CXMT 분석은 [CXMT는 삼성전자·SK하이닉스를 얼마나 따라왔나](/articles/cxmt-dram-hbm-china-memory-2026)에서 이어서 볼 수 있습니다. 중국 메모리 증설의 공통 배경은 [TrendForce](https://www.trendforce.com/news/2026/09/24/news-cxmt-ymtc-ramp-memory-capacity-but-chinas-ai-cloud-boom-could-soak-up-new-supply-through-2027/) 자료를 참고했습니다.
 
 ## YMTC 투자 리스크를 확인하는 6가지
 
