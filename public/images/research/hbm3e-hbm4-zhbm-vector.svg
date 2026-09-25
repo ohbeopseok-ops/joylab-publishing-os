@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="t d"><title id="t">HBM3E에서 HBM4와 zHBM으로</title><desc id="d">AI 메모리 기술의 세대 진화와 3D 적층 방향</desc><defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#041426"/><stop offset="1" stop-color="#071b34"/></linearGradient>
+<linearGradient id="blue" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#2caeff"/><stop offset="1" stop-color="#72d9ff"/></linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd27a"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+<linearGradient id="violet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7aa8ff"/><stop offset="1" stop-color="#9a72ff"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<style>text{font-family:Arial,'Noto Sans KR',sans-serif}.ey{font-size:20px;letter-spacing:2px;fill:#91b4d8;font-weight:700}.h1{font-size:58px;fill:#fff;font-weight:800}.sub{font-size:24px;fill:#b9ccdf}.lab{font-size:18px;fill:#dbeafe;font-weight:700}.sm{font-size:15px;fill:#9fb8d0}</style>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<text x="80" y="95" class="ey">JOYLAB · MEMORY TECHNOLOGY</text>
+<text x="80" y="190" class="h1">HBM은 어디까지</text><text x="80" y="258" class="h1" fill="#53c6ff">진화할까?</text>
+<text x="80" y="315" class="sub">HBM3E → HBM4 → zHBM · 대역폭에서 3D 통합으로</text>
+<g transform="translate(120 430)">
+<g><text x="55" y="-25" class="lab">HBM3E</text><rect x="20" y="200" width="230" height="26" fill="#6f7d90"/><rect x="34" y="164" width="202" height="26" fill="#8491a4"/><rect x="48" y="128" width="174" height="26" fill="#9da8b7"/><rect x="62" y="92" width="146" height="26" fill="#bbc3cf"/><text x="48" y="270" class="sm">1024 I/O · current scale</text></g>
+<path d="M300 145H430" stroke="#49bfff" stroke-width="7"/><polygon points="430,145 407,131 407,159" fill="#49bfff"/>
+<g transform="translate(460 0)"><text x="62" y="-25" class="lab">HBM4</text><rect x="12" y="214" width="250" height="26" fill="#b56c0d"/><rect x="28" y="176" width="218" height="26" fill="#ce7f13"/><rect x="44" y="138" width="186" height="26" fill="#e4961d"/><rect x="60" y="100" width="154" height="26" fill="#f4ad35"/><rect x="76" y="62" width="122" height="26" fill="#ffcc6b" filter="url(#glow)"/><text x="48" y="285" class="sm">2048 I/O · logic base die</text></g>
+<path d="M750 145H880" stroke="#7a88ff" stroke-width="7"/><polygon points="880,145 857,131 857,159" fill="#7a88ff"/>
+<g transform="translate(910 -30)"><text x="85" y="5" font-size="24" fill="#b8a6ff" font-weight="800">zHBM</text><rect x="35" y="235" width="250" height="30" rx="6" fill="#3344a8"/><rect x="50" y="193" width="220" height="30" rx="6" fill="#4459cf"/><rect x="65" y="151" width="190" height="30" rx="6" fill="#5e73e8"/><rect x="80" y="109" width="160" height="30" rx="6" fill="#778dff"/><rect x="95" y="67" width="130" height="30" rx="6" fill="#95a6ff" filter="url(#glow)"/><rect x="62" y="285" width="196" height="55" rx="10" fill="#0d2848" stroke="#5366e8" stroke-width="3"/><text x="98" y="320" class="lab">AI Accelerator</text><text x="45" y="380" class="sm">3D compute-memory integration</text></g>
+</g>
+<text x="80" y="835" class="sm">현재 매출 · 다음 세대 · 미래 옵션을 같은 시간축으로 보지 않습니다</text>
+</svg>

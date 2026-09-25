@@ -12,9 +12,9 @@ featured: false
 draft: false
 series: "AI 추론 시대 메모리"
 seriesOrder: 3
-heroImage: "/images/research/ai-inference-hbm-earnings.webp"
-heroAlt: "AI 추론 수요가 HBM과 서버 메모리를 거쳐 ASP·마진·실적 성장으로 연결되는 구조"
-ogImage: "/images/research/ai-inference-hbm-earnings.webp"
+heroImage: "/images/research/ai-inference-hbm-earnings-vector.svg"
+heroAlt: "AI 추론 수요가 HBM과 ASP·수율·마진·EPS로 연결되는 구조"
+ogImage: "/images/research/ai-inference-hbm-earnings-vector.svg"
 readingTime: "약 9분"
 ---
 
