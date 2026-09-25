@@ -24,7 +24,7 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 8분"
 ---
 
-1956년 TAT-1은 대서양을 건너 **36개의 음성 회선**을 제공했습니다. 1988년에는 최초의 대서양 횡단 광섬유 케이블인 TAT-8이 등장했고, 오늘날 해저 통신 케이블은 전 세계 국제 데이터 흐름의 99% 이상을 운반하는 핵심 인프라가 됐습니다.
+1956년 TAT-1은 대서양을 건너 **36개의 음성 회선**을 제공했습니다. 1988년에는 최초의 대서양 횡단 광섬유 케이블인 TAT-8이 등장했고, 오늘날 해저 통신 케이블은 전 세계 국제 데이터 흐름의 99% 이상을 운반하는 핵심 인프라가 됐습니다. https://atlantic-cable.com/Cables/1956TAT-1/ https://www.itu.int/itu-d/reports/statistics/global-connectivity-report-2025/
 
 이 글은 해저 통신이 **전화망 → 광섬유 → 인터넷 백본 → AI·클라우드 네트워크**로 어떻게 진화했는지 설명합니다.
 
@@ -35,6 +35,7 @@ readingTime: "약 8분"
 - 1988년 TAT-8은 대서양 광섬유 통신 시대를 열었습니다.
 - 현대 해저 케이블은 전화보다 인터넷·클라우드·금융·AI 데이터를 운반합니다.
 - 기술의 핵심 변화는 구리 동축선에서 광섬유로의 전환입니다.
+- Sources: https://atlantic-cable.com/Cables/1956TAT-1/ https://www.itu.int/itu-d/reports/statistics/global-connectivity-report-2025/
 
 ## TAT-1은 무엇을 바꿨나
 
@@ -62,11 +63,11 @@ TAT-1의 의미는 단순히 전화 한 통을 연결했다는 데 있지 않습
 
 ## TAT-8은 왜 전환점인가
 
-1988년 서비스를 시작한 TAT-8은 최초의 대서양 횡단 광섬유 케이블 시스템으로 알려져 있습니다.
+1988년 서비스를 시작한 TAT-8은 최초의 대서양 횡단 광섬유 케이블 시스템으로 알려져 있습니다. https://collection.sciencemuseumgroup.org.uk/
 
-약 6,700km 규모의 시스템으로 미국과 영국, 프랑스를 연결했고, 약 4만 개 음성 회선에 해당하는 용량을 제공했습니다.
+약 6,700km 규모의 시스템으로 미국과 영국, 프랑스를 연결했고, 약 4만 개 음성 회선에 해당하는 용량을 제공했습니다. https://collection.sciencemuseumgroup.org.uk/
 
-TAT-1이 36개 회선으로 출발했다는 점을 생각하면 30여 년 만에 대서양 통신의 처리 능력이 완전히 다른 수준으로 확대된 셈입니다.
+TAT-1이 36개 회선으로 출발했다는 점을 생각하면 30여 년 만에 대서양 통신의 처리 능력이 완전히 다른 수준으로 확대된 셈입니다. https://atlantic-cable.com/Cables/1956TAT-1/ https://collection.sciencemuseumgroup.org.uk/
 
 ## 현대 해저 케이블은 무엇을 운반하나
 
@@ -81,7 +82,7 @@ TAT-1이 36개 회선으로 출발했다는 점을 생각하면 30여 년 만에
 
 등 대륙 간 디지털 서비스를 지탱합니다.
 
-국제전기통신연합(ITU)은 해저 통신 케이블이 전 세계 국제 데이터 흐름의 99% 이상을 운반한다고 설명합니다.
+국제전기통신연합(ITU)은 해저 통신 케이블이 전 세계 국제 데이터 흐름의 99% 이상을 운반한다고 설명합니다. https://www.itu.int/itu-d/reports/statistics/global-connectivity-report-2025/
 
 ## 다음 질문: 데이터는 실제로 어떻게 바다를 건너나
 
