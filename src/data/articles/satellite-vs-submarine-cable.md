@@ -88,6 +88,8 @@ AI 데이터센터 사이에는 대규모 데이터 이동이 필요하고, 최�
 
 [AI 시대에 해저 광케이블이 더 중요해지는 이유](/articles/submarine-cables-ai-infrastructure)에서 이 구조를 더 자세히 설명합니다.
 
+케이블 장애와 우회망까지 보려면 [해저 케이블이 끊기면 인터넷은 멈출까](/articles/submarine-cable-failure-repair)를 이어서 확인할 수 있습니다.
+
 전체 인터넷 구조는 [인터넷은 어떻게 세계를 연결하는가](/guides/how-internet-connects-the-world)에서 확인할 수 있습니다.
 
 ## FAQ
