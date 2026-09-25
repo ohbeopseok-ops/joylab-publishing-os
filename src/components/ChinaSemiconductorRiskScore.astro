@@ -1,7 +1,16 @@
 ---
 import model from '../data/china-semiconductor-risk-v1.1.json';
+import snapshot from '../data/china-semiconductor-risk-snapshot.json';
 
-const known = model.metrics.filter((metric) => metric.current);
+const metrics = model.metrics.map((metric) => {
+  const live = snapshot.metrics?.[metric.id];
+  const current = live?.status === 'OK'
+    ? { value: live.value, unit: live.unit, score: live.score, asOf: live.observedAt ?? live.fetchedAt?.slice(0,10), source: live.source, sourceUrl: live.sourceUrl, freshness: 'LIVE' }
+    : metric.current ? { ...metric.current, freshness: live?.status === 'STALE' ? 'STALE' : 'SEED' } : null;
+  return { ...metric, current };
+});
+
+const known = metrics.filter((metric) => metric.current);
 const coveredWeight = known.reduce((sum, metric) => sum + metric.weight, 0);
 const weightedPoints = known.reduce((sum, metric) => sum + (metric.current?.score ?? 0) * metric.weight / 100, 0);
 const provisionalScore = Math.round((weightedPoints / coveredWeight) * 100);
@@ -20,7 +29,7 @@ const getBand = (score) => model.bands.find((band) => score >= band.min && score
 const currentBand = getBand(provisionalScore);
 
 const scenarioRows = model.scenarios.map((scenario) => {
-  const cxmt = model.metrics.find((metric) => metric.id === 'cxmtShare');
+  const cxmt = metrics.find((metric) => metric.id === 'cxmtShare');
   const currentCxmtContribution = ((cxmt?.current?.score ?? 0) * (cxmt?.weight ?? 0)) / 100;
   const scenarioCxmtContribution = (scenario.shareScore * (cxmt?.weight ?? 0)) / 100;
   const adjustedPoints = weightedPoints - currentCxmtContribution + scenarioCxmtContribution;
@@ -40,6 +49,7 @@ const polyline = chartPoints.map((point) => `${point.x},${point.y}`).join(' ');
     <small>JOYLAB RISK MODEL V{model.version}</small>
     <h2 id="china-risk-score-title">China Semiconductor Risk Dashboard</h2>
     <p>점유율 자체보다 가격·고객·생산능력으로 실적 전달 여부를 확인합니다. 미확인 지표는 임의 추정하지 않고 데이터 커버리지에서 제외합니다.</p>
+    <p class="china-risk-score__sync">Risk Data Adapter V{snapshot.version} · {snapshot.generatedAt ? `최근 동기화 ${snapshot.generatedAt.slice(0,16).replace('T',' ')} UTC` : '자동 동기화 대기'} · 공개자료만 사용</p>
   </div>
 
   <div class="china-risk-score__summary">
@@ -76,14 +86,14 @@ const polyline = chartPoints.map((point) => `${point.x},${point.y}`).join(' ');
         <tr><th>지표</th><th>가중치</th><th>0 / 25 / 50 / 75 / 100점 기준</th><th>현재</th></tr>
       </thead>
       <tbody>
-        {model.metrics.map((metric) => (
+        {metrics.map((metric) => (
           <tr>
             <td><strong>{metric.name}</strong><small>{metric.dimension === 'earnings' ? 'Earnings' : 'Structural'}</small></td>
             <td>{metric.weight}%</td>
             <td>{metric.bands.join(' → ')}</td>
             <td>
               {metric.current
-                ? <><strong>{metric.current.value}{metric.current.unit.startsWith('%') ? metric.current.unit : ` ${metric.current.unit}`}</strong><small>{metric.current.score}점 · {metric.current.asOf}</small></>
+                ? <><strong>{metric.current.value}{metric.current.unit.startsWith('%') ? metric.current.unit : ` ${metric.current.unit}`}</strong><small>{metric.current.score}점 · {metric.current.asOf} · {metric.current.freshness}</small>{metric.current.sourceUrl && <a class="source-link" href={metric.current.sourceUrl} rel="nofollow noopener" target="_blank">source ↗</a>}</>
                 : <span class="unknown">UNKNOWN</span>}
             </td>
           </tr>
@@ -168,6 +178,7 @@ const polyline = chartPoints.map((point) => `${point.x},${point.y}`).join(' ');
   .china-risk-score__head small,.panel>small{color:#86c7ff;font-weight:800;letter-spacing:.08em}
   .china-risk-score__head h2{margin:7px 0 8px;font-size:1.35rem;color:#fff}
   .china-risk-score__head p{margin:0;color:#dce8f7}
+  .china-risk-score__head .china-risk-score__sync{margin-top:8px;color:#9fb7d4;font-size:.76rem}
   .china-risk-score__summary{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#dbe5f0}
   .china-risk-score__summary>div{background:#fff;padding:16px;display:grid;gap:3px}
   .china-risk-score__summary span{font-size:.76rem;color:#667085}
@@ -181,6 +192,7 @@ const polyline = chartPoints.map((point) => `${point.x},${point.y}`).join(' ');
   .china-risk-score th{background:#f8fafc}
   .china-risk-score td small{display:block;margin-top:3px;color:#667085}
   .unknown{font-size:.74rem;font-weight:800;color:#98a2b3}
+  .source-link{display:inline-block;margin-top:4px;font-size:.72rem;color:#175cd3;text-decoration:none}
   .china-risk-score__split{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px;background:#f8fafc}
   .panel{background:#fff;border:1px solid #e4eaf1;border-radius:14px;padding:18px}
   .panel>small{color:#2563eb}
