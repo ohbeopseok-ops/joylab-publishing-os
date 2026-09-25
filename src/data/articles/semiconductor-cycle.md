@@ -166,3 +166,9 @@ JoyLab에서는 **EPS Revision이 반도체 사이클을 주가 신호로 연결
 따라서 투자자는 뉴스 한 줄보다 **수요 → 재고 → 가격 → HBM → CAPEX → EPS Revision → 수급**이 같은 방향을 가리키는지 확인해야 합니다.
 
 다음 단계는 [반도체 투자 가이드](/guides/semiconductor-investing)에서 삼성전자·SK하이닉스·HBM·외국인 수급 리서치를 하나의 흐름으로 연결해 보는 것입니다.
+
+## 검증용 1차 자료
+
+- [삼성전자 실적발표](https://www.samsung.com/global/ir/financial-information/earnings-release/)
+- [SK하이닉스 IR](https://www.skhynix.com/ir/UI-FR-IR99/)
+- [한국거래소 정보데이터시스템](https://data.krx.co.kr/)
