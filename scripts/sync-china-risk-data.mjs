@@ -236,8 +236,9 @@ function parseCounterpoint(docs) {
       }
     }
     if (!found.ymtcShare.some((item) => item.sourceUrl === doc.url) && /YMTC/i.test(doc.text) && /NAND/i.test(doc.text)) {
-      const direct = doc.text.match(/YMTC[^.!?]{0,220}?(?:third place|top\s*3|top three|shipment share|share)[^.!?%]{0,80}?(\d+(?:\.\d+)?)%/i)
-        || doc.text.match(/YMTC[^.!?]{0,140}?(\d+(?:\.\d+)?)%[^.!?]{0,80}?(?:third place|top\s*3|top three|shipment share)/i);
+      const direct = doc.text.match(/YMTC[\s\S]{0,500}?(\d+(?:\.\d+)?)%\s*(?:of\s+)?(?:NAND\s+)?(?:bit\s+)?(?:shipment\s+)?share/i)
+        || doc.text.match(/YMTC[\s\S]{0,400}?(?:third place|top\s*3|top three)[\s\S]{0,180}?(\d+(?:\.\d+)?)%/i)
+        || doc.text.match(/YMTC[\s\S]{0,260}?(\d+(?:\.\d+)?)%[\s\S]{0,100}?(?:third place|top\s*3|top three)/i);
       const v = Number(direct?.[1]);
       if (Number.isFinite(v) && v > 0 && v < 50) found.ymtcShare.push(sourceMetric('ymtcShare',v,'% bit shipments',scoreShare(v),doc,direct[0]));
     }
@@ -285,7 +286,7 @@ function selfTest() {
   assert.equal(tf.dramAsp.value,15.5);
   assert.equal(tf.nandAsp.value,12.5);
   assert.equal(tf.cxmtShare.value,9.5);
-  const cp = parseCounterpoint([{source:'counterpoint',url:'https://example.com',observedAt:'2026-08-12',fetchedAt:'x',text:'NAND market: YMTC climbed to third place with 14%, narrowly edging Kioxia. enterprise SSDs reached 48% of global NAND bit shipments.',kind:'article'}]);
+  const cp = parseCounterpoint([{source:'counterpoint',url:'https://example.com',observedAt:'2026-08-12',fetchedAt:'x',text:'NAND market update with navigation text. YMTC entered the global Top 3 with a 14% shipment share, edging Kioxia. enterprise SSDs reached 48% of global NAND bit shipments.',kind:'article'}]);
   assert.equal(cp.ymtcShare.value,14);
   assert.equal(cp.enterpriseSsdShare.value,48);
   console.log('China Risk Data Adapter V1 self-test PASS');
