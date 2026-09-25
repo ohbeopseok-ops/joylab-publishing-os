@@ -223,6 +223,49 @@ function parseTrendForce(docs) {
 
 function parseCounterpoint(docs) {
   const found = { ymtcShare:[], enterpriseSsdShare:[] };
+
+  const rawCounterpointFacts = (doc) => {
+    const raw = String(doc.html ?? '')
+      .replaceAll('\\u0025','%')
+      .replaceAll('\\u003c','<')
+      .replaceAll('\\u003e','>')
+      .replaceAll('\\/','/')
+      .replace(/\\n/g,' ')
+      .replace(/&quot;/g,'"')
+      .replace(/&#34;/g,'"')
+      .replace(/&amp;/g,'&');
+
+    const ymtcWindows = [];
+    for (const match of raw.matchAll(/YMTC/gi)) {
+      const start = Math.max(0,(match.index ?? 0)-160);
+      ymtcWindows.push(raw.slice(start,start+900).replace(/<[^>]+>/g,' ').replace(/\s+/g,' '));
+    }
+    const ymtc = ymtcWindows
+      .map((window) => {
+        const patterns = [
+          /YMTC[^%]{0,420}?(?:shipment share|share|점유율)[^%]{0,100}?(\d+(?:\.\d+)?)%/i,
+          /YMTC[^%]{0,420}?(?:with|at)\s+(?:a\s+)?(\d+(?:\.\d+)?)%/i,
+          /(?:third place|third-place|top\s*3|top three)[^%]{0,240}?YMTC[^%]{0,240}?(\d+(?:\.\d+)?)%/i,
+          /YMTC[^%]{0,240}?(\d+(?:\.\d+)?)%[^.!?]{0,180}?(?:third place|third-place|top\s*3|top three|shipment share)/i
+        ];
+        for (const pattern of patterns) {
+          const m = window.match(pattern);
+          const value = Number(m?.[1]);
+          if (Number.isFinite(value) && value > 0 && value < 50) return {value,evidence:window.slice(0,240)};
+        }
+        return null;
+      })
+      .find(Boolean);
+
+    const essd = raw.match(/enterprise\s+SSDs?[^%]{0,260}?(\d+(?:\.\d+)?)%[^.!?]{0,180}?(?:NAND|bits? shipped|shipments?)/i)
+      || raw.match(/(\d+(?:\.\d+)?)%[^.!?]{0,180}?enterprise\s+SSDs?[^.!?]{0,180}?(?:NAND|bits? shipped|shipments?)/i);
+
+    return {
+      ymtc,
+      enterpriseSsdShare:Number(essd?.[1])
+    };
+  };
+
   for (const doc of docs) {
     for (const s of sentenceChunks(doc.text)) {
       if (/YMTC/i.test(s) && /(share|shipment|third|3rd|점유율)/i.test(s) && /NAND/i.test(doc.text)) {
@@ -241,6 +284,17 @@ function parseCounterpoint(docs) {
         }
       }
     }
+    const rawFacts = rawCounterpointFacts(doc);
+    if (!found.ymtcShare.some((item) => item.sourceUrl === doc.url) && rawFacts.ymtc) {
+      found.ymtcShare.push(sourceMetric('ymtcShare',rawFacts.ymtc.value,'% bit shipments',scoreShare(rawFacts.ymtc.value),doc,rawFacts.ymtc.evidence,{extraction:'raw-html'}));
+    }
+    if (!found.enterpriseSsdShare.some((item) => item.sourceUrl === doc.url) && Number.isFinite(rawFacts.enterpriseSsdShare) && rawFacts.enterpriseSsdShare > 5 && rawFacts.enterpriseSsdShare < 90) {
+      found.enterpriseSsdShare.push({
+        status:'OK', value:rawFacts.enterpriseSsdShare, unit:'% NAND bit shipments', source:doc.source, sourceUrl:doc.url,
+        observedAt:doc.observedAt, fetchedAt:doc.fetchedAt, evidence:'Counterpoint raw HTML/JSON metadata extraction', extraction:'raw-html'
+      });
+    }
+
     if (!found.ymtcShare.some((item) => item.sourceUrl === doc.url) && /YMTC/i.test(doc.text) && /NAND/i.test(doc.text)) {
       let contextual = null;
       for (const ymtc of doc.text.matchAll(/YMTC/gi)) {
@@ -302,7 +356,7 @@ function selfTest() {
   assert.equal(tf.dramAsp.value,15.5);
   assert.equal(tf.nandAsp.value,12.5);
   assert.equal(tf.cxmtShare.value,9.5);
-  const cp = parseCounterpoint([{source:'counterpoint',url:'https://example.com',observedAt:'2026-08-12',fetchedAt:'x',text:'Server-Led eSSDs Hit 48% of NAND Shipments; YMTC Enters Global Top Three Login Register. NAND market update. YMTC climbed to third place with 14%, narrowly edging Kioxia. enterprise SSDs reached 48% of global NAND bit shipments.',kind:'article'}]);
+  const cp = parseCounterpoint([{source:'counterpoint',url:'https://example.com',observedAt:'2026-08-12',fetchedAt:'x',text:'Server-Led eSSDs Hit 48% of NAND Shipments; YMTC Enters Global Top Three Login Register. NAND market update. enterprise SSDs reached 48% of global NAND bit shipments.',html:'<script>window.__DATA__={"body":"YMTC entered the global Top 3 with a 14% shipment share. enterprise SSDs reached 48% of global NAND bit shipments."}</script>',kind:'article'}]);
   assert.equal(cp.ymtcShare.value,14);
   assert.equal(cp.enterpriseSsdShare.value,48);
   console.log('China Risk Data Adapter V1 self-test PASS');
