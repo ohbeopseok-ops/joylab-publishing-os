@@ -10,6 +10,9 @@ featured: false
 draft: false
 series: "미·중 반도체 전쟁"
 seriesOrder: 1
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "us china semiconductor war를 분석한 JoyLab Research 대표 이미지"
+ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 10분"
 ---
 
@@ -55,4 +58,4 @@ JoyLab은 다음 흐름을 분기별로 추적합니다.
 
 [CXMT·YMTC 증설과 공급과잉 →](/articles/cxmt-ymtc-memory-oversupply)
 
-[중국 반도체 리스크 숫자 10개 →](/articles/china-semiconductor-risk-indicators)
+[중국 반도체 리스크 핵심 지표 →](/articles/china-semiconductor-risk-indicators)
