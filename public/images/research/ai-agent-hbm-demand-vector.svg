@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="t d"><title id="t">AI 에이전트가 HBM 수요를 늘리는 이유</title><desc id="d">AI Agent 반복 추론과 KV Cache가 HBM 수요를 확대하는 구조</desc><defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#041426"/><stop offset="1" stop-color="#071b34"/></linearGradient>
+<linearGradient id="blue" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#2caeff"/><stop offset="1" stop-color="#72d9ff"/></linearGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffd27a"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+<linearGradient id="violet" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7aa8ff"/><stop offset="1" stop-color="#9a72ff"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<style>text{font-family:Arial,'Noto Sans KR',sans-serif}.ey{font-size:20px;letter-spacing:2px;fill:#91b4d8;font-weight:700}.h1{font-size:58px;fill:#fff;font-weight:800}.sub{font-size:24px;fill:#b9ccdf}.lab{font-size:18px;fill:#dbeafe;font-weight:700}.sm{font-size:15px;fill:#9fb8d0}</style>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<g opacity=".15" stroke="#4a78a7"><path d="M0 180H1600M0 360H1600M0 540H1600M0 720H1600"/><path d="M320 0V900M640 0V900M960 0V900M1280 0V900"/></g>
+<text x="80" y="95" class="ey">JOYLAB · AI MEMORY RESEARCH</text>
+<text x="80" y="190" class="h1">AI 에이전트가 늘면</text><text x="80" y="258" class="h1" fill="#4fc4ff">왜 HBM이 더 필요할까?</text>
+<text x="80" y="315" class="sub">반복 추론 · 긴 Context · KV Cache가 만드는 메모리 병목</text>
+<g transform="translate(110 470)">
+<circle cx="95" cy="95" r="82" fill="#0d2746" stroke="#39b8ff" stroke-width="4"/><circle cx="95" cy="95" r="50" fill="none" stroke="#5ed0ff" stroke-width="3" stroke-dasharray="8 7"/><circle cx="95" cy="95" r="12" fill="#f6bd5f" filter="url(#glow)"/><text x="54" y="210" class="lab">AI Agent</text>
+<path d="M190 95H330" stroke="#3db9ff" stroke-width="7"/><polygon points="330,95 307,81 307,109" fill="#3db9ff"/>
+<g transform="translate(350 22)"><rect width="220" height="145" rx="18" fill="#0b203a" stroke="#2e79ad"/><text x="28" y="42" class="lab">Repeated Inference</text><rect x="28" y="70" width="26" height="46" fill="#409ee9"/><rect x="66" y="54" width="26" height="62" fill="#54baff"/><rect x="104" y="40" width="26" height="76" fill="#70d1ff"/><rect x="142" y="28" width="26" height="88" fill="#92e1ff"/></g>
+<path d="M585 95H720" stroke="#3db9ff" stroke-width="7"/><polygon points="720,95 697,81 697,109" fill="#3db9ff"/>
+<g transform="translate(740 10)"><rect width="235" height="170" rx="18" fill="#0b203a" stroke="#2e79ad"/><text x="65" y="38" class="lab">KV Cache</text><rect x="26" y="60" width="182" height="24" fill="#123a5e"/><rect x="26" y="93" width="182" height="24" fill="#1d5f91"/><rect x="26" y="126" width="182" height="24" fill="#2f8cc7"/></g>
+<path d="M990 95H1115" stroke="#efb74f" stroke-width="7"/><polygon points="1115,95 1092,81 1092,109" fill="#efb74f"/>
+<g transform="translate(1130 -5)"><text x="60" y="28" font-size="28" fill="#ffd887" font-weight="800">HBM</text><rect x="0" y="145" width="190" height="24" rx="5" fill="#bd7110"/><rect x="14" y="115" width="162" height="24" rx="5" fill="#d78617"/><rect x="28" y="85" width="134" height="24" rx="5" fill="#ed9e26"/><rect x="42" y="55" width="106" height="24" rx="5" fill="#ffc45d" filter="url(#glow)"/></g>
+</g>
+<text x="80" y="835" class="sm">Agent → Token → Context → KV Cache → HBM capacity & bandwidth pressure</text>
+</svg>
