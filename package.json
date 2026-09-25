@@ -57,9 +57,7 @@
     "china-risk-earnings:self-test": "node scripts/compose-china-risk-earnings-impact.mjs --self-test",
     "content-date:audit": "node scripts/check-content-date-contract-v1.mjs",
     "home-slot:audit": "node scripts/check-home-content-slot-contract-v1.mjs",
-    "shortform:handoff": "node scripts/build-shortform-handoff.mjs",
-    "shortform:gold:install": "npm --prefix shortform-engine install",
-    "shortform:gold:render": "npm --prefix shortform-engine run render:gold"
+    "shortform:handoff": "node scripts/build-shortform-handoff.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"
