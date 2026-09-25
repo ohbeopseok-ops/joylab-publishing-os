@@ -13,8 +13,8 @@ tags:
   - MVP
   - 웹서비스
   - 문제정의
-coverImage: "/books/problem-to-service/cover.svg"
-ogImage: "/books/problem-to-service/og.svg"
+coverImage: "/images/books/problem-to-service-cover.webp"
+ogImage: "/images/og/problem-to-service-og.webp"
 heroQuote: "여기 화장실 어디 있어? 어머니의 한마디가 실제 서비스가 되기까지."
 landingHeading: "가족의 작은 불편을 발견하고, AI와 웹 기술로 실제 서비스까지 만든 전 과정을 기록했습니다."
 readerProfiles:
