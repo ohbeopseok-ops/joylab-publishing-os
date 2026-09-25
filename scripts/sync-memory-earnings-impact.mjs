@@ -51,7 +51,10 @@ export function parseSkHynix(text){
 }
 
 async function fetchText(url){
-  const res=await fetch(url,{headers:{'user-agent':'JoyLabResearchBot/1.0 (+https://aijoylab.kr/)'}});
+  const res=await fetch(url,{
+    headers:{'user-agent':'JoyLabResearchBot/1.0 (+https://aijoylab.kr/)'},
+    signal:AbortSignal.timeout(15000)
+  });
   if(!res.ok) throw new Error(`HTTP ${res.status} ${url}`);
   return clean(await res.text());
 }
@@ -83,16 +86,24 @@ function selfTest(){
 if(SELF_TEST){selfTest();process.exit(0);}
 
 const config=read(CONFIG);
-const samsungText=await fetchText(config.sources.samsung.url);
-const skText=await fetchText(config.sources.skHynix.url);
+const previous=fs.existsSync(OUTPUT)?read(OUTPUT):null;
+async function fetchCompany(key,parser){
+  try{
+    const text=await fetchText(config.sources[key].url);
+    return {...parser(text),source:config.sources[key].url,sourceType:'OFFICIAL',freshness:'LIVE',fetchError:null};
+  }catch(error){
+    const fallback=previous?.companies?.[key];
+    if(!fallback) throw error;
+    return {...fallback,freshness:'STALE',fetchError:String(error?.message??error)};
+  }
+}
+const samsung=await fetchCompany('samsung',parseSamsung);
+const skHynix=await fetchCompany('skHynix',parseSkHynix);
 const snapshot={
   version:'1.0',
   generatedAt:new Date().toISOString(),
   quarter:config.quarter,
-  companies:{
-    samsung:{...parseSamsung(samsungText),source:config.sources.samsung.url,sourceType:'OFFICIAL'},
-    skHynix:{...parseSkHynix(skText),source:config.sources.skHynix.url,sourceType:'OFFICIAL'}
-  }
+  companies:{samsung,skHynix}
 };
 snapshot.derived=derive(snapshot);
 if(DRY_RUN){console.log(JSON.stringify(snapshot,null,2));process.exit(0);}
