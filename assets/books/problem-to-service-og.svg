@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+<title id="t">문제를 서비스로 바꾸는 법</title>
+<desc id="d">JoyLab Books 문제를 서비스로 바꾸는 법 Open Graph 이미지</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#03152d"/><stop offset=".7" stop-color="#0b3567"/><stop offset="1" stop-color="#f0a842"/></linearGradient>
+  <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffd758" stop-opacity=".85"/><stop offset="1" stop-color="#ff9b36" stop-opacity="0"/></linearGradient>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<circle cx="1070" cy="500" r="260" fill="url(#glow)" opacity=".72"/>
+<path d="M0 540 C250 430 430 520 655 425 C830 350 1020 382 1200 282 L1200 630 L0 630Z" fill="#071a2b" opacity=".8"/>
+<g opacity=".34" fill="none" stroke="#3da7ff" stroke-width="2">
+  <path d="M390 340 C470 286 522 356 606 298 S752 252 822 304"/>
+  <circle cx="390" cy="340" r="7"/><circle cx="606" cy="298" r="7"/><circle cx="822" cy="304" r="7"/>
+</g>
+<text x="64" y="64" fill="#63c8ff" font-size="23" font-family="Arial, sans-serif" font-weight="700" letter-spacing="6">JOYLAB BOOKS · BUILD SERIES 01</text>
+<text x="62" y="172" fill="#ffffff" font-size="78" font-family="Arial, 'Noto Sans KR', sans-serif" font-weight="900">문제를</text>
+<text x="62" y="264" fill="#ffe13a" font-size="86" font-family="Arial, 'Noto Sans KR', sans-serif" font-weight="900">서비스로</text>
+<text x="62" y="356" fill="#ffffff" font-size="78" font-family="Arial, 'Noto Sans KR', sans-serif" font-weight="900">바꾸는 법</text>
+<text x="66" y="416" fill="#dbeaff" font-size="26" font-family="Arial, 'Noto Sans KR', sans-serif">어머니와 걷다가 시작된 시니어 화장실 찾기 AI 서비스 제작기</text>
+<line x1="66" y1="454" x2="108" y2="454" stroke="#ffe13a" stroke-width="6"/>
+<text x="132" y="462" fill="#70cdfd" font-size="22" font-family="Arial, 'Noto Sans KR', sans-serif">작은 불편이 실제 서비스가 되기까지</text>
+<!-- route pins -->
+<g transform="translate(736,112)">
+ <path d="M36 0c-20 0-36 16-36 36 0 28 36 68 36 68s36-40 36-68C72 16 56 0 36 0z" fill="#1f77cb" opacity=".8"/><circle cx="36" cy="36" r="12" fill="#d9edff"/>
+</g>
+<g transform="translate(894,166)">
+ <path d="M30 0C13 0 0 13 0 30c0 23 30 57 30 57s30-34 30-57C60 13 47 0 30 0z" fill="#3188d5" opacity=".72"/><circle cx="30" cy="30" r="10" fill="#d9edff"/>
+</g>
+<!-- figures -->
+<g transform="translate(790,412)">
+  <circle cx="0" cy="0" r="22" fill="#dac6b2"/><rect x="-16" y="26" width="32" height="70" rx="14" fill="#d79c9a"/><rect x="-11" y="90" width="10" height="48" rx="5" fill="#151a21"/><rect x="4" y="90" width="10" height="48" rx="5" fill="#151a21"/>
+</g>
+<g transform="translate(852,400)">
+  <circle cx="0" cy="0" r="23" fill="#d5a27c"/><rect x="-18" y="27" width="36" height="74" rx="14" fill="#14253a"/><rect x="-13" y="96" width="11" height="52" rx="5" fill="#11171f"/><rect x="4" y="96" width="11" height="52" rx="5" fill="#11171f"/>
+</g>
+<!-- phone -->
+<g transform="translate(942,240) rotate(5)">
+  <rect width="196" height="326" rx="30" fill="#0b1018" stroke="#9cb4cf" stroke-width="4"/>
+  <rect x="12" y="18" width="172" height="292" rx="19" fill="#f8fbff"/>
+  <rect x="70" y="25" width="55" height="8" rx="4" fill="#0d1723"/>
+  <text x="28" y="72" fill="#13243a" font-size="14" font-family="Arial, 'Noto Sans KR', sans-serif" font-weight="700">지금, 가장 가까운</text>
+  <text x="28" y="93" fill="#13243a" font-size="14" font-family="Arial, 'Noto Sans KR', sans-serif" font-weight="700">화장실을 찾아보세요</text>
+  <rect x="22" y="112" width="150" height="90" rx="12" fill="#dcecf8"/>
+  <path d="M34 184 C68 150 96 174 124 140 S153 132 164 123" fill="none" stroke="#2586d7" stroke-width="4"/>
+  <circle cx="111" cy="151" r="8" fill="#2586d7"/>
+  <circle cx="151" cy="132" r="9" fill="#ffe13a" stroke="#182a3d" stroke-width="2"/>
+  <rect x="22" y="218" width="150" height="46" rx="15" fill="#ffe13a"/>
+  <text x="97" y="247" text-anchor="middle" fill="#0d1a2a" font-size="14" font-family="Arial, 'Noto Sans KR', sans-serif" font-weight="900">가까운 화장실 찾기</text>
+  <text x="28" y="288" fill="#334b63" font-size="12" font-family="Arial, 'Noto Sans KR', sans-serif">약 320m · 도보 5분</text>
+</g>
+<text x="66" y="576" fill="#ffffff" font-size="22" font-family="Arial, sans-serif" font-weight="700" letter-spacing="5">JOYLAB</text>
+</svg>
