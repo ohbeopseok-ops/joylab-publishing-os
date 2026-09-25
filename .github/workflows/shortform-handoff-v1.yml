@@ -7,6 +7,12 @@ on:
         description: "Article markdown path, e.g. src/data/articles/what-is-ai-agent.md"
         required: true
         type: string
+  pull_request:
+    paths:
+      - "scripts/build-shortform-handoff.mjs"
+      - ".github/workflows/shortform-handoff-v1.yml"
+      - "docs/shortform-engine-v0.1.md"
+      - "package.json"
   push:
     branches:
       - main
@@ -32,9 +38,15 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             node scripts/build-shortform-handoff.mjs --article "${{ inputs.article }}"
+          elif [ "${{ github.event_name }}" = "pull_request" ]; then
+            node scripts/build-shortform-handoff.mjs --article src/data/articles/what-is-ai-agent.md
           else
             node scripts/build-shortform-handoff.mjs --changed-from "${{ github.event.before }}"
           fi
+
+      - name: Verify handoff output
+        if: github.event_name == 'pull_request'
+        run: test -s .artifacts/shortform-handoff/what-is-ai-agent.json
 
       - name: Upload handoff artifact
         continue-on-error: true
