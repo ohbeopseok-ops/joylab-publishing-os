@@ -127,3 +127,8 @@ Fed는 물가 안정과 최대고용이라는 이중 책무를 갖습니다.
 - U.S. Bureau of Labor Statistics, The Employment Situation — August 2026
 - Reuters, U.S. nonfarm payrolls surge in August — September 4, 2026
 - Federal Reserve, FOMC Statement — September 16, 2026
+
+## 검증용 1차 자료
+
+- [U.S. Bureau of Labor Statistics — Employment Situation](https://www.bls.gov/news.release/empsit.htm)
+- [Federal Reserve — FOMC](https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)
