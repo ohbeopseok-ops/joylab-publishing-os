@@ -67,7 +67,7 @@ jobs:
       - name: Commit event outputs
         shell: bash
         run: |
-          PATHS="src/data/china-risk-brief-distribution.json public/data/china-risk-brief-distribution.json src/data/memory-earnings-snapshot.json public/data/memory-earnings-snapshot.json src/data/china-risk-earnings-impact-brief.json public/data/china-risk-earnings-impact-brief.json distribution/china-risk-kakao-handoff.json"
+          PATHS="src/data/china-risk-brief-distribution.json public/data/china-risk-brief-distribution.json public/data/china-risk-kakao.json public/data/china-risk-premarket-0700.json public/data/china-risk-blog-summary.json public/data/china-risk-notification-event.json src/data/memory-earnings-snapshot.json public/data/memory-earnings-snapshot.json src/data/china-risk-earnings-impact-brief.json public/data/china-risk-earnings-impact-brief.json distribution/china-risk-kakao-handoff.json"
           if git diff --quiet -- $PATHS; then
             echo "No distribution or earnings changes."
             exit 0
