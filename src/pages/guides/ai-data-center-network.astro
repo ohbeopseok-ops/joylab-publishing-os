@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import { getCollection } from 'astro:content';
+
+const plannedIds = [
+  'ai-network-800g-1-6t',
+  'what-is-co-packaged-optics',
+  'silicon-photonics-ai-network',
+  'optical-dsp-lpo-lro-1-6t',
+  'ai-data-center-interconnect-dci'
+];
+
+const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
+const byId = new Map(collection.map((item) => [item.id, item]));
+const articles = plannedIds.map((id) => byId.get(id)).filter(Boolean);
+const canonical = 'https://aijoylab.kr/guides/ai-data-center-network';
+
+const faq = [
+  ['AI 데이터센터 네트워크는 왜 800G에서 1.6T로 이동하나요?', 'GPU와 가속기 수가 늘면서 스위치와 서버 사이에 필요한 대역폭이 증가하고, 동시에 포트 밀도와 전력 효율을 높여야 하기 때문입니다.'],
+  ['1.6T와 CPO는 같은 기술인가요?', '아닙니다. 1.6T는 링크 대역폭을 뜻하고 CPO는 광학 엔진을 스위치 ASIC 가까이에 통합하는 아키텍처입니다.'],
+  ['Silicon Photonics는 어디에 쓰이나요?', '전기 신호와 광신호를 칩 수준에서 효율적으로 연결해 고속 광인터커넥트의 전력과 대역폭 밀도를 개선하는 데 활용됩니다.'],
+  ['DCI는 무엇인가요?', 'Data Center Interconnect의 약자로 데이터센터 건물·캠퍼스·리전 사이를 연결하는 광네트워크를 뜻합니다.']
+];
+
+const schema = {
+  '@context':'https://schema.org',
+  '@graph':[
+    {'@type':'WebPage','@id':canonical,url:canonical,name:'AI 데이터센터 네트워크는 어떻게 확장되는가',inLanguage:'ko-KR'},
+    {'@type':'BreadcrumbList',itemListElement:[
+      {'@type':'ListItem',position:1,name:'JoyLab',item:'https://aijoylab.kr/'},
+      {'@type':'ListItem',position:2,name:'AI Infrastructure',item:'https://aijoylab.kr/guides/ai-infrastructure'},
+      {'@type':'ListItem',position:3,name:'AI Data Center Network',item:canonical}
+    ]},
+    {'@type':'ItemList',name:'AI 데이터센터 네트워크 리서치',numberOfItems:articles.length,itemListElement:articles.map((article,index)=>({'@type':'ListItem',position:index+1,name:article!.data.title,url:new URL('/articles/'+article!.id,'https://aijoylab.kr').toString()}))},
+    {'@type':'FAQPage',mainEntity:faq.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}
+  ]
+};
+---
+<BaseLayout
+  title="AI 데이터센터 네트워크는 어떻게 확장되는가｜800G·1.6T·CPO·Silicon Photonics | JoyLab"
+  description="GPU Fabric에서 800G·1.6T 광연결, CPO, Silicon Photonics, DCI까지 AI 데이터센터 네트워크의 확장 구조를 설명합니다."
+  canonical={canonical}
+  bodyClass="semiconductor-guide-v2"
+>
+<section class="sg-hero"><div class="sg-wrap sg-hero__inner">
+  <div class="sg-hero__top"><div class="sg-hero__copy">
+    <div class="sg-eyebrow">AI DATA CENTER NETWORK · JOYLAB</div>
+    <h1>GPU가 빨라질수록<br/><span>네트워크도 다시 설계됩니다.</span></h1>
+    <p class="sg-hero__lead">800G → 1.6T → CPO → Silicon Photonics → DCI. AI 데이터센터의 Network Layer가 어떻게 확장되는지 거리·대역폭·전력/bit 기준으로 봅니다.</p>
+    <div class="sg-hero__chips"><span>#800G</span><span>#1.6T</span><span>#CPO</span><span>#SiliconPhotonics</span><span>#DCI</span></div>
+    <div class="sg-hero__meta"><span><strong>{articles.length}</strong> Published Research</span><span><strong>5</strong> Planned Core Articles</span><span><strong>1</strong> Network Stack</span></div>
+  </div>
+  <aside class="sg-lens">
+    <div class="sg-lens__brand">JOYLAB<br/><b>NETWORK</b></div>
+    <div class="sg-lens__item"><em>01</em><div><b>BANDWIDTH</b><span>800G에서 1.6T로 포트 대역폭이 커지는 이유를 봅니다.</span></div></div>
+    <div class="sg-lens__item"><em>02</em><div><b>POWER / BIT</b><span>속도보다 전력과 열이 왜 더 중요해지는지 봅니다.</span></div></div>
+    <div class="sg-lens__item"><em>03</em><div><b>REACH</b><span>Rack → Campus → DCI → Global Backbone을 구분합니다.</span></div></div>
+  </aside></div>
+  <div class="sg-map-head"><div><span>NETWORK STACK</span><b>GPU → Fabric → 800G/1.6T → CPO → Silicon Photonics → DCI → Global Backbone</b></div><a href="#network-research">리서치 보기 →</a></div>
+</div></section>
+
+<main class="sg-main" id="network-research"><div class="sg-wrap sg-layout"><section>
+  <section class="sg-rule">
+    <div class="sg-eyebrow">CORE THESIS</div>
+    <h2>AI 네트워크의 병목은 속도 하나가 아니라 Bandwidth Density × Power/bit × Reach입니다.</h2>
+    <p>GPU 수가 늘수록 링크 대역폭이 커져야 하지만 전기 신호 손실과 광모듈 전력, 열, 유지보수 비용도 함께 커집니다. 그래서 1.6T·CPO·Silicon Photonics·DCI를 하나의 Stack으로 봐야 합니다.</p>
+  </section>
+
+  <div class="sg-section-head"><div><div class="sg-eyebrow">CORE RESEARCH · 01 → 05</div><h2>첫 글부터 순차적으로 채워갑니다</h2></div><p>현재 공개된 글만 카드로 표시하고, 계획된 5편이 발행될수록 자동으로 확장됩니다.</p></div>
+
+  <div class="sg-path">
+    {articles.map((article,index)=><article class={`sg-card ${index===0?'is-key':''}`}>
+      <div class="sg-card__no">{String(index+1).padStart(2,'0')}</div><div>
+        <div class="sg-card__role">{article!.data.series}</div>
+        <h3><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h3>
+        <p>{article!.data.description}</p>
+        <div class="sg-card__foot">{article!.data.tags.slice(0,3).map(tag=><span>#{tag}</span>)}<a class="sg-card__cta" href={`/articles/${article!.id}`}>리서치 읽기 →</a></div>
+      </div>
+    </article>)}
+  </div>
+
+  <section class="sg-rule">
+    <div class="sg-eyebrow">NETWORK DISTANCE MAP</div>
+    <h2>Rack → Data Center → Campus → Metro → Global</h2>
+    <div class="sg-rule__grid">
+      <div class="sg-rule__step"><b>RACK</b><span>DAC·AEC·Scale-up 연결</span></div>
+      <div class="sg-rule__step"><b>DATA CENTER</b><span>800G·1.6T PAM4 optics</span></div>
+      <div class="sg-rule__step"><b>CAMPUS</b><span>Coherent-lite·광연결</span></div>
+      <div class="sg-rule__step"><b>DCI / GLOBAL</b><span>Coherent → Backbone → Submarine Cable</span></div>
+    </div>
+  </section>
+
+  <section class="sg-rule">
+    <div class="sg-eyebrow">FAQ</div><h2>AI 데이터센터 네트워크 FAQ</h2>
+    {faq.map(([q,a])=><div style="padding:16px 0;border-bottom:1px solid #e2e8f0"><h3 style="margin:0 0 8px">{q}</h3><p style="margin:0">{a}</p></div>)}
+  </section>
+</section>
+
+<aside class="sg-rail">
+  <section class="sg-rail-card sg-rail-card--dark"><small>START HERE</small><h3>800G에서 1.6T로</h3><p>AI 네트워크 세대 전환을 lane speed·전력/bit 기준으로 시작합니다.</p><a href="/articles/ai-network-800g-1-6t">첫 리서치 읽기 →</a></section>
+  <section class="sg-rail-card"><small>AI INFRASTRUCTURE</small><h3>AI Infrastructure Hub</h3><p>Compute·Memory·Power·Cooling·Network 전체 병목 구조를 봅니다.</p><a href="/guides/ai-infrastructure">AI Infrastructure Hub →</a></section>
+  <section class="sg-rail-card"><small>GLOBAL CONNECTIVITY</small><h3>인터넷은 어떻게 세계를 연결하는가</h3><p>DCI 밖의 Backbone·해저 광케이블·위성까지 이어서 봅니다.</p><a href="/guides/how-internet-connects-the-world">Global Network Guide →</a></section>
+</aside></div></main>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+</BaseLayout>
