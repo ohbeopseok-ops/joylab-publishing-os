@@ -239,7 +239,7 @@ function parseCounterpoint(docs) {
       let contextual = null;
       for (const match of doc.text.matchAll(/(\d+(?:\.\d+)?)%\s+(?:of\s+)?(?:global\s+)?(?:NAND\s+)?(?:bit\s+)?(?:shipment\s+)?share/gi)) {
         const start = Math.max(0, (match.index ?? 0) - 220);
-        const context = doc.text.slice(start, (match.index ?? 0) + match[0].length + 40);
+        const context = doc.text.slice(start, (match.index ?? 0) + match[0].length);
         if (/YMTC/i.test(context)) {
           contextual = { value:Number(match[1]), evidence:context };
           break;
@@ -248,7 +248,7 @@ function parseCounterpoint(docs) {
       if (!contextual) {
         for (const match of doc.text.matchAll(/(\d+(?:\.\d+)?)%\s+(?:of\s+)?(?:global\s+)?(?:NAND\s+)?(?:bit\s+)?shipments?/gi)) {
           const start = Math.max(0, (match.index ?? 0) - 220);
-          const context = doc.text.slice(start, (match.index ?? 0) + match[0].length + 40);
+          const context = doc.text.slice(start, (match.index ?? 0) + match[0].length);
           if (/YMTC/i.test(context)) {
             contextual = { value:Number(match[1]), evidence:context };
             break;
