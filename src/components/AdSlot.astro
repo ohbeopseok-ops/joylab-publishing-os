@@ -11,13 +11,21 @@ interface Props {
 
 const {
   placement,
-  slotId = '',
+  slotId,
   label = '광고',
   enabled = AD_PLACEMENT.enabled,
   class: className = ''
 } = Astro.props;
 
-const canRender = Boolean(enabled && slotId);
+const configuredSlot = {
+  'article-mid-30': AD_PLACEMENT.slots.articleMid30.slotId,
+  'article-mid-65': AD_PLACEMENT.slots.articleMid65.slotId,
+  'article-end': AD_PLACEMENT.slots.articleEnd.slotId,
+  'archive-in-feed': AD_PLACEMENT.slots.archiveInFeed.slotId
+}[placement];
+
+const resolvedSlotId = slotId ?? configuredSlot ?? '';
+const canRender = Boolean(enabled && resolvedSlotId);
 ---
 {canRender && (
   <aside
@@ -30,7 +38,7 @@ const canRender = Boolean(enabled && slotId);
       class="adsbygoogle"
       style="display:block"
       data-ad-client={AD_PLACEMENT.publisherClientId}
-      data-ad-slot={slotId}
+      data-ad-slot={resolvedSlotId}
       data-ad-format="auto"
       data-full-width-responsive="true"
     ></ins>
