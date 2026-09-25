@@ -236,11 +236,27 @@ function parseCounterpoint(docs) {
       }
     }
     if (!found.ymtcShare.some((item) => item.sourceUrl === doc.url) && /YMTC/i.test(doc.text) && /NAND/i.test(doc.text)) {
-      const direct = doc.text.match(/YMTC[\s\S]{0,500}?(\d+(?:\.\d+)?)%\s*(?:of\s+)?(?:NAND\s+)?(?:bit\s+)?(?:shipment\s+)?share/i)
-        || doc.text.match(/YMTC[\s\S]{0,400}?(?:third place|top\s*3|top three)[\s\S]{0,180}?(\d+(?:\.\d+)?)%/i)
-        || doc.text.match(/YMTC[\s\S]{0,260}?(\d+(?:\.\d+)?)%[\s\S]{0,100}?(?:third place|top\s*3|top three)/i);
-      const v = Number(direct?.[1]);
-      if (Number.isFinite(v) && v > 0 && v < 50) found.ymtcShare.push(sourceMetric('ymtcShare',v,'% bit shipments',scoreShare(v),doc,direct[0]));
+      let contextual = null;
+      for (const match of doc.text.matchAll(/(\d+(?:\.\d+)?)%\s+(?:of\s+)?(?:global\s+)?(?:NAND\s+)?(?:bit\s+)?(?:shipment\s+)?share/gi)) {
+        const start = Math.max(0, (match.index ?? 0) - 220);
+        const context = doc.text.slice(start, (match.index ?? 0) + match[0].length + 40);
+        if (/YMTC/i.test(context)) {
+          contextual = { value:Number(match[1]), evidence:context };
+          break;
+        }
+      }
+      if (!contextual) {
+        for (const match of doc.text.matchAll(/(\d+(?:\.\d+)?)%\s+(?:of\s+)?(?:global\s+)?(?:NAND\s+)?(?:bit\s+)?shipments?/gi)) {
+          const start = Math.max(0, (match.index ?? 0) - 220);
+          const context = doc.text.slice(start, (match.index ?? 0) + match[0].length + 40);
+          if (/YMTC/i.test(context)) {
+            contextual = { value:Number(match[1]), evidence:context };
+            break;
+          }
+        }
+      }
+      const v = contextual?.value;
+      if (Number.isFinite(v) && v > 0 && v < 50) found.ymtcShare.push(sourceMetric('ymtcShare',v,'% bit shipments',scoreShare(v),doc,contextual.evidence));
     }
   }
   return Object.fromEntries(Object.entries(found).map(([k,v]) => [k,latestMetric(v)]));
