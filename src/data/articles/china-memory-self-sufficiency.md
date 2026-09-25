@@ -10,6 +10,9 @@ featured: false
 draft: false
 series: "미·중 반도체 전쟁"
 seriesOrder: 6
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "china memory self sufficiency를 분석한 JoyLab Research 대표 이미지"
+ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
 ---
 
@@ -19,7 +22,7 @@ readingTime: "약 7분"
 
 ## 수입 대체가 먼저 나타난다
 
-중국 스마트폰·PC·서버 수요가 커질 때 과거에는 한국·미국산 메모리 수입이 함께 증가했습니다. 자국산 메모리가 확대되면 동일한 수요 증가가 해외 업체 매출로 연결되지 않을 수 있습니다.
+중국 스마트폰·PC·서버 수요가 커질 때 해외 메모리 수입 의존도가 높았지만, 자국산 메모리가 확대되면 동일한 수요 증가가 해외 업체 매출로 연결되지 않을 수 있습니다. [TrendForce 중국 메모리 증설 분석](https://www.trendforce.com/news/2026/09/24/news-cxmt-ymtc-ramp-memory-capacity-but-chinas-ai-cloud-boom-could-soak-up-new-supply-through-2027/)
 
 [CXMT DRAM 분석 →](/articles/cxmt-dram-vs-samsung-sk-hynix)
 
