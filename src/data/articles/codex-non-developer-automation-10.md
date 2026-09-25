@@ -305,3 +305,8 @@ Codex의 가치가 가장 크게 나타나는 지점은 화려한 데모보다 *
 
 
 → [Codex Hub에서 전체 시리즈 보기](/guides/codex)
+
+## 공식 참고 자료
+
+- [OpenAI — Codex](https://openai.com/codex/)
+- [OpenAI Help — ChatGPT Release Notes](https://help.openai.com/en/articles/6825453)
