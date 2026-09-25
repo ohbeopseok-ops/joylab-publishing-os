@@ -12,9 +12,9 @@ featured: false
 draft: false
 series: "AI 추론 시대 메모리"
 seriesOrder: 2
-heroImage: "/images/research/hbm3e-hbm4-zhbm.webp"
-heroAlt: "HBM3E에서 HBM4와 zHBM 3D 메모리 구조로 진화하는 AI 메모리 로드맵"
-ogImage: "/images/research/hbm3e-hbm4-zhbm.webp"
+heroImage: "/images/research/hbm3e-hbm4-zhbm-vector.svg"
+heroAlt: "HBM3E에서 HBM4와 zHBM으로 이어지는 AI 메모리 기술 진화"
+ogImage: "/images/research/hbm3e-hbm4-zhbm-vector.svg"
 readingTime: "약 8분"
 ---
 
