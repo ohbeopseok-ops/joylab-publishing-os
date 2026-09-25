@@ -45,7 +45,9 @@
     "adsense:compose": "node scripts/compose-adsense-monetization-snapshot-v1.mjs",
     "adsense:dashboard": "node scripts/generate-adsense-monetization-dashboard-v1.mjs",
     "china-risk-history:update": "node scripts/update-china-risk-history.mjs",
-    "china-risk-history:self-test": "node scripts/update-china-risk-history.mjs --self-test"
+    "china-risk-history:self-test": "node scripts/update-china-risk-history.mjs --self-test",
+    "china-risk-brief:publish": "node scripts/publish-china-risk-brief.mjs",
+    "china-risk-brief:self-test": "node scripts/publish-china-risk-brief.mjs --self-test"
   },
   "dependencies": {
     "astro": "^7.3.2"
