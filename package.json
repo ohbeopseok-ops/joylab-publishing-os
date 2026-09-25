@@ -47,7 +47,14 @@
     "china-risk-history:update": "node scripts/update-china-risk-history.mjs",
     "china-risk-history:self-test": "node scripts/update-china-risk-history.mjs --self-test",
     "china-risk-brief:publish": "node scripts/publish-china-risk-brief.mjs",
-    "china-risk-brief:self-test": "node scripts/publish-china-risk-brief.mjs --self-test"
+    "china-risk-brief:self-test": "node scripts/publish-china-risk-brief.mjs --self-test",
+    "china-risk-distribution:build": "node scripts/build-china-risk-brief-distribution.mjs",
+    "china-risk-distribution:self-test": "node scripts/build-china-risk-brief-distribution.mjs --self-test",
+    "memory-earnings:sync": "node scripts/sync-memory-earnings-impact.mjs",
+    "memory-earnings:dry-run": "node scripts/sync-memory-earnings-impact.mjs --dry-run",
+    "memory-earnings:self-test": "node scripts/sync-memory-earnings-impact.mjs --self-test",
+    "china-risk-earnings:compose": "node scripts/compose-china-risk-earnings-impact.mjs",
+    "china-risk-earnings:self-test": "node scripts/compose-china-risk-earnings-impact.mjs --self-test"
   },
   "dependencies": {
     "astro": "^7.3.2"
