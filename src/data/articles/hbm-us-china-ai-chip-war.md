@@ -41,3 +41,27 @@ SK하이닉스는 HBM 선두권을 유지하고 있고 삼성전자는 HBM4를 �
 HBM 점유율, HBM3E→HBM4 전환, 주요 고객 인증, TSV·패키징 CAPA, ASP와 중국 HBM 자립 속도를 함께 봐야 합니다.
 
 [중국 반도체 리스크 핵심 지표 →](/articles/china-semiconductor-risk-indicators)
+
+## HBM을 볼 때 메모리와 AI 시스템을 함께 봐야 한다
+
+HBM이 중요한 이유는 단순히 메모리 가격이 높기 때문이 아닙니다. AI 가속기는 연산 칩만으로 성능이 결정되지 않고, 필요한 데이터를 얼마나 빠르게 공급받는지가 중요합니다. HBM은 높은 대역폭을 제공해 AI 시스템의 활용률과 처리 효율에 직접 영향을 줍니다. 그래서 AI 인프라를 볼 때 연산 칩과 고대역폭 메모리를 하나의 시스템으로 봐야 합니다.
+
+투자자 입장에서는 정책 변화 자체보다 그것이 고객 구성, 지역별 공급, 인증 일정, 생산능력에 어떤 변화를 만드는지가 더 중요합니다. HBM 수요가 강해도 고객 인증이 지연되거나 패키징 수율이 낮으면 실적 전환 속도는 느릴 수 있습니다. 반대로 고객 확보와 패키징 병목 해소가 동시에 진행되면 공급능력 자체가 경쟁우위가 될 수 있습니다.
+
+HBM 경쟁은 네 층으로 나눠 보면 이해가 쉽습니다.
+
+1. Compute — GPU·AI 가속기 출하량
+2. Memory — HBM 세대, 적층 수, 대역폭, 전력 효율
+3. Packaging — 패키징 수율과 생산능력
+4. Customer — 실제 고객 인증과 공급계약
+
+한 회사가 신제품을 발표해도 고객 인증과 양산 수율이 따라오지 않으면 실적 기여는 제한됩니다. 따라서 제품 발표보다 실제 매출 전환 경로를 확인해야 합니다.
+
+삼성전자와 SK하이닉스 투자자에게 중요한 질문은 HBM 수요 성장, 고객 인증, 패키징 CAPA, 메모리 가격이 어떻게 연결되는가입니다. JoyLab에서는 **AI 칩 출하 → HBM 탑재량 → 고객 인증 → 패키징 수율 → 실제 메모리 매출** 순서로 확인합니다. 정책 뉴스는 이 경로 중 어느 단계에 영향을 주는지 분리해서 해석합니다.
+
+## 1차 자료
+
+- [미국 BIS — 2024년 관련 정책 발표](https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military)
+- [미국 BIS — 2022년 관련 정책 발표](https://www.bis.gov/node/20292)
+- [삼성전자 실적발표](https://www.samsung.com/global/ir/financial-information/earnings-release/)
+- [SK하이닉스 IR](https://www.skhynix.com/ir/UI-FR-IR99/)
