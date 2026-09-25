@@ -40,7 +40,12 @@ async function runArticle(viewport) {
   // Mock only this endpoint so unrelated 4xx/5xx and browser errors still fail the GOLD case.
   await page.route('**/__analytics/event', (route) => route.fulfill({ status: 204, body: '' }));
   page.on('pageerror', (e) => errors.push(String(e)));
-  page.on('console', (m) => { if (m.type() === 'error') errors.push(`console: ${m.text()}`); });
+  page.on('console', (m) => {
+    if (m.type() !== 'error') return;
+    const message = m.text();
+    if (message.includes('[Report Only]') && message.includes('Content Security Policy')) return;
+    errors.push(`console: ${message}`);
+  });
   const response = await page.goto(`${baseURL}${articlePath}`, { waitUntil: 'networkidle' });
   await triggerLazy(page);
   const health = await pageHealth(page);
