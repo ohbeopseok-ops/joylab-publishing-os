@@ -133,3 +133,8 @@ Fed는 PPI 하나만으로 금리를 결정하지 않습니다. 하지만 PPI �
 - U.S. Bureau of Labor Statistics, Producer Price Indexes — August 2026
 - U.S. Bureau of Labor Statistics, The Economics Daily — September 16, 2026
 - Federal Reserve, FOMC Statement — September 16, 2026
+
+## 검증용 1차 자료
+
+- [U.S. Bureau of Labor Statistics — PPI August 2026](https://www.bls.gov/news.release/archives/ppi_09102026.htm)
+- [Federal Reserve — FOMC](https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)

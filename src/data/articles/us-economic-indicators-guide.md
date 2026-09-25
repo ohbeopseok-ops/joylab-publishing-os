@@ -152,3 +152,16 @@ Fed 정책 기대가 어떻게 바뀌었는지 봅니다.
 소매판매는 소비의 강도를, CPI는 소비자물가를, PPI는 기업 원가를, 비농업고용은 소득의 지속성을, PCE는 Fed가 보는 최종 물가 신호를 보여줍니다.
 
 이제 다섯 편이 모두 발행됐습니다. 소매판매 → CPI → PPI → 비농업고용 → PCE 순서로 보면 미국 경기와 Fed, 국채금리, 나스닥의 연결 구조를 하나의 프레임으로 추적할 수 있습니다.
+
+## 지표를 읽을 때 놓치기 쉬운 세 가지
+
+첫째, 발표 숫자는 **이전 달 수정치**와 함께 봐야 합니다. 헤드라인이 예상치를 웃돌아도 직전 수치가 크게 하향 수정되면 실제 경기 모멘텀은 제목만큼 강하지 않을 수 있습니다. 둘째, 명목지표와 실질지표를 구분해야 합니다. 소매판매처럼 가격 변화를 포함하는 지표는 물가 상승만으로도 금액이 커질 수 있으므로 소비량과 같은 의미로 해석하면 안 됩니다. 셋째, 하나의 지표로 Fed의 다음 결정을 단정하지 않습니다. 고용·물가·소비·금융여건이 서로 다른 방향을 보일 수 있기 때문에 발표 직후 시장금리, 달러, 주식의 반응까지 함께 확인해야 합니다.
+
+JoyLab에서는 각 발표를 **원문 발표 → 수정치 → 금리 반응 → 이익 추정치 → 주가 상대강도** 순서로 검증합니다. 이 순서를 유지하면 단일 숫자에 과도하게 반응하는 오류를 줄일 수 있습니다.
+
+## 검증용 1차 자료
+
+- [U.S. Census Bureau — Monthly Retail Trade](https://www.census.gov/retail/sales.html)
+- [U.S. Bureau of Labor Statistics — Employment Situation](https://www.bls.gov/news.release/empsit.htm)
+- [U.S. Bureau of Economic Analysis — Personal Income and Outlays](https://www.bea.gov/data/income-saving/personal-income)
+- [Federal Reserve — FOMC](https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)

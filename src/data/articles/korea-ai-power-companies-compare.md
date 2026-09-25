@@ -190,3 +190,10 @@ AI 전력 4사를 한 줄로 순위 매기기는 어렵습니다. 각 회사가 
 - LS ELECTRIC 2026년 2분기 실적 및 IR 자료
 - 각 사 공식 생산능력·증설 발표
 - 시장 밸류에이션 기준일: 2026-09-10
+
+## 검증용 1차 자료
+
+- [두산에너빌리티 IR 자료](https://www.doosanenerbility.com/kr/investment/ir_data)
+- [효성중공업 IR 자료실](https://www.hyosungheavyindustries.com/kr/company/ir/archive/annual-report)
+- [LS ELECTRIC IR](https://www.ls-electric.com/ko/company/invest/ir/)
+- [HD현대 ESG·HD현대일렉트릭 뉴스](https://esg.hd.com/ko/news/1001)

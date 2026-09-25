@@ -181,3 +181,9 @@ JoyLab의 판단 순서는 단순합니다.
 **AI 수요 → HBM 인증·수율 → 출하·가격 → EPS Revision → 외국인 수급 → 주가**
 
 이 흐름이 같은 방향을 가리킬 때 HBM 뉴스의 투자 신호 품질이 가장 높아집니다.
+
+## 검증용 1차 자료
+
+- [삼성전자 실적발표](https://www.samsung.com/global/ir/financial-information/earnings-release/)
+- [SK하이닉스 IR](https://www.skhynix.com/ir/UI-FR-IR99/)
+- [SK하이닉스 분기 실적](https://news.skhynix.com/en/category/ir/?tag=quartely-earnings)

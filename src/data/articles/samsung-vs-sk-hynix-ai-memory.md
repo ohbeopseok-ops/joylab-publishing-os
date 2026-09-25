@@ -230,3 +230,9 @@ SK하이닉스가 더 직접적입니다.
 - SK hynix 용인 Y2·청주 M17 총 54조원 투자 발표 (2026-08-07)
 - SK hynix 40조원 자사주 매입·소각 및 주주환원 확대 발표 (2026-08-19)
 - 시장 가격 기준일: 2026-09-10
+
+## 검증용 1차 자료
+
+- [삼성전자 실적발표](https://www.samsung.com/global/ir/financial-information/earnings-release/)
+- [SK하이닉스 IR](https://www.skhynix.com/ir/UI-FR-IR99/)
+- [SK하이닉스 분기 실적](https://news.skhynix.com/en/category/ir/?tag=quartely-earnings)

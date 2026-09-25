@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleGrowthPath from '../../components/ArticleGrowthPath.astro';
+import AdSlot from '../../components/AdSlot.astro';
 import '../../styles/interactive.css';
 import '../../styles/research-v2.css';
 import '../../styles/visual-placement.css';
@@ -286,6 +287,8 @@ const scoreCriteria = [
         <div class="research-v2-content">
           <div id="article-content" class="article-body"><Content /></div>
         </div>
+
+        <AdSlot placement="article-end" />
 
         {isCodexSeries && (
           <nav class="codex-series-nav" aria-label="Codex 8부작 시리즈 이동">

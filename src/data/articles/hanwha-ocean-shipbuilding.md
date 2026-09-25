@@ -146,3 +146,8 @@ readingTime: "약 10분"
 - 한화오션 2026년 반기보고서, 금융감독원 DART
 - 한화오션 2026년 2분기 실적 설명자료
 - 한국거래소/시장 데이터, 기준일 2026-09-10
+
+## 검증용 1차 자료
+
+- [한화오션 공식 기업 브로슈어](https://www.hanwhaocean.com/pdf/Hanwha_Ocean_Brochure_KR_2025.pdf)
+- [금융감독원 DART](https://dart.fss.or.kr/)

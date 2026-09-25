@@ -155,3 +155,8 @@ AI 데이터센터 증설은 전력 사용량 증가뿐 아니라 계통 접속,
 - 효성중공업 2026년 반기보고서 / DART
 - 효성중공업 IR 자료실
 - 시장 밸류에이션 기준일: 2026-09-10
+
+## 검증용 1차 자료
+
+- [효성중공업 IR 자료실](https://www.hyosungheavyindustries.com/kr/company/ir/archive/annual-report)
+- [금융감독원 DART](https://dart.fss.or.kr/)
