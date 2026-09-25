@@ -38,19 +38,19 @@ const snapshot={
     baselinePagesPerSession:null
   },
   policy:{
-    warning:false,
-    consentFailure:false
+    warning:(adsense.policyIssues||[]).length>0,
+    consentFailure:process.env.MONETIZATION_CONSENT_FAILURE==='true'
   },
   layout:{
-    adOverlap:false,
-    horizontalOverflow:false,
-    navigationObstruction:false
+    adOverlap:process.env.MONETIZATION_AD_OVERLAP==='true',
+    horizontalOverflow:process.env.MONETIZATION_HORIZONTAL_OVERFLOW==='true',
+    navigationObstruction:process.env.MONETIZATION_NAVIGATION_OBSTRUCTION==='true'
   },
   sources:{
     adsense:adsense.source,
     cloudflare:ux.source
   },
-  notes:'Policy/CMP/layout booleans are expected to be supplied by production checks or reviewed before ADVANCE.'
+  notes:'AdSense policy warnings are API-derived. CMP/layout flags default false and must be supplied by live production checks; workflow QA failures block advancement independently.'
 };
 
 fs.mkdirSync(path.dirname(out),{recursive:true});
