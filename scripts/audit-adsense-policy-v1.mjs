@@ -57,6 +57,31 @@ for(const file of files){
   const status=hits.some(h=>h.severity==='HOLD')?'HOLD':(hits.length||quality.length)?'FIX':'PASS';
   records.push({file,id:file.replace(/\.md$/,''),title:fm.title,category:fm.category,status,bodyChars,headingCount,outboundLinks:outbound,hits,quality});
 }
+const prefixGroups = new Map();
+for (const record of records) {
+  const prefix = String(record.title || '')
+    .replace(/\([^)]*\)|\[[^\]]*\]/g, '')
+    .replace(/[^0-9A-Za-z가-힣]+/g, '')
+    .slice(0, 12)
+    .toLocaleLowerCase('ko-KR');
+  if (!prefix) continue;
+  const list = prefixGroups.get(prefix) || [];
+  list.push(record);
+  prefixGroups.set(prefix, list);
+}
+for (const [prefix, group] of prefixGroups) {
+  const ratio = group.length / Math.max(records.length, 1);
+  if (group.length > 1 && ratio > rules.quality.maxDuplicateTitlePrefixRatio) {
+    for (const record of group) {
+      record.quality.push({
+        id: 'duplicate-title-prefix',
+        label: `제목 접두어 중복 비율 ${(ratio * 100).toFixed(1)}% > ${(rules.quality.maxDuplicateTitlePrefixRatio * 100).toFixed(1)}% (${prefix})`
+      });
+      if (record.status === 'PASS') record.status = 'FIX';
+    }
+  }
+}
+
 const summary={
   total:records.length,
   PASS:records.filter(r=>r.status==='PASS').length,
