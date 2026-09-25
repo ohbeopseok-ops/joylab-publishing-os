@@ -33,9 +33,7 @@ const snapshot={
     ctaConversionPct:ux.current?.ctaConversionPct ?? null,
     baselineCtaConversionPct:ux.baseline?.ctaConversionPct ?? null,
     exitRatePct:ux.current?.exitRatePct ?? null,
-    baselineExitRatePct:ux.baseline?.exitRatePct ?? null,
-    pagesPerSession:null,
-    baselinePagesPerSession:null
+    baselineExitRatePct:ux.baseline?.exitRatePct ?? null
   },
   policy:{
     warning:(adsense.policyIssues||[]).length>0,
