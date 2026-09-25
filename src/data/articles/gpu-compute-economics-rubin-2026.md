@@ -107,6 +107,16 @@ NVLink와 InfiniBand·Ethernet은 GPU 간 데이터 이동을 담당한다.
 
 AI 인프라가 랙에서 POD, 다시 대규모 AI Factory로 확장될수록 GPU 자체보다 **GPU 사이의 데이터 이동**이 전체 성능을 제한할 수 있다.
 
+여기서 Network는 두 층으로 나눠 볼 필요가 있다.
+
+첫 번째는 데이터센터 내부의 **Scale-up·Scale-out Network**다. NVLink·InfiniBand·Ethernet이 GPU와 GPU, 랙과 랙을 연결한다.
+
+두 번째는 데이터센터 밖의 **Global Network**다. 클라우드 리전과 국가·대륙을 연결하는 육상 광통신망과 해저 광케이블이 이 역할을 맡는다.
+
+AI 인프라가 글로벌 규모로 커질수록 두 네트워크를 함께 봐야 한다.
+
+→ [데이터센터 밖의 네트워크는 어떻게 세계를 연결할까](/guides/how-internet-connects-the-world)
+
 ---
 
 ## 5. POWER｜성능 향상은 전력 문제를 없애지 않는다
@@ -148,6 +158,7 @@ GPU 가격이 비싸더라도 높은 사용률과 효율로 더 많은 유료 �
 4. [Data Center｜서버를 사도 바로 돌릴 수 없는 이유](/articles/ai-data-center-capacity-stack-2026)
 5. [Power｜GPU 다음 병목은 발전소다](/articles/ai-power-next-bottleneck)
 6. [Cooling｜AI 데이터센터 냉각 병목](/articles/ai-data-center-cooling-bottleneck)
+7. [Network｜AI 시대 글로벌 네트워크와 해저 광케이블](/articles/submarine-cables-ai-infrastructure)
 
 ---
 
@@ -157,7 +168,7 @@ GPU 가격이 비싸더라도 높은 사용률과 효율로 더 많은 유료 �
 - NVIDIA Technical Blog, 2026-07-21, Rubin GPU Architecture: https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai/
 - NVIDIA Newsroom, 2026-05-31, Vera Rubin full production: https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory
 
-**GPU → HBM → Network → Power → Cooling**
+**GPU → HBM → Data Center Network → Power → Cooling → Global Network**
 
 복잡한 정보를 실행 가능한 판단으로.
 

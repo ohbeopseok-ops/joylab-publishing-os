@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">해저 케이블이 끊기면?</title>
+  <desc id="desc">Failover → Repair Ship → Restore</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.55" stop-color="#0a1830"/>
+      <stop offset="1" stop-color="#0d2340"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#0ea5e9" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#0ea5e9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1270" cy="430" r="370" fill="url(#glow)"/>
+  <g opacity=".24" stroke="#1d4ed8" stroke-width="2">
+    <path d="M0 690 C360 620 650 640 920 690 S1300 760 1600 690" fill="none"/>
+    <path d="M0 735 C360 665 650 685 920 735 S1300 805 1600 735" fill="none"/>
+  </g>
+  <text x="105" y="118" font-family="Arial,'Noto Sans KR',sans-serif" font-size="28" font-weight="700" letter-spacing="2" fill="#60a5fa">JOYLAB · GLOBAL NETWORK</text>
+  <text x="105" y="248" font-family="Arial,'Noto Sans KR',sans-serif" font-size="66" font-weight="800" fill="#f8fafc">해저 케이블이 끊기면?</text>
+  <text x="108" y="318" font-family="Arial,'Noto Sans KR',sans-serif" font-size="31" font-weight="600" fill="#93c5fd">Failover → Repair Ship → Restore</text>
+  <rect x="105" y="395" width="560" height="2" fill="#1d4ed8"/>
+  <text x="105" y="455" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" fill="#cbd5e1">Physical infrastructure behind the internet</text>
+  <g opacity=".78">
+    <circle cx="110" cy="545" r="6" fill="#38bdf8"/>
+    <circle cx="178" cy="545" r="6" fill="#38bdf8"/>
+    <circle cx="246" cy="545" r="6" fill="#38bdf8"/>
+    <path d="M116 545 H172 M184 545 H240" stroke="#38bdf8" stroke-width="3"/>
+  </g>
+  
+    <path d="M930 550 C1080 500 1170 500 1245 520" fill="none" stroke="#38bdf8" stroke-width="18" stroke-linecap="round"/>
+    <path d="M1270 530 C1330 550 1395 565 1460 590" fill="none" stroke="#38bdf8" stroke-width="18" stroke-linecap="round"/>
+    <path d="M1245 520 l35 45 M1280 520 l-35 45" stroke="#f59e0b" stroke-width="8"/>
+    <path d="M1110 300 h210 l-45 62 h-160 z" fill="#172554" stroke="#60a5fa" stroke-width="4"/>
+    <rect x="1180" y="240" width="70" height="65" rx="8" fill="#1e3a8a"/>
+    <path d="M1215 362 V500" stroke="#f59e0b" stroke-width="5" stroke-dasharray="10 10"/>
+    <text x="1215" y="210" text-anchor="middle" font-size="28" font-weight="700" fill="#e2e8f0">REPAIR SHIP</text>
+    <path d="M1000 660 C1150 610 1300 610 1450 660" fill="none" stroke="#22c55e" stroke-width="5" stroke-dasharray="12 12"/>
+  <text x="105" y="815" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#64748b">FACT → STRUCTURE → BOTTLENECK → RESILIENCE</text>
+</svg>

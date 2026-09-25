@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import { getCollection } from 'astro:content';
+
+const articleIds = [
+  'submarine-cable-history',
+  'how-submarine-cables-work',
+  'submarine-cable-failure-repair',
+  'submarine-cables-ai-infrastructure',
+  'satellite-vs-submarine-cable'
+];
+const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
+const byId = new Map(collection.map((item) => [item.id, item]));
+const articles = articleIds.map((id) => byId.get(id)).filter(Boolean);
+const canonical = 'https://aijoylab.kr/guides/how-internet-connects-the-world';
+const faq = [
+  ['인터넷은 실제로 어디를 통해 연결되나요?', '사용자 기기에서 통신사업자 네트워크로 들어간 뒤 백본망과 데이터센터, 필요한 경우 국제 해저 광케이블을 거쳐 목적지 서버로 연결됩니다. 실제 경로는 서비스와 서버 위치에 따라 달라집니다.'],
+  ['해외 인터넷은 대부분 위성을 이용하나요?', '아닙니다. 국제전기통신연합에 따르면 해저 통신 케이블이 전 세계 국제 데이터 흐름의 99% 이상을 담당합니다.'],
+  ['해저 케이블이 끊기면 인터넷이 멈추나요?', '대체 경로가 충분하면 다른 해저 케이블이나 네트워크로 트래픽을 우회할 수 있습니다. 여러 케이블이 동시에 손상되거나 대체 경로가 부족하면 영향이 커질 수 있습니다.'],
+  ['AI와 해저 케이블은 어떤 관계가 있나요?', 'AI 데이터센터가 다른 국가와 대륙의 클라우드 리전이나 사용자와 통신할 때 해저 광케이블이 장거리 글로벌 백본 역할을 할 수 있습니다.'],
+  ['위성 인터넷이 해저 케이블을 대체할 수 있나요?', '현재는 완전한 대체보다 보완 관계에 가깝습니다. 해저 광케이블은 대륙 간 초대용량 백본, 저궤도 위성은 원격지역과 이동 환경의 연결성 확대에 강점이 있습니다.']
+];
+const schema = {
+  '@context':'https://schema.org',
+  '@graph':[
+    {
+      '@type':'WebPage',
+      '@id':canonical,
+      url:canonical,
+      name:'인터넷은 어떻게 세계를 연결하는가',
+      description:'해저 케이블, 인터넷 백본, 데이터센터, AI 인프라, 위성 인터넷까지 글로벌 인터넷의 물리적 연결 구조를 한 번에 설명합니다.',
+      inLanguage:'ko-KR',
+      isPartOf:{'@id':'https://aijoylab.kr/#website'}
+    },
+    {
+      '@type':'BreadcrumbList',
+      itemListElement:[
+        {'@type':'ListItem',position:1,name:'JoyLab',item:'https://aijoylab.kr/'},
+        {'@type':'ListItem',position:2,name:'Guides',item:'https://aijoylab.kr/guides'},
+        {'@type':'ListItem',position:3,name:'인터넷은 어떻게 세계를 연결하는가',item:canonical}
+      ]
+    },
+    {
+      '@type':'ItemList',
+      name:'글로벌 인터넷 인프라 5부작',
+      numberOfItems:articles.length,
+      itemListElement:articles.map((article,index)=>({
+        '@type':'ListItem',
+        position:index+1,
+        name:article!.data.title,
+        url:new URL('/articles/'+article!.id,'https://aijoylab.kr').toString()
+      }))
+    },
+    {
+      '@type':'FAQPage',
+      mainEntity:faq.map(([q,a])=>({
+        '@type':'Question',
+        name:q,
+        acceptedAnswer:{'@type':'Answer',text:a}
+      }))
+    }
+  ]
+};
+---
+<BaseLayout
+  title="인터넷은 어떻게 세계를 연결하는가｜해저 케이블·데이터센터·위성 | JoyLab"
+  description="해저 케이블, 데이터센터, 인터넷 백본, AI 인프라, 위성 인터넷까지 글로벌 인터넷의 물리적 연결 구조를 한 번에 이해하는 JoyLab Guide입니다."
+  canonical={canonical}
+  bodyClass="semiconductor-guide-v2"
+>
+  <section class="sg-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">GLOBAL INTERNET INFRASTRUCTURE · JOYLAB</div>
+          <h1>인터넷은 어떻게<br/><span>세계를 연결하는가</span></h1>
+          <p class="sg-hero__lead">화면에서는 무선처럼 보이지만, 글로벌 인터넷의 핵심은 광섬유·백본·육양국·해저 케이블·데이터센터가 연결된 거대한 물리 네트워크입니다.</p>
+          <div class="sg-hero__chips"><span>#InternetBackbone</span><span>#SubmarineCable</span><span>#DataCenter</span><span>#AIInfra</span><span>#Satellite</span></div>
+          <div class="sg-hero__meta"><span><strong>5</strong> Core Research</span><span><strong>1</strong> Global Network Map</span><span><strong>99%+</strong> International Data via Subsea</span></div>
+        </div>
+        <aside class="sg-lens">
+          <div class="sg-lens__brand">JOYLAB<br/><b>NETWORK</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>PATH</b><span>기기에서 해외 서버까지 데이터가 이동하는 길을 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>BACKBONE</b><span>육상망·IX·육양국·해저 케이블을 연결해 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>RESILIENCE</b><span>장애·우회·위성 보완망까지 함께 봅니다.</span></div></div>
+        </aside>
+      </div>
+      <div class="sg-map-head">
+        <div><span>END-TO-END PATH</span><b>User → ISP → Backbone·IX → Landing Station → Submarine Cable → Cloud·AI</b></div>
+        <a href="#network-path">5편 순서대로 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="sg-main" id="network-path">
+    <div class="sg-wrap sg-layout">
+      <section>
+        <section class="sg-rule">
+          <div class="sg-eyebrow">30-SECOND ANSWER</div>
+          <h2>인터넷은 소프트웨어만이 아니라 물리 인프라입니다.</h2>
+          <div class="sg-rule__grid">
+            <div class="sg-rule__step"><b>USER</b><span>PC·스마트폰에서 요청이 시작됩니다.</span></div>
+            <div class="sg-rule__step"><b>BACKBONE</b><span>ISP와 IX, 국내·국제 백본을 통과합니다.</span></div>
+            <div class="sg-rule__step"><b>SUBSEA</b><span>대륙 간 구간은 해저 광케이블이 핵심입니다.</span></div>
+            <div class="sg-rule__step"><b>CLOUD</b><span>해외 데이터센터·AI 서비스에서 응답합니다.</span></div>
+          </div>
+        </section>
+
+        <div class="sg-section-head">
+          <div><div class="sg-eyebrow">CORE RESEARCH · 01 → 05</div><h2>역사에서 AI·위성까지 순서대로 봅니다</h2></div>
+          <p>TAT-1의 전화 36회선에서 시작해 광섬유, 장애 복원력, AI 글로벌 네트워크, 저궤도 위성까지 연결합니다.</p>
+        </div>
+
+        <div class="sg-path">
+          {articles.map((article,index)=>(
+            <article class={`sg-card ${index===0?'is-key':''}`}>
+              <div class="sg-card__no">{String(index+1).padStart(2,'0')}</div>
+              <div>
+                <div class="sg-card__role">{article!.data.series}</div>
+                <h3><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h3>
+                <p>{article!.data.description}</p>
+                <div class="sg-card__foot">
+                  {article!.data.tags.slice(0,3).map(tag=><span>#{tag}</span>)}
+                  <a class="sg-card__cta" href={`/articles/${article!.id}`}>리서치 읽기 →</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <section class="sg-rule">
+          <div class="sg-eyebrow">AI INFRASTRUCTURE BRIDGE</div>
+          <h2>Compute → Memory → Data Center → Power → Cooling → Network → Global Connectivity</h2>
+          <p>AI 인프라에서 Network는 두 층입니다. 데이터센터 내부에서는 GPU 간 연결이, 데이터센터 밖에서는 클라우드 리전·대륙·사용자를 잇는 글로벌 네트워크가 중요합니다.</p>
+          <p><a href="/guides/ai-infrastructure"><strong>AI Infrastructure Research Hub에서 전체 병목 구조 보기 →</strong></a></p>
+        </section>
+
+        <section class="sg-rule">
+          <div class="sg-eyebrow">FAQ</div>
+          <h2>인터넷 연결에서 자주 묻는 질문</h2>
+          {faq.map(([q,a])=><div style="padding:16px 0;border-bottom:1px solid #e2e8f0"><h3 style="margin:0 0 8px">{q}</h3><p style="margin:0">{a}</p></div>)}
+        </section>
+      </section>
+
+      <aside class="sg-rail">
+        <section class="sg-rail-card sg-rail-card--dark"><small>START HERE</small><h3>해저 통신 70년</h3><p>TAT-1에서 광섬유까지 기술이 어떻게 진화했는지 먼저 봅니다.</p><a href="/articles/submarine-cable-history">첫 리서치 읽기 →</a></section>
+        <section class="sg-rail-card"><small>AI INFRASTRUCTURE</small><h3>Network Layer</h3><p>GPU·HBM·전력·냉각 이후 Global Network가 어디에 위치하는지 연결합니다.</p><a href="/guides/ai-infrastructure">AI Infrastructure Hub →</a></section>
+        <section class="sg-rail-card"><small>RESILIENCE</small><h3>끊어져도 버티는 인터넷</h3><p>트래픽 우회와 수리, 경로 다양성이 왜 중요한지 봅니다.</p><a href="/articles/submarine-cable-failure-repair">복원력 리서치 →</a></section>
+      </aside>
+    </div>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+</BaseLayout>

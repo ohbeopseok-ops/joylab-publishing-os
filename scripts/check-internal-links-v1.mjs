@@ -10,6 +10,16 @@ const guideDir = path.join(root, 'src/pages/guides');
 
 const semiconductorTags = new Set(['HBM','HBM4','DRAM','NAND','CXMT','YMTC','삼성전자','SK하이닉스','반도체','AI메모리','EnterpriseSSD']);
 
+const globalConnectivityPillarRoute = '/guides/how-internet-connects-the-world';
+const globalConnectivityPillarFile = path.join(root, 'src/pages/guides/how-internet-connects-the-world.astro');
+const globalConnectivityArticles = [
+  'submarine-cable-history',
+  'how-submarine-cables-work',
+  'submarine-cable-failure-repair',
+  'submarine-cables-ai-infrastructure',
+  'satellite-vs-submarine-cable'
+];
+
 function read(file){ return fs.readFileSync(file,'utf8'); }
 function slugFromArticle(file){ return path.basename(file).replace(/\.md$/,''); }
 function tagsFromFrontmatter(src){
@@ -68,8 +78,62 @@ for(const rel of changedArticles){
   }
 }
 
+
+// Global Connectivity Cluster Gate
+const touchesGlobalConnectivity = changed.some((rel) =>
+  rel === 'src/pages/guides/how-internet-connects-the-world.astro' ||
+  globalConnectivityArticles.some((slug) => rel === `src/data/articles/${slug}.md`)
+);
+
+if (touchesGlobalConnectivity) {
+  if (!fs.existsSync(globalConnectivityPillarFile)) {
+    errors.push(`missing global connectivity pillar file: ${globalConnectivityPillarFile}`);
+  } else {
+    const pillar = read(globalConnectivityPillarFile);
+
+    globalConnectivityArticles.forEach((slug, index) => {
+      const file = path.join(articleDir, `${slug}.md`);
+      const route = `/articles/${slug}`;
+
+      if (!fs.existsSync(file)) {
+        errors.push(`global connectivity article missing: ${file}`);
+        return;
+      }
+
+      const src = read(file);
+      const internal = [...new Set(links(src))];
+
+      if (!pillar.includes(route) && !pillar.includes(`'${slug}'`) && !pillar.includes(`"${slug}"`)) {
+        errors.push(`global connectivity pillar missing registration for ${route}`);
+      }
+
+      if (!internal.includes(globalConnectivityPillarRoute)) {
+        errors.push(`${file}: must link back to ${globalConnectivityPillarRoute}`);
+      }
+
+      const siblingLinks = internal.filter((link) =>
+        globalConnectivityArticles.some((other) => link === `/articles/${other}`) && link !== route
+      );
+      if (siblingLinks.length < 1) {
+        errors.push(`${file}: needs at least 1 sibling cluster link`);
+      }
+
+      const seriesMatch = src.match(/\bseries:\s*["']글로벌 인터넷 인프라["']/);
+      const orderMatch = src.match(/\bseriesOrder:\s*(\d+)/);
+      if (!seriesMatch) errors.push(`${file}: series must be "글로벌 인터넷 인프라"`);
+      if (!orderMatch || Number(orderMatch[1]) !== index + 1) {
+        errors.push(`${file}: seriesOrder must be ${index + 1}`);
+      }
+    });
+
+    if (!pillar.includes('/guides/ai-infrastructure')) {
+      errors.push('global connectivity pillar must link to /guides/ai-infrastructure');
+    }
+  }
+}
+
 if(errors.length){
   console.error('Internal Link Gate V1 failed:\n- '+errors.join('\n- '));
   process.exit(1);
 }
-console.log(`Internal Link Gate V1 passed. Checked ${changedArticles.length} changed article(s).`);
+console.log(`Internal Link Gate V1 passed. Checked ${changedArticles.length} changed article(s); global connectivity cluster ${touchesGlobalConnectivity ? 'validated' : 'not touched'}.`);

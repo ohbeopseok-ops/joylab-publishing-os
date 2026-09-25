@@ -3,26 +3,33 @@
   "articleClusters": [
     {
       "id": "investment",
-      "categories": ["투자·경제"],
+      "categories": [
+        "투자·경제"
+      ],
       "hubAny": [
         "/guides/investing",
         "/guides/semiconductor-investing",
         "/guides/ai-inference-memory",
         "/guides/ai-power",
         "/guides/shipbuilding",
-        "/guides/us-rates"
+        "/guides/us-rates",
+        "/guides/ai-infrastructure",
+        "/guides/how-internet-connects-the-world"
       ],
       "minRelatedArticles": 2
     },
     {
       "id": "ai",
-      "categories": ["AI·생산성"],
+      "categories": [
+        "AI·생산성"
+      ],
       "hubAny": [
         "/guides/ai-productivity",
         "/guides/ai-economics",
         "/guides/ai-infrastructure",
         "/guides/ai-security",
-        "/guides/codex"
+        "/guides/codex",
+        "/guides/how-internet-connects-the-world"
       ],
       "minRelatedArticles": 2
     }

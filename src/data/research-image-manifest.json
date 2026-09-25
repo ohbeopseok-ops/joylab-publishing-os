@@ -1581,5 +1581,100 @@
         "caption": "Inference → Shipment → ASP → Yield → Margin → EPS 순서로 실적 연결고리를 점검합니다."
       }
     ]
+  },
+  "submarine-cable-history": {
+    "hero": {
+      "src": "/images/research/global-connectivity/submarine-cable-history-hero.svg",
+      "alt": "TAT-1 전화 케이블에서 현대 해저 광섬유까지 대서양 통신 인프라의 진화를 보여주는 JoyLab 대표 이미지",
+      "caption": "36개 음성 회선에서 글로벌 인터넷 백본까지, 해저 통신의 물리 인프라가 어떻게 진화했는지 봅니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "TAT-1에서 광케이블까지 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "TAT-1에서 광케이블까지 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "how-submarine-cables-work": {
+    "hero": {
+      "src": "/images/research/global-connectivity/how-submarine-cables-work-hero.svg",
+      "alt": "광섬유와 중계기, 육양국을 통해 국제 인터넷 데이터가 이동하는 해저 광케이블 구조를 보여주는 JoyLab 대표 이미지",
+      "caption": "인터넷 데이터는 광섬유·중계기·육양국을 거쳐 대륙 사이를 이동합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "해저 광케이블 작동 원리 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "해저 광케이블 작동 원리 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "submarine-cable-failure-repair": {
+    "hero": {
+      "src": "/images/research/global-connectivity/submarine-cable-failure-repair-hero.svg",
+      "alt": "해저 케이블 단선 후 트래픽 우회와 수리선 복구 과정을 보여주는 JoyLab 대표 이미지",
+      "caption": "인터넷 복원력의 핵심은 끊어지지 않는 선보다 끊어져도 우회하고 복구하는 구조입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "해저 케이블 장애와 복구 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "해저 케이블 장애와 복구 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "submarine-cables-ai-infrastructure": {
+    "hero": {
+      "src": "/images/research/global-connectivity/submarine-cables-ai-infrastructure-hero.svg",
+      "alt": "AI 데이터센터와 클라우드 리전, 해저 광케이블이 글로벌 사용자를 연결하는 구조를 보여주는 JoyLab 대표 이미지",
+      "caption": "AI 인프라는 GPU에서 끝나지 않고 데이터센터 밖의 Global Network까지 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 시대 글로벌 네트워크 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 시대 글로벌 네트워크 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "satellite-vs-submarine-cable": {
+    "hero": {
+      "src": "/images/research/global-connectivity/satellite-vs-submarine-cable-hero.svg",
+      "alt": "저궤도 위성 인터넷과 해저 광케이블의 Capacity Reach Resilience 역할 차이를 비교하는 JoyLab 대표 이미지",
+      "caption": "해저 케이블은 Capacity, 위성은 Reach와 Mobility를 중심으로 서로 보완합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "위성 인터넷과 해저 광케이블 비교 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "위성 인터넷과 해저 광케이블 비교 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
   }
 }

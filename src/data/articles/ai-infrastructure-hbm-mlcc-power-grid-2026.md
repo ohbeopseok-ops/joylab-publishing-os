@@ -154,7 +154,15 @@ GPU가 많아질수록 HBM이 필요했고, 서버가 많아질수록 MLCC와 �
 
 따라서 JoyLab은 AI 인프라를 다음 순서로 추적한다.
 
-> Compute → Memory → Components → Data Center → Power
+> Compute → Memory → Components → Data Center → Power → Cooling → Network → Global Connectivity
+
+전력과 냉각까지 확보해도 AI 인프라는 끝나지 않는다.
+
+생성된 연산 결과와 데이터를 다른 클라우드 리전과 전 세계 사용자에게 얼마나 빠르고 안정적으로 이동시킬 수 있는지도 새로운 Capacity 조건이 된다.
+
+→ [AI 시대 글로벌 네트워크와 해저 광케이블 구조](/articles/submarine-cables-ai-infrastructure)
+
+→ [인터넷은 어떻게 세계를 연결하는가](/guides/how-internet-connects-the-world)
 
 이 구조를 보면 AI 테마를 뉴스가 아니라 공급망의 제약조건으로 분석할 수 있다.
 
