@@ -1,56 +1,66 @@
-# JoyLab Shortform Engine V0.1
+# JoyLab Shortform Integration V1
 
-## Goal
+## Architecture
 
-Turn one JoyLab article into three editorial variants without coupling Publishing OS to a specific renderer or AI provider.
+The video renderer is now maintained in the private standalone repository:
 
-~~~text
-Article
-  -> Publishing OS Handoff Contract
-  -> Editorial Engine
-  -> Shortform JSON Contract
-  -> Remotion Renderer
-  -> MP4
-  -> QA
+`ohbeopseok-ops/joylab-shortform-engine`
+
+Publishing OS no longer contains or executes Remotion renderer code.
+
+```text
+JoyLab Article
+  -> Publishing OS
+  -> joylab.shortform.handoff JSON
+  -> joylab-shortform-engine
+  -> Shortform Contract V1
+  -> Remotion
+  -> Video QA
   -> Human Approval
-  -> Publish
-~~~
+```
 
-## V0.1 scope
+## Ownership
 
-1. Self-contained Remotion package under `shortform-engine/`.
-2. First GOLD target: `AIWorkforce20`.
-3. Publishing OS adapter that emits stable handoff JSON for an article.
-4. GitHub Actions support for handoff artifacts and manual GOLD rendering.
+### joylab-publishing-os
+- article truth
+- article metadata
+- source excerpt
+- 20s / 40s / 60s target request
+- handoff generation
 
-## Separation rule
+### joylab-shortform-engine
+- handoff validation
+- scene contracts
+- motion templates
+- Remotion rendering
+- video output QA
+- future TTS/caption/asset adapters
 
-Publishing OS owns article truth.
+## Contract
 
-Shortform Engine owns scene contracts and rendering.
+The Publishing OS adapter remains:
 
-Renderer-specific fields do not belong in article frontmatter.
+`scripts/build-shortform-handoff.mjs`
 
-## Contract boundary
+Its output declares:
 
-Publishing OS produces source path, slug, title, description, dates, cleaned excerpt, desired 20/40/60-second variants, JOYLAB brand identity and a human-approval requirement.
+- `contractVersion: 1.0`
+- `kind: joylab.shortform.handoff`
+- source article metadata
+- Hook / Explain / Insight targets
+- JOYLAB brand identity
+- mandatory human approval
 
-Shortform Engine turns that handoff into final scene contracts.
+The receiving schema lives in the Shortform Engine repository at:
 
-## MoneyPrinterTurbo policy
+`src/handoff.ts`
 
-MoneyPrinterTurbo can later be used behind adapters for material search, TTS or subtitles. Its MoviePy renderer, Streamlit UI and cross-posting flow are not core dependencies.
+## GOLD
 
-## GOLD definition
+The standalone engine owns the AI Workforce 20-second GOLD case and its CI.
 
-`AIWorkforce20` passes when:
+Publishing OS must not add renderer-specific fields to article frontmatter.
 
-- 1080x1920
-- 30fps
-- exactly 20 seconds
-- deterministic scene timeline
-- Korean text remains in the safe area
-- JOYLAB brand ending is present
-- render completes in GitHub Actions
+## MoneyPrinterTurbo
 
-Audio/TTS and automated publishing are follow-on gates.
+MoneyPrinterTurbo remains a reference/provider-adapter candidate for future material search, TTS and subtitle capabilities. It is not a runtime dependency of Publishing OS or the Shortform Engine core renderer.
