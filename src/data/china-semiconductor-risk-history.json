@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "updatedAt": "2026-09-25",
+  "granularity": "quarter",
+  "snapshots": [
+    {
+      "period": "2026Q2",
+      "capturedAt": "2026-06-30T23:59:59Z",
+      "totalScore": 31,
+      "totalBand": "YELLOW",
+      "structuralScore": 65,
+      "structuralBand": "ORANGE",
+      "earningsScore": 0,
+      "earningsBand": "GREEN",
+      "coverageWeight": 54,
+      "metricsReady": 5,
+      "source": "model-seed",
+      "note": "V1.1 published Q2 baseline using verified CXMT 9.5%, YMTC 14%, equipment 35%, DRAM/NAND Q2 price environment. Unknown metrics excluded."
+    }
+  ]
+}
