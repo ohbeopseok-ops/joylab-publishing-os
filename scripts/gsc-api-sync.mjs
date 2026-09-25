@@ -107,13 +107,39 @@ if (!response.ok) throw new Error("Search Console API failed: " + JSON.stringify
 const rows = payload.rows ?? [];
 if (!rows.length) throw new Error("Search Console API returned zero page rows.");
 
-const rawPages = rows.map(row => ({
-  url: normalizeUrl(row.keys?.[0]),
-  clicks: Number(row.clicks ?? 0),
-  impressions: Number(row.impressions ?? 0),
-  ctr: Number(row.ctr ?? 0),
-  position: Number(row.position ?? 0)
-})).filter(x=>x.url);
+const aggregate = new Map();
+
+for (const row of rows) {
+  const url = normalizeUrl(row.keys?.[0]);
+  if (!url) continue;
+
+  const clicks = Number(row.clicks ?? 0);
+  const impressions = Number(row.impressions ?? 0);
+  const position = Number(row.position ?? 0);
+
+  const current = aggregate.get(url) ?? {
+    url,
+    clicks: 0,
+    impressions: 0,
+    positionWeighted: 0,
+    positionWeight: 0
+  };
+
+  current.clicks += clicks;
+  current.impressions += impressions;
+  const weight = impressions > 0 ? impressions : (clicks > 0 ? clicks : 1);
+  current.positionWeighted += position * weight;
+  current.positionWeight += weight;
+  aggregate.set(url, current);
+}
+
+const rawPages = [...aggregate.values()].map(x => ({
+  url: x.url,
+  clicks: x.clicks,
+  impressions: x.impressions,
+  ctr: x.impressions > 0 ? x.clicks / x.impressions : 0,
+  position: x.positionWeight > 0 ? x.positionWeighted / x.positionWeight : 0
+}));
 
 const clickValues = rawPages.map(x=>x.clicks);
 const impressionValues = rawPages.map(x=>x.impressions);

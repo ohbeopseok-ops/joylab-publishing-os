@@ -17,8 +17,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
-  actions: write
 
 concurrency:
   group: gsc-direct-api-sync
@@ -56,6 +54,14 @@ jobs:
             echo "GSC_SERVICE_ACCOUNT_JSON not configured — CSV fallback remains active."
           fi
 
+      - name: Restore previous GSC data branch
+        if: github.event_name != 'pull_request' && steps.config.outputs.configured == 'true'
+        run: |
+          if git ls-remote --exit-code --heads origin automation/gsc-data >/dev/null 2>&1; then
+            git fetch origin automation/gsc-data
+            git checkout FETCH_HEAD -- data/gsc/latest.json data/gsc/history 2>/dev/null || true
+          fi
+
       - name: Sync 28 settled days from Google Search Console
         if: github.event_name != 'pull_request' && steps.config.outputs.configured == 'true'
         run: node scripts/gsc-api-sync.mjs
@@ -64,15 +70,20 @@ jobs:
         if: github.event_name != 'pull_request' && steps.config.outputs.configured == 'true'
         run: node scripts/research-corpus-evidence-audit.mjs
 
-      - name: Persist latest GSC snapshot through protected-main PR
+      - name: Persist GSC data plane
         if: github.event_name != 'pull_request' && steps.config.outputs.configured == 'true'
         env:
-          GH_TOKEN: ${{ github.token }}
           BOT_BRANCH: automation/gsc-data
         run: |
           git config user.name "joylab-gsc-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/gsc/latest.json data/gsc/history
+
+          mkdir -p data/gsc/history artifacts
+          if ls data/gsc/history/*.json >/dev/null 2>&1; then
+            ls -1t data/gsc/history/*.json | tail -n +91 | xargs -r rm --
+          fi
+
+          git add data/gsc/latest.json data/gsc/history             artifacts/research-corpus-evidence-audit.json             artifacts/research-corpus-evidence-audit.md
 
           if git diff --cached --quiet; then
             echo "No new settled GSC data"
@@ -80,22 +91,10 @@ jobs:
           fi
 
           git checkout -B "$BOT_BRANCH"
-          git commit -m "gsc: sync official Search Console API"
+          git commit -m "gsc: refresh data plane"
           git push --force origin "HEAD:$BOT_BRANCH"
 
-          pr_number="$(gh pr list --head "$BOT_BRANCH" --base main --state open --json number --jq '.[0].number // empty')"
-
-          if [ -z "$pr_number" ]; then
-            pr_url="$(gh pr create               --base main               --head "$BOT_BRANCH"               --title "chore(gsc): refresh Search Console snapshot"               --body "Automated GSC snapshot refresh. Source: Google Search Console API. Evidence Priority is recalculated from the same snapshot.")"
-            pr_number="$(gh pr view "$pr_url" --json number --jq '.number')"
-          fi
-
-          echo "GSC data PR #$pr_number"
-
-          gh workflow run build.yml --ref "$BOT_BRANCH"
-
-          gh pr merge "$pr_number" --auto --squash             || echo "Auto-merge is unavailable; PR #$pr_number remains open for manual merge after checks."
-
+          echo "GSC data plane updated: $BOT_BRANCH"
       - name: Upload Evidence Priority report
         if: github.event_name != 'pull_request' && steps.config.outputs.configured == 'true'
         uses: actions/upload-artifact@v4
