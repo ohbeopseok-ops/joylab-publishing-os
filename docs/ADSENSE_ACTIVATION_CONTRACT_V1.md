@@ -11,13 +11,12 @@ Connect `https://aijoylab.kr` to Google AdSense without allowing approval work t
 ## Phase A — Site verification / review
 - Always expose `google-adsense-account` meta tag.
 - Always expose root `/ads.txt`.
-- Keep `PUBLIC_ADSENSE_ENABLED` unset or `false`.
+- Load the official AdSense verification script in `<head>` so the AdSense code snippet check can succeed.
 - Privacy, Terms, Advertising Disclosure and Contact must be publicly reachable.
-- No ad slots or Auto Ads are required during this phase.
+- Keep Auto Ads / Anchor / Vignette disabled in the AdSense account during review.
+- Do not create manual ad slots during this phase.
 
 ## Phase B — Post-approval activation
-Set `PUBLIC_ADSENSE_ENABLED=true` only after the AdSense site review allows ad serving.
-
 Initial placement rules:
 - Article: first ad only after approximately 30–35% of body content.
 - Standard research article: 1–2 ads maximum initially.
@@ -31,8 +30,7 @@ Before serving personalized ads to EEA/UK/Switzerland traffic, configure a Googl
 ## Release checks
 - `/ads.txt` returns HTTP 200 and exact publisher record.
 - Home HTML contains `google-adsense-account=ca-pub-6938956176929357`.
-- With flag OFF, AdSense JS is absent.
-- With flag ON, AdSense JS is present once in `<head>`.
+- AdSense JS is present exactly once in `<head>` using client `ca-pub-6938956176929357`.
 - Footer exposes Privacy / Terms / Advertising Disclosure.
 - Sitemap includes the legal pages.
 - Production smoke test must be performed on `https://aijoylab.kr` after deploy.
