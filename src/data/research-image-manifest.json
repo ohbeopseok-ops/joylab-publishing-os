@@ -1714,5 +1714,24 @@
         "caption": "Bandwidth Density → Power/bit → Reach → Thermal → Serviceability 순서로 판단합니다."
       }
     ]
+  },
+  "silicon-photonics-ai-network": {
+    "hero": {
+      "src": "/images/research/ai-data-center-network/silicon-photonics-ai-network-hero.svg",
+      "alt": "실리콘 칩 위의 광도파로와 광학 엔진이 스위치 ASIC과 광섬유를 연결하는 Silicon Photonics 구조를 보여주는 JoyLab 대표 이미지",
+      "caption": "Silicon Photonics는 광학 기능을 실리콘 칩 수준에 집적해 AI 네트워크의 대역폭 밀도와 전력 효율을 높이는 기술입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Silicon Photonics와 400G lane AI 네트워크 전환의 핵심 기술 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "광도파로, 광변조기, 200G·400G lane, CPO 전환 신호를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Silicon Photonics를 Bandwidth Density Power per Bit Yield Thermal Serviceability 순서로 정리한 JoyLab 프레임워크 이미지",
+        "caption": "Bandwidth Density → Power/bit → Yield → Thermal → Serviceability 순서로 판단합니다."
+      }
+    ]
   }
 }
