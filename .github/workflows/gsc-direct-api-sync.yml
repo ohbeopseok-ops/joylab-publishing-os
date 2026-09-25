@@ -12,6 +12,8 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
+  actions: write
 
 concurrency:
   group: gsc-direct-api-sync
@@ -57,18 +59,37 @@ jobs:
         if: github.event_name != 'pull_request' && steps.config.outputs.configured == 'true'
         run: node scripts/research-corpus-evidence-audit.mjs
 
-      - name: Persist latest GSC snapshot
+      - name: Persist latest GSC snapshot through protected-main PR
         if: github.event_name != 'pull_request' && steps.config.outputs.configured == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BOT_BRANCH: automation/gsc-data
         run: |
           git config user.name "joylab-gsc-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/gsc/latest.json data/gsc/history
+
           if git diff --cached --quiet; then
             echo "No new settled GSC data"
-          else
-            git commit -m "gsc: sync official Search Console API [skip ci]"
-            git push
+            exit 0
           fi
+
+          git checkout -B "$BOT_BRANCH"
+          git commit -m "gsc: sync official Search Console API"
+          git push --force origin "HEAD:$BOT_BRANCH"
+
+          pr_number="$(gh pr list --head "$BOT_BRANCH" --base main --state open --json number --jq '.[0].number // empty')"
+
+          if [ -z "$pr_number" ]; then
+            pr_url="$(gh pr create               --base main               --head "$BOT_BRANCH"               --title "chore(gsc): refresh Search Console snapshot"               --body "Automated GSC snapshot refresh. Source: Google Search Console API. Evidence Priority is recalculated from the same snapshot.")"
+            pr_number="$(gh pr view "$pr_url" --json number --jq '.number')"
+          fi
+
+          echo "GSC data PR #$pr_number"
+
+          gh workflow run build.yml --ref "$BOT_BRANCH"
+
+          gh pr merge "$pr_number" --auto --squash             || echo "Auto-merge is unavailable; PR #$pr_number remains open for manual merge after checks."
 
       - name: Upload Evidence Priority report
         if: github.event_name != 'pull_request' && steps.config.outputs.configured == 'true'
