@@ -16,19 +16,22 @@ draft: false
 seoTitle: "CXMT DRAM 점유율 9.5%｜삼성전자·SK하이닉스에 미치는 영향"
 series: "AI 메모리 투자 가이드"
 readingTime: "약 9분"
+heroImage: "/images/research/generated/cxmt-dram-hbm-china-memory-2026.svg"
+heroAlt: "CXMT DRAM과 서버 메모리 경쟁을 표현한 JoyLab 반도체 리서치 이미지"
+ogImage: "/images/research/generated/cxmt-dram-hbm-china-memory-2026.svg"
 ---
 
 중국 메모리 기업 **CXMT(ChangXin Memory Technologies)**를 볼 때 가장 먼저 구분해야 할 것이 있습니다.
 
 > **CXMT의 현재 위협은 HBM 최상단보다 범용 DRAM과 중국 내 서버·모바일 메모리 시장에서 먼저 커지고 있습니다.**
 
-TrendForce에 따르면 CXMT의 글로벌 DRAM 매출 점유율은 **2026년 2분기 9.5%**로 1분기 7.6%에서 상승했습니다. 같은 기간 삼성전자 39.4%, SK하이닉스 24.9%, Micron 23.3%에 이어 4위입니다.
+TrendForce에 따르면 CXMT의 글로벌 DRAM 매출 점유율은 **2026년 2분기 9.5%**로 1분기 7.6%에서 상승했습니다. 같은 기간 삼성전자 39.4%, SK하이닉스 24.9%, Micron 23.3%에 이어 4위입니다. ([TrendForce](https://www.trendforce.com/news/2026/09/24/news-cxmt-ymtc-ramp-memory-capacity-but-chinas-ai-cloud-boom-could-soak-up-new-supply-through-2027/))
 
 이 숫자의 의미는 “CXMT가 이미 HBM에서 한국 업체를 따라잡았다”가 아닙니다. 중국 내수와 범용 DRAM에서 확보한 규모가 향후 서버 DRAM과 고부가 메모리 경쟁의 기반이 될 수 있다는 뜻에 가깝습니다.
 
 ## CXMT 점유율 9.5%는 왜 중요한가
 
-CXMT는 LPDDR과 DDR 계열을 중심으로 생산능력을 확대해 왔고, 2026년에는 서버 DRAM 공급도 공격적으로 확대하고 있습니다.
+CXMT는 LPDDR과 DDR 계열을 중심으로 생산능력을 확대해 왔고, 2026년에는 서버 DRAM 공급도 공격적으로 확대하고 있습니다. ([TrendForce](https://www.trendforce.com/research/download/RP260617EN))
 
 TrendForce는 삼성전자와 SK하이닉스가 HBM 생산에 더 많은 Capacity를 배분하면서 범용 DRAM 공급이 빠듯해진 것이 CXMT에 성장 공간을 제공했다고 분석합니다.
 
@@ -38,9 +41,9 @@ TrendForce는 삼성전자와 SK하이닉스가 HBM 생산에 더 많은 Capacit
 
 ## 5세대 플랫폼 양산은 무엇이 달라졌나
 
-Reuters는 2026년 9월 CXMT가 **5세대 메모리 칩 플랫폼의 양산 진입**을 발표했다고 보도했습니다.
+Reuters는 2026년 9월 CXMT가 **5세대 메모리 칩 플랫폼의 양산 진입**을 발표했다고 보도했습니다. ([Reuters](https://www.reuters.com/world/asia-pacific/chinas-cxmt-says-new-memory-chip-platform-enters-mass-production-2026-09-20/))
 
-회사는 quadruple patterning을 활용해 메모리 셀 간격을 줄이고, 이전 세대보다 웨이퍼당 생산 가능한 다이 수를 크게 높였다고 설명했습니다. 같은 행사에서 24Gb LPDDR5X 제품도 공개했습니다.
+회사는 quadruple patterning을 활용해 메모리 셀 간격을 줄이고, 이전 세대보다 웨이퍼당 생산 가능한 다이 수를 크게 높였다고 설명했습니다. 같은 행사에서 24Gb LPDDR5X 제품도 공개했습니다. ([Reuters](https://www.reuters.com/world/asia-pacific/chinas-cxmt-says-new-memory-chip-platform-enters-mass-production-2026-09-20/))
 
 투자자가 확인해야 할 것은 공정 이름보다 다음 네 가지입니다.
 
@@ -53,7 +56,7 @@ Reuters는 2026년 9월 CXMT가 **5세대 메모리 칩 플랫폼의 양산 진�
 
 ## 중국 서버 DRAM은 왜 다음 전장인가
 
-2026년 6월 Reuters는 CXMT가 Tencent와 장기 DRAM 공급 계약을 확보했다고 보도했습니다. 계약 대상에는 AI·클라우드 서버용 메모리가 포함된 것으로 전해졌습니다.
+2026년 6월 Reuters는 CXMT가 Tencent와 장기 DRAM 공급 계약을 확보했다고 보도했습니다. 계약 대상에는 AI·클라우드 서버용 메모리가 포함된 것으로 전해졌습니다. ([Reuters](https://www.reuters.com/world/china/chinas-cxmt-wins-3-billion-memory-supply-deal-with-tencent-sources-say-2026-06-29/))
 
 TrendForce 역시 CXMT가 중국 현지 CSP를 대상으로 서버 DRAM 공급을 확대하고 있다고 평가합니다.
 
