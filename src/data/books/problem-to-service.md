@@ -13,8 +13,8 @@ tags:
   - MVP
   - 웹서비스
   - 문제정의
-coverImage: "/books/problem-to-service/problem-to-service-cover.webp"
-ogImage: "/books/problem-to-service/problem-to-service-og.webp"
+coverImage: "/books/problem-to-service/cover.svg"
+ogImage: "/books/problem-to-service/og.svg"
 heroQuote: "여기 화장실 어디 있어? 어머니의 한마디가 실제 서비스가 되기까지."
 landingHeading: "가족의 작은 불편을 발견하고, AI와 웹 기술로 실제 서비스까지 만든 전 과정을 기록했습니다."
 readerProfiles:
@@ -22,11 +22,10 @@ readerProfiles:
   - "AI를 질문 도구가 아니라 기획·개발·검증 도구로 활용하고 싶은 1인 제작자"
   - "시니어 UX와 위치 기반 서비스의 실제 시행착오를 사례로 배우고 싶은 사람"
   - "MVP부터 배포·도메인·Production QA까지 한 프로젝트의 전체 흐름을 보고 싶은 사람"
-format: pdf
+format: web
 access: preview
 previewChapterCount: 1
-readerPath: "/books/problem-to-service/problem-to-service-preview.pdf"
-readerCta: "15페이지 무료 미리보기"
+readerCta: "프롤로그와 1장 무료 읽기"
 overline: "JOYLAB BUILD SERIES 01 · PROBLEM TO SERVICE"
 topics:
   - "문제 발견"
@@ -82,6 +81,6 @@ draft: false
 
 ### 무료 미리보기
 
-JoyLab Research 사이트에서는 **표지·프롤로그·Chapter 1을 포함한 15페이지 무료 미리보기**를 제공합니다.
+JoyLab Research 사이트에서는 **프롤로그와 Chapter 1을 웹 리더로 무료 공개**합니다. 별도 15페이지 PDF 미리보기는 출간 안내 페이지에서 함께 제공합니다.
 
 전체 전자책은 정식 출간 채널에서 별도로 판매할 예정입니다.
