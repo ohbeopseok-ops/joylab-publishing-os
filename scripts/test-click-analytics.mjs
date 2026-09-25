@@ -44,6 +44,18 @@ if (articleView.status !== 204) throw new Error(`article_view expected 204, got 
 const dwell = await post({ event: 'article_dwell_60', target: 'foreign-investor-flow', placement: 'article_page', path: '/articles/foreign-investor-flow' });
 if (dwell.status !== 204) throw new Error(`article_dwell_60 expected 204, got ${dwell.status}`);
 
+const read50 = await post({ event: 'article_read_50', target: 'foreign-investor-flow', placement: 'article_page', path: '/articles/foreign-investor-flow' });
+if (read50.status !== 204) throw new Error(`article_read_50 expected 204, got ${read50.status}`);
+
+const read90 = await post({ event: 'article_read_90', target: 'foreign-investor-flow', placement: 'article_page', path: '/articles/foreign-investor-flow' });
+if (read90.status !== 204) throw new Error(`article_read_90 expected 204, got ${read90.status}`);
+
+const earlyExit = await post({ event: 'article_exit', target: 'foreign-investor-flow', placement: 'early_exit', path: '/articles/foreign-investor-flow' });
+if (earlyExit.status !== 204) throw new Error(`article_exit expected 204, got ${earlyExit.status}`);
+
+const cls = await post({ event: 'article_cls', target: '0.043', placement: 'article_page', path: '/articles/foreign-investor-flow' });
+if (cls.status !== 204) throw new Error(`article_cls expected 204, got ${cls.status}`);
+
 const internal = await post({ event: 'article_internal_link_click', target: '/articles/semiconductor-cycle', placement: 'article_body', path: '/articles/foreign-investor-flow' });
 if (internal.status !== 204) throw new Error(`article_internal_link_click expected 204, got ${internal.status}`);
 
@@ -68,13 +80,13 @@ if (mindmapTab.status !== 204) throw new Error(`book_mindmap_open tab expected 2
 const relatedResearch = await post({ event: 'book_related_research_click', target: 'why-we-cannot-stand-silence', placement: 'weight-of-silence', path: '/books/weight-of-silence' });
 if (relatedResearch.status !== 204) throw new Error(`book_related_research_click expected 204, got ${relatedResearch.status}`);
 
-if (writes.length !== 14) throw new Error(`Expected fourteen analytics writes, got ${writes.length}`);
+if (writes.length !== 18) throw new Error(`Expected eighteen analytics writes, got ${writes.length}`);
 if (writes[1].blobs.join('|') !== 'social_click|threads|about|/about') throw new Error(`Unexpected About social payload: ${JSON.stringify(writes[1])}`);
 if (writes[2].blobs.join('|') !== 'social_click|x|footer|/') throw new Error(`Unexpected X social payload: ${JSON.stringify(writes[2])}`);
 if (writes[3].blobs.join('|') !== 'social_click|youtube|about|/about') throw new Error(`Unexpected YouTube social payload: ${JSON.stringify(writes[3])}`);
 if (writes[4].blobs.join('|') !== 'article_view|foreign-investor-flow|article_page|/articles/foreign-investor-flow') throw new Error(`Unexpected article view payload: ${JSON.stringify(writes[4])}`);
-if (writes[7].blobs.join('|') !== 'home_section_impression|major|home|/') throw new Error(`Unexpected home impression payload: ${JSON.stringify(writes[7])}`);
-if (writes[8].blobs.join('|') !== 'home_section_click|anthropic-ipo-ai-safety-2026|major|/') throw new Error(`Unexpected home click payload: ${JSON.stringify(writes[8])}`);
+if (writes[11].blobs.join('|') !== 'home_section_impression|major|home|/') throw new Error(`Unexpected home impression payload: ${JSON.stringify(writes[11])}`);
+if (writes[12].blobs.join('|') !== 'home_section_click|anthropic-ipo-ai-safety-2026|major|/') throw new Error(`Unexpected home click payload: ${JSON.stringify(writes[12])}`);
 
 const invalid = await post({ event: 'article_internal_link_click', target: 'https://evil.example/', placement: 'article_body', path: '/articles/foreign-investor-flow' });
 if (invalid.status !== 400) throw new Error(`Expected 400, got ${invalid.status}`);
@@ -94,6 +106,6 @@ if (invalidExternalHomeTarget.status !== 400) throw new Error(`Expected external
 const invalidRssSocial = await post({ event: 'social_click', target: 'rss', placement: 'about', path: '/about' });
 if (invalidRssSocial.status !== 400) throw new Error(`Expected RSS social target 400, got ${invalidRssSocial.status}`);
 
-if (writes.length !== 14) throw new Error('Invalid events must not be written');
+if (writes.length !== 18) throw new Error('Invalid events must not be written');
 
 console.log('Click Analytics V3 worker contract passed.');
