@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">인터넷은 바다 밑으로 흐른다</title>
+  <desc id="desc">Fiber → Repeater → Landing Station</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.55" stop-color="#0a1830"/>
+      <stop offset="1" stop-color="#0d2340"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#0ea5e9" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#0ea5e9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1270" cy="430" r="370" fill="url(#glow)"/>
+  <g opacity=".24" stroke="#1d4ed8" stroke-width="2">
+    <path d="M0 690 C360 620 650 640 920 690 S1300 760 1600 690" fill="none"/>
+    <path d="M0 735 C360 665 650 685 920 735 S1300 805 1600 735" fill="none"/>
+  </g>
+  <text x="105" y="118" font-family="Arial,'Noto Sans KR',sans-serif" font-size="28" font-weight="700" letter-spacing="2" fill="#60a5fa">JOYLAB · GLOBAL NETWORK</text>
+  <text x="105" y="248" font-family="Arial,'Noto Sans KR',sans-serif" font-size="66" font-weight="800" fill="#f8fafc">인터넷은 바다 밑으로 흐른다</text>
+  <text x="108" y="318" font-family="Arial,'Noto Sans KR',sans-serif" font-size="31" font-weight="600" fill="#93c5fd">Fiber → Repeater → Landing Station</text>
+  <rect x="105" y="395" width="560" height="2" fill="#1d4ed8"/>
+  <text x="105" y="455" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" fill="#cbd5e1">Physical infrastructure behind the internet</text>
+  <g opacity=".78">
+    <circle cx="110" cy="545" r="6" fill="#38bdf8"/>
+    <circle cx="178" cy="545" r="6" fill="#38bdf8"/>
+    <circle cx="246" cy="545" r="6" fill="#38bdf8"/>
+    <path d="M116 545 H172 M184 545 H240" stroke="#38bdf8" stroke-width="3"/>
+  </g>
+  
+    <path d="M930 545 C1110 470 1280 475 1440 545" fill="none" stroke="#38bdf8" stroke-width="20" stroke-linecap="round"/>
+    <g fill="#0b1326" stroke="#60a5fa" stroke-width="4">
+      <rect x="1010" y="505" width="90" height="60" rx="18"/><rect x="1175" y="475" width="90" height="60" rx="18"/><rect x="1335" y="505" width="90" height="60" rx="18"/>
+    </g>
+    <path d="M100 650 H1500" stroke="#1e3a8a" stroke-width="2"/>
+    <rect x="1080" y="310" width="250" height="130" rx="28" fill="#10233c" stroke="#2563eb" stroke-width="3"/>
+    <path d="M1205 440 V505" stroke="#60a5fa" stroke-width="5"/>
+    <text x="1205" y="366" text-anchor="middle" font-size="28" font-weight="700" fill="#e2e8f0">LANDING STATION</text>
+    <text x="1205" y="405" text-anchor="middle" font-size="22" fill="#93c5fd">Backbone ↔ Subsea</text>
+  <text x="105" y="815" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#64748b">FACT → STRUCTURE → BOTTLENECK → RESILIENCE</text>
+</svg>
