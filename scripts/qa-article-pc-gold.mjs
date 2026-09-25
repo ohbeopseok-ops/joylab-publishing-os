@@ -32,7 +32,7 @@ for (const viewport of viewports) {
 
   await page.route('**/__analytics/event', (route) => route.fulfill({ status: 204, body: '' }));
   page.on('pageerror', (e) => errors.push(String(e)));
-  page.on('console', (m) => { if (m.type() === 'error') errors.push(`console: ${m.text()}`); });
+  page.on('console', (m) => {\n    if (m.type() !== 'error') return;\n    const message = m.text();\n    if (message.includes('[Report Only]') && message.includes('Content Security Policy')) return;\n    errors.push(`console: ${message}`);\n  });
 
   const response = await page.goto(`${baseURL}${articlePath}`, { waitUntil: 'networkidle' });
   await page.waitForFunction(() => [...document.images].every((img) => img.complete), null, { timeout: 5000 }).catch(() => {});
