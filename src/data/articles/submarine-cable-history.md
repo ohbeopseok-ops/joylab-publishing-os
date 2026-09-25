@@ -89,6 +89,8 @@ TAT-1이 36개 회선으로 출발했다는 점을 생각하면 30여 년 만에
 
 [해저 광케이블은 어떻게 인터넷을 연결할까｜광섬유·중계기·육양국 원리](/articles/how-submarine-cables-work)
 
+AI 시대의 확장까지 먼저 보고 싶다면 [AI 시대에 해저 광케이블이 더 중요해지는 이유](/articles/submarine-cables-ai-infrastructure)를 이어서 볼 수 있습니다.
+
 글로벌 인터넷 전체 구조는 [인터넷은 어떻게 세계를 연결하는가](/guides/how-internet-connects-the-world)에서 한 번에 볼 수 있습니다.
 
 ## FAQ
