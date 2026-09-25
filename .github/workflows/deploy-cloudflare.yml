@@ -106,6 +106,22 @@ jobs:
           grep -Fq 'data-analytics-event="social_click"' /tmp/body
           ! grep -Fq 'id="article-contact-cta"' /tmp/body
 
+          node <<'NODE'
+          const fs = require('fs');
+          const html = fs.readFileSync('/tmp/body', 'utf8');
+          const match = html.match(/<h2>최신 업데이트<\/h2>([\s\S]*?)<div class="home-category-card">/);
+          if (!match) throw new Error('최신 업데이트 section not found');
+          const latest = match[1];
+          if (!latest.includes('/articles/')) throw new Error('최신 업데이트 must contain article links');
+          if (latest.includes('/books/')) throw new Error('Books leaked into 최신 업데이트');
+          console.log('Home latest slot article-only PASS');
+          NODE
+
+          check_200 "https://aijoylab.kr/books?deploy=${GITHUB_SHA}"
+          grep -Fq 'LIBRARY · 출간일순' /tmp/body
+          grep -Fq '출간일 2026. 9. 25.' /tmp/body
+          grep -Fq '악보의 쉼표 사이에 고여 있는 침묵의 무게' /tmp/body
+
           headers=$(curl -sSI --max-time 20 https://aijoylab.kr/ | tr -d '\r')
           echo "$headers"
           grep -Fqi 'strict-transport-security: max-age=31536000; includeSubDomains' <<< "$headers"
