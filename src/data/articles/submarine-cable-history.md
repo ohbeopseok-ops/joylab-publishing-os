@@ -18,6 +18,9 @@ draft: false
 seoTitle: "TAT-1에서 광케이블까지｜대서양 해저 통신 70년의 진화"
 series: "글로벌 인터넷 인프라"
 seriesOrder: 1
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "TAT-1에서 현대 해저 광케이블까지 대서양 통신 인프라의 진화를 설명하는 JoyLab Research 대표 이미지"
+ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 8분"
 ---
 
