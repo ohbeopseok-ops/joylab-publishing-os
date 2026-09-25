@@ -1733,5 +1733,24 @@
         "caption": "Bandwidth Density → Power/bit → Yield → Thermal → Serviceability 순서로 판단합니다."
       }
     ]
+  },
+  "optical-dsp-lpo-lro-1-6t": {
+    "hero": {
+      "src": "/images/research/ai-data-center-network/optical-dsp-lpo-lro-1-6t-hero.svg",
+      "alt": "1.6T AI 데이터센터 광모듈에서 DSP 기반 플러거블과 LPO, LRO/TRO의 신호처리 구조를 비교한 JoyLab 대표 이미지",
+      "caption": "1.6T 광모듈 경쟁은 속도보다 DSP 위치와 전력, 신호무결성, 도달거리의 균형이 핵심입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Optical DSP LPO LRO TRO의 전력과 신호처리 차이를 정리한 JoyLab Visual Research 이미지",
+        "caption": "DSP·LPO·LRO/TRO의 전력, 지연, 신호보정, reach 차이를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "1.6T 광모듈을 Power Signal Integrity Latency Reach Serviceability 순서로 비교한 JoyLab 프레임워크 이미지",
+        "caption": "Power → Signal Integrity → Latency → Reach → Serviceability 순서로 비교합니다."
+      }
+    ]
   }
 }
