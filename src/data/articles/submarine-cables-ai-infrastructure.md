@@ -64,7 +64,9 @@ GPU가 해저 케이블에 직접 연결되는 것은 아닙니다.
 
 **Outside Data Center: Data Center ↔ Region ↔ Continent ↔ User**
 
-[AI Data Center Capacity Stack](/articles/ai-data-center-capacity-stack-2026)에서는 내부 Capacity를, 이 글에서는 외부 Global Network를 다룹니다.
+### 연결 리서치: [AI Data Center Capacity Stack](/articles/ai-data-center-capacity-stack-2026)
+
+이 글에서는 데이터센터 외부의 Global Network를 다룹니다.
 
 ## 빅테크는 왜 해저 케이블에 투자할까
 
