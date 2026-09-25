@@ -6,6 +6,8 @@ on:
       - 'scripts/sync-china-risk-data.mjs'
       - 'src/data/china-risk-adapter-config.json'
       - 'src/data/china-semiconductor-risk-snapshot.json'
+      - 'src/data/china-semiconductor-risk-history.json'
+      - 'scripts/update-china-risk-history.mjs'
       - 'src/components/ChinaSemiconductorRiskScore.astro'
       - 'package.json'
       - '.github/workflows/china-risk-data-adapter.yml'
@@ -40,6 +42,9 @@ jobs:
       - name: Public-source dry run
         run: npm run china-risk-data:dry-run
 
+      - name: History self-test
+        run: npm run china-risk-history:self-test
+
   sync:
     if: github.event_name != 'pull_request'
     needs: validate
@@ -60,15 +65,18 @@ jobs:
       - name: Sync public risk sources
         run: npm run china-risk-data:sync
 
-      - name: Commit changed snapshot only
+      - name: Update quarterly risk history
+        run: npm run china-risk-history:update
+
+      - name: Commit changed snapshot and history
         shell: bash
         run: |
-          if git diff --quiet -- src/data/china-semiconductor-risk-snapshot.json; then
+          if git diff --quiet -- src/data/china-semiconductor-risk-snapshot.json src/data/china-semiconductor-risk-history.json; then
             echo "No risk-data changes."
             exit 0
           fi
           git config user.name "joylab-risk-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add src/data/china-semiconductor-risk-snapshot.json
-          git commit -m "data: refresh China semiconductor risk snapshot"
+          git add src/data/china-semiconductor-risk-snapshot.json src/data/china-semiconductor-risk-history.json
+          git commit -m "data: refresh China semiconductor risk snapshot and history"
           git push origin HEAD:main
