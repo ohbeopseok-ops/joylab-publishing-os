@@ -203,3 +203,9 @@ AI 메모리 수요는 강하지만 이미 높은 실적과 주가 기대 때문
 - 삼성전자 FMS 2026 차세대 3D 메모리 로드맵, 2026-08-05
 - 삼성전자 투자자정보 실적발표 페이지
 - 시장 가격·외국인 지분율 기준일: 2026-09-10
+
+## 검증용 1차 자료
+
+- [삼성전자 실적발표](https://www.samsung.com/global/ir/financial-information/earnings-release/)
+- [삼성전자 투자자정보](https://www.samsung.com/sec/ir/)
+- [금융감독원 DART](https://dart.fss.or.kr/)
