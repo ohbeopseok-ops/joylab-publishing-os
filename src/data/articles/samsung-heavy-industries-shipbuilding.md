@@ -148,3 +148,9 @@ readingTime: "약 10분"
 - 삼성중공업 PIPE ROBOFAB 공식 뉴스, 2026-03-16
 - 삼성중공업 미국 조선 협력 공식 뉴스, 2026-07-24
 - 삼성중공업 주가정보, 기준일 2026-09-10
+
+## 검증용 1차 자료
+
+- [삼성중공업 IR 자료실](https://www.samsungshi.com/En/Ir_data.aspx)
+- [한국거래소 KIND](https://kind.krx.co.kr/)
+- [금융감독원 DART](https://dart.fss.or.kr/)
