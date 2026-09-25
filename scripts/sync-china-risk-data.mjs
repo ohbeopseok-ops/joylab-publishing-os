@@ -14,12 +14,18 @@ const decode = (s) => String(s ?? '')
   .replaceAll('&amp;', '&').replaceAll('&quot;', '"').replaceAll('&#39;', "'")
   .replaceAll('&lt;', '<').replaceAll('&gt;', '>').replace(/&nbsp;/g, ' ');
 
-const htmlToText = (html) => decode(html)
-  .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
-  .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
-  .replace(/<[^>]+>/g, ' ')
-  .replace(/\s+/g, ' ')
-  .trim();
+const htmlToText = (html) => {
+  const metadata = [...String(html).matchAll(/<meta\b[^>]*(?:name|property)=["'](?:description|og:description|twitter:description)["'][^>]*content=["']([^"']+)["'][^>]*>/gi)]
+    .map((m) => decode(m[1]))
+    .join(' ');
+  const body = decode(html)
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return `${metadata} ${body}`.replace(/\s+/g, ' ').trim();
+};
 
 const sentenceChunks = (text) => text
   .split(/(?<=[.!?])\s+|\s*[•|]\s*/g)
