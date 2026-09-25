@@ -18,9 +18,9 @@ draft: false
 seoTitle: "해저 광케이블 원리｜광섬유·중계기·육양국으로 인터넷이 연결되는 과정"
 series: "글로벌 인터넷 인프라"
 seriesOrder: 2
-heroImage: "/images/research/joylab-research-default-hero.svg"
+heroImage: "/images/research/global-connectivity/how-submarine-cables-work-hero.svg"
 heroAlt: "광섬유와 중계기, 육양국을 통해 인터넷 데이터가 대륙을 연결하는 구조를 설명하는 JoyLab Research 대표 이미지"
-ogImage: "/images/research/joylab-research-default-hero.svg"
+ogImage: "/images/research/global-connectivity/how-submarine-cables-work-hero.svg"
 readingTime: "약 9분"
 ---
 
