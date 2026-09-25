@@ -162,3 +162,10 @@ HD한국조선해양은 그룹 연결 기준이라 단일 조선사와 직접 �
 - 각 사 공식 IR Presentation 및 공시자료
 - 한국거래소/시장 데이터, 기준일 2026-09-10
 - 조선업계 2026년 6월 말 수주잔고 비교 자료
+
+## 검증용 1차 자료
+
+- [HD현대중공업 실적발표](https://hd-hhi.com/kr/investors/ir-data/earnings-release)
+- [HD한국조선해양 투자자정보](https://www.hdksoe.co.kr/)
+- [삼성중공업 IR 자료실](https://www.samsungshi.com/En/Ir_data.aspx)
+- [한화오션 공식 기업 브로슈어](https://www.hanwhaocean.com/pdf/Hanwha_Ocean_Brochure_KR_2025.pdf)
