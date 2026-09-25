@@ -6,6 +6,10 @@ const INPUT='src/data/china-semiconductor-risk-brief.json';
 const OUTPUT='src/data/china-risk-brief-distribution.json';
 const PUBLIC='public/data/china-risk-brief-distribution.json';
 const KAKAO='distribution/china-risk-kakao-handoff.json';
+const PUBLIC_KAKAO='public/data/china-risk-kakao.json';
+const PUBLIC_PREMARKET='public/data/china-risk-premarket-0700.json';
+const PUBLIC_BLOG='public/data/china-risk-blog-summary.json';
+const PUBLIC_EVENT='public/data/china-risk-notification-event.json';
 const SELF_TEST=process.argv.includes('--self-test');
 
 const read=(p)=>JSON.parse(fs.readFileSync(p,'utf8'));
@@ -86,6 +90,14 @@ const brief=read(INPUT);
 const out=buildDistribution(brief);
 write(OUTPUT,out);write(PUBLIC,out);
 if(out.status==='READY'){
+  write(PUBLIC_KAKAO,{version:'1.0',status:'READY',quarter:out.quarter,sourceFingerprint:out.sourceFingerprint,...out.channels.kakao});
+  write(PUBLIC_PREMARKET,{version:'1.0',status:'READY',quarter:out.quarter,sourceFingerprint:out.sourceFingerprint,...out.channels.premarket0700});
+  write(PUBLIC_BLOG,{version:'1.0',status:'READY',quarter:out.quarter,sourceFingerprint:out.sourceFingerprint,...out.channels.blogSummary});
+  write(PUBLIC_EVENT,{
+    version:'1.0',event:'CHINA_RISK_BRIEF_PUBLISHED',createdAt:out.generatedAt,
+    sourceFingerprint:out.sourceFingerprint,distributionFingerprint:out.fingerprint,
+    consumers:['kakao-handoff','premarket-0700','blog-summary','earnings-impact']
+  });
   write(KAKAO,{
     version:'1.0',event:'CHINA_RISK_BRIEF_READY',createdAt:out.generatedAt,
     sourceFingerprint:out.sourceFingerprint,distributionFingerprint:out.fingerprint,
