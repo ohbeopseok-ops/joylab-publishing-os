@@ -12,9 +12,9 @@ featured: false
 draft: false
 series: "AI 추론 시대 메모리"
 seriesOrder: 1
-heroImage: "/images/research/joylab-research-default-hero.svg"
-heroAlt: "AI 에이전트의 반복 추론과 KV Cache 증가가 HBM 메모리 대역폭 수요를 확대하는 구조"
-ogImage: "/images/research/joylab-research-default-hero.svg"
+heroImage: "/images/research/ai-agent-hbm-demand.webp"
+heroAlt: "AI 에이전트 반복 추론과 KV Cache가 GPU HBM 수요로 이어지는 구조"
+ogImage: "/images/research/ai-agent-hbm-demand.webp"
 readingTime: "약 8분"
 ---
 
