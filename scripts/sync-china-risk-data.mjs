@@ -286,8 +286,49 @@ function parseBis(docs) {
 function preserveOrUnknown(id, metric, errors) {
   if (metric) return metric;
   const prev = previous.metrics?.[id];
-  if (prev && prev.status === 'OK') return { ...prev, status:'STALE', staleAt:nowIso(), staleReason:errors.slice(0,2) };
-  return { status:'UNKNOWN', id, fetchedAt:nowIso(), errors:errors.slice(0,2) };
+  if (prev && (prev.status === 'OK' || prev.status === 'STALE')) {
+    return {
+      ...prev,
+      status:'STALE',
+      staleAt:prev.staleAt ?? nowIso(),
+      staleReason:errors.slice(0,2)
+    };
+  }
+  return {
+    ...(prev?.status === 'UNKNOWN' ? prev : {}),
+    status:'UNKNOWN',
+    id,
+    fetchedAt:nowIso(),
+    errors:errors.slice(0,2)
+  };
+}
+
+function semanticMetric(metric) {
+  if (!metric) return null;
+  const keys = ['status','id','value','unit','score','source','sourceUrl','observedAt','fromWpm','toWpm','note'];
+  return Object.fromEntries(keys.filter((key) => metric[key] !== undefined).map((key) => [key,metric[key]]));
+}
+
+function semanticSnapshot(input) {
+  return {
+    version:input.version,
+    ready:input.ready,
+    coverage:input.coverage,
+    metrics:Object.fromEntries(Object.entries(input.metrics ?? {}).map(([key,value]) => [key,semanticMetric(value)])),
+    auxiliary:{
+      enterpriseSsdShare:semanticMetric(input.auxiliary?.enterpriseSsdShare),
+      bisEvents:(input.auxiliary?.bisEvents ?? []).map((event) => ({
+        title:event.title,
+        observedAt:event.observedAt,
+        sourceUrl:event.sourceUrl,
+        hbmMention:Boolean(event.hbmMention)
+      }))
+    }
+  };
+}
+
+function hasSemanticChange(next, prev) {
+  return JSON.stringify(semanticSnapshot(next)) !== JSON.stringify(semanticSnapshot(prev));
 }
 
 function selfTest() {
@@ -305,6 +346,17 @@ function selfTest() {
   const cp = parseCounterpoint([{source:'counterpoint',url:'https://example.com',observedAt:'2026-08-12',fetchedAt:'x',text:'Server-Led eSSDs Hit 48% of NAND Shipments; YMTC Enters Global Top Three Login Register. NAND market update. YMTC climbed to third place with 14%, narrowly edging Kioxia. enterprise SSDs reached 48% of global NAND bit shipments.',kind:'article'}]);
   assert.equal(cp.ymtcShare.value,14);
   assert.equal(cp.enterpriseSsdShare.value,48);
+  const semanticA = {
+    version:'1.0', ready:true, coverage:{metricsReady:1,metricsStale:0,metricsTotal:1},
+    metrics:{cxmtShare:{status:'OK',id:'cxmtShare',value:9.5,unit:'%',score:50,source:'trendforce',sourceUrl:'https://example.com/x',observedAt:'2026-09-24',fetchedAt:'2026-09-25T00:00:00Z',evidence:'A'}},
+    auxiliary:{enterpriseSsdShare:null,bisEvents:[]}
+  };
+  const semanticB = structuredClone(semanticA);
+  semanticB.metrics.cxmtShare.fetchedAt = '2026-09-25T12:00:00Z';
+  semanticB.metrics.cxmtShare.evidence = 'HTML wording changed';
+  assert.equal(hasSemanticChange(semanticA, semanticB),false);
+  semanticB.metrics.cxmtShare.value = 10;
+  assert.equal(hasSemanticChange(semanticA, semanticB),true);
   console.log('China Risk Data Adapter V1 self-test PASS');
 }
 
@@ -352,7 +404,9 @@ const snapshot = {
 const output = `${JSON.stringify(snapshot,null,2)}\n`;
 if (DRY_RUN) {
   process.stdout.write(output);
+} else if (!hasSemanticChange(snapshot, previous)) {
+  console.log(`China Risk Data Adapter V1: NO_SEMANTIC_CHANGE; snapshot unchanged; OK=${metricsReady}/${metricValues.length} STALE=${stale}`);
 } else {
   fs.writeFileSync(SNAPSHOT_PATH, output, 'utf8');
-  console.log(`China Risk Data Adapter V1: READY=${snapshot.ready} OK=${metricsReady}/${metricValues.length} STALE=${stale}; BIS events=${snapshot.auxiliary.bisEvents.length}`);
+  console.log(`China Risk Data Adapter V1: UPDATED; READY=${snapshot.ready} OK=${metricsReady}/${metricValues.length} STALE=${stale}; BIS events=${snapshot.auxiliary.bisEvents.length}`);
 }
