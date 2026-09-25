@@ -1527,7 +1527,7 @@
   },
   "ai-agent-hbm-demand": {
     "hero": {
-      "src": "/images/research/ai-agent-hbm-demand.webp",
+      "src": "/images/research/ai-agent-hbm-demand-vector.svg",
       "alt": "AI 에이전트 반복 추론과 KV Cache가 GPU HBM 수요로 이어지는 구조",
       "caption": "AI Agent → 반복 추론 → KV Cache → HBM으로 이어지는 메모리 병목을 시각화합니다."
     },
@@ -1546,7 +1546,7 @@
   },
   "hbm3e-hbm4-zhbm": {
     "hero": {
-      "src": "/images/research/hbm3e-hbm4-zhbm.webp",
+      "src": "/images/research/hbm3e-hbm4-zhbm-vector.svg",
       "alt": "HBM3E에서 HBM4와 zHBM 3D 메모리 구조로 진화하는 AI 메모리 로드맵",
       "caption": "HBM3E → HBM4 → zHBM으로 이어지는 메모리 기술의 구조적 진화를 시각화합니다."
     },
@@ -1565,7 +1565,7 @@
   },
   "ai-inference-hbm-earnings": {
     "hero": {
-      "src": "/images/research/ai-inference-hbm-earnings.webp",
+      "src": "/images/research/ai-inference-hbm-earnings-vector.svg",
       "alt": "AI 추론 수요가 HBM과 서버 메모리를 거쳐 ASP·마진·실적 성장으로 연결되는 구조",
       "caption": "AI 추론 → HBM·DRAM → ASP·제품 믹스 → 마진·실적으로 이어지는 전송 구조를 시각화합니다."
     },
