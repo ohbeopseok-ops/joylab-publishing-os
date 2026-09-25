@@ -288,7 +288,7 @@ const scoreCriteria = [
           <div id="article-content" class="article-body"><Content /></div>
         </div>
 
-        <AdSlot placement="article-end" />
+        {!isCodexSeries && <AdSlot placement="article-end" />}
 
         {isCodexSeries && (
           <nav class="codex-series-nav" aria-label="Codex 8부작 시리즈 이동">
