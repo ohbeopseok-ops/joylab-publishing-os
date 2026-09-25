@@ -1,0 +1,38 @@
+name: Topic Cluster CI V2
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'src/data/books/**'
+      - 'src/pages/guides/**'
+      - 'config/topic-clusters-v2.json'
+      - 'scripts/check-topic-clusters-v2.mjs'
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'src/data/books/**'
+      - 'src/pages/guides/**'
+      - 'config/topic-clusters-v2.json'
+      - 'scripts/check-topic-clusters-v2.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  topic-clusters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Validate AI · Investment · Books topic clusters
+        env:
+          TOPIC_CLUSTER_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: node scripts/check-topic-clusters-v2.mjs

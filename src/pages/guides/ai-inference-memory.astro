@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import { getCollection } from 'astro:content';
+
+const sequence = [
+  { id: 'ai-agent-hbm-demand', step: '01', role: 'DEMAND', short: 'Agent → HBM', note: 'Agentic inference와 KV Cache가 HBM 수요로 연결되는 구조를 봅니다.' },
+  { id: 'hbm3e-hbm4-zhbm', step: '02', role: 'TECH', short: 'HBM Evolution', note: 'HBM3E·HBM4·zHBM을 현재 매출과 미래 기술 옵션으로 구분합니다.' },
+  { id: 'ai-inference-hbm-earnings', step: '03', role: 'EARNINGS', short: 'Inference → EPS', note: '추론 수요가 ASP·수율·마진·EPS로 전환되는 과정을 봅니다.' },
+  { id: 'what-is-hbm', step: '04', role: 'FOUNDATION', short: 'HBM', note: 'HBM의 구조와 대역폭 병목을 이해합니다.' },
+  { id: 'ai-infrastructure-hbm-mlcc-power-grid-2026', step: '05', role: 'DEMAND', short: 'AI Infra', note: 'AI 인프라 확장이 HBM·부품·전력 수요로 전파되는 구조를 봅니다.' },
+  { id: 'semiconductor-cycle', step: '06', role: 'CYCLE', short: 'Cycle', note: '가격·재고·CAPEX로 메모리 사이클을 점검합니다.' },
+  { id: 'samsung-electronics-outlook', step: '07', role: 'COMPANY', short: 'Samsung', note: 'HBM과 범용 메모리가 삼성전자 실적으로 연결되는 조건을 봅니다.' },
+  { id: 'sk-hynix-outlook', step: '08', role: 'COMPANY', short: 'SK hynix', note: 'HBM4·CAPEX·수익성의 연결을 추적합니다.' },
+  { id: 'samsung-vs-sk-hynix-ai-memory', step: '09', role: 'COMPARE', short: 'Compare', note: '삼성전자와 SK하이닉스를 같은 기준으로 비교합니다.' },
+  { id: 'cxmt-dram-vs-samsung-sk-hynix', step: '10', role: 'CHINA DRAM', short: 'CXMT', note: '중국 DRAM 공급 확대가 범용 메모리 가격과 경쟁구도에 미치는 영향을 봅니다.' },
+  { id: 'ymtc-nand-vs-samsung-sk-hynix', step: '11', role: 'CHINA NAND', short: 'YMTC', note: 'AI 저장장치 시대 NAND·Enterprise SSD 경쟁을 따로 봅니다.' }
+];
+
+const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
+const byId = new Map(collection.map((item) => [item.id, item]));
+const articles = sequence.map((entry) => ({ ...entry, article: byId.get(entry.id) })).filter((entry) => entry.article);
+
+const canonical = 'https://aijoylab.kr/guides/ai-inference-memory';
+const title = 'AI 추론 시대 메모리 투자 가이드｜HBM4·삼성전자·SK하이닉스 | JoyLab';
+const description = 'AI 에이전트와 실시간 추론이 왜 HBM 수요를 늘리는지부터 HBM4, 삼성전자·SK하이닉스, CXMT·YMTC까지 AI 메모리 투자 구조를 연결해 정리합니다.';
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'JoyLab', item: 'https://aijoylab.kr/' },
+    { '@type': 'ListItem', position: 2, name: '투자 리서치', item: 'https://aijoylab.kr/guides/investing' },
+    { '@type': 'ListItem', position: 3, name: '반도체 투자 가이드', item: 'https://aijoylab.kr/guides/semiconductor-investing' },
+    { '@type': 'ListItem', position: 4, name: 'AI 추론 시대 메모리 투자 가이드', item: canonical }
+  ]
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'AI 추론이 왜 HBM 수요를 늘리나요?', acceptedAnswer: { '@type': 'Answer', text: 'AI 추론과 에이전트 사용이 늘면 모델 파라미터와 긴 컨텍스트, KV Cache를 빠르게 읽고 쓰는 작업이 증가해 메모리 용량과 대역폭의 중요성이 커집니다.' } },
+    { '@type': 'Question', name: 'HBM4가 HBM3E와 다른 핵심은 무엇인가요?', acceptedAnswer: { '@type': 'Answer', text: 'HBM4는 인터페이스와 대역폭을 확대하고 로직 베이스 다이와 고객 맞춤 설계의 중요성을 높인 차세대 HBM입니다.' } },
+    { '@type': 'Question', name: 'CXMT와 YMTC를 같은 HBM 경쟁사로 봐도 되나요?', acceptedAnswer: { '@type': 'Answer', text: '아닙니다. CXMT는 DRAM 경쟁축, YMTC는 NAND와 Enterprise SSD 경쟁축으로 구분해 보는 것이 정확합니다.' } },
+    { '@type': 'Question', name: '삼성전자와 SK하이닉스 HBM 투자는 무엇을 비교해야 하나요?', acceptedAnswer: { '@type': 'Answer', text: '기술 발표보다 고객 인증, 실제 출하량, 수율, 제품 믹스, ASP, 생산능력과 영업이익 전환을 함께 확인해야 합니다.' } }
+  ]
+};
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  type="article"
+  image="/images/research/joylab-research-default-hero.svg"
+  bodyClass="semiconductor-guide-v2"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <section class="sg-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">AI MEMORY RESEARCH · JOYLAB</div>
+          <h1>AI 추론 시대,<br /><span>메모리가 다시 중심입니다.</span></h1>
+          <p class="sg-hero__lead">AI Agent → Inference → Token → KV Cache → HBM → ASP·Bit Growth → Margin으로 이어지는 흐름을 하나의 <strong>AI Memory Research Map</strong>으로 연결합니다.</p>
+          <div class="sg-hero__chips" aria-label="핵심 주제">
+            <span>#AI추론</span><span>#HBM4</span><span>#KVCache</span><span>#삼성전자</span><span>#SK하이닉스</span><span>#CXMT</span><span>#YMTC</span>
+          </div>
+          <div class="sg-hero__meta">
+            <span><strong>{articles.length}</strong> Core Research</span>
+            <span><strong>4</strong> Decision Layers</span>
+            <span><strong>1</strong> Memory Map</span>
+          </div>
+        </div>
+        <aside class="sg-lens" aria-label="AI 메모리 판단 관점">
+          <div class="sg-lens__brand">JOYLAB<br /><b>AI MEMORY</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>DEMAND</b><span>추론과 Agent 사용량이 실제 메모리 수요로 바뀌는지 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>TECH</b><span>HBM 세대·대역폭·패키징 전환을 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>ECONOMICS</b><span>수요가 ASP·수율·마진·EPS로 연결되는지 확인합니다.</span></div></div>
+        </aside>
+      </div>
+      <div class="sg-map-head">
+        <div><span>START HERE</span><b>AI Memory Research Map</b></div>
+        <a href="#memory-path">핵심 리서치 전체 보기 →</a>
+      </div>
+      <nav class="sg-map" aria-label="AI 메모리 리서치 경로">
+        {articles.slice(0, 6).map(({ article, step, short, role }, index) => (
+          <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={`/articles/${article!.id}`}>
+            <em>{step}</em><b>{short}</b><span>{role}</span>
+          </a>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <main class="sg-main" id="memory-path">
+    <div class="sg-wrap sg-layout">
+      <section>
+        <section class="sg-insights" aria-labelledby="memory-thesis">
+          <div class="sg-section-head sg-section-head--compact">
+            <div><div class="sg-eyebrow">CORE THESIS</div><h2 id="memory-thesis">추론량이 늘어도 이익은 자동으로 늘지 않습니다.</h2></div>
+          </div>
+          <div class="sg-insights__grid">
+            <div><em>DEMAND</em><b>Agent → Token → KV Cache</b><p>실시간 추론이 메모리 접근량과 서버 메모리 콘텐츠를 얼마나 늘리는지 봅니다.</p></div>
+            <div><em>SUPPLY</em><b>HBM4 → Capacity → Yield</b><p>공급능력과 수율이 실제 출하량으로 바뀌는지 확인합니다.</p></div>
+            <div><em>PROFIT</em><b>ASP → Margin → EPS</b><p>기술 뉴스가 가격과 이익 추정치 상승으로 연결되는지를 봅니다.</p></div>
+          </div>
+        </section>
+
+        <div class="sg-section-head">
+          <div><div class="sg-eyebrow">RESEARCH PATH</div><h2>수요 → 기술 → 기업 → 경쟁으로 읽습니다</h2></div>
+          <p>HBM만 떼어 보지 않고 DRAM·NAND·중국 공급 확대까지 함께 봐야 메모리 사이클의 전체 그림이 보입니다.</p>
+        </div>
+        <div class="sg-path">
+          {articles.map(({ article, step, role, note }, index) => (
+            <article class={`sg-card ${index === 3 || index === 4 ? 'is-key' : ''}`}>
+              <div class="sg-card__no">{step}</div>
+              <div>
+                <div class="sg-card__role">{role}</div>
+                <h3><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h3>
+                <p>{note}</p>
+                <div class="sg-card__foot">
+                  {article!.data.tags.slice(0, 3).map((tag) => <span>#{tag}</span>)}
+                  <a class="sg-card__cta" href={`/articles/${article!.id}`}>리서치 읽기 →</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <section class="sg-rule" aria-labelledby="memory-rule">
+          <div class="sg-eyebrow">JOYLAB MEMORY FRAME</div>
+          <h2 id="memory-rule">Inference → Memory Content → ASP → Yield → Margin → EPS</h2>
+          <div class="sg-rule__grid">
+            <div class="sg-rule__step"><b>INFERENCE</b><span>AI Agent·실시간 추론 사용량</span></div>
+            <div class="sg-rule__step"><b>CONTENT</b><span>GPU·서버당 HBM·DRAM·SSD 탑재량</span></div>
+            <div class="sg-rule__step"><b>ECONOMICS</b><span>ASP·Bit Growth·수율·원가</span></div>
+            <div class="sg-rule__step"><b>EARNINGS</b><span>영업이익·EPS·FCF·ROIC</span></div>
+          </div>
+        </section>
+
+        <section class="sg-insights" aria-labelledby="china-memory">
+          <div class="sg-section-head sg-section-head--compact">
+            <div><div class="sg-eyebrow">CHINA MEMORY WATCH</div><h2 id="china-memory">CXMT와 YMTC는 다른 축입니다</h2></div>
+          </div>
+          <div class="sg-insights__grid">
+            <div><em>DRAM</em><b>CXMT</b><p>범용·모바일 DRAM의 공급 확대와 중국 고객 대체 속도를 봅니다. HBM 경쟁력은 별도 검증이 필요합니다.</p></div>
+            <div><em>NAND</em><b>YMTC</b><p>고단 NAND보다 Enterprise SSD 고객 인증과 제품 믹스가 더 중요한 다음 관문입니다.</p></div>
+            <div><em>PRICE</em><b>Supply × Mix</b><p>중국 공급 증가가 글로벌 ASP에 미치는 영향은 제품군과 지역별 흡수력에 따라 달라집니다.</p></div>
+          </div>
+        </section>
+
+        <section aria-labelledby="memory-faq">
+          <div class="sg-section-head sg-section-head--compact">
+            <div><div class="sg-eyebrow">FAQ</div><h2 id="memory-faq">AI 추론과 메모리 투자 핵심 질문</h2></div>
+          </div>
+          <div class="sg-path">
+            <article class="sg-card"><div class="sg-card__no">Q1</div><div><h3>AI 추론이 왜 HBM 수요를 늘리나요?</h3><p>Agent 사용이 늘면 반복 추론과 긴 컨텍스트, KV Cache 접근이 증가해 메모리 용량과 대역폭의 중요성이 커집니다.</p></div></article>
+            <article class="sg-card"><div class="sg-card__no">Q2</div><div><h3>HBM4의 핵심 변화는 무엇인가요?</h3><p>더 넓은 인터페이스와 높은 대역폭, 로직 베이스 다이와 고객 맞춤 설계의 중요성이 커지는 세대 전환입니다.</p></div></article>
+            <article class="sg-card"><div class="sg-card__no">Q3</div><div><h3>CXMT와 YMTC를 같은 HBM 경쟁사로 봐도 되나요?</h3><p>아닙니다. CXMT는 DRAM, YMTC는 NAND·Enterprise SSD 축으로 분리해야 합니다.</p></div></article>
+          </div>
+        </section>
+      </section>
+
+      <aside class="sg-rail" aria-label="AI 메모리 가이드 사용법">
+        <section class="sg-rail-card sg-rail-card--dark">
+          <small>START HERE</small><h3>HBM부터 이해하기</h3>
+          <p>기술 용어보다 메모리 병목이 왜 생기는지 먼저 보면 이후 기업 분석이 쉬워집니다.</p>
+          <a href="/articles/what-is-hbm">HBM 기초 읽기 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>PARENT GUIDE</small><h3>반도체 전체 구조</h3>
+          <p>AI 메모리뿐 아니라 사이클·수급·기업 비교까지 보려면 상위 Guide로 돌아갑니다.</p>
+          <a href="/guides/semiconductor-investing">반도체 투자 가이드 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>INFRA BRIDGE</small><h3>AI 인프라와 연결</h3>
+          <p>GPU·HBM·전력·냉각의 병목 이동은 AI Infrastructure Hub에서 이어집니다.</p>
+          <a href="/guides/ai-infrastructure">AI Infrastructure Hub →</a>
+        </section>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>
