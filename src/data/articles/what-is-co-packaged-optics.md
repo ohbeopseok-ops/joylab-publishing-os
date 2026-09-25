@@ -146,6 +146,8 @@ CPO는 다음 구조의 가운데에 위치합니다.
 
 구현 기술은 [Silicon Photonics란 무엇인가｜AI 네트워크에서 빛을 칩으로 가져오는 기술](/articles/silicon-photonics-ai-network)에서 이어집니다.
 
+거리 축의 다음 단계는 [AI 데이터센터 DCI란 무엇인가｜랙에서 캠퍼스·리전까지 광네트워크가 이어지는 방법](/articles/ai-data-center-interconnect-dci)에서 연결됩니다.
+
 데이터센터 밖의 장거리 글로벌 연결은 [AI 시대 글로벌 네트워크와 해저 광케이블](/articles/submarine-cables-ai-infrastructure)에서 이어집니다.
 
 ## FAQ
