@@ -47,6 +47,7 @@ export async function GET({ site }: { site: URL }) {
     '/guides/growth-leadership/literature/metamorphosis',
     '/guides/growth-leadership/playbook/performance-coaching',
     '/guides/semiconductor-investing',
+    '/guides/ai-inference-memory',
     '/guides/ai-power',
     '/guides/shipbuilding',
     '/guides/us-rates',
