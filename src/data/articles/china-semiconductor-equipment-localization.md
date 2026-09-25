@@ -67,3 +67,6 @@ JoyLab에서는 장비 국산화 속도를 다음 지표로 추적합니다.
 - [미국 BIS — 2024년 대중국 첨단 반도체 제조 통제 강화](https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military)
 - [미국 BIS — 2024년 수출통제 규정 정정·명확화](https://www.bis.gov/press-release/commerce-releases-clarifications-export-control-rules-restrict-prcs-access-advanced-computing)
 
+## 투자자가 분기마다 확인할 질문
+
+장비 국산화의 진척은 발표 건수보다 고객사 양산라인 채택과 반복 수주에서 확인하는 편이 좋습니다. 다음 분기에는 중국 팹의 CAPEX 증가가 어떤 장비 분야에 집중되는지, 신규 장비가 시험라인이 아니라 실제 생산라인에 들어가는지, 장비 교체 후 수율과 생산성이 유지되는지를 확인해야 합니다. 또한 국산 장비 비중 확대가 글로벌 장비사의 중국 매출 감소로 실제 연결되는지도 함께 봐야 합니다. 이 흐름이 확인돼야 장비 국산화가 산업 구조 변화로 이어졌다고 판단할 수 있습니다.
