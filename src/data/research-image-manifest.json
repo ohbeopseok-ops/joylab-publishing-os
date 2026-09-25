@@ -1676,5 +1676,24 @@
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
+  },
+  "ai-network-800g-1-6t": {
+    "hero": {
+      "src": "/images/research/ai-data-center-network/ai-network-800g-1-6t-hero.svg",
+      "alt": "800G에서 1.6T로 전환되는 AI 데이터센터 광네트워크와 200G PAM4 링크 구조를 보여주는 JoyLab 대표 이미지",
+      "caption": "AI 데이터센터 네트워크가 800G에서 1.6T로 이동하는 이유를 bandwidth density와 power per bit 관점에서 봅니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "800G와 1.6T AI 데이터센터 네트워크 전환의 핵심 기술 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "200G/lane, 포트 밀도, 전력/bit, CPO 전환 신호를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 데이터센터 네트워크를 Bandwidth Lane Speed Power per Bit Reach Thermal 순서로 정리한 JoyLab 프레임워크 이미지",
+        "caption": "Bandwidth → Lane Speed → Power/bit → Reach → Thermal → Serviceability 순서로 봅니다."
+      }
+    ]
   }
 }
