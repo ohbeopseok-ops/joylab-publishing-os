@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">위성 인터넷 vs 해저 광케이블</title>
+  <desc id="desc">Capacity × Reach × Resilience</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.55" stop-color="#0a1830"/>
+      <stop offset="1" stop-color="#0d2340"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#0ea5e9" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#0ea5e9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1270" cy="430" r="370" fill="url(#glow)"/>
+  <g opacity=".24" stroke="#1d4ed8" stroke-width="2">
+    <path d="M0 690 C360 620 650 640 920 690 S1300 760 1600 690" fill="none"/>
+    <path d="M0 735 C360 665 650 685 920 735 S1300 805 1600 735" fill="none"/>
+  </g>
+  <text x="105" y="118" font-family="Arial,'Noto Sans KR',sans-serif" font-size="28" font-weight="700" letter-spacing="2" fill="#60a5fa">JOYLAB · GLOBAL NETWORK</text>
+  <text x="105" y="248" font-family="Arial,'Noto Sans KR',sans-serif" font-size="66" font-weight="800" fill="#f8fafc">위성 인터넷 vs 해저 광케이블</text>
+  <text x="108" y="318" font-family="Arial,'Noto Sans KR',sans-serif" font-size="31" font-weight="600" fill="#93c5fd">Capacity × Reach × Resilience</text>
+  <rect x="105" y="395" width="560" height="2" fill="#1d4ed8"/>
+  <text x="105" y="455" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" fill="#cbd5e1">Physical infrastructure behind the internet</text>
+  <g opacity=".78">
+    <circle cx="110" cy="545" r="6" fill="#38bdf8"/>
+    <circle cx="178" cy="545" r="6" fill="#38bdf8"/>
+    <circle cx="246" cy="545" r="6" fill="#38bdf8"/>
+    <path d="M116 545 H172 M184 545 H240" stroke="#38bdf8" stroke-width="3"/>
+  </g>
+  
+    <circle cx="1260" cy="410" r="145" fill="none" stroke="#60a5fa" stroke-width="4"/>
+    <path d="M1130 410 h260 M1260 270 v280 M1160 325 c90 55 110 115 0 170 M1360 325 c-90 55-110 115 0 170" fill="none" stroke="#60a5fa" stroke-width="3"/>
+    <g transform="translate(1060 210)">
+      <rect x="0" y="0" width="140" height="54" rx="14" fill="#1e3a8a" stroke="#93c5fd" stroke-width="3"/>
+      <rect x="-70" y="10" width="58" height="34" rx="6" fill="#2563eb"/>
+      <rect x="152" y="10" width="58" height="34" rx="6" fill="#2563eb"/>
+      <path d="M70 54 v58" stroke="#f8fafc" stroke-width="4"/>
+    </g>
+    <path d="M950 650 C1120 590 1320 600 1470 655" fill="none" stroke="#38bdf8" stroke-width="18" stroke-linecap="round"/>
+    <path d="M1130 270 C1085 330 1045 390 1020 470" stroke="#f8fafc" stroke-width="4" stroke-dasharray="10 10"/>
+  <text x="105" y="815" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#64748b">FACT → STRUCTURE → BOTTLENECK → RESILIENCE</text>
+</svg>
