@@ -29,6 +29,14 @@ const sentenceChunks = (text) => text
 const pctMid = (a, b = a) => Math.round(((Number(a) + Number(b)) / 2) * 10) / 10;
 const signed = (direction, value) => /declin|drop|fall|decreas|down/i.test(direction) ? -Math.abs(value) : Math.abs(value);
 
+function dateFromUrl(url) {
+  const compact = String(url).match(/\/(20\d{2})(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])-/);
+  if (compact) return `${compact[1]}-${compact[2]}-${compact[3]}`;
+  const pathDate = String(url).match(/\/(20\d{2})\/(0?[1-9]|1[0-2])\/(0?[1-9]|[12]\d|3[01])\//);
+  if (pathDate) return `${pathDate[1]}-${String(pathDate[2]).padStart(2,'0')}-${String(pathDate[3]).padStart(2,'0')}`;
+  return null;
+}
+
 function parseDate(text) {
   const iso = text.match(/\b(20\d{2})[-/.](0?[1-9]|1[0-2])[-/.](0?[1-9]|[12]\d|3[01])\b/);
   if (iso) return `${iso[1]}-${String(iso[2]).padStart(2,'0')}-${String(iso[3]).padStart(2,'0')}`;
@@ -129,7 +137,7 @@ async function collectProvider(name, provider) {
   for (const url of provider.discovery) {
     try {
       const html = await fetchText(url);
-      docs.push({ source:name, url, text:htmlToText(html), html, observedAt:parseDate(htmlToText(html)), fetchedAt, kind:'discovery' });
+      docs.push({ source:name, url, text:htmlToText(html), html, observedAt:dateFromUrl(url) || parseDate(htmlToText(html)), fetchedAt, kind:'discovery' });
       for (const link of linksFromHtml(html, url, provider.allowHosts, provider.relevantKeywords)) candidates.add(link);
     } catch (error) {
       errors.push({ url, error:error.message });
@@ -143,7 +151,7 @@ async function collectProvider(name, provider) {
     try {
       const html = await fetchText(url);
       const text = htmlToText(html);
-      return { ok:true, doc:{ source:name, url, text, html, observedAt:parseDate(text), fetchedAt, kind:'article' } };
+      return { ok:true, doc:{ source:name, url, text, html, observedAt:dateFromUrl(url) || parseDate(text), fetchedAt, kind:'article' } };
     } catch (error) {
       return { ok:false, error:{ url, error:error.message } };
     }
@@ -180,8 +188,8 @@ function parseTrendForce(docs) {
       }
 
       if (/NAND/i.test(s) && /(contract prices?|ASP|average selling price)/i.test(s) && /(rise|increase|gain|decline|drop|fall|decrease|down)/i.test(s)) {
-        const p = s.match(/(rise|increase|gain|decline|drop|fall|decrease|down)[^\d]{0,35}(\d+(?:\.\d+)?)\s*[–~-]\s*(\d+(?:\.\d+)?)%/i)
-          || s.match(/(rise|increase|gain|decline|drop|fall|decrease|down)[^\d]{0,35}(\d+(?:\.\d+)?)%/i);
+        const p = s.match(/NAND[^.!?]{0,180}?(rise|increase|gain|decline|drop|fall|decrease|down)[^\d]{0,35}(\d+(?:\.\d+)?)\s*[–~-]\s*(\d+(?:\.\d+)?)%/i)
+          || s.match(/NAND[^.!?]{0,180}?(rise|increase|gain|decline|drop|fall|decrease|down)[^\d]{0,35}(\d+(?:\.\d+)?)%/i);
         if (p) {
           const mid = pctMid(p[2], p[3] ?? p[2]);
           const v = signed(p[1], mid);
@@ -211,8 +219,8 @@ function parseCounterpoint(docs) {
   const found = { ymtcShare:[], enterpriseSsdShare:[] };
   for (const doc of docs) {
     for (const s of sentenceChunks(doc.text)) {
-      if (/YMTC/i.test(s) && /(share|점유율)/i.test(s) && /NAND/i.test(doc.text)) {
-        const p = s.match(/YMTC[^%]{0,160}?(\d+(?:\.\d+)?)%|(?:share|점유율)[^%]{0,80}?(\d+(?:\.\d+)?)%/i);
+      if (/YMTC/i.test(s) && /(share|shipment|third|3rd|점유율)/i.test(s) && /NAND/i.test(doc.text)) {
+        const p = s.match(/YMTC[^%]{0,200}?(\d+(?:\.\d+)?)%|(?:share|점유율)[^%]{0,80}?(\d+(?:\.\d+)?)%/i);
         const v = Number(p?.[1] ?? p?.[2]);
         if (Number.isFinite(v) && v > 0 && v < 50) found.ymtcShare.push(sourceMetric('ymtcShare',v,'% bit shipments',scoreShare(v),doc,s));
       }
@@ -236,7 +244,7 @@ function parseBis(docs) {
   for (const doc of docs) {
     const title = doc.text.match(/(?:FOR IMMEDIATE RELEASE[^]{0,180})?((?:Department|Commerce|BIS)[^.]{15,180}(?:China|Semiconductor|Chip|Export)[^.]{0,100})/i)?.[1]
       || doc.text.slice(0,160);
-    const relevant = /(semiconductor|chip|HBM|high-bandwidth memory)/i.test(doc.text) && /(China|PRC|export control|license)/i.test(doc.text);
+    const relevant = /(semiconductor|chip|HBM|high-bandwidth memory)/i.test(doc.text) && /(China|PRC)/i.test(doc.text);
     if (!relevant || doc.kind === 'discovery') continue;
     events.push({
       title:title.replace(/\s+/g,' ').trim().slice(0,180),
@@ -267,11 +275,11 @@ function selfTest() {
   assert.equal(scoreDramAsp(-6),75);
   assert.equal(scoreDramAsp(-20),100);
   assert.equal(scoreNandAsp(-22.8),100);
-  const tf = parseTrendForce([{source:'trendforce',url:'https://example.com',observedAt:'2026-09-25',fetchedAt:'x',text:'Conventional DRAM contract prices are forecast to rise 13–18% QoQ. NAND Flash contract prices are expected to increase 10–15% QoQ. CXMT global DRAM revenue share reached 9.5%.',kind:'article'}]);
+  const tf = parseTrendForce([{source:'trendforce',url:'https://example.com',observedAt:'2026-09-25',fetchedAt:'x',text:'Conventional DRAM contract prices are forecast to rise 13–18% QoQ, while NAND Flash contract prices are expected to increase 10–15% QoQ. CXMT global DRAM revenue share reached 9.5%.',kind:'article'}]);
   assert.equal(tf.dramAsp.value,15.5);
   assert.equal(tf.nandAsp.value,12.5);
   assert.equal(tf.cxmtShare.value,9.5);
-  const cp = parseCounterpoint([{source:'counterpoint',url:'https://example.com',observedAt:'2026-08-12',fetchedAt:'x',text:'NAND market: YMTC entered the global Top 3 with a 14% shipment share. enterprise SSDs reached 48% of global NAND bit shipments.',kind:'article'}]);
+  const cp = parseCounterpoint([{source:'counterpoint',url:'https://example.com',observedAt:'2026-08-12',fetchedAt:'x',text:'NAND market: YMTC climbed to third place with 14%, narrowly edging Kioxia. enterprise SSDs reached 48% of global NAND bit shipments.',kind:'article'}]);
   assert.equal(cp.ymtcShare.value,14);
   assert.equal(cp.enterpriseSsdShare.value,48);
   console.log('China Risk Data Adapter V1 self-test PASS');
