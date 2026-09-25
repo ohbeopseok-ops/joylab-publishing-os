@@ -36,7 +36,11 @@
     "gsc:import": "node scripts/gsc-manual-import.mjs --input data/gsc/inbox",
     "gsc:priority": "node scripts/research-corpus-evidence-audit.mjs",
     "adsense:audit": "node scripts/audit-adsense-policy-v1.mjs",
-    "adsense:monetization-gate": "node scripts/evaluate-adsense-monetization-v1.mjs"
+    "adsense:monetization-gate": "node scripts/evaluate-adsense-monetization-v1.mjs",
+    "adsense:fetch": "node scripts/fetch-adsense-metrics-v1.mjs",
+    "adsense:ux": "node scripts/fetch-cloudflare-monetization-ux-v1.mjs",
+    "adsense:compose": "node scripts/compose-adsense-monetization-snapshot-v1.mjs",
+    "adsense:dashboard": "node scripts/generate-adsense-monetization-dashboard-v1.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"
