@@ -1,0 +1,49 @@
+---
+import { AD_PLACEMENT } from '../config/adPlacement';
+
+interface Props {
+  placement: 'article-mid-30' | 'article-mid-65' | 'article-end' | 'archive-in-feed';
+  slotId?: string;
+  label?: string;
+  enabled?: boolean;
+  class?: string;
+}
+
+const {
+  placement,
+  slotId = '',
+  label = '광고',
+  enabled = AD_PLACEMENT.enabled,
+  class: className = ''
+} = Astro.props;
+
+const canRender = Boolean(enabled && slotId);
+---
+{canRender && (
+  <aside
+    class:list={['joylab-ad-slot', `joylab-ad-slot--${placement}`, className]}
+    data-ad-placement={placement}
+    aria-label={label}
+  >
+    <span class="joylab-ad-slot__label">{label}</span>
+    <ins
+      class="adsbygoogle"
+      style="display:block"
+      data-ad-client={AD_PLACEMENT.publisherClientId}
+      data-ad-slot={slotId}
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
+    <script is:inline>
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch {}
+    </script>
+  </aside>
+)}
+
+<style>
+  .joylab-ad-slot{width:100%;margin:32px 0;padding:10px 0;border-top:1px solid #e7ebf0;border-bottom:1px solid #e7ebf0}
+  .joylab-ad-slot__label{display:block;margin-bottom:6px;color:#7b8794;font-size:.68rem;letter-spacing:.08em}
+  @media(max-width:640px){.joylab-ad-slot{margin:24px 0;padding:8px 0}}
+</style>
