@@ -118,6 +118,18 @@ jobs:
       - name: Validate production configuration baseline JSON
         run: node -e "JSON.parse(require('node:fs').readFileSync('config/production-baseline.json','utf8'))"
 
+      - name: AdSense Monetization Gate V1 contract test
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf qa-artifacts/adsense-monetization-gate-v1-contract
+          mkdir -p qa-artifacts/adsense-monetization-gate-v1-contract
+          node scripts/evaluate-adsense-monetization-v1.mjs ops/adsense/monetization-snapshot.example.json > qa-artifacts/adsense-monetization-gate-v1-contract/result.json
+          MONETIZATION_RESULT_JSON=qa-artifacts/adsense-monetization-gate-v1-contract/result.json \
+          MONETIZATION_DASHBOARD_OUT=qa-artifacts/adsense-monetization-gate-v1-contract/dashboard \
+          node scripts/generate-adsense-monetization-dashboard-v1.mjs
+          test "$(tr -d '\r\n' < qa-artifacts/adsense-monetization-gate-v1-contract/dashboard/decision.txt)" = "COLLECT"
+
       - name: Build Astro site
         run: npm run build
 
