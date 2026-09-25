@@ -93,10 +93,26 @@ async function fetchPeriod(periodStart, periodEnd){
 }
 const metrics=await fetchPeriod(start,end);
 const baselineMetrics=await fetchPeriod(baselineStart,baselineEnd);
+
+const sitesPayload=await api(`https://adsense.googleapis.com/v2/${account}/sites?pageSize=100`,token);
+const site=(sitesPayload.sites||[]).find(s=>String(s.domain||'').toLowerCase()===DOMAIN.toLowerCase())||null;
+const policyPayload=await api(`https://adsense.googleapis.com/v2/${account}/policyIssues?pageSize=10000`,token);
+const sitePolicyIssues=(policyPayload.policyIssues||[]).filter(issue=>String(issue.site||'').toLowerCase()===DOMAIN.toLowerCase());
+
 const payload={
   source:'adsense-management-api-v2',
   site:DOMAIN,
   accountResource:account,
+  siteState:site?.state??null,
+  autoAdsEnabled:site?.autoAdsEnabled??null,
+  policyIssues:sitePolicyIssues.map(issue=>({
+    entityType:issue.entityType,
+    site:issue.site,
+    siteSection:issue.siteSection??null,
+    uri:issue.uri??null,
+    action:issue.action,
+    topics:(issue.policyTopics||[]).map(topic=>({topic:topic.topic,type:topic.type}))
+  })),
   period:{days:DAYS,startDate:iso(start),endDate:iso(end)},
   baselinePeriod:{days:DAYS,startDate:iso(baselineStart),endDate:iso(baselineEnd)},
   metrics,
