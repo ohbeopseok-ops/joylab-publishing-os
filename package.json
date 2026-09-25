@@ -34,7 +34,8 @@
     "distribution:published": "node scripts/distribution-publish-log.mjs",
     "distribution:scorecard": "node scripts/distribution-scorecard.mjs",
     "gsc:import": "node scripts/gsc-manual-import.mjs --input data/gsc/inbox",
-    "gsc:priority": "node scripts/research-corpus-evidence-audit.mjs"
+    "gsc:priority": "node scripts/research-corpus-evidence-audit.mjs",
+    "adsense:audit": "node scripts/audit-adsense-policy-v1.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"
