@@ -1,0 +1,40 @@
+name: AdSense Monetization Gate V1
+
+on:
+  workflow_dispatch:
+    inputs:
+      snapshot_path:
+        description: "Path to production monetization snapshot JSON"
+        required: false
+        default: "ops/adsense/monetization-snapshot.json"
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Evaluate Monetization Gate
+        env:
+          ADSENSE_MONETIZATION_SNAPSHOT: ${{ inputs.snapshot_path }}
+        run: |
+          mkdir -p qa-artifacts/adsense-monetization-gate-v1
+          node scripts/evaluate-adsense-monetization-v1.mjs "$ADSENSE_MONETIZATION_SNAPSHOT" | tee qa-artifacts/adsense-monetization-gate-v1/result.json
+
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: adsense-monetization-gate-v1
+          path: qa-artifacts/adsense-monetization-gate-v1
+          if-no-files-found: error
