@@ -4,14 +4,17 @@ import '../../styles/semiconductor-guide-v2.css';
 import { getCollection } from 'astro:content';
 
 const sequence = [
-  { id: 'what-is-hbm', step: '01', role: 'FOUNDATION', short: 'HBM', note: 'HBM의 구조와 대역폭 병목을 이해합니다.' },
-  { id: 'ai-infrastructure-hbm-mlcc-power-grid-2026', step: '02', role: 'DEMAND', short: 'AI Infra', note: 'AI 인프라 확장이 HBM·부품·전력 수요로 전파되는 구조를 봅니다.' },
-  { id: 'semiconductor-cycle', step: '03', role: 'CYCLE', short: 'Cycle', note: '가격·재고·CAPEX로 메모리 사이클을 점검합니다.' },
-  { id: 'samsung-electronics-outlook', step: '04', role: 'COMPANY', short: 'Samsung', note: 'HBM과 범용 메모리가 삼성전자 실적으로 연결되는 조건을 봅니다.' },
-  { id: 'sk-hynix-outlook', step: '05', role: 'COMPANY', short: 'SK hynix', note: 'HBM4·CAPEX·수익성의 연결을 추적합니다.' },
-  { id: 'samsung-vs-sk-hynix-ai-memory', step: '06', role: 'COMPARE', short: 'Compare', note: '삼성전자와 SK하이닉스를 같은 기준으로 비교합니다.' },
-  { id: 'cxmt-dram-vs-samsung-sk-hynix', step: '07', role: 'CHINA DRAM', short: 'CXMT', note: '중국 DRAM 공급 확대가 범용 메모리 가격과 경쟁구도에 미치는 영향을 봅니다.' },
-  { id: 'ymtc-nand-vs-samsung-sk-hynix', step: '08', role: 'CHINA NAND', short: 'YMTC', note: 'AI 저장장치 시대 NAND·Enterprise SSD 경쟁을 따로 봅니다.' }
+  { id: 'ai-agent-hbm-demand', step: '01', role: 'DEMAND', short: 'Agent → HBM', note: 'Agentic inference와 KV Cache가 HBM 수요로 연결되는 구조를 봅니다.' },
+  { id: 'hbm3e-hbm4-zhbm', step: '02', role: 'TECH', short: 'HBM Evolution', note: 'HBM3E·HBM4·zHBM을 현재 매출과 미래 기술 옵션으로 구분합니다.' },
+  { id: 'ai-inference-hbm-earnings', step: '03', role: 'EARNINGS', short: 'Inference → EPS', note: '추론 수요가 ASP·수율·마진·EPS로 전환되는 과정을 봅니다.' },
+  { id: 'what-is-hbm', step: '04', role: 'FOUNDATION', short: 'HBM', note: 'HBM의 구조와 대역폭 병목을 이해합니다.' },
+  { id: 'ai-infrastructure-hbm-mlcc-power-grid-2026', step: '05', role: 'DEMAND', short: 'AI Infra', note: 'AI 인프라 확장이 HBM·부품·전력 수요로 전파되는 구조를 봅니다.' },
+  { id: 'semiconductor-cycle', step: '06', role: 'CYCLE', short: 'Cycle', note: '가격·재고·CAPEX로 메모리 사이클을 점검합니다.' },
+  { id: 'samsung-electronics-outlook', step: '07', role: 'COMPANY', short: 'Samsung', note: 'HBM과 범용 메모리가 삼성전자 실적으로 연결되는 조건을 봅니다.' },
+  { id: 'sk-hynix-outlook', step: '08', role: 'COMPANY', short: 'SK hynix', note: 'HBM4·CAPEX·수익성의 연결을 추적합니다.' },
+  { id: 'samsung-vs-sk-hynix-ai-memory', step: '09', role: 'COMPARE', short: 'Compare', note: '삼성전자와 SK하이닉스를 같은 기준으로 비교합니다.' },
+  { id: 'cxmt-dram-vs-samsung-sk-hynix', step: '10', role: 'CHINA DRAM', short: 'CXMT', note: '중국 DRAM 공급 확대가 범용 메모리 가격과 경쟁구도에 미치는 영향을 봅니다.' },
+  { id: 'ymtc-nand-vs-samsung-sk-hynix', step: '11', role: 'CHINA NAND', short: 'YMTC', note: 'AI 저장장치 시대 NAND·Enterprise SSD 경쟁을 따로 봅니다.' }
 ];
 
 const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
