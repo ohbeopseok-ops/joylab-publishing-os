@@ -26,9 +26,7 @@
     "ctaConversionPct": null,
     "baselineCtaConversionPct": null,
     "exitRatePct": null,
-    "baselineExitRatePct": null,
-    "pagesPerSession": null,
-    "baselinePagesPerSession": null
+    "baselineExitRatePct": null
   },
   "policy": {
     "warning": false,
