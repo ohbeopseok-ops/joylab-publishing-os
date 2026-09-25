@@ -116,6 +116,9 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      - name: AdSense Policy Audit V1
+        run: node scripts/audit-adsense-policy-v1.mjs
+
       - name: AdSense Identity Contract Gate
         run: node scripts/check-adsense-contract.mjs
 
@@ -286,6 +289,14 @@ jobs:
           name: growth-literature-gold-qa
           path: qa-artifacts/growth-literature-gold
           if-no-files-found: warn
+
+      - name: Upload AdSense Policy Audit V1
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: adsense-policy-audit-v1
+          path: qa-artifacts/adsense-policy-audit-v1
+          if-no-files-found: error
 
       - name: Upload dist artifact
         uses: actions/upload-artifact@v6
