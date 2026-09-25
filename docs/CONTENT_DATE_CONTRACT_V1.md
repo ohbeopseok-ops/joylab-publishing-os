@@ -111,3 +111,24 @@ Do not:
 - Content schema: `src/content.config.ts`
 - Homepage Article latest and Books slot: `src/pages/index.astro`
 - Books library ordering and publication-date label: `src/pages/books/index.astro`
+
+
+## 8. Publication-date correction control
+
+`publishedAt` is immutable after a content file is created.
+
+If the original publication date was entered incorrectly, the correction must include a frontmatter reason in the same change:
+
+```yaml
+publishedAt: 2026-09-24
+dateCorrectionReason: "출판사 최종 발행일 확인에 따른 정정"
+```
+
+The Date Contract CI compares an existing file against the PR base. A changed `publishedAt` without `dateCorrectionReason` blocks the PR.
+
+The CI also scans the full Articles and Books corpus for:
+- missing or malformed date fields;
+- non-draft content with a future `publishedAt`;
+- accidental Books coupling into the homepage `latestResearch` surface.
+
+`updatedAt < publishedAt` is reported as a warning rather than a hard failure because pre-publication editorial work can legitimately precede the public release date.

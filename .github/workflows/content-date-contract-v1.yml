@@ -1,0 +1,40 @@
+name: Content Date Contract V1
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Audit content date contract
+        env:
+          DATE_CONTRACT_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: npm run content-date:audit
+
+      - name: Upload date contract audit
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: content-date-contract-v1
+          path: qa-artifacts/content-date-contract-v1/report.json
+          if-no-files-found: error
+          retention-days: 90

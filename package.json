@@ -54,7 +54,8 @@
     "memory-earnings:dry-run": "node scripts/sync-memory-earnings-impact.mjs --dry-run",
     "memory-earnings:self-test": "node scripts/sync-memory-earnings-impact.mjs --self-test",
     "china-risk-earnings:compose": "node scripts/compose-china-risk-earnings-impact.mjs",
-    "china-risk-earnings:self-test": "node scripts/compose-china-risk-earnings-impact.mjs --self-test"
+    "china-risk-earnings:self-test": "node scripts/compose-china-risk-earnings-impact.mjs --self-test",
+    "content-date:audit": "node scripts/check-content-date-contract-v1.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"
