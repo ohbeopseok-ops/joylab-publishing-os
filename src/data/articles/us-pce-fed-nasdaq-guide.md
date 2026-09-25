@@ -144,3 +144,8 @@ PCE는 나스닥에 두 방향으로 작용합니다.
 - U.S. Bureau of Economic Analysis, Personal Income and Outlays — July 2026
 - U.S. Bureau of Economic Analysis, Release Schedule — 2026
 - Federal Reserve, FOMC Statement and September 2026 Economic Projections
+
+## 검증용 1차 자료
+
+- [U.S. Bureau of Economic Analysis — Personal Income and Outlays, July 2026](https://www.bea.gov/news/2026/personal-income-and-outlays-july-2026)
+- [Federal Reserve — FOMC](https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)
