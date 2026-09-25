@@ -10,6 +10,9 @@ featured: false
 draft: false
 series: "미·중 반도체 전쟁"
 seriesOrder: 10
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "china semiconductor risk indicators를 분석한 JoyLab Research 대표 이미지"
+ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
 ---
 
