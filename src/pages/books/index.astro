@@ -82,7 +82,7 @@ const getReaderCta = (book) => book.data.readerCta ?? '작가의 말과 1장 읽
 
   <section class="books-v2-shell books-v2-library">
     <div class="books-v2-section-head">
-      <div><p class="books-v2-label">LIBRARY</p><h2>현재 출간된 JoyLab Books</h2></div>
+      <div><p class="books-v2-label">LIBRARY · 출간일순</p><h2>현재 출간된 JoyLab Books</h2></div>
     </div>
     <div class="books-v2-library-grid">
       {books.map((book) => (
@@ -99,7 +99,7 @@ const getReaderCta = (book) => book.data.readerCta ?? '작가의 말과 1장 읽
             )}
           </a>
           <div>
-            <small>{book.data.category} · {book.data.publishedAt.toLocaleDateString('ko-KR')}</small>
+            <small>{book.data.category} · 출간일 {book.data.publishedAt.toLocaleDateString('ko-KR')}</small>
             <h3><a href={`/books/${book.id}`}>{book.data.title}</a></h3>
             <p>{book.data.description}</p>
             <a class="books-v2-link" href={`/books/${book.id}`}>책 소개 보기 →</a>
