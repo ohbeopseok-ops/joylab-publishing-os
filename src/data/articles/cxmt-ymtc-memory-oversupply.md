@@ -10,6 +10,9 @@ featured: false
 draft: false
 series: "미·중 반도체 전쟁"
 seriesOrder: 9
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "cxmt ymtc memory oversupply를 분석한 JoyLab Research 대표 이미지"
+ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
 ---
 
@@ -37,4 +40,4 @@ HBM과 서버 DRAM, Enterprise SSD 수요가 강하면 주요 메모리 업체�
 
 점유율만 보지 말고 CXMT·YMTC CAPA, 중국 수입량, 중국 외 고객, DRAM/NAND ASP와 한국 업체의 HBM·Enterprise SSD 비중을 함께 추적해야 합니다.
 
-[중국 반도체 리스크 숫자 10개 →](/articles/china-semiconductor-risk-indicators)
+[중국 반도체 리스크 핵심 지표 →](/articles/china-semiconductor-risk-indicators)
