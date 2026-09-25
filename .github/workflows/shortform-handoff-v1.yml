@@ -36,37 +36,10 @@ jobs:
             node scripts/build-shortform-handoff.mjs --changed-from "${{ github.event.before }}"
           fi
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload handoff artifact
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
         with:
           name: shortform-handoff
           path: .artifacts/shortform-handoff
           if-no-files-found: ignore
-
-  render-gold:
-    if: github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Install Korean font and FFmpeg
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y fonts-noto-cjk ffmpeg
-
-      - name: Install shortform engine
-        run: npm --prefix shortform-engine install
-
-      - name: Typecheck
-        run: npm --prefix shortform-engine run typecheck
-
-      - name: Render AI Workforce GOLD
-        run: npm --prefix shortform-engine run render:gold
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: ai-workforce-20s-gold
-          path: shortform-engine/output/ai-workforce-20s.mp4
