@@ -96,7 +96,7 @@ LRO는 일반적으로 **Linear Retimed Optics** 계열을 뜻합니다.
 
 Broadcom은 LRO와 LPO가 플러거블 모듈 내부 DSP 부담을 줄이려는 방식이지만, 전기 인터커넥트 손실의 영향을 계속 받는다고 설명합니다. https://www.broadcom.com/info/optics/cpo
 
-2026년 Marvell은 이 절충 구조를 더 구체화한 **TRO(Transmit-Retimed Optics)**를 발표했습니다.
+2026년 Marvell은 이 절충 구조를 더 구체화한 **TRO(Transmit-Retimed Optics)**를 발표했습니다. https://www.marvell.com/blogs/ara-t-improving-ai-roi-with-dsps.html
 
 Ara T는 송신 경로에 retiming DSP를 남기고, 수신 경로의 전체 DSP 부담을 줄이는 1.6T 구조입니다. Marvell은 Ara T를 5m~500m 링크용으로 설명하며 기존 full DSP 구조 대비 모듈 전력을 35% 이상 줄일 수 있다고 밝히고 있습니다. https://www.marvell.com/blogs/ara-t-improving-ai-roi-with-dsps.html
 
