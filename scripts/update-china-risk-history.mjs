@@ -276,19 +276,19 @@ function selfTest() {
     quarter:'2026Q3', totalScore:30, totalBand:'YELLOW', structuralScore:50, earningsScore:0, coveredWeight:100,
     metrics:{
       a:{name:'CXMT DRAM 점유율',dimension:'structural',weight:60,value:1,score:50,freshness:'LIVE'},
-      b:{name:'DRAM ASP 압력',dimension:'earnings',weight:40,value:10,score:0,freshness:'LIVE'}
+      dramAsp:{name:'DRAM ASP 압력',dimension:'earnings',weight:40,value:10,score:0,freshness:'LIVE'}
     }
   };
   const curr = {
     quarter:'2026Q4', totalScore:55, totalBand:'ORANGE', structuralScore:50, earningsScore:63, coveredWeight:100,
     metrics:{
       a:{name:'CXMT DRAM 점유율',dimension:'structural',weight:60,value:1,score:50,freshness:'LIVE'},
-      b:{name:'DRAM ASP 압력',dimension:'earnings',weight:40,value:-6,score:63,freshness:'LIVE'}
+      dramAsp:{name:'DRAM ASP 압력',dimension:'earnings',weight:40,value:-6,score:63,freshness:'LIVE'}
     }
   };
   const delta = computeDelta(prev,curr);
   assert.equal(delta.total,25);
-  assert.equal(delta.attribution.primaryDriver.id,'b');
+  assert.equal(delta.attribution.primaryDriver.id,'dramAsp');
   assert.equal(delta.attribution.bandChanged,true);
   assert.match(delta.attribution.summary,/DRAM ASP 압력/);
   assert.match(delta.attribution.summary,/YELLOW에서 ORANGE/);
