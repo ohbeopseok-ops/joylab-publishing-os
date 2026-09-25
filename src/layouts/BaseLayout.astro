@@ -6,6 +6,7 @@ import TreasuryLearnAssist from '../components/TreasuryLearnAssist.astro';
 import TreasuryTodayReading from '../components/TreasuryTodayReading.astro';
 import IdentitySchema from '../components/IdentitySchema.astro';
 import AnalyticsEvents from '../components/AnalyticsEvents.astro';
+import { SITE_IDENTITY } from '../config/siteIdentity';
 import '../styles/global.css';
 import '../styles/info.css';
 import '../styles/homepage-v2-fidelity.css';
@@ -27,7 +28,7 @@ const {
   robots = 'index,follow'
 } = Astro.props;
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).toString();
-const adsenseAccount = 'ca-pub-6938956176929357';
+const adsenseAccount = SITE_IDENTITY.adsense.clientId;
 const socialImageUrl = image ? new URL(image, Astro.site ?? Astro.url.origin).toString() : undefined;
 const bodyClasses = String(bodyClass).split(/\s+/);
 const showArticleContactCta = bodyClasses.includes('research-article-page');

@@ -116,6 +116,9 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      - name: AdSense Identity Contract Gate
+        run: node scripts/check-adsense-contract.mjs
+
       - name: Legacy Public Email Gate
         run: node scripts/check-legacy-public-email.mjs
 

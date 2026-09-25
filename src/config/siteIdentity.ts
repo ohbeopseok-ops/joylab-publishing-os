@@ -2,6 +2,11 @@ export const SITE_IDENTITY = {
   brand: 'JoyLab',
   domain: 'https://aijoylab.kr',
   publicEmail: 'contact@aijoylab.kr',
+  adsense: {
+    publisherId: 'pub-6938956176929357',
+    clientId: 'ca-pub-6938956176929357',
+    adsTxtRecord: 'google.com, pub-6938956176929357, DIRECT, f08c47fec0942fa0'
+  },
   channels: {
     youtube: 'https://www.youtube.com/@JoyLabResearch',
     naver: 'https://blog.naver.com/joy014',
