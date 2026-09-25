@@ -51,7 +51,8 @@ function analyze(text, file) {
   const category = fmValue(fm, 'category');
   const featured = boolFm(fm, 'featured');
   const homeFeatured = boolFm(fm, 'homeFeatured');
-  const hp = Number(fmValue(fm, 'homePriority'));
+  const hpRaw = fmValue(fm, 'homePriority');
+  const hp = hpRaw === '' ? Number.NaN : Number(hpRaw);
   const homePriority = Number.isFinite(hp) ? hp : null;
   const sourceSection = (body.match(/(?:^|\n)##\s+(?:Sources?|출처|근거)\s*\n([\s\S]*?)(?=\n##\s+|$)/i) || [,''])[1];
   const hasArticleSources = /https?:\/\//.test(sourceSection);
@@ -93,6 +94,7 @@ if (process.argv.includes('--self-test')) {
   const fixture = '---\ntitle: Fixture\n---\n\n2026년 매출은 20% 증가했습니다. https://example.com/ir\n\n이익은 10% 증가했습니다.\n\n## Sources\n- https://example.com/report\n';
   const r = analyze(fixture, 'fixture.md');
   if (r.claimCount !== 2 || r.mappedCount !== 1 || r.weakCount !== 1) throw new Error('self-test failed');
+  if (r.homePriority !== null) throw new Error('missing homePriority must remain null');
   console.log('Corpus Evidence Audit self-test PASS');
   process.exit(0);
 }
