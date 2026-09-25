@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "name": "JoyLab AdSense Policy Audit V1",
+  "scope": "src/data/articles/*.md",
+  "statuses": {
+    "PASS": "No blocking or review-required signals detected by automated rules.",
+    "FIX": "One or more phrases or quality signals require editorial review or rewrite.",
+    "HOLD": "High-risk monetization/policy signal. Keep out of monetized release until manually cleared."
+  },
+  "global": {
+    "hold": [
+      {
+        "id": "guaranteed-return",
+        "label": "수익 보장·확정 표현",
+        "patterns": [
+          "원금 보장",
+          "수익 보장",
+          "확정 수익",
+          "무조건 오른",
+          "무조건 상승",
+          "100% 수익",
+          "반드시 오른"
+        ]
+      },
+      {
+        "id": "deceptive-click",
+        "label": "기만적 클릭 유도",
+        "patterns": [
+          "광고를 클릭",
+          "광고 클릭 부탁",
+          "클릭해서 후원"
+        ]
+      }
+    ],
+    "fix": [
+      {
+        "id": "absolute-claim",
+        "label": "과도한 단정·절대 표현",
+        "patterns": [
+          "무조건",
+          "확실히 오른다",
+          "반드시 성공",
+          "절대 손해",
+          "대박",
+          "무조건 사야"
+        ]
+      },
+      {
+        "id": "sensational",
+        "label": "과도한 선정 표현",
+        "patterns": [
+          "충격적인",
+          "충격!",
+          "소름",
+          "역대급",
+          "지금 안 보면",
+          "필독!"
+        ]
+      }
+    ]
+  },
+  "pillars": {
+    "investing": {
+      "categories": [
+        "투자·경제"
+      ],
+      "fix": [
+        {
+          "id": "direct-trade-command",
+          "label": "직접 매수·매도 지시처럼 보일 수 있는 표현",
+          "patterns": [
+            "지금 사야",
+            "당장 매수",
+            "무조건 매수",
+            "전량 매도",
+            "풀매수",
+            "몰빵"
+          ]
+        },
+        {
+          "id": "price-certainty",
+          "label": "주가 방향 확정 표현",
+          "patterns": [
+            "목표가 확정",
+            "상승 확정",
+            "하락 확정",
+            "오를 수밖에 없다"
+          ]
+        }
+      ]
+    },
+    "ai": {
+      "categories": [
+        "AI·생산성"
+      ],
+      "fix": [
+        {
+          "id": "harmful-procedure",
+          "label": "공격·우회 절차형 표현 수동 검토",
+          "patterns": [
+            "API 키 탈취 방법",
+            "보안 우회 방법",
+            "악성코드 만드는 법",
+            "RCE 익스플로잇 방법",
+            "계정 탈취 방법"
+          ]
+        }
+      ]
+    },
+    "growth": {
+      "categories": [
+        "성장·리더십"
+      ],
+      "fix": [
+        {
+          "id": "medical-certainty",
+          "label": "의학적 치료·완치 단정",
+          "patterns": [
+            "우울증을 치료",
+            "불안을 치료",
+            "번아웃 완치",
+            "정신질환 치료법"
+          ]
+        },
+        {
+          "id": "personal-diagnosis",
+          "label": "개인 진단처럼 보일 수 있는 표현",
+          "patterns": [
+            "당신은 우울증",
+            "당신은 번아웃입니다",
+            "ADHD입니다"
+          ]
+        }
+      ]
+    }
+  },
+  "quality": {
+    "minBodyChars": 2200,
+    "minHeadings": 3,
+    "minOutboundLinksForResearch": 1,
+    "maxDuplicateTitlePrefixRatio": 0.35
+  }
+}
