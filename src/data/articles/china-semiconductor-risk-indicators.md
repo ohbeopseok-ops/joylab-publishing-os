@@ -91,3 +91,6 @@ JoyLab에서는 10개 지표를 네 묶음으로 다시 분류합니다.
 - [YMTC 공식 제품 페이지](https://www.ymtc.com/en/products.html)
 - [미국 BIS — 대중국 반도체 수출통제 정보](https://www.bis.gov/press-release/bis-updated-public-information-page-export-controls-imposed-advanced-computing-semiconductor)
 
+## 숫자 10개를 갱신하는 주기
+
+모든 지표를 매일 볼 필요는 없습니다. 제품 세대와 장비 변화는 월·분기 단위, 생산능력과 수율은 분기 단위, 가격과 재고는 월 단위로 확인하는 편이 효율적입니다. 회사 공식 발표에서 제품 변화가 확인되면 다음 단계로 실제 출하와 고객 채택을 찾고, 마지막에는 글로벌 가격과 삼성전자·SK하이닉스 실적 추정치가 바뀌는지 확인합니다. 이렇게 업데이트 주기를 나누면 뉴스 빈도와 실제 투자 중요도를 혼동하는 것을 줄일 수 있습니다.
