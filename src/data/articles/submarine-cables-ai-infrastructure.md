@@ -18,6 +18,9 @@ draft: false
 seoTitle: "AI 시대 해저 광케이블이 중요한 이유｜GPU·데이터센터·클라우드 연결"
 series: "글로벌 인터넷 인프라"
 seriesOrder: 4
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "AI 데이터센터와 클라우드 리전, 해저 광케이블의 글로벌 연결 구조를 설명하는 JoyLab Research 대표 이미지"
+ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 9분"
 ---
 
