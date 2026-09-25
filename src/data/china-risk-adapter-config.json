@@ -35,6 +35,7 @@
         "https://counterpointresearch.com/en/insights"
       ],
       "seeds": [
+        "https://counterpointresearch.com/ko/insights/server-led-essds-hit-48-percent-of-nand-shipments",
         "https://counterpointresearch.com/en/insights/server-led-essds-hit-48-percent-of-nand-shipments"
       ],
       "allowHosts": [
