@@ -128,8 +128,7 @@ NVIDIA는 CPO 기반 1.6T 인터커넥트와 200G PAM4를 AI Factory 네트워�
 AI 인프라 전체 병목 구조는 [AI Infrastructure Research Hub](/guides/ai-infrastructure)에서 확인할 수 있습니다.
 
 관련 리서치:
-- [GPU Compute Economics｜GPU가 많아질수록 네트워크가 병목이 되는 이유](/articles/gpu-compute-economics-rubin-2026)
-- [AI Data Center Capacity Stack｜서버를 사도 바로 돌릴 수 없는 이유](/articles/ai-data-center-capacity-stack-2026)
+- [HBM은 왜 AI GPU의 핵심 메모리인가](/articles/what-is-hbm)
 - [AI 시대 글로벌 네트워크와 해저 광케이블](/articles/submarine-cables-ai-infrastructure)
 
 이 연결 구조의 기술 기준은 NVIDIA의 AI Factory networking 계층 설명을 참고했습니다. https://perspectives.nvidia.com/networking/
