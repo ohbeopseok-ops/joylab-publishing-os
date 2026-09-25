@@ -130,6 +130,7 @@ AI 인프라 전체 병목 구조는 [AI Infrastructure Research Hub](/guides/ai
 관련 리서치:
 - [CPO란 무엇인가｜플러거블 광모듈 대신 스위치 옆에 광학을 붙이는 이유](/articles/what-is-co-packaged-optics)
 - [Silicon Photonics란 무엇인가｜AI 네트워크에서 빛을 칩으로 가져오는 기술](/articles/silicon-photonics-ai-network)
+- [AI 데이터센터 DCI란 무엇인가｜랙에서 캠퍼스·리전까지 광네트워크가 이어지는 방법](/articles/ai-data-center-interconnect-dci)
 - [HBM은 왜 AI GPU의 핵심 메모리인가](/articles/what-is-hbm)
 - [AI 시대 글로벌 네트워크와 해저 광케이블](/articles/submarine-cables-ai-infrastructure)
 
