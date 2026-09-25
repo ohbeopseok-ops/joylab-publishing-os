@@ -25,7 +25,13 @@ for (const viewport of viewports) {
   const pageErrors = [];
   page.on('pageerror', (error) => pageErrors.push(String(error)));
   page.on('console', (msg) => {
-    if (msg.type() === 'error') pageErrors.push(`console: ${msg.text()}`);
+    if (msg.type() !== 'error') return;
+    const message = msg.text();
+    const benignGoogleReportOnlyFrameError =
+      message.includes('[Report Only]') &&
+      message.includes("Refused to frame 'https://www.google.com/'") &&
+      message.includes("frame-ancestors 'self'");
+    if (!benignGoogleReportOnlyFrameError) pageErrors.push(`console: ${message}`);
   });
 
   const response = await page.goto(baseURL, { waitUntil: 'networkidle' });
