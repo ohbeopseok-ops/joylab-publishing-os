@@ -141,6 +141,10 @@ AI GPU 랙의 전력밀도가 올라갈수록 기존 공랭만으로는 대응�
 
 → [AI 인프라의 다음 레이어, 글로벌 네트워크 구조 보기](/guides/how-internet-connects-the-world)
 
+함께 보면 좋은 리서치:
+- [AI 데이터센터 Capacity Stack｜서버를 사도 바로 돌릴 수 없는 이유](/articles/ai-data-center-capacity-stack-2026)
+- [AI 데이터센터 냉각 병목｜전력을 연산으로 바꾼 뒤 남는 열의 문제](/articles/ai-data-center-cooling-bottleneck)
+
 ## 8. AI 전력 투자에서 가장 중요한 질문 6개
 
 AI 전력 관련 뉴스를 볼 때 JoyLab에서는 다음 여섯 가지를 먼저 확인합니다.
