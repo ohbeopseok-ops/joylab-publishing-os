@@ -154,3 +154,9 @@ HD한국조선해양은 **조선 슈퍼사이클의 그룹 포트폴리오 플�
 - HD한국조선해양 공식 사업·계열사 자료
 - HD한국조선해양 Value-up 및 해외야드 관련 공식 자료
 - 시장 데이터, 기준일 2026-09-10
+
+## 검증용 1차 자료
+
+- [HD한국조선해양 투자자정보](https://www.hdksoe.co.kr/)
+- [HD한국조선해양 IR 프레젠테이션](https://www.hdksoe.co.kr/kr/investors/ir-dataroom/ir-presentation/list)
+- [한국거래소 KIND](https://kind.krx.co.kr/)
