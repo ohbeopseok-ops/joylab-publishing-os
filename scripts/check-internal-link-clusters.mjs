@@ -16,6 +16,10 @@ function extractSeries(content) {
   return match ? match[1].trim() : null;
 }
 
+function isDraft(content) {
+  return /^draft:\s*true\s*$/m.test(content);
+}
+
 for (const cluster of config.clusters ?? []) {
   if (!exists(cluster.pillarSource)) {
     errors.push(`[${cluster.name}] missing pillar source: ${cluster.pillarSource}`);
@@ -51,13 +55,18 @@ for (const cluster of config.clusters ?? []) {
     }
 
     const article = read(source);
+    const articleRoute = `/articles/${id}`;
+
+    if (isDraft(article)) {
+      errors.push(`[${cluster.name}] required article ${id} must be published, not draft`);
+    }
 
     if (!article.includes(cluster.pillarRoute)) {
       errors.push(`[${cluster.name}] article ${id} must backlink to ${cluster.pillarRoute}`);
     }
 
-    if (!pillar.includes(id)) {
-      errors.push(`[${cluster.name}] pillar must reference article id: ${id}`);
+    if (!pillar.includes(articleRoute)) {
+      errors.push(`[${cluster.name}] pillar must contain the live article route: ${articleRoute}`);
     }
   }
 }
