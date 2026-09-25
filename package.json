@@ -38,7 +38,12 @@
     "adsense:audit": "node scripts/audit-adsense-policy-v1.mjs",
     "china-risk-data:sync": "node scripts/sync-china-risk-data.mjs",
     "china-risk-data:self-test": "node scripts/sync-china-risk-data.mjs --self-test",
-    "china-risk-data:dry-run": "node scripts/sync-china-risk-data.mjs --dry-run"
+    "china-risk-data:dry-run": "node scripts/sync-china-risk-data.mjs --dry-run",
+    "adsense:monetization-gate": "node scripts/evaluate-adsense-monetization-v1.mjs",
+    "adsense:fetch": "node scripts/fetch-adsense-metrics-v1.mjs",
+    "adsense:ux": "node scripts/fetch-cloudflare-monetization-ux-v1.mjs",
+    "adsense:compose": "node scripts/compose-adsense-monetization-snapshot-v1.mjs",
+    "adsense:dashboard": "node scripts/generate-adsense-monetization-dashboard-v1.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"

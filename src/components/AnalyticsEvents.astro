@@ -142,6 +142,43 @@
 
       let visibleSeconds = 0;
       let dwellSent = false;
+      let read50Sent = false;
+      let read90Sent = false;
+      let exitSent = false;
+      let clsValue = 0;
+
+      if ('PerformanceObserver' in window) {
+        try {
+          const clsObserver = new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+              if (!entry.hadRecentInput) clsValue += entry.value || 0;
+            }
+          });
+          clsObserver.observe({ type: 'layout-shift', buffered: true });
+        } catch {}
+      }
+
+      const readingDepth = () => {
+        const doc = document.documentElement;
+        const maxScroll = Math.max(1, doc.scrollHeight - innerHeight);
+        return Math.max(0, Math.min(100, (scrollY / maxScroll) * 100));
+      };
+
+      const checkDepth = () => {
+        const depth = readingDepth();
+        if (!read50Sent && depth >= 50) {
+          read50Sent = true;
+          send('article_read_50', articleId, 'article_page');
+        }
+        if (!read90Sent && depth >= 90) {
+          read90Sent = true;
+          send('article_read_90', articleId, 'article_page');
+        }
+      };
+
+      addEventListener('scroll', checkDepth, { passive: true });
+      checkDepth();
+
       const dwellTimer = window.setInterval(() => {
         if (!document.hidden) visibleSeconds += 5;
         if (!dwellSent && visibleSeconds >= 60) {
@@ -150,6 +187,17 @@
           window.clearInterval(dwellTimer);
         }
       }, 5000);
+
+      const sendExitSignals = () => {
+        if (exitSent) return;
+        exitSent = true;
+        checkDepth();
+        const early = readingDepth() < 25 && visibleSeconds < 30;
+        send('article_exit', articleId, early ? 'early_exit' : 'normal_exit');
+        send('article_cls', Math.max(0, clsValue).toFixed(3), 'article_page');
+      };
+
+      addEventListener('pagehide', sendExitSignals, { once: true });
     }
   })();
 </script>
