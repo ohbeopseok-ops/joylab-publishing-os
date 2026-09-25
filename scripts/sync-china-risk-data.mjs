@@ -189,7 +189,7 @@ function parseTrendForce(docs) {
         if (p) {
           const mid = pctMid(p[2], p[3] ?? p[2]);
           const v = signed(p[1], mid);
-          found.dramAsp.push(sourceMetric('dramAsp',v,'% QoQ',scoreDramAsp(v),doc,s));
+          found.dramAsp.push(sourceMetric('dramAsp',v,/(forecast|expected|projected|estimate)/i.test(s) ? '% QoQ forecast midpoint' : '% QoQ',scoreDramAsp(v),doc,s));
         }
       }
 
@@ -199,7 +199,7 @@ function parseTrendForce(docs) {
         if (p) {
           const mid = pctMid(p[2], p[3] ?? p[2]);
           const v = signed(p[1], mid);
-          found.nandAsp.push(sourceMetric('nandAsp',v,'% QoQ',scoreNandAsp(v),doc,s));
+          found.nandAsp.push(sourceMetric('nandAsp',v,/(forecast|expected|projected|estimate)/i.test(s) ? '% QoQ forecast midpoint' : '% QoQ',scoreNandAsp(v),doc,s));
         }
       }
 
