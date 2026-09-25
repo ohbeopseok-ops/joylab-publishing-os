@@ -34,7 +34,7 @@ export async function getStaticPaths() {
     const seriesItems = article.data.series
       ? articles
           .filter((item) => item.data.series === article.data.series)
-          .sort((a, b) => a.data.publishedAt.getTime() - b.data.publishedAt.getTime() || a.id.localeCompare(b.id))
+          .sort((a, b) => (a.data.seriesOrder ?? 999) - (b.data.seriesOrder ?? 999) || a.data.publishedAt.getTime() - b.data.publishedAt.getTime() || a.id.localeCompare(b.id))
       : [];
     return { params: { slug: article.id }, props: { article, related, seriesItems } };
   });
