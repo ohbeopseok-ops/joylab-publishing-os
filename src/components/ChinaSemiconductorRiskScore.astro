@@ -2,6 +2,7 @@
 import model from '../data/china-semiconductor-risk-v1.1.json';
 import snapshot from '../data/china-semiconductor-risk-snapshot.json';
 import history from '../data/china-semiconductor-risk-history.json';
+import publishedBrief from '../data/china-semiconductor-risk-brief.json';
 
 const metrics = model.metrics.map((metric) => {
   const live = snapshot.metrics?.[metric.id];
@@ -58,7 +59,9 @@ const liveStructuralLine = liveChart.map((point) => `${point.x},${point.structur
 const liveEarningsLine = liveChart.map((point) => `${point.x},${point.earningsY}`).join(' ');
 const latestHistoryDelta = history.latestDelta ?? null;
 const latestAttribution = latestHistoryDelta?.attribution ?? null;
-const latestInvestmentBrief = latestHistoryDelta?.investmentBrief ?? null;
+const latestInvestmentBrief = publishedBrief.status === 'PUBLISHED'
+  ? { lines: publishedBrief.lines, fields: publishedBrief.fields, published: true, quarter: publishedBrief.quarter }
+  : (latestHistoryDelta?.investmentBrief ?? null);
 ---
 <section class="china-risk-score" aria-labelledby="china-risk-score-title">
   <div class="china-risk-score__head">
@@ -169,7 +172,7 @@ const latestInvestmentBrief = latestHistoryDelta?.investmentBrief ?? null;
               )}
               {latestInvestmentBrief && (
                 <div class="investment-brief">
-                  <small>AUTO INVESTMENT BRIEF</small>
+                  <small>AUTO INVESTMENT BRIEF{latestInvestmentBrief.published ? ' · PUBLISHED' : ''}</small>
                   <ol>
                     {latestInvestmentBrief.lines.map((line) => <li>{line}</li>)}
                   </ol>
