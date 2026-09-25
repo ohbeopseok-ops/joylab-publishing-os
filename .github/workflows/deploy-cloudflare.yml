@@ -412,24 +412,28 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Production Mobile Visual GOLD QA
+        if: ${{ !cancelled() }}
         id: production_mobile_visual_qa
         env:
           QA_BASE_URL: https://aijoylab.kr
         run: node scripts/qa-mobile-visual-regression-v1.mjs
 
       - name: Production Responsive Visual GOLD QA
+        if: ${{ !cancelled() }}
         id: production_responsive_visual_qa
         env:
           QA_BASE_URL: https://aijoylab.kr
         run: node scripts/qa-responsive-visual-v2.mjs
 
       - name: Weight of Silence Production Reader GOLD QA
+        if: ${{ !cancelled() }}
         id: production_reader_qa
         env:
           QA_BASE_URL: https://aijoylab.kr
         run: node scripts/qa-weight-of-silence-reader.mjs
 
       - name: Weight of Silence Production Mindmap GOLD QA
+        if: ${{ !cancelled() }}
         id: production_mindmap_qa
         env:
           QA_BASE_URL: https://aijoylab.kr
