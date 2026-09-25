@@ -17,7 +17,21 @@ const jobs = [
     width: 1200,
     height: 630,
     quality: 84
-  }
+  },
+  {
+    source: path.join(root, 'assets/books/problem-to-service-cover.svg'),
+    output: path.join(root, 'public/images/books/problem-to-service-cover.webp'),
+    width: 960,
+    height: 1440,
+    quality: 82
+  },
+  {
+    source: path.join(root, 'assets/books/problem-to-service-og.svg'),
+    output: path.join(root, 'public/images/og/problem-to-service-og.webp'),
+    width: 1200,
+    height: 630,
+    quality: 84
+  },
 ];
 
 for (const job of jobs) {
