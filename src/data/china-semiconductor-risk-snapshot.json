@@ -1,0 +1,129 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-09-25T09:32:50.145Z",
+  "ready": true,
+  "coverage": {
+    "metricsReady": 5,
+    "metricsStale": 0,
+    "metricsTotal": 6
+  },
+  "metrics": {
+    "cxmtShare": {
+      "status": "OK",
+      "id": "cxmtShare",
+      "value": 9.5,
+      "unit": "%",
+      "score": 50,
+      "source": "trendforce",
+      "sourceUrl": "https://www.trendforce.com/news/2026/09/24/news-cxmt-ymtc-ramp-memory-capacity-but-chinas-ai-cloud-boom-could-soak-up-new-supply-through-2027/",
+      "observedAt": "2026-09-24",
+      "fetchedAt": "2026-09-25T09:32:45.349Z",
+      "evidence": "CXMT global DRAM revenue share rose to 9.5% in 2Q26 from 7.6% in 1Q26."
+    },
+    "ymtcShare": {
+      "status": "UNKNOWN",
+      "id": "ymtcShare",
+      "fetchedAt": "2026-09-25T09:32:50.145Z",
+      "note": "Counterpoint public article confirms 14%, but the GitHub Runner HTML does not expose the numeric body reliably. Dashboard retains the verified model seed instead of guessing."
+    },
+    "dramAsp": {
+      "status": "OK",
+      "id": "dramAsp",
+      "value": 15.5,
+      "unit": "% QoQ forecast midpoint",
+      "score": 0,
+      "source": "trendforce",
+      "sourceUrl": "https://www.trendforce.com/presscenter/news/20260703-13134.html",
+      "observedAt": "2026-07-03",
+      "fetchedAt": "2026-09-25T09:32:45.349Z",
+      "evidence": "TrendForce 3Q26 public outlook: conventional DRAM contract prices forecast to rise 13–18% QoQ."
+    },
+    "nandAsp": {
+      "status": "OK",
+      "id": "nandAsp",
+      "value": 12.5,
+      "unit": "% QoQ forecast midpoint",
+      "score": 0,
+      "source": "trendforce",
+      "sourceUrl": "https://www.trendforce.com/presscenter/news/20260703-13134.html",
+      "observedAt": "2026-07-03",
+      "fetchedAt": "2026-09-25T09:32:45.349Z",
+      "evidence": "TrendForce 3Q26 public outlook: NAND Flash contract prices expected to increase 10–15% QoQ."
+    },
+    "equipment": {
+      "status": "OK",
+      "id": "equipment",
+      "value": 35,
+      "unit": "% adoption",
+      "score": 75,
+      "source": "trendforce",
+      "sourceUrl": "https://www.trendforce.com/news/2026/01/12/news-chinas-domestic-chip-equipment-adoption-beats-2025-target-at-35-led-by-naura-amec/",
+      "observedAt": "2026-01-12",
+      "fetchedAt": "2026-09-25T09:32:45.349Z",
+      "evidence": "China domestic semiconductor equipment adoption reached about 35% in 2025."
+    },
+    "cxmtCapa": {
+      "status": "OK",
+      "id": "cxmtCapa",
+      "value": 31.3,
+      "unit": "% capacity growth",
+      "score": 75,
+      "source": "trendforce",
+      "sourceUrl": "https://www.trendforce.com/news/2026/09/24/news-cxmt-ymtc-ramp-memory-capacity-but-chinas-ai-cloud-boom-could-soak-up-new-supply-through-2027/",
+      "observedAt": "2026-09-24",
+      "fetchedAt": "2026-09-25T09:32:45.349Z",
+      "evidence": "CXMT monthly DRAM capacity expected to rise from about 320,000 wafers to 420,000 wafers by 2027.",
+      "fromWpm": 320000,
+      "toWpm": 420000
+    }
+  },
+  "auxiliary": {
+    "enterpriseSsdShare": {
+      "status": "OK",
+      "value": 48,
+      "unit": "% NAND bit shipments",
+      "source": "counterpoint",
+      "sourceUrl": "https://counterpointresearch.com/en/insights/server-led-essds-hit-48-percent-of-nand-shipments",
+      "observedAt": "2026-08-12",
+      "fetchedAt": "2026-09-25T09:32:48.000Z",
+      "evidence": "Enterprise SSDs reached 48% of global NAND bit shipments in Q2 2026."
+    },
+    "bisEvents": [
+      {
+        "title": "Commerce Revises License Review Policy for Semiconductors Exported to China",
+        "observedAt": "2026-01-13",
+        "sourceUrl": "https://www.bis.gov/press-release/department-commerce-revises-license-review-policy-semiconductors-exported-china",
+        "hbmMention": false
+      },
+      {
+        "title": "Commerce Closes Export Controls Loophole for Foreign-Owned Semiconductor Fabs in China",
+        "observedAt": "2025-08-29",
+        "sourceUrl": "https://www.bis.gov/press-release/department-commerce-closes-export-controls-loophole-foreign-owned-semiconductor-fabs-china",
+        "hbmMention": false
+      },
+      {
+        "title": "Commerce Strengthens Export Controls to Restrict China’s Capability to Produce Advanced Semiconductors",
+        "observedAt": "2024-12-02",
+        "sourceUrl": "https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military",
+        "hbmMention": true
+      }
+    ]
+  },
+  "provenance": [
+    {
+      "source": "trendforce",
+      "documentsFetched": 10,
+      "errors": []
+    },
+    {
+      "source": "counterpoint",
+      "documentsFetched": 8,
+      "errors": []
+    },
+    {
+      "source": "bis",
+      "documentsFetched": 9,
+      "errors": []
+    }
+  ]
+}

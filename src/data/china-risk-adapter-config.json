@@ -1,0 +1,78 @@
+{
+  "version": "1.0",
+  "userAgent": "JoyLab-RiskDataAdapter/1.0 (+https://aijoylab.kr)",
+  "timeoutMs": 15000,
+  "maxCandidatesPerSource": 8,
+  "sources": {
+    "trendforce": {
+      "discovery": [
+        "https://www.trendforce.com/presscenter/news/Semiconductors",
+        "https://www.trendforce.com/research/memory-storage"
+      ],
+      "seeds": [
+        "https://www.trendforce.com/presscenter/news/20260703-13134.html",
+        "https://www.trendforce.com/presscenter/news/20260907-13219.html",
+        "https://www.trendforce.com/news/2026/09/24/news-cxmt-ymtc-ramp-memory-capacity-but-chinas-ai-cloud-boom-could-soak-up-new-supply-through-2027/",
+        "https://www.trendforce.com/news/2026/01/12/news-chinas-domestic-chip-equipment-adoption-beats-2025-target-at-35-led-by-naura-amec/"
+      ],
+      "allowHosts": [
+        "www.trendforce.com"
+      ],
+      "relevantKeywords": [
+        "dram",
+        "nand",
+        "memory",
+        "cxmt",
+        "ymtc",
+        "enterprise ssd",
+        "contract price",
+        "market share",
+        "capacity"
+      ]
+    },
+    "counterpoint": {
+      "discovery": [
+        "https://counterpointresearch.com/en/insights"
+      ],
+      "seeds": [
+        "https://counterpointresearch.com/ko/insights/server-led-essds-hit-48-percent-of-nand-shipments",
+        "https://counterpointresearch.com/en/insights/server-led-essds-hit-48-percent-of-nand-shipments",
+        "https://counterpointresearch.com/en/insights/sandisk-investor-day-caching-out-the-nand-cycle-with-contracts"
+      ],
+      "allowHosts": [
+        "counterpointresearch.com"
+      ],
+      "relevantKeywords": [
+        "nand",
+        "ymtc",
+        "memory",
+        "enterprise ssd",
+        "essd",
+        "shipment"
+      ]
+    },
+    "bis": {
+      "discovery": [
+        "https://www.bis.gov/news-updates"
+      ],
+      "seeds": [
+        "https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military",
+        "https://www.bis.gov/press-release/department-commerce-revises-license-review-policy-semiconductors-exported-china",
+        "https://www.bis.gov/press-release/department-commerce-closes-export-controls-loophole-foreign-owned-semiconductor-fabs-china"
+      ],
+      "allowHosts": [
+        "www.bis.gov",
+        "media.bis.gov"
+      ],
+      "relevantKeywords": [
+        "semiconductor",
+        "china",
+        "prc",
+        "hbm",
+        "high-bandwidth memory",
+        "export control",
+        "license"
+      ]
+    }
+  }
+}

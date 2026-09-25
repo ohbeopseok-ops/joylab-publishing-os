@@ -1,0 +1,74 @@
+name: China Semiconductor Risk Data Adapter V1
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/sync-china-risk-data.mjs'
+      - 'src/data/china-risk-adapter-config.json'
+      - 'src/data/china-semiconductor-risk-snapshot.json'
+      - 'src/components/ChinaSemiconductorRiskScore.astro'
+      - 'package.json'
+      - '.github/workflows/china-risk-data-adapter.yml'
+  schedule:
+    - cron: '17 0,11 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: china-risk-data-adapter
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Adapter self-test
+        run: npm run china-risk-data:self-test
+
+      - name: Public-source dry run
+        run: npm run china-risk-data:dry-run
+
+  sync:
+    if: github.event_name != 'pull_request'
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Sync public risk sources
+        run: npm run china-risk-data:sync
+
+      - name: Commit changed snapshot only
+        shell: bash
+        run: |
+          if git diff --quiet -- src/data/china-semiconductor-risk-snapshot.json; then
+            echo "No risk-data changes."
+            exit 0
+          fi
+          git config user.name "joylab-risk-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add src/data/china-semiconductor-risk-snapshot.json
+          git commit -m "data: refresh China semiconductor risk snapshot"
+          git push origin HEAD:main
