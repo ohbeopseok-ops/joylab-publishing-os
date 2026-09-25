@@ -136,16 +136,21 @@ async function collectProvider(name, provider) {
     }
   }
 
-  const selected = [...candidates].slice(0, config.maxCandidatesPerSource);
-  for (const url of selected) {
-    if (docs.some((d) => d.url === url)) continue;
+  const selected = [...candidates]
+    .filter((url) => !docs.some((d) => d.url === url))
+    .slice(0, config.maxCandidatesPerSource);
+  const fetched = await Promise.all(selected.map(async (url) => {
     try {
       const html = await fetchText(url);
       const text = htmlToText(html);
-      docs.push({ source:name, url, text, html, observedAt:parseDate(text), fetchedAt, kind:'article' });
+      return { ok:true, doc:{ source:name, url, text, html, observedAt:parseDate(text), fetchedAt, kind:'article' } };
     } catch (error) {
-      errors.push({ url, error:error.message });
+      return { ok:false, error:{ url, error:error.message } };
     }
+  }));
+  for (const item of fetched) {
+    if (item.ok) docs.push(item.doc);
+    else errors.push(item.error);
   }
   return { docs, errors };
 }
