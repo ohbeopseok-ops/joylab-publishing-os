@@ -152,3 +152,10 @@ Fed 정책 기대가 어떻게 바뀌었는지 봅니다.
 소매판매는 소비의 강도를, CPI는 소비자물가를, PPI는 기업 원가를, 비농업고용은 소득의 지속성을, PCE는 Fed가 보는 최종 물가 신호를 보여줍니다.
 
 이제 다섯 편이 모두 발행됐습니다. 소매판매 → CPI → PPI → 비농업고용 → PCE 순서로 보면 미국 경기와 Fed, 국채금리, 나스닥의 연결 구조를 하나의 프레임으로 추적할 수 있습니다.
+
+## 검증용 1차 자료
+
+- [U.S. Census Bureau — Monthly Retail Trade](https://www.census.gov/retail/sales.html)
+- [U.S. Bureau of Labor Statistics — Employment Situation](https://www.bls.gov/news.release/empsit.htm)
+- [U.S. Bureau of Economic Analysis — Personal Income and Outlays](https://www.bea.gov/data/income-saving/personal-income)
+- [Federal Reserve — FOMC](https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)
