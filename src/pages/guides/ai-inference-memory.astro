@@ -4,13 +4,13 @@ import '../../styles/semiconductor-guide-v2.css';
 import { getCollection } from 'astro:content';
 
 const sequence = [
-  { id: 'what-is-hbm', step: '01', role: 'FOUNDATION', short: 'HBM', note: 'HBM 구조와 HBM3E·HBM4의 차이를 먼저 이해합니다.' },
-  { id: 'samsung-hbm4-memory-outlook-2026-09-20', step: '02', role: 'TECHNOLOGY', short: 'HBM4', note: 'HBM4·HBM4E 전환이 성능·전력·수익성에 어떤 변화를 만드는지 봅니다.' },
-  { id: 'samsung-electronics-outlook', step: '03', role: 'COMPANY', short: 'Samsung', note: 'HBM 수요가 삼성전자 DS 이익과 어떻게 연결되는지 확인합니다.' },
-  { id: 'sk-hynix-outlook', step: '04', role: 'COMPANY', short: 'SK hynix', note: 'HBM 리더십과 AI 메모리 이익 레버리지를 확인합니다.' },
-  { id: 'cxmt-dram-hbm-china-memory-2026', step: '05', role: 'COMPETITION', short: 'CXMT', note: '중국 DRAM 자립과 CXMT의 추격이 범용 DRAM·HBM 경쟁에 미치는 영향을 봅니다.' },
-  { id: 'ymtc-nand-ai-storage-2026', step: '06', role: 'STORAGE', short: 'YMTC', note: '중국 NAND·AI 스토리지 확대가 eSSD와 NAND 경쟁 구도를 어떻게 바꾸는지 봅니다.' },
-  { id: 'samsung-vs-sk-hynix-ai-memory', step: '07', role: 'COMPARE', short: 'Compare', note: '삼성전자와 SK하이닉스의 AI 메모리 수익 구조를 같은 기준으로 비교합니다.' }
+  { id: 'what-is-hbm', href: '/articles/what-is-hbm', step: '01', role: 'FOUNDATION', short: 'HBM', note: 'HBM 구조와 HBM3E·HBM4의 차이를 먼저 이해합니다.' },
+  { id: 'samsung-hbm4-memory-outlook-2026-09-20', href: '/articles/samsung-hbm4-memory-outlook-2026-09-20', step: '02', role: 'TECHNOLOGY', short: 'HBM4', note: 'HBM4·HBM4E 전환이 성능·전력·수익성에 어떤 변화를 만드는지 봅니다.' },
+  { id: 'samsung-electronics-outlook', href: '/articles/samsung-electronics-outlook', step: '03', role: 'COMPANY', short: 'Samsung', note: 'HBM 수요가 삼성전자 DS 이익과 어떻게 연결되는지 확인합니다.' },
+  { id: 'sk-hynix-outlook', href: '/articles/sk-hynix-outlook', step: '04', role: 'COMPANY', short: 'SK hynix', note: 'HBM 리더십과 AI 메모리 이익 레버리지를 확인합니다.' },
+  { id: 'cxmt-dram-hbm-china-memory-2026', href: '/articles/cxmt-dram-hbm-china-memory-2026', step: '05', role: 'COMPETITION', short: 'CXMT', note: '중국 DRAM 자립과 CXMT의 추격이 범용 DRAM·HBM 경쟁에 미치는 영향을 봅니다.' },
+  { id: 'ymtc-nand-ai-storage-2026', href: '/articles/ymtc-nand-ai-storage-2026', step: '06', role: 'STORAGE', short: 'YMTC', note: '중국 NAND·AI 스토리지 확대가 eSSD와 NAND 경쟁 구도를 어떻게 바꾸는지 봅니다.' },
+  { id: 'samsung-vs-sk-hynix-ai-memory', href: '/articles/samsung-vs-sk-hynix-ai-memory', step: '07', role: 'COMPARE', short: 'Compare', note: '삼성전자와 SK하이닉스의 AI 메모리 수익 구조를 같은 기준으로 비교합니다.' }
 ];
 
 const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
@@ -53,9 +53,9 @@ const breadcrumb = {
         </aside>
       </div>
       <div class="sg-map-head"><div><span>START HERE</span><b>AI Memory Research Map</b></div><a href="#memory-path">핵심 리서치 전체 보기 →</a></div>
-      <nav class="sg-map" aria-label="AI 메모리 리서치 경로">
-        {articles.map(({ article, step, short, role }, index) => (
-          <a class={'sg-map__step ' + (index === 0 ? 'is-start' : '')} href={'/articles/' + article!.id}><em>{step}</em><b>{short}</b><span>{role}</span></a>
+      <nav class="sg-map sg-map--seven" aria-label="AI 메모리 리서치 경로">
+        {articles.map(({ article, href, step, short, role }, index) => (
+          <a class={'sg-map__step ' + (index === 0 ? 'is-start' : '')} href={href}><em>{step}</em><b>{short}</b><span>{role}</span></a>
         ))}
       </nav>
     </div>
@@ -76,10 +76,10 @@ const breadcrumb = {
         </section>
         <div class="sg-section-head"><div><div class="sg-eyebrow">RESEARCH PATH · 01 → 07</div><h2>기초 → 기술 → 기업 → 중국 경쟁까지</h2></div><p>HBM의 원리를 먼저 이해하고, 세대 전환과 국내 메모리 기업의 수익 구조를 본 뒤 CXMT·YMTC를 경쟁 변수로 분리해 봅니다.</p></div>
         <div class="sg-path">
-          {articles.map(({ article, step, role, note }, index) => (
+          {articles.map(({ article, href, step, role, note }, index) => (
             <article class={'sg-card ' + (index === 2 || index === 3 ? 'is-key' : '')}>
               <div class="sg-card__no">{step}</div>
-              <div><div class="sg-card__role">{role}</div><h3><a href={'/articles/' + article!.id}>{article!.data.title}</a></h3><p>{note}</p><div class="sg-card__foot">{article!.data.tags.slice(0, 3).map((tag) => <span>#{tag}</span>)}<a class="sg-card__cta" href={'/articles/' + article!.id}>리서치 읽기 →</a></div></div>
+              <div><div class="sg-card__role">{role}</div><h3><a href={href}>{article!.data.title}</a></h3><p>{note}</p><div class="sg-card__foot">{article!.data.tags.slice(0, 3).map((tag) => <span>#{tag}</span>)}<a class="sg-card__cta" href={href}>리서치 읽기 →</a></div></div>
             </article>
           ))}
         </div>
@@ -109,3 +109,12 @@ const breadcrumb = {
     </div>
   </main>
 </BaseLayout>
+
+
+<style is:global>
+  @media (min-width: 901px) {
+    .semiconductor-guide-v2 .sg-map.sg-map--seven {
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+  }
+</style>
