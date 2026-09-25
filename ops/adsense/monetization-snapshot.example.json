@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "stage": "article-end",
+  "period": {
+    "days": 0,
+    "startDate": null,
+    "endDate": null
+  },
+  "traffic": {
+    "eligibleArticlePageviews": 0,
+    "adImpressions": 0
+  },
+  "revenue": {
+    "pageRpmKrw": null,
+    "estimatedEarningsKrw": null,
+    "viewabilityPct": null,
+    "fillRatePct": null,
+    "ctrPct": null,
+    "baselineCtrPct": null
+  },
+  "ux": {
+    "clsP75": null,
+    "baselineClsP75": null,
+    "readingDepthPct": null,
+    "baselineReadingDepthPct": null,
+    "ctaConversionPct": null,
+    "baselineCtaConversionPct": null,
+    "exitRatePct": null,
+    "baselineExitRatePct": null,
+    "pagesPerSession": null,
+    "baselinePagesPerSession": null
+  },
+  "policy": {
+    "warning": false,
+    "consentFailure": false
+  },
+  "layout": {
+    "adOverlap": false,
+    "horizontalOverflow": false,
+    "navigationObstruction": false
+  },
+  "notes": "Populate only with observed production data after AdSense approval."
+}
