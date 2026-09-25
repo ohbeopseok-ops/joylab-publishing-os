@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">AI 경쟁, GPU만 보면 안 된다</title>
+  <desc id="desc">Data Center → Subsea Cable → Cloud Region</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.55" stop-color="#0a1830"/>
+      <stop offset="1" stop-color="#0d2340"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#0ea5e9" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#0ea5e9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1270" cy="430" r="370" fill="url(#glow)"/>
+  <g opacity=".24" stroke="#1d4ed8" stroke-width="2">
+    <path d="M0 690 C360 620 650 640 920 690 S1300 760 1600 690" fill="none"/>
+    <path d="M0 735 C360 665 650 685 920 735 S1300 805 1600 735" fill="none"/>
+  </g>
+  <text x="105" y="118" font-family="Arial,'Noto Sans KR',sans-serif" font-size="28" font-weight="700" letter-spacing="2" fill="#60a5fa">JOYLAB · GLOBAL NETWORK</text>
+  <text x="105" y="248" font-family="Arial,'Noto Sans KR',sans-serif" font-size="66" font-weight="800" fill="#f8fafc">AI 경쟁, GPU만 보면 안 된다</text>
+  <text x="108" y="318" font-family="Arial,'Noto Sans KR',sans-serif" font-size="31" font-weight="600" fill="#93c5fd">Data Center → Subsea Cable → Cloud Region</text>
+  <rect x="105" y="395" width="560" height="2" fill="#1d4ed8"/>
+  <text x="105" y="455" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" fill="#cbd5e1">Physical infrastructure behind the internet</text>
+  <g opacity=".78">
+    <circle cx="110" cy="545" r="6" fill="#38bdf8"/>
+    <circle cx="178" cy="545" r="6" fill="#38bdf8"/>
+    <circle cx="246" cy="545" r="6" fill="#38bdf8"/>
+    <path d="M116 545 H172 M184 545 H240" stroke="#38bdf8" stroke-width="3"/>
+  </g>
+  
+    <g>
+      <rect x="980" y="280" width="260" height="220" rx="28" fill="#0f2039" stroke="#2563eb" stroke-width="4"/>
+      <rect x="1020" y="320" width="65" height="130" rx="12" fill="#1d4ed8"/>
+      <rect x="1100" y="320" width="65" height="130" rx="12" fill="#2563eb"/>
+      <rect x="1180" y="320" width="25" height="130" rx="10" fill="#60a5fa"/>
+      <text x="1110" y="535" text-anchor="middle" font-size="25" font-weight="700" fill="#e2e8f0">AI DATA CENTER</text>
+    </g>
+    <path d="M920 600 C1110 535 1270 535 1460 605" fill="none" stroke="#38bdf8" stroke-width="20" stroke-linecap="round"/>
+    <circle cx="1365" cy="355" r="100" fill="none" stroke="#60a5fa" stroke-width="4"/>
+    <path d="M1290 355 h150 M1365 280 v150 M1310 305 c50 45 60 95 0 100 M1420 305 c-50 45-60 95 0 100" fill="none" stroke="#60a5fa" stroke-width="3"/>
+    <path d="M1235 390 C1280 380 1310 370 1320 360" stroke="#f8fafc" stroke-width="4" stroke-dasharray="8 8"/>
+  <text x="105" y="815" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#64748b">FACT → STRUCTURE → BOTTLENECK → RESILIENCE</text>
+</svg>
