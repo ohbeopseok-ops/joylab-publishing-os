@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { investmentIndustryIds, investmentThesisIds, investmentResearchTypes } from './lib/investment-taxonomy';
 
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/data/articles' }),
@@ -26,6 +27,11 @@ const articles = defineCollection({
     canonical: z.string().optional(),
     series: z.string().optional(),
     seriesOrder: z.number().int().min(1).max(999).optional(),
+    investmentIndustries: z.array(z.enum(investmentIndustryIds)).default([]),
+    investmentTheses: z.array(z.enum(investmentThesisIds)).default([]),
+    investmentCompanies: z.array(z.string().min(1)).default([]),
+    investmentValueChains: z.array(z.string().min(1)).default([]),
+    investmentResearchType: z.enum(investmentResearchTypes).optional(),
     readingTime: z.string().optional(),
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),
