@@ -15,7 +15,8 @@ const requiredFiles = [
   'config/contracts/interactive-block-v1.schema.json',
   'scripts/generate-studio-epub-v1.mjs',
   'scripts/generate-studio-print-pdf-v1.mjs',
-  'src/data/studio/series-02-epub-source.json'
+  'src/data/studio/series-02-source.json',
+  'scripts/check-series-02-source-v1.mjs'
 ];
 
 const failures = [];
