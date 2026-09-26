@@ -49,4 +49,19 @@ if (pdfBytes.subarray(0, 5).toString('ascii') !== '%PDF-') throw new Error('Prin
 if (pdfBytes.indexOf(Buffer.from('%%EOF')) < 0) throw new Error('Print PDF EOF missing');
 console.log('PASS', pdfPath, pdfBytes.length + ' bytes');
 
+const manifestPath = '/studio/exports/export-provenance-v1.json';
+const manifestRes = await fetch(base + fresh(manifestPath), { redirect: 'follow', cache: 'no-store' });
+if (manifestRes.status !== 200) throw new Error(manifestPath + ' expected 200, got ' + manifestRes.status);
+const manifest = await manifestRes.json();
+if (manifest.contract !== 'JoyLab Export Provenance Manifest V1') throw new Error('provenance contract mismatch');
+const crypto = await import('node:crypto');
+const digest = (buf) => crypto.createHash('sha256').update(buf).digest('hex');
+const epubRecord = manifest.artifacts?.find((x) => x.id === 'epub');
+const pdfRecord = manifest.artifacts?.find((x) => x.id === 'printPdf');
+if (!epubRecord || !pdfRecord) throw new Error('provenance artifact records missing');
+if (epubRecord.sha256 !== digest(bytes)) throw new Error('EPUB provenance hash mismatch');
+if (pdfRecord.sha256 !== digest(pdfBytes)) throw new Error('PDF provenance hash mismatch');
+console.log('PASS', manifestPath, manifest.source?.sha256);
+
+
 console.log('Studio Production Smoke V1 PASS');
