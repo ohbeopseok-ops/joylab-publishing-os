@@ -149,6 +149,14 @@ LS ELECTRIC은 2025년 12월 부산사업장 제2생산동을 준공했습니다
 
 **ACTION** — 다음 분기에는 북미 빅테크 후속 수주, 가동률, 전력사업 마진을 재점검한다.
 
+## 관련 리서치
+
+- [HD현대일렉트릭 AI 전력 수혜 보는 법](/articles/hd-hyundai-electric-ai-power)
+
+## Research Hub
+
+- [AI 전력 투자 가이드](/guides/ai-power)
+
 ## 결론
 
 LS ELECTRIC의 AI 전력 투자 논리는 <strong>“전력망이 커진다”보다 “데이터센터 안으로 전기가 들어온 뒤 실제로 분배되는 장비를 누가 공급하느냐”</strong>에 가깝습니다.
@@ -156,6 +164,8 @@ LS ELECTRIC의 AI 전력 투자 논리는 <strong>“전력망이 커진다”�
 4개 기업을 한 번에 비교하면 각 회사가 같은 AI 전력 테마 안에서도 얼마나 다른 경제성을 갖는지 더 선명해집니다. [AI 전력 4사 비교](/articles/korea-ai-power-companies-compare)에서 이어서 보겠습니다.
 
 ### Sources
+
+- [LS ELECTRIC 공식 IR — 2026년 2분기 실적발표 자료](https://www.ls-electric.com/ko/company/invest/ir/)
 
 - LS ELECTRIC 2026년 2분기 IR 자료
 - LS ELECTRIC 2Q26 공식 실적 발표: 매출 1조5,770억원, 영업이익 1,785억원, 수주잔고 약 7조원
