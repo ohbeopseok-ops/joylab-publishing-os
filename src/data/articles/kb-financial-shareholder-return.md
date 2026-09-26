@@ -50,11 +50,11 @@ JoyLab은 다음 연결이 유지되는지를 먼저 봅니다.
 
 2026년 상반기 KB금융은 이 구조를 비교적 명확하게 보여줬습니다. 그룹 순이익과 ROE가 개선됐고, CET1은 13.74%를 기록했으며, 회사는 13.5%를 초과하는 자본을 추가 주주환원 재원으로 연결했습니다. [KB금융 2026년 상반기 경영실적](https://kbfg.com/IR_new/2026_2/player/vod_kor.html)
 
-이 글은 [금융·주주환원 투자 가이드](/articles/financials-value-up-investing-guide)의 Company Research 편입니다.
+이 글은 [금융·주주환원 투자 가이드](/articles/financials-value-up-investing-guide)의 Company Research 편입니다. 전체 산업 구조는 [JoyLab 투자 리서치 클러스터](/guides/investing)에서 볼 수 있고, 시장 자금의 방향은 [외국인 수급 보는 법](/articles/foreign-investor-flow)과 함께 확인할 수 있습니다.
 
 ## 30초 핵심 답변
 
-2026년 상반기 KB금융에서 확인할 숫자는 다음입니다.
+2026년 상반기 KB금융에서 확인할 숫자는 다음입니다. [KB금융 2026년 상반기 경영실적](https://kbfg.com/IR_new/2026_2/player/vod_kor.html)
 
 | KPI | 2026년 상반기 기준 | 왜 중요한가 |
 | --- | ---: | --- |
@@ -69,7 +69,7 @@ JoyLab은 다음 연결이 유지되는지를 먼저 봅니다.
 
 출처는 KB금융의 2026년 상반기 경영실적 발표입니다. [KB금융 2026년 상반기 경영실적](https://kbfg.com/IR_new/2026_2/player/vod_kor.html)
 
-핵심은 **ROE 14%대와 CET1 13%대 후반이 동시에 유지되는가**입니다.
+핵심은 **ROE 14%대와 CET1 13%대 후반이 동시에 유지되는가**입니다. 2026년 상반기 회사가 발표한 ROE 14.09%, CET1 13.74%를 기준점으로 삼을 수 있습니다. [KB금융 2026년 상반기 경영실적](https://kbfg.com/IR_new/2026_2/player/vod_kor.html)
 
 ## 1. VALUE CHAIN POSITION｜KB금융은 은행만 보는 종목이 아니다
 
@@ -103,7 +103,7 @@ ROE가 높아도 위험가중자산이 과도하게 증가하거나 Credit Cost�
 
 KB금융의 주주환원 모델에서 중요한 점은 **CET1과 주주환원을 공식적으로 연결했다는 것**입니다.
 
-회사는 6월 말 CET1 13.74% 가운데 13.5%를 초과하는 자본을 2026년 2차 주주환원 재원으로 활용한다고 밝혔습니다.
+회사는 6월 말 CET1 13.74% 가운데 13.5%를 초과하는 자본을 2026년 2차 주주환원 재원으로 활용한다고 밝혔습니다. [KB금융 2026년 상반기 경영실적](https://kbfg.com/IR_new/2026_2/player/vod_kor.html)
 
 즉 투자자의 질문은 단순합니다.
 
