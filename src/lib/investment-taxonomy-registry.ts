@@ -8,7 +8,7 @@ const industryLabels = new Map(taxonomy.industries.map((item) => [item.id, item.
 const thesisLabels = new Map(taxonomy.theses.map((item) => [item.id, item.label]));
 
 export function getInvestmentTaxonomy(slug: string): InvestmentTaxonomyRecord {
-  return bySlug.get(slug) ?? { slug, route: '/articles/' + slug, industries: [], theses: [], companies: [] };
+  return bySlug.get(slug) ?? { slug, route: '/articles/' + slug, industries: [], theses: [], companies: [], valueChains: [], kpis: [], researchType: null };
 }
 
 export function getInvestmentSearchTerms(slug: string): string[] {
@@ -18,7 +18,9 @@ export function getInvestmentSearchTerms(slug: string): string[] {
     ...record.industries.map((id) => industryLabels.get(id) ?? id),
     ...record.theses,
     ...record.theses.map((id) => thesisLabels.get(id) ?? id),
-    ...record.companies
+    ...record.companies,
+    ...(record.valueChains ?? []),
+    ...(record.kpis ?? [])
   ];
 }
 
