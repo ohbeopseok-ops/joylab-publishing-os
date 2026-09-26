@@ -100,3 +100,7 @@ JoyLab은 다음 흐름으로 정리합니다.
 - [BIS, 2026-01-13 중국향 반도체 라이선스 심사정책 수정](https://www.bis.gov/press-release/department-commerce-revises-license-review-policy-semiconductors-exported-china)
 - [BIS, EAR Part 742 현행 규정](https://www.bis.gov/regulations/ear/742)
 
+## Research Hub
+
+- [반도체 투자 가이드](/guides/semiconductor-investing)
+
