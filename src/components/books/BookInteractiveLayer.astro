@@ -22,6 +22,7 @@ const { bookSlug, storagePrefix, interactions = {} } = Astro.props;
     <div><b id="book-complete-count">0</b><span>완료한 장</span></div>
     <div><b id="book-note-count">0</b><span>메모</span></div>
     <div><b id="book-bookmark-count">0</b><span>북마크</span></div>
+    <div><b id="book-artifact-count">0</b><span>실습 결과</span></div>
   </div>
   <div class="book-interactive-panel__body" id="book-interactive-panel-body">
     <p class="book-interactive-empty">아직 저장된 기록이 없습니다.</p>
@@ -51,7 +52,8 @@ const { bookSlug, storagePrefix, interactions = {} } = Astro.props;
       notes: readJson('notes', {}),
       checklist: readJson('checklist', {}),
       choice: readJson('choice', {}),
-      action: readJson('action', {})
+      action: readJson('action', {}),
+      forms: readJson('forms', {})
     };
 
     const panel = document.getElementById('book-interactive-panel');
@@ -95,6 +97,7 @@ const { bookSlug, storagePrefix, interactions = {} } = Astro.props;
       writeJson('checklist', state.checklist);
       writeJson('choice', state.choice);
       writeJson('action', state.action);
+      writeJson('forms', state.forms);
       updateSummary();
     };
 
@@ -212,6 +215,149 @@ const { bookSlug, storagePrefix, interactions = {} } = Astro.props;
         wrap.appendChild(list);
       }
 
+      if (interaction.type === 'multiInput') {
+        const formKey = `${order}:${interaction.id}`;
+        const values = { ...(state.forms[formKey] || {}) };
+        const fields = document.createElement('div');
+        fields.className = 'book-interactive-fields';
+        const status = document.createElement('div');
+        status.className = 'book-interactive-status';
+        const minimum = interaction.completionMin || interaction.fields.length;
+        let completedTracked = Boolean(values.__completedTracked);
+
+        const refresh = () => {
+          const filled = interaction.fields.filter((field) => String(values[field.key] || '').trim()).length;
+          const done = filled >= minimum;
+          status.classList.toggle('is-complete', done);
+          status.textContent = done ? `✓ 완료 조건 충족 · ${filled}/${interaction.fields.length}` : `작성 중 · ${filled}/${interaction.fields.length} · 최소 ${minimum}개`;
+          values.__complete = done;
+          if (done && !completedTracked) {
+            completedTracked = true;
+            values.__completedTracked = true;
+            track('book_interaction_action', `${bookSlug}:${interaction.id}`);
+          }
+          state.forms[formKey] = values;
+          saveCoreState();
+        };
+
+        interaction.fields.forEach((field) => {
+          const label = document.createElement('label');
+          label.className = 'book-interactive-field';
+          const title = document.createElement('span');
+          title.textContent = field.label;
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.placeholder = field.placeholder || '';
+          input.value = values[field.key] || '';
+          let timer = 0;
+          input.addEventListener('input', () => {
+            values[field.key] = input.value.trim();
+            clearTimeout(timer);
+            timer = setTimeout(refresh, 180);
+          });
+          label.append(title, input);
+          fields.appendChild(label);
+        });
+        wrap.append(fields, status);
+        refresh();
+      }
+
+      if (interaction.type === 'scorecard') {
+        const formKey = `${order}:${interaction.id}`;
+        const values = { ...(state.forms[formKey] || {}) };
+        const list = document.createElement('div');
+        list.className = 'book-interactive-checklist';
+        const result = document.createElement('div');
+        result.className = 'book-interactive-score';
+        let completedTracked = Boolean(values.__completedTracked);
+
+        const refresh = () => {
+          const score = interaction.items.reduce((sum, item) => sum + (values[item.key] ? (item.weight || 1) : 0), 0);
+          const checkedCount = interaction.items.filter((item) => Boolean(values[item.key])).length;
+          const band = [...interaction.bands].sort((a,b) => a.min - b.min).filter((item) => score >= item.min).pop() || interaction.bands[0];
+          result.innerHTML = `<div><strong>${score}</strong><span>/ ${interaction.items.reduce((sum,item)=>sum+(item.weight||1),0)}</span><em>${band.label}</em></div><p></p>`;
+          result.querySelector('p').textContent = band.feedback;
+          values.__score = score;
+          values.__band = band.label;
+          values.__complete = true;
+          if (!completedTracked && checkedCount >= 0) {
+            completedTracked = true;
+            values.__completedTracked = true;
+          }
+          state.forms[formKey] = values;
+          saveCoreState();
+        };
+
+        interaction.items.forEach((item) => {
+          const label = document.createElement('label');
+          const input = document.createElement('input');
+          input.type = 'checkbox';
+          input.checked = Boolean(values[item.key]);
+          input.addEventListener('change', () => {
+            values[item.key] = input.checked;
+            state.forms[formKey] = values;
+            saveCoreState();
+            track('book_interaction_check', `${bookSlug}:${interaction.id}`);
+            refresh();
+          });
+          const span = document.createElement('span');
+          span.textContent = item.label;
+          label.append(input, span);
+          list.appendChild(label);
+        });
+        wrap.append(list, result);
+        refresh();
+      }
+
+      if (interaction.type === 'canvas') {
+        const formKey = `${order}:${interaction.id}`;
+        const values = { ...(state.forms[formKey] || {}) };
+        const grid = document.createElement('div');
+        grid.className = 'book-interactive-canvas';
+        const status = document.createElement('div');
+        status.className = 'book-interactive-status';
+        const minimum = interaction.completionMin || interaction.fields.length;
+        let completedTracked = Boolean(values.__completedTracked);
+
+        const refresh = () => {
+          const filled = interaction.fields.filter((field) => String(values[field.key] || '').trim()).length;
+          const done = filled >= minimum;
+          status.classList.toggle('is-complete', done);
+          status.textContent = done ? `✓ Canvas 완료 · ${filled}/${interaction.fields.length}` : `Canvas 작성 중 · ${filled}/${interaction.fields.length} · 최소 ${minimum}칸`;
+          values.__complete = done;
+          if (done && !completedTracked) {
+            completedTracked = true;
+            values.__completedTracked = true;
+            track('book_interaction_action', `${bookSlug}:${interaction.id}`);
+          }
+          state.forms[formKey] = values;
+          saveCoreState();
+        };
+
+        interaction.fields.forEach((field) => {
+          const card = document.createElement('label');
+          card.className = 'book-interactive-canvas-field';
+          const eyebrow = document.createElement('small');
+          eyebrow.textContent = field.label;
+          const prompt = document.createElement('span');
+          prompt.textContent = field.prompt;
+          const textarea = document.createElement('textarea');
+          textarea.rows = 3;
+          textarea.placeholder = field.placeholder || '';
+          textarea.value = values[field.key] || '';
+          let timer = 0;
+          textarea.addEventListener('input', () => {
+            values[field.key] = textarea.value.trim();
+            clearTimeout(timer);
+            timer = setTimeout(refresh, 180);
+          });
+          card.append(eyebrow, prompt, textarea);
+          grid.appendChild(card);
+        });
+        wrap.append(grid, status);
+        refresh();
+      }
+
       return wrap;
     };
 
@@ -295,15 +441,18 @@ const { bookSlug, storagePrefix, interactions = {} } = Astro.props;
 
     const updateSummary = () => {
       const noteEntries = Object.entries(state.notes).filter(([, value]) => String(value || '').trim());
-      const count = state.completed.size + state.bookmarks.size + noteEntries.length;
+      const artifactEntries = Object.entries(state.forms).filter(([, value]) => value && typeof value === 'object' && Object.keys(value).some((key) => !key.startsWith('__') && String(value[key] ?? '').trim()));
+      const count = state.completed.size + state.bookmarks.size + noteEntries.length + artifactEntries.length;
       const countEl = document.getElementById('book-interactive-count');
       const completeEl = document.getElementById('book-complete-count');
       const noteEl = document.getElementById('book-note-count');
       const bookmarkEl = document.getElementById('book-bookmark-count');
+      const artifactEl = document.getElementById('book-artifact-count');
       if (countEl) countEl.textContent = String(count);
       if (completeEl) completeEl.textContent = String(state.completed.size);
       if (noteEl) noteEl.textContent = String(noteEntries.length);
       if (bookmarkEl) bookmarkEl.textContent = String(state.bookmarks.size);
+      if (artifactEl) artifactEl.textContent = String(artifactEntries.length);
     };
 
     const renderPanel = () => {
@@ -313,8 +462,9 @@ const { bookSlug, storagePrefix, interactions = {} } = Astro.props;
       const bookmarkOrders = Array.from(state.bookmarks);
       const completedOrders = Array.from(state.completed);
       const noteEntries = Object.entries(state.notes).filter(([, value]) => String(value || '').trim());
+      const artifactEntries = Object.entries(state.forms).filter(([, value]) => value && typeof value === 'object' && Object.keys(value).some((key) => !key.startsWith('__') && String(value[key] ?? '').trim()));
 
-      if (!bookmarkOrders.length && !completedOrders.length && !noteEntries.length) {
+      if (!bookmarkOrders.length && !completedOrders.length && !noteEntries.length && !artifactEntries.length) {
         panelBody.innerHTML = '<p class="book-interactive-empty">아직 저장된 기록이 없습니다.</p>';
         return;
       }
@@ -354,6 +504,32 @@ const { bookSlug, storagePrefix, interactions = {} } = Astro.props;
           }
           const p = document.createElement('p');
           p.textContent = value;
+          article.append(title, p);
+          section.appendChild(article);
+        });
+        panelBody.appendChild(section);
+      }
+
+      if (artifactEntries.length) {
+        const section = document.createElement('section');
+        section.innerHTML = '<h3>실습 결과</h3>';
+        artifactEntries.forEach(([formKey, value]) => {
+          const [, interactionId] = formKey.split(':');
+          const interaction = Object.values(interactions || {}).flat().find((item) => item.id === interactionId);
+          const article = document.createElement('article');
+          article.className = 'book-interactive-saved-note book-interactive-artifact';
+          const title = document.createElement('strong');
+          title.textContent = interaction?.title || interactionId;
+          const p = document.createElement('p');
+          const visible = Object.entries(value)
+            .filter(([key]) => !key.startsWith('__'))
+            .filter(([, item]) => item !== '' && item !== false && item != null)
+            .map(([key, item]) => {
+              if (typeof item === 'boolean') return item ? key : '';
+              return String(item);
+            })
+            .filter(Boolean);
+          p.textContent = visible.slice(0, 5).join(' · ') || '저장됨';
           article.append(title, p);
           section.appendChild(article);
         });
