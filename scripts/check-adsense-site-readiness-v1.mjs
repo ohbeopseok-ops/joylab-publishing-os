@@ -6,6 +6,11 @@ const dist = path.join(root, 'dist');
 const siteOrigin = 'https://aijoylab.kr';
 const errors = [];
 const notices = [];
+const deployGeneratedConfigPath = path.join(root, 'config/deploy-generated-assets.json');
+const deployGeneratedAssets = fs.existsSync(deployGeneratedConfigPath)
+  ? JSON.parse(fs.readFileSync(deployGeneratedConfigPath, 'utf8')).assets || []
+  : [];
+const deployGeneratedPaths = new Map(deployGeneratedAssets.map((item) => [item.path, item]));
 
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -85,6 +90,13 @@ for (const file of htmlFiles) {
     if (!pathname) continue;
     checkedLinks += 1;
     if (candidates(pathname).some((candidate) => existing.has(candidate))) continue;
+    const deferred = deployGeneratedPaths.get(pathname);
+    if (deferred) {
+      if (deferred.sourceRouteMustBeNoindex && !hasNoindex(html)) {
+        errors.push('deploy-generated asset linked from indexable page: ' + sourceRoute + ' -> ' + pathname);
+      }
+      continue;
+    }
     const key = sourceRoute + ' -> ' + pathname;
     broken.set(key, (broken.get(key) || 0) + 1);
   }
@@ -171,6 +183,7 @@ for (const file of htmlFiles) {
 notices.push('HTML pages checked: ' + htmlFiles.length);
 notices.push('Internal links checked: ' + checkedLinks);
 notices.push('Broken internal links: ' + broken.size);
+notices.push('Declared deploy-generated assets: ' + deployGeneratedPaths.size);
 notices.push('Sitemap URLs: ' + sitemapRoutes.size);
 notices.push(
   'Sitemap/indexable build coverage: ' +
