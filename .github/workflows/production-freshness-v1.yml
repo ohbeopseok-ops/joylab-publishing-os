@@ -1,0 +1,60 @@
+name: Production Freshness Gate V1
+
+on:
+  workflow_run:
+    workflows: ["Deploy to Cloudflare Workers"]
+    types: [completed]
+  schedule:
+    - cron: '15 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  freshness:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+      DEPLOYED_AT: ${{ github.event.workflow_run.updated_at || github.event.repository.updated_at }}
+      GITHUB_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+    steps:
+      - name: Checkout deployment commit
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || 'main' }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build origin artifact
+        run: npm run build
+
+      - name: Compare Origin / CDN / Search Cache
+        run: npm run production:freshness
+
+      - name: Publish freshness summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f qa-artifacts/production-freshness-v1/report.md ]; then
+            cat qa-artifacts/production-freshness-v1/report.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload freshness report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: production-freshness-v1
+          path: qa-artifacts/production-freshness-v1
+          if-no-files-found: error
+          retention-days: 90
