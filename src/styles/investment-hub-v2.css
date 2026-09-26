@@ -17,3 +17,19 @@
   .investment-hub-v2 .sg-map__step{min-width:145px}
   .investment-hub-v2 .ih-thesis{font-size:.76rem}
 }
+
+.investment-hub-v2 .sg-map__step.is-emerging{opacity:.72}
+.investment-hub-v2 .sg-map__step.is-emerging:after{content:'BUILD';position:absolute;right:12px;top:10px;font-size:.62rem;font-weight:800;letter-spacing:.08em;color:rgba(255,216,61,.78)}
+.investment-hub-v2 .ih-thesis-section{margin-top:52px}
+.investment-hub-v2 .ih-thesis-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#dfe7f1;border:1px solid #dfe7f1}
+.investment-hub-v2 .ih-thesis-grid article{background:#fff;padding:22px;min-height:160px}
+.investment-hub-v2 .ih-thesis-grid article.is-gap{background:#f8f9fb}
+.investment-hub-v2 .ih-thesis-grid em{display:block;color:#1677ff;font-size:.72rem;font-weight:800;font-style:normal;letter-spacing:.08em}
+.investment-hub-v2 .ih-thesis-grid h3{margin:8px 0 8px;font-size:1rem;color:#10213c}
+.investment-hub-v2 .ih-thesis-grid p{margin:0;color:#64748b;font-size:.8rem;line-height:1.6}
+@media(max-width:900px){
+  .investment-hub-v2 .ih-thesis-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:640px){
+  .investment-hub-v2 .ih-thesis-grid{grid-template-columns:1fr}
+}
