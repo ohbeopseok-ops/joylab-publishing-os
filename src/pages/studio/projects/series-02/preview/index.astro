@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Preview | Series 02 | JoyLab Studio" description="JoyLab Studio multi-output preview" robots="noindex,follow" bodyClass="studio-preview-page">
+  <div class="wrap">
+    <header><div><p>MULTI OUTPUT PREVIEW</p><h1>Series 02</h1></div><a href="/studio/projects/series-02/">← Dashboard</a></header>
+    <nav><a href="/studio/projects/series-02/">Dashboard</a><a href="/studio/projects/series-02/validation/">Validation</a><a class="active" href="/studio/projects/series-02/preview/">Preview</a><a href="/studio/projects/series-02/export/">Export</a></nav>
+    <div class="tabs" role="tablist"><button class="active" data-view="mobile">Mobile</button><button data-view="tablet">Tablet</button><button data-view="desktop">Desktop</button><button data-view="epub">EPUB</button><button data-view="print">Print</button></div>
+    <section class="stage">
+      <div id="device" class="device mobile">
+        <div class="sheet"><small id="mode-label">MOBILE PREVIEW</small><h2>기억 부채 진단</h2><p>우리는 머릿속에 너무 많은 일을 저장한 채 일합니다.</p><div class="question"><b>오늘의 질문</b><span>지금 기억에만 의존하고 있는 업무는 무엇인가요?</span></div></div>
+      </div>
+    </section>
+    <p class="note">MVP Preview는 동일 원고가 출력 환경에 따라 어떻게 달라지는지 확인하는 시뮬레이션입니다.</p>
+  </div>
+  <script is:inline>
+    (()=>{const device=document.getElementById('device');const label=document.getElementById('mode-label');if(!(device instanceof HTMLElement)||!label)return;document.querySelectorAll('.tabs button').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');const view=btn.dataset.view||'mobile';device.className='device '+view;label.textContent=view.toUpperCase()+' PREVIEW'}));})();
+  </script>
+  <style>
+    .studio-preview-page{background:#f6f4ef;color:#17171a}.wrap{width:min(1180px,100%);margin:auto;padding:34px 20px 80px}header{display:flex;justify-content:space-between}header p{margin:0;color:#c8922d;font-size:12px;font-weight:850;letter-spacing:.12em}h1{margin:5px 0;font-size:36px}header a,nav a{color:#222;text-decoration:none;font-weight:800}nav{display:flex;gap:8px;overflow:auto;margin:20px 0}nav a{white-space:nowrap;padding:9px 13px;border-radius:999px;background:#fff;color:#666}nav .active{background:#17171a;color:#fff}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tabs button{border:1px solid #ddd5c8;background:#fff;border-radius:999px;padding:9px 14px;font-weight:800}.tabs .active{background:#d19b31;color:#fff;border-color:#d19b31}.stage{margin-top:18px;min-height:620px;border-radius:22px;background:#23252a;display:grid;place-items:center;padding:28px;overflow:auto}.device{transition:.2s ease;background:#f9f5ec;box-shadow:0 20px 50px rgba(0,0,0,.28);overflow:auto}.device.mobile{width:390px;max-width:100%;height:720px;border-radius:34px}.device.tablet{width:768px;max-width:100%;height:620px;border-radius:24px}.device.desktop{width:1000px;max-width:100%;height:560px;border-radius:12px}.device.epub{width:520px;max-width:100%;height:680px;border-radius:8px}.device.print{width:500px;max-width:100%;height:707px;border-radius:2px;background:#fff}.sheet{padding:38px}.sheet small{color:#b8872a;font-weight:800}.sheet h2{font-size:34px;letter-spacing:-.03em}.sheet p{font-size:18px;line-height:1.8}.question{margin-top:28px;padding:18px;border-radius:14px;background:#f3e8d5}.question b,.question span{display:block}.question span{margin-top:7px;line-height:1.6}.note{color:#777;line-height:1.6}@media(max-width:700px){header{display:block}header a{display:inline-block;margin-top:10px}.stage{min-height:540px;padding:14px}.device.mobile{height:650px}.sheet{padding:28px 22px}}
+  </style>
+</BaseLayout>
