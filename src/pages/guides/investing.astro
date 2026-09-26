@@ -6,36 +6,85 @@ import '../../styles/investment-hub-v2.css';
 const clusters = [
   {
     step: '01',
+    id: 'semiconductor',
     eyebrow: 'SEMICONDUCTOR',
     title: '반도체',
     href: '/guides/semiconductor-investing',
-    thesis: 'HBM → 메모리 사이클 → 수급 → 삼성전자·SK하이닉스 → 비교',
+    thesis: 'HBM → DRAM/NAND → CAPEX → 실적 → 삼성전자·SK하이닉스',
     note: 'AI 메모리와 업황 사이클을 기술·실적·수급으로 연결합니다.',
-    meta: '6 Core Research'
+    coverage: 20,
+    status: 'GREEN'
   },
   {
     step: '02',
-    eyebrow: 'AI POWER',
-    title: 'AI 전력',
-    href: '/guides/ai-power',
-    thesis: '발전 → 송전 → 변압 → 배전 → 백업전원 → 냉각 → 기업 비교',
-    note: 'AI 데이터센터의 전력 병목을 물리적 밸류체인과 한국 상장사 실적으로 연결합니다.',
-    meta: '6 Core + 5 Company'
+    id: 'ai-infrastructure',
+    eyebrow: 'AI INFRASTRUCTURE',
+    title: 'AI 인프라',
+    href: '/guides/ai-infrastructure',
+    thesis: 'Compute → Network → Optical → Power → Cooling → Data Center',
+    note: 'AI 전력을 더 큰 인프라 축으로 확장해 GPU 이후의 물리적 병목을 추적합니다.',
+    coverage: 25,
+    status: 'GREEN'
   },
   {
     step: '03',
-    eyebrow: 'SHIPBUILDING',
-    title: '조선',
+    id: 'shipbuilding-defense',
+    eyebrow: 'SHIPBUILDING & DEFENSE',
+    title: '조선·방산',
     href: '/guides/shipbuilding',
-    thesis: '선종 믹스 → 인도연도 → 생산성 → 마진 → 밸류에이션 → 4사 비교',
-    note: '수주잔고의 크기보다 수주의 질과 마진 전환 속도를 비교합니다.',
-    meta: '4 Company + 1 Compare'
+    thesis: 'LNG → 특수선 → 함정/MRO → 생산성 → 마진 → 비교',
+    note: '조선 슈퍼사이클에 특수선·방산·MRO 옵션을 함께 연결합니다.',
+    coverage: 5,
+    status: 'YELLOW'
+  },
+  {
+    step: '04',
+    id: 'mobility-robotics',
+    eyebrow: 'MOBILITY & ROBOTICS',
+    title: '자동차·로봇',
+    href: '#gap-mobility-robotics',
+    thesis: 'EV → SDV → 자율주행 → Robotics → Physical AI',
+    note: '현재 독립 투자 리서치가 없어 신규 구축이 필요한 영역입니다.',
+    coverage: 0,
+    status: 'RED'
+  },
+  {
+    step: '05',
+    id: 'financials-value-up',
+    eyebrow: 'FINANCIALS & VALUE-UP',
+    title: '금융·주주환원',
+    href: '#gap-financials-value-up',
+    thesis: 'ROE → 자본비율 → 배당 → 자사주 → PBR → Re-rating',
+    note: '현재 독립 투자 리서치가 없어 신규 구축이 필요한 영역입니다.',
+    coverage: 0,
+    status: 'RED'
+  },
+  {
+    step: '06',
+    id: 'energy-nuclear',
+    eyebrow: 'ENERGY & NUCLEAR',
+    title: '에너지·원전',
+    href: '#gap-energy-nuclear',
+    thesis: 'Gas → Nuclear/SMR → Grid → ESS → AI 전력 수요',
+    note: '두산에너빌리티·가스터빈 글은 있으나 독립 Cluster로는 아직 얇습니다.',
+    coverage: 2,
+    status: 'RED'
   }
+];
+
+const theses = [
+  { label: 'AI CAPEX Supercycle', count: 37, note: 'GPU·HBM·광통신·전력·냉각을 하나의 CAPEX 흐름으로 봅니다.' },
+  { label: 'Memory Supercycle', count: 16, note: 'HBM·DRAM·NAND의 공급·가격·이익 전환을 추적합니다.' },
+  { label: 'Power Supercycle', count: 11, note: '발전·송배전·변압·백업전원·냉각 병목을 연결합니다.' },
+  { label: 'Defense & Geopolitics', count: 8, note: '미·중 반도체 규제와 특수선·방산 수요를 함께 봅니다.' },
+  { label: 'Macro & Liquidity', count: 13, note: '미 국채·Fed·수급이 밸류에이션에 미치는 영향을 봅니다.' },
+  { label: 'Physical AI', count: 0, note: '자동차·로봇 Cluster와 함께 새로 구축할 Thesis입니다.' },
+  { label: 'Korea Value-up', count: 0, note: '금융·주주환원 Cluster와 함께 새로 구축할 Thesis입니다.' }
 ];
 ---
 <BaseLayout
-  title="투자 리서치 클러스터｜반도체·AI 전력·조선 | JoyLab"
-  description="JoyLab의 투자 리서치를 반도체, AI 전력, 조선 세 개의 Research Cluster로 연결해 산업 구조부터 기업 비교까지 한눈에 탐색합니다."
+  title="투자 리서치 클러스터｜6개 산업 × 투자 Thesis | JoyLab"
+  description="JoyLab 투자 리서치를 반도체, AI 인프라, 조선·방산, 자동차·로봇, 금융·주주환원, 에너지·원전 6개 산업과 투자 Thesis로 연결합니다."
   bodyClass="semiconductor-guide-v2 investment-hub-v2"
 >
   <section class="sg-hero ih-hero">
@@ -43,33 +92,33 @@ const clusters = [
       <div class="sg-hero__top">
         <div class="sg-hero__copy">
           <div class="sg-eyebrow">INVESTMENT RESEARCH · JOYLAB</div>
-          <h1>투자 리서치를<br /><span>클러스터로 읽습니다.</span></h1>
-          <p class="sg-hero__lead">뉴스와 종목을 흩어 보지 않습니다. <strong>반도체 / AI 전력 / 조선</strong> 세 축을 산업 구조 → 기업 실적 → 비교 판단으로 연결해, 어디서 시작하고 무엇을 다음에 확인할지 보여줍니다.</p>
+          <h1>산업과 Thesis를<br /><span>같이 읽습니다.</span></h1>
+          <p class="sg-hero__lead">뉴스와 종목을 흩어 보지 않습니다. <strong>6개 산업 Cluster × 7개 Investment Thesis</strong>로 연결해 자본이 어디로 이동하고, 어떤 기업의 실적으로 전환되는지 추적합니다.</p>
           <div class="sg-hero__chips" aria-label="투자 리서치 클러스터">
-            <span>#반도체</span><span>#AI전력</span><span>#조선</span><span>#CompanyResearch</span><span>#CompareHub</span>
+            <span>#반도체</span><span>#AI인프라</span><span>#조선방산</span><span>#PhysicalAI</span><span>#ValueUp</span><span>#에너지</span>
           </div>
           <div class="sg-hero__meta" aria-label="투자 리서치 구조">
-            <span><strong>3</strong> Research Clusters</span>
+            <span><strong>6</strong> Industry Clusters</span>
+            <span><strong>7</strong> Investment Theses</span>
             <span><strong>1</strong> Decision System</span>
-            <span><strong>4</strong> Step Method</span>
           </div>
         </div>
 
         <aside class="sg-lens" aria-label="JoyLab 투자 리서치 읽는 법">
           <div class="sg-lens__brand">JOYLAB<br /><b>INVESTING</b></div>
-          <div class="sg-lens__item"><em>01</em><div><b>산업 구조</b><span>병목·사이클·수요의 출발점을 먼저 봅니다.</span></div></div>
-          <div class="sg-lens__item"><em>02</em><div><b>기업 실적</b><span>수주·가격·CAPEX·마진으로 실제 수혜를 확인합니다.</span></div></div>
-          <div class="sg-lens__item"><em>03</em><div><b>상대 비교</b><span>같은 Lens로 기업을 비교해 프리미엄과 리스크를 나눕니다.</span></div></div>
+          <div class="sg-lens__item"><em>01</em><div><b>산업 구조</b><span>Value Chain과 병목을 먼저 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>투자 Thesis</b><span>산업을 넘어 같은 자본 흐름을 묶습니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>기업·KPI</b><span>CAPEX → Revenue → EPS → Valuation을 확인합니다.</span></div></div>
         </aside>
       </div>
 
       <div class="sg-map-head">
-        <div><span>START HERE</span><b>투자 Research Cluster</b></div>
-        <a href="#clusters">3개 클러스터 보기 →</a>
+        <div><span>START HERE</span><b>Investment Research Map</b></div>
+        <a href="#clusters">6개 클러스터 보기 →</a>
       </div>
       <nav class="sg-map ih-map" aria-label="투자 리서치 클러스터">
         {clusters.map((cluster, index) => (
-          <a class={`sg-map__step ${index === 0 ? 'is-start' : ''}`} href={cluster.href}>
+          <a class={`sg-map__step ${index === 0 ? 'is-start' : ''} ${cluster.status === 'RED' ? 'is-emerging' : ''}`} href={cluster.href}>
             <em>{cluster.step}</em><b>{cluster.title}</b><span>{cluster.eyebrow}</span>
           </a>
         ))}
@@ -81,52 +130,70 @@ const clusters = [
     <div class="sg-wrap sg-layout">
       <section>
         <div class="sg-section-head">
-          <div><div class="sg-eyebrow">RESEARCH CLUSTERS</div><h2>세 산업을 같은 판단 문법으로 읽습니다</h2></div>
-          <p>Pillar Guide에서 산업 구조를 잡고, Company Research에서 실적을 확인한 뒤, Compare Hub에서 상대 매력도를 정리합니다.</p>
+          <div><div class="sg-eyebrow">INDUSTRY CLUSTERS</div><h2>6개 산업을 같은 판단 문법으로 읽습니다</h2></div>
+          <p>Coverage는 2026-09-26 source metadata audit 기준입니다. 여러 산업에 걸친 글은 중복 집계합니다.</p>
         </div>
 
         <div class="sg-path ih-path">
           {clusters.map((cluster, index) => (
-            <article class={`sg-card ${index === 0 ? 'is-key' : ''}`}>
+            <article class={`sg-card ${index === 0 ? 'is-key' : ''}`} id={`gap-${cluster.id}`}>
               <div class="sg-card__no">{cluster.step}</div>
               <div>
                 <div class="sg-card__role">{cluster.eyebrow}</div>
                 <h3><a href={cluster.href}>{cluster.title} 투자 리서치</a></h3>
                 <p>{cluster.note}</p>
                 <div class="ih-thesis">{cluster.thesis}</div>
-                <div class="sg-card__foot"><span>{cluster.meta}</span><a class="sg-card__cta" href={cluster.href}>클러스터 열기 →</a></div>
+                <div class="sg-card__foot">
+                  <span>{cluster.coverage} Articles · {cluster.status}</span>
+                  <a class="sg-card__cta" href={cluster.href}>{cluster.status === 'RED' ? 'Content Gap 보기 →' : '클러스터 열기 →'}</a>
+                </div>
               </div>
             </article>
           ))}
         </div>
 
+        <section class="ih-thesis-section" aria-labelledby="ih-thesis-title">
+          <div class="sg-section-head sg-section-head--compact">
+            <div><div class="sg-eyebrow">THESIS EXPLORER</div><h2 id="ih-thesis-title">산업을 넘어 같은 자본 흐름을 연결합니다</h2></div>
+          </div>
+          <div class="ih-thesis-grid">
+            {theses.map((thesis) => (
+              <article class={thesis.count === 0 ? 'is-gap' : ''}>
+                <em>{String(thesis.count).padStart(2, '0')}</em>
+                <h3>{thesis.label}</h3>
+                <p>{thesis.note}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section class="sg-insights" aria-labelledby="ih-system-title">
           <div class="sg-section-head sg-section-head--compact">
-            <div><div class="sg-eyebrow">JOYLAB INVESTMENT SYSTEM</div><h2 id="ih-system-title">Pillar → Company → Compare</h2></div>
+            <div><div class="sg-eyebrow">RESEARCH MAP V1</div><h2 id="ih-system-title">Industry → Value Chain → Company → KPI → Research</h2></div>
           </div>
           <div class="sg-insights__grid">
-            <div><em>PILLAR</em><b>산업을 먼저 읽습니다</b><p>밸류체인·사이클·병목을 Research Map으로 연결합니다.</p></div>
-            <div><em>COMPANY</em><b>기업 실적으로 내려갑니다</b><p>수요 노출·수주 가시성·생산능력·마진·밸류에이션을 봅니다.</p></div>
-            <div><em>COMPARE</em><b>마지막에 상대 비교합니다</b><p>같은 Lens로 기업을 놓고 어떤 프리미엄이 정당한지 판단합니다.</p></div>
+            <div><em>INDUSTRY</em><b>산업 구조와 병목</b><p>사이클과 수요의 출발점을 먼저 잡습니다.</p></div>
+            <div><em>COMPANY + KPI</em><b>기업 실적으로 내려갑니다</b><p>CAPEX·가격·수주·마진·EPS Revision을 확인합니다.</p></div>
+            <div><em>RESEARCH</em><b>비교와 시나리오</b><p>Pillar·Company·Compare·Scenario를 같은 Taxonomy로 연결합니다.</p></div>
           </div>
         </section>
 
         <section class="sg-rule" aria-labelledby="ih-method-title">
-          <div class="sg-eyebrow">JOYLAB METHOD</div>
-          <h2 id="ih-method-title">Fact → Interpretation → Scenario → Action</h2>
+          <div class="sg-eyebrow">JOYLAB DECISION SYSTEM</div>
+          <h2 id="ih-method-title">CAPEX → Revenue → EPS → ROIC → Valuation → Price</h2>
           <div class="sg-rule__grid">
             <div class="sg-rule__step"><b>FACT</b><span>공시·실적·수주·가격을 확인합니다.</span></div>
-            <div class="sg-rule__step"><b>INTERPRETATION</b><span>숫자가 산업 구조에서 무엇을 뜻하는지 봅니다.</span></div>
-            <div class="sg-rule__step"><b>SCENARIO</b><span>Bull·Base·Bear 조건을 나눕니다.</span></div>
-            <div class="sg-rule__step"><b>ACTION</b><span>다음 재점검 조건을 남깁니다.</span></div>
+            <div class="sg-rule__step"><b>INTERPRETATION</b><span>산업 구조에서 숫자의 의미를 해석합니다.</span></div>
+            <div class="sg-rule__step"><b>SCENARIO</b><span>Bull·Base·Bear의 조건을 나눕니다.</span></div>
+            <div class="sg-rule__step"><b>ACTION</b><span>다음 재점검 KPI와 조건을 남깁니다.</span></div>
           </div>
         </section>
       </section>
 
       <aside class="sg-rail" aria-label="투자 리서치 시작점">
-        <section class="sg-rail-card sg-rail-card--dark"><small>START HERE</small><h3>처음이라면 반도체부터</h3><p>산업 사이클과 기업 비교가 가장 완성된 클러스터에서 JoyLab 투자 리서치 문법을 익힐 수 있습니다.</p><a href="/guides/semiconductor-investing">반도체 가이드 →</a></section>
-        <section class="sg-rail-card"><small>PHYSICAL BOTTLENECK</small><h3>AI 전력</h3><p>GPU 이후 병목이 발전·전력망·냉각으로 이동하는 흐름을 봅니다.</p><a href="/guides/ai-power">AI 전력 가이드 →</a></section>
-        <section class="sg-rail-card"><small>ORDER CYCLE</small><h3>조선</h3><p>고선가 수주가 인도와 마진으로 전환되는 시간축을 봅니다.</p><a href="/guides/shipbuilding">조선 가이드 →</a></section>
+        <section class="sg-rail-card sg-rail-card--dark"><small>DEEPEST CLUSTER</small><h3>AI 인프라 · 25편</h3><p>Compute에서 광통신·전력·냉각까지 현재 가장 넓은 Research Graph입니다.</p><a href="/guides/ai-infrastructure">AI 인프라 가이드 →</a></section>
+        <section class="sg-rail-card"><small>CORE CLUSTER</small><h3>반도체 · 20편</h3><p>HBM·메모리 사이클·삼성전자·SK하이닉스를 실적과 연결합니다.</p><a href="/guides/semiconductor-investing">반도체 가이드 →</a></section>
+        <section class="sg-rail-card"><small>BUILD NEXT</small><h3>Content Gap</h3><p>자동차·로봇 0편 / 금융·주주환원 0편 / 에너지·원전 2편입니다.</p><a href="#gap-mobility-robotics">Gap 확인 →</a></section>
       </aside>
     </div>
   </main>
