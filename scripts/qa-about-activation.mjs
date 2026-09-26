@@ -21,7 +21,10 @@ for (const viewport of viewports) {
   const pageErrors = [];
   page.on('pageerror', (error) => pageErrors.push(String(error)));
   page.on('console', (msg) => {
-    if (msg.type() === 'error') pageErrors.push(`console: ${msg.text()}`);
+    if (msg.type() !== 'error') return;
+    const message = msg.text();
+    const reportOnlyCsp = message.includes('[Report Only]') && message.includes('Content Security Policy');
+    if (!reportOnlyCsp) pageErrors.push(`console: ${message}`);
   });
 
   const response = await page.goto(`${baseURL}/about`, { waitUntil: 'networkidle' });

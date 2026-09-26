@@ -43,8 +43,11 @@ export function compose(rows, slug) {
 }
 
 export function diagnose(m) {
+  if (m.landingViews < 100) {
+    return ['COLLECT: Landing 100회 미만이라 퍼널 판정을 보류하고 기준선을 수집합니다.'];
+  }
+
   const notes = [];
-  if (m.landingViews < 100) notes.push('COLLECT: Landing 100회 미만이라 절대 판정보다 기준선 수집이 우선입니다.');
   if (m.rates.landingToPreview < 20) notes.push('CHECK HERO: Landing → Preview가 20% 미만입니다.');
   if (m.previewStarts > 0 && m.rates.previewToReader < 85) notes.push('CHECK ENTRY: Preview 클릭 후 Reader 진입률이 85% 미만입니다.');
   if (m.readerViews > 0 && m.rates.read25 < 60) notes.push('CHECK OPENING: 25% 도달률이 60% 미만입니다.');
@@ -106,6 +109,8 @@ function selfTest() {
     {event:'book_purchase_cta_click',count:5}
   ],'problem-to-service');
   if (m.rates.landingToPreview !== 30 || m.rates.read50 !== 54.5) throw new Error('self-test failed');
+  const lowSample = diagnose({ ...m, landingViews: 10 });
+  if (lowSample.length !== 1 || !lowSample[0].startsWith('COLLECT:')) throw new Error('sample gate self-test failed');
   console.log('Books Funnel Dashboard V1 self-test passed.');
 }
 
