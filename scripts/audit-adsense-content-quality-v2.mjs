@@ -159,6 +159,6 @@ const md=[
 fs.writeFileSync(path.join(outDir,'report.md'),md.join('\n')+'\n');
 
 console.log(JSON.stringify(summary));
-for (const r of priority.slice(0,30)) {
+for (const r of priority) {
   console.log(`${r.status} ${r.slug} :: ${r.signals.map(s=>s.type+':'+s.detail).join(' | ')}`);
 }
