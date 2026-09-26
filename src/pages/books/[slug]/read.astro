@@ -1,7 +1,10 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BookInteractiveLayer from '../../../components/books/BookInteractiveLayer.astro';
+import { getBookInteractions } from '../../../data/book-interactions';
 import { getCollection, render } from 'astro:content';
 import '../../../styles/book-reader.css';
+import '../../../styles/book-interactive.css';
 
 export async function getStaticPaths() {
   const books = (await getCollection('books')).filter((book) => !book.data.draft && !book.data.readerPath);
@@ -27,6 +30,7 @@ const renderedChapters = await Promise.all(
 const landingPath = `/books/${book.id}`;
 const canonical = new URL(landingPath, Astro.site ?? Astro.url.origin).toString();
 const storagePrefix = `joylab-book-${book.id}`;
+const interactiveChapters = getBookInteractions(book.id);
 ---
 
 <BaseLayout
@@ -141,6 +145,8 @@ const storagePrefix = `joylab-book-${book.id}`;
         </section>
       )}
     </main>
+
+    <BookInteractiveLayer bookSlug={book.id} storagePrefix={storagePrefix} interactions={interactiveChapters} />
 
     <footer class="book-reader-footer">
       <button id="book-prev-chapter" type="button">← 이전 장</button>
