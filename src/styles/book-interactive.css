@@ -92,3 +92,36 @@
   .book-interactive-source-summary{grid-template-columns:1fr}
   .book-interactive-object-grid{grid-template-columns:1fr}
 }
+
+.book-interactive-decision-grid{display:grid;gap:10px}
+.book-interactive-decision-card{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:13px;border:1px solid var(--reader-line);border-radius:14px;background:var(--reader-panel)}
+.book-interactive-decision-card>div:first-child{display:flex;flex-direction:column;gap:4px}
+.book-interactive-decision-card strong{font:900 .8rem/1.3 system-ui,sans-serif;color:var(--reader-text)}
+.book-interactive-decision-card small{font:600 .7rem/1.4 system-ui,sans-serif;color:var(--reader-muted)}
+.book-interactive-decision-card>div:last-child{display:flex;gap:6px;flex-shrink:0}
+.book-interactive-decision-card button{border:1px solid var(--reader-line);border-radius:999px;background:var(--reader-bg);color:var(--reader-text);padding:7px 9px;font:800 .68rem/1 system-ui,sans-serif;cursor:pointer}
+.book-interactive-decision-card button.is-selected{border-color:var(--reader-accent);background:var(--reader-accent);color:#fff}
+.book-interactive-decision-card button.is-discarded{border-color:#b85c5c;color:#b85c5c;text-decoration:line-through;background:color-mix(in srgb,#b85c5c 7%,var(--reader-panel))}
+.book-interactive-one-line{display:grid;grid-template-columns:1.4fr .9fr;gap:12px}
+.book-interactive-one-line label{display:flex;flex-direction:column;gap:7px;padding:13px;border:1px solid var(--reader-line);border-radius:14px;background:var(--reader-panel)}
+.book-interactive-one-line label>span{font:900 .62rem/1 system-ui,sans-serif;letter-spacing:.12em;color:var(--reader-accent)}
+.book-interactive-char-counter{align-self:flex-end;font:800 .68rem/1 system-ui,sans-serif;color:var(--reader-muted)}
+.book-interactive-char-counter.is-over{color:#b85c5c}
+.book-interactive-exact-choice{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.book-interactive-flow-option{display:flex;flex-direction:column;gap:5px;text-align:left;border:1px solid var(--reader-line);border-radius:13px;background:var(--reader-panel);color:var(--reader-text);padding:12px;cursor:pointer}
+.book-interactive-flow-option strong{font:900 .78rem/1.3 system-ui,sans-serif}
+.book-interactive-flow-option small{font:600 .68rem/1.4 system-ui,sans-serif;color:var(--reader-muted)}
+.book-interactive-flow-option.is-selected{border-color:var(--reader-accent);box-shadow:inset 0 0 0 1px var(--reader-accent);background:color-mix(in srgb,var(--reader-accent) 7%,var(--reader-panel))}
+.book-interactive-density-options{display:flex;flex-wrap:wrap;gap:7px}
+.book-interactive-density-options button{border:1px solid var(--reader-line);border-radius:999px;background:var(--reader-panel);color:var(--reader-text);padding:8px 11px;font:800 .72rem/1 system-ui,sans-serif;cursor:pointer}
+.book-interactive-density-options button.is-selected{border-color:var(--reader-accent);background:var(--reader-accent);color:#fff}
+.book-interactive-density-preview{display:grid;gap:6px;margin-top:12px;padding:12px;border:1px solid var(--reader-line);border-radius:14px;background:var(--reader-panel);max-height:250px;overflow:auto}
+.book-interactive-density-preview div{display:flex;gap:9px;align-items:center;padding:8px 9px;border-radius:9px;background:var(--reader-bg)}
+.book-interactive-density-preview b{display:grid;place-items:center;width:22px;height:22px;border-radius:999px;background:color-mix(in srgb,var(--reader-accent) 12%,var(--reader-panel));color:var(--reader-accent);font:900 .65rem/1 system-ui,sans-serif}
+.book-interactive-density-preview span{font:700 .73rem/1.4 system-ui,sans-serif;color:var(--reader-text)}
+.book-interactive-density-feedback{margin:9px 0!important;font:600 .75rem/1.55 system-ui,sans-serif!important;color:var(--reader-muted)}
+@media(max-width:640px){
+  .book-interactive-decision-card{align-items:flex-start;flex-direction:column}
+  .book-interactive-one-line{grid-template-columns:1fr}
+  .book-interactive-exact-choice{grid-template-columns:1fr}
+}
