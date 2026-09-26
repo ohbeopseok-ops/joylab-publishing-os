@@ -60,7 +60,9 @@
     "shortform:handoff": "node scripts/build-shortform-handoff.mjs",
     "content-identity:audit": "node scripts/check-content-identity-contract-v1.mjs",
     "production:freshness": "node scripts/check-production-freshness-v1.mjs",
-    "build-log:audit": "node scripts/check-build-log-v1.mjs"
+    "build-log:audit": "node scripts/check-build-log-v1.mjs",
+    "books-funnel:report": "node scripts/report-books-funnel.mjs",
+    "books-funnel:self-test": "node scripts/report-books-funnel.mjs --self-test"
   },
   "dependencies": {
     "astro": "^7.3.2"

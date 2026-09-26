@@ -80,7 +80,21 @@ if (mindmapTab.status !== 204) throw new Error(`book_mindmap_open tab expected 2
 const relatedResearch = await post({ event: 'book_related_research_click', target: 'why-we-cannot-stand-silence', placement: 'weight-of-silence', path: '/books/weight-of-silence' });
 if (relatedResearch.status !== 204) throw new Error(`book_related_research_click expected 204, got ${relatedResearch.status}`);
 
-if (writes.length !== 18) throw new Error(`Expected eighteen analytics writes, got ${writes.length}`);
+const bookLanding = await post({ event: 'book_landing_view', target: 'problem-to-service', placement: 'book_landing', path: '/books/problem-to-service' });
+if (bookLanding.status !== 204) throw new Error(`book_landing_view expected 204, got ${bookLanding.status}`);
+
+const bookReader = await post({ event: 'book_reader_view', target: 'problem-to-service', placement: 'book_reader', path: '/books/problem-to-service/read' });
+if (bookReader.status !== 204) throw new Error(`book_reader_view expected 204, got ${bookReader.status}`);
+
+for (const depth of [25, 50, 75, 100]) {
+  const response = await post({ event: `book_read_${depth}`, target: 'problem-to-service', placement: 'book_reader', path: '/books/problem-to-service/read' });
+  if (response.status !== 204) throw new Error(`book_read_${depth} expected 204, got ${response.status}`);
+}
+
+const bookPurchase = await post({ event: 'book_purchase_cta_click', target: 'problem-to-service', placement: 'book_closing_v2', path: '/books/problem-to-service' });
+if (bookPurchase.status !== 204) throw new Error(`book_purchase_cta_click expected 204, got ${bookPurchase.status}`);
+
+if (writes.length !== 25) throw new Error(`Expected twenty-five analytics writes, got ${writes.length}`);
 if (writes[1].blobs.join('|') !== 'social_click|threads|about|/about') throw new Error(`Unexpected About social payload: ${JSON.stringify(writes[1])}`);
 if (writes[2].blobs.join('|') !== 'social_click|x|footer|/') throw new Error(`Unexpected X social payload: ${JSON.stringify(writes[2])}`);
 if (writes[3].blobs.join('|') !== 'social_click|youtube|about|/about') throw new Error(`Unexpected YouTube social payload: ${JSON.stringify(writes[3])}`);
@@ -106,6 +120,6 @@ if (invalidExternalHomeTarget.status !== 400) throw new Error(`Expected external
 const invalidRssSocial = await post({ event: 'social_click', target: 'rss', placement: 'about', path: '/about' });
 if (invalidRssSocial.status !== 400) throw new Error(`Expected RSS social target 400, got ${invalidRssSocial.status}`);
 
-if (writes.length !== 18) throw new Error('Invalid events must not be written');
+if (writes.length !== 25) throw new Error('Invalid events must not be written');
 
 console.log('Click Analytics V3 worker contract passed.');
