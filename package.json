@@ -18,7 +18,7 @@
     "market-transmission:sync": "node scripts/sync-market-transmission.mjs",
     "market-transmission:self-test": "node scripts/sync-market-transmission.mjs --self-test",
     "learn-mode:self-test": "node scripts/check-treasury-learn-mode.mjs",
-    "prebuild": "node scripts/materialize-weight-of-silence-reader.mjs && node scripts/build-book-assets.mjs && node scripts/sync-treasury-structure.mjs && node scripts/sync-rates-timeseries.mjs && node scripts/update-treasury-risk-history.mjs && node scripts/sync-market-transmission.mjs && node scripts/check-treasury-learn-mode.mjs && node scripts/apply-curated-research-images.mjs",
+    "prebuild": "node scripts/check-build-log-v1.mjs && node scripts/materialize-weight-of-silence-reader.mjs && node scripts/build-book-assets.mjs && node scripts/sync-treasury-structure.mjs && node scripts/sync-rates-timeseries.mjs && node scripts/update-treasury-risk-history.mjs && node scripts/sync-market-transmission.mjs && node scripts/check-treasury-learn-mode.mjs && node scripts/apply-curated-research-images.mjs",
     "build": "astro build",
     "postbuild": "node scripts/build-distribution-mobile-pages.mjs",
     "preview": "astro preview",
@@ -59,7 +59,8 @@
     "home-slot:audit": "node scripts/check-home-content-slot-contract-v1.mjs",
     "shortform:handoff": "node scripts/build-shortform-handoff.mjs",
     "content-identity:audit": "node scripts/check-content-identity-contract-v1.mjs",
-    "production:freshness": "node scripts/check-production-freshness-v1.mjs"
+    "production:freshness": "node scripts/check-production-freshness-v1.mjs",
+    "build-log:audit": "node scripts/check-build-log-v1.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"

@@ -139,6 +139,46 @@
       send('contact_view', 'contact', 'page');
     }
 
+    const bookLandingMatch = location.pathname.match(/^\/books\/([^/]+)\/?$/);
+    const bookReaderMatch = location.pathname.match(/^\/books\/([^/]+)\/read\/?$/);
+    const bookLandingId = bookLandingMatch?.[1] ?? null;
+    const bookReaderId = bookReaderMatch?.[1] ?? null;
+
+    if (bookLandingId) {
+      send('book_landing_view', bookLandingId, 'book_landing');
+    }
+
+    if (bookReaderId) {
+      send('book_reader_view', bookReaderId, 'book_reader');
+
+      const sentDepths = new Set();
+      const readerContent = document.getElementById('book-reader-content');
+      const thresholds = [25, 50, 75, 100];
+
+      const bookDepth = () => {
+        if (!(readerContent instanceof HTMLElement)) return 0;
+        const top = readerContent.offsetTop;
+        const total = Math.max(1, readerContent.scrollHeight - innerHeight);
+        const progressed = Math.max(0, scrollY - top);
+        return Math.max(0, Math.min(100, (progressed / total) * 100));
+      };
+
+      const checkBookDepth = () => {
+        const depth = bookDepth();
+        for (const threshold of thresholds) {
+          const trigger = threshold === 100 ? 95 : threshold;
+          if (depth >= trigger && !sentDepths.has(threshold)) {
+            sentDepths.add(threshold);
+            send(`book_read_${threshold}`, bookReaderId, 'book_reader');
+          }
+        }
+      };
+
+      addEventListener('scroll', checkBookDepth, { passive: true });
+      addEventListener('pagehide', checkBookDepth, { once: true });
+      checkBookDepth();
+    }
+
     if (articleId) {
       send('article_view', articleId, 'article_page');
 
