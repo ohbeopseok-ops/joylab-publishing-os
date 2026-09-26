@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "healthThresholds": {
+    "greenMin": 8,
+    "yellowMin": 3
+  },
+  "industries": [
+    {"id":"semiconductor","label":"반도체","eyebrow":"SEMICONDUCTOR","href":"/guides/semiconductor-investing","status":"active"},
+    {"id":"ai-infrastructure","label":"AI 인프라","eyebrow":"AI INFRASTRUCTURE","href":"/guides/ai-infrastructure","status":"active"},
+    {"id":"shipbuilding-defense","label":"조선·방산","eyebrow":"SHIPBUILDING & DEFENSE","href":"/guides/shipbuilding","status":"active"},
+    {"id":"mobility-robotics","label":"자동차·로봇","eyebrow":"MOBILITY & ROBOTICS","href":"/guides/investing#gap-mobility-robotics","status":"emerging"},
+    {"id":"financials-value-up","label":"금융·주주환원","eyebrow":"FINANCIALS & VALUE-UP","href":"/guides/investing#gap-financials-value-up","status":"emerging"},
+    {"id":"energy-nuclear","label":"에너지·원전","eyebrow":"ENERGY & NUCLEAR","href":"/guides/investing#gap-energy-nuclear","status":"emerging"}
+  ],
+  "theses": [
+    {"id":"ai-capex","label":"AI CAPEX Supercycle"},
+    {"id":"memory-supercycle","label":"Memory Supercycle"},
+    {"id":"power-supercycle","label":"Power Supercycle"},
+    {"id":"physical-ai","label":"Physical AI"},
+    {"id":"defense-geopolitics","label":"Defense & Geopolitics"},
+    {"id":"korea-value-up","label":"Korea Value-up"},
+    {"id":"macro-liquidity","label":"Macro & Liquidity"}
+  ],
+  "industryRules": {
+    "semiconductor": ["(^|-)hbm","semiconductor","memory","cxmt","ymtc","samsung-electronics-outlook","samsung-xian","sk-hynix","what-is-hbm","ai-inference-hbm","ai-agent-hbm","us-rates-korea-semiconductor"],
+    "ai-infrastructure": ["ai-bubble-vs-compute","ai-data-center","ai-infrastructure","ai-network","ai-power","bess-ups-bbu","gpu-compute","hd-hyundai-electric","hyosung-heavy","korea-ai-power","ls-electric","optical-dsp","silicon-photonics","co-packaged-optics","submarine-cable","satellite-vs-submarine","how-submarine-cables"],
+    "shipbuilding-defense": ["shipbuilding","hanwha-ocean","hd-ksoe","hd-hyundai-heavy-industries","samsung-heavy-industries"],
+    "mobility-robotics": ["mobility","robot","automotive","hyundai-motor","sdv","autonomous"],
+    "financials-value-up": ["value-up","financial","bank","insurance","securities","dividend","buyback","kb-financial"],
+    "energy-nuclear": ["gas-turbine","doosan-enerbility","nuclear","smr","energy-nuclear"]
+  },
+  "thesisRules": {
+    "ai-capex": ["hbm","ai-bubble-vs-compute","ai-data-center","ai-infrastructure","ai-network","ai-power","bess-ups-bbu","gpu-compute","hd-hyundai-electric","hyosung-heavy","korea-ai-power","ls-electric","optical-dsp","silicon-photonics","co-packaged-optics","submarine-cable","satellite-vs-submarine","how-submarine-cables","samsung-electronics-outlook","sk-hynix"],
+    "memory-supercycle": ["hbm","memory","cxmt","ymtc","samsung-electronics-outlook","samsung-xian","sk-hynix","semiconductor-cycle"],
+    "power-supercycle": ["ai-power","bess-ups-bbu","hd-hyundai-electric","hyosung-heavy","korea-ai-power","ls-electric","doosan-enerbility","ai-data-center-cooling"],
+    "physical-ai": ["physical-ai","robot","mobility","autonomous","sdv"],
+    "defense-geopolitics": ["us-china","china-semiconductor","china-memory","hbm-us-china","hanwha-ocean","hd-hyundai-heavy-industries"],
+    "korea-value-up": ["value-up","dividend","buyback","kb-financial","bank","insurance","securities"],
+    "macro-liquidity": ["treasury","us-cpi","us-pce","us-ppi","us-jobs","retail-sales","us-economic-indicators","foreign-investor-flow","money-basics","us-rates"]
+  },
+  "companyRules": {
+    "Samsung Electronics": ["삼성전자","samsung-electronics","samsung-hbm4","samsung-xian","samsung-vs-sk-hynix","what-is-hbm","us-china-semiconductor-war","ymtc-nand-vs-samsung-sk-hynix","cxmt-dram-vs-samsung-sk-hynix"],
+    "SK hynix": ["SK하이닉스","sk-hynix","samsung-vs-sk-hynix","what-is-hbm","us-china-semiconductor-war","ymtc-nand-vs-samsung-sk-hynix","cxmt-dram-vs-samsung-sk-hynix"],
+    "CXMT": ["CXMT","cxmt"],
+    "YMTC": ["YMTC","ymtc"],
+    "LS ELECTRIC": ["LSELECTRIC","ls-electric"],
+    "HD Hyundai Electric": ["HD현대일렉트릭","hd-hyundai-electric"],
+    "Hyosung Heavy Industries": ["효성중공업","hyosung-heavy"],
+    "Doosan Enerbility": ["두산에너빌리티","doosan-enerbility"],
+    "Hanwha Ocean": ["한화오션","hanwha-ocean"],
+    "HD Hyundai Heavy Industries": ["HD현대중공업","hd-hyundai-heavy-industries"],
+    "HD KSOE": ["HD한국조선해양","hd-ksoe"],
+    "Samsung Heavy Industries": ["삼성중공업","samsung-heavy-industries"],
+    "OpenAI": ["OpenAI","openai"],
+    "Anthropic": ["Anthropic","anthropic"]
+  }
+}
