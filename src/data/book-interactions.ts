@@ -26,6 +26,30 @@ export type BookInteraction =
       title: string;
       description?: string;
       steps: string[];
+    }
+  | {
+      type: 'multiInput';
+      id: string;
+      title: string;
+      description?: string;
+      fields: Array<{ key: string; label: string; placeholder?: string }>;
+      completionMin?: number;
+    }
+  | {
+      type: 'scorecard';
+      id: string;
+      title: string;
+      description?: string;
+      items: Array<{ key: string; label: string; weight?: number }>;
+      bands: Array<{ min: number; label: string; feedback: string }>;
+    }
+  | {
+      type: 'canvas';
+      id: string;
+      title: string;
+      description?: string;
+      fields: Array<{ key: string; label: string; prompt: string; placeholder?: string }>;
+      completionMin?: number;
     };
 
 export type BookInteractionMap = Record<number, BookInteraction[]>;
@@ -69,23 +93,50 @@ const problemToService: BookInteractionMap = {
 const workToSystem: BookInteractionMap = {
   1: [
     {
-      type: 'reflection',
+      type: 'multiInput',
       id: 'memory-debt',
-      title: '기억 부채 찾기',
-      prompt: '“내가 머릿속으로 기억하고 있어서 굴러가는 일”을 세 가지 적어보세요.',
-      placeholder: '예: 누구에게 다시 확인해야 하는지, KPI 예외 이유, 어제 약속한 Follow-up'
+      title: '기억 부채 진단',
+      description: '“내가 머릿속으로 기억하고 있어서 굴러가는 일”을 최대 3개 적어보세요. 하나만 적어도 다음 단계로 갈 수 있습니다.',
+      completionMin: 1,
+      fields: [
+        { key: 'debt1', label: '기억 부채 1', placeholder: '예: 누구에게 다시 확인해야 하는지' },
+        { key: 'debt2', label: '기억 부채 2', placeholder: '예: KPI 예외 이유' },
+        { key: 'debt3', label: '기억 부채 3', placeholder: '예: 어제 약속한 Follow-up' }
+      ]
     }
   ],
   2: [
     {
-      type: 'checklist',
+      type: 'scorecard',
       id: 'externalize-memory',
-      title: '시스템 밖 기억 점검',
+      title: '기억 위험 점수',
+      description: '현재 업무에서 해당되는 항목을 체크하세요. 점수는 이 브라우저 안에서만 계산됩니다.',
       items: [
-        '다시 확인해야 할 날짜가 사람의 기억에만 남아 있다.',
-        '왜 숫자가 바뀌었는지 특정 사람만 알고 있다.',
-        '면담과 관찰 기록이 서로 다른 곳에 흩어져 있다.',
-        '업무 담당자가 바뀌면 맥락이 사라질 가능성이 있다.'
+        { key: 'followup-memory', label: '다시 확인해야 할 날짜가 사람의 기억에만 남아 있다.', weight: 1 },
+        { key: 'kpi-reason-memory', label: '왜 숫자가 바뀌었는지 특정 사람만 알고 있다.', weight: 1 },
+        { key: 'fragmented-records', label: '면담과 관찰 기록이 서로 다른 곳에 흩어져 있다.', weight: 1 },
+        { key: 'handover-loss', label: '업무 담당자가 바뀌면 맥락이 사라질 가능성이 있다.', weight: 1 }
+      ],
+      bands: [
+        { min: 0, label: 'LOW', feedback: '현재 기억 의존 위험은 낮습니다. 다만 반복 업무 한 가지는 시스템으로 옮겨보세요.' },
+        { min: 2, label: 'MEDIUM', feedback: '기억 부채가 운영 리스크로 바뀌기 시작한 상태입니다. Follow-up과 변경이력부터 구조화해보세요.' },
+        { min: 4, label: 'HIGH', feedback: '핵심 운영 맥락이 사람의 기억에 크게 의존하고 있습니다. 기록·Follow-up·변경이력 구조를 우선 설계하는 편이 좋습니다.' }
+      ]
+    }
+  ],
+  3: [
+    {
+      type: 'canvas',
+      id: 'persona0-moment',
+      title: 'Persona 0 Moment Canvas',
+      description: '가상의 사용자 프로필보다 “실제 일이 벌어지는 순간”을 적습니다. 5칸 중 4칸 이상 작성하면 Canvas가 완료됩니다.',
+      completionMin: 4,
+      fields: [
+        { key: 'who', label: 'WHO', prompt: '누가 이 일을 하나요?', placeholder: '예: 고객센터 현장 리더' },
+        { key: 'when', label: 'WHEN', prompt: '언제 가장 자주 발생하나요?', placeholder: '예: 상담 직후, 오후 운영 점검 전' },
+        { key: 'where', label: 'WHERE', prompt: '어떤 환경에서 일어나나요?', placeholder: '예: 현장을 이동하며 휴대폰으로' },
+        { key: 'urgent', label: 'URGENT', prompt: '그 순간 무엇이 가장 급한가요?', placeholder: '예: 생각이 사라지기 전에 20초 안에 기록' },
+        { key: 'next', label: 'NEXT', prompt: '기록 후 다음 행동은 무엇인가요?', placeholder: '예: 오늘 다시 보기 또는 Follow-up 지정' }
       ]
     }
   ],
