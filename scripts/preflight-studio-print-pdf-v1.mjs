@@ -30,12 +30,17 @@ for(let page=1;page<=pages;page++){
 const fonts=execFileSync('pdffonts',[pdf],{encoding:'utf8'}).trim().split('\n').slice(2).filter(Boolean);
 if(!fonts.length) throw new Error('No fonts reported by pdffonts');
 const unembedded=[];
+const unparsable=[];
 for(const row of fonts){
-  const parts=row.trim().split(/\s+/);
-  if(parts.length<7) continue;
-  const emb=parts[3];
+  const match=row.match(/\s+(yes|no)\s+(yes|no)\s+(yes|no)\s+\d+\s+\d+\s*$/i);
+  if(!match){
+    unparsable.push(row);
+    continue;
+  }
+  const emb=match[1].toLowerCase();
   if(emb!=='yes') unembedded.push(row);
 }
+if(unparsable.length) throw new Error('Could not parse pdffonts rows:\n'+unparsable.join('\n'));
 if(unembedded.length) throw new Error('Unembedded fonts:\n'+unembedded.join('\n'));
 
 console.log('Studio PDF Preflight V1 PASS · pages='+pages+' · fonts='+fonts.length+' · bytes='+bytes.length);
