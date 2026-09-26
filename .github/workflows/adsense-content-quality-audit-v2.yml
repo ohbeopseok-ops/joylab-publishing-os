@@ -1,0 +1,32 @@
+name: AdSense Content Quality Audit V2
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'scripts/audit-adsense-content-quality-v2.mjs'
+      - '.github/workflows/adsense-content-quality-audit-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Run full content audit
+        run: node scripts/audit-adsense-content-quality-v2.mjs
+      - name: Upload audit
+        uses: actions/upload-artifact@v6
+        with:
+          name: adsense-content-quality-audit-v2
+          path: qa-artifacts/adsense-content-quality-audit-v2
+          if-no-files-found: error
+          retention-days: 30
