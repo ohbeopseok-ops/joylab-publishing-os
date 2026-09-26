@@ -84,3 +84,24 @@ JoyLab은 다음 흐름으로 정리합니다.
 - [YMTC 공식 제품 페이지](https://www.ymtc.com/en/products.html)
 - [삼성전자 실적발표](https://www.samsung.com/global/ir/financial-information/earnings-release/)
 - [SK하이닉스 IR](https://www.skhynix.com/ir/UI-FR-IR99/)
+
+## 2026년 규제를 읽을 때 달라진 점
+
+미국 BIS의 대중국 반도체 규제는 “전면 금지”라는 한 문장으로 설명하기 어렵습니다. 2022년 규정은 첨단 컴퓨팅과 특정 반도체 제조능력에 대한 통제를 강화했고, 2024년에는 반도체 제조장비 24종과 관련 소프트웨어, HBM에 대한 통제가 추가됐습니다. 이후 규정은 허가 범위와 적용 방식이 계속 조정되고 있습니다.
+
+2026년 1월 BIS는 NVIDIA H200, AMD MI325X 및 유사 제품에 대해 일정한 보안·준수 요건을 충족하면 중국 수출허가 신청을 **case-by-case**로 심사하도록 정책을 수정했습니다. 이는 규제가 사라졌다는 뜻이 아니라, 제품·고객·용도·준수조건에 따라 허가정책이 세분화되고 있다는 의미입니다.
+
+### 투자자가 볼 연결고리
+
+**규정 변경 → 판매 가능 제품 → 중국 고객 접근성 → 공급량·가격 → 삼성전자·SK하이닉스 HBM·DRAM 수요** 순서로 봐야 합니다. 정책 뉴스만으로 실적 방향을 단정하지 않고 실제 출하와 제품 믹스 변화를 확인하는 것이 중요합니다.
+
+## 추가 1차 자료
+
+- [BIS, 2026-01-13 중국향 반도체 라이선스 심사정책 수정](https://www.bis.gov/press-release/department-commerce-revises-license-review-policy-semiconductors-exported-china)
+- [BIS, EAR Part 742 현행 규정](https://www.bis.gov/regulations/ear/742)
+
+## Research Hub
+
+- [반도체 투자 가이드](/guides/semiconductor-investing)
+
+- [AI 추론 시대 메모리 투자 가이드](/guides/ai-inference-memory)

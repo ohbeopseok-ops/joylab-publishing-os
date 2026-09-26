@@ -77,3 +77,28 @@ HBM 경쟁은 네 층으로 나눠 보면 이해가 쉽습니다.
 ### 추가 검증 기준
 HBM 관련 판단은 기술 발표보다 실제 고객 인증, 공급량, 가격, 이익 추정치가 같은 방향으로 움직이는지 확인합니다. 한 지표만 좋아졌을 때는 추세로 단정하지 않고 다음 분기 실적과 공급계획에서 다시 검증합니다.
 추가로 분기별 고객 인증과 실제 매출 인식 시점을 맞춰 보면 HBM 기대가 실적으로 전환되는 속도를 더 정확하게 판단할 수 있습니다.
+
+## HBM 규제는 AI 칩 규제와 어떻게 연결되는가
+
+HBM은 GPU와 별개 부품이지만 대규모 AI 연산에서는 연산칩의 성능을 실제로 끌어내는 핵심 메모리입니다. BIS는 2024년 규제 패키지에서 HBM을 별도 통제 대상으로 추가했고, 현행 EAR Part 742에는 특정 HBM 품목의 중국·마카오 등 대상지 수출·재수출·이전에 라이선스가 요구되는 구조가 명시돼 있습니다.
+
+따라서 AI 칩 규제 변화는 HBM 수요에도 영향을 줄 수 있지만 일대일 관계는 아닙니다. 어떤 GPU가 허가되는지, 해당 GPU에 필요한 HBM 규격과 용량이 무엇인지, 중국 내 AI 인프라 투자가 실제 출하로 이어지는지를 함께 봐야 합니다. 2026년 1월 BIS가 H200·MI325X 등 일부 첨단칩의 중국향 라이선스를 조건부 case-by-case 심사로 바꾼 것도 이런 세분화의 사례입니다.
+
+### 삼성전자·SK하이닉스 관점 체크포인트
+
+- 허가 가능한 AI 칩 범위 변화
+- GPU당 HBM 탑재량 변화
+- HBM 세대별 수율과 공급능력
+- 중국향 직접·간접 수요 비중
+- 규제 변화가 실제 주문으로 연결되는 시차
+
+## 추가 1차 자료
+
+- [BIS, 2024-12-02 HBM 포함 첨단 반도체 통제 강화](https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military)
+- [BIS, EAR Part 742](https://www.bis.gov/regulations/ear/742)
+
+## Research Hub
+
+- [반도체 투자 가이드](/guides/semiconductor-investing)
+
+- [AI 추론 시대 메모리 투자 가이드](/guides/ai-inference-memory)

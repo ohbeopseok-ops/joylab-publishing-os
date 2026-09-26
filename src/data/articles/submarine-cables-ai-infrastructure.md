@@ -132,3 +132,24 @@ GPU가 많아질수록 HBM이 필요하고, 서버가 늘수록 전력과 냉각
 - ITU, Global Connectivity Report 2025: https://www.itu.int/itu-d/reports/statistics/global-connectivity-report-2025/
 - Google Cloud, Global Network Infrastructure: https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/google-network
 - Google Cloud, Sol transatlantic cable: https://cloud.google.com/blog/products/infrastructure/announcing-sol-transatlantic-cable
+
+## AI 시대에는 ‘케이블 수’보다 리전 간 용량이 중요하다
+
+AI 인프라에서 해저케이블을 볼 때 단순히 신규 케이블 개수만 세면 실제 수요를 놓치기 쉽습니다. 중요한 것은 **어떤 클라우드 리전과 데이터센터 캠퍼스를 연결하고, 그 경로에 얼마나 많은 유효 용량과 우회 경로가 확보되는가**입니다. 모델 학습 데이터, 백업, 분산 추론, 콘텐츠 전송이 늘수록 리전 간 트래픽의 질과 안정성이 중요해집니다.
+
+또한 AI 트래픽은 모든 구간에 같은 영향을 주지 않습니다. 초대형 클라우드 사업자는 자체 국제망과 전용 용량을 확대할 수 있고, 통신사업자는 기존 백본과 신규 케이블의 경제성을 비교합니다. 투자 관점에서는 케이블 건설 발표보다 실제 용량 예약, 육양국 연결, 데이터센터 리전 확장, 반복 증설 여부를 확인해야 합니다.
+
+### AI 네트워크 체크리스트
+
+- 연결되는 주요 클라우드 리전
+- 설계용량과 실제 활성화 용량
+- 하이퍼스케일러의 직접 투자 비중
+- 육양국에서 데이터센터까지의 terrestrial backhaul
+- 장애 시 우회 가능한 대체 경로
+- 신규 AI 캠퍼스와 케이블 증설 시점의 일치 여부
+
+이 기준을 사용하면 “AI 때문에 해저케이블이 중요하다”는 서사를 넘어, **어떤 노선과 사업모델이 실제 트래픽 증가를 수익으로 바꾸는지** 구분할 수 있습니다.
+
+## 투자 서사와 실제 수익을 분리하는 질문
+
+케이블 수요가 증가해도 모든 사업자가 같은 경제적 이익을 얻는 것은 아닙니다. 신규 케이블의 소유구조, 장기 용량계약, 하이퍼스케일러 자체망 비중, 육양국과 백홀 비용을 확인해야 합니다. 결국 투자 관점에서 중요한 것은 트래픽 증가 그 자체보다 **그 증가가 반복 가능한 용량 판매와 네트워크 자산 수익률로 전환되는가**입니다.

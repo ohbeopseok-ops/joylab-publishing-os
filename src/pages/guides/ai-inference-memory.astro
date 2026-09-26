@@ -14,7 +14,12 @@ const sequence = [
   { id: 'sk-hynix-outlook', step: '08', role: 'COMPANY', short: 'SK hynix', note: 'HBM4·CAPEX·수익성의 연결을 추적합니다.' },
   { id: 'samsung-vs-sk-hynix-ai-memory', step: '09', role: 'COMPARE', short: 'Compare', note: '삼성전자와 SK하이닉스를 같은 기준으로 비교합니다.' },
   { id: 'cxmt-dram-vs-samsung-sk-hynix', step: '10', role: 'CHINA DRAM', short: 'CXMT', note: '중국 DRAM 공급 확대가 범용 메모리 가격과 경쟁구도에 미치는 영향을 봅니다.' },
-  { id: 'ymtc-nand-vs-samsung-sk-hynix', step: '11', role: 'CHINA NAND', short: 'YMTC', note: 'AI 저장장치 시대 NAND·Enterprise SSD 경쟁을 따로 봅니다.' }
+  { id: 'ymtc-nand-vs-samsung-sk-hynix', step: '11', role: 'CHINA NAND', short: 'YMTC', note: 'AI 저장장치 시대 NAND·Enterprise SSD 경쟁을 따로 봅니다.' },
+  { id: 'cxmt-ymtc-memory-oversupply', step: '12', role: 'SUPPLY', short: 'Oversupply', note: '중국 메모리 증설이 실제 DRAM·NAND 가격 압력으로 전환되는 조건을 봅니다.' },
+  { id: 'hbm-us-china-ai-chip-war', step: '13', role: 'POLICY', short: 'HBM Control', note: 'AI 칩 수출통제와 HBM 라이선스 정책이 메모리 수요에 미치는 영향을 연결합니다.' },
+  { id: 'samsung-xian-vs-sk-hynix-wuxi', step: '14', role: 'CHINA FAB', short: 'China Fabs', note: '삼성 시안·SK하이닉스 우시의 운영·업그레이드 리스크를 비교합니다.' },
+  { id: 'us-china-chip-export-control-timeline', step: '15', role: 'POLICY', short: 'Timeline', note: '2022~2026 미국 수출통제 변화와 메모리 공급망 영향을 추적합니다.' },
+  { id: 'us-china-semiconductor-war', step: '16', role: 'POLICY', short: 'US-China', note: '미·중 반도체 규제가 제품·장비·메모리 수요로 전달되는 경로를 봅니다.' }
 ];
 
 const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
