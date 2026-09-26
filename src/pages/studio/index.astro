@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="JoyLab Studio | Interactive Publishing Studio"
+  description="원고 하나에서 전자책·종이책·인터랙티브 북까지 연결하는 JoyLab Studio."
+  robots="noindex,follow"
+  bodyClass="joylab-studio-landing"
+>
+  <div class="landing-shell">
+    <section class="landing-hero">
+      <p class="eyebrow">INTERACTIVE PUBLISHING STUDIO</p>
+      <h1>원고 하나에서<br /><strong>전자책·종이책·인터랙티브 북</strong>까지</h1>
+      <p class="lead">복잡했던 출판 제작 과정을 하나의 흐름으로 연결하고,<br />콘텐츠를 독자의 행동까지 이어지는 경험으로 확장합니다.</p>
+      <div class="hero-actions">
+        <a class="primary" href="/studio/demo/">Series 02 데모 보기</a>
+        <a class="secondary" href="/studio/projects/series-02/">Studio 열기</a>
+      </div>
+      <div class="editorial-scene" aria-label="책과 디지털 리더를 함께 보여주는 JoyLab Studio 개념 이미지">
+        <div class="paper paper-a"></div>
+        <div class="paper paper-b"></div>
+        <div class="book"><span>JOYLAB</span><b>STUDIO</b></div>
+        <div class="tablet"><div><span>Interactive Book</span><b>READ → THINK → RECORD → ACT</b></div></div>
+      </div>
+      <p class="micro">작가·기획자·브랜드를 위한 인터랙티브 출판 스튜디오 · JOYLAB</p>
+    </section>
+
+    <section class="landing-section pain">
+      <p class="eyebrow">PUBLISHING WORKFLOW PAIN</p>
+      <h2>책 한 권 만들 때마다<br /><mark>끝없는 수정과 재작업</mark>에<br />지치셨나요?</h2>
+      <div class="bubble-row"><span>원고 수정마다 전자책과 인쇄본을 다시 수정</span></div>
+      <div class="bubble-row right"><span>EPUB·PDF·웹 콘텐츠가 서로 다른 버전</span></div>
+      <div class="bubble-row"><span>출판 후 독자의 행동 흐름은 따로 설계</span></div>
+    </section>
+
+    <section class="landing-section paradigm">
+      <p class="eyebrow">THE NEW PARADIGM</p>
+      <h2>원고 하나만 관리하세요.<br />전자책과 종이책,<br /><strong>인터랙티브 북이 함께 완성됩니다.</strong></h2>
+      <p>원고 → 구조화 → 인터랙션 → 검증 → 멀티 출력의 흐름을 하나의 Studio에 담습니다.</p>
+    </section>
+
+    <section class="landing-section principles">
+      <p class="eyebrow">CORE PRINCIPLES</p>
+      <h2>JoyLab Studio를 선택하는 <strong>4가지 이유</strong></h2>
+      <div class="principle-grid">
+        <article><b>01</b><h3>원고 하나 → 멀티 출력</h3><p>EPUB·Print PDF·Interactive Web·Web Preview를 하나의 원본에서 관리합니다.</p></article>
+        <article><b>02</b><h3>도서 구조 전체 통합</h3><p>표지·목차·본문·저자·메타데이터와 인터랙션을 한 프로젝트에서 관리합니다.</p></article>
+        <article><b>03</b><h3>출판 전에 검증</h3><p>모바일 overflow, 내부 링크, 메타데이터, 출력 상태를 제작 중 점검합니다.</p></article>
+        <article><b>04</b><h3>읽기에서 실행까지</h3><p>질문·체크·메모·액션을 책 안에 넣어 독자의 행동 흐름까지 설계합니다.</p></article>
+      </div>
+    </section>
+
+    <section class="landing-section compare">
+      <p class="eyebrow">OLD VS JOYLAB</p>
+      <h2>기존 출판 방식 <span>VS</span> JoyLab Studio</h2>
+      <div class="compare-table">
+        <div><span>전자책·종이책·웹을 각각 제작</span><strong>단일 원고로 멀티 출력 관리</strong></div>
+        <div><span>수정 때마다 버전별 재편집</span><strong>원고 수정 → 연결 결과물 일관성 유지</strong></div>
+        <div><span>출판 후 행동 설계가 분리</span><strong>질문·기록·실행을 콘텐츠 내부에 통합</strong></div>
+      </div>
+    </section>
+
+    <section class="landing-section feature">
+      <p class="eyebrow pill">STUDIO FEATURE 01</p>
+      <h2>프로젝트 대시보드에서<br /><strong>원고·인터랙션·출력 상태</strong>를 함께 봅니다.</h2>
+      <div class="studio-preview">
+        <div class="preview-nav"><b>Series 02</b><span>Dashboard</span><span>Manuscript</span><span>Interactive</span></div>
+        <div class="preview-cards">
+          <article><small>CHAPTERS</small><b>15</b></article>
+          <article><small>INTERACTIVE</small><b>3 READY</b></article>
+          <article><small>OUTPUT</small><b>WEB READY</b></article>
+        </div>
+      </div>
+      <div class="feature-actions">
+        <a class="primary" href="/studio/projects/series-02/">Project Dashboard</a>
+        <a class="secondary" href="/studio/demo/">Interactive Demo</a>
+      </div>
+    </section>
+  </div>
+
+  <style>
+    .joylab-studio-landing{background:#fbfaf6;color:#17171a}.landing-shell{width:min(100%,1040px);margin:0 auto;padding:56px 20px 100px}.landing-hero,.landing-section{text-align:center}.landing-hero{padding:36px 0 90px}.eyebrow{margin:0 0 18px;color:#c8932d;font-size:14px;font-weight:850;letter-spacing:.1em}.landing-hero h1,.landing-section h2{margin:0;letter-spacing:-.045em;word-break:keep-all}.landing-hero h1{font-size:clamp(38px,7vw,68px);line-height:1.14}.landing-hero h1 strong,.landing-section h2 strong{color:#d19b31}.lead{margin:24px auto 0;max-width:720px;color:#6f6a64;font-size:18px;line-height:1.8}.hero-actions,.feature-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:26px}.primary,.secondary{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:800;text-decoration:none}.primary{background:#17171a;color:#fff}.secondary{border:1px solid #dcd5c9;background:#fff;color:#2a2927}.editorial-scene{position:relative;height:420px;margin:42px auto 0;border-radius:28px;overflow:hidden;background:linear-gradient(145deg,#e9ddc8,#c9b89b);box-shadow:0 24px 60px rgba(50,40,25,.12)}.paper{position:absolute;background:#f4eddf;box-shadow:0 8px 20px rgba(0,0,0,.08)}.paper-a{width:34%;height:48%;left:5%;top:18%;transform:rotate(-8deg)}.paper-b{width:30%;height:38%;right:8%;top:10%;transform:rotate(8deg)}.book{position:absolute;left:20%;bottom:11%;width:30%;height:58%;border-radius:6px;background:#292a2d;color:#d5ad59;box-shadow:0 18px 30px rgba(0,0,0,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;letter-spacing:.14em}.book b{font-size:32px}.tablet{position:absolute;right:13%;bottom:14%;width:28%;height:46%;border:10px solid #1f2023;border-radius:18px;background:#f7f2e8;box-shadow:0 16px 28px rgba(0,0,0,.22);display:grid;place-items:center}.tablet div{padding:14px}.tablet span,.tablet b{display:block}.tablet span{color:#8c7650;font-size:13px}.tablet b{margin-top:14px;font-size:16px;line-height:1.5}.micro{margin-top:22px;color:#77716a;font-weight:700}.landing-section{padding:92px 0}.landing-section h2{font-size:clamp(34px,6vw,54px);line-height:1.18}.pain mark{background:#17171a;color:#fff;border-radius:10px;padding:2px 10px}.bubble-row{display:flex;margin:26px 0 0}.bubble-row.right{justify-content:flex-end}.bubble-row span{display:inline-block;padding:18px 22px;border-radius:16px;background:#e9e9e9;font-weight:750}.paradigm p{max-width:700px;margin:22px auto 0;color:#85817c;font-size:18px;line-height:1.75}.principle-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:36px;text-align:left}.principle-grid article{padding:26px;border:1px solid #ebe6de;border-radius:22px;background:#fff}.principle-grid article>b{display:inline-block;padding:7px 10px;border-radius:9px;background:#f6efe2;color:#c9922e}.principle-grid h3{margin:14px 0 8px;font-size:22px}.principle-grid p{margin:0;color:#76716b;line-height:1.65}.compare h2 span{display:inline-block;margin:0 12px;color:#c9922e}.compare-table{display:grid;gap:14px;margin-top:34px}.compare-table div{display:grid;grid-template-columns:1fr 1fr;border-radius:16px;overflow:hidden;background:#fff}.compare-table span,.compare-table strong{padding:22px}.compare-table span{background:#ececef;color:#777}.compare-table strong{background:#f7f1e6;color:#8a611a}.pill{display:inline-block;padding:9px 16px;border-radius:999px;background:#f6efe2}.studio-preview{margin-top:32px;padding:20px;border-radius:22px;background:#191a1e;color:#fff;text-align:left}.preview-nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.preview-nav span{color:#aaa}.preview-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.preview-cards article{padding:22px;border-radius:16px;background:#282a30}.preview-cards small,.preview-cards b{display:block}.preview-cards small{color:#aaa}.preview-cards b{margin-top:8px;font-size:22px;color:#e7be64}@media(max-width:640px){.landing-shell{padding-top:24px}.landing-hero{padding-bottom:68px}.editorial-scene{height:320px}.book{left:10%;width:40%;height:56%}.tablet{right:8%;width:36%;height:44%}.principle-grid{grid-template-columns:1fr}.compare-table div{grid-template-columns:1fr}.preview-cards{grid-template-columns:1fr}.bubble-row,.bubble-row.right{justify-content:center}.landing-section{padding:70px 0}}@media(max-width:390px){.landing-shell{padding-left:18px;padding-right:18px}.editorial-scene{height:280px}.book b{font-size:24px}.tablet{border-width:7px}.tablet b{font-size:13px}}
+  </style>
+</BaseLayout>

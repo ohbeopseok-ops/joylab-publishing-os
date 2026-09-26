@@ -1,0 +1,30 @@
+name: JoyLab Studio Gate V1
+
+on:
+  pull_request:
+    paths:
+      - 'src/pages/studio/**'
+      - 'src/lib/studio/**'
+      - 'src/data/studio/**'
+      - 'config/contracts/interactive-block-v1.schema.json'
+      - 'scripts/check-studio-mvp-v1.mjs'
+      - '.github/workflows/studio-mvp-gate-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  studio-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.19.0'
+          cache: npm
+      - run: npm ci
+      - name: JoyLab Studio Gate V1
+        run: npm run studio:gate
+      - name: Astro build
+        run: npm run build

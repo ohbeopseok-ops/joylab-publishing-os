@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aijoylab.kr/contracts/interactive-block-v1.schema.json",
+  "title": "JoyLab Interactive Block Contract V1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract", "bookSlug", "title", "storageKey", "privacy", "blocks"],
+  "properties": {
+    "contract": { "const": "JoyLab Interactive Block Contract V1" },
+    "bookSlug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "type": "string", "minLength": 1 },
+    "storageKey": {
+      "type": "string",
+      "pattern": "^joylab-[a-z0-9-]+-workbook-v[0-9]+$"
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["storage", "sendResponsesToServer", "piiWarning"],
+      "properties": {
+        "storage": { "const": "localStorage" },
+        "sendResponsesToServer": { "const": false },
+        "piiWarning": { "type": "string", "minLength": 1 }
+      }
+    },
+    "blocks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "oneOf": [
+          { "$ref": "#/$defs/selfAssessment" },
+          { "$ref": "#/$defs/riskScore" },
+          { "$ref": "#/$defs/personaCanvas" }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "base": {
+      "type": "object",
+      "required": ["id", "chapterId", "type", "title", "prompt", "version"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "chapterId": { "type": "string", "pattern": "^chapter-[0-9]{2}$" },
+        "title": { "type": "string", "minLength": 1 },
+        "prompt": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" },
+        "required": { "type": "boolean" },
+        "saveResponse": { "type": "boolean" },
+        "version": { "const": 1 }
+      }
+    },
+    "option": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "label"],
+      "properties": {
+        "value": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "score": { "type": "number" }
+      }
+    },
+    "assessmentQuestion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "kind"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["singleChoice", "text"] },
+        "required": { "type": "boolean" },
+        "options": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/option" }
+        },
+        "placeholder": { "type": "string" }
+      }
+    },
+    "resultBand": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "min", "max", "message"],
+      "properties": {
+        "id": { "type": "string" },
+        "label": { "type": "string" },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "message": { "type": "string" }
+      }
+    },
+    "selfAssessment": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "questions", "resultBands"],
+          "properties": {
+            "id": true,
+            "chapterId": true,
+            "title": true,
+            "prompt": true,
+            "description": true,
+            "required": true,
+            "saveResponse": true,
+            "version": true,
+            "type": { "const": "self_assessment" },
+            "questions": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/assessmentQuestion" }
+            },
+            "resultBands": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/resultBand" }
+            }
+          }
+        }
+      ]
+    },
+    "riskScore": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "scale", "items", "thresholds"],
+          "properties": {
+            "id": true,
+            "chapterId": true,
+            "title": true,
+            "prompt": true,
+            "description": true,
+            "required": true,
+            "saveResponse": true,
+            "version": true,
+            "type": { "const": "risk_score" },
+            "scale": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["min", "max"],
+              "properties": {
+                "min": { "type": "integer" },
+                "max": { "type": "integer" },
+                "step": { "type": "number", "exclusiveMinimum": 0 }
+              }
+            },
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["id", "label"],
+                "properties": {
+                  "id": { "type": "string" },
+                  "label": { "type": "string" },
+                  "weight": { "type": "number", "exclusiveMinimum": 0 }
+                }
+              }
+            },
+            "thresholds": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/resultBand" }
+            }
+          }
+        }
+      ]
+    },
+    "personaCanvas": {
+      "allOf": [
+        { "$ref": "#/$defs/base" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "fields"],
+          "properties": {
+            "id": true,
+            "chapterId": true,
+            "title": true,
+            "prompt": true,
+            "description": true,
+            "required": true,
+            "saveResponse": true,
+            "version": true,
+            "type": { "const": "persona_canvas" },
+            "fields": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["id", "label"],
+                "properties": {
+                  "id": { "type": "string" },
+                  "label": { "type": "string" },
+                  "placeholder": { "type": "string" },
+                  "required": { "type": "boolean" },
+                  "maxLength": { "type": "integer", "minimum": 1, "maximum": 1000 }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
