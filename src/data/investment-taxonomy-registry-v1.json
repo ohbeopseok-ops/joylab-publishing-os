@@ -1,14 +1,17 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 97,
+  "articleCount": 98,
   "records": [
     {
       "slug": "ai-agent-governance",
       "route": "/articles/ai-agent-governance",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-agent-hbm-demand",
@@ -20,14 +23,20 @@
         "ai-capex",
         "memory-supercycle"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-agent-security-prompt-to-rce-2026",
       "route": "/articles/ai-agent-security-prompt-to-rce-2026",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-agent-system-design-anthropic-2026",
@@ -36,14 +45,20 @@
       "theses": [],
       "companies": [
         "Anthropic"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-api-key-compute-theft-2026",
       "route": "/articles/ai-api-key-compute-theft-2026",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-bubble-vs-compute-supercycle-2026",
@@ -54,7 +69,10 @@
       "theses": [
         "ai-capex"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-data-center-capacity-stack-2026",
@@ -65,7 +83,10 @@
       "theses": [
         "ai-capex"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-data-center-cooling-bottleneck",
@@ -77,7 +98,10 @@
         "ai-capex",
         "power-supercycle"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-data-center-interconnect-dci",
@@ -88,14 +112,20 @@
       "theses": [
         "ai-capex"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-database-security-data-layer-2026",
       "route": "/articles/ai-database-security-data-layer-2026",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-inference-hbm-earnings",
@@ -107,7 +137,10 @@
         "ai-capex",
         "memory-supercycle"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-infrastructure-hbm-mlcc-power-grid-2026",
@@ -120,7 +153,10 @@
         "ai-capex",
         "memory-supercycle"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-network-800g-1-6t",
@@ -131,7 +167,10 @@
       "theses": [
         "ai-capex"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-power-gas-turbine-return",
@@ -144,7 +183,10 @@
         "ai-capex",
         "power-supercycle"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-power-grid-transformer-distribution",
@@ -156,7 +198,10 @@
         "ai-capex",
         "power-supercycle"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-power-next-bottleneck",
@@ -168,7 +213,10 @@
         "ai-capex",
         "power-supercycle"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-power-value-chain-compare",
@@ -180,35 +228,50 @@
         "ai-capex",
         "power-supercycle"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-productivity-operating-model",
       "route": "/articles/ai-productivity-operating-model",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-productivity-platforms-compare",
       "route": "/articles/ai-productivity-platforms-compare",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-productivity-roi",
       "route": "/articles/ai-productivity-roi",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-workflow-automation",
       "route": "/articles/ai-workflow-automation",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "anthropic-ipo-ai-safety-2026",
@@ -217,35 +280,50 @@
       "theses": [],
       "companies": [
         "Anthropic"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "aside-ai-browser-benchmark",
       "route": "/articles/aside-ai-browser-benchmark",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "aside-vs-chatgpt-work-vs-playwright",
       "route": "/articles/aside-vs-chatgpt-work-vs-playwright",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "aside-windows-launch",
       "route": "/articles/aside-windows-launch",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "bach-counterpoint-order-in-chaos",
       "route": "/articles/bach-counterpoint-order-in-chaos",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "bess-ups-bbu-data-center",
@@ -257,14 +335,20 @@
         "ai-capex",
         "power-supercycle"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "burnout-recovery-starts-with-pause",
       "route": "/articles/burnout-recovery-starts-with-pause",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "china-memory-self-sufficiency",
@@ -276,7 +360,10 @@
         "memory-supercycle",
         "defense-geopolitics"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "china-semiconductor-equipment-localization",
@@ -287,7 +374,10 @@
       "theses": [
         "defense-geopolitics"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "china-semiconductor-risk-indicators",
@@ -298,7 +388,10 @@
       "theses": [
         "defense-geopolitics"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "china-us-treasury-holdings-2026",
@@ -307,63 +400,90 @@
       "theses": [
         "macro-liquidity"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "codex-automation-gold-cases-5",
       "route": "/articles/codex-automation-gold-cases-5",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "codex-build-your-own-plugin-2026",
       "route": "/articles/codex-build-your-own-plugin-2026",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "codex-computer-use-guide-2026",
       "route": "/articles/codex-computer-use-guide-2026",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "codex-goal-mode-guide-2026",
       "route": "/articles/codex-goal-mode-guide-2026",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "codex-guide-6-steps-2026",
       "route": "/articles/codex-guide-6-steps-2026",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "codex-non-developer-automation-10",
       "route": "/articles/codex-non-developer-automation-10",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "codex-plugin-guide-2026",
       "route": "/articles/codex-plugin-guide-2026",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "codex-skill-guide-2026",
       "route": "/articles/codex-skill-guide-2026",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "cxmt-dram-vs-samsung-sk-hynix",
@@ -379,7 +499,10 @@
         "Samsung Electronics",
         "SK hynix",
         "CXMT"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "cxmt-ymtc-memory-oversupply",
@@ -393,7 +516,10 @@
       "companies": [
         "CXMT",
         "YMTC"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "doosan-enerbility-ai-power",
@@ -408,21 +534,57 @@
       ],
       "companies": [
         "Doosan Enerbility"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "fairness-system-explainable-standards",
       "route": "/articles/fairness-system-explainable-standards",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "feedback-system-behavior-change",
       "route": "/articles/feedback-system-behavior-change",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "financials-value-up-investing-guide",
+      "route": "/articles/financials-value-up-investing-guide",
+      "industries": [
+        "financials-value-up"
+      ],
+      "theses": [
+        "korea-value-up"
+      ],
+      "companies": [],
+      "valueChains": [
+        "banking-profitability",
+        "capital-adequacy",
+        "shareholder-return",
+        "valuation-rerating"
+      ],
+      "kpis": [
+        "ROE",
+        "CET1",
+        "NIM",
+        "credit-cost",
+        "payout-ratio",
+        "total-shareholder-return",
+        "PBR"
+      ],
+      "researchType": "pillar"
     },
     {
       "slug": "foreign-investor-flow",
@@ -431,7 +593,10 @@
       "theses": [
         "macro-liquidity"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "gpu-compute-economics-rubin-2026",
@@ -442,14 +607,20 @@
       "theses": [
         "ai-capex"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "growth-leadership-operating-system",
       "route": "/articles/growth-leadership-operating-system",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "hanwha-ocean-shipbuilding",
@@ -462,7 +633,10 @@
       ],
       "companies": [
         "Hanwha Ocean"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "hbm-us-china-ai-chip-war",
@@ -475,7 +649,10 @@
         "memory-supercycle",
         "defense-geopolitics"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "hbm3e-hbm4-zhbm",
@@ -487,7 +664,10 @@
         "ai-capex",
         "memory-supercycle"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "hd-hyundai-electric-ai-power",
@@ -501,7 +681,10 @@
       ],
       "companies": [
         "HD Hyundai Electric"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "hd-hyundai-heavy-industries-shipbuilding",
@@ -514,7 +697,10 @@
       ],
       "companies": [
         "HD Hyundai Heavy Industries"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "hd-ksoe-shipbuilding",
@@ -525,7 +711,10 @@
       "theses": [],
       "companies": [
         "HD KSOE"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "how-submarine-cables-work",
@@ -536,7 +725,10 @@
       "theses": [
         "ai-capex"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "how-to-read-us-treasury-auctions-2026",
@@ -545,7 +737,10 @@
       "theses": [
         "macro-liquidity"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "hyosung-heavy-industries-ai-power",
@@ -559,7 +754,10 @@
       ],
       "companies": [
         "Hyosung Heavy Industries"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "korea-ai-power-companies-compare",
@@ -571,7 +769,10 @@
         "ai-capex",
         "power-supercycle"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "korea-shipbuilding-companies-compare",
@@ -580,14 +781,20 @@
         "shipbuilding-defense"
       ],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "learning-system-reexecution-loop",
       "route": "/articles/learning-system-reexecution-loop",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ls-electric-ai-power",
@@ -601,14 +808,20 @@
       ],
       "companies": [
         "LS ELECTRIC"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "mcp-security-tool-poisoning-2026",
       "route": "/articles/mcp-security-tool-poisoning-2026",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "money-basics-7-economic-terms",
@@ -617,7 +830,10 @@
       "theses": [
         "macro-liquidity"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "openai-anthropic-ipo-cash-burn-2026",
@@ -627,7 +843,10 @@
       "companies": [
         "OpenAI",
         "Anthropic"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "openai-data-agent-chatgpt-work",
@@ -636,7 +855,10 @@
       "theses": [],
       "companies": [
         "OpenAI"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "optical-dsp-lpo-lro-1-6t",
@@ -647,21 +869,30 @@
       "theses": [
         "ai-capex"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "performance-system-leading-indicators",
       "route": "/articles/performance-system-leading-indicators",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "recognition-system-fair-performance",
       "route": "/articles/recognition-system-fair-performance",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "samsung-electronics-outlook",
@@ -675,7 +906,10 @@
       ],
       "companies": [
         "Samsung Electronics"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "samsung-hbm4-memory-outlook-2026-09-20",
@@ -689,7 +923,10 @@
       ],
       "companies": [
         "Samsung Electronics"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "samsung-heavy-industries-shipbuilding",
@@ -700,7 +937,10 @@
       "theses": [],
       "companies": [
         "Samsung Heavy Industries"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "samsung-vs-sk-hynix-ai-memory",
@@ -715,7 +955,10 @@
       "companies": [
         "Samsung Electronics",
         "SK hynix"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "samsung-xian-vs-sk-hynix-wuxi",
@@ -730,7 +973,10 @@
       "companies": [
         "Samsung Electronics",
         "SK hynix"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "satellite-vs-submarine-cable",
@@ -741,7 +987,10 @@
       "theses": [
         "ai-capex"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "semiconductor-cycle",
@@ -752,7 +1001,10 @@
       "theses": [
         "memory-supercycle"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "silicon-photonics-ai-network",
@@ -763,7 +1015,10 @@
       "theses": [
         "ai-capex"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "sk-hynix-outlook",
@@ -777,7 +1032,10 @@
       ],
       "companies": [
         "SK hynix"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "strong-retail-sales-nasdaq-rally-2026",
@@ -786,7 +1044,10 @@
       "theses": [
         "macro-liquidity"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "submarine-cable-failure-repair",
@@ -797,7 +1058,10 @@
       "theses": [
         "ai-capex"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "submarine-cable-history",
@@ -808,7 +1072,10 @@
       "theses": [
         "ai-capex"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "submarine-cables-ai-infrastructure",
@@ -819,7 +1086,10 @@
       "theses": [
         "ai-capex"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "us-30y-treasury-5-percent-risk-2026",
@@ -828,7 +1098,10 @@
       "theses": [
         "macro-liquidity"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "us-august-retail-sales-fed-nasdaq-2026",
@@ -837,7 +1110,10 @@
       "theses": [
         "macro-liquidity"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "us-china-chip-export-control-timeline",
@@ -846,7 +1122,10 @@
       "theses": [
         "defense-geopolitics"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "us-china-semiconductor-war",
@@ -860,7 +1139,10 @@
       "companies": [
         "Samsung Electronics",
         "SK hynix"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "us-cpi-fed-nasdaq-guide",
@@ -869,7 +1151,10 @@
       "theses": [
         "macro-liquidity"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "us-economic-indicators-guide",
@@ -878,7 +1163,10 @@
       "theses": [
         "macro-liquidity"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "us-jobs-report-fed-nasdaq-guide",
@@ -887,7 +1175,10 @@
       "theses": [
         "macro-liquidity"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "us-pce-fed-nasdaq-guide",
@@ -896,7 +1187,10 @@
       "theses": [
         "macro-liquidity"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "us-ppi-fed-margin-guide",
@@ -905,7 +1199,10 @@
       "theses": [
         "macro-liquidity"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "us-rates-korea-semiconductor-transmission-2026",
@@ -916,14 +1213,20 @@
       "theses": [
         "macro-liquidity"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "what-is-ai-agent",
       "route": "/articles/what-is-ai-agent",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "what-is-co-packaged-optics",
@@ -934,7 +1237,10 @@
       "theses": [
         "ai-capex"
       ],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "what-is-hbm",
@@ -949,21 +1255,30 @@
       "companies": [
         "Samsung Electronics",
         "SK hynix"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "who-buys-us-treasuries-2026",
       "route": "/articles/who-buys-us-treasuries-2026",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "why-we-cannot-stand-silence",
       "route": "/articles/why-we-cannot-stand-silence",
       "industries": [],
       "theses": [],
-      "companies": []
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ymtc-nand-vs-samsung-sk-hynix",
@@ -979,7 +1294,10 @@
         "Samsung Electronics",
         "SK hynix",
         "YMTC"
-      ]
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     }
   ]
 }

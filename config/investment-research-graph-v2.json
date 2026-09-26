@@ -1,0 +1,610 @@
+{
+  "version": 2,
+  "nodeTypes": [
+    "company",
+    "kpi",
+    "value-chain"
+  ],
+  "companies": [
+    {
+      "id": "samsung-electronics",
+      "label": "Samsung Electronics",
+      "industry": "semiconductor"
+    },
+    {
+      "id": "sk-hynix",
+      "label": "SK hynix",
+      "industry": "semiconductor"
+    },
+    {
+      "id": "cxmt",
+      "label": "CXMT",
+      "industry": "semiconductor"
+    },
+    {
+      "id": "ymtc",
+      "label": "YMTC",
+      "industry": "semiconductor"
+    },
+    {
+      "id": "ls-electric",
+      "label": "LS ELECTRIC",
+      "industry": "ai-infrastructure"
+    },
+    {
+      "id": "hd-hyundai-electric",
+      "label": "HD Hyundai Electric",
+      "industry": "ai-infrastructure"
+    },
+    {
+      "id": "hyosung-heavy-industries",
+      "label": "Hyosung Heavy Industries",
+      "industry": "ai-infrastructure"
+    },
+    {
+      "id": "doosan-enerbility",
+      "label": "Doosan Enerbility",
+      "industry": "energy-nuclear"
+    },
+    {
+      "id": "hanwha-ocean",
+      "label": "Hanwha Ocean",
+      "industry": "shipbuilding-defense"
+    },
+    {
+      "id": "hd-hyundai-heavy-industries",
+      "label": "HD Hyundai Heavy Industries",
+      "industry": "shipbuilding-defense"
+    },
+    {
+      "id": "hd-ksoe",
+      "label": "HD KSOE",
+      "industry": "shipbuilding-defense"
+    },
+    {
+      "id": "samsung-heavy-industries",
+      "label": "Samsung Heavy Industries",
+      "industry": "shipbuilding-defense"
+    },
+    {
+      "id": "kb-financial",
+      "label": "KB Financial",
+      "industry": "financials-value-up"
+    }
+  ],
+  "kpis": [
+    {
+      "id": "roe",
+      "label": "ROE"
+    },
+    {
+      "id": "cet1",
+      "label": "CET1"
+    },
+    {
+      "id": "nim",
+      "label": "NIM"
+    },
+    {
+      "id": "credit-cost",
+      "label": "Credit Cost"
+    },
+    {
+      "id": "tsr",
+      "label": "Total Shareholder Return"
+    },
+    {
+      "id": "pbr",
+      "label": "PBR"
+    },
+    {
+      "id": "hbm-mix",
+      "label": "HBM Mix"
+    },
+    {
+      "id": "dram-asp",
+      "label": "DRAM ASP"
+    },
+    {
+      "id": "nand-asp",
+      "label": "NAND ASP"
+    },
+    {
+      "id": "yield",
+      "label": "Yield"
+    },
+    {
+      "id": "capex",
+      "label": "CAPEX"
+    },
+    {
+      "id": "eps-revision",
+      "label": "EPS Revision"
+    },
+    {
+      "id": "order-backlog",
+      "label": "Order Backlog"
+    },
+    {
+      "id": "margin",
+      "label": "Operating Margin"
+    },
+    {
+      "id": "capacity",
+      "label": "Capacity"
+    },
+    {
+      "id": "data-center-orders",
+      "label": "Data Center Orders"
+    },
+    {
+      "id": "rwa",
+      "label": "RWA"
+    }
+  ],
+  "valueChains": [
+    {
+      "id": "hbm-memory",
+      "label": "HBM / AI Memory"
+    },
+    {
+      "id": "dram",
+      "label": "DRAM"
+    },
+    {
+      "id": "nand-essd",
+      "label": "NAND / eSSD"
+    },
+    {
+      "id": "foundry",
+      "label": "Foundry"
+    },
+    {
+      "id": "power-generation",
+      "label": "Power Generation"
+    },
+    {
+      "id": "transmission-transformer",
+      "label": "Transmission / Transformer"
+    },
+    {
+      "id": "distribution-data-center-power",
+      "label": "Distribution / Data Center Power"
+    },
+    {
+      "id": "shipbuilding-lng",
+      "label": "LNG / Commercial Shipbuilding"
+    },
+    {
+      "id": "naval-defense",
+      "label": "Naval / Defense"
+    },
+    {
+      "id": "offshore",
+      "label": "Offshore"
+    },
+    {
+      "id": "banking-profitability",
+      "label": "Banking Profitability"
+    },
+    {
+      "id": "capital-adequacy",
+      "label": "Capital Adequacy"
+    },
+    {
+      "id": "shareholder-return",
+      "label": "Shareholder Return"
+    },
+    {
+      "id": "valuation-rerating",
+      "label": "Valuation Re-rating"
+    }
+  ],
+  "edges": [
+    {
+      "from": "samsung-electronics",
+      "to": "hbm-memory",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "samsung-electronics",
+      "to": "dram",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "samsung-electronics",
+      "to": "nand-essd",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "samsung-electronics",
+      "to": "hbm-mix",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "samsung-electronics",
+      "to": "dram-asp",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "samsung-electronics",
+      "to": "nand-asp",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "samsung-electronics",
+      "to": "yield",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "samsung-electronics",
+      "to": "capex",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "samsung-electronics",
+      "to": "eps-revision",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "samsung-electronics",
+      "to": "margin",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "sk-hynix",
+      "to": "hbm-memory",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "sk-hynix",
+      "to": "dram",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "sk-hynix",
+      "to": "nand-essd",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "sk-hynix",
+      "to": "hbm-mix",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "sk-hynix",
+      "to": "dram-asp",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "sk-hynix",
+      "to": "nand-asp",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "sk-hynix",
+      "to": "yield",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "sk-hynix",
+      "to": "capex",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "sk-hynix",
+      "to": "eps-revision",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "sk-hynix",
+      "to": "margin",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "samsung-electronics",
+      "to": "foundry",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "cxmt",
+      "to": "dram",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "cxmt",
+      "to": "dram-asp",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "cxmt",
+      "to": "capacity",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "cxmt",
+      "to": "capex",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "ymtc",
+      "to": "nand-essd",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "ymtc",
+      "to": "nand-asp",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "ymtc",
+      "to": "capacity",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "ymtc",
+      "to": "capex",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hd-hyundai-electric",
+      "to": "transmission-transformer",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "hd-hyundai-electric",
+      "to": "order-backlog",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hd-hyundai-electric",
+      "to": "margin",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hd-hyundai-electric",
+      "to": "capacity",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hd-hyundai-electric",
+      "to": "data-center-orders",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hyosung-heavy-industries",
+      "to": "transmission-transformer",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "hyosung-heavy-industries",
+      "to": "order-backlog",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hyosung-heavy-industries",
+      "to": "margin",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hyosung-heavy-industries",
+      "to": "capacity",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hyosung-heavy-industries",
+      "to": "data-center-orders",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "ls-electric",
+      "to": "distribution-data-center-power",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "ls-electric",
+      "to": "transmission-transformer",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "ls-electric",
+      "to": "order-backlog",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "ls-electric",
+      "to": "margin",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "ls-electric",
+      "to": "capacity",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "ls-electric",
+      "to": "data-center-orders",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "doosan-enerbility",
+      "to": "power-generation",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "doosan-enerbility",
+      "to": "order-backlog",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "doosan-enerbility",
+      "to": "margin",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "doosan-enerbility",
+      "to": "capacity",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "doosan-enerbility",
+      "to": "capex",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hanwha-ocean",
+      "to": "shipbuilding-lng",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "hanwha-ocean",
+      "to": "order-backlog",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hanwha-ocean",
+      "to": "margin",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hanwha-ocean",
+      "to": "capacity",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hd-hyundai-heavy-industries",
+      "to": "shipbuilding-lng",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "hd-hyundai-heavy-industries",
+      "to": "order-backlog",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hd-hyundai-heavy-industries",
+      "to": "margin",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hd-hyundai-heavy-industries",
+      "to": "capacity",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "samsung-heavy-industries",
+      "to": "shipbuilding-lng",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "samsung-heavy-industries",
+      "to": "order-backlog",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "samsung-heavy-industries",
+      "to": "margin",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "samsung-heavy-industries",
+      "to": "capacity",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hd-ksoe",
+      "to": "shipbuilding-lng",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "hd-ksoe",
+      "to": "order-backlog",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hd-ksoe",
+      "to": "margin",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hd-ksoe",
+      "to": "capacity",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hanwha-ocean",
+      "to": "naval-defense",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "hd-hyundai-heavy-industries",
+      "to": "naval-defense",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "hanwha-ocean",
+      "to": "offshore",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "samsung-heavy-industries",
+      "to": "offshore",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "kb-financial",
+      "to": "banking-profitability",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "kb-financial",
+      "to": "capital-adequacy",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "kb-financial",
+      "to": "shareholder-return",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "kb-financial",
+      "to": "valuation-rerating",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "kb-financial",
+      "to": "roe",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "kb-financial",
+      "to": "cet1",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "kb-financial",
+      "to": "nim",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "kb-financial",
+      "to": "credit-cost",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "kb-financial",
+      "to": "tsr",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "kb-financial",
+      "to": "pbr",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "kb-financial",
+      "to": "rwa",
+      "type": "company-to-kpi"
+    }
+  ]
+}

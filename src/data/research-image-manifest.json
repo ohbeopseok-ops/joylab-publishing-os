@@ -1771,5 +1771,24 @@
         "caption": "Reach → Latency → Signal Integrity → Resilience 순서로 DCI를 판단합니다."
       }
     ]
+  },
+  "financials-value-up-investing-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "금융·주주환원 투자 가이드｜ROE·CET1·배당·자사주·PBR을 연결하는 법 — JoyLab Research Standard 대표 이미지",
+      "caption": "금융주의 수익성·자본여력·주주환원·밸류에이션을 하나의 흐름으로 읽습니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "금융·주주환원 투자 가이드 — ROE CET1 배당 자사주 PBR 핵심 신호 이미지",
+        "caption": "ROE → CET1 → 주주환원 → PBR의 핵심 신호를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "금융·주주환원 투자 가이드 — Fact Interpretation Scenario Action 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 금융주의 재평가 조건을 점검합니다."
+      }
+    ]
   }
 }

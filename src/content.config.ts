@@ -31,6 +31,7 @@ const articles = defineCollection({
     investmentTheses: z.array(z.enum(investmentThesisIds)).default([]),
     investmentCompanies: z.array(z.string().min(1)).default([]),
     investmentValueChains: z.array(z.string().min(1)).default([]),
+    investmentKpis: z.array(z.string().min(1)).default([]),
     investmentResearchType: z.enum(investmentResearchTypes).optional(),
     readingTime: z.string().optional(),
     heroImage: z.string().optional(),

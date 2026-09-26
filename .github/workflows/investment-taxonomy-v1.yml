@@ -12,6 +12,9 @@ on:
       - 'scripts/generate-investment-taxonomy-registry-v1.mjs'
       - 'src/data/investment-taxonomy-registry-v1.json'
       - 'src/lib/investment-taxonomy-registry.ts'
+      - 'config/investment-research-graph-v2.json'
+      - 'src/lib/investment-research-graph-v2.ts'
+      - 'scripts/check-investment-research-graph-v2.mjs'
       - 'src/pages/guides/investing.astro'
       - 'src/styles/investment-hub-v2.css'
   push:
@@ -45,3 +48,4 @@ jobs:
         run: |
           node scripts/check-investment-taxonomy-v1.mjs
           node scripts/generate-investment-taxonomy-registry-v1.mjs --check
+          node scripts/check-investment-research-graph-v2.mjs
