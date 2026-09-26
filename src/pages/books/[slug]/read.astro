@@ -146,7 +146,7 @@ const interactiveChapters = getBookInteractions(book.id);
       )}
     </main>
 
-    <BookInteractiveLayer bookSlug={book.id} storagePrefix={storagePrefix} interactions={interactiveChapters} />
+    {book.data.interactive && <BookInteractiveLayer bookSlug={book.id} storagePrefix={storagePrefix} interactions={interactiveChapters} />}
 
     <footer class="book-reader-footer">
       <button id="book-prev-chapter" type="button">← 이전 장</button>
