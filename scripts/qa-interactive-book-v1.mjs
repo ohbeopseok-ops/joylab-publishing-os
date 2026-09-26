@@ -47,6 +47,34 @@ for (const viewport of [
   await personaInputs.nth(3).fill('20초 안에 기록');
   await page.waitForTimeout(300);
 
+  const sourceCard = page.locator('[data-interaction-id="stt-source-summary"]');
+  await sourceCard.locator('textarea').nth(0).fill('김 상담사 오늘 결합 할인 문의에서 설명이 길어져 고객이 다시 물었고 두 번째에는 순서를 잡아 이해시켰음. 내일 오전 다시 모니터링.');
+  await sourceCard.locator('textarea').nth(1).fill('결합할인 설명 순서 개선 필요, 내일 오전 재모니터링.');
+  await sourceCard.locator('input[type="checkbox"]').check();
+
+  const fragmentCard = page.locator('[data-interaction-id="memory-fragment-builder"]');
+  const fragmentInputs = fragmentCard.locator('textarea');
+  await fragmentInputs.nth(0).fill('김 상담사');
+  await fragmentInputs.nth(1).fill('고객 설명 중 답변을 두 차례 끊고 다음 안내로 넘어감');
+  await fragmentInputs.nth(2).fill('다음 요금 문의 1건 재모니터링');
+
+  const contractCard = page.locator('[data-interaction-id="mini-data-contract"]');
+  await contractCard.locator('.book-interactive-object-card input').nth(0).check();
+  await contractCard.locator('.book-interactive-object-card input').nth(1).check();
+  await contractCard.locator('.book-interactive-object-card input').nth(2).check();
+  let relationSelects = contractCard.locator('.book-interactive-relation-row select');
+  await relationSelects.nth(0).selectOption('person');
+  await relationSelects.nth(1).selectOption('fragment');
+  await relationSelects.nth(2).selectOption('fragment');
+  await relationSelects.nth(3).selectOption('followup');
+
+  const policyCard = page.locator('[data-interaction-id="kpi-change-policy"]');
+  const scenarios = policyCard.locator('.book-interactive-scenario');
+  await scenarios.nth(0).locator('button').nth(1).click();
+  await scenarios.nth(1).locator('button').nth(1).click();
+  await scenarios.nth(2).locator('button').nth(1).click();
+
+  await page.waitForTimeout(350);
   await page.locator('#series02-open-records').click();
   await page.waitForTimeout(100);
 
@@ -55,6 +83,10 @@ for (const viewport of [
     const band = document.querySelector('[data-interaction-id="externalize-memory"] .book-interactive-score em')?.textContent?.trim();
     const debtStatus = document.querySelector('[data-interaction-id="memory-debt"] .book-interactive-status')?.textContent?.trim();
     const personaStatus = document.querySelector('[data-interaction-id="persona0-moment"] .book-interactive-status')?.textContent?.trim();
+    const sourceStatus = document.querySelector('[data-interaction-id="stt-source-summary"] .book-interactive-status')?.textContent?.trim();
+    const fragmentStatus = document.querySelector('[data-interaction-id="memory-fragment-builder"] .book-interactive-status')?.textContent?.trim();
+    const contractStatus = document.querySelector('[data-interaction-id="mini-data-contract"] .book-interactive-status')?.textContent?.trim();
+    const policyStatus = document.querySelector('[data-interaction-id="kpi-change-policy"] .book-interactive-status')?.textContent?.trim();
     const panel = document.getElementById('book-interactive-panel');
     const robots = document.querySelector('meta[name="robots"]')?.getAttribute('content');
     const raw = localStorage.getItem('joylab-book-work-to-system-lab-interactive-forms');
@@ -66,6 +98,10 @@ for (const viewport of [
       band,
       debtStatus,
       personaStatus,
+      sourceStatus,
+      fragmentStatus,
+      contractStatus,
+      policyStatus,
       panelOpen: panel?.classList.contains('is-open') ?? false,
       hasSavedResultsHeading: Array.from(document.querySelectorAll('#book-interactive-panel-body h3')).some((el) => el.textContent?.trim() === '실습 결과'),
       artifactCount: document.getElementById('book-artifact-count')?.textContent?.trim(),
@@ -86,19 +122,27 @@ for (const viewport of [
     riskBandMedium: metrics.band === 'MEDIUM',
     personaSaved: metrics.formsKeys.some((key) => key.endsWith(':persona0-moment')),
     personaComplete: metrics.personaStatus?.includes('Canvas 완료') === true,
+    sourceSummaryComplete: metrics.sourceStatus?.includes('Source / Summary Pair 완료') === true,
+    fragmentComplete: metrics.fragmentStatus?.includes('Canvas 완료') === true,
+    contractComplete: metrics.contractStatus?.includes('Mini Data Contract 완료') === true,
+    policyComplete: metrics.policyStatus?.includes('KPI 변경 규칙 완료') === true,
+    sourceSaved: metrics.formsKeys.some((key) => key.endsWith(':stt-source-summary')),
+    fragmentSaved: metrics.formsKeys.some((key) => key.endsWith(':memory-fragment-builder')),
+    contractSaved: metrics.formsKeys.some((key) => key.endsWith(':mini-data-contract')),
+    policySaved: metrics.formsKeys.some((key) => key.endsWith(':kpi-change-policy')),
     recordsPanelOpen: metrics.panelOpen === true,
     savedResultsVisible: metrics.hasSavedResultsHeading === true,
-    threeArtifacts: Number(metrics.artifactCount) >= 3
+    sevenArtifacts: Number(metrics.artifactCount) >= 7
   };
 
-  const screenshot = path.join(outputDir, `series02-ch01-03-${viewport.name}.png`);
+  const screenshot = path.join(outputDir, `series02-ch01-07-${viewport.name}.png`);
   await page.screenshot({ path: screenshot, fullPage: true });
 
   const passed = Object.values(checks).every(Boolean);
   report.push({ viewport, status, metrics, pageErrors, checks, passed, screenshot });
   if (!passed) failures.push(viewport.name);
 
-  console.log(`${passed ? 'PASS' : 'FAIL'} Interactive Book V1 ${viewport.name} score=${metrics.score} band=${metrics.band} artifacts=${metrics.artifactCount}`);
+  console.log(`${passed ? 'PASS' : 'FAIL'} Interactive Book V1 Ch01-07 ${viewport.name} score=${metrics.score} band=${metrics.band} artifacts=${metrics.artifactCount}`);
   await context.close();
 }
 
