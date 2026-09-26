@@ -106,3 +106,19 @@ readingTime: "약 9분"
 - ITU, Submarine Cable Resilience: https://www.itu.int/en/mediacentre/backgrounders/Pages/submarine-cable-resilience.aspx
 - ITU, Global Connectivity Report 2025: https://www.itu.int/itu-d/reports/statistics/global-connectivity-report-2025/
 - SubCom, subsea network systems: https://www.subcom.com/
+
+## 데이터가 실제로 바다를 건너는 과정
+
+사용자가 해외 서비스에 접속하면 데이터는 가정·모바일망에서 국내 백본으로 이동한 뒤 인터넷 교환 지점과 국제망을 거쳐 육양국에 도착합니다. 여기서 전기 신호는 광신호로 전달되고, 해저 광섬유를 따라 다른 국가의 육양국으로 이동합니다. 이후 다시 현지 통신망과 데이터센터를 거쳐 목적지 서버에 도달합니다.
+
+해저 구간은 단순한 긴 케이블 한 가닥이 아닙니다. 광섬유, 전력 공급 구조, 보호층, 일정 간격으로 배치되는 광중계기, 육양국 장비가 하나의 시스템으로 작동합니다. 깊은 바다에서는 외부 충격이 상대적으로 적지만 연안에서는 선박 닻과 어업 활동 위험이 커 보호 구조와 매설이 중요합니다.
+
+### 이해를 위한 핵심 질문
+
+1. 어느 육양국과 어느 데이터센터 리전을 연결하는가
+2. 케이블의 총 설계용량과 실제 사용가능 용량은 얼마인가
+3. 다른 케이블로 우회할 수 있는가
+4. 장애 시 수리선과 복구체계가 준비되어 있는가
+5. 클라우드·AI 트래픽 증가가 추가 증설로 이어지는가
+
+이 흐름을 이해하면 해저케이블을 단순 통신시설이 아니라 **글로벌 클라우드와 AI 인프라의 물리적 백본**으로 볼 수 있습니다.
