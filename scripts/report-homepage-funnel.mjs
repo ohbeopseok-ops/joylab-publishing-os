@@ -27,8 +27,8 @@ export function buildMetrics(impressionRows, clickRows) {
     if (clicks.has(row.section)) clicks.set(row.section, Number(row.clicks) || 0);
   }
 
-  const totalImpressions = sections.reduce((sum, section) => sum + impressions.get(section), 0);
-  const totalClicks = sections.reduce((sum, section) => sum + clicks.get(section), 0);
+  const totalImpressions = decisionSections.reduce((sum, section) => sum + impressions.get(section), 0);
+  const totalClicks = decisionSections.reduce((sum, section) => sum + clicks.get(section), 0);
   const weightedCtr = totalImpressions > 0 ? totalClicks / totalImpressions : 0;
 
   return sections.map((section) => {
@@ -102,7 +102,7 @@ function buildMarkdown({ generatedAt, days, minImpressions, metrics, verdict, to
     '',
     `- Generated: ${generatedAt}`,
     `- Window: rolling ${days} days`,
-    `- Minimum sample: ${minImpressions} impressions per major/latest section`,
+    `- Minimum sample: ${minImpressions} impressions per editorial/major/latest/books section`,
     '',
     '## Section Funnel',
     '',
