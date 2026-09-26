@@ -37,6 +37,11 @@ const analyticsContracts = {
   book_reader_progress_50: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['web_reader']) },
   book_reader_progress_75: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['web_reader']) },
   book_reader_complete: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['web_reader']) },
+  book_chapter_complete: { targetPattern: /^[A-Za-z0-9가-힣_:-]{1,160}$/, placements: new Set(['interactive_book']) },
+  book_chapter_bookmark: { targetPattern: /^[A-Za-z0-9가-힣_:-]{1,160}$/, placements: new Set(['interactive_book']) },
+  book_interaction_check: { targetPattern: /^[A-Za-z0-9가-힣_:-]{1,160}$/, placements: new Set(['interactive_book']) },
+  book_interaction_choice: { targetPattern: /^[A-Za-z0-9가-힣_:-]{1,160}$/, placements: new Set(['interactive_book']) },
+  book_interaction_action: { targetPattern: /^[A-Za-z0-9가-힣_:-]{1,160}$/, placements: new Set(['interactive_book']) },
   search_query: { targetPattern: /^[-A-Za-z0-9가-힣ㄱ-ㅎㅏ-ㅣ·._ ]{2,60}$/, placements: new Set(['search_page']) },
   search_result_click: { targetPattern: /^\/(?:articles|guides)\/[A-Za-z0-9_-]{1,120}\/?$/, placements: new Set(['search_page']) }
 };
