@@ -7,6 +7,13 @@
       "generator": "scripts/generate-studio-print-pdf-v1.mjs",
       "reason": "Playwright/Noto CJK print binary is generated after Astro build and before Cloudflare deploy",
       "sourceRouteMustBeNoindex": true
+    },
+    {
+      "path": "/studio/exports/export-provenance-v1.json",
+      "generatedAt": "deploy",
+      "generator": "scripts/generate-export-provenance-v1.mjs",
+      "reason": "Provenance manifest is generated after EPUB and Print PDF binaries exist",
+      "sourceRouteMustBeNoindex": true
     }
   ]
 }
