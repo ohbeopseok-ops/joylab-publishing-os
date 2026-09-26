@@ -193,6 +193,8 @@ AI 전력 4사를 한 줄로 순위 매기기는 어렵습니다. 각 회사가 
 
 ## 검증용 1차 자료
 
+- [HD현대일렉트릭 공식 IR — 2026년 2분기 실적발표 자료](https://www.hd-hyundaielectric.com/elect/ko/IR/IRdata1.jsp)
+
 - [두산에너빌리티 IR 자료](https://www.doosanenerbility.com/kr/investment/ir_data)
 - [효성중공업 IR 자료실](https://www.hyosungheavyindustries.com/kr/company/ir/archive/annual-report)
 - [LS ELECTRIC IR](https://www.ls-electric.com/ko/company/invest/ir/)
