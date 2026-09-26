@@ -104,3 +104,4 @@ JoyLab은 다음 흐름으로 정리합니다.
 
 - [반도체 투자 가이드](/guides/semiconductor-investing)
 
+- [AI 추론 시대 메모리 투자 가이드](/guides/ai-inference-memory)
