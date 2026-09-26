@@ -149,6 +149,14 @@ LS ELECTRIC은 2025년 12월 부산사업장 제2생산동을 준공했습니다
 
 **ACTION** — 다음 분기에는 북미 빅테크 후속 수주, 가동률, 전력사업 마진을 재점검한다.
 
+## 관련 리서치
+
+- [HD현대일렉트릭 AI 전력 수혜 보는 법](/articles/hd-hyundai-electric-ai-power)
+
+## Research Hub
+
+- [AI 전력 투자 가이드](/guides/ai-power)
+
 ## 결론
 
 LS ELECTRIC의 AI 전력 투자 논리는 <strong>“전력망이 커진다”보다 “데이터센터 안으로 전기가 들어온 뒤 실제로 분배되는 장비를 누가 공급하느냐”</strong>에 가깝습니다.
