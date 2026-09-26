@@ -109,6 +109,8 @@ function selfTest() {
     {event:'book_purchase_cta_click',count:5}
   ],'problem-to-service');
   if (m.rates.landingToPreview !== 30 || m.rates.read50 !== 54.5) throw new Error('self-test failed');
+  const lowSample = diagnose({ ...m, landingViews: 10 });
+  if (lowSample.length !== 1 || !lowSample[0].startsWith('COLLECT:')) throw new Error('sample gate self-test failed');
   console.log('Books Funnel Dashboard V1 self-test passed.');
 }
 
