@@ -101,3 +101,7 @@ JoyLab은 두 생산거점을 다음 항목으로 비교합니다.
 
 - [BIS, 2025-08-29 중국 내 외국계 팹 VEU 정책 변경](https://www.bis.gov/press-release/department-commerce-closes-export-controls-loophole-foreign-owned-semiconductor-fabs-china)
 
+## Research Hub
+
+- [반도체 투자 가이드](/guides/semiconductor-investing)
+
