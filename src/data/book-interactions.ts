@@ -80,6 +80,38 @@ export type BookInteraction =
         body: string;
         options: Array<{ label: string; value: string; feedback: string; preferred?: boolean }>;
       }>;
+    }
+  | {
+      type: 'firstScreenDecision';
+      id: string;
+      title: string;
+      description?: string;
+      options: Array<{ key: string; label: string; description: string }>;
+      discardCount: number;
+    }
+  | {
+      type: 'oneLineCapture';
+      id: string;
+      title: string;
+      description?: string;
+      sourcePlaceholder?: string;
+      maxChars: number;
+    }
+  | {
+      type: 'exactChoice';
+      id: string;
+      title: string;
+      description?: string;
+      choose: number;
+      options: Array<{ key: string; label: string; description: string }>;
+    }
+  | {
+      type: 'densityTest';
+      id: string;
+      title: string;
+      description?: string;
+      options: Array<{ value: string; label: string; sample: string[]; feedback: string }>;
+      reasonPlaceholder?: string;
     };
 
 export type BookInteractionMap = Record<number, BookInteraction[]>;
@@ -252,14 +284,58 @@ const workToSystem: BookInteractionMap = {
   ],
   8: [
     {
-      type: 'choice',
-      id: 'first-screen',
-      title: '첫 화면 결정',
-      question: '모바일 첫 화면에서 하나만 할 수 있다면 무엇을 남길까요?',
+      type: 'firstScreenDecision',
+      id: 'first-screen-decision',
+      title: 'First Screen Decision',
+      description: '모바일 첫 화면에서 가장 먼저 해야 할 행동 하나를 정하고, 욕심내서 넣고 싶은 기능 두 개는 일부러 버립니다.',
+      discardCount: 2,
       options: [
-        { label: '전체 KPI 대시보드', feedback: 'PC 운영 본체에는 중요하지만 현장 모바일 첫 행동으로는 무겁습니다.' },
-        { label: '지금 떠오른 기록을 빠르게 남기기', feedback: 'Coaching의 핵심입니다. 현장에서는 기억이 사라지기 전에 포착하는 것이 먼저입니다.' },
-        { label: '설정과 메뉴 전체 보기', feedback: '설정은 자주 쓰는 핵심 행동과 분리하는 편이 좋습니다.' }
+        { key: 'capture', label: '지금 떠오른 기록 남기기', description: '현장에서 생각이 사라지기 전에 20~30초 안에 포착' },
+        { key: 'today', label: '오늘 Follow-up 보기', description: '오늘 다시 확인해야 할 사람과 일부터 확인' },
+        { key: 'dashboard', label: '전체 KPI 대시보드', description: '팀과 개인 KPI를 한 화면에서 비교' },
+        { key: 'search', label: '전체 기록 검색', description: '과거 기록과 면담을 탐색' },
+        { key: 'settings', label: '설정·관리 메뉴', description: '백업, 조직, 환경설정 관리' }
+      ]
+    }
+  ],
+  9: [
+    {
+      type: 'oneLineCapture',
+      id: 'one-line-capture',
+      title: 'One-line Capture Lab',
+      description: '긴 기록에서 가장 중요한 관찰과 다음 행동만 남겨 한 줄 포착으로 압축합니다. 30자 안팎을 목표로 합니다.',
+      maxChars: 40,
+      sourcePlaceholder: '예: 김 상담사가 결합할인 문의에서 설명이 길어 고객이 다시 물었고, 두 번째에는 순서를 잡아 이해시켰다. 내일 오전 다시 모니터링.'
+    }
+  ],
+  10: [
+    {
+      type: 'exactChoice',
+      id: 'post-save-flow',
+      title: 'Post-save Flow Builder',
+      description: '저장 직후 보여줄 다음 행동을 정확히 2개만 선택합니다. 더 많이 넣을수록 저장 이후 판단이 다시 복잡해집니다.',
+      choose: 2,
+      options: [
+        { key: 'new', label: '새 기록', description: '연속해서 다음 기억파편을 남긴다.' },
+        { key: 'today', label: '오늘 보기', description: '오늘의 Follow-up과 최근 기록을 확인한다.' },
+        { key: 'detail', label: '상세 편집', description: '방금 저장한 내용을 더 자세히 수정한다.' },
+        { key: 'dashboard', label: '대시보드', description: '전체 KPI와 팀 현황으로 이동한다.' },
+        { key: 'share', label: '공유', description: '방금 기록을 다른 채널로 보낸다.' }
+      ]
+    }
+  ],
+  11: [
+    {
+      type: 'densityTest',
+      id: 'information-density',
+      title: 'Information Density Test',
+      description: '모바일 첫 화면에서 최근 기록을 몇 건 보여줄지 선택하고, 그 이유를 적습니다.',
+      reasonPlaceholder: '예: 현장에서는 최근 흐름만 빠르게 확인하면 되므로 5건이면 충분하다.',
+      options: [
+        { value: '3', label: '최근 3건', sample: ['방금 기록', '오전 Follow-up', '어제 코칭'], feedback: '매우 가볍지만 패턴을 보기에는 정보가 부족할 수 있습니다.' },
+        { value: '5', label: '최근 5건', sample: ['방금 기록', '오전 Follow-up', '어제 코칭', '2일 전 면담', '최근 KPI 메모'], feedback: '현장 회수성과 정보량의 균형이 좋은 기본값입니다.' },
+        { value: '10', label: '최근 10건', sample: ['1','2','3','4','5','6','7','8','9','10'], feedback: '맥락은 늘지만 모바일 첫 화면의 스캔 시간이 길어질 수 있습니다.' },
+        { value: 'all', label: '전체 기록', sample: ['전체 기록을 한 번에 노출'], feedback: '탐색에는 유리하지만 첫 화면의 목적이 기록과 빠른 회수라면 과도할 수 있습니다.' }
       ]
     }
   ],

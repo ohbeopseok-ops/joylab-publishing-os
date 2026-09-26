@@ -74,6 +74,24 @@ for (const viewport of [
   await scenarios.nth(1).locator('button').nth(1).click();
   await scenarios.nth(2).locator('button').nth(1).click();
 
+  const firstScreen = page.locator('[data-interaction-id="first-screen-decision"]');
+  const decisionCards = firstScreen.locator('.book-interactive-decision-card');
+  await decisionCards.nth(0).locator('button').nth(0).click();
+  await decisionCards.nth(2).locator('button').nth(1).click();
+  await decisionCards.nth(4).locator('button').nth(1).click();
+
+  const capture = page.locator('[data-interaction-id="one-line-capture"]');
+  await capture.locator('textarea').nth(0).fill('김 상담사가 결합할인 문의에서 설명이 길어 고객이 다시 물었고, 두 번째에는 순서를 잡아 이해시켰다. 내일 오전 다시 모니터링.');
+  await capture.locator('textarea').nth(1).fill('결합할인 설명 순서 개선, 내일 재모니터링');
+
+  const postSave = page.locator('[data-interaction-id="post-save-flow"]');
+  await postSave.locator('.book-interactive-flow-option').nth(0).click();
+  await postSave.locator('.book-interactive-flow-option').nth(1).click();
+
+  const density = page.locator('[data-interaction-id="information-density"]');
+  await density.locator('.book-interactive-density-options button[data-value="5"]').click();
+  await density.locator('textarea').fill('현장에서는 최근 흐름만 빠르게 확인하면 되므로 5건이면 충분하다.');
+
   await page.waitForTimeout(350);
   await page.locator('#series02-open-records').click();
   await page.waitForTimeout(100);
@@ -87,6 +105,11 @@ for (const viewport of [
     const fragmentStatus = document.querySelector('[data-interaction-id="memory-fragment-builder"] .book-interactive-status')?.textContent?.trim();
     const contractStatus = document.querySelector('[data-interaction-id="mini-data-contract"] .book-interactive-status')?.textContent?.trim();
     const policyStatus = document.querySelector('[data-interaction-id="kpi-change-policy"] .book-interactive-status')?.textContent?.trim();
+    const firstScreenStatus = document.querySelector('[data-interaction-id="first-screen-decision"] .book-interactive-status')?.textContent?.trim();
+    const oneLineStatus = document.querySelector('[data-interaction-id="one-line-capture"] .book-interactive-status')?.textContent?.trim();
+    const postSaveStatus = document.querySelector('[data-interaction-id="post-save-flow"] .book-interactive-status')?.textContent?.trim();
+    const densityStatus = document.querySelector('[data-interaction-id="information-density"] .book-interactive-status')?.textContent?.trim();
+    const oneLineCounter = document.querySelector('[data-interaction-id="one-line-capture"] .book-interactive-char-counter')?.textContent?.trim();
     const panel = document.getElementById('book-interactive-panel');
     const robots = document.querySelector('meta[name="robots"]')?.getAttribute('content');
     const raw = localStorage.getItem('joylab-book-work-to-system-lab-interactive-forms');
@@ -102,6 +125,11 @@ for (const viewport of [
       fragmentStatus,
       contractStatus,
       policyStatus,
+      firstScreenStatus,
+      oneLineStatus,
+      postSaveStatus,
+      densityStatus,
+      oneLineCounter,
       panelOpen: panel?.classList.contains('is-open') ?? false,
       hasSavedResultsHeading: Array.from(document.querySelectorAll('#book-interactive-panel-body h3')).some((el) => el.textContent?.trim() === '실습 결과'),
       artifactCount: document.getElementById('book-artifact-count')?.textContent?.trim(),
@@ -130,19 +158,28 @@ for (const viewport of [
     fragmentSaved: metrics.formsKeys.some((key) => key.endsWith(':memory-fragment-builder')),
     contractSaved: metrics.formsKeys.some((key) => key.endsWith(':mini-data-contract')),
     policySaved: metrics.formsKeys.some((key) => key.endsWith(':kpi-change-policy')),
+    firstScreenComplete: metrics.firstScreenStatus?.includes('First Screen 결정 완료') === true,
+    oneLineComplete: metrics.oneLineStatus?.includes('One-line Capture 완료') === true,
+    oneLineWithinLimit: Number(metrics.oneLineCounter?.split('/')[0]?.trim()) <= 40,
+    postSaveComplete: metrics.postSaveStatus?.includes('다음 행동 2개 확정') === true,
+    densityComplete: metrics.densityStatus?.includes('Information Density 결정 완료') === true,
+    firstScreenSaved: metrics.formsKeys.some((key) => key.endsWith(':first-screen-decision')),
+    oneLineSaved: metrics.formsKeys.some((key) => key.endsWith(':one-line-capture')),
+    postSaveSaved: metrics.formsKeys.some((key) => key.endsWith(':post-save-flow')),
+    densitySaved: metrics.formsKeys.some((key) => key.endsWith(':information-density')),
     recordsPanelOpen: metrics.panelOpen === true,
     savedResultsVisible: metrics.hasSavedResultsHeading === true,
-    sevenArtifacts: Number(metrics.artifactCount) >= 7
+    elevenArtifacts: Number(metrics.artifactCount) >= 11
   };
 
-  const screenshot = path.join(outputDir, `series02-ch01-07-${viewport.name}.png`);
+  const screenshot = path.join(outputDir, `series02-ch01-11-${viewport.name}.png`);
   await page.screenshot({ path: screenshot, fullPage: true });
 
   const passed = Object.values(checks).every(Boolean);
   report.push({ viewport, status, metrics, pageErrors, checks, passed, screenshot });
   if (!passed) failures.push(viewport.name);
 
-  console.log(`${passed ? 'PASS' : 'FAIL'} Interactive Book V1 Ch01-07 ${viewport.name} score=${metrics.score} band=${metrics.band} artifacts=${metrics.artifactCount}`);
+  console.log(`${passed ? 'PASS' : 'FAIL'} Interactive Book V1 Ch01-11 ${viewport.name} score=${metrics.score} band=${metrics.band} artifacts=${metrics.artifactCount}`);
   await context.close();
 }
 
