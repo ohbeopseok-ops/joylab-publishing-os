@@ -60,6 +60,8 @@ jobs:
           node --check scripts/sync-gsc-visual-metrics.mjs
           node --check scripts/visual-upgrade-runtime.mjs
           node --check scripts/report-homepage-funnel.mjs
+          node --check scripts/report-books-funnel.mjs
+          node --check scripts/bookify-generator-v1.mjs
           node --check scripts/qa-homepage-viewports.mjs
           node --check scripts/qa-article-archive-gold.mjs
           node --check scripts/qa-article-pc-gold.mjs
@@ -80,6 +82,8 @@ jobs:
           node --check scripts/check-legacy-public-email.mjs
           node --check scripts/check-official-channel-contract.mjs
           node scripts/report-homepage-funnel.mjs --self-test
+          node scripts/report-books-funnel.mjs --self-test
+          node scripts/bookify-generator-v1.mjs --self-test
           node scripts/submit-indexnow.mjs --self-test
           node scripts/report-gsc-7d.mjs --self-test
           node scripts/build-distribution-pack.mjs --self-test
