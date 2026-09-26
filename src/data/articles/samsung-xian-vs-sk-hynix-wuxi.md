@@ -105,3 +105,4 @@ JoyLab은 두 생산거점을 다음 항목으로 비교합니다.
 
 - [반도체 투자 가이드](/guides/semiconductor-investing)
 
+- [AI 추론 시대 메모리 투자 가이드](/guides/ai-inference-memory)
