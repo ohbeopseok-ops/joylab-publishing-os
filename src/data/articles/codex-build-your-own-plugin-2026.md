@@ -197,3 +197,9 @@ leaderdesk-coaching/
 플러그인을 실제 업무에 연결하기 전에는 정상 입력뿐 아니라 잘못된 입력, 권한 부족, 외부 API 장애까지 시험해야 합니다. 특히 쓰기 권한이 있는 도구는 테스트 계정과 샌드박스에서 먼저 실행하고, 예상한 리소스만 변경되는지 확인해야 합니다. 이 단계를 자동화된 테스트 케이스로 남겨두면 기능 추가 후에도 기존 안전장치가 깨지지 않았는지 반복 검증할 수 있습니다.
 
 **좋은 플러그인의 완성 기준은 “호출된다”가 아니라 “실패해도 안전하다”입니다.**
+
+## Related Research
+
+- [Codex Computer Use 가이드](/articles/codex-computer-use-guide-2026)
+- [Codex Goal Mode 가이드](/articles/codex-goal-mode-guide-2026)
+
