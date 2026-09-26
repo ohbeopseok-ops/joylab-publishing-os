@@ -90,6 +90,22 @@ const { bookSlug, storagePrefix, interactions = {} } = Astro.props;
       if (typeof window.joylabTrack === 'function') window.joylabTrack(event, target, placement);
     };
 
+    const updateSummary = () => {
+      const noteEntries = Object.entries(state.notes).filter(([, value]) => String(value || '').trim());
+      const artifactEntries = Object.entries(state.forms).filter(([, value]) => value && typeof value === 'object' && Object.keys(value).some((key) => !key.startsWith('__') && String(value[key] ?? '').trim()));
+      const count = state.completed.size + state.bookmarks.size + noteEntries.length + artifactEntries.length;
+      const countEl = document.getElementById('book-interactive-count');
+      const completeEl = document.getElementById('book-complete-count');
+      const noteEl = document.getElementById('book-note-count');
+      const bookmarkEl = document.getElementById('book-bookmark-count');
+      const artifactEl = document.getElementById('book-artifact-count');
+      if (countEl) countEl.textContent = String(count);
+      if (completeEl) completeEl.textContent = String(state.completed.size);
+      if (noteEl) noteEl.textContent = String(noteEntries.length);
+      if (bookmarkEl) bookmarkEl.textContent = String(state.bookmarks.size);
+      if (artifactEl) artifactEl.textContent = String(artifactEntries.length);
+    };
+
     const saveCoreState = () => {
       writeJson('completed', Array.from(state.completed));
       writeJson('bookmarks', Array.from(state.bookmarks));
@@ -438,22 +454,6 @@ const { bookSlug, storagePrefix, interactions = {} } = Astro.props;
     };
 
     chapters.forEach(enhanceChapter);
-
-    const updateSummary = () => {
-      const noteEntries = Object.entries(state.notes).filter(([, value]) => String(value || '').trim());
-      const artifactEntries = Object.entries(state.forms).filter(([, value]) => value && typeof value === 'object' && Object.keys(value).some((key) => !key.startsWith('__') && String(value[key] ?? '').trim()));
-      const count = state.completed.size + state.bookmarks.size + noteEntries.length + artifactEntries.length;
-      const countEl = document.getElementById('book-interactive-count');
-      const completeEl = document.getElementById('book-complete-count');
-      const noteEl = document.getElementById('book-note-count');
-      const bookmarkEl = document.getElementById('book-bookmark-count');
-      const artifactEl = document.getElementById('book-artifact-count');
-      if (countEl) countEl.textContent = String(count);
-      if (completeEl) completeEl.textContent = String(state.completed.size);
-      if (noteEl) noteEl.textContent = String(noteEntries.length);
-      if (bookmarkEl) bookmarkEl.textContent = String(state.bookmarks.size);
-      if (artifactEl) artifactEl.textContent = String(artifactEntries.length);
-    };
 
     const renderPanel = () => {
       if (!panelBody) return;
