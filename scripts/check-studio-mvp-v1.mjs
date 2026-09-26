@@ -14,6 +14,7 @@ const requiredFiles = [
   'src/data/studio/series-02-demo.ts',
   'config/contracts/interactive-block-v1.schema.json',
   'scripts/generate-studio-epub-v1.mjs',
+  'scripts/generate-studio-print-pdf-v1.mjs',
   'src/data/studio/series-02-epub-source.json'
 ];
 
@@ -39,7 +40,7 @@ for (const mode of ['mobile','tablet','desktop','epub','print']) {
 
 const exp = fs.readFileSync('src/pages/studio/projects/series-02/export/index.astro','utf8');
 if (!exp.includes('/studio/exports/series-02-memory-debt.epub')) failures.push('real EPUB export link missing');
-if (!exp.includes("Print PDF','status:'SIMULATED'") && !exp.includes("name:'Print PDF',status:'SIMULATED'")) failures.push('Print PDF must remain simulated until its generator exists');
+if (!exp.includes('/studio/exports/series-02-memory-debt-print.pdf')) failures.push('real Print PDF export link missing');
 
 if (failures.length) {
   console.error('JoyLab Studio Gate V1: FAIL');

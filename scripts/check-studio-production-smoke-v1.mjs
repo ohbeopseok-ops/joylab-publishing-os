@@ -7,7 +7,7 @@ const routes = [
   { path: '/studio/projects/series-02/', markers: ['Series 02','OUTPUT STATUS'] },
   { path: '/studio/projects/series-02/validation/', markers: ['VALIDATION','Studio Gate 결과'] },
   { path: '/studio/projects/series-02/preview/', markers: ['MULTI OUTPUT PREVIEW','Mobile','EPUB','Print'] },
-  { path: '/studio/projects/series-02/export/', markers: ['EXPORT','EPUB','REAL'] }
+  { path: '/studio/projects/series-02/export/', markers: ['EXPORT','EPUB','Print PDF','REAL'] }
 ];
 
 async function fetchText(path) {
@@ -40,4 +40,13 @@ for (const marker of ['META-INF/container.xml','OEBPS/content.opf','OEBPS/nav.xh
   if (bytes.indexOf(Buffer.from(marker)) < 0) throw new Error('EPUB binary marker missing: ' + marker);
 }
 console.log('PASS', epubPath, bytes.length + ' bytes');
+const pdfPath = '/studio/exports/series-02-memory-debt-print.pdf';
+const pdf = await fetch(base + fresh(pdfPath), { redirect: 'follow', cache: 'no-store' });
+if (pdf.status !== 200) throw new Error(pdfPath + ' expected 200, got ' + pdf.status);
+const pdfBytes = Buffer.from(await pdf.arrayBuffer());
+if (pdfBytes.length < 5000) throw new Error('Print PDF binary too small');
+if (pdfBytes.subarray(0, 5).toString('ascii') !== '%PDF-') throw new Error('Print PDF magic missing');
+if (pdfBytes.indexOf(Buffer.from('%%EOF')) < 0) throw new Error('Print PDF EOF missing');
+console.log('PASS', pdfPath, pdfBytes.length + ' bytes');
+
 console.log('Studio Production Smoke V1 PASS');

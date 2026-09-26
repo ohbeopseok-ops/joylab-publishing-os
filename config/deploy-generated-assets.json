@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "path": "/studio/exports/series-02-memory-debt-print.pdf",
+      "generatedAt": "deploy",
+      "generator": "scripts/generate-studio-print-pdf-v1.mjs",
+      "reason": "Playwright/Noto CJK print binary is generated after Astro build and before Cloudflare deploy",
+      "sourceRouteMustBeNoindex": true
+    }
+  ]
+}

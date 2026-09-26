@@ -67,7 +67,9 @@
     "studio:epub": "node scripts/generate-studio-epub-v1.mjs",
     "studio:epub:self-test": "node scripts/generate-studio-epub-v1.mjs --self-test",
     "taxonomy:registry": "node scripts/generate-investment-taxonomy-registry-v1.mjs",
-    "taxonomy:registry:check": "node scripts/generate-investment-taxonomy-registry-v1.mjs --check"
+    "taxonomy:registry:check": "node scripts/generate-investment-taxonomy-registry-v1.mjs --check",
+    "studio:print": "node scripts/generate-studio-print-pdf-v1.mjs",
+    "studio:print:self-test": "node scripts/generate-studio-print-pdf-v1.mjs --self-test"
   },
   "dependencies": {
     "astro": "^7.3.2"
