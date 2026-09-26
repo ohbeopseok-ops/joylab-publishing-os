@@ -5,7 +5,7 @@ const checks=[
   ['Mobile overflow','PASS','360 / 390 / 430'],
   ['Local response storage','PASS','localStorage only'],
   ['PII warning','PASS','customer-identifying data discouraged'],
-  ['EPUB output','CHECK','simulated only'],
+  ['EPUB output','PASS','real EPUB3 binary generated'],
   ['Print PDF','CHECK','simulated only'],
   ['Real export provenance','FIX','P2']
 ];
@@ -14,9 +14,9 @@ const checks=[
   <div class="wrap">
     <header><div><p>VALIDATION</p><h1>Series 02</h1></div><a href="/studio/projects/series-02/">← Dashboard</a></header>
     <nav><a href="/studio/projects/series-02/">Dashboard</a><a href="/studio/projects/series-02/manuscript/">Manuscript</a><a href="/studio/projects/series-02/interactive/">Interactive</a><a class="active" href="/studio/projects/series-02/validation/">Validation</a><a href="/studio/projects/series-02/preview/">Preview</a><a href="/studio/projects/series-02/export/">Export</a></nav>
-    <section class="summary"><article><b>PASS</b><strong>4</strong></article><article><b>CHECK</b><strong>2</strong></article><article><b>FIX</b><strong>1</strong></article></section>
+    <section class="summary"><article><b>PASS</b><strong>5</strong></article><article><b>CHECK</b><strong>1</strong></article><article><b>FIX</b><strong>1</strong></article></section>
     <section class="panel"><h2>Studio Gate 결과</h2>{checks.map(([name,status,detail])=><div class="row"><span>{name}</span><b class={status.toLowerCase()}>{status}</b><small>{detail}</small></div>)}</section>
-    <section class="next"><b>Recommended next action</b><p>실제 EPUB / Print PDF 생성기를 붙이기 전까지 Export는 Simulated 상태로 유지합니다.</p></section>
+    <section class="next"><b>Recommended next action</b><p>EPUB은 Real Export로 승격되었습니다. 다음 P2 대상은 Print PDF와 export provenance 강화입니다.</p></section>
   </div>
   <style>
     .studio-validation-page{background:#f6f4ef;color:#17171a}.wrap{width:min(1100px,100%);margin:auto;padding:34px 20px 80px}header{display:flex;justify-content:space-between}header p{margin:0;color:#c8922d;font-size:12px;font-weight:850;letter-spacing:.12em}h1{margin:5px 0;font-size:36px}header a,nav a{color:#222;text-decoration:none;font-weight:800}nav{display:flex;gap:8px;overflow:auto;margin:20px 0}nav a{white-space:nowrap;padding:9px 13px;border-radius:999px;background:#fff;color:#666}nav .active{background:#17171a;color:#fff}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.summary article,.panel,.next{background:#fff;border:1px solid #e5e0d7;border-radius:18px}.summary article{padding:20px}.summary b,.summary strong{display:block}.summary b{font-size:12px;color:#888}.summary strong{margin-top:6px;font-size:32px}.panel,.next{margin-top:16px;padding:22px}.panel h2{margin-top:0}.row{display:grid;grid-template-columns:1fr 90px 180px;gap:12px;padding:14px 0;border-top:1px solid #eee}.row b{font-size:12px}.pass{color:#3f7d59}.check{color:#a77924}.fix{color:#b85a55}.row small{color:#777}.next p{margin-bottom:0;color:#777;line-height:1.6}@media(max-width:700px){.summary{grid-template-columns:1fr}.row{grid-template-columns:1fr auto}.row small{grid-column:1/-1}header{display:block}header a{display:inline-block;margin-top:10px}}
