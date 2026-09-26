@@ -1,0 +1,48 @@
+{
+  "projectId": "leaderdesk",
+  "title": "LeaderDesk",
+  "problemStatement": "리더의 현장 기록·KPI·후속조치가 메모장, 파일, 기억에 흩어지지 않고 하나의 운영 흐름으로 연결되도록 한다.",
+  "persona0": "고객센터 현장 리더",
+  "stage": "bookify",
+  "status": "active",
+  "startedAt": "2026-09-14",
+  "decisions": [
+    {
+      "date": "2026-09-14",
+      "decision": "LeaderDesk Coaching은 모바일 기록기, LeaderDesk Ops는 PC 운영 본체로 역할을 분리한다.",
+      "reason": "현장 입력과 운영 집계는 사용 맥락이 다르기 때문이다.",
+      "alternatives": [
+        "모든 기능을 한 화면에 통합"
+      ],
+      "impact": "같은 데이터 계약 위에 두 인터페이스를 둔다."
+    },
+    {
+      "date": "2026-09-15",
+      "decision": "KPI 변경 시 과거 확정 보고서를 재계산하지 않고 변경이력과 사유를 보존한다.",
+      "reason": "운영 감사성과 과거 시점의 사실을 지키기 위해서다.",
+      "alternatives": [
+        "현재 기준으로 과거 전체 재계산"
+      ],
+      "impact": "변경 사유와 수정 이력이 핵심 데이터가 됐다."
+    }
+  ],
+  "evidence": [],
+  "releases": [
+    {
+      "version": "0.1.4",
+      "date": "2026-09-15",
+      "status": "candidate",
+      "ref": "LeaderDesk-Setup-0.1.4.exe"
+    }
+  ],
+  "book": {
+    "status": "outline",
+    "slug": "work-to-system",
+    "title": "업무를 시스템으로 바꾸는 법",
+    "series": "JOYLAB BUILD SERIES 02"
+  },
+  "content": [],
+  "metrics": {
+    "primaryOutcome": "기록 회수성과 Follow-up 누락 감소"
+  }
+}

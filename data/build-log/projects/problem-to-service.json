@@ -1,0 +1,66 @@
+{
+  "projectId": "problem-to-service",
+  "title": "시니어 화장실 찾기",
+  "problemStatement": "낯선 장소를 걷는 시니어가 복잡한 검색 없이 가까운 화장실을 빠르게 확인하고 찾아갈 수 있도록 한다.",
+  "persona0": "어머니",
+  "stage": "measure",
+  "status": "published",
+  "startedAt": "2026-09-23",
+  "decisions": [
+    {
+      "date": "2026-09-23",
+      "decision": "실행부터 길 안내까지 3회 미만 터치를 핵심 UX 기준으로 둔다.",
+      "reason": "급한 상황에서 검색과 판단 단계를 줄이기 위해서다.",
+      "alternatives": [
+        "기능 중심 지도 앱"
+      ],
+      "impact": "큰 버튼과 단순한 흐름을 우선하게 됐다."
+    },
+    {
+      "date": "2026-09-24",
+      "decision": "공공데이터 단일 의존 대신 GPS+주변검색과 fallback 구조를 사용한다.",
+      "reason": "API·좌표 누락으로 서비스 전체가 멈추지 않게 하기 위해서다.",
+      "alternatives": [
+        "공공데이터 단일 소스"
+      ],
+      "impact": "실패 경로를 제품의 일부로 설계하게 됐다."
+    }
+  ],
+  "evidence": [
+    {
+      "kind": "url",
+      "ref": "https://aijoylab.kr/books/problem-to-service",
+      "label": "JoyLab Books landing"
+    },
+    {
+      "kind": "pr",
+      "ref": "https://github.com/ohbeopseok-ops/joylab-publishing-os/pull/330",
+      "label": "Series 01 publish PR"
+    }
+  ],
+  "releases": [
+    {
+      "version": "Series01-Web",
+      "date": "2026-09-25",
+      "status": "shipped",
+      "ref": "https://aijoylab.kr/books/problem-to-service"
+    }
+  ],
+  "book": {
+    "status": "published",
+    "slug": "problem-to-service",
+    "title": "문제를 서비스로 바꾸는 법",
+    "series": "JOYLAB BUILD SERIES 01"
+  },
+  "content": [
+    {
+      "type": "guide",
+      "status": "published",
+      "ref": "https://aijoylab.kr/books/problem-to-service",
+      "title": "문제를 서비스로 바꾸는 법"
+    }
+  ],
+  "metrics": {
+    "funnelContract": "Books Funnel Dashboard V1"
+  }
+}

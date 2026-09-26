@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JOYLAB BUILD LOG V1",
+  "type": "object",
+  "required": [
+    "projectId",
+    "title",
+    "problemStatement",
+    "persona0",
+    "stage",
+    "status",
+    "startedAt",
+    "decisions",
+    "evidence",
+    "releases",
+    "book",
+    "content",
+    "metrics"
+  ],
+  "properties": {
+    "projectId": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "problemStatement": {
+      "type": "string"
+    },
+    "persona0": {
+      "type": "string"
+    },
+    "stage": {
+      "enum": [
+        "discover",
+        "define",
+        "build",
+        "validate",
+        "ship",
+        "bookify",
+        "publish",
+        "distribute",
+        "measure",
+        "learn"
+      ]
+    },
+    "status": {
+      "enum": [
+        "idea",
+        "active",
+        "paused",
+        "shipped",
+        "published",
+        "archived"
+      ]
+    },
+    "startedAt": {
+      "type": "string"
+    },
+    "decisions": {
+      "type": "array"
+    },
+    "evidence": {
+      "type": "array"
+    },
+    "releases": {
+      "type": "array"
+    },
+    "book": {
+      "type": "object"
+    },
+    "content": {
+      "type": "array"
+    },
+    "metrics": {
+      "type": "object"
+    }
+  }
+}
