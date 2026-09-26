@@ -32,12 +32,19 @@ function hasNoindex(html) {
   );
 }
 
-function internalPath(raw) {
+function sourceUrlForFile(file) {
+  const r = rel(file);
+  if (r === 'index.html') return siteOrigin + '/';
+  if (r.endsWith('/index.html')) return siteOrigin + '/' + r.slice(0, -'index.html'.length);
+  return siteOrigin + '/' + r;
+}
+
+function internalPath(raw, sourceUrl) {
   const value = String(raw || '').trim();
-  if (!value || value.startsWith('#')) return null;
+  if (!value || value.startsWith('#') || value.includes('${')) return null;
   if (/^(?:mailto:|tel:|javascript:|data:)/i.test(value)) return null;
   try {
-    const url = new URL(value, siteOrigin);
+    const url = new URL(value, sourceUrl);
     if (url.origin !== siteOrigin) return null;
     return decodeURI(url.pathname);
   } catch {
@@ -70,10 +77,11 @@ const broken = new Map();
 for (const file of htmlFiles) {
   const html = fs.readFileSync(file, 'utf8');
   const sourceRoute = routeForHtml(file);
+  const sourceUrl = sourceUrlForFile(file);
   const hrefs = [...html.matchAll(/\bhref\s*=\s*["']([^"']+)["']/gi)].map((m) => m[1]);
 
   for (const href of hrefs) {
-    const pathname = internalPath(href);
+    const pathname = internalPath(href, sourceUrl);
     if (!pathname) continue;
     checkedLinks += 1;
     if (candidates(pathname).some((candidate) => existing.has(candidate))) continue;
@@ -112,7 +120,8 @@ if (!fs.existsSync(sitemapFile)) {
         continue;
       }
       sitemapRoutes.add(url.pathname.replace(/\/+$/, '') || '/');
-      if (!candidates(url.pathname).some((candidate) => existing.has(candidate))) {
+      const decodedPathname = decodeURI(url.pathname);
+      if (!candidates(decodedPathname).some((candidate) => existing.has(candidate))) {
         errors.push('sitemap URL has no built page: ' + url.pathname);
       }
     } catch {
