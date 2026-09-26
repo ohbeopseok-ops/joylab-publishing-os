@@ -184,6 +184,7 @@ notices.push('HTML pages checked: ' + htmlFiles.length);
 notices.push('Internal links checked: ' + checkedLinks);
 notices.push('Broken internal links: ' + broken.size);
 notices.push('Declared deploy-generated assets: ' + deployGeneratedPaths.size);
+notices.push('Deploy-generated asset contract: config/deploy-generated-assets.json');
 notices.push('Sitemap URLs: ' + sitemapRoutes.size);
 notices.push(
   'Sitemap/indexable build coverage: ' +
