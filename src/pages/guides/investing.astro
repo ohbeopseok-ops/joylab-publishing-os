@@ -149,6 +149,9 @@ const theses = [
                   <span>{cluster.coverage} Articles · {cluster.status}</span>
                   <a class="sg-card__cta" href={cluster.href}>{cluster.status === 'RED' ? 'Content Gap 보기 →' : '클러스터 열기 →'}</a>
                 </div>
+                {cluster.id === 'financials-value-up' && (
+                  <div class="ih-card-related"><a href="/articles/kb-financial-shareholder-return">KB금융 Company Research →</a></div>
+                )}
               </div>
             </article>
           ))}
