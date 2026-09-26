@@ -57,7 +57,9 @@
     "china-risk-earnings:self-test": "node scripts/compose-china-risk-earnings-impact.mjs --self-test",
     "content-date:audit": "node scripts/check-content-date-contract-v1.mjs",
     "home-slot:audit": "node scripts/check-home-content-slot-contract-v1.mjs",
-    "shortform:handoff": "node scripts/build-shortform-handoff.mjs"
+    "shortform:handoff": "node scripts/build-shortform-handoff.mjs",
+    "content-identity:audit": "node scripts/check-content-identity-contract-v1.mjs",
+    "production:freshness": "node scripts/check-production-freshness-v1.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"
