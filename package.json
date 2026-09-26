@@ -62,7 +62,8 @@
     "production:freshness": "node scripts/check-production-freshness-v1.mjs",
     "build-log:audit": "node scripts/check-build-log-v1.mjs",
     "books-funnel:report": "node scripts/report-books-funnel.mjs",
-    "books-funnel:self-test": "node scripts/report-books-funnel.mjs --self-test"
+    "books-funnel:self-test": "node scripts/report-books-funnel.mjs --self-test",
+    "studio:gate": "node scripts/check-studio-mvp-v1.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"
