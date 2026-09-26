@@ -1,25 +1,27 @@
 ---
 import BaseLayout from '../../../../../layouts/BaseLayout.astro';
 const outputs=[
- ['Interactive Web','READY','실제 Demo route 연결'],
- ['Web Preview','READY','Studio Preview 연결'],
- ['EPUB','SIMULATED','P2 generator 대기'],
- ['Print PDF','SIMULATED','P2 generator 대기']
+  {name:'Interactive Web',status:'READY',detail:'실제 Demo route 연결',href:'/studio/demo/'},
+  {name:'Web Preview',status:'READY',detail:'Studio Preview 연결',href:'/studio/projects/series-02/preview/'},
+  {name:'EPUB',status:'REAL',detail:'EPUB3 binary generated at build time',href:'/studio/exports/series-02-memory-debt.epub',download:true},
+  {name:'Print PDF',status:'SIMULATED',detail:'P2 Print generator 대기'}
 ];
 ---
-<BaseLayout title="Export | Series 02 | JoyLab Studio" description="JoyLab Studio simulated export" robots="noindex,follow" bodyClass="studio-export-page">
+<BaseLayout title="Export | Series 02 | JoyLab Studio" description="JoyLab Studio real EPUB export and simulated print export" robots="noindex,follow" bodyClass="studio-export-page">
   <div class="wrap" data-key="joylab-series-02-export-v1">
     <header><div><p>EXPORT</p><h1>Series 02</h1></div><a href="/studio/projects/series-02/">← Dashboard</a></header>
     <nav><a href="/studio/projects/series-02/">Dashboard</a><a href="/studio/projects/series-02/validation/">Validation</a><a href="/studio/projects/series-02/preview/">Preview</a><a class="active" href="/studio/projects/series-02/export/">Export</a></nav>
     <section class="grid">
-      {outputs.map(([name,status,detail],i)=><article data-output={name}><small>OUTPUT {String(i+1).padStart(2,'0')}</small><h2>{name}</h2><b>{status}</b><p>{detail}</p><button type="button" disabled={status==='READY'}>{status==='READY'?'Ready':'Generate simulated export'}</button></article>)}
+      {outputs.map((output,i)=><article data-output={output.name}><small>OUTPUT {String(i+1).padStart(2,'0')}</small><h2>{output.name}</h2><b class:list={{real:output.status==='REAL', ready:output.status==='READY'}}>{output.status}</b><p>{output.detail}</p>
+        {output.href ? <a class="action" href={output.href} download={output.download ? 'series-02-memory-debt.epub' : undefined}>{output.download ? 'EPUB 다운로드' : '열기'}</a> : <button type="button">Generate simulated export</button>}
+      </article>)}
     </section>
-    <section class="manifest"><h2>Export Manifest</h2><pre id="manifest">아직 simulated export가 생성되지 않았습니다.</pre></section>
+    <section class="manifest"><h2>Export Manifest</h2><pre id="manifest">{JSON.stringify({project:'series-02',epub:{status:'REAL',path:'/studio/exports/series-02-memory-debt.epub',format:'EPUB3',source:'src/data/studio/series-02-epub-source.json'},printPdf:{status:'SIMULATED'}},null,2)}</pre></section>
   </div>
   <script is:inline>
-    (()=>{const shell=document.querySelector('.wrap');if(!(shell instanceof HTMLElement))return;const key=shell.dataset.key;const manifest=document.getElementById('manifest');if(!key||!manifest)return;const render=(x)=>{manifest.textContent=JSON.stringify(x,null,2)};try{const saved=JSON.parse(localStorage.getItem(key)||'null');if(saved)render(saved)}catch{}document.querySelectorAll('button:not([disabled])').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('[data-output]');if(!(card instanceof HTMLElement))return;const payload={project:'series-02',output:card.dataset.output,status:'SIMULATED',generatedAt:new Date().toISOString(),source:'JoyLab Studio MVP',provenance:'simulated-no-binary'};localStorage.setItem(key,JSON.stringify(payload));render(payload);btn.textContent='Simulated export generated'}));})();
+    (()=>{const shell=document.querySelector('.wrap');if(!(shell instanceof HTMLElement))return;const key=shell.dataset.key;const manifest=document.getElementById('manifest');if(!key||!manifest)return;document.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('[data-output]');if(!(card instanceof HTMLElement))return;const payload={project:'series-02',output:card.dataset.output,status:'SIMULATED',generatedAt:new Date().toISOString(),source:'JoyLab Studio MVP',provenance:'simulated-no-binary'};localStorage.setItem(key,JSON.stringify(payload));manifest.textContent=JSON.stringify(payload,null,2);btn.textContent='Simulated export generated'}));})();
   </script>
   <style>
-    .studio-export-page{background:#f6f4ef;color:#17171a}.wrap{width:min(1180px,100%);margin:auto;padding:34px 20px 80px}header{display:flex;justify-content:space-between}header p{margin:0;color:#c8922d;font-size:12px;font-weight:850;letter-spacing:.12em}h1{margin:5px 0;font-size:36px}header a,nav a{color:#222;text-decoration:none;font-weight:800}nav{display:flex;gap:8px;overflow:auto;margin:20px 0}nav a{white-space:nowrap;padding:9px 13px;border-radius:999px;background:#fff;color:#666}nav .active{background:#17171a;color:#fff}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.grid article,.manifest{padding:22px;border:1px solid #e5e0d7;border-radius:18px;background:#fff}.grid small{color:#999;font-weight:800}.grid h2{margin:8px 0}.grid b{color:#9d752d}.grid p{color:#777}.grid button{width:100%;min-height:46px;border:0;border-radius:999px;background:#17171a;color:#fff;font-weight:800}.grid button:disabled{background:#e9e5de;color:#777}.manifest{margin-top:16px}.manifest pre{white-space:pre-wrap;word-break:break-word;background:#1c1d21;color:#e9e2d6;padding:16px;border-radius:12px;min-height:120px}@media(max-width:700px){.grid{grid-template-columns:1fr}header{display:block}header a{display:inline-block;margin-top:10px}}
+    .studio-export-page{background:#f6f4ef;color:#17171a}.wrap{width:min(1180px,100%);margin:auto;padding:34px 20px 80px}header{display:flex;justify-content:space-between}header p{margin:0;color:#c8922d;font-size:12px;font-weight:850;letter-spacing:.12em}h1{margin:5px 0;font-size:36px}header a,nav a{color:#222;text-decoration:none;font-weight:800}nav{display:flex;gap:8px;overflow:auto;margin:20px 0}nav a{white-space:nowrap;padding:9px 13px;border-radius:999px;background:#fff;color:#666}nav .active{background:#17171a;color:#fff}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.grid article,.manifest{padding:22px;border:1px solid #e5e0d7;border-radius:18px;background:#fff}.grid small{color:#999;font-weight:800}.grid h2{margin:8px 0}.grid b{color:#9d752d}.grid b.real{color:#2f7a53}.grid b.ready{color:#476b88}.grid p{color:#777}.grid button,.action{display:flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;min-height:46px;border:0;border-radius:999px;background:#17171a;color:#fff;font-weight:800;text-decoration:none}.manifest{margin-top:16px}.manifest pre{white-space:pre-wrap;word-break:break-word;background:#1c1d21;color:#e9e2d6;padding:16px;border-radius:12px;min-height:120px}@media(max-width:700px){.grid{grid-template-columns:1fr}header{display:block}header a{display:inline-block;margin-top:10px}}
   </style>
 </BaseLayout>
