@@ -12,7 +12,7 @@ const interactions = getBookInteractions(bookSlug);
 
 <BaseLayout
   title="Series 02 Interactive Lab｜업무를 시스템으로 바꾸는 법"
-  description="JOYLAB BUILD SERIES 02 Chapter 1~7 인터랙티브 전자책 파일럿."
+  description="JOYLAB BUILD SERIES 02 Chapter 1~11 인터랙티브 전자책 파일럿."
   robots="noindex,nofollow"
   bodyClass="book-reader-shell"
 >
@@ -25,7 +25,7 @@ const interactions = getBookInteractions(bookSlug);
       <div class="book-reader-hero__copy">
         <small>JOYLAB BUILD SERIES 02 · INTERACTIVE PILOT</small>
         <h1>업무를 시스템으로 바꾸는 법</h1>
-        <p>Chapter 1~7 · 기억 부채 → Persona 0 → STT/요약 → 기억파편 → Data Contract → KPI 변경이력</p>
+        <p>Chapter 1~11 · 문제 정의 → 데이터 구조 → First Screen → One-line Capture → Post-save Flow → Information Density</p>
       </div>
       <div class="series02-lab-note">
         <strong>이 페이지는 정식 출간 전 인터랙션 검증용입니다.</strong>
@@ -43,6 +43,10 @@ const interactions = getBookInteractions(bookSlug);
         <a href="#chapter-5"><b>05</b><span>기억파편 Builder</span></a>
         <a href="#chapter-6"><b>06</b><span>Mini Data Contract</span></a>
         <a href="#chapter-7"><b>07</b><span>KPI 변경 시나리오</span></a>
+        <a href="#chapter-8"><b>08</b><span>First Screen Decision</span></a>
+        <a href="#chapter-9"><b>09</b><span>One-line Capture</span></a>
+        <a href="#chapter-10"><b>10</b><span>Post-save Flow</span></a>
+        <a href="#chapter-11"><b>11</b><span>Information Density</span></a>
         <div class="series02-lab-flow">
           <span>ASK</span><i>→</i><span>BUILD</span><i>→</i><span>SAVE</span>
         </div>
@@ -171,7 +175,76 @@ const interactions = getBookInteractions(bookSlug);
         <section class="series02-lab-checkpoint" aria-labelledby="series02-checkpoint-b-title">
           <small>CHECKPOINT B</small>
           <h2 id="series02-checkpoint-b-title">업무가 데이터 구조로 바뀌기 시작했습니다.</h2>
-          <p>이제 원문/요약 Pair, 기억파편, Mini Data Contract, KPI 변경 정책이 저장되었습니다. 이 네 결과는 Chapter 8~11의 가장 작은 운영 흐름을 설계할 때 다시 사용됩니다.</p>
+          <p>이제 원문/요약 Pair, 기억파편, Mini Data Contract, KPI 변경 정책이 저장되었습니다. 다음은 이 데이터를 실제로 어떻게 포착하고 다시 꺼내 쓸지 결정하는 단계입니다.</p>
+        </section>
+
+        <section
+          class="book-reader-chapter"
+          id="chapter-8"
+          data-reader-chapter
+          data-order="8"
+          data-label="Chapter 8 · 첫 화면에서 무엇 하나만 할 수 있어야 할까"
+        >
+          <div class="book-reader-chapter__eyebrow">CHAPTER 08 · ASK → SAVE</div>
+          <h2>첫 화면에서 무엇 하나만 할 수 있어야 할까</h2>
+          <div class="book-reader-prose">
+            <p>모바일 첫 화면에 KPI, 검색, 설정, 최근 기록을 모두 넣으면 기능은 많아지지만 현장에서는 무엇을 먼저 해야 하는지가 흐려집니다.</p>
+            <p>그래서 첫 화면에서는 <strong>가장 급한 행동 하나를 남기고, 나머지는 과감히 뒤로 보냅니다.</strong></p>
+            <p>아래에서 첫 행동 하나를 선택하고, 처음 화면에서 버릴 기능 두 개도 직접 정해보세요.</p>
+          </div>
+        </section>
+
+        <section
+          class="book-reader-chapter"
+          id="chapter-9"
+          data-reader-chapter
+          data-order="9"
+          data-label="Chapter 9 · 말로 기록하고 한 줄로 정리하다"
+        >
+          <div class="book-reader-chapter__eyebrow">CHAPTER 09 · BUILD → SAVE</div>
+          <h2>말로 기록하고 한 줄로 정리하다</h2>
+          <div class="book-reader-prose">
+            <p>현장 기록은 길수록 좋은 것이 아닙니다. 다시 볼 때 핵심을 빠르게 회수할 수 있어야 합니다.</p>
+            <p>원문은 보존하되 목록에서 보이는 문장은 <strong>관찰 + 다음 행동</strong>이 한눈에 들어오도록 줄여봅니다.</p>
+            <p>긴 기록을 적고, 40자 이내의 한 줄 포착으로 압축해보세요.</p>
+          </div>
+        </section>
+
+        <section
+          class="book-reader-chapter"
+          id="chapter-10"
+          data-reader-chapter
+          data-order="10"
+          data-label="Chapter 10 · 저장 다음 행동을 설계하다"
+        >
+          <div class="book-reader-chapter__eyebrow">CHAPTER 10 · BUILD → SAVE</div>
+          <h2>저장 다음 행동을 설계하다</h2>
+          <div class="book-reader-prose">
+            <p>저장 버튼을 누른 뒤 무엇을 보여줄지도 운영 흐름의 일부입니다.</p>
+            <p>LeaderDesk Coaching에서는 저장 직후 판단을 줄이기 위해 <strong>새 기록 / 오늘 보기</strong>처럼 다음 행동을 제한했습니다.</p>
+            <p>아래에서 저장 직후 남길 행동을 정확히 두 개만 선택해보세요.</p>
+          </div>
+        </section>
+
+        <section
+          class="book-reader-chapter"
+          id="chapter-11"
+          data-reader-chapter
+          data-order="11"
+          data-label="Chapter 11 · 최근 5건만 보여준 이유"
+        >
+          <div class="book-reader-chapter__eyebrow">CHAPTER 11 · ASK → BUILD → SAVE</div>
+          <h2>최근 5건만 보여준 이유</h2>
+          <div class="book-reader-prose">
+            <p>많이 보여준다고 더 잘 이해되는 것은 아닙니다. 모바일 첫 화면에서는 정보량이 늘어날수록 스캔 시간이 길어집니다.</p>
+            <p>최근 3건, 5건, 10건, 전체 기록을 비교하며 <strong>내 업무에 맞는 정보 밀도</strong>를 직접 선택해봅니다.</p>
+          </div>
+        </section>
+
+        <section class="series02-lab-checkpoint" aria-labelledby="series02-checkpoint-c-title">
+          <small>CHECKPOINT C</small>
+          <h2 id="series02-checkpoint-c-title">가장 작은 운영 흐름이 완성됐습니다.</h2>
+          <p>First Screen, One-line Capture, 저장 후 다음 행동, 최근 정보량까지 정했습니다. 이제 Chapter 12~15에서 이 흐름을 모바일 Coaching과 PC Ops로 나누고 같은 데이터 계약으로 다시 연결합니다.</p>
           <button type="button" id="series02-open-records">내 기록 확인 →</button>
         </section>
       </main>
