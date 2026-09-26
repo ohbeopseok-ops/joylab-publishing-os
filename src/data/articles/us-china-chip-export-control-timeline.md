@@ -69,3 +69,23 @@ JoyLab에서는 타임라인을 네 단계로 읽습니다.
 - [미국 BIS — 2023년 업데이트 정보](https://www.bis.gov/press-release/bis-updated-public-information-page-export-controls-imposed-advanced-computing-semiconductor)
 - [미국 BIS — 2024년 규정 정정·명확화](https://www.bis.gov/press-release/commerce-releases-clarifications-export-control-rules-restrict-prcs-access-advanced-computing)
 - [미국 BIS — 2024년 추가 정책 발표](https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military)
+
+## 2025~2026 업데이트
+
+타임라인에는 2024년에서 멈추지 않고 이후 정책 변화도 붙여야 합니다. 2025년 8월 BIS는 중국 내 외국계 반도체 팹에 적용되던 VEU 예외 구조를 변경해, 기존 팹 운영을 위한 장비·기술은 허가 대상으로 두되 **중국 내 생산능력 확대나 기술 업그레이드에는 허가하지 않겠다는 방향**을 발표했습니다.
+
+2026년 1월에는 또 다른 변화가 있었습니다. BIS는 NVIDIA H200, AMD MI325X 및 유사 칩에 대해 일정 조건을 충족하면 중국향 수출허가를 case-by-case로 심사하도록 정책을 수정했습니다. 즉 2026년의 규제 프레임은 단순 강화/완화가 아니라 **품목·최종사용자·보안조건별 차등 심사**로 읽는 편이 정확합니다.
+
+### 업데이트된 타임라인
+
+- 2022-10: 첨단 컴퓨팅·반도체 제조 통제 도입
+- 2023-10: 기존 규정 업데이트·우회방지 강화
+- 2024-12: 제조장비 24종·소프트웨어·HBM 통제 확대
+- 2025-08: 중국 내 외국계 팹 VEU 예외 구조 변경
+- 2026-01: H200·MI325X 등 조건부 case-by-case 라이선스 심사
+
+## 추가 1차 자료
+
+- [BIS, 2025-08-29 중국 내 외국계 팹 VEU 정책 변경](https://www.bis.gov/press-release/department-commerce-closes-export-controls-loophole-foreign-owned-semiconductor-fabs-china)
+- [BIS, 2026-01-13 반도체 라이선스 심사정책 수정](https://www.bis.gov/press-release/department-commerce-revises-license-review-policy-semiconductors-exported-china)
+
