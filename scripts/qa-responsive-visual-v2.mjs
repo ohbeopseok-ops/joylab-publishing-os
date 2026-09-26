@@ -39,6 +39,18 @@ const pages = [
     maxScreens: { 'iphone-390': 10.5, 'iphone-430': 9.8, 'ipad-820': 8, 'desktop-1440': 9 }
   },
   {
+    name: 'articles-index',
+    path: '/articles',
+    selectors: ['main', '#site-footer-v2'],
+    maxScreens: { 'iphone-390': 22, 'iphone-430': 21, 'ipad-820': 16, 'desktop-1440': 18 }
+  },
+  {
+    name: 'search',
+    path: '/search?q=AI',
+    selectors: ['.search-hero', '.search-main', '#site-footer-v2'],
+    maxScreens: { 'iphone-390': 18, 'iphone-430': 17, 'ipad-820': 13, 'desktop-1440': 15 }
+  },
+  {
     name: 'research',
     path: '/articles/china-us-treasury-holdings-2026',
     selectors: ['.research-cover', '.research-layout', '.research-v2-content', '#site-footer-v2'],
