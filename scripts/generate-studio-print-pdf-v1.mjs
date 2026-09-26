@@ -3,7 +3,7 @@ import path from 'node:path';
 import { chromium } from 'playwright';
 
 const root = process.cwd();
-const sourcePath = path.join(root, 'src/data/studio/series-02-epub-source.json');
+const sourcePath = path.join(root, 'src/data/studio/series-02-source.json');
 const defaultOut = path.join(root, 'dist/studio/exports/series-02-memory-debt-print.pdf');
 const selfTestOut = path.join(root, 'qa-artifacts/studio-print-v1/series-02-memory-debt-print.pdf');
 
@@ -108,7 +108,10 @@ function validatePdf(buffer) {
   if (!buffer.includes(Buffer.from('%%EOF'))) throw new Error('Print PDF EOF missing');
 }
 
-const book = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
+const source = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
+const readyIds = new Set(source.publicationProfile?.readyChapterIds || []);
+const book = { ...source, chapters: source.chapters.filter((ch) => ch.manuscriptStatus === 'ready' && readyIds.has(ch.id)) };
+if (!book.chapters.length) throw new Error('No release-ready chapters in canonical Series 02 source');
 const html = renderHtml(book);
 const outArg = process.argv.find((x) => x.startsWith('--out='));
 const selfTest = process.argv.includes('--self-test');
