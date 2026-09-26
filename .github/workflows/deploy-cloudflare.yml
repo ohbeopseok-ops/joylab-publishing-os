@@ -22,10 +22,16 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
+      - name: Setup Java for EPUBCheck
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
       - name: Install Korean font for book artwork
         run: |
           sudo apt-get update
-          sudo apt-get install -y fonts-noto-cjk
+          sudo apt-get install -y fonts-noto-cjk poppler-utils unzip
 
       - name: Install locked dependencies
         run: npm ci
@@ -47,6 +53,18 @@ jobs:
 
       - name: Generate Studio Print PDF V1
         run: npm run studio:print
+
+      - name: Studio PDF Preflight V1
+        run: npm run studio:pdf:preflight
+
+      - name: EPUBCheck 5.4.0
+        run: |
+          curl -fL --retry 3 -o /tmp/epubcheck.zip https://github.com/w3c/epubcheck/releases/download/v5.4.0/epubcheck-5.4.0.zip
+          unzip -q /tmp/epubcheck.zip -d /tmp/epubcheck
+          java -jar /tmp/epubcheck/epubcheck-5.4.0/epubcheck.jar dist/studio/exports/series-02-memory-debt.epub
+
+      - name: Generate Export Provenance Manifest V1
+        run: npm run studio:provenance
 
       - name: Legacy Public Email Gate
         run: node scripts/check-legacy-public-email.mjs
