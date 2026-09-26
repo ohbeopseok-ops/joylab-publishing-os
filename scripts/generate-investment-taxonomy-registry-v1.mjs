@@ -44,7 +44,10 @@ const records=fs.readdirSync(articleDir).filter((name)=>name.endsWith('.md')).so
     route:'/articles/'+slug,
     industries:arr(meta.investmentIndustries).length?arr(meta.investmentIndustries):infer(industryRules,slug),
     theses:arr(meta.investmentTheses).length?arr(meta.investmentTheses):infer(thesisRules,slug),
-    companies:arr(meta.investmentCompanies).length?arr(meta.investmentCompanies):infer(companyRules,slug)
+    companies:arr(meta.investmentCompanies).length?arr(meta.investmentCompanies):infer(companyRules,slug),
+    valueChains:arr(meta.investmentValueChains),
+    kpis:arr(meta.investmentKpis),
+    researchType:meta.investmentResearchType||null
   };
 });
 
