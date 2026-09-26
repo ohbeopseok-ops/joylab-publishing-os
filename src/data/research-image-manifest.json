@@ -1790,5 +1790,24 @@
         "caption": "Fact → Interpretation → Scenario → Action 순서로 금융주의 재평가 조건을 점검합니다."
       }
     ]
+  },
+  "kb-financial-shareholder-return": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "KB금융 주주환원 보는 법｜ROE·CET1·배당·자사주를 연결하는 방법 — JoyLab Research 대표 이미지",
+      "caption": "KB금융의 이익·자본·주주환원 구조를 ROE와 CET1 중심으로 읽습니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "KB금융 주주환원 분석 — ROE CET1 RWA NIM Credit Cost 핵심 신호 이미지",
+        "caption": "ROE·CET1·RWA·NIM·Credit Cost를 같은 흐름에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "KB금융 주주환원 분석 — 이익 자본 배당 자사주 PBR 리서치 프레임워크 이미지",
+        "caption": "Earnings → Capital → Shareholder Return → Valuation 순서로 재점검합니다."
+      }
+    ]
   }
 }

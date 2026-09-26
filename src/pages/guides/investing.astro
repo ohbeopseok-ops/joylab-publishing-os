@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/semiconductor-guide-v2.css';
 import '../../styles/investment-hub-v2.css';
 import { industryCoverage, thesisCoverage } from '../../lib/investment-taxonomy-registry';
+import InvestmentResearchMap from '../../components/InvestmentResearchMap.astro';
 
 const clusters = [
   {
@@ -54,11 +55,11 @@ const clusters = [
     id: 'financials-value-up',
     eyebrow: 'FINANCIALS & VALUE-UP',
     title: '금융·주주환원',
-    href: '#gap-financials-value-up',
+    href: '/articles/financials-value-up-investing-guide',
     thesis: 'ROE → 자본비율 → 배당 → 자사주 → PBR → Re-rating',
-    note: '현재 독립 투자 리서치가 없어 신규 구축이 필요한 영역입니다.',
+    note: 'Pillar와 KB금융 Company Research를 시작으로 ROE·CET1·주주환원 축을 구축 중입니다.',
     coverage: industryCoverage('financials-value-up'),
-    status: 'RED'
+    status: 'YELLOW'
   },
   {
     step: '06',
@@ -148,6 +149,9 @@ const theses = [
                   <span>{cluster.coverage} Articles · {cluster.status}</span>
                   <a class="sg-card__cta" href={cluster.href}>{cluster.status === 'RED' ? 'Content Gap 보기 →' : '클러스터 열기 →'}</a>
                 </div>
+                {cluster.id === 'financials-value-up' && (
+                  <div class="ih-card-related"><a href="/articles/kb-financial-shareholder-return">KB금융 Company Research →</a></div>
+                )}
               </div>
             </article>
           ))}
@@ -167,6 +171,8 @@ const theses = [
             ))}
           </div>
         </section>
+
+        <InvestmentResearchMap />
 
         <section class="sg-insights" aria-labelledby="ih-system-title">
           <div class="sg-section-head sg-section-head--compact">
@@ -194,7 +200,7 @@ const theses = [
       <aside class="sg-rail" aria-label="투자 리서치 시작점">
         <section class="sg-rail-card sg-rail-card--dark"><small>DEEPEST CLUSTER</small><h3>AI 인프라 · 25편</h3><p>Compute에서 광통신·전력·냉각까지 현재 가장 넓은 Research Graph입니다.</p><a href="/guides/ai-infrastructure">AI 인프라 가이드 →</a></section>
         <section class="sg-rail-card"><small>CORE CLUSTER</small><h3>반도체 · 20편</h3><p>HBM·메모리 사이클·삼성전자·SK하이닉스를 실적과 연결합니다.</p><a href="/guides/semiconductor-investing">반도체 가이드 →</a></section>
-        <section class="sg-rail-card"><small>BUILD NEXT</small><h3>Content Gap</h3><p>자동차·로봇 0편 / 금융·주주환원 0편 / 에너지·원전 2편입니다.</p><a href="#gap-mobility-robotics">Gap 확인 →</a></section>
+        <section class="sg-rail-card"><small>BUILD NEXT</small><h3>Content Gap</h3><p>금융·주주환원은 구축을 시작했습니다. 다음 큰 빈칸은 자동차·로봇과 에너지·원전입니다.</p><a href="#gap-mobility-robotics">Gap 확인 →</a></section>
       </aside>
     </div>
   </main>

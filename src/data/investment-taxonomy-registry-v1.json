@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 98,
+  "articleCount": 99,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -758,6 +758,35 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "kb-financial-shareholder-return",
+      "route": "/articles/kb-financial-shareholder-return",
+      "industries": [
+        "financials-value-up"
+      ],
+      "theses": [
+        "korea-value-up"
+      ],
+      "companies": [
+        "KB Financial"
+      ],
+      "valueChains": [
+        "banking-profitability",
+        "capital-adequacy",
+        "shareholder-return",
+        "valuation-rerating"
+      ],
+      "kpis": [
+        "ROE",
+        "CET1",
+        "RWA",
+        "NIM",
+        "credit-cost",
+        "total-shareholder-return",
+        "PBR"
+      ],
+      "researchType": "company"
     },
     {
       "slug": "korea-ai-power-companies-compare",
