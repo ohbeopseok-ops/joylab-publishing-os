@@ -10,7 +10,13 @@ const primaryDomains = [
   'dart.fss.or.kr','kind.krx.co.kr','krx.co.kr','sec.gov','federalreserve.gov',
   'bls.gov','bea.gov','treasury.gov','bok.or.kr','kosis.kr','motie.go.kr',
   'msit.go.kr','mof.go.kr','samsung.com','skhynix.com','apple.com','openai.com',
-  'anthropic.com','googleblog.com','blog.google'
+  'anthropic.com','googleblog.com','blog.google',
+  'iea.org','energy.gov','uptimeinstitute.com','gevernova.com','vertiv.com',
+  'nvidia.com','nvidianews.nvidia.com','developer.nvidia.com',
+  'cxmt.com','ymtc.com','samsungsem.com',
+  'hd-hyundaielectric.com','hyundai-electric.com','doosanenerbility.com',
+  'hyosungheavyindustries.com','ls-electric.com','lsholdings.co.kr','lsholdings.com',
+  'hd-hhi.com','hdksoe.co.kr','samsungshi.com','hanwhaocean.com','esg.hd.com'
 ];
 
 const riskyFinancePatterns = [
@@ -119,13 +125,18 @@ for (let i=0;i<records.length;i++) {
 }
 
 for (const r of records) {
-  r.status=r.signals.some(s=>s.severity==='P0')?'P0':r.signals.length?'P1':'PASS';
+  if (r.signals.some(s=>s.severity==='P0')) r.status='P0';
+  else if (r.signals.some(s=>s.type==='SOURCE' || s.type==='YMYL')) r.status='P1-A';
+  else if (r.signals.length) r.status='P1-B';
+  else r.status='PASS';
 }
 
 const summary={
   total:records.length,
   PASS:records.filter(r=>r.status==='PASS').length,
-  P1:records.filter(r=>r.status==='P1').length,
+  P1A:records.filter(r=>r.status==='P1-A').length,
+  P1B:records.filter(r=>r.status==='P1-B').length,
+  P1:records.filter(r=>r.status==='P1-A'||r.status==='P1-B').length,
   P0:records.filter(r=>r.status==='P0').length,
   ymyl:records.filter(r=>r.ymyl).length,
   lowValue:records.filter(r=>r.signals.some(s=>s.type==='LOW_VALUE')).length,
@@ -137,7 +148,7 @@ const report={schemaVersion:2,generatedAt:new Date().toISOString(),summary,recor
 fs.writeFileSync(path.join(outDir,'report.json'),JSON.stringify(report,null,2)+'\n');
 
 const priority=records.filter(r=>r.status!=='PASS').sort((a,b)=>
-  (a.status==='P0'?0:1)-(b.status==='P0'?0:1) || b.signals.length-a.signals.length
+  ({P0:0,'P1-A':1,'P1-B':2}[a.status]??3)-({P0:0,'P1-A':1,'P1-B':2}[b.status]??3) || b.signals.length-a.signals.length
 );
 
 const md=[
@@ -145,7 +156,9 @@ const md=[
   '',
   `- Total: ${summary.total}`,
   `- PASS: ${summary.PASS}`,
-  `- P1: ${summary.P1}`,
+  `- P1-A (YMYL/source priority): ${summary.P1A}`,
+  `- P1-B (depth/structure backlog): ${summary.P1B}`,
+  `- P1 total: ${summary.P1}`,
   `- P0: ${summary.P0}`,
   `- YMYL: ${summary.ymyl}`,
   `- Low Value signals: ${summary.lowValue}`,
