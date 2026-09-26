@@ -24,6 +24,7 @@ readerProfiles:
   - "시니어 UX와 위치 기반 서비스의 실제 시행착오를 사례로 배우고 싶은 사람"
   - "MVP부터 배포·도메인·Production QA까지 한 프로젝트의 전체 흐름을 보고 싶은 사람"
 format: web
+interactive: true
 access: preview
 previewChapterCount: 1
 readerCta: "프롤로그와 1장 무료 읽기"

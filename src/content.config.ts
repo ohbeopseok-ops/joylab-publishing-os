@@ -76,6 +76,7 @@ const books = defineCollection({
     benefits: z.array(z.string()).optional(),
     tocItems: z.array(z.string()).optional(),
     closingQuote: z.string().optional(),
+    interactive: z.boolean().default(false),
     draft: z.boolean().default(false)
   })
 });
