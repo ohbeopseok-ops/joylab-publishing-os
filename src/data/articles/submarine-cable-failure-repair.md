@@ -119,3 +119,19 @@ ITU는 해저 케이블 장애의 대부분이 어업·투묘 등 인간 활동�
 - ITU, Submarine Cable Resilience: https://www.itu.int/en/mediacentre/backgrounders/Pages/submarine-cable-resilience.aspx
 - ITU, Global Connectivity Report 2025: https://www.itu.int/itu-d/reports/statistics/global-connectivity-report-2025/
 - ICPC, submarine cable protection and repair resources: https://www.iscpc.org/
+
+## 장애를 읽을 때 확인할 5가지
+
+해저케이블 장애 뉴스는 “케이블이 끊겼다”는 사실만으로 영향이 결정되지 않습니다. 먼저 **어느 노선이 손상됐는지, 대체 경로가 있는지, 트래픽 우회가 가능한지, 수리선 접근이 가능한지, 실제 복구 예상시간이 얼마인지**를 분리해서 봐야 합니다. 대형 통신사업자는 여러 경로를 사용하기 때문에 단일 단선이 곧바로 인터넷 전체 중단으로 이어지지는 않습니다. 반대로 특정 섬·국가처럼 우회 용량이 적거나 복수 케이블이 동시에 영향을 받으면 체감 장애가 커질 수 있습니다.
+
+수리 과정도 단순하지 않습니다. 장애 지점을 추정한 뒤 전문 케이블선이 현장으로 이동하고, 수심과 해저 지형을 고려해 손상 구간을 인양해 접속한 뒤 다시 해저에 내려놓습니다. 따라서 복구 속도는 기술뿐 아니라 기상, 선박 위치, 항만 허가, 해역 규제의 영향을 받습니다.
+
+### JoyLab 체크포인트
+
+- 장애 지점과 영향을 받는 노선
+- 대체 케이블과 우회 용량
+- 수리선의 위치와 출항 가능 여부
+- 기상·수심·해저 지형
+- 복구 후 트래픽 정상화 여부
+
+이 다섯 항목을 함께 보면 “단선 발생”과 “서비스 영향”을 구분할 수 있습니다.
