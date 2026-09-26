@@ -597,6 +597,273 @@ const { bookSlug, storagePrefix, interactions = {} } = Astro.props;
         refresh();
       }
 
+      if (interaction.type === 'firstScreenDecision') {
+        const formKey = `${order}:${interaction.id}`;
+        const values = { ...(state.forms[formKey] || {}) };
+        values.discarded = Array.isArray(values.discarded) ? values.discarded : [];
+        const optionGrid = document.createElement('div');
+        optionGrid.className = 'book-interactive-decision-grid';
+        const status = document.createElement('div');
+        status.className = 'book-interactive-status';
+        let completedTracked = Boolean(values.__completedTracked);
+
+        const refresh = () => {
+          const done = Boolean(values.primary && values.discarded.length === interaction.discardCount && !values.discarded.includes(values.primary));
+          status.classList.toggle('is-complete', done);
+          status.textContent = done
+            ? `✓ First Screen 결정 완료 · 핵심 1개 / 버림 ${interaction.discardCount}개`
+            : `핵심 행동 1개 + 버릴 기능 ${interaction.discardCount}개를 선택하세요.`;
+          values.__complete = done;
+          if (done && !completedTracked) {
+            completedTracked = true;
+            values.__completedTracked = true;
+            track('book_interaction_action', `${bookSlug}:${interaction.id}`);
+          }
+          state.forms[formKey] = values;
+          saveCoreState();
+        };
+
+        interaction.options.forEach((option) => {
+          const card = document.createElement('article');
+          card.className = 'book-interactive-decision-card';
+          const copy = document.createElement('div');
+          const title = document.createElement('strong');
+          title.textContent = option.label;
+          const desc = document.createElement('small');
+          desc.textContent = option.description;
+          copy.append(title, desc);
+
+          const actions = document.createElement('div');
+          const primary = document.createElement('button');
+          primary.type = 'button';
+          primary.textContent = '첫 행동';
+          const discard = document.createElement('button');
+          discard.type = 'button';
+          discard.textContent = '버리기';
+
+          const syncButtons = () => {
+            primary.classList.toggle('is-selected', values.primary === option.key);
+            discard.classList.toggle('is-discarded', values.discarded.includes(option.key));
+          };
+
+          primary.addEventListener('click', () => {
+            values.primary = option.key;
+            values.discarded = values.discarded.filter((key) => key !== option.key);
+            optionGrid.querySelectorAll('.book-interactive-decision-card').forEach((el) => {
+              const buttons = el.querySelectorAll('button');
+              buttons[0]?.classList.remove('is-selected');
+            });
+            syncButtons();
+            refresh();
+            track('book_interaction_choice', `${bookSlug}:${interaction.id}`);
+          });
+
+          discard.addEventListener('click', () => {
+            if (values.primary === option.key) return;
+            if (values.discarded.includes(option.key)) {
+              values.discarded = values.discarded.filter((key) => key !== option.key);
+            } else if (values.discarded.length < interaction.discardCount) {
+              values.discarded.push(option.key);
+            }
+            syncButtons();
+            refresh();
+            track('book_interaction_check', `${bookSlug}:${interaction.id}`);
+          });
+
+          actions.append(primary, discard);
+          card.append(copy, actions);
+          optionGrid.appendChild(card);
+          syncButtons();
+        });
+
+        wrap.append(optionGrid, status);
+        refresh();
+      }
+
+      if (interaction.type === 'oneLineCapture') {
+        const formKey = `${order}:${interaction.id}`;
+        const values = { ...(state.forms[formKey] || {}) };
+        const grid = document.createElement('div');
+        grid.className = 'book-interactive-one-line';
+        const source = document.createElement('textarea');
+        source.rows = 5;
+        source.placeholder = interaction.sourcePlaceholder || '';
+        source.value = values.source || '';
+        const summary = document.createElement('textarea');
+        summary.rows = 2;
+        summary.placeholder = '한 줄 포착을 적어보세요.';
+        summary.value = values.summary || '';
+        const counter = document.createElement('div');
+        counter.className = 'book-interactive-char-counter';
+        const status = document.createElement('div');
+        status.className = 'book-interactive-status';
+        let completedTracked = Boolean(values.__completedTracked);
+
+        const refresh = () => {
+          const length = String(values.summary || '').length;
+          const done = Boolean(String(values.source || '').trim() && String(values.summary || '').trim() && length <= interaction.maxChars);
+          counter.textContent = `${length} / ${interaction.maxChars}자`;
+          counter.classList.toggle('is-over', length > interaction.maxChars);
+          status.classList.toggle('is-complete', done);
+          status.textContent = done ? '✓ One-line Capture 완료' : '원문과 한 줄 포착을 작성하고 글자 수를 줄여보세요.';
+          values.__complete = done;
+          values.__charCount = length;
+          if (done && !completedTracked) {
+            completedTracked = true;
+            values.__completedTracked = true;
+            track('book_interaction_action', `${bookSlug}:${interaction.id}`);
+          }
+          state.forms[formKey] = values;
+          saveCoreState();
+        };
+
+        let sourceTimer = 0;
+        source.addEventListener('input', () => {
+          values.source = source.value.trim();
+          clearTimeout(sourceTimer);
+          sourceTimer = setTimeout(refresh, 160);
+        });
+        let summaryTimer = 0;
+        summary.addEventListener('input', () => {
+          values.summary = summary.value.trim();
+          clearTimeout(summaryTimer);
+          summaryTimer = setTimeout(refresh, 160);
+        });
+
+        const sourceBox = document.createElement('label');
+        sourceBox.innerHTML = '<span>LONG NOTE</span>';
+        sourceBox.appendChild(source);
+        const summaryBox = document.createElement('label');
+        summaryBox.innerHTML = '<span>ONE-LINE CAPTURE</span>';
+        summaryBox.append(summary, counter);
+        grid.append(sourceBox, summaryBox);
+        wrap.append(grid, status);
+        refresh();
+      }
+
+      if (interaction.type === 'exactChoice') {
+        const formKey = `${order}:${interaction.id}`;
+        const values = { ...(state.forms[formKey] || {}) };
+        values.selected = Array.isArray(values.selected) ? values.selected : [];
+        const grid = document.createElement('div');
+        grid.className = 'book-interactive-exact-choice';
+        const status = document.createElement('div');
+        status.className = 'book-interactive-status';
+        let completedTracked = Boolean(values.__completedTracked);
+
+        const refresh = () => {
+          const done = values.selected.length === interaction.choose;
+          status.classList.toggle('is-complete', done);
+          status.textContent = done ? `✓ 다음 행동 ${interaction.choose}개 확정` : `${values.selected.length}/${interaction.choose} 선택 · 정확히 ${interaction.choose}개만 남기세요.`;
+          values.__complete = done;
+          if (done && !completedTracked) {
+            completedTracked = true;
+            values.__completedTracked = true;
+            track('book_interaction_action', `${bookSlug}:${interaction.id}`);
+          }
+          state.forms[formKey] = values;
+          saveCoreState();
+        };
+
+        interaction.options.forEach((option) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'book-interactive-flow-option';
+          const title = document.createElement('strong');
+          title.textContent = option.label;
+          const desc = document.createElement('small');
+          desc.textContent = option.description;
+          button.append(title, desc);
+          const sync = () => button.classList.toggle('is-selected', values.selected.includes(option.key));
+          button.addEventListener('click', () => {
+            if (values.selected.includes(option.key)) {
+              values.selected = values.selected.filter((key) => key !== option.key);
+            } else if (values.selected.length < interaction.choose) {
+              values.selected.push(option.key);
+            }
+            sync();
+            refresh();
+            track('book_interaction_check', `${bookSlug}:${interaction.id}`);
+          });
+          grid.appendChild(button);
+          sync();
+        });
+
+        wrap.append(grid, status);
+        refresh();
+      }
+
+      if (interaction.type === 'densityTest') {
+        const formKey = `${order}:${interaction.id}`;
+        const values = { ...(state.forms[formKey] || {}) };
+        const options = document.createElement('div');
+        options.className = 'book-interactive-density-options';
+        const preview = document.createElement('div');
+        preview.className = 'book-interactive-density-preview';
+        const reason = document.createElement('textarea');
+        reason.rows = 3;
+        reason.placeholder = interaction.reasonPlaceholder || '선택 이유를 적어보세요.';
+        reason.value = values.reason || '';
+        const feedback = document.createElement('p');
+        feedback.className = 'book-interactive-density-feedback';
+        const status = document.createElement('div');
+        status.className = 'book-interactive-status';
+        let completedTracked = Boolean(values.__completedTracked);
+
+        const refresh = () => {
+          const selected = interaction.options.find((option) => option.value === values.density);
+          preview.innerHTML = '';
+          if (selected) {
+            selected.sample.forEach((item, index) => {
+              const row = document.createElement('div');
+              row.innerHTML = `<b>${index + 1}</b><span></span>`;
+              row.querySelector('span').textContent = item;
+              preview.appendChild(row);
+            });
+            feedback.textContent = selected.feedback;
+          } else {
+            feedback.textContent = '노출 개수를 선택하면 모바일 목록 예시가 표시됩니다.';
+          }
+          options.querySelectorAll('button').forEach((button) => {
+            button.classList.toggle('is-selected', button.dataset.value === values.density);
+          });
+          const done = Boolean(values.density && String(values.reason || '').trim());
+          status.classList.toggle('is-complete', done);
+          status.textContent = done ? `✓ Information Density 결정 완료 · ${selected?.label || ''}` : '노출 개수와 선택 이유를 모두 남겨주세요.';
+          values.__complete = done;
+          if (done && !completedTracked) {
+            completedTracked = true;
+            values.__completedTracked = true;
+            track('book_interaction_action', `${bookSlug}:${interaction.id}`);
+          }
+          state.forms[formKey] = values;
+          saveCoreState();
+        };
+
+        interaction.options.forEach((option) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.dataset.value = option.value;
+          button.textContent = option.label;
+          button.addEventListener('click', () => {
+            values.density = option.value;
+            refresh();
+            track('book_interaction_choice', `${bookSlug}:${interaction.id}`);
+          });
+          options.appendChild(button);
+        });
+
+        let timer = 0;
+        reason.addEventListener('input', () => {
+          values.reason = reason.value.trim();
+          clearTimeout(timer);
+          timer = setTimeout(refresh, 160);
+        });
+
+        wrap.append(options, preview, feedback, reason, status);
+        refresh();
+      }
+
       return wrap;
     };
 
