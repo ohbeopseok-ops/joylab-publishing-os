@@ -89,3 +89,7 @@ JoyLab에서는 장비 국산화 속도를 다음 지표로 추적합니다.
 - [BIS, 2024-12-02 반도체 제조장비 통제 강화](https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military)
 - [BIS, 2025-08-29 중국 내 외국계 팹 정책 변경](https://www.bis.gov/press-release/department-commerce-closes-export-controls-loophole-foreign-owned-semiconductor-fabs-china)
 
+## Research Hub
+
+- [반도체 투자 가이드](/guides/semiconductor-investing)
+
