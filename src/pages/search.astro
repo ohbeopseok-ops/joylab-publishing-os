@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/search.css';
 import { getCollection, render } from 'astro:content';
+import { getInvestmentSearchTerms } from '../lib/investment-taxonomy-registry';
 
 const articles = (await getCollection('articles'))
   .filter((item) => !item.data.draft)
@@ -21,7 +22,8 @@ const articleItems = await Promise.all(articles.map(async (article) => {
     publishedAt: article.data.publishedAt.toISOString(),
     readingTime: article.data.readingTime ?? '약 6분',
     href: `/articles/${article.id}`,
-    headings
+    headings,
+    taxonomyTerms: getInvestmentSearchTerms(article.id)
   };
 }));
 
@@ -159,7 +161,8 @@ const categories = ['전체','투자·경제','AI·생산성','성장·리더십
         item.category,
         ...(item.tags || []),
         item.series || '',
-        ...(item.headings || [])
+        ...(item.headings || []),
+        ...(item.taxonomyTerms || [])
       ].join(' '));
 
       const scoreItem = (item, query) => {

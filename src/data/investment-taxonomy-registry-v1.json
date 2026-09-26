@@ -1,0 +1,985 @@
+{
+  "version": 1,
+  "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
+  "articleCount": 97,
+  "records": [
+    {
+      "slug": "ai-agent-governance",
+      "route": "/articles/ai-agent-governance",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "ai-agent-hbm-demand",
+      "route": "/articles/ai-agent-hbm-demand",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "ai-agent-security-prompt-to-rce-2026",
+      "route": "/articles/ai-agent-security-prompt-to-rce-2026",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "ai-agent-system-design-anthropic-2026",
+      "route": "/articles/ai-agent-system-design-anthropic-2026",
+      "industries": [],
+      "theses": [],
+      "companies": [
+        "Anthropic"
+      ]
+    },
+    {
+      "slug": "ai-api-key-compute-theft-2026",
+      "route": "/articles/ai-api-key-compute-theft-2026",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "ai-bubble-vs-compute-supercycle-2026",
+      "route": "/articles/ai-bubble-vs-compute-supercycle-2026",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "ai-data-center-capacity-stack-2026",
+      "route": "/articles/ai-data-center-capacity-stack-2026",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "ai-data-center-cooling-bottleneck",
+      "route": "/articles/ai-data-center-cooling-bottleneck",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex",
+        "power-supercycle"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "ai-data-center-interconnect-dci",
+      "route": "/articles/ai-data-center-interconnect-dci",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "ai-database-security-data-layer-2026",
+      "route": "/articles/ai-database-security-data-layer-2026",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "ai-inference-hbm-earnings",
+      "route": "/articles/ai-inference-hbm-earnings",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "ai-infrastructure-hbm-mlcc-power-grid-2026",
+      "route": "/articles/ai-infrastructure-hbm-mlcc-power-grid-2026",
+      "industries": [
+        "semiconductor",
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "ai-network-800g-1-6t",
+      "route": "/articles/ai-network-800g-1-6t",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "ai-power-gas-turbine-return",
+      "route": "/articles/ai-power-gas-turbine-return",
+      "industries": [
+        "ai-infrastructure",
+        "energy-nuclear"
+      ],
+      "theses": [
+        "ai-capex",
+        "power-supercycle"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "ai-power-grid-transformer-distribution",
+      "route": "/articles/ai-power-grid-transformer-distribution",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex",
+        "power-supercycle"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "ai-power-next-bottleneck",
+      "route": "/articles/ai-power-next-bottleneck",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex",
+        "power-supercycle"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "ai-power-value-chain-compare",
+      "route": "/articles/ai-power-value-chain-compare",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex",
+        "power-supercycle"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "ai-productivity-operating-model",
+      "route": "/articles/ai-productivity-operating-model",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "ai-productivity-platforms-compare",
+      "route": "/articles/ai-productivity-platforms-compare",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "ai-productivity-roi",
+      "route": "/articles/ai-productivity-roi",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "ai-workflow-automation",
+      "route": "/articles/ai-workflow-automation",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "anthropic-ipo-ai-safety-2026",
+      "route": "/articles/anthropic-ipo-ai-safety-2026",
+      "industries": [],
+      "theses": [],
+      "companies": [
+        "Anthropic"
+      ]
+    },
+    {
+      "slug": "aside-ai-browser-benchmark",
+      "route": "/articles/aside-ai-browser-benchmark",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "aside-vs-chatgpt-work-vs-playwright",
+      "route": "/articles/aside-vs-chatgpt-work-vs-playwright",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "aside-windows-launch",
+      "route": "/articles/aside-windows-launch",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "bach-counterpoint-order-in-chaos",
+      "route": "/articles/bach-counterpoint-order-in-chaos",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "bess-ups-bbu-data-center",
+      "route": "/articles/bess-ups-bbu-data-center",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex",
+        "power-supercycle"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "burnout-recovery-starts-with-pause",
+      "route": "/articles/burnout-recovery-starts-with-pause",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "china-memory-self-sufficiency",
+      "route": "/articles/china-memory-self-sufficiency",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "memory-supercycle",
+        "defense-geopolitics"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "china-semiconductor-equipment-localization",
+      "route": "/articles/china-semiconductor-equipment-localization",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "defense-geopolitics"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "china-semiconductor-risk-indicators",
+      "route": "/articles/china-semiconductor-risk-indicators",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "defense-geopolitics"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "china-us-treasury-holdings-2026",
+      "route": "/articles/china-us-treasury-holdings-2026",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "codex-automation-gold-cases-5",
+      "route": "/articles/codex-automation-gold-cases-5",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "codex-build-your-own-plugin-2026",
+      "route": "/articles/codex-build-your-own-plugin-2026",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "codex-computer-use-guide-2026",
+      "route": "/articles/codex-computer-use-guide-2026",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "codex-goal-mode-guide-2026",
+      "route": "/articles/codex-goal-mode-guide-2026",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "codex-guide-6-steps-2026",
+      "route": "/articles/codex-guide-6-steps-2026",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "codex-non-developer-automation-10",
+      "route": "/articles/codex-non-developer-automation-10",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "codex-plugin-guide-2026",
+      "route": "/articles/codex-plugin-guide-2026",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "codex-skill-guide-2026",
+      "route": "/articles/codex-skill-guide-2026",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "cxmt-dram-vs-samsung-sk-hynix",
+      "route": "/articles/cxmt-dram-vs-samsung-sk-hynix",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle"
+      ],
+      "companies": [
+        "Samsung Electronics",
+        "SK hynix",
+        "CXMT"
+      ]
+    },
+    {
+      "slug": "cxmt-ymtc-memory-oversupply",
+      "route": "/articles/cxmt-ymtc-memory-oversupply",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "memory-supercycle"
+      ],
+      "companies": [
+        "CXMT",
+        "YMTC"
+      ]
+    },
+    {
+      "slug": "doosan-enerbility-ai-power",
+      "route": "/articles/doosan-enerbility-ai-power",
+      "industries": [
+        "ai-infrastructure",
+        "energy-nuclear"
+      ],
+      "theses": [
+        "ai-capex",
+        "power-supercycle"
+      ],
+      "companies": [
+        "Doosan Enerbility"
+      ]
+    },
+    {
+      "slug": "fairness-system-explainable-standards",
+      "route": "/articles/fairness-system-explainable-standards",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "feedback-system-behavior-change",
+      "route": "/articles/feedback-system-behavior-change",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "foreign-investor-flow",
+      "route": "/articles/foreign-investor-flow",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "gpu-compute-economics-rubin-2026",
+      "route": "/articles/gpu-compute-economics-rubin-2026",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "growth-leadership-operating-system",
+      "route": "/articles/growth-leadership-operating-system",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "hanwha-ocean-shipbuilding",
+      "route": "/articles/hanwha-ocean-shipbuilding",
+      "industries": [
+        "shipbuilding-defense"
+      ],
+      "theses": [
+        "defense-geopolitics"
+      ],
+      "companies": [
+        "Hanwha Ocean"
+      ]
+    },
+    {
+      "slug": "hbm-us-china-ai-chip-war",
+      "route": "/articles/hbm-us-china-ai-chip-war",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle",
+        "defense-geopolitics"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "hbm3e-hbm4-zhbm",
+      "route": "/articles/hbm3e-hbm4-zhbm",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "hd-hyundai-electric-ai-power",
+      "route": "/articles/hd-hyundai-electric-ai-power",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex",
+        "power-supercycle"
+      ],
+      "companies": [
+        "HD Hyundai Electric"
+      ]
+    },
+    {
+      "slug": "hd-hyundai-heavy-industries-shipbuilding",
+      "route": "/articles/hd-hyundai-heavy-industries-shipbuilding",
+      "industries": [
+        "shipbuilding-defense"
+      ],
+      "theses": [
+        "defense-geopolitics"
+      ],
+      "companies": [
+        "HD Hyundai Heavy Industries"
+      ]
+    },
+    {
+      "slug": "hd-ksoe-shipbuilding",
+      "route": "/articles/hd-ksoe-shipbuilding",
+      "industries": [
+        "shipbuilding-defense"
+      ],
+      "theses": [],
+      "companies": [
+        "HD KSOE"
+      ]
+    },
+    {
+      "slug": "how-submarine-cables-work",
+      "route": "/articles/how-submarine-cables-work",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "how-to-read-us-treasury-auctions-2026",
+      "route": "/articles/how-to-read-us-treasury-auctions-2026",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "hyosung-heavy-industries-ai-power",
+      "route": "/articles/hyosung-heavy-industries-ai-power",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex",
+        "power-supercycle"
+      ],
+      "companies": [
+        "Hyosung Heavy Industries"
+      ]
+    },
+    {
+      "slug": "korea-ai-power-companies-compare",
+      "route": "/articles/korea-ai-power-companies-compare",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex",
+        "power-supercycle"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "korea-shipbuilding-companies-compare",
+      "route": "/articles/korea-shipbuilding-companies-compare",
+      "industries": [
+        "shipbuilding-defense"
+      ],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "learning-system-reexecution-loop",
+      "route": "/articles/learning-system-reexecution-loop",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "ls-electric-ai-power",
+      "route": "/articles/ls-electric-ai-power",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex",
+        "power-supercycle"
+      ],
+      "companies": [
+        "LS ELECTRIC"
+      ]
+    },
+    {
+      "slug": "mcp-security-tool-poisoning-2026",
+      "route": "/articles/mcp-security-tool-poisoning-2026",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "money-basics-7-economic-terms",
+      "route": "/articles/money-basics-7-economic-terms",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "openai-anthropic-ipo-cash-burn-2026",
+      "route": "/articles/openai-anthropic-ipo-cash-burn-2026",
+      "industries": [],
+      "theses": [],
+      "companies": [
+        "OpenAI",
+        "Anthropic"
+      ]
+    },
+    {
+      "slug": "openai-data-agent-chatgpt-work",
+      "route": "/articles/openai-data-agent-chatgpt-work",
+      "industries": [],
+      "theses": [],
+      "companies": [
+        "OpenAI"
+      ]
+    },
+    {
+      "slug": "optical-dsp-lpo-lro-1-6t",
+      "route": "/articles/optical-dsp-lpo-lro-1-6t",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "performance-system-leading-indicators",
+      "route": "/articles/performance-system-leading-indicators",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "recognition-system-fair-performance",
+      "route": "/articles/recognition-system-fair-performance",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "samsung-electronics-outlook",
+      "route": "/articles/samsung-electronics-outlook",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle"
+      ],
+      "companies": [
+        "Samsung Electronics"
+      ]
+    },
+    {
+      "slug": "samsung-hbm4-memory-outlook-2026-09-20",
+      "route": "/articles/samsung-hbm4-memory-outlook-2026-09-20",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle"
+      ],
+      "companies": [
+        "Samsung Electronics"
+      ]
+    },
+    {
+      "slug": "samsung-heavy-industries-shipbuilding",
+      "route": "/articles/samsung-heavy-industries-shipbuilding",
+      "industries": [
+        "shipbuilding-defense"
+      ],
+      "theses": [],
+      "companies": [
+        "Samsung Heavy Industries"
+      ]
+    },
+    {
+      "slug": "samsung-vs-sk-hynix-ai-memory",
+      "route": "/articles/samsung-vs-sk-hynix-ai-memory",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle"
+      ],
+      "companies": [
+        "Samsung Electronics",
+        "SK hynix"
+      ]
+    },
+    {
+      "slug": "samsung-xian-vs-sk-hynix-wuxi",
+      "route": "/articles/samsung-xian-vs-sk-hynix-wuxi",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle"
+      ],
+      "companies": [
+        "Samsung Electronics",
+        "SK hynix"
+      ]
+    },
+    {
+      "slug": "satellite-vs-submarine-cable",
+      "route": "/articles/satellite-vs-submarine-cable",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "semiconductor-cycle",
+      "route": "/articles/semiconductor-cycle",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "memory-supercycle"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "silicon-photonics-ai-network",
+      "route": "/articles/silicon-photonics-ai-network",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "sk-hynix-outlook",
+      "route": "/articles/sk-hynix-outlook",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle"
+      ],
+      "companies": [
+        "SK hynix"
+      ]
+    },
+    {
+      "slug": "strong-retail-sales-nasdaq-rally-2026",
+      "route": "/articles/strong-retail-sales-nasdaq-rally-2026",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "submarine-cable-failure-repair",
+      "route": "/articles/submarine-cable-failure-repair",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "submarine-cable-history",
+      "route": "/articles/submarine-cable-history",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "submarine-cables-ai-infrastructure",
+      "route": "/articles/submarine-cables-ai-infrastructure",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "us-30y-treasury-5-percent-risk-2026",
+      "route": "/articles/us-30y-treasury-5-percent-risk-2026",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "us-august-retail-sales-fed-nasdaq-2026",
+      "route": "/articles/us-august-retail-sales-fed-nasdaq-2026",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "us-china-chip-export-control-timeline",
+      "route": "/articles/us-china-chip-export-control-timeline",
+      "industries": [],
+      "theses": [
+        "defense-geopolitics"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "us-china-semiconductor-war",
+      "route": "/articles/us-china-semiconductor-war",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "defense-geopolitics"
+      ],
+      "companies": [
+        "Samsung Electronics",
+        "SK hynix"
+      ]
+    },
+    {
+      "slug": "us-cpi-fed-nasdaq-guide",
+      "route": "/articles/us-cpi-fed-nasdaq-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "us-economic-indicators-guide",
+      "route": "/articles/us-economic-indicators-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "us-jobs-report-fed-nasdaq-guide",
+      "route": "/articles/us-jobs-report-fed-nasdaq-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "us-pce-fed-nasdaq-guide",
+      "route": "/articles/us-pce-fed-nasdaq-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "us-ppi-fed-margin-guide",
+      "route": "/articles/us-ppi-fed-margin-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "us-rates-korea-semiconductor-transmission-2026",
+      "route": "/articles/us-rates-korea-semiconductor-transmission-2026",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "what-is-ai-agent",
+      "route": "/articles/what-is-ai-agent",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "what-is-co-packaged-optics",
+      "route": "/articles/what-is-co-packaged-optics",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
+      "companies": []
+    },
+    {
+      "slug": "what-is-hbm",
+      "route": "/articles/what-is-hbm",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle"
+      ],
+      "companies": [
+        "Samsung Electronics",
+        "SK hynix"
+      ]
+    },
+    {
+      "slug": "who-buys-us-treasuries-2026",
+      "route": "/articles/who-buys-us-treasuries-2026",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "why-we-cannot-stand-silence",
+      "route": "/articles/why-we-cannot-stand-silence",
+      "industries": [],
+      "theses": [],
+      "companies": []
+    },
+    {
+      "slug": "ymtc-nand-vs-samsung-sk-hynix",
+      "route": "/articles/ymtc-nand-vs-samsung-sk-hynix",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle"
+      ],
+      "companies": [
+        "Samsung Electronics",
+        "SK hynix",
+        "YMTC"
+      ]
+    }
+  ]
+}

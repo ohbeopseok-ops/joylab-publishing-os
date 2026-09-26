@@ -11,6 +11,7 @@ import '../../styles/visual-placement.css';
 import researchImageManifest from '../../data/research-image-manifest.json';
 import researchVisualPlacement from '../../data/research-visual-placement.json';
 import { getCollection, render } from 'astro:content';
+import { investmentTaxonomyOverlapScore } from '../../lib/investment-taxonomy-registry';
 
 export async function getStaticPaths() {
   const articles = (await getCollection('articles')).filter((item) => !item.data.draft);
@@ -24,7 +25,8 @@ export async function getStaticPaths() {
         score:
           item.data.tags.filter((tag) => tags.has(tag)).length * 3 +
           (item.data.category === article.data.category ? 1 : 0) +
-          (item.data.series && item.data.series === article.data.series ? 2 : 0)
+          (item.data.series && item.data.series === article.data.series ? 2 : 0) +
+          investmentTaxonomyOverlapScore(article.id, item.id)
       }))
       .filter(({ score }) => score > 0)
       .sort((a, b) => b.score - a.score || b.item.data.publishedAt.getTime() - a.item.data.publishedAt.getTime())
