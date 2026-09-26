@@ -15,8 +15,9 @@ Every required check must report `success`:
 2. Cloudflare deploy
 3. Custom domain reachability
 4. Production Smoke
-5. Production Reader GOLD QA
-6. Production Mindmap GOLD QA
+5. Studio Production Smoke V1
+6. Production Reader GOLD QA
+7. Production Mindmap GOLD QA
 
 If any required check is failed, cancelled, skipped, or unknown, the release status is `BLOCKED`.
 
@@ -46,13 +47,14 @@ BUILD GREEN
 → VISUAL QA GREEN
 → CLOUDFLARE DEPLOY GREEN
 → PRODUCTION SMOKE GREEN
+→ STUDIO PRODUCTION SMOKE GREEN
 → PRODUCTION READER QA GREEN
 → PRODUCTION MINDMAP QA GREEN
 → RELEASE GATE V1
 → GOLD
 ```
 
-Production Smoke GREEN is mandatory. A failed Production Smoke can never be described as GOLD.
+Production Smoke GREEN and Studio Production Smoke GREEN are mandatory. A failed production smoke check can never be described as GOLD.
 
 ## Asset Contract V3
 
