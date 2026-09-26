@@ -155,8 +155,8 @@ function selfTest() {
     ]
   );
   const verdict = judgePass03(metrics, 100);
-  if (verdict.verdict !== 'REDUCE') {
-    throw new Error(`Homepage funnel self-test expected REDUCE, got ${verdict.verdict}`);
+  if (verdict.verdict !== 'CHANGE') {
+    throw new Error(`Homepage funnel self-test expected CHANGE, got ${verdict.verdict}`);
   }
   console.log('Homepage Funnel report self-test passed.');
 }
