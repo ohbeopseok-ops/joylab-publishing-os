@@ -32,22 +32,38 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Validate report generator
+      - name: Validate report generators
         run: |
           node --check scripts/report-homepage-funnel.mjs
           node scripts/report-homepage-funnel.mjs --self-test
+          node --check scripts/report-books-funnel.mjs
+          node scripts/report-books-funnel.mjs --self-test
 
-      - name: Build rolling 7-day report
+      - name: Build rolling 7-day homepage report
         run: node scripts/report-homepage-funnel.mjs --days=7 --min-impressions=100 --out-dir=qa-artifacts/homepage-funnel
 
-      - name: Publish report to job summary
+      - name: Build rolling 7-day Books report
+        run: node scripts/report-books-funnel.mjs --days=7 --slug=problem-to-service --out-dir=qa-artifacts/books-funnel
+
+      - name: Publish reports to job summary
         shell: bash
-        run: cat qa-artifacts/homepage-funnel/homepage-funnel-7d.md >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          cat qa-artifacts/homepage-funnel/homepage-funnel-7d.md >> "$GITHUB_STEP_SUMMARY"
+          printf "\n---\n\n" >> "$GITHUB_STEP_SUMMARY"
+          cat qa-artifacts/books-funnel/books-funnel-7d.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload Homepage Funnel report
         uses: actions/upload-artifact@v6
         with:
           name: homepage-funnel-7d
           path: qa-artifacts/homepage-funnel
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload Books Funnel dashboard
+        uses: actions/upload-artifact@v6
+        with:
+          name: books-funnel-7d
+          path: qa-artifacts/books-funnel
           if-no-files-found: error
           retention-days: 30
