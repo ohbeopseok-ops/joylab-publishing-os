@@ -2,6 +2,9 @@
 
 JoyLab Release Gate V1 is the final production authority for the word **GOLD**.
 
+`docs/GOLD_BASELINE_V1.md` defines the durable minimum production/security floor.
+This document evaluates whether a specific release satisfies that floor and all required release checks.
+
 A merge or successful build alone is not a GOLD release.
 
 ## Required production checks
