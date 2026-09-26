@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
-const sourcePath = path.join(root, 'src/data/studio/series-02-epub-source.json');
+const sourcePath = path.join(root, 'src/data/studio/series-02-source.json');
 const defaultOut = path.join(root, 'public/studio/exports/series-02-memory-debt.epub');
 
 const xml = (value) => String(value ?? '')
@@ -164,7 +164,10 @@ function validateBinary(buffer) {
   }
 }
 
-const book = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
+const source = JSON.parse(fs.readFileSync(sourcePath, 'utf8'));
+const readyIds = new Set(source.publicationProfile?.readyChapterIds || []);
+const book = { ...source, chapters: source.chapters.filter((ch) => ch.manuscriptStatus === 'ready' && readyIds.has(ch.id)) };
+if (!book.chapters.length) throw new Error('No release-ready chapters in canonical Series 02 source');
 const buffer = buildEpub(book);
 validateBinary(buffer);
 
