@@ -65,7 +65,9 @@
     "books-funnel:self-test": "node scripts/report-books-funnel.mjs --self-test",
     "studio:gate": "node scripts/check-studio-mvp-v1.mjs",
     "studio:epub": "node scripts/generate-studio-epub-v1.mjs",
-    "studio:epub:self-test": "node scripts/generate-studio-epub-v1.mjs --self-test"
+    "studio:epub:self-test": "node scripts/generate-studio-epub-v1.mjs --self-test",
+    "studio:print": "node scripts/generate-studio-print-pdf-v1.mjs",
+    "studio:print:self-test": "node scripts/generate-studio-print-pdf-v1.mjs --self-test"
   },
   "dependencies": {
     "astro": "^7.3.2"
