@@ -94,7 +94,18 @@ for (const depth of [25, 50, 75, 100]) {
 const bookPurchase = await post({ event: 'book_purchase_cta_click', target: 'problem-to-service', placement: 'book_closing_v2', path: '/books/problem-to-service' });
 if (bookPurchase.status !== 204) throw new Error(`book_purchase_cta_click expected 204, got ${bookPurchase.status}`);
 
-if (writes.length !== 25) throw new Error(`Expected twenty-five analytics writes, got ${writes.length}`);
+for (const [event, target] of [
+  ['book_chapter_complete', 'problem-to-service:1'],
+  ['book_chapter_bookmark', 'problem-to-service:1'],
+  ['book_interaction_check', 'problem-to-service:problem-observation-five'],
+  ['book_interaction_choice', 'problem-to-service:feature-or-problem'],
+  ['book_interaction_action', 'work-to-system:fragment-practice']
+]) {
+  const response = await post({ event, target, placement: 'interactive_book', path: '/books/problem-to-service/read' });
+  if (response.status !== 204) throw new Error(`${event} expected 204, got ${response.status}`);
+}
+
+if (writes.length !== 30) throw new Error(`Expected thirty analytics writes, got ${writes.length}`);
 if (writes[1].blobs.join('|') !== 'social_click|threads|about|/about') throw new Error(`Unexpected About social payload: ${JSON.stringify(writes[1])}`);
 if (writes[2].blobs.join('|') !== 'social_click|x|footer|/') throw new Error(`Unexpected X social payload: ${JSON.stringify(writes[2])}`);
 if (writes[3].blobs.join('|') !== 'social_click|youtube|about|/about') throw new Error(`Unexpected YouTube social payload: ${JSON.stringify(writes[3])}`);
@@ -120,6 +131,6 @@ if (invalidExternalHomeTarget.status !== 400) throw new Error(`Expected external
 const invalidRssSocial = await post({ event: 'social_click', target: 'rss', placement: 'about', path: '/about' });
 if (invalidRssSocial.status !== 400) throw new Error(`Expected RSS social target 400, got ${invalidRssSocial.status}`);
 
-if (writes.length !== 25) throw new Error('Invalid events must not be written');
+if (writes.length !== 30) throw new Error('Invalid events must not be written');
 
 console.log('Click Analytics V3 worker contract passed.');
