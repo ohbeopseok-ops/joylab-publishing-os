@@ -1,0 +1,175 @@
+export type BookInteraction =
+  | {
+      type: 'checklist';
+      id: string;
+      title: string;
+      description?: string;
+      items: string[];
+    }
+  | {
+      type: 'reflection';
+      id: string;
+      title: string;
+      prompt: string;
+      placeholder?: string;
+    }
+  | {
+      type: 'choice';
+      id: string;
+      title: string;
+      question: string;
+      options: Array<{ label: string; feedback: string }>;
+    }
+  | {
+      type: 'action';
+      id: string;
+      title: string;
+      description?: string;
+      steps: string[];
+    };
+
+export type BookInteractionMap = Record<number, BookInteraction[]>;
+
+const problemToService: BookInteractionMap = {
+  1: [
+    {
+      type: 'checklist',
+      id: 'problem-observation-five',
+      title: '내 문제 후보를 5분 안에 점검하기',
+      description: '생활 속 불편을 서비스 문제로 바꾸기 위한 첫 체크입니다.',
+      items: [
+        '반복해서 불편해하는 사람이 떠오른다.',
+        '그 불편이 발생하는 구체적인 순간을 말할 수 있다.',
+        '지금은 어떤 우회 방법으로 해결하는지 알고 있다.',
+        '가장 큰 마찰 하나를 한 문장으로 설명할 수 있다.',
+        '해결되면 사용자의 행동이 어떻게 달라지는지 설명할 수 있다.'
+      ]
+    },
+    {
+      type: 'reflection',
+      id: 'problem-one-sentence',
+      title: '한 문장 문제 정의',
+      prompt: '“누가, 어떤 상황에서, 무엇 때문에 어려운가?”를 한 문장으로 적어보세요.',
+      placeholder: '예: 낯선 장소를 걷는 시니어가 복잡한 검색 없이 가까운 화장실을 확인하기 어렵다.'
+    },
+    {
+      type: 'choice',
+      id: 'feature-or-problem',
+      title: '기능보다 문제',
+      question: '서비스 아이디어가 떠올랐을 때 가장 먼저 할 일은 무엇일까요?',
+      options: [
+        { label: '기능 목록부터 최대한 많이 만든다', feedback: '기능이 많아질수록 문제의 핵심이 흐려질 수 있습니다. 먼저 사용자와 순간을 좁혀보세요.' },
+        { label: '누구의 어떤 순간을 해결할지 한 문장으로 쓴다', feedback: '좋습니다. 이 문장이 이후 MVP와 기능 우선순위의 기준이 됩니다.' },
+        { label: '경쟁 앱 화면부터 그대로 따라 만든다', feedback: '경쟁 서비스는 참고 자료입니다. 먼저 실제 불편의 맥락을 확인해야 합니다.' }
+      ]
+    }
+  ]
+};
+
+const workToSystem: BookInteractionMap = {
+  1: [
+    {
+      type: 'reflection',
+      id: 'memory-debt',
+      title: '기억 부채 찾기',
+      prompt: '“내가 머릿속으로 기억하고 있어서 굴러가는 일”을 세 가지 적어보세요.',
+      placeholder: '예: 누구에게 다시 확인해야 하는지, KPI 예외 이유, 어제 약속한 Follow-up'
+    }
+  ],
+  2: [
+    {
+      type: 'checklist',
+      id: 'externalize-memory',
+      title: '시스템 밖 기억 점검',
+      items: [
+        '다시 확인해야 할 날짜가 사람의 기억에만 남아 있다.',
+        '왜 숫자가 바뀌었는지 특정 사람만 알고 있다.',
+        '면담과 관찰 기록이 서로 다른 곳에 흩어져 있다.',
+        '업무 담당자가 바뀌면 맥락이 사라질 가능성이 있다.'
+      ]
+    }
+  ],
+  4: [
+    {
+      type: 'choice',
+      id: 'stt-source',
+      title: '원문과 요약',
+      question: 'STT를 AI가 한 줄로 요약했다면 원문은 어떻게 해야 할까요?',
+      options: [
+        { label: '요약이 있으니 원문은 삭제한다', feedback: '요약 오류를 나중에 검증할 수 없습니다. 원문과 정리 결과는 분리 보존하는 편이 안전합니다.' },
+        { label: '원문과 요약을 함께 보존한다', feedback: 'LeaderDesk의 원칙과 같습니다. 원문은 사실을 보존하고 요약은 회수를 돕습니다.' }
+      ]
+    }
+  ],
+  5: [
+    {
+      type: 'action',
+      id: 'fragment-practice',
+      title: '기억파편 1건 만들기',
+      description: '완성된 보고서가 아니라 다시 사용할 수 있는 작은 기록을 만들어봅니다.',
+      steps: [
+        '대상자를 정한다.',
+        '관찰 가능한 사실 한 문장을 적는다.',
+        '다시 확인해야 한다면 날짜를 정한다.',
+        '평가·추측 표현을 지우고 실제 행동 표현으로 바꾼다.'
+      ]
+    }
+  ],
+  6: [
+    {
+      type: 'checklist',
+      id: 'contract-check',
+      title: 'Data Contract 최소 점검',
+      items: [
+        '사람을 이름이 아니라 안정적인 ID로 연결한다.',
+        '원본과 변환 결과를 구분한다.',
+        'Follow-up을 독립 행동 단위로 볼 수 있다.',
+        '저장 기술이 바뀌어도 데이터 의미가 유지된다.'
+      ]
+    }
+  ],
+  8: [
+    {
+      type: 'choice',
+      id: 'first-screen',
+      title: '첫 화면 결정',
+      question: '모바일 첫 화면에서 하나만 할 수 있다면 무엇을 남길까요?',
+      options: [
+        { label: '전체 KPI 대시보드', feedback: 'PC 운영 본체에는 중요하지만 현장 모바일 첫 행동으로는 무겁습니다.' },
+        { label: '지금 떠오른 기록을 빠르게 남기기', feedback: 'Coaching의 핵심입니다. 현장에서는 기억이 사라지기 전에 포착하는 것이 먼저입니다.' },
+        { label: '설정과 메뉴 전체 보기', feedback: '설정은 자주 쓰는 핵심 행동과 분리하는 편이 좋습니다.' }
+      ]
+    }
+  ],
+  12: [
+    {
+      type: 'reflection',
+      id: 'split-context',
+      title: '하나의 앱을 나눠야 할 순간',
+      prompt: '같은 데이터를 쓰지만 사용 순간과 목적이 완전히 다른 업무 두 가지를 적어보세요.',
+      placeholder: '예: 현장 20초 기록 / PC에서 주간 패턴 분석'
+    }
+  ],
+  15: [
+    {
+      type: 'action',
+      id: 'same-data-different-ui',
+      title: '같은 데이터, 다른 인터페이스 설계',
+      steps: [
+        '공통 데이터 객체를 3~5개로 정한다.',
+        '모바일에서 필요한 행동만 표시한다.',
+        'PC에서 필요한 비교·회수·판단 기능을 분리한다.',
+        '두 화면이 같은 ID와 의미를 공유하는지 확인한다.'
+      ]
+    }
+  ]
+};
+
+const interactions: Record<string, BookInteractionMap> = {
+  'problem-to-service': problemToService,
+  'work-to-system': workToSystem
+};
+
+export function getBookInteractions(bookSlug: string): BookInteractionMap {
+  return interactions[bookSlug] ?? {};
+}
