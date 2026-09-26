@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 99,
+  "articleCount": 100,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -324,6 +324,30 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "bank-roe-cet1-guide",
+      "route": "/articles/bank-roe-cet1-guide",
+      "industries": [
+        "financials-value-up"
+      ],
+      "theses": [
+        "korea-value-up"
+      ],
+      "companies": [],
+      "valueChains": [
+        "banking-profitability",
+        "capital-adequacy",
+        "shareholder-return"
+      ],
+      "kpis": [
+        "ROE",
+        "CET1",
+        "RWA",
+        "NIM",
+        "credit-cost"
+      ],
+      "researchType": "explainer"
     },
     {
       "slug": "bess-ups-bbu-data-center",
