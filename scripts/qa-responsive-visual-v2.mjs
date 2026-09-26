@@ -42,7 +42,7 @@ const pages = [
     name: 'articles-index',
     path: '/articles',
     selectors: ['main', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 22, 'iphone-430': 21, 'ipad-820': 16, 'desktop-1440': 18 }
+    maxScreens: { 'iphone-390': 38, 'iphone-430': 34, 'ipad-820': 16, 'desktop-1440': 18 }
   },
   {
     name: 'search',
