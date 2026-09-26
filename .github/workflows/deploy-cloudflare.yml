@@ -422,6 +422,13 @@ jobs:
 
           echo 'Production smoke test passed.'
 
+      - name: Studio Production Smoke V1
+        if: ${{ !cancelled() }}
+        id: studio_production_smoke
+        env:
+          QA_BASE_URL: https://aijoylab.kr
+        run: node scripts/check-studio-production-smoke-v1.mjs
+
       - name: Install Production Reader QA runtime
         run: |
           npm install --no-save --package-lock=false playwright@1.55.0
@@ -498,6 +505,7 @@ jobs:
           RELEASE_DEPLOY_RESULT: ${{ steps.cloudflare_deploy.outcome }}
           RELEASE_DOMAIN_RESULT: ${{ steps.custom_domain.outcome }}
           RELEASE_SMOKE_RESULT: ${{ steps.production_smoke.outcome }}
+          RELEASE_STUDIO_SMOKE_RESULT: ${{ steps.studio_production_smoke.outcome }}
           RELEASE_MOBILE_VISUAL_QA_RESULT: ${{ steps.production_mobile_visual_qa.outcome }}
           RELEASE_RESPONSIVE_VISUAL_QA_RESULT: ${{ steps.production_responsive_visual_qa.outcome }}
           RELEASE_READER_QA_RESULT: ${{ steps.production_reader_qa.outcome }}
