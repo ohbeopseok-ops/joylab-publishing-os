@@ -1,4 +1,6 @@
 const base = process.env.QA_BASE_URL || 'https://aijoylab.kr';
+const deploySha = process.env.GITHUB_SHA || Date.now().toString();
+const fresh = (path) => path + (path.includes('?') ? '&' : '?') + 'deploy=' + encodeURIComponent(deploySha);
 
 const routes = [
   { path: '/studio/', markers: ['INTERACTIVE PUBLISHING STUDIO','전자책·종이책·인터랙티브 북'] },
@@ -9,7 +11,7 @@ const routes = [
 ];
 
 async function fetchText(path) {
-  const res = await fetch(base + path, { redirect: 'follow' });
+  const res = await fetch(base + fresh(path), { redirect: 'follow', cache: 'no-store' });
   if (res.status !== 200) throw new Error(path + ' expected 200, got ' + res.status);
   const text = await res.text();
   if (!text.trim()) throw new Error(path + ' returned empty body');
@@ -28,7 +30,7 @@ for (const route of routes) {
 }
 
 const epubPath = '/studio/exports/series-02-memory-debt.epub';
-const epub = await fetch(base + epubPath, { redirect: 'follow' });
+const epub = await fetch(base + fresh(epubPath), { redirect: 'follow', cache: 'no-store' });
 if (epub.status !== 200) throw new Error(epubPath + ' expected 200, got ' + epub.status);
 const bytes = Buffer.from(await epub.arrayBuffer());
 if (bytes.length < 1000) throw new Error('EPUB binary too small');
