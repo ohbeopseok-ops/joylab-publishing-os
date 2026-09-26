@@ -97,3 +97,7 @@ HBM은 GPU와 별개 부품이지만 대규모 AI 연산에서는 연산칩의 �
 - [BIS, 2024-12-02 HBM 포함 첨단 반도체 통제 강화](https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military)
 - [BIS, EAR Part 742](https://www.bis.gov/regulations/ear/742)
 
+## Research Hub
+
+- [반도체 투자 가이드](/guides/semiconductor-investing)
+
