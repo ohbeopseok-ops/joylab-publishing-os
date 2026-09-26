@@ -157,6 +157,8 @@ LS ELECTRIC의 AI 전력 투자 논리는 <strong>“전력망이 커진다”�
 
 ### Sources
 
+- [LS ELECTRIC 공식 IR — 2026년 2분기 실적발표 자료](https://www.ls-electric.com/ko/company/invest/ir/)
+
 - LS ELECTRIC 2026년 2분기 IR 자료
 - LS ELECTRIC 2Q26 공식 실적 발표: 매출 1조5,770억원, 영업이익 1,785억원, 수주잔고 약 7조원
 - LS ELECTRIC 북미 빅테크 데이터센터 7,000만달러 전력기기 수주 발표 (2026-05-18)
