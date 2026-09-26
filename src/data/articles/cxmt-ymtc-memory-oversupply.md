@@ -108,3 +108,4 @@ JoyLab에서는 **생산능력 → 유효출하량 → 재고 → 가격 → 이
 
 - [반도체 투자 가이드](/guides/semiconductor-investing)
 
+- [AI 추론 시대 메모리 투자 가이드](/guides/ai-inference-memory)
