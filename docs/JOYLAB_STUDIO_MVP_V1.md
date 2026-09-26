@@ -67,8 +67,8 @@ READ → THINK → RECORD → ACT
 
 ### P2 — Publishing Engine
 
-- [ ] EPUB generation adapter
-- [ ] print PDF adapter
+- [x] EPUB generation adapter (EPUB Generator V1)
+- [x] print PDF adapter (Print PDF Generator V1)
 - [ ] output artifact versioning
 - [ ] project migration/version contract
 - [ ] export provenance manifest
