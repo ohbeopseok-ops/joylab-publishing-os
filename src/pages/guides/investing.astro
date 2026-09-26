@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/semiconductor-guide-v2.css';
 import '../../styles/investment-hub-v2.css';
+import { industryCoverage, thesisCoverage } from '../../lib/investment-taxonomy-registry';
 
 const clusters = [
   {
@@ -12,7 +13,7 @@ const clusters = [
     href: '/guides/semiconductor-investing',
     thesis: 'HBM → DRAM/NAND → CAPEX → 실적 → 삼성전자·SK하이닉스',
     note: 'AI 메모리와 업황 사이클을 기술·실적·수급으로 연결합니다.',
-    coverage: 20,
+    coverage: industryCoverage('semiconductor'),
     status: 'GREEN'
   },
   {
@@ -23,7 +24,7 @@ const clusters = [
     href: '/guides/ai-infrastructure',
     thesis: 'Compute → Network → Optical → Power → Cooling → Data Center',
     note: 'AI 전력을 더 큰 인프라 축으로 확장해 GPU 이후의 물리적 병목을 추적합니다.',
-    coverage: 25,
+    coverage: industryCoverage('ai-infrastructure'),
     status: 'GREEN'
   },
   {
@@ -34,7 +35,7 @@ const clusters = [
     href: '/guides/shipbuilding',
     thesis: 'LNG → 특수선 → 함정/MRO → 생산성 → 마진 → 비교',
     note: '조선 슈퍼사이클에 특수선·방산·MRO 옵션을 함께 연결합니다.',
-    coverage: 5,
+    coverage: industryCoverage('shipbuilding-defense'),
     status: 'YELLOW'
   },
   {
@@ -45,7 +46,7 @@ const clusters = [
     href: '#gap-mobility-robotics',
     thesis: 'EV → SDV → 자율주행 → Robotics → Physical AI',
     note: '현재 독립 투자 리서치가 없어 신규 구축이 필요한 영역입니다.',
-    coverage: 0,
+    coverage: industryCoverage('mobility-robotics'),
     status: 'RED'
   },
   {
@@ -56,7 +57,7 @@ const clusters = [
     href: '#gap-financials-value-up',
     thesis: 'ROE → 자본비율 → 배당 → 자사주 → PBR → Re-rating',
     note: '현재 독립 투자 리서치가 없어 신규 구축이 필요한 영역입니다.',
-    coverage: 0,
+    coverage: industryCoverage('financials-value-up'),
     status: 'RED'
   },
   {
@@ -67,19 +68,19 @@ const clusters = [
     href: '#gap-energy-nuclear',
     thesis: 'Gas → Nuclear/SMR → Grid → ESS → AI 전력 수요',
     note: '두산에너빌리티·가스터빈 글은 있으나 독립 Cluster로는 아직 얇습니다.',
-    coverage: 2,
+    coverage: industryCoverage('energy-nuclear'),
     status: 'RED'
   }
 ];
 
 const theses = [
-  { label: 'AI CAPEX Supercycle', count: 37, note: 'GPU·HBM·광통신·전력·냉각을 하나의 CAPEX 흐름으로 봅니다.' },
-  { label: 'Memory Supercycle', count: 16, note: 'HBM·DRAM·NAND의 공급·가격·이익 전환을 추적합니다.' },
-  { label: 'Power Supercycle', count: 11, note: '발전·송배전·변압·백업전원·냉각 병목을 연결합니다.' },
-  { label: 'Defense & Geopolitics', count: 8, note: '미·중 반도체 규제와 특수선·방산 수요를 함께 봅니다.' },
-  { label: 'Macro & Liquidity', count: 13, note: '미 국채·Fed·수급이 밸류에이션에 미치는 영향을 봅니다.' },
-  { label: 'Physical AI', count: 0, note: '자동차·로봇 Cluster와 함께 새로 구축할 Thesis입니다.' },
-  { label: 'Korea Value-up', count: 0, note: '금융·주주환원 Cluster와 함께 새로 구축할 Thesis입니다.' }
+  { label: 'AI CAPEX Supercycle', count: thesisCoverage('ai-capex'), note: 'GPU·HBM·광통신·전력·냉각을 하나의 CAPEX 흐름으로 봅니다.' },
+  { label: 'Memory Supercycle', count: thesisCoverage('memory-supercycle'), note: 'HBM·DRAM·NAND의 공급·가격·이익 전환을 추적합니다.' },
+  { label: 'Power Supercycle', count: thesisCoverage('power-supercycle'), note: '발전·송배전·변압·백업전원·냉각 병목을 연결합니다.' },
+  { label: 'Defense & Geopolitics', count: thesisCoverage('defense-geopolitics'), note: '미·중 반도체 규제와 특수선·방산 수요를 함께 봅니다.' },
+  { label: 'Macro & Liquidity', count: thesisCoverage('macro-liquidity'), note: '미 국채·Fed·수급이 밸류에이션에 미치는 영향을 봅니다.' },
+  { label: 'Physical AI', count: thesisCoverage('physical-ai'), note: '자동차·로봇 Cluster와 함께 새로 구축할 Thesis입니다.' },
+  { label: 'Korea Value-up', count: thesisCoverage('korea-value-up'), note: '금융·주주환원 Cluster와 함께 새로 구축할 Thesis입니다.' }
 ];
 ---
 <BaseLayout
