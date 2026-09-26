@@ -101,3 +101,4 @@ HBM은 GPU와 별개 부품이지만 대규모 AI 연산에서는 연산칩의 �
 
 - [반도체 투자 가이드](/guides/semiconductor-investing)
 
+- [AI 추론 시대 메모리 투자 가이드](/guides/ai-inference-memory)
