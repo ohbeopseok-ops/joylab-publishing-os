@@ -108,3 +108,19 @@ AI 데이터센터 사이에는 대규모 데이터 이동이 필요하고, 최�
 - ITU, Global Connectivity Report 2025: https://www.itu.int/itu-d/reports/statistics/global-connectivity-report-2025/
 - ITU, Submarine Cable Resilience: https://www.itu.int/en/mediacentre/backgrounders/Pages/submarine-cable-resilience.aspx
 - Starlink, latency technical note: https://starlink.com/public-files/StarlinkLatency.pdf
+
+## 위성과 해저케이블은 왜 경쟁보다 보완 관계인가
+
+위성 인터넷은 지상망이 부족한 지역, 선박·항공기, 재난 상황처럼 **마지막 연결 구간**에서 강점이 있습니다. 반면 대륙 간 대규모 데이터 이동은 여전히 광섬유 해저케이블이 높은 용량과 낮은 지연시간을 제공하는 핵심 백본 역할을 합니다. 따라서 “위성이 해저케이블을 대체한다”보다 **어떤 구간을 어느 기술이 맡는가**로 보는 편이 정확합니다.
+
+AI 시대에는 이 차이가 더 커집니다. 대규모 모델 학습과 클라우드 리전 간 데이터 이동은 막대한 백본 용량을 요구하고, 위성은 이동형·원격 접속과 복원력 측면에서 보완재가 됩니다. 사용자는 서비스 유형에 따라 속도, 지연시간, 커버리지, 구축비용, 재난 복원력을 함께 비교해야 합니다.
+
+### 비교 기준
+
+- 대역폭: 대규모 백본 전송은 광케이블이 유리
+- 지연시간: 장거리라도 광섬유 경로가 일반적으로 안정적
+- 커버리지: 위성은 원격지와 이동체에 강점
+- 복원력: 지상·해저망 장애 시 위성이 우회 수단이 될 수 있음
+- 비용구조: 이용자 단말과 네트워크 규모에 따라 경제성이 달라짐
+
+결론적으로 두 기술은 하나가 다른 하나를 없애는 관계가 아니라 **글로벌 연결망을 서로 다른 층에서 보완하는 구조**입니다.
