@@ -1,0 +1,366 @@
+---
+const { bookSlug, storagePrefix, interactions = {} } = Astro.props;
+---
+
+<div class="book-interactive-dock" id="book-interactive-dock">
+  <button type="button" id="book-interactive-open" aria-controls="book-interactive-panel" aria-expanded="false">
+    <span>✦</span>
+    <strong>내 기록</strong>
+    <em id="book-interactive-count">0</em>
+  </button>
+</div>
+
+<aside class="book-interactive-panel" id="book-interactive-panel" aria-hidden="true" inert>
+  <div class="book-interactive-panel__head">
+    <div>
+      <small>INTERACTIVE BOOK</small>
+      <strong>내 기록</strong>
+    </div>
+    <button type="button" id="book-interactive-close" aria-label="내 기록 닫기">×</button>
+  </div>
+  <div class="book-interactive-summary">
+    <div><b id="book-complete-count">0</b><span>완료한 장</span></div>
+    <div><b id="book-note-count">0</b><span>메모</span></div>
+    <div><b id="book-bookmark-count">0</b><span>북마크</span></div>
+  </div>
+  <div class="book-interactive-panel__body" id="book-interactive-panel-body">
+    <p class="book-interactive-empty">아직 저장된 기록이 없습니다.</p>
+  </div>
+</aside>
+<button class="book-interactive-backdrop" id="book-interactive-backdrop" type="button" tabindex="-1" aria-label="내 기록 닫기"></button>
+
+<script is:inline define:vars={{ bookSlug, storagePrefix, interactions }}>
+  (() => {
+    const chapters = Array.from(document.querySelectorAll('[data-reader-chapter]'));
+    if (!chapters.length) return;
+
+    const key = (name) => `${storagePrefix}-interactive-${name}`;
+    const readJson = (name, fallback) => {
+      try {
+        const raw = localStorage.getItem(key(name));
+        return raw ? JSON.parse(raw) : fallback;
+      } catch {
+        return fallback;
+      }
+    };
+    const writeJson = (name, value) => localStorage.setItem(key(name), JSON.stringify(value));
+
+    const state = {
+      completed: new Set(readJson('completed', [])),
+      bookmarks: new Set(readJson('bookmarks', [])),
+      notes: readJson('notes', {}),
+      checklist: readJson('checklist', {}),
+      choice: readJson('choice', {}),
+      action: readJson('action', {})
+    };
+
+    const panel = document.getElementById('book-interactive-panel');
+    const backdrop = document.getElementById('book-interactive-backdrop');
+    const openBtn = document.getElementById('book-interactive-open');
+    const closeBtn = document.getElementById('book-interactive-close');
+    const panelBody = document.getElementById('book-interactive-panel-body');
+
+    const openPanel = () => {
+      panel?.removeAttribute('inert');
+      panel?.classList.add('is-open');
+      backdrop?.classList.add('is-open');
+      panel?.setAttribute('aria-hidden', 'false');
+      openBtn?.setAttribute('aria-expanded', 'true');
+      renderPanel();
+      closeBtn?.focus();
+    };
+    const closePanel = () => {
+      panel?.classList.remove('is-open');
+      backdrop?.classList.remove('is-open');
+      panel?.setAttribute('aria-hidden', 'true');
+      panel?.setAttribute('inert', '');
+      openBtn?.setAttribute('aria-expanded', 'false');
+    };
+
+    openBtn?.addEventListener('click', openPanel);
+    closeBtn?.addEventListener('click', closePanel);
+    backdrop?.addEventListener('click', closePanel);
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && panel?.classList.contains('is-open')) closePanel();
+    });
+
+    const track = (event, target, placement='interactive_book') => {
+      if (typeof window.joylabTrack === 'function') window.joylabTrack(event, target, placement);
+    };
+
+    const saveCoreState = () => {
+      writeJson('completed', Array.from(state.completed));
+      writeJson('bookmarks', Array.from(state.bookmarks));
+      writeJson('notes', state.notes);
+      writeJson('checklist', state.checklist);
+      writeJson('choice', state.choice);
+      writeJson('action', state.action);
+      updateSummary();
+    };
+
+    const chapterLabel = (chapter) => chapter?.dataset.label || `Chapter ${chapter?.dataset.order ?? ''}`;
+    const chapterId = (chapter) => String(chapter?.dataset.order ?? '');
+
+    const renderInteraction = (interaction, order) => {
+      const wrap = document.createElement('section');
+      wrap.className = `book-interactive-card book-interactive-card--${interaction.type}`;
+      wrap.dataset.interactionId = interaction.id;
+      wrap.innerHTML = `<small>INTERACTIVE</small><h3></h3>`;
+      wrap.querySelector('h3').textContent = interaction.title;
+
+      if (interaction.description) {
+        const p = document.createElement('p');
+        p.className = 'book-interactive-card__description';
+        p.textContent = interaction.description;
+        wrap.appendChild(p);
+      }
+
+      if (interaction.type === 'checklist') {
+        const list = document.createElement('div');
+        list.className = 'book-interactive-checklist';
+        interaction.items.forEach((item, index) => {
+          const label = document.createElement('label');
+          const input = document.createElement('input');
+          input.type = 'checkbox';
+          const itemKey = `${order}:${interaction.id}:${index}`;
+          input.checked = Boolean(state.checklist[itemKey]);
+          input.addEventListener('change', () => {
+            state.checklist[itemKey] = input.checked;
+            saveCoreState();
+            track('book_interaction_check', `${bookSlug}:${interaction.id}`);
+          });
+          const span = document.createElement('span');
+          span.textContent = item;
+          label.append(input, span);
+          list.appendChild(label);
+        });
+        wrap.appendChild(list);
+      }
+
+      if (interaction.type === 'reflection') {
+        const prompt = document.createElement('p');
+        prompt.className = 'book-interactive-prompt';
+        prompt.textContent = interaction.prompt;
+        const textarea = document.createElement('textarea');
+        textarea.rows = 4;
+        textarea.placeholder = interaction.placeholder || '여기에 적어보세요.';
+        const noteKey = `${order}:${interaction.id}`;
+        textarea.value = state.notes[noteKey] || '';
+        let timer = 0;
+        textarea.addEventListener('input', () => {
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            state.notes[noteKey] = textarea.value.trim();
+            saveCoreState();
+          }, 250);
+        });
+        wrap.append(prompt, textarea);
+      }
+
+      if (interaction.type === 'choice') {
+        const q = document.createElement('p');
+        q.className = 'book-interactive-prompt';
+        q.textContent = interaction.question;
+        const options = document.createElement('div');
+        options.className = 'book-interactive-options';
+        const feedback = document.createElement('div');
+        feedback.className = 'book-interactive-feedback';
+        const selected = state.choice[`${order}:${interaction.id}`];
+
+        interaction.options.forEach((option, index) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.textContent = option.label;
+          if (selected === index) {
+            button.classList.add('is-selected');
+            feedback.textContent = option.feedback;
+            feedback.classList.add('is-visible');
+          }
+          button.addEventListener('click', () => {
+            state.choice[`${order}:${interaction.id}`] = index;
+            options.querySelectorAll('button').forEach((el) => el.classList.remove('is-selected'));
+            button.classList.add('is-selected');
+            feedback.textContent = option.feedback;
+            feedback.classList.add('is-visible');
+            saveCoreState();
+            track('book_interaction_choice', `${bookSlug}:${interaction.id}`);
+          });
+          options.appendChild(button);
+        });
+        wrap.append(q, options, feedback);
+      }
+
+      if (interaction.type === 'action') {
+        const list = document.createElement('ol');
+        list.className = 'book-interactive-action';
+        interaction.steps.forEach((step, index) => {
+          const li = document.createElement('li');
+          const input = document.createElement('input');
+          input.type = 'checkbox';
+          const itemKey = `${order}:${interaction.id}:${index}`;
+          input.checked = Boolean(state.action[itemKey]);
+          input.addEventListener('change', () => {
+            state.action[itemKey] = input.checked;
+            saveCoreState();
+            track('book_interaction_action', `${bookSlug}:${interaction.id}`);
+          });
+          const span = document.createElement('span');
+          span.textContent = step;
+          li.append(input, span);
+          list.appendChild(li);
+        });
+        wrap.appendChild(list);
+      }
+
+      return wrap;
+    };
+
+    const enhanceChapter = (chapter) => {
+      const order = Number(chapter.dataset.order || 0);
+      const prose = chapter.querySelector('.book-reader-prose');
+      if (!prose) return;
+
+      const chapterInteractions = interactions?.[order] || interactions?.[String(order)] || [];
+      const zone = document.createElement('div');
+      zone.className = 'book-interactive-zone';
+      chapterInteractions.forEach((interaction) => zone.appendChild(renderInteraction(interaction, order)));
+
+      const tools = document.createElement('div');
+      tools.className = 'book-chapter-tools';
+
+      const complete = document.createElement('button');
+      complete.type = 'button';
+      complete.className = 'book-chapter-complete';
+      const orderKey = String(order);
+      const refreshComplete = () => {
+        const done = state.completed.has(orderKey);
+        complete.classList.toggle('is-complete', done);
+        complete.textContent = done ? '✓ 이 장 완료' : '○ 이 장 완료하기';
+      };
+      complete.addEventListener('click', () => {
+        if (state.completed.has(orderKey)) state.completed.delete(orderKey);
+        else {
+          state.completed.add(orderKey);
+          track('book_chapter_complete', `${bookSlug}:${orderKey}`);
+        }
+        refreshComplete();
+        saveCoreState();
+      });
+      refreshComplete();
+
+      const bookmark = document.createElement('button');
+      bookmark.type = 'button';
+      bookmark.className = 'book-chapter-bookmark';
+      const refreshBookmark = () => {
+        const saved = state.bookmarks.has(orderKey);
+        bookmark.classList.toggle('is-saved', saved);
+        bookmark.textContent = saved ? '★ 북마크됨' : '☆ 북마크';
+      };
+      bookmark.addEventListener('click', () => {
+        if (state.bookmarks.has(orderKey)) state.bookmarks.delete(orderKey);
+        else {
+          state.bookmarks.add(orderKey);
+          track('book_chapter_bookmark', `${bookSlug}:${orderKey}`);
+        }
+        refreshBookmark();
+        saveCoreState();
+      });
+      refreshBookmark();
+
+      const noteWrap = document.createElement('details');
+      noteWrap.className = 'book-chapter-note';
+      const summary = document.createElement('summary');
+      summary.textContent = '✎ 이 장에 메모';
+      const textarea = document.createElement('textarea');
+      textarea.rows = 3;
+      textarea.placeholder = '이 장에서 가져갈 한 문장을 적어보세요.';
+      const noteKey = `chapter:${orderKey}`;
+      textarea.value = state.notes[noteKey] || '';
+      let timer = 0;
+      textarea.addEventListener('input', () => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          state.notes[noteKey] = textarea.value.trim();
+          saveCoreState();
+        }, 250);
+      });
+      noteWrap.append(summary, textarea);
+
+      tools.append(complete, bookmark, noteWrap);
+      if (chapterInteractions.length) prose.after(zone);
+      (chapterInteractions.length ? zone : prose).after(tools);
+    };
+
+    chapters.forEach(enhanceChapter);
+
+    const updateSummary = () => {
+      const noteEntries = Object.entries(state.notes).filter(([, value]) => String(value || '').trim());
+      const count = state.completed.size + state.bookmarks.size + noteEntries.length;
+      const countEl = document.getElementById('book-interactive-count');
+      const completeEl = document.getElementById('book-complete-count');
+      const noteEl = document.getElementById('book-note-count');
+      const bookmarkEl = document.getElementById('book-bookmark-count');
+      if (countEl) countEl.textContent = String(count);
+      if (completeEl) completeEl.textContent = String(state.completed.size);
+      if (noteEl) noteEl.textContent = String(noteEntries.length);
+      if (bookmarkEl) bookmarkEl.textContent = String(state.bookmarks.size);
+    };
+
+    const renderPanel = () => {
+      if (!panelBody) return;
+      panelBody.innerHTML = '';
+
+      const bookmarkOrders = Array.from(state.bookmarks);
+      const completedOrders = Array.from(state.completed);
+      const noteEntries = Object.entries(state.notes).filter(([, value]) => String(value || '').trim());
+
+      if (!bookmarkOrders.length && !completedOrders.length && !noteEntries.length) {
+        panelBody.innerHTML = '<p class="book-interactive-empty">아직 저장된 기록이 없습니다.</p>';
+        return;
+      }
+
+      if (bookmarkOrders.length) {
+        const section = document.createElement('section');
+        section.innerHTML = '<h3>북마크</h3>';
+        bookmarkOrders.sort((a,b)=>Number(a)-Number(b)).forEach((order) => {
+          const chapter = chapters.find((item) => chapterId(item) === order);
+          if (!chapter) return;
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'book-interactive-jump';
+          button.textContent = chapterLabel(chapter);
+          button.addEventListener('click', () => {
+            closePanel();
+            chapter.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+          section.appendChild(button);
+        });
+        panelBody.appendChild(section);
+      }
+
+      if (noteEntries.length) {
+        const section = document.createElement('section');
+        section.innerHTML = '<h3>메모</h3>';
+        noteEntries.forEach(([noteKey, value]) => {
+          const article = document.createElement('article');
+          article.className = 'book-interactive-saved-note';
+          const title = document.createElement('strong');
+          if (noteKey.startsWith('chapter:')) {
+            const order = noteKey.split(':')[1];
+            const chapter = chapters.find((item) => chapterId(item) === order);
+            title.textContent = chapter ? chapterLabel(chapter) : `Chapter ${order}`;
+          } else {
+            title.textContent = '실습 메모';
+          }
+          const p = document.createElement('p');
+          p.textContent = value;
+          article.append(title, p);
+          section.appendChild(article);
+        });
+        panelBody.appendChild(section);
+      }
+    };
+
+    updateSummary();
+  })();
+</script>
