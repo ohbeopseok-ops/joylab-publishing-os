@@ -40,6 +40,14 @@ jobs:
         id: build_site
         run: npm run build
 
+      - name: Install Studio Print PDF runtime
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Generate Studio Print PDF V1
+        run: npm run studio:print
+
       - name: Legacy Public Email Gate
         run: node scripts/check-legacy-public-email.mjs
 
