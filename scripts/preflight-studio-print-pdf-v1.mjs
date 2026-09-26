@@ -20,7 +20,7 @@ if(pages<5) throw new Error('Expected at least 5 pages, got '+pages);
 
 for(let page=1;page<=pages;page++){
   const one=execFileSync('pdfinfo',['-f',String(page),'-l',String(page),pdf],{encoding:'utf8'});
-  const size=one.match(/^Page size:\s+([\d.]+) x ([\d.]+) pts/m);
+  const size=one.match(/^Page(?:\s+\d+)?\s+size:\s+([\d.]+) x ([\d.]+) pts/m);
   if(!size) throw new Error('Missing page size for page '+page);
   const w=Number(size[1]), h=Number(size[2]);
   const a5=(w>=418&&w<=422&&h>=593&&h<=597)||(h>=418&&h<=422&&w>=593&&w<=597);
