@@ -49,6 +49,7 @@
           ['editorial', document.querySelector('.home-hero__today')],
           ['major', document.getElementById('today-research')],
           ['latest', document.querySelector('.home-list-card')],
+          ['books', document.querySelector('.home-books-v2')],
           ['guide', document.querySelector('.home-guide')]
         ].filter(([, node]) => node instanceof Element)
       : [];
@@ -111,7 +112,8 @@
           const href = link.getAttribute('href') || '';
           const articleTarget = href.match(/^\/articles\/([^/?#]+)\/?(?:[?#].*)?$/)?.[1];
           const guideTarget = href.match(/^\/guides\/[A-Za-z0-9_-]+\/?$/)?.[0];
-          const homeTarget = articleTarget || guideTarget;
+          const bookTarget = href.match(/^\/books\/([^/?#]+)\/?(?:[?#].*)?$/)?.[1];
+          const homeTarget = articleTarget || guideTarget || bookTarget;
           if (homeTarget) send('home_section_click', homeTarget, placement);
         }
       }
