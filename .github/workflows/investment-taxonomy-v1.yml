@@ -9,6 +9,9 @@ on:
       - 'src/lib/investment-taxonomy.ts'
       - 'config/investment-taxonomy-v1.json'
       - 'scripts/check-investment-taxonomy-v1.mjs'
+      - 'scripts/generate-investment-taxonomy-registry-v1.mjs'
+      - 'src/data/investment-taxonomy-registry-v1.json'
+      - 'src/lib/investment-taxonomy-registry.ts'
       - 'src/pages/guides/investing.astro'
       - 'src/styles/investment-hub-v2.css'
   push:
@@ -39,4 +42,6 @@ jobs:
       - name: Validate Industry × Thesis × Company taxonomy
         env:
           INVESTMENT_TAXONOMY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
-        run: node scripts/check-investment-taxonomy-v1.mjs
+        run: |
+          node scripts/check-investment-taxonomy-v1.mjs
+          node scripts/generate-investment-taxonomy-registry-v1.mjs --check
