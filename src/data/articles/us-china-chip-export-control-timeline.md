@@ -93,3 +93,4 @@ JoyLab에서는 타임라인을 네 단계로 읽습니다.
 
 - [반도체 투자 가이드](/guides/semiconductor-investing)
 
+- [AI 추론 시대 메모리 투자 가이드](/guides/ai-inference-memory)
