@@ -1,0 +1,31 @@
+name: Series 02 Source of Truth Gate V1
+
+on:
+  pull_request:
+    paths:
+      - 'src/data/studio/series-02-source.json'
+      - 'scripts/check-series-02-source-v1.mjs'
+      - 'scripts/generate-studio-epub-v1.mjs'
+      - 'scripts/generate-studio-print-pdf-v1.mjs'
+      - 'src/pages/studio/projects/series-02/**'
+      - 'package.json'
+      - '.github/workflows/series-02-ssot-gate-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ssot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.19.0'
+          cache: npm
+      - run: npm ci
+      - name: Series 02 Source of Truth Gate V1
+        run: npm run studio:ssot
+      - name: EPUB self-test from canonical source
+        run: npm run studio:epub:self-test
