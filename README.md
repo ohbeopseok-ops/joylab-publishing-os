@@ -1,42 +1,67 @@
 # JoyLab Publishing OS
 
-JoyLab 독립 콘텐츠 플랫폼 V0.1.
+JoyLab의 독립 콘텐츠·리서치·Books·배포 운영 플랫폼입니다.
 
-## 목표
+## Core stack
 
-- Astro 기반 정적 사이트
-- Pages CMS 기반 무료 편집 환경
-- GitHub에 Markdown 콘텐츠 저장
-- Cloudflare 배포를 전제로 한 Free-First 구조
-- SEO 친화적 정적 HTML
+- Astro static site
+- GitHub-based content source
+- Cloudflare Workers deployment
+- SEO / AEO / structured data
+- Research, Books, Guides, Distribution
+- Production health / visual QA / GOLD release gates
+- AdSense-ready monetization controls
 
-## V0.1 Gold Case
+## Operating principle
 
-`Pages CMS에서 글 작성 → GitHub 저장 → 빌드 → 공개 URL 생성`
+`생각 → 분석 → 실행 → 성장`
 
-## 로컬 실행
+Publishing OS is managed through:
+- project contracts in `docs/`
+- executable checks in `scripts/`
+- GitHub Actions gates in `.github/workflows/`
+- task routing in `AGENTS.md`
+
+Do not treat this README as the full operational rulebook.
+
+## Local run
 
 ```bash
 npm install
 npm run dev
 ```
 
-## 빌드
+## Build
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## 배포
+## Production
 
-GitHub Actions를 통해 Cloudflare Workers로 자동 배포합니다.
+Production deploys through GitHub Actions to Cloudflare Workers.
 
-브랜드: **생각 → 분석 → 실행 → 성장**
+A successful build or upload alone is not a GOLD release.
 
-## Visual QA Pass (2026-09-14)
+For production/release work, read:
+- `docs/GOLD_BASELINE_V1.md`
+- `docs/RELEASE_GATE_V1.md`
 
-- 총 17장 감사
-- KEEP 14 / TUNE 3 / REGEN 0
-- KEEP 14장은 1600×900 WebP(quality 65)로 최적화
-- TUNE 3장: HD현대중공업 / 한화오션 / 삼성중공업
+## Contract routing
+
+Use `AGENTS.md` to load only the contract relevant to the task.
+
+Examples:
+- content dates → `CONTENT_DATE_CONTRACT_V1`
+- homepage slots → `HOME_CONTENT_SLOT_CONTRACT_V1.0`
+- brand identity → `BRAND_IDENTITY_CONTRACT_V1`
+- mobile UI → `MOBILE_UI_CONTRACT_V1`
+- monetization → AdSense contracts/runbook
+- release/deploy → Gold Baseline + Release Gate
+
+## Current GOLD philosophy
+
+Build GREEN is necessary but not sufficient.
+
+Production-facing releases require the applicable production checks, including Production Smoke, before they may be described as GOLD.
