@@ -1,7 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const sections = ['editorial', 'major', 'latest', 'guide'];
+const sections = ['editorial', 'major', 'latest', 'books', 'guide'];
+const decisionSections = ['editorial', 'major', 'latest', 'books'];
 
 function parseNumberArg(name, fallback) {
   const prefix = `--${name}=`;
@@ -47,44 +48,51 @@ export function buildMetrics(impressionRows, clickRows) {
 
 export function judgePass03(metrics, minImpressions = 100) {
   const bySection = new Map(metrics.map((row) => [row.section, row]));
-  const major = bySection.get('major');
-  const latest = bySection.get('latest');
-  const editorial = bySection.get('editorial');
-  const guide = bySection.get('guide');
+  const selected = decisionSections.map((section) => bySection.get(section)).filter(Boolean);
+  const missing = decisionSections.filter((section) => !bySection.get(section) || bySection.get(section).impressions < minImpressions);
 
-  if (!major || !latest || major.impressions < minImpressions || latest.impressions < minImpressions) {
+  if (missing.length) {
     return {
-      verdict: 'WAIT_MORE_DATA',
-      reason: `major/latest impressions가 각각 ${minImpressions}회에 도달할 때까지 기존 GOLD 배치를 유지합니다.`
+      verdict: 'KEEP',
+      readiness: 'COLLECT_MORE_DATA',
+      confidence: 'LOW',
+      targets: [],
+      reason: `${missing.join(', ')} 슬롯이 ${minImpressions} impressions에 도달하지 않아 현재 구성을 유지하며 데이터를 더 수집합니다.`
     };
   }
 
-  if (latest.ctr > 0 && major.ctr < latest.ctr * 0.6) {
+  const weak = selected.filter((row) => row.relativeIndex < 70).sort((a, b) => a.relativeIndex - b.relativeIndex);
+  const strong = selected.filter((row) => row.relativeIndex >= 120).sort((a, b) => b.relativeIndex - a.relativeIndex);
+  const maxCtr = Math.max(...selected.map((row) => row.ctr));
+  const minCtr = Math.min(...selected.map((row) => row.ctr));
+  const ratio = minCtr > 0 ? maxCtr / minCtr : (maxCtr > 0 ? Infinity : 1);
+
+  if (weak.length >= 2 || ratio >= 2.5) {
     return {
-      verdict: 'REDUCE_MAJOR',
-      reason: `주요 리서치 CTR(${major.ctr}%)이 최신 업데이트 CTR(${latest.ctr}%)의 60% 미만입니다. 주요 리서치 개수 축소 또는 선발 규칙 재조정을 검토합니다.`
+      verdict: 'CHANGE',
+      readiness: 'READY',
+      confidence: 'HIGH',
+      targets: weak.map((row) => row.section),
+      reason: `4개 핵심 슬롯 중 ${weak.length}개가 평균 대비 약하거나 슬롯 간 CTR 격차가 과도합니다. 슬롯 역할·순서·콘텐츠 선발 규칙 재설계를 검토합니다.`
     };
   }
 
-  if (major.ctr > 0 && latest.ctr < major.ctr * 0.6) {
+  if (weak.length === 1 && strong.length >= 1) {
     return {
-      verdict: 'COMPRESS_LATEST',
-      reason: `최신 업데이트 CTR(${latest.ctr}%)이 주요 리서치 CTR(${major.ctr}%)의 60% 미만입니다. 최신 업데이트 영역을 압축하고 대표 리서치 탐색을 강화합니다.`
-    };
-  }
-
-  const anchorStrong = (editorial?.relativeIndex ?? 0) >= 120 || (guide?.relativeIndex ?? 0) >= 120;
-  const bothWeak = major.relativeIndex < 70 && latest.relativeIndex < 70;
-  if (anchorStrong && bothWeak) {
-    return {
-      verdict: 'REVIEW_OVERLAP',
-      reason: '에디터 추천 또는 Research Guide는 강하지만 주요 리서치와 최신 업데이트가 모두 평균 대비 약합니다. 두 영역의 중복 진입점을 재설계합니다.'
+      verdict: 'REDUCE',
+      readiness: 'READY',
+      confidence: 'MEDIUM',
+      targets: [weak[0].section],
+      reason: `${weak[0].section} 슬롯 Relative CTR Index가 ${weak[0].relativeIndex}로 낮습니다. 해당 슬롯의 노출량·카드 수 또는 중복을 축소하고 강한 슬롯으로 탐색을 이동합니다.`
     };
   }
 
   return {
-    verdict: 'KEEP_SEPARATE',
-    reason: '주요 리서치와 최신 업데이트가 서로 다른 탐색 의도를 유지하고 있습니다. 슬롯을 분리한 상태로 유지합니다.'
+    verdict: 'KEEP',
+    readiness: 'READY',
+    confidence: 'HIGH',
+    targets: [],
+    reason: '에디터 추천·주요 리서치·최신 업데이트·Books가 각각 독립적인 탐색 가치를 유지하고 있습니다.'
   };
 }
 
@@ -106,7 +114,7 @@ function buildMarkdown({ generatedAt, days, minImpressions, metrics, verdict, to
     lines.push(`| ${row.section} | ${row.impressions} | ${row.clicks} | ${row.ctr.toFixed(2)}% | ${row.relativeIndex.toFixed(1)} |`);
   }
 
-  lines.push('', '## Pass 03 Decision', '', `**${verdict.verdict}**`, '', verdict.reason, '');
+  lines.push('', '## Pass 03 Decision', '', `**${verdict.verdict}** · ${verdict.readiness ?? 'READY'} · confidence ${verdict.confidence ?? 'N/A'}`, '', verdict.reason, '');
 
   if (topTargets.length) {
     lines.push('## Top Click Targets', '', '| Section | Target | Clicks |', '| --- | --- | ---: |');
@@ -135,18 +143,20 @@ function selfTest() {
       { section: 'editorial', impressions: 300 },
       { section: 'major', impressions: 200 },
       { section: 'latest', impressions: 200 },
+      { section: 'books', impressions: 180 },
       { section: 'guide', impressions: 150 }
     ],
     [
       { section: 'editorial', clicks: 45 },
       { section: 'major', clicks: 8 },
       { section: 'latest', clicks: 20 },
+      { section: 'books', clicks: 10 },
       { section: 'guide', clicks: 18 }
     ]
   );
   const verdict = judgePass03(metrics, 100);
-  if (verdict.verdict !== 'REDUCE_MAJOR') {
-    throw new Error(`Homepage funnel self-test expected REDUCE_MAJOR, got ${verdict.verdict}`);
+  if (verdict.verdict !== 'REDUCE') {
+    throw new Error(`Homepage funnel self-test expected REDUCE, got ${verdict.verdict}`);
   }
   console.log('Homepage Funnel report self-test passed.');
 }
