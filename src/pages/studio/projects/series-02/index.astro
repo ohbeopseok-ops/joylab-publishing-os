@@ -2,6 +2,7 @@
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import { interactiveBookContractSchema } from '../../../../lib/studio/interactive-block-contract';
 import { series02Demo } from '../../../../data/studio/series-02-demo';
+import series02Source from '../../../../data/studio/series-02-source.json';
 const demo = interactiveBookContractSchema.parse(series02Demo);
 const outputs = [
   { label: 'Interactive Web', status: 'READY' },
@@ -28,7 +29,7 @@ const outputs = [
     </nav>
 
     <section class="metrics">
-      <article><small>CHAPTERS</small><strong>15</strong><span>Series 02 전체 구조</span></article>
+      <article><small>CHAPTERS</small><strong>{series02Source.chapters.length}</strong><span>{series02Source.chapters.filter((chapter) => chapter.manuscriptStatus === 'ready').length} READY · {series02Source.chapters.filter((chapter) => chapter.manuscriptStatus === 'outline').length} OUTLINE</span></article>
       <article><small>INTERACTIVE</small><strong>{demo.blocks.length}</strong><span>Ch.1~3 READY</span></article>
       <article><small>VALIDATION</small><strong>CHECK</strong><span>P0 CI 재검증 예정</span></article>
     </section>
