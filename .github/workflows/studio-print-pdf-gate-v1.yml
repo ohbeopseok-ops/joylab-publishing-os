@@ -1,0 +1,46 @@
+name: JoyLab Studio Print PDF Gate V1
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/generate-studio-print-pdf-v1.mjs'
+      - 'src/data/studio/series-02-epub-source.json'
+      - 'src/pages/studio/projects/series-02/export/index.astro'
+      - 'scripts/check-studio-production-smoke-v1.mjs'
+      - 'scripts/check-studio-mvp-v1.mjs'
+      - '.github/workflows/studio-print-pdf-gate-v1.yml'
+      - '.github/workflows/deploy-cloudflare.yml'
+      - 'package.json'
+      - 'package-lock.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  studio-print-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.19.0'
+          cache: npm
+      - name: Install Korean font
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+      - run: npm ci
+      - name: Install Playwright PDF runtime
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Generate and validate Print PDF
+        run: npm run studio:print:self-test
+      - name: Upload Print PDF QA artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: joylab-studio-print-pdf-v1
+          path: qa-artifacts/studio-print-v1/series-02-memory-debt-print.pdf
+          if-no-files-found: error
+          retention-days: 30
