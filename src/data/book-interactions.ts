@@ -50,6 +50,36 @@ export type BookInteraction =
       description?: string;
       fields: Array<{ key: string; label: string; prompt: string; placeholder?: string }>;
       completionMin?: number;
+    }
+  | {
+      type: 'sourceSummary';
+      id: string;
+      title: string;
+      description?: string;
+      sourceLabel: string;
+      summaryLabel: string;
+      sourcePlaceholder?: string;
+      summaryPlaceholder?: string;
+    }
+  | {
+      type: 'dataContract';
+      id: string;
+      title: string;
+      description?: string;
+      objects: Array<{ key: string; label: string; description: string }>;
+      relationSlots: number;
+    }
+  | {
+      type: 'scenarioSet';
+      id: string;
+      title: string;
+      description?: string;
+      scenarios: Array<{
+        key: string;
+        title: string;
+        body: string;
+        options: Array<{ label: string; value: string; feedback: string; preferred?: boolean }>;
+      }>;
     };
 
 export type BookInteractionMap = Record<number, BookInteraction[]>;
@@ -142,40 +172,81 @@ const workToSystem: BookInteractionMap = {
   ],
   4: [
     {
-      type: 'choice',
-      id: 'stt-source',
-      title: '원문과 요약',
-      question: 'STT를 AI가 한 줄로 요약했다면 원문은 어떻게 해야 할까요?',
-      options: [
-        { label: '요약이 있으니 원문은 삭제한다', feedback: '요약 오류를 나중에 검증할 수 없습니다. 원문과 정리 결과는 분리 보존하는 편이 안전합니다.' },
-        { label: '원문과 요약을 함께 보존한다', feedback: 'LeaderDesk의 원칙과 같습니다. 원문은 사실을 보존하고 요약은 회수를 돕습니다.' }
-      ]
+      type: 'sourceSummary',
+      id: 'stt-source-summary',
+      title: 'STT 원문 → 한 줄 요약',
+      description: '원문을 지우지 않고 요약과 나란히 보존합니다. 요약은 원문에 없는 사실을 추가하지 않는 것이 원칙입니다.',
+      sourceLabel: 'STT 원문',
+      summaryLabel: '한 줄 요약',
+      sourcePlaceholder: '예: 김 상담사 오늘 결합 할인 문의에서 설명이 길어져 고객이 다시 물었고, 두 번째에는 순서를 잡아 이해시켰음. 내일 오전 다시 모니터링.',
+      summaryPlaceholder: '예: 결합할인 설명 순서 개선 필요, 내일 오전 재모니터링.'
     }
   ],
   5: [
     {
-      type: 'action',
-      id: 'fragment-practice',
+      type: 'canvas',
+      id: 'memory-fragment-builder',
       title: '기억파편 1건 만들기',
-      description: '완성된 보고서가 아니라 다시 사용할 수 있는 작은 기록을 만들어봅니다.',
-      steps: [
-        '대상자를 정한다.',
-        '관찰 가능한 사실 한 문장을 적는다.',
-        '다시 확인해야 한다면 날짜를 정한다.',
-        '평가·추측 표현을 지우고 실제 행동 표현으로 바꾼다.'
+      description: '평가 문장이 아니라 나중에 다시 사용할 수 있는 관찰 가능한 기록으로 바꿉니다.',
+      completionMin: 3,
+      fields: [
+        { key: 'target', label: 'TARGET', prompt: '누구/무엇에 대한 기록인가요?', placeholder: '예: 김 상담사' },
+        { key: 'fact', label: 'OBSERVED FACT', prompt: '관찰 가능한 사실 한 문장은?', placeholder: '예: 고객 설명 중 답변을 두 차례 끊고 다음 안내로 넘어감' },
+        { key: 'followup', label: 'FOLLOW-UP', prompt: '다시 확인할 행동은?', placeholder: '예: 다음 요금 문의 1건 재모니터링' },
+        { key: 'date', label: 'WHEN', prompt: '언제 다시 확인할까요?', placeholder: '예: 내일 오전 10시' }
       ]
     }
   ],
   6: [
     {
-      type: 'checklist',
-      id: 'contract-check',
-      title: 'Data Contract 최소 점검',
-      items: [
-        '사람을 이름이 아니라 안정적인 ID로 연결한다.',
-        '원본과 변환 결과를 구분한다.',
-        'Follow-up을 독립 행동 단위로 볼 수 있다.',
-        '저장 기술이 바뀌어도 데이터 의미가 유지된다.'
+      type: 'dataContract',
+      id: 'mini-data-contract',
+      title: 'Mini Data Contract Builder',
+      description: '업무 화면이 아니라 먼저 공통 데이터 객체와 관계를 정합니다. 최소 3개 Object와 2개 관계를 선택하면 완료됩니다.',
+      relationSlots: 2,
+      objects: [
+        { key: 'person', label: 'Person / Counselor', description: '기록이 연결되는 사람 또는 대상' },
+        { key: 'fragment', label: 'Memory Fragment', description: '관찰·메모·신호의 작은 기록 단위' },
+        { key: 'followup', label: 'Follow-up', description: '언제 무엇을 다시 확인할지 나타내는 행동' },
+        { key: 'interview', label: 'Formal Interview', description: '정식 대화·합의·후속조치 기록' },
+        { key: 'source', label: 'Source / STT', description: '변환 전 원문 또는 입력 근거' }
+      ]
+    }
+  ],
+  7: [
+    {
+      type: 'scenarioSet',
+      id: 'kpi-change-policy',
+      title: 'KPI 변경이력 시나리오',
+      description: '숫자가 바뀌었을 때 조용히 덮어쓰지 않고 “왜 바뀌었는가”를 남기는 규칙을 선택합니다.',
+      scenarios: [
+        {
+          key: 'company-rule',
+          title: 'Scenario A · 회사 기준 변경',
+          body: '이번 달부터 품질 목표가 90에서 92로 변경되었습니다. 지난달 확정 보고서는 어떻게 할까요?',
+          options: [
+            { label: '현재 기준 92로 과거까지 다시 계산한다', value: 'recalc', feedback: '현재 기준으로 과거를 다시 쓰면 당시 판단 근거가 사라질 수 있습니다.' },
+            { label: '지난달 보고서는 90 기준 그대로 보존한다', value: 'preserve', feedback: '좋습니다. 변경일 이후부터 92를 적용하고 과거 확정본은 당시 기준으로 보존합니다.', preferred: true }
+          ]
+        },
+        {
+          key: 'input-error',
+          title: 'Scenario B · 오입력 수정',
+          body: '94를 49로 잘못 입력한 사실을 확인했습니다. 어떻게 수정할까요?',
+          options: [
+            { label: '49를 94로 바꾸고 흔적은 남기지 않는다', value: 'overwrite', feedback: '값은 맞아져도 왜 달라졌는지 재현할 수 없습니다.' },
+            { label: '원본 49, 수정값 94, 시점과 사유를 남긴다', value: 'audit', feedback: '좋습니다. 오입력은 수정하되 원본·수정값·시점·사유를 함께 남깁니다.', preferred: true }
+          ]
+        },
+        {
+          key: 'team-target',
+          title: 'Scenario C · 팀 목표 조정',
+          body: '회사 기준은 그대로지만 팀 목표만 상향했습니다. 변경 사유는 무엇으로 남길까요?',
+          options: [
+            { label: '회사 기준 변경', value: 'company', feedback: '회사 기준 자체는 바뀌지 않았으므로 원인을 구분해야 합니다.' },
+            { label: '팀 목표 변경', value: 'team', feedback: '좋습니다. 회사 기준과 내부 팀 목표를 구분해 이력을 남깁니다.', preferred: true }
+          ]
+        }
       ]
     }
   ],

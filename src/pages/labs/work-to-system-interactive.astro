@@ -12,7 +12,7 @@ const interactions = getBookInteractions(bookSlug);
 
 <BaseLayout
   title="Series 02 Interactive Lab｜업무를 시스템으로 바꾸는 법"
-  description="JOYLAB BUILD SERIES 02 Chapter 1~3 인터랙티브 전자책 파일럿."
+  description="JOYLAB BUILD SERIES 02 Chapter 1~7 인터랙티브 전자책 파일럿."
   robots="noindex,nofollow"
   bodyClass="book-reader-shell"
 >
@@ -25,7 +25,7 @@ const interactions = getBookInteractions(bookSlug);
       <div class="book-reader-hero__copy">
         <small>JOYLAB BUILD SERIES 02 · INTERACTIVE PILOT</small>
         <h1>업무를 시스템으로 바꾸는 법</h1>
-        <p>Chapter 1~3 · 기억 부채 진단 → 기억 위험 점수 → Persona 0 Moment Canvas</p>
+        <p>Chapter 1~7 · 기억 부채 → Persona 0 → STT/요약 → 기억파편 → Data Contract → KPI 변경이력</p>
       </div>
       <div class="series02-lab-note">
         <strong>이 페이지는 정식 출간 전 인터랙션 검증용입니다.</strong>
@@ -39,8 +39,12 @@ const interactions = getBookInteractions(bookSlug);
         <a href="#chapter-1"><b>01</b><span>기억 부채 진단</span></a>
         <a href="#chapter-2"><b>02</b><span>기억 위험 점수</span></a>
         <a href="#chapter-3"><b>03</b><span>Persona 0 Canvas</span></a>
+        <a href="#chapter-4"><b>04</b><span>STT 원문 → 요약</span></a>
+        <a href="#chapter-5"><b>05</b><span>기억파편 Builder</span></a>
+        <a href="#chapter-6"><b>06</b><span>Mini Data Contract</span></a>
+        <a href="#chapter-7"><b>07</b><span>KPI 변경 시나리오</span></a>
         <div class="series02-lab-flow">
-          <span>ASK</span><i>→</i><span>ASK</span><i>→</i><span>BUILD</span><i>→</i><span>SAVE</span>
+          <span>ASK</span><i>→</i><span>BUILD</span><i>→</i><span>SAVE</span>
         </div>
       </nav>
 
@@ -97,7 +101,77 @@ const interactions = getBookInteractions(bookSlug);
         <section class="series02-lab-checkpoint" aria-labelledby="series02-checkpoint-title">
           <small>CHECKPOINT A</small>
           <h2 id="series02-checkpoint-title">내 업무 OS의 첫 재료가 생겼습니다.</h2>
-          <p>Chapter 1~3에서 저장한 기억 부채, 위험 점수, Persona 0 Moment는 이후 Data Contract와 모바일/PC 역할 분리의 입력값으로 이어집니다.</p>
+          <p>Chapter 1~3에서 저장한 기억 부채, 위험 점수, Persona 0 Moment는 이제 실제 데이터 구조를 만드는 입력값으로 이어집니다.</p>
+        </section>
+
+        <section
+          class="book-reader-chapter"
+          id="chapter-4"
+          data-reader-chapter
+          data-order="4"
+          data-label="Chapter 4 · 말 한마디를 데이터로 만들 수 있을까"
+        >
+          <div class="book-reader-chapter__eyebrow">CHAPTER 04 · BUILD → SAVE</div>
+          <h2>말 한마디를 데이터로 만들 수 있을까</h2>
+          <div class="book-reader-prose">
+            <p>STT는 말을 텍스트로 바꿔주지만, 텍스트가 곧 운영 데이터가 되는 것은 아닙니다. 한 문장 안에는 대상, 관찰 사실, 다음 행동, 다시 확인할 시점이 함께 섞여 있을 수 있습니다.</p>
+            <p>중요한 원칙은 <strong>원문을 사실의 근거로 남기고, 요약은 회수를 돕는 별도 결과로 두는 것</strong>입니다.</p>
+            <p>아래에서 실제로 긴 원문과 한 줄 요약을 나란히 만들어보세요.</p>
+          </div>
+        </section>
+
+        <section
+          class="book-reader-chapter"
+          id="chapter-5"
+          data-reader-chapter
+          data-order="5"
+          data-label="Chapter 5 · 기억파편이라는 단위를 만들다"
+        >
+          <div class="book-reader-chapter__eyebrow">CHAPTER 05 · BUILD → SAVE</div>
+          <h2>기억파편이라는 단위를 만들다</h2>
+          <div class="book-reader-prose">
+            <p>완성된 면담일지부터 요구하면 현장 기록의 진입장벽이 높아집니다. 그래서 먼저 작게 남기고 나중에 연결할 수 있는 단위가 필요했습니다.</p>
+            <p>좋은 기억파편은 사람에 대한 평가보다 <strong>관찰 가능한 사실</strong>에 가깝고, 필요하다면 다음 Follow-up까지 연결됩니다.</p>
+            <p>Chapter 4에서 만든 원문·요약을 참고해 실제 기억파편 1건을 만들어봅니다.</p>
+          </div>
+        </section>
+
+        <section
+          class="book-reader-chapter"
+          id="chapter-6"
+          data-reader-chapter
+          data-order="6"
+          data-label="Chapter 6 · Core Data Contract를 먼저 만든 이유"
+        >
+          <div class="book-reader-chapter__eyebrow">CHAPTER 06 · BUILD → SAVE</div>
+          <h2>Core Data Contract를 먼저 만든 이유</h2>
+          <div class="book-reader-prose">
+            <p>화면은 계속 바뀔 수 있지만, 데이터의 의미가 바뀌면 기록을 이어갈 수 없습니다. 그래서 기능보다 먼저 공통 객체를 정하고 관계를 연결합니다.</p>
+            <p>LeaderDesk에서는 Person, MemoryFragment, Follow-up, FormalInterview, Source/STT 같은 객체가 같은 의미를 공유해야 모바일과 PC가 하나의 운영 흐름이 됩니다.</p>
+            <p>아래 Builder에서 최소 3개 Object와 2개의 관계를 직접 선택해보세요.</p>
+          </div>
+        </section>
+
+        <section
+          class="book-reader-chapter"
+          id="chapter-7"
+          data-reader-chapter
+          data-order="7"
+          data-label="Chapter 7 · KPI 숫자보다 변경이력이 중요했다"
+        >
+          <div class="book-reader-chapter__eyebrow">CHAPTER 07 · ASK → BUILD → SAVE</div>
+          <h2>KPI 숫자보다 변경이력이 중요했다</h2>
+          <div class="book-reader-prose">
+            <p>운영에서 숫자는 바뀝니다. 회사 기준이 바뀌고, 팀 목표가 조정되고, 단순 오입력을 수정하기도 합니다.</p>
+            <p>중요한 것은 현재 값만 맞추는 것이 아니라 <strong>왜 바뀌었고 당시 어떤 기준으로 판단했는지 다시 설명할 수 있게 하는 것</strong>입니다.</p>
+            <p>세 가지 시나리오에서 어떤 원칙을 적용할지 직접 선택해보세요.</p>
+          </div>
+        </section>
+
+        <section class="series02-lab-checkpoint" aria-labelledby="series02-checkpoint-b-title">
+          <small>CHECKPOINT B</small>
+          <h2 id="series02-checkpoint-b-title">업무가 데이터 구조로 바뀌기 시작했습니다.</h2>
+          <p>이제 원문/요약 Pair, 기억파편, Mini Data Contract, KPI 변경 정책이 저장되었습니다. 이 네 결과는 Chapter 8~11의 가장 작은 운영 흐름을 설계할 때 다시 사용됩니다.</p>
           <button type="button" id="series02-open-records">내 기록 확인 →</button>
         </section>
       </main>
