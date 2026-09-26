@@ -1,0 +1,234 @@
+{
+  "contract": "JoyLab Series 02 Source of Truth V1",
+  "bookId": "series-02-memory-debt",
+  "title": "업무를 시스템으로 바꾸는 법",
+  "subtitle": "상담 기록에서 시작해 리더의 운영 OS를 만들기까지",
+  "language": "ko-KR",
+  "creator": "JoyLab",
+  "publisher": "JoyLab",
+  "description": "현장의 기억 부채를 진단하고 기록·데이터 계약·운영 흐름·인터페이스 설계로 전환하는 Build Series.",
+  "sourceReferences": [
+    "docs/build-series/series-02-work-to-system.md",
+    "docs/build-series/series-02-interactive-map-v1.md",
+    "docs/build-series/series-02-draft-01-prologue-ch01-03.md"
+  ],
+  "publicationProfile": {
+    "mode": "ready-only",
+    "readyChapterIds": [
+      "chapter-01",
+      "chapter-02",
+      "chapter-03"
+    ],
+    "rule": "Generators may publish only chapters with manuscriptStatus=ready. Outline chapters remain visible in Studio metadata but must not be presented as finished manuscript."
+  },
+  "chapters": [
+    {
+      "id": "chapter-01",
+      "order": 1,
+      "part": "PART 1. 업무를 관찰하다",
+      "title": "기록은 많은데 왜 다시 찾게 될까",
+      "manuscriptStatus": "ready",
+      "primaryMode": "ASK",
+      "secondaryMode": "SAVE",
+      "interaction": "기억 부채 찾기",
+      "savedResult": "memoryDebt[]",
+      "completionRule": "기억 부채 1개 이상 저장",
+      "body": [
+        "우리는 머릿속에 너무 많은 일을 저장한 채 일합니다.",
+        "기억하고 있는 사람에게 업무가 붙고, 그 사람이 자리를 비우는 순간 흐름이 멈춥니다.",
+        "이 장에서는 지금 내 업무에서 기억에만 존재하는 것을 찾아 기록 가능한 단위로 바꿉니다."
+      ],
+      "practice": "지금 기억에만 의존하고 있는 업무 3개를 적어보세요."
+    },
+    {
+      "id": "chapter-02",
+      "order": 2,
+      "part": "PART 1. 업무를 관찰하다",
+      "title": "리더의 기억을 시스템 밖에 두지 않는다",
+      "manuscriptStatus": "ready",
+      "primaryMode": "ASK",
+      "secondaryMode": "SAVE",
+      "interaction": "시스템 밖 기억 점검",
+      "savedResult": "memoryRiskScore",
+      "completionRule": "체크리스트 완료",
+      "body": [
+        "기억 부채는 단순히 메모가 부족한 문제가 아닙니다.",
+        "내가 없으면 멈추는가, 다른 사람이 찾기 어려운가, 반복해서 설명하고 있는가를 점수로 확인하면 문서화 우선순위를 정할 수 있습니다."
+      ],
+      "practice": "5개 위험 항목을 각각 0~2점으로 평가하고 가장 점수가 높은 업무부터 구조화하세요."
+    },
+    {
+      "id": "chapter-03",
+      "order": 3,
+      "part": "PART 1. 업무를 관찰하다",
+      "title": "Persona 0는 현장의 리더였다",
+      "manuscriptStatus": "ready",
+      "primaryMode": "BUILD",
+      "secondaryMode": "SAVE",
+      "interaction": "Persona 0 Moment Canvas",
+      "savedResult": "persona0Moment",
+      "completionRule": "5칸 중 4칸 이상 작성",
+      "body": [
+        "정보는 많이 저장하는 것보다 필요한 순간에 빨리 찾을 수 있어야 가치가 있습니다.",
+        "누가, 언제, 무엇 때문에 막히는지 정의하면 문서의 형식보다 먼저 정보의 사용 순간을 설계할 수 있습니다."
+      ],
+      "practice": "누가 이 정보를 필요로 하는지, 언제 찾는지, 10초 안에 찾게 하려면 무엇이 필요한지 기록하세요."
+    },
+    {
+      "id": "chapter-04",
+      "order": 4,
+      "part": "PART 2. 업무를 데이터로 바꾸다",
+      "title": "말 한마디를 데이터로 만들 수 있을까",
+      "manuscriptStatus": "outline",
+      "primaryMode": "BUILD",
+      "secondaryMode": "SAVE",
+      "interaction": "원문 vs 요약",
+      "savedResult": "sourceSummaryPair",
+      "completionRule": "원문 + 요약 모두 존재",
+      "summary": "STT 원문과 한 줄 요약을 함께 보존해 원본성과 실행성을 동시에 확보하는 장."
+    },
+    {
+      "id": "chapter-05",
+      "order": 5,
+      "part": "PART 2. 업무를 데이터로 바꾸다",
+      "title": "기억파편이라는 단위를 만들다",
+      "manuscriptStatus": "outline",
+      "primaryMode": "BUILD",
+      "secondaryMode": "SAVE",
+      "interaction": "기억파편 1건 만들기",
+      "savedResult": "memoryFragment",
+      "completionRule": "관찰 가능한 사실 1문장 + 대상 저장",
+      "summary": "대상·관찰 사실·Follow-up·날짜를 하나의 최소 업무 객체로 만드는 장."
+    },
+    {
+      "id": "chapter-06",
+      "order": 6,
+      "part": "PART 2. 업무를 데이터로 바꾸다",
+      "title": "Core Data Contract를 먼저 만든 이유",
+      "manuscriptStatus": "outline",
+      "primaryMode": "BUILD",
+      "secondaryMode": "SAVE",
+      "interaction": "Mini Data Contract Builder",
+      "savedResult": "miniDataContract",
+      "completionRule": "Object 3개 이상 + 관계 2개 이상",
+      "summary": "화면보다 먼저 업무 객체와 관계를 정의해 시스템의 의미를 고정하는 장."
+    },
+    {
+      "id": "chapter-07",
+      "order": 7,
+      "part": "PART 2. 업무를 데이터로 바꾸다",
+      "title": "KPI 숫자보다 변경이력이 중요했다",
+      "manuscriptStatus": "outline",
+      "primaryMode": "ASK",
+      "secondaryMode": "BUILD · SAVE",
+      "interaction": "KPI Change Scenario",
+      "savedResult": "kpiChangePolicy",
+      "completionRule": "변경 사유 규칙 + 과거 처리 원칙 저장",
+      "summary": "회사 기준·팀 목표·오입력·기타 변경을 구분하고 확정된 과거를 보존하는 장."
+    },
+    {
+      "id": "chapter-08",
+      "order": 8,
+      "part": "PART 3. 가장 작은 운영 흐름을 만들다",
+      "title": "첫 화면에서 무엇 하나만 할 수 있어야 할까",
+      "manuscriptStatus": "outline",
+      "primaryMode": "ASK",
+      "secondaryMode": "SAVE",
+      "interaction": "First Screen Decision",
+      "savedResult": "firstScreenDecision",
+      "completionRule": "핵심 행동 1개 선택",
+      "summary": "첫 화면에서 가장 중요한 행동 하나를 남기고 나머지 기능을 덜어내는 장."
+    },
+    {
+      "id": "chapter-09",
+      "order": 9,
+      "part": "PART 3. 가장 작은 운영 흐름을 만들다",
+      "title": "말로 기록하고 한 줄로 정리하다",
+      "manuscriptStatus": "outline",
+      "primaryMode": "BUILD",
+      "secondaryMode": "SAVE",
+      "interaction": "One-line Capture Lab",
+      "savedResult": "oneLineCapture",
+      "completionRule": "원문과 한 줄 포착 모두 저장",
+      "summary": "긴 기록을 현장에서 다시 쓸 수 있는 한 줄 핵심으로 줄이는 장."
+    },
+    {
+      "id": "chapter-10",
+      "order": 10,
+      "part": "PART 3. 가장 작은 운영 흐름을 만들다",
+      "title": "저장 다음 행동을 설계하다",
+      "manuscriptStatus": "outline",
+      "primaryMode": "BUILD",
+      "secondaryMode": "SAVE",
+      "interaction": "Post-save Flow Builder",
+      "savedResult": "postSaveFlow",
+      "completionRule": "다음 행동 정확히 2개 선택",
+      "summary": "저장 후 사용자가 무엇을 할지 두 개의 후속 행동으로 제한하는 장."
+    },
+    {
+      "id": "chapter-11",
+      "order": 11,
+      "part": "PART 3. 가장 작은 운영 흐름을 만들다",
+      "title": "최근 5건만 보여준 이유",
+      "manuscriptStatus": "outline",
+      "primaryMode": "ASK",
+      "secondaryMode": "BUILD",
+      "interaction": "Information Density Test",
+      "savedResult": "densityDecision",
+      "completionRule": "노출 개수 + 이유 저장",
+      "summary": "정보량을 늘리기보다 현장 판단에 필요한 최근 기록 밀도를 결정하는 장."
+    },
+    {
+      "id": "chapter-12",
+      "order": 12,
+      "part": "PART 4. 모바일과 PC를 분리하다",
+      "title": "하나의 앱에 모든 기능을 넣지 않기로 했다",
+      "manuscriptStatus": "outline",
+      "primaryMode": "BUILD",
+      "secondaryMode": "SAVE",
+      "interaction": "Context Split Canvas",
+      "savedResult": "contextSplit",
+      "completionRule": "두 사용 순간의 목적·기기·시간 제약 작성",
+      "summary": "같은 데이터라도 사용 순간이 다르면 인터페이스를 분리해야 하는 이유를 다루는 장."
+    },
+    {
+      "id": "chapter-13",
+      "order": 13,
+      "part": "PART 4. 모바일과 PC를 분리하다",
+      "title": "LeaderDesk Coaching",
+      "manuscriptStatus": "outline",
+      "primaryMode": "BUILD",
+      "secondaryMode": "SAVE",
+      "interaction": "Mobile 3-Tab Builder",
+      "savedResult": "coachingNav",
+      "completionRule": "핵심 기능을 3탭에 모두 분류",
+      "summary": "기록·오늘·더보기 3탭으로 현장 기록기의 핵심 동선을 설계하는 장."
+    },
+    {
+      "id": "chapter-14",
+      "order": 14,
+      "part": "PART 4. 모바일과 PC를 분리하다",
+      "title": "LeaderDesk Ops",
+      "manuscriptStatus": "outline",
+      "primaryMode": "BUILD",
+      "secondaryMode": "SAVE",
+      "interaction": "Daily Ops Board",
+      "savedResult": "opsBoard",
+      "completionRule": "오늘 판단에 필요한 카드 4개 이상 선택",
+      "summary": "PC에서 회수·비교·판단을 담당하는 운영 본체의 정보 구조를 설계하는 장."
+    },
+    {
+      "id": "chapter-15",
+      "order": 15,
+      "part": "PART 4. 모바일과 PC를 분리하다",
+      "title": "같은 데이터, 다른 인터페이스",
+      "manuscriptStatus": "outline",
+      "primaryMode": "BUILD",
+      "secondaryMode": "SAVE",
+      "interaction": "Same Data, Different UI",
+      "savedResult": "crossInterfaceContract",
+      "completionRule": "공통 Object 3개 이상 + 양쪽 View 연결",
+      "summary": "공통 데이터 객체를 모바일과 PC의 서로 다른 뷰에 연결해 하나의 시스템으로 닫는 장."
+    }
+  ]
+}
