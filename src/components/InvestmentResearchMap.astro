@@ -1,0 +1,118 @@
+---
+import graph from '../../config/investment-research-graph-v2.json';
+
+const industryLabels: Record<string,string> = {
+  'semiconductor':'반도체',
+  'ai-infrastructure':'AI 인프라',
+  'shipbuilding-defense':'조선·방산',
+  'mobility-robotics':'자동차·로봇',
+  'financials-value-up':'금융·주주환원',
+  'energy-nuclear':'에너지·원전'
+};
+
+const companies = graph.companies.map((company) => ({
+  ...company,
+  industryLabel: industryLabels[company.industry] ?? company.industry
+}));
+---
+<section class="irmap" aria-labelledby="irmap-title">
+  <div class="irmap__head">
+    <div>
+      <div class="sg-eyebrow">INTERACTIVE RESEARCH GRAPH V2</div>
+      <h2 id="irmap-title">Company → KPI → Value Chain</h2>
+      <p>기업을 선택하면 JoyLab이 그 기업을 볼 때 추적하는 핵심 KPI와 밸류체인 위치를 같은 화면에서 연결합니다.</p>
+    </div>
+    <div class="irmap__stats" aria-label="그래프 구성">
+      <span><strong>{graph.companies.length}</strong> Companies</span>
+      <span><strong>{graph.kpis.length}</strong> KPIs</span>
+      <span><strong>{graph.valueChains.length}</strong> Value Chains</span>
+    </div>
+  </div>
+
+  <div class="irmap__company-list" role="tablist" aria-label="기업 선택">
+    {companies.map((company, index) => (
+      <button
+        type="button"
+        role="tab"
+        aria-selected={index === 0 ? 'true' : 'false'}
+        class:list={['irmap__company', { 'is-active': index === 0 }]}
+        data-company-id={company.id}
+      >
+        <b>{company.label}</b>
+        <span>{company.industryLabel}</span>
+      </button>
+    ))}
+  </div>
+
+  <div class="irmap__canvas" data-irmap-canvas>
+    <div class="irmap__column irmap__column--company">
+      <small>COMPANY</small>
+      <div class="irmap__focus">
+        <strong data-irmap-company>{companies[0]?.label}</strong>
+        <span data-irmap-industry>{companies[0]?.industryLabel}</span>
+      </div>
+    </div>
+
+    <div class="irmap__arrow" aria-hidden="true">→</div>
+
+    <div class="irmap__column">
+      <small>VALUE CHAIN</small>
+      <div class="irmap__nodes" data-irmap-valuechains></div>
+    </div>
+
+    <div class="irmap__arrow" aria-hidden="true">→</div>
+
+    <div class="irmap__column">
+      <small>KPI</small>
+      <div class="irmap__nodes irmap__nodes--kpi" data-irmap-kpis></div>
+    </div>
+  </div>
+
+  <div class="irmap__foot">
+    <p>이 지도는 기업의 우열을 평가하는 점수표가 아니라, <strong>무엇을 확인해야 하는지 보여주는 Research Navigation</strong>입니다.</p>
+    <a href="/search?q=KB%20Financial">관련 리서치 검색 →</a>
+  </div>
+
+  <script type="application/json" id="investment-research-graph-v2" set:html={JSON.stringify({ ...graph, companies }).replace(/</g,'\u003c')}></script>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector('.irmap');
+    const dataNode = document.getElementById('investment-research-graph-v2');
+    if (!root || !dataNode) return;
+
+    const graph = JSON.parse(dataNode.textContent || '{}');
+    const buttons = Array.from(root.querySelectorAll('[data-company-id]'));
+    const companyNode = root.querySelector('[data-irmap-company]');
+    const industryNode = root.querySelector('[data-irmap-industry]');
+    const valueChainNode = root.querySelector('[data-irmap-valuechains]');
+    const kpiNode = root.querySelector('[data-irmap-kpis]');
+    const searchLink = root.querySelector('.irmap__foot a');
+
+    const render = (companyId) => {
+      const company = graph.companies.find((item) => item.id === companyId);
+      if (!company) return;
+      const edges = graph.edges.filter((edge) => edge.from === companyId);
+      const valueIds = edges.filter((edge) => edge.type === 'company-to-value-chain').map((edge) => edge.to);
+      const kpiIds = edges.filter((edge) => edge.type === 'company-to-kpi').map((edge) => edge.to);
+      const values = graph.valueChains.filter((item) => valueIds.includes(item.id));
+      const kpis = graph.kpis.filter((item) => kpiIds.includes(item.id));
+
+      companyNode.textContent = company.label;
+      industryNode.textContent = company.industryLabel || company.industry;
+      valueChainNode.innerHTML = values.map((item) => '<span>' + item.label + '</span>').join('');
+      kpiNode.innerHTML = kpis.map((item) => '<span>' + item.label + '</span>').join('');
+      searchLink.href = '/search?q=' + encodeURIComponent(company.label);
+
+      buttons.forEach((button) => {
+        const active = button.dataset.companyId === companyId;
+        button.classList.toggle('is-active', active);
+        button.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    };
+
+    buttons.forEach((button) => button.addEventListener('click', () => render(button.dataset.companyId)));
+    if (buttons[0]) render(buttons[0].dataset.companyId);
+  })();
+</script>
