@@ -374,6 +374,229 @@ const { bookSlug, storagePrefix, interactions = {} } = Astro.props;
         refresh();
       }
 
+      if (interaction.type === 'sourceSummary') {
+        const formKey = `${order}:${interaction.id}`;
+        const values = { ...(state.forms[formKey] || {}) };
+        const grid = document.createElement('div');
+        grid.className = 'book-interactive-source-summary';
+        const status = document.createElement('div');
+        status.className = 'book-interactive-status';
+        let completedTracked = Boolean(values.__completedTracked);
+
+        const makeBox = (keyName, labelText, placeholder) => {
+          const box = document.createElement('label');
+          box.className = 'book-interactive-source-box';
+          const label = document.createElement('span');
+          label.textContent = labelText;
+          const textarea = document.createElement('textarea');
+          textarea.rows = keyName === 'source' ? 6 : 3;
+          textarea.placeholder = placeholder || '';
+          textarea.value = values[keyName] || '';
+          let timer = 0;
+          textarea.addEventListener('input', () => {
+            values[keyName] = textarea.value.trim();
+            clearTimeout(timer);
+            timer = setTimeout(refresh, 180);
+          });
+          box.append(label, textarea);
+          return box;
+        };
+
+        const preserve = document.createElement('label');
+        preserve.className = 'book-interactive-preserve';
+        const preserveInput = document.createElement('input');
+        preserveInput.type = 'checkbox';
+        preserveInput.checked = Boolean(values.preserveSource);
+        const preserveText = document.createElement('span');
+        preserveText.textContent = '원문을 요약과 함께 보존한다';
+        preserveInput.addEventListener('change', () => {
+          values.preserveSource = preserveInput.checked;
+          refresh();
+        });
+        preserve.append(preserveInput, preserveText);
+
+        const refresh = () => {
+          const done = Boolean(String(values.source || '').trim() && String(values.summary || '').trim() && values.preserveSource);
+          status.classList.toggle('is-complete', done);
+          status.textContent = done ? '✓ Source / Summary Pair 완료' : '원문 + 요약 + 원문 보존 체크가 필요합니다.';
+          values.__complete = done;
+          if (done && !completedTracked) {
+            completedTracked = true;
+            values.__completedTracked = true;
+            track('book_interaction_action', `${bookSlug}:${interaction.id}`);
+          }
+          state.forms[formKey] = values;
+          saveCoreState();
+        };
+
+        grid.append(
+          makeBox('source', interaction.sourceLabel, interaction.sourcePlaceholder),
+          makeBox('summary', interaction.summaryLabel, interaction.summaryPlaceholder)
+        );
+        wrap.append(grid, preserve, status);
+        refresh();
+      }
+
+      if (interaction.type === 'dataContract') {
+        const formKey = `${order}:${interaction.id}`;
+        const values = { ...(state.forms[formKey] || {}) };
+        values.objects = values.objects || {};
+        values.relations = values.relations || Array.from({ length: interaction.relationSlots }, () => ({ from: '', to: '' }));
+        const objectGrid = document.createElement('div');
+        objectGrid.className = 'book-interactive-object-grid';
+        const relationWrap = document.createElement('div');
+        relationWrap.className = 'book-interactive-relations';
+        const status = document.createElement('div');
+        status.className = 'book-interactive-status';
+        let completedTracked = Boolean(values.__completedTracked);
+
+        const selectedObjects = () => interaction.objects.filter((item) => values.objects[item.key]);
+
+        const renderRelations = () => {
+          relationWrap.innerHTML = '<strong>RELATIONSHIPS</strong>';
+          values.relations.forEach((relation, index) => {
+            const row = document.createElement('div');
+            row.className = 'book-interactive-relation-row';
+            const from = document.createElement('select');
+            const to = document.createElement('select');
+            const options = selectedObjects();
+            for (const select of [from, to]) {
+              const empty = document.createElement('option');
+              empty.value = '';
+              empty.textContent = 'Object 선택';
+              select.appendChild(empty);
+              options.forEach((item) => {
+                const opt = document.createElement('option');
+                opt.value = item.key;
+                opt.textContent = item.label;
+                select.appendChild(opt);
+              });
+            }
+            from.value = relation.from || '';
+            to.value = relation.to || '';
+            const arrow = document.createElement('span');
+            arrow.textContent = '→';
+            const sync = () => {
+              values.relations[index] = { from: from.value, to: to.value };
+              refresh();
+            };
+            from.addEventListener('change', sync);
+            to.addEventListener('change', sync);
+            row.append(from, arrow, to);
+            relationWrap.appendChild(row);
+          });
+        };
+
+        const refresh = () => {
+          const objectCount = selectedObjects().length;
+          const relationCount = values.relations.filter((r) => r.from && r.to && r.from !== r.to).length;
+          const done = objectCount >= 3 && relationCount >= 2;
+          status.classList.toggle('is-complete', done);
+          status.textContent = done ? `✓ Mini Data Contract 완료 · Object ${objectCount} / Relation ${relationCount}` : `Object ${objectCount}/3 · Relation ${relationCount}/2`;
+          values.__complete = done;
+          if (done && !completedTracked) {
+            completedTracked = true;
+            values.__completedTracked = true;
+            track('book_interaction_action', `${bookSlug}:${interaction.id}`);
+          }
+          state.forms[formKey] = values;
+          saveCoreState();
+        };
+
+        interaction.objects.forEach((item) => {
+          const label = document.createElement('label');
+          label.className = 'book-interactive-object-card';
+          const input = document.createElement('input');
+          input.type = 'checkbox';
+          input.checked = Boolean(values.objects[item.key]);
+          const copy = document.createElement('span');
+          const title = document.createElement('strong');
+          title.textContent = item.label;
+          const desc = document.createElement('small');
+          desc.textContent = item.description;
+          copy.append(title, desc);
+          input.addEventListener('change', () => {
+            values.objects[item.key] = input.checked;
+            renderRelations();
+            refresh();
+            track('book_interaction_check', `${bookSlug}:${interaction.id}`);
+          });
+          label.append(input, copy);
+          objectGrid.appendChild(label);
+        });
+
+        renderRelations();
+        wrap.append(objectGrid, relationWrap, status);
+        refresh();
+      }
+
+      if (interaction.type === 'scenarioSet') {
+        const formKey = `${order}:${interaction.id}`;
+        const values = { ...(state.forms[formKey] || {}) };
+        const scenarios = document.createElement('div');
+        scenarios.className = 'book-interactive-scenarios';
+        const status = document.createElement('div');
+        status.className = 'book-interactive-status';
+        let completedTracked = Boolean(values.__completedTracked);
+
+        const refresh = () => {
+          const answered = interaction.scenarios.filter((scenario) => values[scenario.key]).length;
+          const preferred = interaction.scenarios.filter((scenario) => {
+            const selected = scenario.options.find((option) => option.value === values[scenario.key]);
+            return selected?.preferred;
+          }).length;
+          const done = answered === interaction.scenarios.length;
+          status.classList.toggle('is-complete', done);
+          status.textContent = done ? `✓ KPI 변경 규칙 완료 · 권장 원칙 ${preferred}/${interaction.scenarios.length}` : `시나리오 응답 ${answered}/${interaction.scenarios.length}`;
+          values.__complete = done;
+          values.__preferredCount = preferred;
+          if (done && !completedTracked) {
+            completedTracked = true;
+            values.__completedTracked = true;
+            track('book_interaction_action', `${bookSlug}:${interaction.id}`);
+          }
+          state.forms[formKey] = values;
+          saveCoreState();
+        };
+
+        interaction.scenarios.forEach((scenario) => {
+          const card = document.createElement('article');
+          card.className = 'book-interactive-scenario';
+          const title = document.createElement('strong');
+          title.textContent = scenario.title;
+          const body = document.createElement('p');
+          body.textContent = scenario.body;
+          const options = document.createElement('div');
+          options.className = 'book-interactive-options';
+          const feedback = document.createElement('div');
+          feedback.className = 'book-interactive-feedback';
+          scenario.options.forEach((option) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.textContent = option.label;
+            if (values[scenario.key] === option.value) {
+              button.classList.add('is-selected');
+              feedback.textContent = option.feedback;
+              feedback.classList.add('is-visible');
+            }
+            button.addEventListener('click', () => {
+              values[scenario.key] = option.value;
+              options.querySelectorAll('button').forEach((el) => el.classList.remove('is-selected'));
+              button.classList.add('is-selected');
+              feedback.textContent = option.feedback;
+              feedback.classList.add('is-visible');
+              track('book_interaction_choice', `${bookSlug}:${interaction.id}`);
+              refresh();
+            });
+            options.appendChild(button);
+          });
+          card.append(title, body, options, feedback);
+          scenarios.appendChild(card);
+        });
+        wrap.append(scenarios, status);
+        refresh();
+      }
+
       return wrap;
     };
 
