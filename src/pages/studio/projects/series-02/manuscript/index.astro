@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Manuscript | Series 02 | JoyLab Studio" description="Series 02 원고 편집기 MVP" robots="noindex,follow" bodyClass="studio-editor-page">
+  <div class="editor-shell" data-storage-key="joylab-series-02-manuscript-v1">
+    <header><div><p>MANUSCRIPT EDITOR</p><h1>Series 02</h1></div><a href="/studio/projects/series-02/">← Dashboard</a></header>
+    <nav class="tabs"><a href="/studio/projects/series-02/">Dashboard</a><a class="active" href="/studio/projects/series-02/manuscript/">Manuscript</a><a href="/studio/projects/series-02/interactive/">Interactive</a></nav>
+    <div class="editor-grid">
+      <aside>
+        <b>CHAPTERS</b>
+        <button class="selected" type="button">01 기억 부채 진단</button>
+        <button type="button">02 위험 점수</button>
+        <button type="button">03 Persona 0 Moment</button>
+        <button type="button">04 기억을 기록으로 바꾸다</button>
+        <button type="button">05 기록을 구조로 바꾸다</button>
+        <button type="button">06 구조를 시스템으로 바꾸다</button>
+      </aside>
+      <section class="editor">
+        <div class="toolbar"><span id="save-state">Saved</span><button id="save-manuscript" type="button">Save</button></div>
+        <label>Chapter title<input id="chapter-title" value="기억 부채 진단" /></label>
+        <label>Source manuscript<textarea id="chapter-body" rows="18">우리는 머릿속에 너무 많은 일을 저장한 채 일합니다.
+
+기억하고 있는 사람에게 업무가 붙고, 그 사람이 자리를 비우는 순간 흐름이 멈춥니다.
+
+이 장에서는 지금 내 업무에서 ‘기억에만 존재하는 것’을 찾아 기록 가능한 단위로 바꿉니다.</textarea></label>
+        <p class="hint">MVP에서는 현재 브라우저에만 저장합니다. 이 화면은 향후 Source Manuscript의 단일 원본 편집기로 확장됩니다.</p>
+      </section>
+      <aside class="inspector"><b>OUTPUT IMPACT</b><span>Interactive Web</span><span>Web Preview</span><span>EPUB Draft</span><span>Print PDF Draft</span></aside>
+    </div>
+  </div>
+  <script is:inline>
+    (()=>{const shell=document.querySelector('.editor-shell');if(!(shell instanceof HTMLElement))return;const key=shell.dataset.storageKey;const title=document.getElementById('chapter-title');const body=document.getElementById('chapter-body');const status=document.getElementById('save-state');if(!(title instanceof HTMLInputElement)||!(body instanceof HTMLTextAreaElement)||!key)return;try{const saved=JSON.parse(localStorage.getItem(key)||'null');if(saved){title.value=saved.title||title.value;body.value=saved.body||body.value;}}catch{}const dirty=()=>{if(status)status.textContent='Unsaved changes'};title.addEventListener('input',dirty);body.addEventListener('input',dirty);document.getElementById('save-manuscript')?.addEventListener('click',()=>{localStorage.setItem(key,JSON.stringify({title:title.value,body:body.value,savedAt:new Date().toISOString()}));if(status)status.textContent='Saved'});})();
+  </script>
+  <style>
+    .studio-editor-page{background:#f6f4ef;color:#17171a}.editor-shell{width:min(1280px,100%);margin:auto;padding:34px 20px 80px}.editor-shell header{display:flex;justify-content:space-between;align-items:start}.editor-shell header p{margin:0;color:#c8922d;font-size:12px;font-weight:850;letter-spacing:.12em}.editor-shell h1{margin:5px 0;font-size:36px}.editor-shell header a{color:#222;font-weight:800;text-decoration:none}.tabs{display:flex;gap:8px;margin:20px 0;overflow:auto}.tabs a{padding:9px 13px;border-radius:999px;background:#fff;color:#666;text-decoration:none;font-weight:750}.tabs .active{background:#17171a;color:#fff}.editor-grid{display:grid;grid-template-columns:220px 1fr 180px;gap:14px}.editor-grid>aside,.editor{border:1px solid #e5e0d7;border-radius:18px;background:#fff}.editor-grid>aside{padding:16px}.editor-grid aside>b{display:block;margin-bottom:10px;font-size:12px;color:#8b7d65}.editor-grid aside button{width:100%;border:0;background:transparent;text-align:left;padding:11px;border-radius:10px;color:#666}.editor-grid aside button.selected{background:#f6eddd;color:#765316;font-weight:800}.editor{padding:22px}.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;color:#777;font-size:13px}.toolbar button{border:0;border-radius:999px;background:#17171a;color:white;padding:9px 16px;font-weight:800}.editor label{display:block;margin-bottom:18px;font-weight:800}.editor input,.editor textarea{width:100%;box-sizing:border-box;margin-top:8px;border:1px solid #ddd7ce;border-radius:12px;padding:13px;font:inherit;font-size:16px;line-height:1.7}.editor textarea{resize:vertical}.hint{color:#888;line-height:1.6;font-size:14px}.inspector span{display:block;padding:10px 0;border-bottom:1px solid #eee;color:#666}@media(max-width:850px){.editor-grid{grid-template-columns:1fr}.editor-grid>aside:first-child{display:flex;gap:6px;overflow:auto}.editor-grid>aside:first-child>b{display:none}.editor-grid aside button{width:auto;white-space:nowrap}.inspector{display:none}}
+  </style>
+</BaseLayout>
