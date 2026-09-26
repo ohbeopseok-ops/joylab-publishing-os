@@ -33,6 +33,13 @@ jobs:
           DATE_CONTRACT_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: node scripts/check-content-date-contract-v1.mjs
 
+      - name: Run Identity Contract audit
+        id: identity_audit
+        continue-on-error: true
+        env:
+          IDENTITY_CONTRACT_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: node scripts/check-content-identity-contract-v1.mjs
+
       - name: Run Home Slot Contract audit
         id: slot_audit
         continue-on-error: true
@@ -44,6 +51,7 @@ jobs:
         env:
           DATE_OUTCOME: ${{ steps.date_audit.outcome }}
           SLOT_OUTCOME: ${{ steps.slot_audit.outcome }}
+          IDENTITY_OUTCOME: ${{ steps.identity_audit.outcome }}
         with:
           script: |
             const fs = require('fs');
@@ -56,6 +64,7 @@ jobs:
 
             const date = readJson('qa-artifacts/content-date-contract-v1/report.json');
             const slot = readJson('qa-artifacts/home-content-slot-contract-v1/report.json');
+            const identity = readJson('qa-artifacts/content-identity-contract-v1/report.json');
 
             const icon = (ok) => ok ? '✅' : '❌';
             const lines = [
@@ -64,6 +73,7 @@ jobs:
               '',
               `${icon(process.env.DATE_OUTCOME === 'success')} **Date Contract** — ${process.env.DATE_OUTCOME}`,
               `${icon(process.env.SLOT_OUTCOME === 'success')} **Home Slot Contract** — ${process.env.SLOT_OUTCOME}`,
+              `${icon(process.env.IDENTITY_OUTCOME === 'success')} **Identity Contract** — ${process.env.IDENTITY_OUTCOME}`,
               '',
               '**날짜 필드 의미**',
               '- `publishedAt`: 최초 공개 발행일. 기존 콘텐츠에서 임의 최신화 금지.',
@@ -84,6 +94,14 @@ jobs:
               lines.push('');
             }
 
+            if (identity) {
+              lines.push(`### Identity Contract 상세 — failures ${identity.totals?.failures ?? 0} / warnings ${identity.totals?.warnings ?? 0}`);
+              for (const item of (identity.failures || [])) lines.push(`- ❌ \`${item.rule}\` — ${item.file || item.oldFile || 'content'}`);
+              for (const item of (identity.warnings || [])) lines.push(`- ⚠️ \`${item.rule}\` — ${item.file || 'content'}`);
+              if (!(identity.failures || []).length && !(identity.warnings || []).length) lines.push('- ✅ 제목·canonical·slug 계약 위반 없음');
+              lines.push('');
+            }
+
             if (slot) {
               lines.push(`### Home Slot 상세 — failures ${slot.totals?.failures ?? 0}`);
               lines.push(`- 에디터 추천: ${(slot.slots?.editorial || []).join(', ') || '없음'}`);
@@ -99,6 +117,9 @@ jobs:
 
             if (process.env.DATE_OUTCOME !== 'success') {
               lines.push('**수정 가이드:** 기존 `publishedAt` 정정이 정말 필요한 경우 같은 PR에서 `dateCorrectionReason`을 기록하세요.');
+            }
+            if (process.env.IDENTITY_OUTCOME !== 'success') {
+              lines.push('**수정 가이드:** 기존 공개 콘텐츠의 title/canonical 변경은 `identityChangeReason`을 기록하고, slug 변경은 별도 redirect migration으로 처리하세요.');
             }
             if (process.env.SLOT_OUTCOME !== 'success') {
               lines.push('**수정 가이드:** Books를 `latestResearch`에 합치지 말고 Books 전용 슬롯에 유지하며, 최신 업데이트는 Articles에서만 선발하세요.');
