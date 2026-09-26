@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import { interactiveBookContractSchema } from '../../../../../lib/studio/interactive-block-contract';
+import { series02Demo } from '../../../../../data/studio/series-02-demo';
+const demo=interactiveBookContractSchema.parse(series02Demo);
+---
+
+<BaseLayout title="Interactive Builder | Series 02 | JoyLab Studio" description="Series 02 인터랙티브 블록 빌더 MVP" robots="noindex,follow" bodyClass="studio-builder-page">
+  <div class="builder-shell" data-storage-key="joylab-series-02-builder-drafts-v1">
+    <header><div><p>INTERACTIVE BUILDER</p><h1>Series 02</h1></div><a href="/studio/projects/series-02/">← Dashboard</a></header>
+    <nav class="tabs"><a href="/studio/projects/series-02/">Dashboard</a><a href="/studio/projects/series-02/manuscript/">Manuscript</a><a class="active" href="/studio/projects/series-02/interactive/">Interactive</a><a href="/studio/demo/">Reader Demo</a></nav>
+    <div class="builder-grid">
+      <section class="catalog">
+        <p class="kicker">CONTRACT BLOCKS</p><h2>현재 등록된 Block</h2>
+        <div class="block-list">
+          {demo.blocks.map((block)=><article><span>{block.chapterId}</span><b>{block.title}</b><small>{block.type}</small></article>)}
+        </div>
+      </section>
+      <section class="composer">
+        <p class="kicker">DRAFT BUILDER</p><h2>새 Block 초안</h2>
+        <form id="draft-form">
+          <label>Block type<select name="type"><option value="self_assessment">Self Assessment</option><option value="risk_score">Risk Score</option><option value="persona_canvas">Persona Canvas</option></select></label>
+          <label>Chapter<select name="chapterId"><option>chapter-04</option><option>chapter-05</option><option>chapter-06</option></select></label>
+          <label>Title<input name="title" placeholder="예: 기록 전환 체크리스트" required /></label>
+          <label>Prompt<textarea name="prompt" rows="4" placeholder="독자에게 보여줄 질문 또는 실습 지시" required></textarea></label>
+          <button type="submit">로컬 초안 저장</button>
+        </form>
+        <div id="draft-preview" class="draft-preview" hidden></div>
+        <p class="notice">이 화면에서 만든 초안은 계약 파일을 직접 수정하지 않습니다. 정식 Block 승격은 Zod Contract 검증을 통과해야 합니다.</p>
+      </section>
+    </div>
+  </div>
+  <script is:inline>
+    (()=>{const shell=document.querySelector('.builder-shell');if(!(shell instanceof HTMLElement))return;const key=shell.dataset.storageKey;const form=document.getElementById('draft-form');const preview=document.getElementById('draft-preview');if(!(form instanceof HTMLFormElement)||!(preview instanceof HTMLElement)||!key)return;const render=(value)=>{if(!value)return;preview.hidden=false;preview.innerHTML='<small>'+value.chapterId+' · '+value.type+'</small><strong>'+value.title+'</strong><span>'+value.prompt+'</span>'};try{render(JSON.parse(localStorage.getItem(key)||'null'))}catch{}form.addEventListener('submit',(e)=>{e.preventDefault();if(!form.reportValidity())return;const values=Object.fromEntries(new FormData(form).entries());values.savedAt=new Date().toISOString();localStorage.setItem(key,JSON.stringify(values));render(values)});})();
+  </script>
+  <style>
+    .studio-builder-page{background:#f6f4ef;color:#17171a}.builder-shell{width:min(1180px,100%);margin:auto;padding:34px 20px 80px}.builder-shell header{display:flex;justify-content:space-between}.builder-shell header p,.kicker{margin:0;color:#c8922d;font-size:12px;font-weight:850;letter-spacing:.12em}.builder-shell h1{margin:5px 0;font-size:36px}.builder-shell header a{color:#222;text-decoration:none;font-weight:800}.tabs{display:flex;gap:8px;margin:20px 0;overflow:auto}.tabs a{padding:9px 13px;border-radius:999px;background:#fff;color:#666;text-decoration:none;font-weight:750;white-space:nowrap}.tabs .active{background:#17171a;color:#fff}.builder-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.catalog,.composer{padding:24px;border:1px solid #e5e0d7;border-radius:20px;background:#fff}.catalog h2,.composer h2{margin:7px 0 20px}.block-list{display:grid;gap:10px}.block-list article{display:grid;grid-template-columns:86px 1fr auto;gap:10px;align-items:center;padding:14px;border-radius:13px;background:#f7f5f0}.block-list span,.block-list small{color:#777;font-size:12px}.composer label{display:block;margin:0 0 15px;font-weight:800}.composer input,.composer textarea,.composer select{width:100%;box-sizing:border-box;margin-top:7px;border:1px solid #ddd7ce;border-radius:12px;padding:12px;font:inherit;font-size:16px}.composer button{width:100%;min-height:48px;border:0;border-radius:999px;background:#17171a;color:#fff;font-weight:850}.draft-preview{display:grid;gap:7px;margin-top:16px;padding:16px;border-radius:14px;background:#f6eddd}.draft-preview small{color:#8b6b33}.draft-preview strong{font-size:20px}.draft-preview span{line-height:1.6}.notice{margin-top:16px;color:#888;font-size:13px;line-height:1.6}@media(max-width:760px){.builder-grid{grid-template-columns:1fr}.block-list article{grid-template-columns:1fr}.builder-shell header{display:block}.builder-shell header a{display:inline-block;margin-top:12px}}
+  </style>
+</BaseLayout>
