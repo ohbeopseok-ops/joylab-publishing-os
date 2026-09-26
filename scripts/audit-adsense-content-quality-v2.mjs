@@ -7,7 +7,7 @@ const outDir = path.join(root, 'qa-artifacts', 'adsense-content-quality-audit-v2
 fs.mkdirSync(outDir, { recursive: true });
 
 const primaryDomains = [
-  'dart.fss.or.kr','kind.krx.co.kr','krx.co.kr','sec.gov','federalreserve.gov',
+  'dart.fss.or.kr','kind.krx.co.kr','krx.co.kr','sec.gov','federalreserve.gov','bis.gov',
   'bls.gov','bea.gov','treasury.gov','bok.or.kr','kosis.kr','motie.go.kr',
   'msit.go.kr','mof.go.kr','samsung.com','skhynix.com','apple.com','openai.com',
   'anthropic.com','googleblog.com','blog.google',
@@ -127,7 +127,8 @@ for (let i=0;i<records.length;i++) {
 for (const r of records) {
   if (r.signals.some(s=>s.severity==='P0')) r.status='P0';
   else if (r.signals.some(s=>s.type==='SOURCE' || s.type==='YMYL')) r.status='P1-A';
-  else if (r.signals.length) r.status='P1-B';
+  else if (r.signals.some(s=>s.type==='LOW_VALUE') && r.bodyChars < 2280) r.status='P1-B';
+  else if (r.signals.length) r.status='P2';
   else r.status='PASS';
 }
 
@@ -136,6 +137,7 @@ const summary={
   PASS:records.filter(r=>r.status==='PASS').length,
   P1A:records.filter(r=>r.status==='P1-A').length,
   P1B:records.filter(r=>r.status==='P1-B').length,
+  P2:records.filter(r=>r.status==='P2').length,
   P1:records.filter(r=>r.status==='P1-A'||r.status==='P1-B').length,
   P0:records.filter(r=>r.status==='P0').length,
   ymyl:records.filter(r=>r.ymyl).length,
@@ -148,7 +150,7 @@ const report={schemaVersion:2,generatedAt:new Date().toISOString(),summary,recor
 fs.writeFileSync(path.join(outDir,'report.json'),JSON.stringify(report,null,2)+'\n');
 
 const priority=records.filter(r=>r.status!=='PASS').sort((a,b)=>
-  ({P0:0,'P1-A':1,'P1-B':2}[a.status]??3)-({P0:0,'P1-A':1,'P1-B':2}[b.status]??3) || b.signals.length-a.signals.length
+  ({P0:0,'P1-A':1,'P1-B':2,P2:3}[a.status]??4)-({P0:0,'P1-A':1,'P1-B':2,P2:3}[b.status]??4) || a.bodyChars-b.bodyChars
 );
 
 const md=[
@@ -157,8 +159,9 @@ const md=[
   `- Total: ${summary.total}`,
   `- PASS: ${summary.PASS}`,
   `- P1-A (YMYL/source priority): ${summary.P1A}`,
-  `- P1-B (depth/structure backlog): ${summary.P1B}`,
-  `- P1 total: ${summary.P1}`,
+  `- P1-B (action-now depth risk, <2280 chars): ${summary.P1B}`,
+  `- P2 (enhancement backlog): ${summary.P2}`,
+  `- P1 action-now total: ${summary.P1}`,
   `- P0: ${summary.P0}`,
   `- YMYL: ${summary.ymyl}`,
   `- Low Value signals: ${summary.lowValue}`,
