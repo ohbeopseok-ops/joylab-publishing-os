@@ -27,7 +27,7 @@ for(const viewport of [
     const section=sections.nth(i);
     const type=await section.locator('form').getAttribute('data-form-type');
     if(type==='assessment'){
-      await section.locator('input[type="radio"]').first().check();
+      await section.locator('.studio-choice').first().click();
       const textInputs=section.locator('input[type="text"]');
       for(let j=0;j<await textInputs.count();j++) await textInputs.nth(j).fill('Series 02 QA 기록 '+(i+1)+'-'+(j+1));
     } else if(type==='risk'){
