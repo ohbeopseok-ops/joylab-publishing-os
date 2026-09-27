@@ -547,7 +547,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: series-02-v1.0.0-release-manifest
-          path: public/studio/releases/series-02/v1-0-0/immutable-release-manifest.json
+          path: src/data/studio/releases/series-02-v1.0.0-manifest.json
           if-no-files-found: error
           retention-days: 365
 
