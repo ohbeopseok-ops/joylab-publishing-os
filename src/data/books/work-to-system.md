@@ -14,6 +14,7 @@ tags:
   - LeaderDesk
   - AI생산성
   - 인터랙티브북
+ogImage: "/images/research/joylab-research-default-hero.svg"
 heroQuote: "업무를 시스템으로 바꾼다는 것은 사람이 굳이 기억하지 않아도 되는 것부터 시스템에 넘기는 일이다."
 landingHeading: "기록을 더 많이 하는 법이 아니라, 흩어진 기억을 다시 꺼내 쓸 수 있는 운영 시스템으로 바꾸는 과정을 담았습니다."
 readerProfiles:
