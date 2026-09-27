@@ -4,6 +4,7 @@ import ArticleGrowthPath from '../../components/ArticleGrowthPath.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import ArticleSeoSchema from '../../components/ArticleSeoSchema.astro';
 import AiPowerResearchNav from '../../components/AiPowerResearchNav.astro';
+import ResearchGraphNav from '../../components/ResearchGraphNav.astro';
 import ChinaSemiconductorSeriesNav from '../../components/ChinaSemiconductorSeriesNav.astro';
 import ChinaSemiconductorRiskScore from '../../components/ChinaSemiconductorRiskScore.astro';
 import '../../styles/interactive.css';
@@ -81,6 +82,8 @@ const isUsMacroSeries = article.data.series === '미국 경제지표 읽는 법'
 const isFinancialsSeries = article.data.series === '금융·주주환원 투자 가이드';
 const isGrowthResearch = article.data.category === '성장·리더십' || article.data.series === '침묵의 기술';
 const isChinaSemiconductorSeries = article.data.series === '미·중 반도체 전쟁';
+const isAiStandardsSeries = article.data.series === 'AI Standards & Tech Sovereignty';
+const isGrowthLeadershipSeries = article.data.series === '성장·리더십 가이드';
 const isChinaSemiconductorRiskArticle = article.id === 'china-semiconductor-risk-indicators';
 const aiEconomicsClusterIds = new Set(['ai-bubble-vs-compute-supercycle-2026','openai-anthropic-ipo-cash-burn-2026','ai-infrastructure-hbm-mlcc-power-grid-2026','samsung-hbm4-memory-outlook-2026-09-20','ai-api-key-compute-theft-2026']);
 const isAiEconomicsCluster = aiEconomicsClusterIds.has(article.id);
@@ -90,7 +93,13 @@ const globalConnectivityClusterIds = new Set(['submarine-cable-history','how-sub
 const isAiSecurityCluster = aiSecurityClusterIds.has(article.id);
 const isAiInfrastructureCluster = aiInfrastructureClusterIds.has(article.id);
 const isGlobalConnectivityCluster = globalConnectivityClusterIds.has(article.id);
-const guideCta = isGrowthResearch
+const guideCta = isAiStandardsSeries
+  ? {
+      title: 'AI Standards & Tech Sovereignty',
+      href: '/guides/ai-standards',
+      label: 'Language → Measurement → Standard → Governance → Discourse Power 전체 흐름 보기 →'
+    }
+  : isGrowthResearch
   ? {
       title: 'Growth & Leadership Research Hub',
       href: '/guides/growth-leadership',
@@ -323,7 +332,24 @@ const scoreCriteria = [
           <div id="article-content" class="article-body"><Content /></div>
         </div>
 
-        <AiPowerResearchNav articleId={article.id} />
+        {(article.data.faqs?.length ?? 0) > 0 && (
+          <section class="research-panel article-faq" aria-labelledby="article-faq-title">
+            <h2 class="research-panel__title" id="article-faq-title">FAQ</h2>
+            <div class="article-faq__list">
+              {article.data.faqs!.map((item) => (
+                <details class="article-faq__item">
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {(isAiStandardsSeries || isGrowthLeadershipSeries)
+          ? <ResearchGraphNav articleId={article.id} />
+          : <AiPowerResearchNav articleId={article.id} />
+        }
 
         {isChinaSemiconductorRiskArticle && <ChinaSemiconductorRiskScore />}
         {isChinaSemiconductorSeries && <ChinaSemiconductorSeriesNav currentId={article.id} />}
@@ -516,6 +542,13 @@ const scoreCriteria = [
       updateProgress();
     })();
   </script>
+
+  <style>
+    .article-faq__list{display:grid;gap:10px}
+    .article-faq__item{border:1px solid var(--research-line);border-radius:12px;background:#fff;padding:0 14px}
+    .article-faq__item summary{cursor:pointer;padding:14px 0;font-weight:800;line-height:1.45}
+    .article-faq__item p{margin:0;padding:0 0 14px;color:#4b5563;line-height:1.75}
+  </style>
 
   <ArticleSeoSchema article={article} articleImageUrl={articleImageUrl} seriesItems={seriesItems} />
 </BaseLayout>

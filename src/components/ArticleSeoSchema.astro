@@ -41,6 +41,15 @@ const graph = [
       name: item.data.title,
       url: new URL(`/articles/${item.id}`, origin).toString()
     }))
+  }] : []),
+  ...((article.data.faqs?.length ?? 0) > 0 ? [{
+    '@type': 'FAQPage',
+    '@id': `${articleUrl}#faq`,
+    mainEntity: article.data.faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer }
+    }))
   }] : [])
 ];
 ---

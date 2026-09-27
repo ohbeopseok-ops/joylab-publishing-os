@@ -1999,5 +1999,62 @@
         "caption": "같은 PER에서도 필요한 EPS와 가격 범위가 다릅니다."
       }
     ]
+  },
+  "china-ai-token-ciyuan-discourse-power": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Token에서 중국어 词元으로 이어지는 AI 언어·측정·표준·담론 권력 구조를 표현한 JoyLab Research 대표 이미지",
+      "caption": "TOKEN → 词元. Language → Measurement → Standard → Governance."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "중국 AI Token 词元 표준화의 핵심 사실과 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화 신호와 검증 포인트를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Language Measurement Standard Governance Discourse Power 연결을 설명한 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "ai-token-economics": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI Token이 사용량 측정에서 API 가격과 데이터 가치, 표준으로 연결되는 구조를 표현한 JoyLab Research 대표 이미지",
+      "caption": "TOKEN → METERING → PRICING → SETTLEMENT → STANDARD."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI Token 사용량과 API 과금 데이터 가치의 핵심 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화 신호와 검증 포인트를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Token Metering Pricing Settlement Standard Market 연결을 설명한 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "ai-translation-information-gatekeeper": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "원문에서 검색·번역·맥락 압축·답변을 거쳐 사용자에게 정보가 전달되는 AI 번역 게이트키퍼 구조를 표현한 JoyLab Research 대표 이미지",
+      "caption": "SOURCE → RETRIEVAL → TRANSLATION → CONTEXT → ANSWER."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 실시간 번역과 저자원 언어 품질 격차의 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "언어 지원 범위와 실제 번역 품질, 원문 검증 가능성을 함께 봅니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "원문 검색 번역 맥락 검증 정보 게이트키핑의 연결 구조를 설명한 JoyLab 프레임워크 이미지",
+        "caption": "Source → Retrieval → Translation → Context → Verification 순서로 판단합니다."
+      }
+    ]
   }
 }

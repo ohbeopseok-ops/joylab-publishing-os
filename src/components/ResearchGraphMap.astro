@@ -21,13 +21,15 @@ const {
   primaryFlow = []
 } = Astro.props;
 
-const groups = [
+const defaultGroups = [
   { key: 'macro', label: 'MACRO / MARKET', types: ['macro','sector'] },
   { key: 'value_chain', label: 'VALUE CHAIN', types: ['demand','value_chain','bottleneck'] },
   { key: 'company', label: 'COMPANY', types: ['company'] },
   { key: 'kpi', label: 'KPI', types: ['kpi','earnings'] },
   { key: 'valuation', label: 'VALUATION', types: ['valuation'] }
 ];
+
+const groups = Array.isArray(graph.lanes) && graph.lanes.length > 0 ? graph.lanes : defaultGroups;
 
 const nodeById = new Map(graph.nodes.map((node:any) => [node.id, node]));
 const publishedArticles = graph.articles.filter((article:any) => article.status === 'published');
@@ -298,7 +300,7 @@ const nodePayload = Object.fromEntries(graph.nodes.map((node:any) => {
     canvas?.addEventListener('scroll', redraw, { passive: true });
     if ('ResizeObserver' in window && canvas) new ResizeObserver(redraw).observe(canvas);
 
-    const first = buttons.find((button) => button.dataset.nodeId === 'us-10y') || buttons[0];
+    const first = root.querySelector('.rg__flow-node[data-node-id]') || buttons[0];
     if (first) selectNode(first.dataset.nodeId);
     else drawEdges();
   });

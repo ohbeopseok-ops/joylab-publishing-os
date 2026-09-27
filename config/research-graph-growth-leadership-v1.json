@@ -1,0 +1,485 @@
+{
+  "contract": "JoyLab.ResearchGraph",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "growth-leadership",
+    "title": "Growth & Leadership",
+    "url": "/guides/growth-leadership",
+    "domain": "leadership",
+    "status": "published"
+  },
+  "lanes": [
+    {
+      "key": "behavior",
+      "label": "BEHAVIOR",
+      "types": [
+        "behavior"
+      ]
+    },
+    {
+      "key": "leader",
+      "label": "LEADER",
+      "types": [
+        "leader"
+      ]
+    },
+    {
+      "key": "team",
+      "label": "TEAM",
+      "types": [
+        "team"
+      ]
+    },
+    {
+      "key": "culture",
+      "label": "CULTURE",
+      "types": [
+        "culture"
+      ]
+    },
+    {
+      "key": "outcome",
+      "label": "OUTCOME",
+      "types": [
+        "outcome"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "growth-leadership",
+      "type": "pillar",
+      "label": "Growth & Leadership",
+      "articleUrl": "/guides/growth-leadership",
+      "stage": "pillar"
+    },
+    {
+      "id": "behavior-system",
+      "type": "behavior",
+      "label": "Observable Behavior",
+      "stage": "behavior"
+    },
+    {
+      "id": "leading-indicator",
+      "type": "behavior",
+      "label": "Leading Indicator",
+      "stage": "behavior"
+    },
+    {
+      "id": "leader-system",
+      "type": "leader",
+      "label": "Leader Intervention",
+      "stage": "leader"
+    },
+    {
+      "id": "feedback-loop",
+      "type": "leader",
+      "label": "Feedback Loop",
+      "stage": "leader"
+    },
+    {
+      "id": "recognition-loop",
+      "type": "leader",
+      "label": "Recognition",
+      "stage": "leader"
+    },
+    {
+      "id": "team-system",
+      "type": "team",
+      "label": "Team Learning",
+      "stage": "team"
+    },
+    {
+      "id": "reexecution-loop",
+      "type": "team",
+      "label": "Re-execution Loop",
+      "stage": "team"
+    },
+    {
+      "id": "operating-rhythm",
+      "type": "team",
+      "label": "Operating Rhythm",
+      "stage": "team"
+    },
+    {
+      "id": "culture-system",
+      "type": "culture",
+      "label": "Fair Culture",
+      "stage": "culture"
+    },
+    {
+      "id": "calibration",
+      "type": "culture",
+      "label": "Calibration",
+      "stage": "culture"
+    },
+    {
+      "id": "outcome-system",
+      "type": "outcome",
+      "label": "Repeatable Outcome",
+      "stage": "outcome"
+    },
+    {
+      "id": "performance-system-leading-indicators",
+      "type": "article",
+      "label": "성과관리 시스템 보는 법｜결과 KPI보다 Leading Indicator가 먼저다",
+      "articleUrl": "/articles/performance-system-leading-indicators",
+      "stage": "behavior"
+    },
+    {
+      "id": "feedback-system-behavior-change",
+      "type": "article",
+      "label": "피드백 시스템 설계법｜평가가 아니라 행동 변화를 만드는 구조",
+      "articleUrl": "/articles/feedback-system-behavior-change",
+      "stage": "leader"
+    },
+    {
+      "id": "recognition-system-fair-performance",
+      "type": "article",
+      "label": "Recognition System 설계법｜칭찬보다 공정한 인정 구조가 먼저다",
+      "articleUrl": "/articles/recognition-system-fair-performance",
+      "stage": "leader"
+    },
+    {
+      "id": "fairness-system-explainable-standards",
+      "type": "article",
+      "label": "공정한 성과관리란 무엇인가｜기회·기준·판정을 분리해 설계하는 법",
+      "articleUrl": "/articles/fairness-system-explainable-standards",
+      "stage": "culture"
+    },
+    {
+      "id": "learning-system-reexecution-loop",
+      "type": "article",
+      "label": "학습하는 팀은 무엇이 다른가｜실패를 재학습·재실행 루프로 바꾸는 법",
+      "articleUrl": "/articles/learning-system-reexecution-loop",
+      "stage": "team"
+    },
+    {
+      "id": "growth-leadership-operating-system",
+      "type": "article",
+      "label": "팀 운영시스템 만드는 법｜성과·피드백·인정·공정성·학습을 하나로 묶는다",
+      "articleUrl": "/articles/growth-leadership-operating-system",
+      "stage": "outcome"
+    }
+  ],
+  "edges": [
+    {
+      "from": "behavior-system",
+      "to": "leader-system",
+      "type": "informs"
+    },
+    {
+      "from": "leader-system",
+      "to": "team-system",
+      "type": "enables"
+    },
+    {
+      "from": "team-system",
+      "to": "culture-system",
+      "type": "shapes"
+    },
+    {
+      "from": "culture-system",
+      "to": "outcome-system",
+      "type": "drives"
+    },
+    {
+      "from": "leading-indicator",
+      "to": "behavior-system",
+      "type": "measured_by"
+    },
+    {
+      "from": "feedback-loop",
+      "to": "leader-system",
+      "type": "maps_to"
+    },
+    {
+      "from": "recognition-loop",
+      "to": "culture-system",
+      "type": "shapes"
+    },
+    {
+      "from": "reexecution-loop",
+      "to": "team-system",
+      "type": "enables"
+    },
+    {
+      "from": "operating-rhythm",
+      "to": "team-system",
+      "type": "governs"
+    },
+    {
+      "from": "calibration",
+      "to": "culture-system",
+      "type": "validates"
+    },
+    {
+      "from": "performance-system-leading-indicators",
+      "to": "growth-leadership",
+      "type": "belongs_to"
+    },
+    {
+      "from": "performance-system-leading-indicators",
+      "to": "leading-indicator",
+      "type": "covered_by"
+    },
+    {
+      "from": "performance-system-leading-indicators",
+      "to": "behavior-system",
+      "type": "covered_by"
+    },
+    {
+      "from": "performance-system-leading-indicators",
+      "to": "outcome-system",
+      "type": "covered_by"
+    },
+    {
+      "from": "performance-system-leading-indicators",
+      "to": "feedback-system-behavior-change",
+      "type": "next"
+    },
+    {
+      "from": "feedback-system-behavior-change",
+      "to": "growth-leadership",
+      "type": "belongs_to"
+    },
+    {
+      "from": "feedback-system-behavior-change",
+      "to": "feedback-loop",
+      "type": "covered_by"
+    },
+    {
+      "from": "feedback-system-behavior-change",
+      "to": "leader-system",
+      "type": "covered_by"
+    },
+    {
+      "from": "feedback-system-behavior-change",
+      "to": "behavior-system",
+      "type": "covered_by"
+    },
+    {
+      "from": "feedback-system-behavior-change",
+      "to": "performance-system-leading-indicators",
+      "type": "previous"
+    },
+    {
+      "from": "feedback-system-behavior-change",
+      "to": "recognition-system-fair-performance",
+      "type": "next"
+    },
+    {
+      "from": "recognition-system-fair-performance",
+      "to": "growth-leadership",
+      "type": "belongs_to"
+    },
+    {
+      "from": "recognition-system-fair-performance",
+      "to": "recognition-loop",
+      "type": "covered_by"
+    },
+    {
+      "from": "recognition-system-fair-performance",
+      "to": "leader-system",
+      "type": "covered_by"
+    },
+    {
+      "from": "recognition-system-fair-performance",
+      "to": "culture-system",
+      "type": "covered_by"
+    },
+    {
+      "from": "recognition-system-fair-performance",
+      "to": "feedback-system-behavior-change",
+      "type": "previous"
+    },
+    {
+      "from": "recognition-system-fair-performance",
+      "to": "fairness-system-explainable-standards",
+      "type": "next"
+    },
+    {
+      "from": "fairness-system-explainable-standards",
+      "to": "growth-leadership",
+      "type": "belongs_to"
+    },
+    {
+      "from": "fairness-system-explainable-standards",
+      "to": "calibration",
+      "type": "covered_by"
+    },
+    {
+      "from": "fairness-system-explainable-standards",
+      "to": "culture-system",
+      "type": "covered_by"
+    },
+    {
+      "from": "fairness-system-explainable-standards",
+      "to": "outcome-system",
+      "type": "covered_by"
+    },
+    {
+      "from": "fairness-system-explainable-standards",
+      "to": "recognition-system-fair-performance",
+      "type": "previous"
+    },
+    {
+      "from": "fairness-system-explainable-standards",
+      "to": "learning-system-reexecution-loop",
+      "type": "next"
+    },
+    {
+      "from": "learning-system-reexecution-loop",
+      "to": "growth-leadership",
+      "type": "belongs_to"
+    },
+    {
+      "from": "learning-system-reexecution-loop",
+      "to": "reexecution-loop",
+      "type": "covered_by"
+    },
+    {
+      "from": "learning-system-reexecution-loop",
+      "to": "team-system",
+      "type": "covered_by"
+    },
+    {
+      "from": "learning-system-reexecution-loop",
+      "to": "culture-system",
+      "type": "covered_by"
+    },
+    {
+      "from": "learning-system-reexecution-loop",
+      "to": "fairness-system-explainable-standards",
+      "type": "previous"
+    },
+    {
+      "from": "learning-system-reexecution-loop",
+      "to": "growth-leadership-operating-system",
+      "type": "next"
+    },
+    {
+      "from": "growth-leadership-operating-system",
+      "to": "growth-leadership",
+      "type": "belongs_to"
+    },
+    {
+      "from": "growth-leadership-operating-system",
+      "to": "operating-rhythm",
+      "type": "covered_by"
+    },
+    {
+      "from": "growth-leadership-operating-system",
+      "to": "team-system",
+      "type": "covered_by"
+    },
+    {
+      "from": "growth-leadership-operating-system",
+      "to": "outcome-system",
+      "type": "covered_by"
+    },
+    {
+      "from": "growth-leadership-operating-system",
+      "to": "learning-system-reexecution-loop",
+      "type": "previous"
+    }
+  ],
+  "articles": [
+    {
+      "id": "performance-system-leading-indicators",
+      "title": "성과관리 시스템 보는 법｜결과 KPI보다 Leading Indicator가 먼저다",
+      "url": "/articles/performance-system-leading-indicators",
+      "order": 1,
+      "pillar": "growth-leadership",
+      "topics": [
+        "leading-indicator",
+        "behavior-system",
+        "outcome-system"
+      ],
+      "stage": "behavior",
+      "previous": null,
+      "next": "feedback-system-behavior-change",
+      "status": "published"
+    },
+    {
+      "id": "feedback-system-behavior-change",
+      "title": "피드백 시스템 설계법｜평가가 아니라 행동 변화를 만드는 구조",
+      "url": "/articles/feedback-system-behavior-change",
+      "order": 2,
+      "pillar": "growth-leadership",
+      "topics": [
+        "feedback-loop",
+        "leader-system",
+        "behavior-system"
+      ],
+      "stage": "leader",
+      "previous": "performance-system-leading-indicators",
+      "next": "recognition-system-fair-performance",
+      "status": "published"
+    },
+    {
+      "id": "recognition-system-fair-performance",
+      "title": "Recognition System 설계법｜칭찬보다 공정한 인정 구조가 먼저다",
+      "url": "/articles/recognition-system-fair-performance",
+      "order": 3,
+      "pillar": "growth-leadership",
+      "topics": [
+        "recognition-loop",
+        "leader-system",
+        "culture-system"
+      ],
+      "stage": "leader",
+      "previous": "feedback-system-behavior-change",
+      "next": "fairness-system-explainable-standards",
+      "status": "published"
+    },
+    {
+      "id": "fairness-system-explainable-standards",
+      "title": "공정한 성과관리란 무엇인가｜기회·기준·판정을 분리해 설계하는 법",
+      "url": "/articles/fairness-system-explainable-standards",
+      "order": 4,
+      "pillar": "growth-leadership",
+      "topics": [
+        "calibration",
+        "culture-system",
+        "outcome-system"
+      ],
+      "stage": "culture",
+      "previous": "recognition-system-fair-performance",
+      "next": "learning-system-reexecution-loop",
+      "status": "published"
+    },
+    {
+      "id": "learning-system-reexecution-loop",
+      "title": "학습하는 팀은 무엇이 다른가｜실패를 재학습·재실행 루프로 바꾸는 법",
+      "url": "/articles/learning-system-reexecution-loop",
+      "order": 5,
+      "pillar": "growth-leadership",
+      "topics": [
+        "reexecution-loop",
+        "team-system",
+        "culture-system"
+      ],
+      "stage": "team",
+      "previous": "fairness-system-explainable-standards",
+      "next": "growth-leadership-operating-system",
+      "status": "published"
+    },
+    {
+      "id": "growth-leadership-operating-system",
+      "title": "팀 운영시스템 만드는 법｜성과·피드백·인정·공정성·학습을 하나로 묶는다",
+      "url": "/articles/growth-leadership-operating-system",
+      "order": 6,
+      "pillar": "growth-leadership",
+      "topics": [
+        "operating-rhythm",
+        "team-system",
+        "outcome-system"
+      ],
+      "stage": "outcome",
+      "previous": "learning-system-reexecution-loop",
+      "next": null,
+      "status": "published"
+    }
+  ]
+}

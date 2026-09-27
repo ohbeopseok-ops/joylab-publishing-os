@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 109,
+  "articleCount": 112,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -312,6 +312,16 @@
       "researchType": null
     },
     {
+      "slug": "ai-token-economics",
+      "route": "/articles/ai-token-economics",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
       "slug": "ai-transformer-bottleneck-backlog-leadtime-margin",
       "route": "/articles/ai-transformer-bottleneck-backlog-leadtime-margin",
       "industries": [
@@ -324,6 +334,16 @@
       "valueChains": [],
       "kpis": [],
       "researchType": "explainer"
+    },
+    {
+      "slug": "ai-translation-information-gatekeeper",
+      "route": "/articles/ai-translation-information-gatekeeper",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-workflow-automation",
@@ -429,6 +449,16 @@
     {
       "slug": "burnout-recovery-starts-with-pause",
       "route": "/articles/burnout-recovery-starts-with-pause",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "china-ai-token-ciyuan-discourse-power",
+      "route": "/articles/china-ai-token-ciyuan-discourse-power",
       "industries": [],
       "theses": [],
       "companies": [],

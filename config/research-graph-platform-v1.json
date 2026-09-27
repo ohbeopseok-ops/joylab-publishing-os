@@ -1,6 +1,6 @@
 {
   "contract": "JoyLab.ResearchGraphPlatform",
-  "version": "1.1.0",
+  "version": "1.3.0",
   "mapComponent": "src/components/ResearchGraphMap.astro",
   "graphContract": "JoyLab.ResearchGraph",
   "verticals": [
@@ -35,6 +35,22 @@
       "pillar": "/guides/shipbuilding",
       "domain": "investing",
       "graph": "config/research-graph-shipbuilding-v1.json"
+    },
+    {
+      "id": "ai-standards",
+      "label": "AI Standards & Tech Sovereignty",
+      "status": "active",
+      "graph": "config/research-graph-ai-standards-v1.json",
+      "pillar": "/guides/ai-standards",
+      "domain": "ai"
+    },
+    {
+      "id": "growth-leadership",
+      "label": "Growth & Leadership",
+      "status": "active",
+      "pillar": "/guides/growth-leadership",
+      "domain": "leadership",
+      "graph": "config/research-graph-growth-leadership-v1.json"
     }
   ]
 }

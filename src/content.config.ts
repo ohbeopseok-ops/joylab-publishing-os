@@ -37,7 +37,11 @@ const articles = defineCollection({
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),
     heroCaption: z.string().optional(),
-    ogImage: z.string().optional()
+    ogImage: z.string().optional(),
+    faqs: z.array(z.object({
+      question: z.string().min(3),
+      answer: z.string().min(3)
+    })).max(12).optional()
   }).superRefine((data, ctx) => {
     if (data.homePriority !== undefined && !data.homeFeatured) {
       ctx.addIssue({

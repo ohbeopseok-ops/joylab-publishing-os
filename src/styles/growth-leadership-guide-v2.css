@@ -459,3 +459,7 @@
   .literature-essay-page .le-visual--ep04:after{right:calc(10% + 48px);top:calc(20% + 62px)}
   .literature-essay-page .le-visual--ep04 i{left:42%;right:10%}
 }
+
+/* Shared Research Graph containment: prevent intrinsic graph width from expanding the guide grid. */
+.growth-leadership-guide-v2 .sg-layout > section{min-width:0}
+.growth-leadership-guide-v2 .rg{min-width:0;max-width:100%}

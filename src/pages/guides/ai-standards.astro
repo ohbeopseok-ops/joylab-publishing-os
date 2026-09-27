@@ -1,0 +1,362 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ResearchGraphMap from '../../components/ResearchGraphMap.astro';
+import graph from '../../../config/research-graph-ai-standards-v1.json';
+import '../../styles/semiconductor-guide-v2.css';
+
+const canonical = 'https://aijoylab.kr/guides/ai-standards';
+const publishedArticles = graph.articles.filter((article) => article.status === 'published');
+const faqs = [
+  {
+    q: 'AI 표준은 무엇을 정하나요?',
+    a: 'AI 표준은 용어, 데이터, 성능 측정, 시험·평가, 문서화, 상호운용성, 안전과 거버넌스 등 반복 가능한 기술·운영 기준을 다룹니다.'
+  },
+  {
+    q: '미국이 국제 AI 표준을 소유하나요?',
+    a: '아닙니다. ISO/IEC JTC 1/SC 42 같은 국제표준 조직은 여러 국가가 참여하는 합의 기반 체계입니다. 현재 SC 42의 사무국은 미국 ANSI가 맡고 있지만 국제표준 자체가 한 국가의 소유물이라는 뜻은 아닙니다.'
+  },
+  {
+    q: '중국은 서구 AI 표준을 거부하고 독자 규격만 만들고 있나요?',
+    a: '그렇게 단순화하면 부정확합니다. 중국의 2024년 AI 표준화 지침은 국내 국가·산업표준 확대와 함께 국제표준 제정 참여도 목표로 명시합니다.'
+  },
+  {
+    q: '기업이 AI Standard War에서 가장 먼저 확인할 것은 무엇인가요?',
+    a: '모델 순위보다 측정법, 시험·평가, 에이전트 상호운용성, 문서화, 조달·감사 요구가 실제 제품과 계약 조건에 어떻게 반영되는지 확인하는 것이 중요합니다.'
+  }
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': canonical + '#webpage',
+      url: canonical,
+      name: 'AI 패권의 다음 전쟁은 표준이다｜미국·중국 AI Standard War',
+      description: '미국 NIST와 중국 국가 AI 표준화 체계, ISO/IEC 국제표준을 연결해 AI 경쟁이 측정·상호운용성·거버넌스 규칙으로 확장되는 구조를 분석합니다.',
+      inLanguage: 'ko-KR',
+      isPartOf: { '@id': 'https://aijoylab.kr/#website' },
+      publisher: { '@id': 'https://aijoylab.kr/#organization' }
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': canonical + '#breadcrumb',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'JoyLab', item: 'https://aijoylab.kr/' },
+        { '@type': 'ListItem', position: 2, name: 'AI·생산성', item: 'https://aijoylab.kr/guides/ai-productivity' },
+        { '@type': 'ListItem', position: 3, name: 'AI Standards & Tech Sovereignty', item: canonical }
+      ]
+    },
+    {
+      '@type': 'ItemList',
+      '@id': canonical + '#research-cluster',
+      name: 'AI Standards & Tech Sovereignty Research Cluster',
+      numberOfItems: publishedArticles.length,
+      itemListElement: publishedArticles.map((article, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: article.title,
+        url: new URL(article.url, canonical).toString()
+      }))
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': canonical + '#faq',
+      mainEntity: faqs.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a }
+      }))
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="AI 패권의 다음 전쟁은 표준이다｜미국·중국 AI Standard War | JoyLab"
+  description="미국 NIST와 중국 국가 AI 표준화 체계, ISO/IEC 국제표준을 연결해 AI 경쟁이 측정·상호운용성·거버넌스 규칙으로 확장되는 구조를 분석합니다."
+  canonical={canonical}
+  bodyClass="semiconductor-guide-v2 ai-standards-guide"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <section class="sg-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">AI STANDARDS & TECH SOVEREIGNTY · JOYLAB</div>
+          <h1>AI 패권의 다음 전쟁은<br /><span>표준입니다.</span></h1>
+          <p class="sg-hero__lead">
+            칩과 모델은 가장 눈에 잘 보이는 경쟁입니다. 하지만 실제 산업의 기본값을 만드는 것은
+            <strong>무엇을 정의하고, 어떻게 측정하고, 어떤 시험·상호운용·거버넌스 규칙을 채택하느냐</strong>입니다.
+            미국과 중국의 AI 표준화 구조를 국제표준이라는 공통 무대 위에서 비교합니다.
+          </p>
+          <div class="sg-hero__chips" aria-label="AI 표준 핵심 주제">
+            <span>#AI표준</span><span>#NIST</span><span>#중국AI</span><span>#ISOIEC</span><span>#기술주권</span><span>#AI거버넌스</span>
+          </div>
+          <div class="sg-hero__meta" aria-label="가이드 정보">
+            <span><strong>{publishedArticles.length}</strong> Live Research</span>
+            <span><strong>5</strong> Decision Layers</span>
+            <span><strong>1</strong> Interactive Graph</span>
+          </div>
+        </div>
+
+        <aside class="sg-lens" aria-label="AI 표준 분석 축">
+          <div class="sg-lens__brand">JOYLAB<br /><b>AI STANDARD WAR</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>Measurement</b><span>성능·사용량·신뢰성을 무엇으로 측정하는지 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>Standardization</b><span>측정법이 시험·문서·인터페이스 규격으로 굳어지는 과정을 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>Adoption</b><span>국가표준과 국제표준이 실제 제품·조달·산업에 채택되는지 봅니다.</span></div></div>
+        </aside>
+      </div>
+
+      <div class="sg-map-head">
+        <div><span>START HERE</span><b>AI Standard Research Graph</b></div>
+        <a href="#research-graph">Language에서 Governance까지 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="sg-main">
+    <div class="sg-wrap sg-layout">
+      <section>
+        <section aria-labelledby="brief-title">
+          <div class="sg-section-head">
+            <div><div class="sg-eyebrow">RESEARCH BRIEF</div><h2 id="brief-title">‘표준 전쟁’은 무엇을 뜻하나</h2></div>
+            <p>이 글의 ‘Standard War’는 어느 국가가 더 우월하다는 평가가 아니라, AI의 정의·측정·상호운용·안전 규칙에 영향력을 행사하려는 제도적 경쟁을 설명하는 분석 프레임입니다.</p>
+          </div>
+
+          <div class="sg-insights__grid">
+            <div><em>UNITED STATES</em><b>NIST + voluntary consensus</b><p>NIST는 측정과 기술적 근거를 만들고, Zero Draft를 민간 주도 자발적 합의 표준화 과정에 투입하는 구조를 시험하고 있습니다.</p></div>
+            <div><em>CHINA</em><b>국가·산업표준 + 적용 확산</b><p>2024 지침은 2026년까지 50개 이상 신규 국가·산업표준, 1,000개 이상 기업 적용 확대, 20개 이상 국제표준 참여를 목표로 제시했습니다.</p></div>
+            <div><em>GLOBAL ARENA</em><b>ISO/IEC는 공동 무대</b><p>ISO/IEC JTC 1/SC 42는 여러 국가가 참여하는 AI 국제표준 위원회입니다. 사무국은 현재 미국 ANSI가 맡고 있습니다.</p></div>
+          </div>
+        </section>
+
+        <section id="research-graph">
+          <ResearchGraphMap
+            graph={graph}
+            eyebrow="JOYLAB RESEARCH GRAPH · AI STANDARDS"
+            title="Language → Measurement → Standard → Governance → Discourse Power"
+            description="용어가 계량법과 표준, 거버넌스로 이동하는 경로와 실제 발행 리서치를 함께 탐색합니다."
+            hubHref="/guides/ai-productivity"
+            hubLabel="AI·생산성 Hub →"
+            primaryFlow={['language-layer','token-metering','ai-standard','ai-governance','discourse-power']}
+          />
+        </section>
+
+        <section class="as-section">
+          <div class="sg-eyebrow">FACT</div>
+          <h2>1. 미국의 AI 표준 구조｜NIST는 ‘측정 가능한 것’을 만든다</h2>
+          <p>
+            미국 NIST는 AI 데이터, 성능, 거버넌스를 포함한 기술표준 개발에 참여하고 국제표준 활동도 수행합니다.
+            2026년에는 <strong>AI Standards Zero Drafts</strong>를 통해 과학적 근거와 이해관계자 의견을 모아 초기 표준 초안을 만든 뒤,
+            이를 민간 주도의 자발적 합의 표준화 과정에 제안하는 방식을 시험하고 있습니다.
+          </p>
+          <p>
+            이 구조의 핵심은 정부기관이 모든 산업 규격을 직접 정한다기보다
+            <strong>측정과 평가의 기술적 기반을 만들고 민간·국제 표준화 생태계와 연결</strong>하는 데 있습니다.
+          </p>
+        </section>
+
+        <section class="as-section">
+          <div class="sg-eyebrow">FACT</div>
+          <h2>2. 중국의 AI 표준 구조｜국가 체계와 산업 적용을 함께 설계한다</h2>
+          <p>
+            중국의 2024년 「국가 인공지능 산업 종합 표준화 체계 건설 지침」은 AI 표준체계를
+            기초 공통, 기초 지원, 핵심 기술, 지능형 제품·서비스, 신형 공업화, 산업 응용, 안전·거버넌스의 7개 영역으로 구성합니다.
+          </p>
+          <p>
+            공식 목표는 2026년까지 <strong>50개 이상의 신규 국가·산업표준</strong>을 만들고,
+            <strong>1,000개가 넘는 기업</strong>에서 표준의 보급·적용을 확대하며,
+            <strong>20개 이상의 국제표준 제정</strong>에 참여하는 것입니다.
+          </p>
+          <p>
+            따라서 중국을 “국제표준에서 이탈해 독자 규격만 만드는 체계”로 설명하면 공식 문서의 방향과 맞지 않습니다.
+            국내 표준 체계를 강화하는 동시에 국제표준 참여를 확대하는 두 경로를 함께 봐야 합니다.
+          </p>
+        </section>
+
+        <section class="as-section">
+          <div class="sg-eyebrow">FACT · 2026</div>
+          <h2>3. Agent 시대, 표준은 이미 인터페이스로 이동하고 있다</h2>
+          <p>
+            중국 국가표준 플랫폼에는 2026년 <strong>AI Agent 기술요구</strong>와
+            <strong>Agent Interconnection</strong> 표준 시리즈가 공개됐습니다.
+            전체 아키텍처, 식별코드, 신원관리, Agent 설명, 발견, 상호작용 등이 별도 규격으로 나뉘어 있습니다.
+          </p>
+          <p>
+            이 흐름은 표준 경쟁이 추상적인 AI 윤리 원칙에만 머무르지 않고,
+            <strong>Agent가 서로 어떻게 식별되고 발견되며 통신하는가</strong> 같은 실행 계층으로 내려오고 있음을 보여줍니다.
+          </p>
+        </section>
+
+        <section class="as-section">
+          <div class="sg-eyebrow">TRANSMISSION</div>
+          <h2>4. 표준은 어떻게 시장 권력으로 이동하나</h2>
+          <div class="as-flow" role="img" aria-label="Language에서 Discourse Power까지 이어지는 표준 영향 경로">
+            <b>Language</b><span>→</span><b>Measurement</b><span>→</span><b>Standard</b><span>→</span><b>Governance</b><span>→</span><b>Discourse Power</b>
+          </div>
+          <p>
+            용어가 개념을 고정하고, 측정법이 비교 가능한 숫자를 만들며, 표준이 반복 가능한 규격을 만들면
+            기업은 제품 설계·시험·조달·감사 과정에서 그 규칙을 사용하게 됩니다.
+          </p>
+          <p>
+            마지막의 ‘Discourse Power’는 자동적으로 발생하는 결과가 아닙니다.
+            특정 국가나 기관의 개념·표준이 국제적 참조점이 되고 다른 시장에서 반복 사용될 때 비로소 영향력의 한 형태로 분석할 수 있습니다.
+          </p>
+        </section>
+
+        <section class="as-section">
+          <div class="sg-eyebrow">COMPARISON</div>
+          <h2>5. 미국과 중국｜다른 제도 구조, 겹치는 국제 무대</h2>
+          <div class="as-table-wrap">
+            <table>
+              <thead><tr><th>비교축</th><th>미국</th><th>중국</th></tr></thead>
+              <tbody>
+                <tr><th>핵심 제도축</th><td>NIST 측정과 기술 가이드 + 민간 주도 자발적 합의 표준</td><td>정부 조정 국가·산업표준 체계 + 기업 적용 확대</td></tr>
+                <tr><th>현재 관찰 포인트</th><td>TEVV, 문서화, AI RMF 연계, Zero Draft, 글로벌 표준 참여</td><td>용어·평가·대모델·Agent·산업 적용·안전/거버넌스 표준</td></tr>
+                <tr><th>국제 경로</th><td>ISO/IEC 등 국제표준 참여, 글로벌 협력 계획</td><td>국제표준 제정 참여를 국가 지침의 공식 목표로 명시</td></tr>
+                <tr><th>산업 확산</th><td>민간 표준기구·기업·조달·국제 협력과 연결</td><td>국가·산업표준 보급, 기업 적용, 국제화와 연결</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="as-note">
+            이 표는 우열 평가가 아니라 공개 문서에서 확인되는 제도적 경로의 차이를 요약한 것입니다.
+          </p>
+        </section>
+
+        <section class="as-section">
+          <div class="sg-eyebrow">INTERNATIONAL STANDARD</div>
+          <h2>6. ISO/IEC는 ‘미국 표준’도 ‘중국 표준’도 아니다</h2>
+          <p>
+            AI 국제표준의 핵심 위원회 중 하나인 <strong>ISO/IEC JTC 1/SC 42</strong>의 공식 범위는 AI 분야 표준화입니다.
+            현재 사무국은 미국 ANSI가 맡고 있으며 다수 국가의 국가표준기관이 참여합니다.
+          </p>
+          <p>
+            이것이 중요한 이유는 ‘미국 표준 vs 중국 표준’이라는 표현이 실제 현실을 지나치게 두 블록으로 나눌 수 있기 때문입니다.
+            많은 규격은 국제 위원회에서 협상·수정·합의되며, 국가별 정책과 기업 구현이 그 위에 다시 얹힙니다.
+          </p>
+          <p>
+            따라서 진짜 추적 대상은 국적 자체보다 <strong>어떤 기술 제안이 국제표준 문서와 제품 구현, 조달 조건에 실제로 들어가는가</strong>입니다.
+          </p>
+        </section>
+
+        <section class="as-section">
+          <div class="sg-eyebrow">POLICY LINK</div>
+          <h2>7. 표준은 기술 외교와 수출 전략에도 들어간다</h2>
+          <p>
+            미국의 2025년 AI 기술 스택 수출 정책은 하드웨어, 데이터 파이프라인, 모델·시스템, 보안 조치 등을 묶은
+            <strong>full-stack AI export package</strong>를 지원하는 프로그램을 제시했습니다.
+          </p>
+          <p>
+            이를 “미국 표준의 강제 수출”로 해석할 근거는 별도로 필요합니다.
+            다만 AI 경쟁이 칩 단품이 아니라 모델·클라우드·보안·운영 규칙을 묶은 생태계 단위로 이동한다는 정책 방향은 확인할 수 있습니다.
+          </p>
+        </section>
+
+        <section class="as-section">
+          <div class="sg-eyebrow">SCENARIO</div>
+          <h2>8. 세 가지 표준화 시나리오</h2>
+          <div class="as-scenarios">
+            <article><small>A · CONVERGENCE</small><h3>국제 수렴</h3><p>국가별 정책 차이는 남지만 핵심 측정·시험·상호운용 규격이 국제표준을 중심으로 수렴합니다.</p></article>
+            <article><small>B · PARALLELISM</small><h3>병렬 표준</h3><p>상위 원칙은 공유하되 구현 프로파일·인증·조달 요구가 달라 기업이 복수 규격에 대응합니다.</p></article>
+            <article><small>C · FRAGMENTATION</small><h3>제도적 분절</h3><p>인터페이스·평가·규제 요구가 충분히 달라져 시장 간 전환과 규정 준수 비용이 커집니다.</p></article>
+          </div>
+          <p class="as-note">JoyLab은 어느 시나리오가 확정된 미래라고 가정하지 않습니다. 실제 채택 데이터로 계속 업데이트합니다.</p>
+        </section>
+
+        <section class="as-section">
+          <div class="sg-eyebrow">NEXT</div>
+          <h2>9. 앞으로 확인할 6개 신호</h2>
+          <ol class="as-checks">
+            <li><strong>International adoption</strong> — ISO/IEC·ITU 등에서 실제 채택되는 AI 표준 제안</li>
+            <li><strong>Conformity assessment</strong> — 시험·인증·감사 체계가 제품 계약에 들어가는지</li>
+            <li><strong>Agent interoperability</strong> — Agent ID·발견·상호작용 규격이 플랫폼에 구현되는지</li>
+            <li><strong>AI documentation</strong> — 모델·시스템 문서화 형식이 조달·규제의 기본값이 되는지</li>
+            <li><strong>Measurement</strong> — Token·성능·신뢰성·안전 지표가 공통 계량법으로 수렴하는지</li>
+            <li><strong>Cross-border implementation</strong> — 표준이 해외 제품·클라우드·산업 프로젝트에 실제 적용되는지</li>
+          </ol>
+        </section>
+
+        <section class="as-section" id="faq">
+          <div class="sg-eyebrow">FAQ</div>
+          <h2>자주 묻는 질문</h2>
+          <div class="as-faq">
+            {faqs.map((item) => (
+              <details>
+                <summary>{item.q}</summary>
+                <p>{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section class="as-section">
+          <div class="sg-eyebrow">SOURCES</div>
+          <h2>Primary Sources</h2>
+          <ul class="as-sources">
+            <li><a href="https://www.nist.gov/artificial-intelligence/ai-standards" target="_blank" rel="nofollow noopener">NIST — AI Standards</a></li>
+            <li><a href="https://www.nist.gov/artificial-intelligence/nists-ai-standards-zero-drafts-pilot-project-accelerate-standardization" target="_blank" rel="nofollow noopener">NIST — AI Standards Zero Drafts</a></li>
+            <li><a href="https://www.whitehouse.gov/presidential-actions/2025/07/promoting-the-export-of-the-american-ai-technology-stack/" target="_blank" rel="nofollow noopener">The White House — Promoting the Export of the American AI Technology Stack</a></li>
+            <li><a href="https://www.cac.gov.cn/2024-07/03/c_1721686809220407.htm" target="_blank" rel="nofollow noopener">中国 — 国家人工智能产业综合标准化体系建设指南（2024版）</a></li>
+            <li><a href="https://std.samr.gov.cn/gb/search/gbDetailed?id=5A138523DF9979B5E06397BE0A0AD5FD" target="_blank" rel="nofollow noopener">全国标准信息公共服务平台 — 人工智能 智能体技术要求</a></li>
+            <li><a href="https://www.iso.org/committee/6794475.html" target="_blank" rel="nofollow noopener">ISO/IEC JTC 1/SC 42 — Artificial intelligence</a></li>
+          </ul>
+        </section>
+      </section>
+
+      <aside class="sg-rail" aria-label="AI 표준 리서치 가이드">
+        <section class="sg-rail-card sg-rail-card--dark">
+          <small>START HERE</small>
+          <h3>Token → 词元부터 읽기</h3>
+          <p>언어 표준화가 측정·표준·거버넌스로 이동하는 첫 사례를 봅니다.</p>
+          <a href="/articles/china-ai-token-ciyuan-discourse-power">첫 글 읽기 →</a>
+        </section>
+        <section class="sg-rail-card">
+          <small>CORE QUESTION</small>
+          <h3>표준은 왜 중요한가</h3>
+          <p>기술의 성능만이 아니라 비교·시험·계약·조달·감사의 공통 언어를 만들기 때문입니다.</p>
+        </section>
+        <section class="sg-rail-card">
+          <small>RELATED HUB</small>
+          <h3>AI·생산성 Research Map</h3>
+          <p>Agent → Workflow → ROI → Governance 흐름과 함께 보면 표준이 실제 운영 통제로 연결되는 지점을 볼 수 있습니다.</p>
+          <a href="/guides/ai-productivity">AI·생산성 가이드 →</a>
+        </section>
+      </aside>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .ai-standards-guide .sg-layout > section{min-width:0}
+  .as-section{margin-top:42px;padding-top:34px;border-top:1px solid #dfe6f0}
+  .as-section h2{margin:7px 0 14px;color:#0e2b55;font-size:clamp(1.55rem,3vw,2.2rem);letter-spacing:-.04em}
+  .as-section p,.as-section li{color:#5f7188;line-height:1.78;word-break:keep-all}
+  .as-flow{display:flex;align-items:center;gap:10px;overflow-x:auto;margin:18px 0;padding:18px;border:1px solid #dce6f2;background:#071938;color:#fff}
+  .as-flow b{flex:0 0 auto;padding:9px 11px;border:1px solid rgba(255,255,255,.16);font-size:.78rem}
+  .as-flow span{color:#ffd83d;font-weight:900}
+  .as-table-wrap{overflow-x:auto;border:1px solid #dfe6f0}
+  .as-table-wrap table{width:100%;min-width:680px;border-collapse:collapse}
+  .as-table-wrap th,.as-table-wrap td{padding:14px;border-bottom:1px solid #e7edf5;border-right:1px solid #e7edf5;text-align:left;vertical-align:top;font-size:.8rem;line-height:1.6}
+  .as-table-wrap thead th{background:#071938;color:#fff}
+  .as-table-wrap tbody th{width:145px;color:#12315a;background:#f7f9fc}
+  .as-note{margin-top:12px;padding:12px 14px;background:#fffdf3;border-left:3px solid #ffd83d;font-size:.78rem}
+  .as-scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .as-scenarios article{padding:19px;border:1px solid #dfe6f0;background:#fff}
+  .as-scenarios small{color:#1677ff;font-size:.65rem;font-weight:900;letter-spacing:.07em}
+  .as-scenarios h3{margin:7px 0;color:#12315a}
+  .as-scenarios p{margin:0;font-size:.78rem}
+  .as-checks{display:grid;gap:8px;padding-left:22px}
+  .as-faq details{border-bottom:1px solid #dfe6f0;padding:14px 0}
+  .as-faq summary{cursor:pointer;color:#12315a;font-weight:900}
+  .as-faq p{margin-bottom:0}
+  .as-sources{padding-left:20px}
+  .as-sources a{color:#1677ff}
+  @media(max-width:900px){.as-scenarios{grid-template-columns:1fr}}
+  @media(max-width:640px){
+    .as-section{margin-top:32px;padding-top:26px}
+    .as-section p,.as-section li{font-size:.93rem}
+    .as-flow{margin-inline:0}
+  }
+</style>

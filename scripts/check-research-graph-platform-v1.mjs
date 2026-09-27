@@ -17,6 +17,7 @@ const allowedNodeTypes = new Set(schema.$defs.node.properties.type.enum);
 const allowedEdgeTypes = new Set(schema.$defs.edge.properties.type.enum);
 const allowedStages = new Set(schema.$defs.article.properties.stage.enum);
 const allowedStatuses = new Set(schema.$defs.article.properties.status.enum);
+const allowedDomains = new Set(schema.properties.pillar.properties.domain.enum);
 
 if (registry.contract !== 'JoyLab.ResearchGraphPlatform') fail('invalid platform contract');
 if (!/^\d+\.\d+\.\d+$/.test(registry.version ?? '')) fail('platform version must be semver');
@@ -35,7 +36,7 @@ for (const vertical of registry.verticals ?? []) {
   ids.add(vertical.id);
 
   if (!['active', 'template_ready'].includes(vertical.status)) fail('invalid vertical status: ' + vertical.id);
-  if (vertical.domain !== 'investing') fail('vertical domain must be investing: ' + vertical.id);
+  if (!allowedDomains.has(vertical.domain)) fail('invalid vertical domain: ' + vertical.id + '=' + vertical.domain);
   if (vertical.status !== 'active') continue;
 
   if (!vertical.graph) {
@@ -53,7 +54,7 @@ for (const vertical of registry.verticals ?? []) {
   if (graph.contract !== 'JoyLab.ResearchGraph') fail('invalid graph contract: ' + vertical.id);
   if (!/^\d+\.\d+\.\d+$/.test(graph.version ?? '')) fail('graph version must be semver: ' + vertical.id);
   if (graph.pillar?.url !== vertical.pillar) fail('pillar URL mismatch: ' + vertical.id);
-  if (graph.pillar?.domain !== 'investing') fail('graph pillar domain mismatch: ' + vertical.id);
+  if (graph.pillar?.domain !== vertical.domain) fail('graph pillar domain mismatch: ' + vertical.id);
   if (!allowedStatuses.has(graph.pillar?.status)) fail('invalid pillar status: ' + vertical.id);
   if (!Array.isArray(graph.nodes) || !Array.isArray(graph.edges) || !Array.isArray(graph.articles)) {
     fail('graph collections missing: ' + vertical.id);
@@ -128,7 +129,7 @@ for (const vertical of registry.verticals ?? []) {
   }
 }
 
-for (const expected of ['ai-power', 'semiconductor', 'financials', 'shipbuilding']) {
+for (const expected of ['ai-power', 'semiconductor', 'financials', 'shipbuilding', 'ai-standards', 'growth-leadership']) {
   if (!ids.has(expected)) fail('required vertical missing: ' + expected);
 }
 

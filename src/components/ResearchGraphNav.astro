@@ -1,0 +1,26 @@
+---
+const modules = import.meta.glob('../../config/research-graph-*-v1.json', { eager: true });
+interface Props { articleId: string; }
+const { articleId } = Astro.props;
+const articleUrl = `/articles/${articleId}`;
+const graphs = Object.values(modules).map((m:any) => m.default ?? m)
+  .filter((g:any) => g?.contract === 'JoyLab.ResearchGraph' && Array.isArray(g.articles));
+const graph:any = graphs.find((g:any) => g.articles.some((a:any) => a.status === 'published' && a.url === articleUrl)) ?? null;
+const published = graph ? graph.articles.filter((a:any) => a.status === 'published').sort((a:any,b:any)=>(a.order??999)-(b.order??999)) : [];
+const current = graph ? published.find((a:any)=>a.url===articleUrl) ?? null : null;
+const index = current ? published.findIndex((a:any)=>a.id===current.id) : -1;
+const previous = index > 0 ? published[index - 1] : null;
+const next = index >= 0 && index < published.length - 1 ? published[index + 1] : null;
+---
+{current && graph && (
+<nav class="research-graph-nav" aria-label={`${graph.pillar.title} 리서치 이동`}>
+  <div class="research-graph-nav__head"><div><small>JOYLAB · RESEARCH GRAPH</small><strong>{String(current.order ?? 0).padStart(2,'0')} · {current.stage.toUpperCase()}</strong></div><a href={graph.pillar.url}>전체 지도 →</a></div>
+  <div class="research-graph-nav__sequence">
+    {previous ? <a href={previous.url} class="research-graph-nav__card"><span>← 이전 리서치</span><b>{previous.title}</b></a> : <span class="research-graph-nav__card is-disabled"><span>← 이전 리서치</span><b>시리즈의 첫 글입니다</b></span>}
+    {next ? <a href={next.url} class="research-graph-nav__card"><span>다음 리서치 →</span><b>{next.title}</b></a> : <a href={graph.pillar.url} class="research-graph-nav__card"><span>완주 →</span><b>{graph.pillar.title}</b></a>}
+  </div>
+</nav>
+)}
+<style>
+.research-graph-nav{margin:28px 0 8px;padding:20px;border:1px solid #dbe4ee;border-radius:18px;background:#f8fafc}.research-graph-nav__head{display:flex;justify-content:space-between;gap:16px;margin-bottom:14px}.research-graph-nav__head small{display:block;color:#2563eb;font-size:.72rem;font-weight:800}.research-graph-nav__head strong{display:block;margin-top:4px;color:#111827}.research-graph-nav__head>a{color:#2563eb;font-weight:800;text-decoration:none}.research-graph-nav__sequence{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.research-graph-nav__card{display:block;padding:14px 15px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;color:#111827;text-decoration:none}.research-graph-nav__card span{display:block;margin-bottom:5px;color:#6b7280;font-size:.75rem}.research-graph-nav__card b{display:block;line-height:1.45}.research-graph-nav__card.is-disabled{opacity:.6}@media(max-width:700px){.research-graph-nav__head{display:block}.research-graph-nav__head>a{display:inline-block;margin-top:10px}.research-graph-nav__sequence{grid-template-columns:1fr}}
+</style>
