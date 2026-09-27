@@ -1,0 +1,476 @@
+{
+  "contract": "JoyLab.ResearchGraph",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "shipbuilding-defense",
+    "title": "Shipbuilding & Defense",
+    "url": "/guides/shipbuilding",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "shipbuilding-defense",
+      "type": "pillar",
+      "label": "Shipbuilding & Defense",
+      "articleUrl": "/guides/shipbuilding",
+      "stage": "pillar"
+    },
+    {
+      "id": "lng-demand",
+      "type": "demand",
+      "label": "LNG / Fleet Renewal Demand",
+      "stage": "value_chain"
+    },
+    {
+      "id": "orderbook",
+      "type": "kpi",
+      "label": "Orderbook",
+      "stage": "kpi"
+    },
+    {
+      "id": "ship-mix",
+      "type": "value_chain",
+      "label": "Ship Mix",
+      "stage": "value_chain"
+    },
+    {
+      "id": "delivery-year",
+      "type": "kpi",
+      "label": "Delivery Year",
+      "stage": "kpi"
+    },
+    {
+      "id": "productivity",
+      "type": "kpi",
+      "label": "Productivity",
+      "stage": "kpi"
+    },
+    {
+      "id": "margin",
+      "type": "kpi",
+      "label": "Operating Margin",
+      "stage": "kpi"
+    },
+    {
+      "id": "hd-hhi",
+      "type": "company",
+      "label": "HD Hyundai Heavy Industries",
+      "ticker": "329180",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "hanwha-ocean",
+      "type": "company",
+      "label": "Hanwha Ocean",
+      "ticker": "042660",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "samsung-hi",
+      "type": "company",
+      "label": "Samsung Heavy Industries",
+      "ticker": "010140",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "hd-ksoe",
+      "type": "company",
+      "label": "HD KSOE",
+      "ticker": "009540",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "eps-revision",
+      "type": "earnings",
+      "label": "EPS Revision",
+      "stage": "valuation"
+    },
+    {
+      "id": "forward-per",
+      "type": "valuation",
+      "label": "Forward PER",
+      "stage": "valuation"
+    },
+    {
+      "id": "article-hd-hyundai-heavy-industries-shipbuilding",
+      "type": "article",
+      "label": "HD현대중공업 조선 분석",
+      "articleUrl": "/articles/hd-hyundai-heavy-industries-shipbuilding",
+      "stage": "company"
+    },
+    {
+      "id": "article-hanwha-ocean-shipbuilding",
+      "type": "article",
+      "label": "한화오션 조선 분석",
+      "articleUrl": "/articles/hanwha-ocean-shipbuilding",
+      "stage": "company"
+    },
+    {
+      "id": "article-samsung-heavy-industries-shipbuilding",
+      "type": "article",
+      "label": "삼성중공업 조선 분석",
+      "articleUrl": "/articles/samsung-heavy-industries-shipbuilding",
+      "stage": "company"
+    },
+    {
+      "id": "article-hd-ksoe-shipbuilding",
+      "type": "article",
+      "label": "HD한국조선해양 조선 분석",
+      "articleUrl": "/articles/hd-ksoe-shipbuilding",
+      "stage": "company"
+    },
+    {
+      "id": "article-korea-shipbuilding-companies-compare",
+      "type": "article",
+      "label": "한국 조선 4사 비교",
+      "articleUrl": "/articles/korea-shipbuilding-companies-compare",
+      "stage": "valuation"
+    }
+  ],
+  "edges": [
+    {
+      "from": "lng-demand",
+      "to": "orderbook",
+      "type": "drives"
+    },
+    {
+      "from": "orderbook",
+      "to": "ship-mix",
+      "type": "affects"
+    },
+    {
+      "from": "ship-mix",
+      "to": "delivery-year",
+      "type": "affects"
+    },
+    {
+      "from": "delivery-year",
+      "to": "margin",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "productivity",
+      "to": "margin",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "margin",
+      "to": "eps-revision",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "eps-revision",
+      "to": "forward-per",
+      "type": "valued_by"
+    },
+    {
+      "from": "hd-hhi",
+      "to": "orderbook",
+      "type": "measured_by"
+    },
+    {
+      "from": "hd-hhi",
+      "to": "margin",
+      "type": "measured_by"
+    },
+    {
+      "from": "hanwha-ocean",
+      "to": "orderbook",
+      "type": "measured_by"
+    },
+    {
+      "from": "hanwha-ocean",
+      "to": "margin",
+      "type": "measured_by"
+    },
+    {
+      "from": "samsung-hi",
+      "to": "orderbook",
+      "type": "measured_by"
+    },
+    {
+      "from": "samsung-hi",
+      "to": "margin",
+      "type": "measured_by"
+    },
+    {
+      "from": "hd-ksoe",
+      "to": "orderbook",
+      "type": "measured_by"
+    },
+    {
+      "from": "hd-ksoe",
+      "to": "margin",
+      "type": "measured_by"
+    },
+    {
+      "from": "article-hd-hyundai-heavy-industries-shipbuilding",
+      "to": "shipbuilding-defense",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-hd-hyundai-heavy-industries-shipbuilding",
+      "to": "hd-hhi",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hd-hyundai-heavy-industries-shipbuilding",
+      "to": "orderbook",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hd-hyundai-heavy-industries-shipbuilding",
+      "to": "ship-mix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hd-hyundai-heavy-industries-shipbuilding",
+      "to": "margin",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hd-hyundai-heavy-industries-shipbuilding",
+      "to": "article-hanwha-ocean-shipbuilding",
+      "type": "next"
+    },
+    {
+      "from": "article-hanwha-ocean-shipbuilding",
+      "to": "shipbuilding-defense",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-hanwha-ocean-shipbuilding",
+      "to": "hanwha-ocean",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hanwha-ocean-shipbuilding",
+      "to": "orderbook",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hanwha-ocean-shipbuilding",
+      "to": "ship-mix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hanwha-ocean-shipbuilding",
+      "to": "margin",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hanwha-ocean-shipbuilding",
+      "to": "article-hd-hyundai-heavy-industries-shipbuilding",
+      "type": "previous"
+    },
+    {
+      "from": "article-hanwha-ocean-shipbuilding",
+      "to": "article-samsung-heavy-industries-shipbuilding",
+      "type": "next"
+    },
+    {
+      "from": "article-samsung-heavy-industries-shipbuilding",
+      "to": "shipbuilding-defense",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-samsung-heavy-industries-shipbuilding",
+      "to": "samsung-hi",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-heavy-industries-shipbuilding",
+      "to": "orderbook",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-heavy-industries-shipbuilding",
+      "to": "ship-mix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-heavy-industries-shipbuilding",
+      "to": "margin",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-heavy-industries-shipbuilding",
+      "to": "article-hanwha-ocean-shipbuilding",
+      "type": "previous"
+    },
+    {
+      "from": "article-samsung-heavy-industries-shipbuilding",
+      "to": "article-hd-ksoe-shipbuilding",
+      "type": "next"
+    },
+    {
+      "from": "article-hd-ksoe-shipbuilding",
+      "to": "shipbuilding-defense",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-hd-ksoe-shipbuilding",
+      "to": "hd-ksoe",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hd-ksoe-shipbuilding",
+      "to": "orderbook",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hd-ksoe-shipbuilding",
+      "to": "ship-mix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hd-ksoe-shipbuilding",
+      "to": "margin",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hd-ksoe-shipbuilding",
+      "to": "article-samsung-heavy-industries-shipbuilding",
+      "type": "previous"
+    },
+    {
+      "from": "article-hd-ksoe-shipbuilding",
+      "to": "article-korea-shipbuilding-companies-compare",
+      "type": "next"
+    },
+    {
+      "from": "article-korea-shipbuilding-companies-compare",
+      "to": "shipbuilding-defense",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-korea-shipbuilding-companies-compare",
+      "to": "hd-hhi",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-shipbuilding-companies-compare",
+      "to": "hanwha-ocean",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-shipbuilding-companies-compare",
+      "to": "samsung-hi",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-shipbuilding-companies-compare",
+      "to": "hd-ksoe",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-shipbuilding-companies-compare",
+      "to": "eps-revision",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-shipbuilding-companies-compare",
+      "to": "forward-per",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-shipbuilding-companies-compare",
+      "to": "article-hd-ksoe-shipbuilding",
+      "type": "previous"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-hd-hyundai-heavy-industries-shipbuilding",
+      "title": "HD현대중공업 조선 분석",
+      "url": "/articles/hd-hyundai-heavy-industries-shipbuilding",
+      "order": 1,
+      "pillar": "shipbuilding-defense",
+      "topics": [
+        "hd-hhi",
+        "orderbook",
+        "ship-mix",
+        "margin"
+      ],
+      "stage": "company",
+      "previous": null,
+      "next": "article-hanwha-ocean-shipbuilding",
+      "status": "published"
+    },
+    {
+      "id": "article-hanwha-ocean-shipbuilding",
+      "title": "한화오션 조선 분석",
+      "url": "/articles/hanwha-ocean-shipbuilding",
+      "order": 2,
+      "pillar": "shipbuilding-defense",
+      "topics": [
+        "hanwha-ocean",
+        "orderbook",
+        "ship-mix",
+        "margin"
+      ],
+      "stage": "company",
+      "previous": "article-hd-hyundai-heavy-industries-shipbuilding",
+      "next": "article-samsung-heavy-industries-shipbuilding",
+      "status": "published"
+    },
+    {
+      "id": "article-samsung-heavy-industries-shipbuilding",
+      "title": "삼성중공업 조선 분석",
+      "url": "/articles/samsung-heavy-industries-shipbuilding",
+      "order": 3,
+      "pillar": "shipbuilding-defense",
+      "topics": [
+        "samsung-hi",
+        "orderbook",
+        "ship-mix",
+        "margin"
+      ],
+      "stage": "company",
+      "previous": "article-hanwha-ocean-shipbuilding",
+      "next": "article-hd-ksoe-shipbuilding",
+      "status": "published"
+    },
+    {
+      "id": "article-hd-ksoe-shipbuilding",
+      "title": "HD한국조선해양 조선 분석",
+      "url": "/articles/hd-ksoe-shipbuilding",
+      "order": 4,
+      "pillar": "shipbuilding-defense",
+      "topics": [
+        "hd-ksoe",
+        "orderbook",
+        "ship-mix",
+        "margin"
+      ],
+      "stage": "company",
+      "previous": "article-samsung-heavy-industries-shipbuilding",
+      "next": "article-korea-shipbuilding-companies-compare",
+      "status": "published"
+    },
+    {
+      "id": "article-korea-shipbuilding-companies-compare",
+      "title": "한국 조선 4사 비교",
+      "url": "/articles/korea-shipbuilding-companies-compare",
+      "order": 5,
+      "pillar": "shipbuilding-defense",
+      "topics": [
+        "hd-hhi",
+        "hanwha-ocean",
+        "samsung-hi",
+        "hd-ksoe",
+        "eps-revision",
+        "forward-per"
+      ],
+      "stage": "valuation",
+      "previous": "article-hd-ksoe-shipbuilding",
+      "next": null,
+      "status": "published"
+    }
+  ]
+}
