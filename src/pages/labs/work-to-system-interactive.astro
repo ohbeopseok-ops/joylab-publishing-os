@@ -326,4 +326,41 @@ const canonical = new URL('/books/work-to-system', Astro.site ?? Astro.url.origi
       buttons.forEach((button) => button?.addEventListener('click', () => open?.click()));
     })();
   </script>
+  <script is:inline>
+    (() => {
+      const bookSlug = 'work-to-system';
+      const reader = document.querySelector('.book-reader-page');
+      if (!reader) return;
+
+      const sent = new Set();
+      const track = (event) => {
+        if (typeof window.joylabTrack === 'function') {
+          window.joylabTrack(event, bookSlug, 'book_reader');
+        }
+      };
+
+      track('book_reader_view');
+
+      const updateReadDepth = () => {
+        const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+        const progress = Math.min(1, Math.max(0, window.scrollY / max));
+        for (const [milestone, eventName] of [
+          [25, 'book_read_25'],
+          [50, 'book_read_50'],
+          [75, 'book_read_75'],
+          [100, 'book_read_100']
+        ]) {
+          const threshold = milestone === 100 ? 0.95 : milestone / 100;
+          if (progress >= threshold && !sent.has(milestone)) {
+            sent.add(milestone);
+            track(eventName);
+          }
+        }
+      };
+
+      window.addEventListener('scroll', updateReadDepth, { passive: true });
+      window.addEventListener('resize', updateReadDepth);
+      updateReadDepth();
+    })();
+  </script>
 </BaseLayout>
