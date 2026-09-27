@@ -6,6 +6,8 @@ author: "오법석"
 publishedAt: 2026-09-27
 updatedAt: 2026-09-27
 category: "AI·생산성"
+coverImage: "/images/books/work-to-system-cover.svg"
+ogImage: "/images/books/work-to-system-og.svg"
 tags:
   - 업무시스템
   - 리더십
