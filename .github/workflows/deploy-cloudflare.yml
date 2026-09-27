@@ -168,10 +168,15 @@ jobs:
 
           check_200 "https://aijoylab.kr/guides/ai-power-infrastructure?deploy=${GITHUB_SHA}"
           grep -Fq 'AI Power Infrastructure' /tmp/body
-          grep -Fq 'JOYLAB RESEARCH GRAPH V1' /tmp/body
-          grep -Fq 'data-research-map-v1' /tmp/body
-          grep -Fq '/articles/ai-power-next-bottleneck' /tmp/body
-          grep -Fq '/articles/korea-ai-power-companies-compare' /tmp/body
+          grep -Fq 'JOYLAB RESEARCH GRAPH V3' /tmp/body
+          grep -Fq 'data-research-map-v3' /tmp/body
+          grep -Fq 'Implied EPS' /tmp/body
+          grep -Fq '/articles/ls-hd-electric-2027-eps-per-scenario' /tmp/body
+
+          check_200 "https://aijoylab.kr/articles/ls-hd-electric-2027-eps-per-scenario?deploy=${GITHUB_SHA}"
+          grep -Fq '2027 EPS' /tmp/body
+          grep -Fq '20·25·30·40' /tmp/body
+          grep -Fq '33,401' /tmp/body
 
           check_200 "https://aijoylab.kr/guides/growth-leadership?deploy=${GITHUB_SHA}"
           grep -Fq '완벽하지 않아서 스며들 수 있었다' /tmp/body
