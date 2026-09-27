@@ -4,6 +4,7 @@ import FinancialsMiniResearchMap from '../../components/FinancialsMiniResearchMa
 import { getCollection } from 'astro:content';
 import { industryCoverage, thesisCoverage } from '../../lib/investment-taxonomy-registry';
 import '../../styles/financials-value-up-guide.css';
+import '../../styles/investment-hub-v2.css';
 
 const order = [
   'financials-value-up-investing-guide',
@@ -27,7 +28,7 @@ const lenses = [
 <BaseLayout
   title="금융·주주환원 투자 가이드｜ROE·CET1·자사주·PBR | JoyLab"
   description="KB·신한·하나·우리금융을 ROE, CET1, 배당, 자사주 매입·소각, PBR 재평가 조건으로 연결하는 JoyLab 금융·주주환원 리서치 허브입니다."
-  bodyClass="financials-value-up-guide"
+  bodyClass="financials-value-up-guide investment-hub-v2"
 >
   <header class="fvg-hero">
     <div class="fvg-wrap">
