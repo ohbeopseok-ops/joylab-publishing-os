@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 102,
+  "articleCount": 108,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -173,6 +173,21 @@
       "researchType": null
     },
     {
+      "slug": "ai-power-beneficiaries-value-chain",
+      "route": "/articles/ai-power-beneficiaries-value-chain",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex",
+        "power-supercycle"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
+    },
+    {
       "slug": "ai-power-gas-turbine-return",
       "route": "/articles/ai-power-gas-turbine-return",
       "industries": [
@@ -204,6 +219,25 @@
       "researchType": null
     },
     {
+      "slug": "ai-power-ls-hd-eaton-ge-compare",
+      "route": "/articles/ai-power-ls-hd-eaton-ge-compare",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "power-supercycle"
+      ],
+      "companies": [
+        "LS ELECTRIC",
+        "HD현대일렉트릭",
+        "Eaton",
+        "GE Vernova"
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "compare"
+    },
+    {
       "slug": "ai-power-next-bottleneck",
       "route": "/articles/ai-power-next-bottleneck",
       "industries": [
@@ -217,6 +251,20 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "ai-power-valuation-eps-per-ev-ebitda",
+      "route": "/articles/ai-power-valuation-eps-per-ev-ebitda",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "power-supercycle"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "compare"
     },
     {
       "slug": "ai-power-value-chain-compare",
@@ -262,6 +310,20 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "ai-transformer-bottleneck-backlog-leadtime-margin",
+      "route": "/articles/ai-transformer-bottleneck-backlog-leadtime-margin",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "power-supercycle"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
     },
     {
       "slug": "ai-workflow-automation",
@@ -1199,6 +1261,32 @@
         "PBR"
       ],
       "researchType": "explainer"
+    },
+    {
+      "slug": "treasury-5-percent-sp500-nasdaq-dividend",
+      "route": "/articles/treasury-5-percent-sp500-nasdaq-dividend",
+      "industries": [],
+      "theses": [
+        "macro-liquidity",
+        "power-supercycle"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "macro"
+    },
+    {
+      "slug": "treasury-5-percent-utilities-2026",
+      "route": "/articles/treasury-5-percent-utilities-2026",
+      "industries": [],
+      "theses": [
+        "macro-liquidity",
+        "power-supercycle"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "macro"
     },
     {
       "slug": "us-30y-treasury-5-percent-risk-2026",
