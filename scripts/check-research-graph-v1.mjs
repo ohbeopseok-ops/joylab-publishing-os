@@ -54,7 +54,7 @@ for (const edge of graph.edges ?? []) {
   if (!nodeIds.has(edge.to)) error('EDGE_TO_MISSING', `${edge.from} -> ${edge.to}`);
 }
 
-const ordered = [...(graph.articles ?? [])].filter((a) => Number.isInteger(a.order)).sort((a,b) => a.order - b.order);
+const ordered = [...(graph.articles ?? [])].filter((a) => a.status === 'published' && Number.isInteger(a.order)).sort((a,b) => a.order - b.order);
 for (let i = 0; i < ordered.length; i++) {
   const current = ordered[i];
   const expectedPrevious = i === 0 ? null : ordered[i - 1].id;
@@ -81,8 +81,8 @@ if (!fs.existsSync(articleRoute)) {
   error('ARTICLE_ROUTE_MISSING', articleRoute);
 } else {
   const articleRouteSource = fs.readFileSync(articleRoute, 'utf8');
-  if (!articleRouteSource.includes('AiPowerResearchNav')) {
-    error('GRAPH_NAV_NOT_WIRED', 'AiPowerResearchNav must be rendered by the article route');
+  if (!/<AiPowerResearchNav\\s+articleId=\\{article\\.id\\}\\s*\\/>/.test(articleRouteSource)) {
+    error('GRAPH_NAV_NOT_WIRED', 'AiPowerResearchNav must be rendered with articleId={article.id} by the article route');
   }
 }
 
