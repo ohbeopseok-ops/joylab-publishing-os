@@ -105,7 +105,10 @@ for (const [event, target] of [
   if (response.status !== 204) throw new Error(`${event} expected 204, got ${response.status}`);
 }
 
-if (writes.length !== 30) throw new Error(`Expected thirty analytics writes, got ${writes.length}`);
+const bookRelease = await post({ event: 'book_release_open', target: 'work-to-system', placement: 'book_hero_v2', path: '/books/work-to-system' });
+if (bookRelease.status !== 204) throw new Error(`book_release_open expected 204, got ${bookRelease.status}`);
+
+if (writes.length !== 31) throw new Error(`Expected thirty-one analytics writes, got ${writes.length}`);
 if (writes[1].blobs.join('|') !== 'social_click|threads|about|/about') throw new Error(`Unexpected About social payload: ${JSON.stringify(writes[1])}`);
 if (writes[2].blobs.join('|') !== 'social_click|x|footer|/') throw new Error(`Unexpected X social payload: ${JSON.stringify(writes[2])}`);
 if (writes[3].blobs.join('|') !== 'social_click|youtube|about|/about') throw new Error(`Unexpected YouTube social payload: ${JSON.stringify(writes[3])}`);
@@ -131,6 +134,6 @@ if (invalidExternalHomeTarget.status !== 400) throw new Error(`Expected external
 const invalidRssSocial = await post({ event: 'social_click', target: 'rss', placement: 'about', path: '/about' });
 if (invalidRssSocial.status !== 400) throw new Error(`Expected RSS social target 400, got ${invalidRssSocial.status}`);
 
-if (writes.length !== 30) throw new Error('Invalid events must not be written');
+if (writes.length !== 31) throw new Error('Invalid events must not be written');
 
 console.log('Click Analytics V3 worker contract passed.');
