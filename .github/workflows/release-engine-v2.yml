@@ -4,29 +4,21 @@ on:
   workflow_run:
     workflows: ['Deploy to Cloudflare Workers']
     types: [completed]
-  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
   release:
-    if: >
-      (github.event_name == 'workflow_dispatch' && github.ref_name == 'main') ||
-      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main'
     runs-on: ubuntu-latest
     steps:
       - name: Resolve target SHA
         id: target
         shell: bash
         run: |
-          if [ "${{ github.event_name }}" = "workflow_run" ]; then
-            echo "sha=${{ github.event.workflow_run.head_sha }}" >> "$GITHUB_OUTPUT"
-            echo "conclusion=${{ github.event.workflow_run.conclusion }}" >> "$GITHUB_OUTPUT"
-          else
-            echo "sha=${{ github.sha }}" >> "$GITHUB_OUTPUT"
-            echo "conclusion=success" >> "$GITHUB_OUTPUT"
-          fi
+          echo "sha=${{ github.event.workflow_run.head_sha }}" >> "$GITHUB_OUTPUT"
+          echo "conclusion=${{ github.event.workflow_run.conclusion }}" >> "$GITHUB_OUTPUT"
 
       - name: Checkout protected main release state
         uses: actions/checkout@v7
@@ -57,6 +49,11 @@ jobs:
           console.log('tag='+m.tag);
           console.log('commit_sha='+m.commitSha);
           NODE
+
+      - name: Configure release tag identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Create or verify immutable tag
         env:
