@@ -36,6 +36,35 @@ jobs:
       - name: Verify target commit exists
         run: git cat-file -e "${{ steps.release.outputs.target }}^{commit}"
 
+      - name: Verify GOLD Release Gate evidence for target SHA
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          target="${{ steps.release.outputs.target }}"
+          run_id=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow "Deploy to Cloudflare Workers" --commit "$target" --status success --json databaseId --limit 20 --jq '.[0].databaseId')
+          test -n "$run_id"
+          rm -rf /tmp/release-gate
+          gh run download "$run_id" --repo "$GITHUB_REPOSITORY" --name joylab-release-gate-v1 --dir /tmp/release-gate
+          TARGET="$target" node <<'NODE'
+          const fs=require('fs');
+          const gate=JSON.parse(fs.readFileSync('/tmp/release-gate/release-gate.json','utf8'));
+          if(gate.status!=='GOLD') throw new Error('Release Gate is not GOLD');
+          if(gate.commitSha!==process.env.TARGET) throw new Error('Release Gate SHA mismatch');
+          NODE
+
+      - name: Verify canonical source hash
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs=require('fs'),crypto=require('crypto');
+          const c=JSON.parse(fs.readFileSync('config/series-02-release-v1.json','utf8'));
+          const bytes=fs.readFileSync(c.canonicalSource);
+          const hash=crypto.createHash('sha256').update(bytes).digest('hex');
+          if(hash!==c.sourceSha256) throw new Error('canonical source SHA256 mismatch');
+          NODE
+
       - name: Create immutable tag once
         shell: bash
         run: |
