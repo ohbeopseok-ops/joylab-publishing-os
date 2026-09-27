@@ -31,7 +31,7 @@ JoyLab의 투자 Vertical을 동일한 **Contract → Map → CI → Production*
 1. `config/research-graph-template-v1.json`을 복사합니다.
 2. Pillar id/title/url을 확정합니다.
 3. Node → Edge → Article 순서로 SSOT를 채웁니다.
-4. Pillar에서 `ResearchGraphMap`에 graph와 primaryFlow를 전달합니다.
+4. Pillar에서 `ResearchGraphMap`에 graph와 primaryFlow를 전달합니다. Shared stylesheet는 공용 Map 컴포넌트가 직접 import하므로 Vertical별 CSS 연결은 필요하지 않습니다.
 5. Platform registry의 status를 `template_ready → active`로 바꾸고 graph 경로를 등록합니다.
 6. 기존 vertical 전용 integrity gate와 Platform V1 gate를 모두 GREEN으로 만듭니다.
 
