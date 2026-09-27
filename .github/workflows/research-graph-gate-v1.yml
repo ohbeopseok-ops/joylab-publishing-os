@@ -10,7 +10,7 @@ on:
       - 'src/components/AiPowerResearchMap.astro'
       - 'src/components/AiPowerResearchNav.astro'
       - 'src/pages/guides/ai-power-infrastructure.astro'
-      - 'src/pages/articles/[...slug].astro'
+      - 'src/pages/articles/**'
       - 'src/data/articles/**'
       - 'scripts/check-research-graph-v1.mjs'
       - '.github/workflows/research-graph-gate-v1.yml'
@@ -23,7 +23,7 @@ on:
       - 'src/components/AiPowerResearchMap.astro'
       - 'src/components/AiPowerResearchNav.astro'
       - 'src/pages/guides/ai-power-infrastructure.astro'
-      - 'src/pages/articles/[...slug].astro'
+      - 'src/pages/articles/**'
       - 'src/data/articles/**'
       - 'scripts/check-research-graph-v1.mjs'
   workflow_dispatch:
