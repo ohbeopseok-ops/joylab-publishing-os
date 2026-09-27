@@ -6,6 +6,8 @@ author: "오법석"
 publishedAt: 2026-09-27
 updatedAt: 2026-09-27
 featuredAt: 2026-09-27
+coverImage: "/books/work-to-system/cover.svg"
+ogImage: "/books/work-to-system/og.svg"
 category: "AI·생산성"
 tags:
   - 업무시스템
