@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+<title id="t">업무를 시스템으로 바꾸는 법</title><desc id="d">JoyLab Build Series 02 social preview</desc>
+<rect width="1200" height="630" fill="#101318"/>
+<rect x="54" y="52" width="1092" height="526" rx="18" fill="none" stroke="#d3a64b" stroke-width="2"/>
+<text x="88" y="120" fill="#d3a64b" font-family="Arial,sans-serif" font-size="26" font-weight="700" letter-spacing="4">JOYLAB BUILD SERIES 02</text>
+<g fill="#f5f1e8" font-family="Arial,'Noto Sans KR',sans-serif" font-weight="700">
+<text x="88" y="250" font-size="70">업무를 시스템으로 바꾸는 법</text>
+</g>
+<text x="90" y="318" fill="#b8b4ab" font-family="Arial,'Noto Sans KR',sans-serif" font-size="29">기억 부채 → Data Contract → Coaching → Ops</text>
+<g stroke="#d3a64b" stroke-width="4" fill="none">
+<circle cx="176" cy="436" r="26"/><circle cx="430" cy="436" r="26"/><circle cx="684" cy="436" r="26"/><circle cx="938" cy="436" r="26"/>
+<path d="M202 436h202M456 436h202M710 436h202"/>
+</g>
+<text x="88" y="535" fill="#f5f1e8" font-family="Arial,'Noto Sans KR',sans-serif" font-size="25">Interactive 15/15 · EPUB3 · Print PDF · Release GOLD</text>
+</svg>
