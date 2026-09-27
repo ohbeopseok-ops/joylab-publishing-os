@@ -25,10 +25,11 @@ readerProfiles:
   - "읽기에서 끝나지 않고 직접 입력하고 저장하는 인터랙티브 전자책을 경험하고 싶은 독자"
 format: epub
 interactive: true
-access: full
-previewChapterCount: 15
-readerPath: "/labs/work-to-system-interactive"
-readerCta: "Interactive Reader 15장 시작"
+access: preview
+previewChapterCount: 3
+readerCta: "Chapter 1~3 미리보기"
+interactivePath: "/labs/work-to-system-interactive"
+interactiveCta: "Interactive Reader 15장 시작"
 releasePath: "/studio/releases/series-02/v1-0-0/"
 releaseCta: "v1.0.0 EPUB·PDF 릴리스"
 epubPath: "/studio/exports/series-02-memory-debt.epub"
