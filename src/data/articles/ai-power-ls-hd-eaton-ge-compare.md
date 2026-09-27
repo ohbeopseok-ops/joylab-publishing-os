@@ -46,9 +46,9 @@ AI 전력 수혜주를 비교할 때 가장 먼저 버려야 할 질문은 "어�
 
 ## 1. LS ELECTRIC
 
-2026년 2분기 LS ELECTRIC은 매출 **1조5,770억원**, 영업이익 **1,785억원**을 기록했습니다.
+2026년 2분기 LS ELECTRIC은 매출 **1조5,770억원**, 영업이익 **1,785억원**을 기록했습니다. [LS 공식 발표](https://www.lsholdings.com/ko/media/news/61564b62656e354c446b79766e44394176764c4144566c6e6e77584733564b35)
 
-신규 수주는 약 **2.1조원**, 수주잔고는 약 **7조원**이었습니다.
+신규 수주는 약 **2.1조원**, 수주잔고는 약 **7조원**이었습니다. [LS 공식 발표](https://www.lsholdings.com/ko/media/news/61564b62656e354c446b79766e44394176764c4144566c6e6e77584733564b35)
 
 특히 데이터센터 배전 솔루션과 초고압 변압기 매출 성장이 실적을 이끌었습니다.
 
@@ -56,9 +56,9 @@ AI 전력 수혜주를 비교할 때 가장 먼저 버려야 할 질문은 "어�
 
 ## 2. HD현대일렉트릭
 
-2026년 2분기 매출은 **1조1,418억원**, 영업이익은 **2,870억원**, 영업이익률은 **25.1%**였습니다.
+2026년 2분기 매출은 **1조1,418억원**, 영업이익은 **2,870억원**, 영업이익률은 **25.1%**였습니다. [HD현대일렉트릭](https://www.hd-hyundaielectric.com/elect/m/ko/PR/newsView.jsp?commBoardSeq=6175)
 
-수주잔고는 **84.9억달러**로 전년 동기 대비 29.6% 증가했습니다.
+수주잔고는 **84.9억달러**로 전년 동기 대비 29.6% 증가했습니다. [HD현대일렉트릭](https://www.hd-hyundaielectric.com/elect/m/ko/PR/newsView.jsp?commBoardSeq=6175)
 
 네 기업 가운데 현재 비교에서 가장 눈에 띄는 숫자는 높은 수익성입니다.
 
@@ -66,23 +66,23 @@ AI 전력 수혜주를 비교할 때 가장 먼저 버려야 할 질문은 "어�
 
 ## 3. Eaton
 
-Eaton은 2026년 2분기 매출 **85억달러**, 전체 Segment Margin **23.1%**를 기록했습니다.
+Eaton은 2026년 2분기 매출 **85억달러**, 전체 Segment Margin **23.1%**를 기록했습니다. [Eaton](https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-reports-record-second-quarter-2026-results.html)
 
-Electrical Americas 매출은 40억달러, 영업이익률은 **27.5%**였습니다.
+Electrical Americas 매출은 40억달러, 영업이익률은 **27.5%**였습니다. [Eaton](https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-reports-record-second-quarter-2026-results.html)
 
-12개월 평균 주문은 전년 대비 **41% 증가**, 6월 말 backlog는 **33% 증가**했습니다.
+12개월 평균 주문은 전년 대비 **41% 증가**, 6월 말 backlog는 **33% 증가**했습니다. [Eaton](https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-reports-record-second-quarter-2026-results.html)
 
-회사는 2026년 조정 EPS 가이던스를 **13.40~13.60달러**로 높였습니다.
+회사는 2026년 조정 EPS 가이던스를 **13.40~13.60달러**로 높였습니다. [Eaton](https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-reports-record-second-quarter-2026-results.html)
 
 Eaton의 장점은 데이터센터 수요가 주문뿐 아니라 EPS 가이던스 상향으로 연결되고 있다는 점입니다.
 
 ## 4. GE Vernova
 
-GE Vernova의 2026년 2분기 Orders는 **242억달러**, 매출은 **111억달러**였습니다.
+GE Vernova의 2026년 2분기 Orders는 **242억달러**, 매출은 **111억달러**였습니다. [GE Vernova](https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial)
 
-Adjusted EBITDA는 **12억달러**, Margin은 **11.3%**였습니다.
+Adjusted EBITDA는 **12억달러**, Margin은 **11.3%**였습니다. [GE Vernova](https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial)
 
-Backlog는 **1,760억달러**였고 회사는 연간 매출과 Free Cash Flow 가이던스를 상향했습니다.
+Backlog는 **1,760억달러**였고 회사는 연간 매출과 Free Cash Flow 가이던스를 상향했습니다. [GE Vernova](https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial)
 
 GE Vernova는 EPS보다 **Backlog → EBITDA → FCF** 흐름이 더 중요합니다.
 
