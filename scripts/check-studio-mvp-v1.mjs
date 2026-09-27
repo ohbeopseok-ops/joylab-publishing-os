@@ -36,7 +36,7 @@ const demo = fs.readFileSync('src/data/studio/series-02-demo.ts', 'utf8');
 for (const marker of ['memory-debt-self-assessment','memory-debt-risk-score','persona-zero-moment-canvas','sendResponsesToServer: false']) {
   if (!demo.includes(marker)) failures.push('demo contract marker missing: ' + marker);
 }
-const interactiveChapterIds = [...demo.matchAll(/chapterId:\s*'chapter-(\\d{2})'/g)].map((m) => m[1]);
+const interactiveChapterIds = [...demo.matchAll(/chapterId:\s*'chapter-(\d{2})'/g)].map((m) => m[1]);
 if (interactiveChapterIds.length !== 15) failures.push('interactive workbook must contain exactly 15 chapter blocks');
 if (new Set(interactiveChapterIds).size !== 15) failures.push('interactive workbook chapter ids must be unique 01-15');
 for (let i=1;i<=15;i++) {
