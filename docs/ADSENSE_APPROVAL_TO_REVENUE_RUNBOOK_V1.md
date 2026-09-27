@@ -96,10 +96,9 @@ Track:
 - ad impressions;
 - viewability;
 - CTR as a safety signal, not a target to maximize;
-- pages/session;
 - engaged reading depth;
 - CTA conversion;
-- bounce/exit changes;
+- early-exit changes;
 - Core Web Vitals / CLS;
 - mobile complaint or accidental-click signals.
 
