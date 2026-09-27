@@ -332,6 +332,20 @@ const scoreCriteria = [
           <div id="article-content" class="article-body"><Content /></div>
         </div>
 
+        {(article.data.faqs?.length ?? 0) > 0 && (
+          <section class="research-panel article-faq" aria-labelledby="article-faq-title">
+            <h2 class="research-panel__title" id="article-faq-title">FAQ</h2>
+            <div class="article-faq__list">
+              {article.data.faqs!.map((item) => (
+                <details class="article-faq__item">
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
+
         {(isAiStandardsSeries || isGrowthLeadershipSeries)
           ? <ResearchGraphNav articleId={article.id} />
           : <AiPowerResearchNav articleId={article.id} />
@@ -528,6 +542,13 @@ const scoreCriteria = [
       updateProgress();
     })();
   </script>
+
+  <style>
+    .article-faq__list{display:grid;gap:10px}
+    .article-faq__item{border:1px solid var(--research-line);border-radius:12px;background:#fff;padding:0 14px}
+    .article-faq__item summary{cursor:pointer;padding:14px 0;font-weight:800;line-height:1.45}
+    .article-faq__item p{margin:0;padding:0 0 14px;color:#4b5563;line-height:1.75}
+  </style>
 
   <ArticleSeoSchema article={article} articleImageUrl={articleImageUrl} seriesItems={seriesItems} />
 </BaseLayout>
