@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 112,
+  "articleCount": 113,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -120,6 +120,16 @@
     {
       "slug": "ai-database-security-data-layer-2026",
       "route": "/articles/ai-database-security-data-layer-2026",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "ai-era-english-deep-inquiry",
+      "route": "/articles/ai-era-english-deep-inquiry",
       "industries": [],
       "theses": [],
       "companies": [],

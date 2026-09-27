@@ -2056,5 +2056,24 @@
         "caption": "Source → Retrieval → Translation → Context → Verification 순서로 판단합니다."
       }
     ]
+  },
+  "ai-era-english-deep-inquiry": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 번역에서 원문 검증과 Deep Inquiry로 영어 역량의 역할이 이동하는 구조를 표현한 JoyLab Research 대표 이미지",
+      "caption": "TRANSLATION → VERIFICATION → DEEP INQUIRY."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 실시간 번역 확대와 저자원 언어 오류 병목을 함께 보여주는 JoyLab Visual Research 이미지",
+        "caption": "번역 접근성의 확대와 품질 격차를 동시에 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Translation Verification Deep Inquiry 3단계 언어 역량 구조를 설명한 JoyLab 프레임워크 이미지",
+        "caption": "Translation → Verification → Deep Inquiry 순서로 인간과 AI의 역할을 나눕니다."
+      }
+    ]
   }
 }
