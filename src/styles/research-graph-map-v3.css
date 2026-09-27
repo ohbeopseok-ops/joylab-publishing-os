@@ -79,3 +79,15 @@
   .rg__svg-edge{stroke-width:1.25;stroke-opacity:.25}
   .rg__svg-edge.is-active{stroke-width:2.25;stroke-opacity:.95}
 }
+
+
+/* Shared guide layout contract: graph owns a full-width row, research content + rail follow below. */
+.sg-layout>.sg-graph-span{grid-column:1/-1;min-width:0}
+.sg-layout>.sg-graph-span>.rg{margin:0}
+.sg-layout>.sg-content{grid-column:1;min-width:0}
+.sg-layout>.sg-rail{grid-column:2}
+@media(max-width:900px){
+  .sg-layout>.sg-graph-span,
+  .sg-layout>.sg-content,
+  .sg-layout>.sg-rail{grid-column:1}
+}
