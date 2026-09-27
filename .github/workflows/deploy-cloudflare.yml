@@ -538,6 +538,13 @@ jobs:
           QA_BASE_URL: https://aijoylab.kr
         run: node scripts/qa-responsive-visual-v2.mjs
 
+      - name: Research Guide Production Visual GOLD
+        if: ${{ !cancelled() }}
+        id: research_guide_production_visual_qa
+        env:
+          PRODUCTION_BASE_URL: https://aijoylab.kr
+        run: node scripts/check-research-guide-production-visual-v1.mjs
+
       - name: Series 02 Production Interactive Reader GOLD QA
         if: ${{ !cancelled() }}
         id: production_series02_interactive_qa
@@ -578,6 +585,15 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+      - name: Upload Research Guide Production Visual GOLD
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: research-guide-production-visual-gold
+          path: qa-artifacts/research-guide-production-visual-gold
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Upload Series 02 Production Interactive GOLD QA
         if: always()
         uses: actions/upload-artifact@v6
@@ -615,6 +631,7 @@ jobs:
           RELEASE_STUDIO_SMOKE_RESULT: ${{ steps.studio_production_smoke.outcome }}
           RELEASE_MOBILE_VISUAL_QA_RESULT: ${{ steps.production_mobile_visual_qa.outcome }}
           RELEASE_RESPONSIVE_VISUAL_QA_RESULT: ${{ steps.production_responsive_visual_qa.outcome }}
+          RELEASE_RESEARCH_GUIDE_VISUAL_QA_RESULT: ${{ steps.research_guide_production_visual_qa.outcome }}
           RELEASE_SERIES02_INTERACTIVE_QA_RESULT: ${{ steps.production_series02_interactive_qa.outcome }}
           RELEASE_READER_QA_RESULT: ${{ steps.production_reader_qa.outcome }}
           RELEASE_MINDMAP_QA_RESULT: ${{ steps.production_mindmap_qa.outcome }}

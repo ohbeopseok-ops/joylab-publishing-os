@@ -13,6 +13,7 @@ const checks = {
   studioProductionSmoke: process.env.RELEASE_STUDIO_SMOKE_RESULT || 'unknown',
   productionMobileVisualQa: process.env.RELEASE_MOBILE_VISUAL_QA_RESULT || 'unknown',
   productionResponsiveVisualQa: process.env.RELEASE_RESPONSIVE_VISUAL_QA_RESULT || 'unknown',
+  researchGuideProductionVisualQa: process.env.RELEASE_RESEARCH_GUIDE_VISUAL_QA_RESULT || 'unknown',
   productionSeries02InteractiveQa: process.env.RELEASE_SERIES02_INTERACTIVE_QA_RESULT || 'unknown',
   productionReaderQa: process.env.RELEASE_READER_QA_RESULT || 'unknown',
   productionMindmapQa: process.env.RELEASE_MINDMAP_QA_RESULT || 'unknown'
