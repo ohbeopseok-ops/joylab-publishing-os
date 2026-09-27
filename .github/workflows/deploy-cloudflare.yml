@@ -193,8 +193,8 @@ jobs:
 
           check_200 "https://aijoylab.kr/guides/ai-power-infrastructure?deploy=${GITHUB_SHA}"
           grep -Fq 'AI Power Infrastructure' /tmp/body
-          grep -Fq 'JOYLAB RESEARCH GRAPH V1' /tmp/body
-          grep -Fq 'data-research-map-v1' /tmp/body
+          grep -Fq 'JOYLAB RESEARCH GRAPH V3' /tmp/body
+          grep -Fq 'data-research-map-v3' /tmp/body
           grep -Fq '/articles/ai-power-next-bottleneck' /tmp/body
           grep -Fq '/articles/korea-ai-power-companies-compare' /tmp/body
 
