@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import release from '../../../../../config/series-02-release-v1.json';
+
+const downloads = [
+  { label: 'EPUB3', href: '/studio/exports/series-02-memory-debt.epub', meta: 'EPUBCheck 5.4.0 PASS' },
+  { label: 'Print PDF · A5', href: '/studio/exports/series-02-memory-debt-print.pdf', meta: '74 pages · PDF Preflight PASS' },
+  { label: 'Export Provenance V1', href: '/studio/exports/export-provenance-v1.json', meta: 'artifact SHA256 verification' }
+];
+---
+<BaseLayout title="Series 02 v1.0.0 Release | JoyLab Studio" description="Series 02 정식 출간 릴리스 및 다운로드" robots="noindex,follow" bodyClass="studio-release-page">
+  <main class="release-shell">
+    <header>
+      <div>
+        <p>JOYLAB STUDIO · PUBLISHED RELEASE</p>
+        <h1>Series 02 <span>v{release.version}</span></h1>
+        <h2>업무를 시스템으로 바꾸는 법</h2>
+      </div>
+      <a href="/studio/projects/series-02/">← Project</a>
+    </header>
+
+    <section class="status">
+      <div><small>STATE</small><strong>{release.state.toUpperCase()}</strong></div>
+      <div><small>CHAPTERS</small><strong>15 / 15</strong></div>
+      <div><small>RELEASE GATE</small><strong>GOLD</strong></div>
+    </section>
+
+    <section class="panel">
+      <p class="kicker">DOWNLOADS</p>
+      <h3>정식 출력물</h3>
+      <div class="downloads">
+        {downloads.map((item) => <a href={item.href}>
+          <span>{item.label}</span>
+          <small>{item.meta}</small>
+          <b>다운로드 →</b>
+        </a>)}
+      </div>
+    </section>
+
+    <section class="panel evidence">
+      <p class="kicker">IMMUTABLE RELEASE</p>
+      <h3>검증 정보</h3>
+      <dl>
+        <div><dt>Release ID</dt><dd>{release.releaseId}</dd></div>
+        <div><dt>Git tag</dt><dd>{release.tag}</dd></div>
+        <div><dt>Published commit</dt><dd><code>{release.publishedCommitSha}</code></dd></div>
+        <div><dt>Canonical source SHA256</dt><dd><code>{release.sourceSha256}</code></dd></div>
+        <div><dt>Published at</dt><dd>{release.publishedAt}</dd></div>
+      </dl>
+      <p>이 릴리스는 동일 releaseId/version/tag의 기존 기록을 덮어쓰지 않습니다. 수정이 필요하면 새 버전으로 supersede합니다.</p>
+    </section>
+  </main>
+  <style>
+    .studio-release-page{background:#f6f4ef;color:#17171a}.release-shell{width:min(1100px,100%);margin:auto;padding:42px 20px 90px}
+    header{display:flex;justify-content:space-between;gap:24px;align-items:flex-start}header p,.kicker{margin:0;color:#b98527;font-size:12px;font-weight:850;letter-spacing:.12em}
+    h1{font-size:44px;letter-spacing:-.04em;margin:8px 0 4px}h1 span{font-size:20px;color:#777}h2{margin:0;color:#6e675e;font-size:20px;font-weight:600}header a{color:#17171a;text-decoration:none;font-weight:800}
+    .status{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}.status div,.panel{background:#fff;border:1px solid #e6e0d7;border-radius:18px}.status div{padding:20px}.status small,.status strong{display:block}.status small{color:#888;font-weight:800}.status strong{margin-top:7px;font-size:24px}
+    .panel{margin-top:16px;padding:24px}.panel h3{font-size:26px;margin:6px 0 18px}.downloads{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.downloads a{display:grid;gap:8px;padding:18px;border-radius:14px;background:#f7f4ee;text-decoration:none;color:#17171a}.downloads span{font-weight:850;font-size:18px}.downloads small{color:#777;line-height:1.4}.downloads b{margin-top:8px;color:#8c6522}
+    dl{margin:0}dl div{display:grid;grid-template-columns:180px 1fr;gap:16px;padding:13px 0;border-top:1px solid #eee8df}dt{font-weight:800;color:#706a62}dd{margin:0;word-break:break-all}.evidence>p:last-child{color:#777;line-height:1.7}
+    @media(max-width:760px){header{display:block}header a{display:inline-block;margin-top:14px}.status,.downloads{grid-template-columns:1fr}dl div{grid-template-columns:1fr;gap:5px}h1{font-size:36px}}
+  </style>
+</BaseLayout>
