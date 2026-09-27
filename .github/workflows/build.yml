@@ -82,6 +82,7 @@ jobs:
           node --check scripts/check-indexability.mjs
           node --check scripts/check-legacy-public-email.mjs
           node --check scripts/check-official-channel-contract.mjs
+          node --check scripts/check-research-graph-v1.mjs
           node scripts/report-homepage-funnel.mjs --self-test
           node scripts/report-books-funnel.mjs --self-test
           node scripts/bookify-generator-v1.mjs --self-test
@@ -122,6 +123,9 @@ jobs:
 
       - name: Validate production configuration baseline JSON
         run: node -e "JSON.parse(require('node:fs').readFileSync('config/production-baseline.json','utf8'))"
+
+      - name: Research Graph Gate V1
+        run: npm run research-graph:check
 
       - name: Build Astro site
         run: npm run build

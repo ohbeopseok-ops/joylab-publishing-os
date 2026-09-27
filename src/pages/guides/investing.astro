@@ -150,6 +150,9 @@ const theses = [
                   <span>{cluster.coverage} Articles · {cluster.status}</span>
                   <a class="sg-card__cta" href={cluster.href}>{cluster.status === 'RED' ? 'Content Gap 보기 →' : '클러스터 열기 →'}</a>
                 </div>
+                {cluster.id === 'ai-infrastructure' && (
+                  <div class="ih-card-related"><a href="/guides/ai-power-infrastructure">AI Power Infrastructure Research Graph →</a></div>
+                )}
                 {cluster.id === 'financials-value-up' && (
                   <div class="ih-card-related"><a href="/articles/kb-financial-shareholder-return">KB금융</a><span> · </span><a href="/articles/bank-roe-cet1-guide">ROE·CET1</a><span> · </span><a href="/articles/total-shareholder-return-buyback-cancellation-guide">TSR</a></div>
                 )}
