@@ -76,6 +76,8 @@ const books = defineCollection({
     canonical: z.string().optional(),
     readerPath: z.string().optional(),
     readerCta: z.string().optional(),
+    interactivePath: z.string().optional(),
+    interactiveCta: z.string().optional(),
     releasePath: z.string().optional(),
     releaseCta: z.string().optional(),
     epubPath: z.string().optional(),
