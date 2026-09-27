@@ -16,8 +16,11 @@ Every required check must report `success`:
 3. Custom domain reachability
 4. Production Smoke
 5. Studio Production Smoke V1
-6. Production Reader GOLD QA
-7. Production Mindmap GOLD QA
+6. Series 02 Production Reader 15/15 GOLD QA
+7. Production Mobile Visual GOLD QA
+8. Production Responsive Visual GOLD QA
+9. Production Reader GOLD QA
+10. Production Mindmap GOLD QA
 
 If any required check is failed, cancelled, skipped, or unknown, the release status is `BLOCKED`.
 
@@ -48,6 +51,9 @@ BUILD GREEN
 → CLOUDFLARE DEPLOY GREEN
 → PRODUCTION SMOKE GREEN
 → STUDIO PRODUCTION SMOKE GREEN
+→ SERIES 02 READER 15/15 QA GREEN
+→ PRODUCTION MOBILE VISUAL QA GREEN
+→ PRODUCTION RESPONSIVE VISUAL QA GREEN
 → PRODUCTION READER QA GREEN
 → PRODUCTION MINDMAP QA GREEN
 → RELEASE GATE V1
