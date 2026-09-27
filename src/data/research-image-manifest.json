@@ -1828,5 +1828,24 @@
         "caption": "Earnings → Risk → Capital → Shareholder Return 순서로 읽습니다."
       }
     ]
+  },
+  "total-shareholder-return-buyback-cancellation-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "총주주환원율 TSR 보는 법｜배당·자사주 매입·소각 차이 — JoyLab Research 대표 이미지",
+      "caption": "배당·자사주 매입·소각을 ROE·CET1·PBR 흐름으로 연결합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "총주주환원율 분석 — 배당 자사주 매입 소각 TSR 핵심 신호 이미지",
+        "caption": "배당·매입·소각을 분리해 총주주환원을 읽습니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "총주주환원율 분석 — ROE CET1 TSR PBR 리서치 프레임워크 이미지",
+        "caption": "ROE → CET1 → TSR → PBR 순서로 자본배분을 점검합니다."
+      }
+    ]
   }
 }
