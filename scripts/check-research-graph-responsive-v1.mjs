@@ -47,6 +47,14 @@ for (const viewport of viewports) {
       const columns = [...(root?.querySelectorAll('.rg__column') ?? [])];
       const flowNodes = [...(root?.querySelectorAll('.rg__flow-node') ?? [])];
       const rootRect = root?.getBoundingClientRect();
+      const layout = root?.closest('.sg-layout');
+      const graphSpan = root?.closest('.sg-graph-span');
+      const rail = layout?.querySelector(':scope > .sg-rail');
+      const content = layout?.querySelector(':scope > .sg-content');
+      const layoutRect = layout?.getBoundingClientRect();
+      const graphSpanRect = graphSpan?.getBoundingClientRect();
+      const railRect = rail?.getBoundingClientRect();
+      const contentRect = content?.getBoundingClientRect();
 
       const within = (rect, container, tolerance = 1) =>
         rect.left >= container.left - tolerance &&
@@ -72,7 +80,11 @@ for (const viewport of viewports) {
           within(firstColumnRect, canvasRect) && within(lastColumnRect, canvasRect),
         firstLastFlowInsideRoot:
           !!rootRect && !!firstFlowRect && !!lastFlowRect &&
-          within(firstFlowRect, rootRect) && within(lastFlowRect, rootRect)
+          within(firstFlowRect, rootRect) && within(lastFlowRect, rootRect),
+        layoutWidth: layoutRect?.width ?? 0,
+        graphSpanWidth: graphSpanRect?.width ?? 0,
+        railWidth: railRect?.width ?? 0,
+        contentWidth: contentRect?.width ?? 0
       };
     });
 
@@ -98,6 +110,9 @@ for (const viewport of viewports) {
       noDesktopCanvasOverflow: !desktopLike || firstLastCheck.canvasScrollWidth - firstLastCheck.canvasClientWidth <= contract.desktopInternalOverflowTolerancePx,
       noDesktopFlowOverflow: !desktopLike || firstLastCheck.flowScrollWidth - firstLastCheck.flowClientWidth <= contract.desktopInternalOverflowTolerancePx,
       desktopFirstLastVisible: !desktopLike || (firstLastCheck.firstLastColumnsInsideCanvas && firstLastCheck.firstLastFlowInsideRoot),
+      desktopGraphUsesFullGuideRow: !desktopLike || firstLastCheck.layoutWidth === 0 || Math.abs(firstLastCheck.layoutWidth - firstLastCheck.graphSpanWidth) <= 2,
+      desktopRailWidthHealthy: !desktopLike || firstLastCheck.railWidth === 0 || firstLastCheck.railWidth >= 260,
+      desktopContentWidthHealthy: !desktopLike || firstLastCheck.contentWidth === 0 || firstLastCheck.contentWidth >= 560,
       mobileLastNodeSelectable: viewport.width !== 390 || firstLastCheck.mobileLastNodeSelectable === true
     };
 
