@@ -9,9 +9,12 @@ const { articleId } = Astro.props;
 const articleUrl = `/articles/${articleId}`;
 const published = graph.articles.filter((article) => article.status === 'published');
 const current = published.find((article) => article.url === articleUrl) ?? null;
-const byGraphId = new Map(published.map((article) => [article.id, article]));
-const previous = current?.previous ? byGraphId.get(current.previous) ?? null : null;
-const next = current?.next ? byGraphId.get(current.next) ?? null : null;
+const orderedPublished = [...published].sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+const currentIndex = current ? orderedPublished.findIndex((article) => article.id === current.id) : -1;
+const previous = currentIndex > 0 ? orderedPublished[currentIndex - 1] : null;
+const next = currentIndex >= 0 && currentIndex < orderedPublished.length - 1
+  ? orderedPublished[currentIndex + 1]
+  : null;
 
 const related = current
   ? published
