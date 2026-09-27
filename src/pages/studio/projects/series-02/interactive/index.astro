@@ -20,7 +20,7 @@ const demo=interactiveBookContractSchema.parse(series02Demo);
         <p class="kicker">DRAFT BUILDER</p><h2>새 Block 초안</h2>
         <form id="draft-form">
           <label>Block type<select name="type"><option value="self_assessment">Self Assessment</option><option value="risk_score">Risk Score</option><option value="persona_canvas">Persona Canvas</option></select></label>
-          <label>Chapter<select name="chapterId"><option>chapter-04</option><option>chapter-05</option><option>chapter-06</option></select></label>
+          <label>Chapter<select name="chapterId">{Array.from({length:12},(_,i)=>i+4).map((n)=><option>{'chapter-'+String(n).padStart(2,'0')}</option>)}</select></label>
           <label>Title<input name="title" placeholder="예: 기록 전환 체크리스트" required /></label>
           <label>Prompt<textarea name="prompt" rows="4" placeholder="독자에게 보여줄 질문 또는 실습 지시" required></textarea></label>
           <button type="submit">로컬 초안 저장</button>
