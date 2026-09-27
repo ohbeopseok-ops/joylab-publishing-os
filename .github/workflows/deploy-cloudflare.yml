@@ -167,7 +167,7 @@ jobs:
           grep -Fq 'Chapter 1~15' /tmp/body
           grep -Fq 'Chapter 15 · 같은 데이터, 다른 인터페이스' /tmp/body
 
-          check_200 "https://aijoylab.kr/studio/releases/series-02/v1-0-0/?deploy=${GITHUB_SHA}"
+          check_follow_200 "https://aijoylab.kr/studio/releases/series-02/v1-0-0/?deploy=${GITHUB_SHA}"
           grep -Fq 'PUBLISHED RELEASE' /tmp/body
           grep -Fq 'EPUB3' /tmp/body
           grep -Fq 'Print PDF' /tmp/body
@@ -203,6 +203,24 @@ jobs:
           grep -Fq '/books/' /tmp/body
           grep -Fq '/guides/growth-leadership/literature' /tmp/body
           grep -Fq '/guides/growth-leadership/playbook/performance-coaching' /tmp/body
+
+          # PR #373 · AI Standards / Language Branch / Growth Graph GOLD smoke
+          check_follow_200 "https://aijoylab.kr/guides/ai-standards?deploy=${GITHUB_SHA}"
+          grep -Fq 'AI 패권의 다음 전쟁은 표준이다' /tmp/body
+          grep -Fq 'JOYLAB RESEARCH GRAPH · AI STANDARDS' /tmp/body
+          grep -Fq '/articles/china-ai-token-ciyuan-discourse-power' /tmp/body
+          grep -Fq '/articles/ai-token-economics' /tmp/body
+
+          check_follow_200 "https://aijoylab.kr/articles/ai-translation-information-gatekeeper?deploy=${GITHUB_SHA}"
+          grep -Fq 'AI 번역은 언어 장벽을 없앨까' /tmp/body
+          grep -Fq 'AI Standards & Tech Sovereignty' /tmp/body
+          grep -Fq 'Information Gatekeeper' /tmp/body
+
+          check_follow_200 "https://aijoylab.kr/guides/growth-leadership?deploy=${GITHUB_SHA}"
+          grep -Fq 'Behavior → Leader → Team → Culture → Outcome' /tmp/body
+          grep -Fq 'JOYLAB RESEARCH GRAPH · GROWTH & LEADERSHIP' /tmp/body
+          grep -Fq '/articles/performance-system-leading-indicators' /tmp/body
+          grep -Fq '/articles/growth-leadership-operating-system' /tmp/body
 
           check_200 "https://aijoylab.kr/guides/growth-leadership/literature?deploy=${GITHUB_SHA}"
           grep -Fq '문학에서 배우는 리더십' /tmp/body
