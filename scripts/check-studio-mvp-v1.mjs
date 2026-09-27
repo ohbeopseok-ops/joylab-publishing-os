@@ -10,7 +10,7 @@ const requiredFiles = [
   'src/pages/studio/projects/series-02/validation/index.astro',
   'src/pages/studio/projects/series-02/preview/index.astro',
   'src/pages/studio/projects/series-02/export/index.astro',
-  'src/pages/studio/releases/series-02/v1.0.0/index.astro',
+  'src/pages/studio/releases/series-02/v1-0-0/index.astro',
   'src/lib/studio/interactive-block-contract.ts',
   'src/data/studio/series-02-demo.ts',
   'config/contracts/interactive-block-v1.schema.json',
