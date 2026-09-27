@@ -123,6 +123,6 @@ AI 전력 수혜주는 하나의 종목군이 아닙니다.
 
 ## 시리즈 이동
 
-- [이전 글｜미국 국채금리 5% 시대](/articles/treasury-5-percent-sp500-nasdaq-dividend)
+- [이전 글｜미국 국채금리와 주식시장 비교](/articles/treasury-5-percent-sp500-nasdaq-dividend)
 - [전체 지도｜AI Power Infrastructure](/guides/ai-power-infrastructure)
 - [다음 글｜AI 전력 병목은 변압기다](/articles/ai-transformer-bottleneck-backlog-leadtime-margin)
