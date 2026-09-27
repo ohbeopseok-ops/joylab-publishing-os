@@ -16,9 +16,19 @@ seoTitle: "AI 전력 병목은 변압기다｜Backlog·Lead Time·Margin"
 series: "AI Power Infrastructure"
 seriesOrder: 10
 readingTime: "약 9분"
+investmentIndustries:
+  - ai-infrastructure
+investmentTheses:
+  - power-supercycle
+investmentResearchType: "explainer"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "AI 전력 변압기 병목을 Backlog Lead Time Margin으로 설명하는 JoyLab 대표 이미지"
 ---
 
 AI 데이터센터 전력 수요가 늘면 가장 먼저 주목받는 장비 가운데 하나가 변압기입니다.
+
+→ [AI Power Infrastructure 전체 투자 지도](/guides/ai-power-infrastructure)
+
 
 이유는 단순합니다. 수요가 늘어도 공급을 즉시 늘리기 어렵기 때문입니다.
 
@@ -102,3 +112,10 @@ AI 전력 병목을 변압기라고 부르는 이유는 단순히 장비가 부�
 
 - [LS그룹, LS ELECTRIC 2026년 2분기 실적](https://www.lsholdings.com/ko/media/news/61564b62656e354c446b79766e44394176764c4144566c6e6e77584733564b35)
 - [HD현대일렉트릭 2026년 2분기 실적](https://www.hd-hyundaielectric.com/elect/m/ko/PR/newsView.jsp?commBoardSeq=6175)
+
+
+## 시리즈 이동
+
+- [이전 글｜AI 전력 수혜주는 누구인가](/articles/ai-power-beneficiaries-value-chain)
+- [전체 지도｜AI Power Infrastructure](/guides/ai-power-infrastructure)
+- [다음 글｜LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova 비교](/articles/ai-power-ls-hd-eaton-ge-compare)
