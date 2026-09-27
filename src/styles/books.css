@@ -118,8 +118,13 @@
 @media(max-width:900px){
   .books-v2-featured__grid,.books-v2-philosophy{grid-template-columns:1fr}
   .books-v2-featured__cover{width:min(72vw,320px);margin:0 auto}.books-v2-philosophy__grid{grid-template-columns:1fr}.books-v2-category-grid{grid-template-columns:repeat(2,1fr)}
+  .books-v2-library-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .books-v2-book{grid-template-columns:112px minmax(0,1fr);gap:16px;padding:16px}
+  .books-v2-book h3{font-size:1.3rem}
+  .books-v2-book p{display:none}
 }
 @media(max-width:640px){
+  .books-v2-library-grid{grid-template-columns:1fr}
   .books-v2-shell{width:min(100% - 28px,680px)}.books-v2-hero{padding:56px 0 46px}.books-v2-hero h1{font-size:clamp(2.5rem,13vw,4rem)}
   .books-v2-featured,.books-v2-philosophy,.books-v2-categories,.books-v2-library{padding:48px 0}
   .books-v2-category-grid{grid-template-columns:1fr}.books-v2-book{grid-template-columns:110px 1fr;gap:18px;padding:16px}.books-v2-book h3{font-size:1.25rem}.books-v2-book p{display:none}
