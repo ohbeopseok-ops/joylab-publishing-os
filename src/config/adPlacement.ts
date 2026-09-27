@@ -1,7 +1,7 @@
 import { SITE_IDENTITY } from './siteIdentity';
 
 export const AD_PLACEMENT = {
-  enabled: false,
+  enabled: true,
   publisherClientId: SITE_IDENTITY.adsense.clientId,
   slots: {
     articleMid30: { key: 'article-mid-30', slotId: '', minChars: 3200 },

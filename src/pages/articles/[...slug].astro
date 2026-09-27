@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleGrowthPath from '../../components/ArticleGrowthPath.astro';
 import AdSlot from '../../components/AdSlot.astro';
+import { AD_PLACEMENT } from '../../config/adPlacement';
 import ArticleSeoSchema from '../../components/ArticleSeoSchema.astro';
 import AiPowerResearchNav from '../../components/AiPowerResearchNav.astro';
 import ResearchGraphNav from '../../components/ResearchGraphNav.astro';
@@ -46,6 +47,8 @@ export async function getStaticPaths() {
 
 const { article, related, seriesItems } = Astro.props;
 const { Content } = await render(article);
+const articleBodyChars = (article.body ?? '').replace(/\s+/g, '').length;
+const showArticleEndAd = AD_PLACEMENT.enabled && articleBodyChars >= AD_PLACEMENT.slots.articleEnd.minChars;
 const title = article.data.seoTitle ?? article.data.title;
 const researchVisual = researchImageManifest[article.id as keyof typeof researchImageManifest];
 const visualPlacement = researchVisualPlacement[article.id as keyof typeof researchVisualPlacement];
@@ -332,6 +335,8 @@ const scoreCriteria = [
           <div id="article-content" class="article-body"><Content /></div>
         </div>
 
+        <AdSlot placement="article-end" enabled={showArticleEndAd} />
+
         {(article.data.faqs?.length ?? 0) > 0 && (
           <section class="research-panel article-faq" aria-labelledby="article-faq-title">
             <h2 class="research-panel__title" id="article-faq-title">FAQ</h2>
@@ -353,7 +358,6 @@ const scoreCriteria = [
 
         {isChinaSemiconductorRiskArticle && <ChinaSemiconductorRiskScore />}
         {isChinaSemiconductorSeries && <ChinaSemiconductorSeriesNav currentId={article.id} />}
-        <AdSlot placement="article-end" />
 
         {isCodexSeries && (
           <nav class="codex-series-nav" aria-label="Codex 8부작 시리즈 이동">
