@@ -4,6 +4,10 @@ import crypto from 'node:crypto';
 
 const root = process.cwd();
 const release = JSON.parse(fs.readFileSync(path.join(root,'config/series-02-release-v1.json'),'utf8'));
+if (release.state === 'published') {
+  throw new Error('Published Series 02 releases are immutable. Verify the committed manifest with studio:release:verify; create a new version to supersede.');
+}
+
 const sourcePath = path.join(root, release.canonicalSource);
 const sourceBytes = fs.readFileSync(sourcePath);
 const source = JSON.parse(sourceBytes.toString('utf8'));
