@@ -66,4 +66,4 @@ if (pdfRecord.sha256 !== digest(pdfBytes)) throw new Error('PDF provenance hash 
 console.log('PASS', manifestPath, manifest.source?.sha256);
 
 
-console.log('Series 02 Release GOLD V1 PASS');
+console.log('Studio Production Smoke V1 PASS');
