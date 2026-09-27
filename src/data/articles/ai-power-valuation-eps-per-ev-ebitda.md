@@ -38,7 +38,7 @@ AI 데이터센터 전력 수요가 강해도 이미 높은 성장 기대가 주
 
 가장 먼저 볼 것은 예상 EPS가 올라가고 있는지입니다.
 
-주가가 20% 올라도 예상 EPS가 30% 상향되면 Forward PER 부담은 오히려 완화될 수 있습니다.
+주가 상승률보다 예상 EPS 상향률이 더 크면 Forward PER 부담은 오히려 완화될 수 있습니다.
 
 반대로 주가만 오르고 EPS 전망이 정체되면 멀티플 확장에 의존하게 됩니다.
 
@@ -75,9 +75,9 @@ EV/EBITDA는 부채를 포함한 기업가치와 영업창출력을 비교하는
 
 병목 산업의 진짜 힘은 마진에서 확인됩니다.
 
-LS ELECTRIC은 2Q26 약 **11.3%**, HD현대일렉트릭은 **25.1%**의 영업이익률을 기록했습니다.
+LS ELECTRIC은 2Q26 약 **11.3%**, HD현대일렉트릭은 **25.1%**의 영업이익률을 기록했습니다. [LS 공식 발표](https://www.lsholdings.com/ko/media/news/61564b62656e354c446b79766e44394176764c4144566c6e6e77584733564b35) · [HD현대일렉트릭](https://www.hd-hyundaielectric.com/elect/m/ko/PR/newsView.jsp?commBoardSeq=6175)
 
-Eaton Electrical Americas는 **27.5%**, GE Vernova는 Adjusted EBITDA Margin **11.3%**였습니다.
+Eaton Electrical Americas는 **27.5%**, GE Vernova는 Adjusted EBITDA Margin **11.3%**였습니다. [Eaton](https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-reports-record-second-quarter-2026-results.html) · [GE Vernova](https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial)
 
 회계 기준이 달라 직접 순위 비교는 어렵지만, 각 기업의 마진 방향은 가격결정력을 확인하는 중요한 신호입니다.
 
@@ -85,7 +85,7 @@ Eaton Electrical Americas는 **27.5%**, GE Vernova는 Adjusted EBITDA Margin **1
 
 GE Vernova처럼 대규모 인프라 사업을 하는 기업은 EPS보다 Free Cash Flow가 더 중요한 경우가 있습니다.
 
-GE Vernova는 2분기 실적 발표에서 연간 FCF 가이던스를 **115억~125억달러**로 상향했습니다.
+GE Vernova는 2분기 실적 발표에서 연간 FCF 가이던스를 **115억~125억달러**로 상향했습니다. [GE Vernova](https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial)
 
 성장이 실제 현금으로 전환되는지 확인해야 높은 멀티플의 지속 가능성을 판단할 수 있습니다.
 
