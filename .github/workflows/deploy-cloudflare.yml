@@ -218,7 +218,7 @@ jobs:
 
           check_follow_200 "https://aijoylab.kr/guides/growth-leadership?deploy=${GITHUB_SHA}"
           grep -Fq 'Behavior → Leader → Team → Culture → Outcome' /tmp/body
-          grep -Fq 'JOYLAB RESEARCH GRAPH · GROWTH & LEADERSHIP' /tmp/body
+          grep -Fq 'data-research-map-v3' /tmp/body
           grep -Fq '/articles/performance-system-leading-indicators' /tmp/body
           grep -Fq '/articles/growth-leadership-operating-system' /tmp/body
 
