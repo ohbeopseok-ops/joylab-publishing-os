@@ -27,6 +27,7 @@ access: full
 previewChapterCount: 0
 readerPath: "/labs/work-to-system-interactive"
 readerCta: "Interactive Reader 15장 열기"
+relatedArticleIds: ["ai-productivity-operating-model"]
 releasePath: "/studio/releases/series-02/v1-0-0/"
 overline: "JOYLAB BUILD SERIES 02 · WORK TO SYSTEM"
 topics:
