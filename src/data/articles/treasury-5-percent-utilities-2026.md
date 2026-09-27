@@ -24,12 +24,12 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "미국 국채금리 5%와 S&P500 유틸리티 약세를 연결한 JoyLab AI Power Infrastructure 대표 이미지"
 ---
 
-2026년 9월 미국 장기금리는 다시 주식시장의 가장 중요한 변수 가운데 하나가 됐습니다. 미국 재무부 공식 수익률 곡선에서 9월 25일 **10년물은 5.17%, 30년물은 5.49%**를 기록했습니다.
+2026년 9월 미국 장기금리는 다시 주식시장의 가장 중요한 변수 가운데 하나가 됐습니다. 미국 재무부 공식 수익률 곡선에서 9월 25일 **10년물은 5.17%, 30년물은 5.49%**를 기록했습니다. [U.S. Treasury](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve)
 
 → [AI Power Infrastructure 전체 투자 지도](/guides/ai-power-infrastructure)
 
 
-같은 시기 S&P 500 유틸리티 섹터는 52주 신저가를 기록했습니다. Investing.com 보도 기준 S&P 500 Utilities(SPLRCU)는 400.07까지 내려갔습니다.
+같은 시기 S&P 500 유틸리티 섹터는 52주 신저가를 기록했습니다. Investing.com 보도 기준 S&P 500 Utilities(SPLRCU)는 400.07까지 내려갔습니다. [S&P DJI](https://www.spglobal.com/spdji/en/indices/equity/sp-500-utilities-sector/) · [Investing.com](https://in.investing.com/news/stock-market-news/sp-500-utilities-hits-a-52week-low-bargain-buy-or-ratedriven-value-trap-5606455)
 
 이 조합은 단순한 방어주 약세가 아닙니다. **금리 상승이 배당주와 자본집약 산업의 밸류에이션을 동시에 압박하는 전형적인 사례**입니다.
 
@@ -37,7 +37,7 @@ heroAlt: "미국 국채금리 5%와 S&P500 유틸리티 약세를 연결한 JoyL
 
 유틸리티 기업은 일반적으로 안정적 현금흐름과 배당 때문에 채권의 대체재처럼 평가됩니다.
 
-그런데 장기 국채에서 5%대 수익률을 얻을 수 있으면 투자자는 굳이 주가 변동성과 기업 리스크를 감수하면서 낮은 배당수익률의 유틸리티 주식을 보유할 유인이 줄어듭니다.
+그런데 장기 국채에서 5%대 수익률을 얻을 수 있으면 투자자는 굳이 주가 변동성과 기업 리스크를 감수하면서 낮은 배당수익률의 유틸리티 주식을 보유할 유인이 줄어듭니다. [U.S. Treasury](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve)
 
 동시에 유틸리티는 발전소, 송전망, 변전소 같은 대규모 설비투자가 필요한 산업입니다. 금리가 오르면 신규 프로젝트의 자금조달 비용과 기존 부채의 차환 부담도 커집니다.
 
@@ -74,6 +74,8 @@ AI 전력 투자에서 흔히 보는 흐름은 다음과 같습니다.
 3. 데이터센터 전력 계약이 실제 투자로 전환되는가
 4. 전력기기 기업의 수주잔고와 마진이 계속 증가하는가
 
+장기금리 기준은 [U.S. Treasury](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve)에서 확인합니다.
+
 이 네 가지를 같이 봐야 금리 약세와 산업 성장 사이의 차이를 구분할 수 있습니다.
 
 ## 결론
@@ -84,7 +86,7 @@ AI 전력 투자에서 흔히 보는 흐름은 다음과 같습니다.
 
 AI 전력 투자에서는 산업 수요만 볼 것이 아니라 먼저 금리를 확인해야 합니다.
 
-다음 글에서는 같은 5% 금리가 왜 S&P500, 나스닥, 고배당주에 서로 다른 방식으로 작용하는지 비교합니다.
+다음 글에서는 같은 고금리 환경이 왜 S&P500, 나스닥, 고배당주에 서로 다른 방식으로 작용하는지 비교합니다.
 
 ### Sources
 
