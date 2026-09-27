@@ -8,12 +8,14 @@ import '../../styles/book-interactive.css';
 const bookSlug = 'work-to-system';
 const storagePrefix = 'joylab-book-work-to-system-lab';
 const interactions = getBookInteractions(bookSlug);
+const canonical = new URL('/books/work-to-system', Astro.site ?? Astro.url.origin).toString();
 ---
 
 <BaseLayout
   title="Series 02 Interactive Lab｜업무를 시스템으로 바꾸는 법"
   description="JOYLAB BUILD SERIES 02 Chapter 1~15 인터랙티브 전자책 리더."
-  robots="index,follow"
+  robots="noindex,follow"
+  canonical={canonical}
   bodyClass="book-reader-shell"
 >
   <article class="book-reader-page">
