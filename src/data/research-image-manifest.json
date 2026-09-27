@@ -1847,5 +1847,24 @@
         "caption": "ROE → CET1 → TSR → PBR 순서로 자본배분을 점검합니다."
       }
     ]
+  },
+  "korea-financial-holdings-compare": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "4대 금융지주 비교｜KB·신한·하나·우리 ROE·CET1·주주환원율·PBR — JoyLab Research 대표 이미지",
+      "caption": "4대 금융지주를 수익성·자본·주주환원·밸류에이션의 같은 기준으로 비교합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "4대 금융지주 비교 — ROE CET1 주주환원 PBR 핵심 신호 이미지",
+        "caption": "ROE → CET1 → 주주환원율 → PBR 흐름을 같은 기준으로 추적합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "4대 금융지주 비교 — 수익성 자본 환원 재평가 리서치 프레임워크 이미지",
+        "caption": "Profitability → Capital → Shareholder Return → Valuation 순서로 비교합니다."
+      }
+    ]
   }
 }

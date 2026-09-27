@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 101,
+  "articleCount": 102,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -826,6 +826,38 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "korea-financial-holdings-compare",
+      "route": "/articles/korea-financial-holdings-compare",
+      "industries": [
+        "financials-value-up"
+      ],
+      "theses": [
+        "korea-value-up"
+      ],
+      "companies": [
+        "KB Financial",
+        "Shinhan Financial",
+        "Hana Financial",
+        "Woori Financial"
+      ],
+      "valueChains": [
+        "banking-profitability",
+        "capital-adequacy",
+        "shareholder-return",
+        "valuation-rerating"
+      ],
+      "kpis": [
+        "ROE",
+        "CET1",
+        "RWA",
+        "NIM",
+        "credit-cost",
+        "shareholder-payout-ratio",
+        "PBR"
+      ],
+      "researchType": "compare"
     },
     {
       "slug": "korea-shipbuilding-companies-compare",
