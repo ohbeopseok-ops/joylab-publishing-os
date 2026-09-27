@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/semiconductor-guide-v2.css';
 import '../../styles/shipbuilding-guide-v2.css';
 import { getCollection } from 'astro:content';
+import ResearchGraphMap from '../../components/ResearchGraphMap.astro';
+import shipbuildingGraph from '../../../config/research-graph-shipbuilding-v1.json';
 
 const sequence = [
   { id: 'hd-hyundai-heavy-industries-shipbuilding', step: '01', role: '상선 · 엔진 · 함정', short: 'HD HHI', note: '고선가 상선과 엔진, 특수선 확장이 실제 수익성으로 얼마나 이어지는지 봅니다.' },
@@ -66,6 +68,15 @@ const published = steps.filter((entry) => entry.article);
 
   <main class="sg-main" id="research-path">
     <div class="sg-wrap sg-layout">
+
+      <ResearchGraphMap
+        graph={shipbuildingGraph}
+        eyebrow="JOYLAB RESEARCH GRAPH · SHIPBUILDING"
+        title="Demand → Orderbook → Ship Mix → Delivery → Margin → Valuation"
+        description="조선 수요가 수주잔고에 쌓인 뒤 선종 믹스·인도연도·생산성을 거쳐 마진과 밸류에이션으로 전환되는 흐름을 봅니다."
+        primaryFlow={['lng-demand','orderbook','ship-mix','delivery-year','margin','eps-revision','forward-per']}
+      />
+
       <section>
         <div class="sg-section-head">
           <div><div class="sg-eyebrow">RESEARCH PATH</div><h2>기업을 하나씩 읽고 마지막에 비교합니다</h2></div>
