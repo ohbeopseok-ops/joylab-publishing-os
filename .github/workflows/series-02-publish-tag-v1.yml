@@ -1,0 +1,55 @@
+name: Series 02 Publish Tag V1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'config/series-02-release-v1.json'
+      - '.github/workflows/series-02-publish-tag-v1.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Verify published release contract
+        id: release
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE' >> "$GITHUB_OUTPUT"
+          const fs=require('fs');
+          const c=JSON.parse(fs.readFileSync('config/series-02-release-v1.json','utf8'));
+          if(c.state!=='published') throw new Error('release state must be published');
+          if(!/^[0-9a-f]{40}$/.test(c.publishedCommitSha||'')) throw new Error('publishedCommitSha missing');
+          if(!/^series-02-v\d+\.\d+\.\d+$/.test(c.tag||'')) throw new Error('tag format invalid');
+          console.log('tag='+c.tag);
+          console.log('target='+c.publishedCommitSha);
+          NODE
+
+      - name: Verify target commit exists
+        run: git cat-file -e "${{ steps.release.outputs.target }}^{commit}"
+
+      - name: Create immutable tag once
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="${{ steps.release.outputs.tag }}"
+          target="${{ steps.release.outputs.target }}"
+          git fetch --tags --force
+          if git show-ref --verify --quiet "refs/tags/$tag"; then
+            current=$(git rev-list -n 1 "$tag")
+            test "$current" = "$target"
+            echo "$tag already exists at expected GOLD SHA"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$tag" "$target" -m "Series 02 v1.0.0 · JoyLab Release Gate GOLD"
+          git push origin "refs/tags/$tag"
