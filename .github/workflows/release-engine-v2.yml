@@ -1,0 +1,72 @@
+name: Release Engine V2
+
+on:
+  workflow_run:
+    workflows: ["Deploy to Cloudflare Workers"]
+    types: [completed]
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  release:
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout deployed commit
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+
+      - name: Download Release Gate artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/release-gate qa-artifacts/release-gate
+          artifact_id=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/artifacts" --jq '.artifacts[] | select(.name=="joylab-release-gate-v1") | .id' | head -n1)
+          test -n "$artifact_id"
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact_id/zip" > /tmp/release-gate.zip
+          unzip -q /tmp/release-gate.zip -d /tmp/release-gate
+          cp /tmp/release-gate/release-gate.json qa-artifacts/release-gate/release-gate.json
+
+      - name: Run Release Engine V2
+        run: node scripts/release-engine-v2.mjs
+
+      - name: Create immutable tag when publishing candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          result=qa-artifacts/release-engine-v2/result.json
+          should_tag=$(node -p "JSON.parse(require('fs').readFileSync('$result','utf8')).shouldTag")
+          if [ "$should_tag" != "true" ]; then
+            echo "Published release verified; no tag action required."
+            exit 0
+          fi
+          tag=$(node -p "JSON.parse(require('fs').readFileSync('$result','utf8')).tag")
+          sha=$(node -p "JSON.parse(require('fs').readFileSync('$result','utf8')).commitSha")
+          refs=$(git ls-remote --tags origin "refs/tags/$tag" "refs/tags/$tag^{}")
+          direct=$(printf '%s\n' "$refs" | awk -v ref="refs/tags/$tag" '$2==ref {print $1}')
+          peeled=$(printf '%s\n' "$refs" | awk -v ref="refs/tags/$tag^{}" '$2==ref {print $1}')
+          existing="${peeled:-$direct}"
+          if [ -n "$existing" ]; then
+            test "$existing" = "$sha"
+            echo "$tag already resolves to $sha"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "$tag" "$sha" -m "$tag · JoyLab Release Engine V2 GOLD"
+          git push origin "refs/tags/$tag"
+
+      - name: Upload Release Engine V2 evidence
+        uses: actions/upload-artifact@v6
+        with:
+          name: release-engine-v2
+          path: qa-artifacts/release-engine-v2
+          if-no-files-found: error
+          retention-days: 365
