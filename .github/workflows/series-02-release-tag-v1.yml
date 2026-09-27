@@ -1,0 +1,83 @@
+name: Series 02 Release Tag V1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/series-02-release-tag-v1.yml'
+  workflow_dispatch:
+    inputs:
+      target_sha:
+        description: 'Published GOLD commit SHA'
+        required: false
+        type: string
+      tag:
+        description: 'Release tag'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Resolve release target
+        id: release
+        shell: bash
+        run: |
+          set -euo pipefail
+          TARGET_SHA="${{ inputs.target_sha }}"
+          TAG="${{ inputs.tag }}"
+          [ -n "$TARGET_SHA" ] || TARGET_SHA="bd8130c136cdd175a71df3b9c80580f5b0363362"
+          [ -n "$TAG" ] || TAG="series-02-v1.0.0"
+          echo "target_sha=$TARGET_SHA" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Verify published release metadata
+        env:
+          TARGET_SHA: ${{ steps.release.outputs.target_sha }}
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          node <<'NODE'
+          const fs=require('fs');
+          const release=JSON.parse(fs.readFileSync('config/series-02-release-v1.json','utf8'));
+          if(release.state!=='published') throw new Error('release metadata is not published');
+          if(release.publishedCommitSha!==process.env.TARGET_SHA) throw new Error('target SHA does not match published release metadata');
+          if(release.tag!==process.env.TAG) throw new Error('tag does not match published release metadata');
+                    const manifest=JSON.parse(fs.readFileSync('public/studio/releases/series-02/v1-0-0/immutable-release-manifest.json','utf8'));
+          if(manifest.releaseGate?.status!=='GOLD') throw new Error('immutable manifest is not GOLD');
+          if(manifest.commitSha!==process.env.TARGET_SHA) throw new Error('manifest commit SHA mismatch');
+          if(manifest.tag!==process.env.TAG) throw new Error('manifest tag mismatch');
+          console.log('Published release metadata + GOLD manifest verified');
+          NODE
+
+      - name: Create immutable release tag
+        env:
+          TARGET_SHA: ${{ steps.release.outputs.target_sha }}
+          TAG: ${{ steps.release.outputs.tag }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git cat-file -e "$TARGET_SHA^{commit}"
+          refs=$(git ls-remote --tags origin "refs/tags/$TAG" "refs/tags/$TAG^{}")
+          direct=$(printf '%s\n' "$refs" | awk -v ref="refs/tags/$TAG" '$2==ref {print $1}')
+          peeled=$(printf '%s\n' "$refs" | awk -v ref="refs/tags/$TAG^{}" '$2==ref {print $1}')
+          existing="${peeled:-$direct}"
+          if [ -n "$existing" ]; then
+            if [ "$existing" = "$TARGET_SHA" ]; then
+              echo "$TAG already resolves to GOLD SHA $TARGET_SHA"
+              exit 0
+            fi
+            echo "Refusing to move immutable tag $TAG from $existing to $TARGET_SHA"
+            exit 1
+          fi
+          git tag "$TAG" "$TARGET_SHA"
+          git push origin "refs/tags/$TAG"
+          echo "Created immutable tag $TAG -> $TARGET_SHA"
