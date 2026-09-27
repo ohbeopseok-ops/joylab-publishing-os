@@ -1,0 +1,13 @@
+{
+  "contract": "JoyLab Release Candidate V2",
+  "projectId": "series-02",
+  "releaseId": "series-02-v1.0.0",
+  "version": "1.0.0",
+  "tag": "series-02-v1.0.0",
+  "state": "published",
+  "canonicalSource": "src/data/studio/series-02-source.json",
+  "requiredReadyChapters": 15,
+  "publishedCommitSha": "bd8130c136cdd175a71df3b9c80580f5b0363362",
+  "sourceSha256": "495451d5afcf6621573b0914c770554a006946730133bf884e5a298c7a0386c8",
+  "supersedeOnly": true
+}
