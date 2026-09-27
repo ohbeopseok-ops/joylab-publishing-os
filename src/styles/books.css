@@ -873,3 +873,39 @@
     font-size: clamp(2.55rem,5vw,3.25rem);
   }
 }
+
+
+/* Books Hub tablet density — keep library scannable as the catalog grows */
+@media (min-width:641px) and (max-width:900px){
+  .books-hub-v2 .books-v2-library-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:16px;
+  }
+  .books-hub-v2 .books-v2-book{
+    grid-template-columns:96px minmax(0,1fr);
+    gap:14px;
+    padding:16px;
+    border-radius:16px;
+  }
+  .books-hub-v2 .books-v2-book h3{
+    margin:6px 0;
+    font-size:1.18rem;
+    line-height:1.35;
+  }
+  .books-hub-v2 .books-v2-book small{
+    font-size:.68rem;
+    line-height:1.35;
+  }
+  .books-hub-v2 .books-v2-book p{
+    display:-webkit-box;
+    overflow:hidden;
+    margin:6px 0 8px;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:3;
+    font-size:.84rem;
+    line-height:1.5;
+  }
+  .books-hub-v2 .books-v2-link{
+    font-size:.82rem;
+  }
+}
