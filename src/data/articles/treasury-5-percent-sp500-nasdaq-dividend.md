@@ -24,12 +24,12 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "미국 국채금리 5% 환경에서 S&P500 나스닥 고배당주의 차이를 비교한 JoyLab 대표 이미지"
 ---
 
-미국 10년물 국채금리가 5%를 넘는 환경에서는 모든 주식이 같은 방식으로 움직이지 않습니다.
+미국 10년물 국채금리가 5%를 넘는 환경에서는 모든 주식이 같은 방식으로 움직이지 않습니다. [U.S. Treasury](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve)
 
 → [AI Power Infrastructure 전체 투자 지도](/guides/ai-power-infrastructure)
 
 
-2026년 9월 25일 미국 재무부 공식 수익률 기준 10년물은 **5.17%**, 30년물은 **5.49%**였습니다.
+2026년 9월 25일 미국 재무부 공식 수익률 기준 10년물은 **5.17%**, 30년물은 **5.49%**였습니다. [U.S. Treasury](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve)
 
 이때 중요한 질문은 "금리가 높으니 주식이 모두 약한가?"가 아닙니다.
 
@@ -59,7 +59,7 @@ S&P500에는 기술주뿐 아니라 금융, 산업재, 헬스케어, 에너지 �
 
 고배당주는 투자자가 현금흐름을 위해 보유하는 경우가 많습니다.
 
-국채수익률이 5%를 넘으면 배당수익률 3~4% 수준의 종목은 채권과 직접 경쟁해야 합니다.
+국채수익률이 배당수익률보다 높아지면 고배당 종목은 채권과 직접 경쟁해야 합니다.
 
 특히 유틸리티·리츠처럼 부채가 많고 CAPEX가 큰 업종은 자본비용까지 상승해 이중 부담을 받습니다.
 
@@ -85,7 +85,7 @@ AI 전력주는 성장주와 고배당주의 성격을 동시에 일부 갖습�
 
 ## 결론
 
-금리 5% 시대에는 "주식이냐 채권이냐"보다 **어떤 기업이 높은 자본비용을 감당하면서 이익을 키울 수 있는가**가 더 중요합니다.
+고금리 환경에서는 "주식이냐 채권이냐"보다 **어떤 기업이 높은 자본비용을 감당하면서 이익을 키울 수 있는가**가 더 중요합니다.
 
 S&P500은 분산과 이익 확산, 나스닥은 EPS 성장, 고배당주는 배당과 자본비용이 핵심 변수입니다.
 
