@@ -100,11 +100,24 @@ for (const viewport of viewports) {
     page.on('console', (msg) => {
       if (msg.type() !== 'error') return;
       const text = msg.text();
+      const locationUrl = msg.location()?.url || '';
       const benignGoogleReportOnlyFrameError =
         text.includes('[Report Only]') &&
         text.includes("Refused to frame 'https://www.google.com/'") &&
         text.includes("frame-ancestors 'self'");
-      if (!benignGoogleReportOnlyFrameError) errors.push('console: ' + text);
+      const benignGoogleAdRuntimeError =
+        text.includes('pagead2.googlesyndication.com/pagead/js/rum.js') ||
+        locationUrl.includes('pagead2.googlesyndication.com/pagead/js/rum.js');
+      const benignFundingChoicesNetworkError =
+        text.includes('fundingchoicesmessages.google.com') ||
+        locationUrl.includes('fundingchoicesmessages.google.com');
+      if (
+        !benignGoogleReportOnlyFrameError &&
+        !benignGoogleAdRuntimeError &&
+        !benignFundingChoicesNetworkError
+      ) {
+        errors.push('console: ' + text);
+      }
     });
 
     const response = await page.goto(baseURL + item.path, { waitUntil: 'networkidle' });
