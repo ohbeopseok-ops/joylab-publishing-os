@@ -35,8 +35,13 @@ for(const viewport of [
   const fields=last.locator('textarea');
   const fieldCount=await fields.count();
   for(let i=0;i<fieldCount;i++) await fields.nth(i).fill('Series 02 GOLD QA '+viewport.name+' field '+(i+1));
-  await last.locator('button[type="submit"]').click();
-  await page.waitForTimeout(150);
+  const form = last.locator('form');
+  await form.evaluate((node) => {
+    if (!(node instanceof HTMLFormElement)) throw new Error('chapter 15 form missing');
+    node.requestSubmit();
+  });
+  await last.locator('[data-result]').waitFor({ state: 'visible', timeout: 5000 });
+  await page.waitForTimeout(100);
 
   const resultText=await last.locator('[data-result]').innerText();
   if(!resultText.includes('저장 완료')) failures.push(viewport.name+': chapter 15 save result missing');
