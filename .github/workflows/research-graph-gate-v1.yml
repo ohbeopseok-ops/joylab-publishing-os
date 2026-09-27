@@ -1,0 +1,49 @@
+name: Research Graph Gate V1
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'config/research-graph-ai-power-v1.json'
+      - 'config/research-graph-ai-power-v1.schema.json'
+      - 'src/lib/research-graph-contract.ts'
+      - 'src/components/AiPowerResearchMap.astro'
+      - 'src/components/AiPowerResearchNav.astro'
+      - 'src/pages/guides/ai-power-infrastructure.astro'
+      - 'src/pages/articles/[...slug].astro'
+      - 'src/data/articles/**'
+      - 'scripts/check-research-graph-v1.mjs'
+      - '.github/workflows/research-graph-gate-v1.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'config/research-graph-ai-power-v1.json'
+      - 'config/research-graph-ai-power-v1.schema.json'
+      - 'src/lib/research-graph-contract.ts'
+      - 'src/components/AiPowerResearchMap.astro'
+      - 'src/components/AiPowerResearchNav.astro'
+      - 'src/pages/guides/ai-power-infrastructure.astro'
+      - 'src/pages/articles/[...slug].astro'
+      - 'src/data/articles/**'
+      - 'scripts/check-research-graph-v1.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research-graph:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Validate Research Graph contract and integrity
+        run: npm run research-graph:check
+      - name: Build production site
+        run: |
+          npm ci
+          npm run build
