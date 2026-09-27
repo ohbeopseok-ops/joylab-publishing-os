@@ -40,7 +40,10 @@ if(action==='promote'){
   const gate=fs.existsSync(gatePath)?JSON.parse(fs.readFileSync(gatePath,'utf8')):{};
   if(gate.status!=='GOLD') fail.push('release gate must be GOLD');
   if(!gate.commitSha) fail.push('release gate commit SHA missing');
+  if(process.env.GITHUB_SHA && gate.commitSha!==process.env.GITHUB_SHA) fail.push('GOLD gate SHA must equal checked-out GITHUB_SHA: '+gate.commitSha+' != '+process.env.GITHUB_SHA);
   if(spec.state!=='release-candidate') fail.push('promote requires release-candidate state');
+  const immutableOut=path.resolve(root,spec.manifestPath);
+  if(fs.existsSync(immutableOut)) fail.push('immutable manifest already exists; publish a new version/path instead: '+spec.manifestPath);
   if(fail.length){fail.forEach((x)=>console.error('- '+x));process.exit(1);}
 
   const manifest={
@@ -59,9 +62,9 @@ if(action==='promote'){
     immutability:{rule:'version + tag + GOLD commit SHA + source SHA256 are immutable',supersedeOnly:true},
     publishedAt:new Date().toISOString()
   };
-  const out=path.resolve(root,spec.manifestPath);
+  const out=immutableOut;
   fs.mkdirSync(path.dirname(out),{recursive:true});
-  fs.writeFileSync(out,JSON.stringify(manifest,null,2)+'\n');
+  fs.writeFileSync(out,JSON.stringify(manifest,null,2)+'\n',{flag:'wx'});
   console.log('JoyLab Release Engine V2 PROMOTED');
   console.log(JSON.stringify({manifest:spec.manifestPath,tag:spec.tag,commitSha:gate.commitSha},null,2));
   process.exit(0);
