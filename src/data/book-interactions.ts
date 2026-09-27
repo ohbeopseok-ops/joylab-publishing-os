@@ -348,6 +348,35 @@ const workToSystem: BookInteractionMap = {
       placeholder: '예: 현장 20초 기록 / PC에서 주간 패턴 분석'
     }
   ],
+  13: [
+    {
+      type: 'canvas',
+      id: 'coaching-three-tab',
+      title: 'LeaderDesk Coaching 3-Tab Canvas',
+      description: '현장 행동을 기록 / 오늘 / 더보기로 나누고 각 탭의 역할을 한 문장으로 고정합니다.',
+      completionMin: 3,
+      fields: [
+        { key: 'capture', label: '기록', prompt: '20~30초 안에 무엇을 남길까요?', placeholder: '예: 기억파편 + STT 원문' },
+        { key: 'today', label: '오늘', prompt: '당일 무엇을 다시 확인할까요?', placeholder: '예: Follow-up + 최근 기록' },
+        { key: 'more', label: '더보기', prompt: '가끔 쓰는 관리 기능은 무엇인가요?', placeholder: '예: 정식 면담 + 백업/복원' }
+      ]
+    }
+  ],
+  14: [
+    {
+      type: 'canvas',
+      id: 'ops-daily-board',
+      title: 'LeaderDesk Ops Daily Board',
+      description: 'PC에서 한 화면에 연결해서 판단해야 할 네 가지 운영 정보를 정의합니다.',
+      completionMin: 4,
+      fields: [
+        { key: 'people', label: 'PEOPLE', prompt: '누구를 먼저 볼까요?', placeholder: '예: 오늘 우선 개입 TOP3' },
+        { key: 'kpi', label: 'KPI', prompt: '어떤 숫자를 함께 볼까요?', placeholder: '예: 실행률 / Auto QA / AHT / NPS' },
+        { key: 'followup', label: 'FOLLOW-UP', prompt: '오늘 재점검할 일은?', placeholder: '예: 당일 16시 / 익일 10시' },
+        { key: 'routine', label: 'ROUTINE', prompt: '시간대별 운영 루틴은?', placeholder: '예: 10·12·16·18시 체크' }
+      ]
+    }
+  ],
   15: [
     {
       type: 'action',
