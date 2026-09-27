@@ -7,6 +7,8 @@ publishedAt: 2026-09-27
 updatedAt: 2026-09-27
 featuredAt: 2026-09-27
 category: "AI·생산성"
+coverImage: "/images/books/work-to-system-cover.svg"
+ogImage: "/images/books/work-to-system-og.svg"
 tags:
   - 업무시스템
   - 운영OS
@@ -31,8 +33,7 @@ releasePath: "/studio/releases/series-02/v1-0-0/"
 releaseCta: "v1.0.0 EPUB·PDF 릴리스"
 epubPath: "/studio/exports/series-02-memory-debt.epub"
 pdfPath: "/studio/exports/series-02-memory-debt-print.pdf"
-relatedArticleIds:
-  - "ai-productivity-operating-model"
+relatedArticleIds: ["ai-productivity-operating-model"]
 overline: "JOYLAB BUILD SERIES 02 · WORK TO SYSTEM"
 topics:
   - "기억 부채"
