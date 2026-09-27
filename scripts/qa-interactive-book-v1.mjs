@@ -92,6 +92,19 @@ for (const viewport of [
   await density.locator('.book-interactive-density-options button[data-value="5"]').click();
   await density.locator('textarea').fill('현장에서는 최근 흐름만 빠르게 확인하면 되므로 5건이면 충분하다.');
 
+  const splitContext = page.locator('[data-interaction-id="split-context"]');
+  await splitContext.locator('textarea').fill('현장 20초 기록 / PC에서 주간 패턴 분석');
+
+  const coachingRule = page.locator('[data-interaction-id="coaching-capture-rule"]');
+  await coachingRule.locator('textarea').fill('대상 + 관찰 사실 + 다음 확인만 남기고 세부 분류는 PC에서 보강한다.');
+
+  const opsBoard = page.locator('[data-interaction-id="ops-recovery-board"]');
+  await opsBoard.locator('textarea').fill('최근 기억파편 / KPI 변화 / 오늘 Follow-up');
+
+  const sameData = page.locator('[data-interaction-id="same-data-different-ui"]');
+  const sameDataChecks = sameData.locator('input[type="checkbox"]');
+  for (let i = 0; i < await sameDataChecks.count(); i++) await sameDataChecks.nth(i).check();
+
   await page.waitForTimeout(350);
   await page.locator('#series02-open-records').click();
   await page.waitForTimeout(100);
@@ -114,6 +127,12 @@ for (const viewport of [
     const robots = document.querySelector('meta[name="robots"]')?.getAttribute('content');
     const raw = localStorage.getItem('joylab-book-work-to-system-lab-interactive-forms');
     const forms = raw ? JSON.parse(raw) : {};
+    const notesRaw = localStorage.getItem('joylab-book-work-to-system-lab-interactive-notes');
+    const notes = notesRaw ? JSON.parse(notesRaw) : {};
+    const actionRaw = localStorage.getItem('joylab-book-work-to-system-lab-interactive-action');
+    const actions = actionRaw ? JSON.parse(actionRaw) : {};
+    const chapterCount = document.querySelectorAll('[data-reader-chapter]').length;
+    const interactionCount = document.querySelectorAll('[data-interaction-id]').length;
     const viewportWidth = window.innerWidth;
     const overflow = Math.max(document.body.scrollWidth, document.documentElement.scrollWidth) - viewportWidth;
     return {
@@ -134,6 +153,10 @@ for (const viewport of [
       hasSavedResultsHeading: Array.from(document.querySelectorAll('#book-interactive-panel-body h3')).some((el) => el.textContent?.trim() === '실습 결과'),
       artifactCount: document.getElementById('book-artifact-count')?.textContent?.trim(),
       formsKeys: Object.keys(forms).sort(),
+      notesKeys: Object.keys(notes).sort(),
+      actionKeys: Object.keys(actions).sort(),
+      chapterCount,
+      interactionCount,
       robots,
       overflow
     };
@@ -141,7 +164,7 @@ for (const viewport of [
 
   const checks = {
     httpOk: status >= 200 && status < 400,
-    noindex: metrics.robots === 'noindex,nofollow',
+    indexablePublishedReader: metrics.robots === 'index,follow',
     noHorizontalOverflow: metrics.overflow <= 1,
     noPageErrors: pageErrors.length === 0,
     memoryDebtSaved: metrics.formsKeys.some((key) => key.endsWith(':memory-debt')),
@@ -169,17 +192,23 @@ for (const viewport of [
     densitySaved: metrics.formsKeys.some((key) => key.endsWith(':information-density')),
     recordsPanelOpen: metrics.panelOpen === true,
     savedResultsVisible: metrics.hasSavedResultsHeading === true,
+    chapterCountIs15: metrics.chapterCount === 15,
+    interactionCountIs15: metrics.interactionCount >= 15,
+    splitContextSaved: metrics.notesKeys.some((key) => key.endsWith(':split-context')),
+    coachingRuleSaved: metrics.notesKeys.some((key) => key.endsWith(':coaching-capture-rule')),
+    opsBoardSaved: metrics.notesKeys.some((key) => key.endsWith(':ops-recovery-board')),
+    sameDataChecklistSaved: metrics.actionKeys.filter((key) => key.includes(':same-data-different-ui:')).length === 4,
     elevenArtifacts: Number(metrics.artifactCount) >= 11
   };
 
-  const screenshot = path.join(outputDir, `series02-ch01-11-${viewport.name}.png`);
+  const screenshot = path.join(outputDir, `series02-ch01-15-${viewport.name}.png`);
   await page.screenshot({ path: screenshot, fullPage: true });
 
   const passed = Object.values(checks).every(Boolean);
   report.push({ viewport, status, metrics, pageErrors, checks, passed, screenshot });
   if (!passed) failures.push(viewport.name);
 
-  console.log(`${passed ? 'PASS' : 'FAIL'} Interactive Book V1 Ch01-11 ${viewport.name} score=${metrics.score} band=${metrics.band} artifacts=${metrics.artifactCount}`);
+  console.log(`${passed ? 'PASS' : 'FAIL'} Interactive Book V1 Ch01-15 ${viewport.name} score=${metrics.score} band=${metrics.band} artifacts=${metrics.artifactCount}`);
   await context.close();
 }
 
