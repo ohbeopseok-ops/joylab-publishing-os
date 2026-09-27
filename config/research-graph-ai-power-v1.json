@@ -1,6 +1,6 @@
 {
   "contract": "JoyLab.ResearchGraph",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "pillar": {
     "id": "ai-power-infrastructure",
     "title": "AI Power Infrastructure",
@@ -9,87 +9,980 @@
     "status": "published"
   },
   "nodes": [
-    {"id":"ai-power-infrastructure","type":"pillar","label":"AI Power Infrastructure","articleUrl":"/guides/ai-power-infrastructure","stage":"pillar"},
-    {"id":"us-30y","type":"macro","label":"US 30Y Treasury","stage":"macro"},
-    {"id":"cost-of-capital","type":"macro","label":"Cost of Capital","stage":"macro"},
-    {"id":"ai-data-center-demand","type":"demand","label":"AI Data Center Demand","stage":"value_chain"},
-    {"id":"power-demand","type":"demand","label":"Power Demand","stage":"value_chain"},
-    {"id":"generation","type":"value_chain","label":"Generation","stage":"value_chain"},
-    {"id":"grid","type":"value_chain","label":"Grid","stage":"value_chain"},
-    {"id":"transformer","type":"bottleneck","label":"Transformer","stage":"value_chain"},
-    {"id":"electrical-equipment","type":"value_chain","label":"Electrical Equipment","stage":"value_chain"},
-    {"id":"ls-electric","type":"company","label":"LS ELECTRIC","ticker":"010120","market":"KRX","stage":"company"},
-    {"id":"hd-hyundai-electric","type":"company","label":"HD현대일렉트릭","ticker":"267260","market":"KRX","stage":"company"},
-    {"id":"eaton","type":"company","label":"Eaton","ticker":"ETN","market":"NYSE","stage":"company"},
-    {"id":"ge-vernova","type":"company","label":"GE Vernova","ticker":"GEV","market":"NYSE","stage":"company"},
-    {"id":"orders","type":"kpi","label":"Orders","stage":"kpi"},
-    {"id":"backlog","type":"kpi","label":"Backlog","stage":"kpi"},
-    {"id":"margin","type":"kpi","label":"Operating Margin","stage":"kpi"},
-    {"id":"eps","type":"earnings","label":"EPS","stage":"kpi"},
-    {"id":"eps-revision","type":"earnings","label":"EPS Revision","stage":"valuation"},
-    {"id":"forward-per","type":"valuation","label":"Forward PER","stage":"valuation"},
-    {"id":"ev-ebitda","type":"valuation","label":"EV / EBITDA","stage":"valuation"},
-    {"id":"article-us-30y-risk","type":"article","label":"미국 30년물 5%대가 10년물보다 더 위험한 이유","articleUrl":"/articles/us-30y-treasury-5-percent-risk-2026","stage":"macro"},
-    {"id":"article-ai-power-bottleneck","type":"article","label":"GPU 다음 병목은 발전소다","articleUrl":"/articles/ai-power-next-bottleneck","stage":"value_chain"},
-    {"id":"article-grid-transformer","type":"article","label":"AI 전력기기 투자 지도","articleUrl":"/articles/ai-power-grid-transformer-distribution","stage":"value_chain"},
-    {"id":"article-hd-electric","type":"article","label":"HD현대일렉트릭 AI 전력 분석","articleUrl":"/articles/hd-hyundai-electric-ai-power","stage":"company"},
-    {"id":"article-ls-electric","type":"article","label":"LS ELECTRIC AI 전력 분석","articleUrl":"/articles/ls-electric-ai-power","stage":"company"},
-    {"id":"article-korea-ai-power-compare","type":"article","label":"AI 전력 4사 비교","articleUrl":"/articles/korea-ai-power-companies-compare","stage":"valuation"}
+    {
+      "id": "ai-power-infrastructure",
+      "type": "pillar",
+      "label": "AI Power Infrastructure",
+      "articleUrl": "/guides/ai-power-infrastructure",
+      "stage": "pillar"
+    },
+    {
+      "id": "us-30y",
+      "type": "macro",
+      "label": "US 30Y Treasury",
+      "stage": "macro"
+    },
+    {
+      "id": "cost-of-capital",
+      "type": "macro",
+      "label": "Cost of Capital",
+      "stage": "macro"
+    },
+    {
+      "id": "ai-data-center-demand",
+      "type": "demand",
+      "label": "AI Data Center Demand",
+      "stage": "value_chain"
+    },
+    {
+      "id": "power-demand",
+      "type": "demand",
+      "label": "Power Demand",
+      "stage": "value_chain"
+    },
+    {
+      "id": "generation",
+      "type": "value_chain",
+      "label": "Generation",
+      "stage": "value_chain"
+    },
+    {
+      "id": "grid",
+      "type": "value_chain",
+      "label": "Grid",
+      "stage": "value_chain"
+    },
+    {
+      "id": "transformer",
+      "type": "bottleneck",
+      "label": "Transformer",
+      "stage": "value_chain"
+    },
+    {
+      "id": "electrical-equipment",
+      "type": "value_chain",
+      "label": "Electrical Equipment",
+      "stage": "value_chain"
+    },
+    {
+      "id": "ls-electric",
+      "type": "company",
+      "label": "LS ELECTRIC",
+      "ticker": "010120",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "hd-hyundai-electric",
+      "type": "company",
+      "label": "HD현대일렉트릭",
+      "ticker": "267260",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "eaton",
+      "type": "company",
+      "label": "Eaton",
+      "ticker": "ETN",
+      "market": "NYSE",
+      "stage": "company"
+    },
+    {
+      "id": "ge-vernova",
+      "type": "company",
+      "label": "GE Vernova",
+      "ticker": "GEV",
+      "market": "NYSE",
+      "stage": "company"
+    },
+    {
+      "id": "orders",
+      "type": "kpi",
+      "label": "Orders",
+      "stage": "kpi"
+    },
+    {
+      "id": "backlog",
+      "type": "kpi",
+      "label": "Backlog",
+      "stage": "kpi"
+    },
+    {
+      "id": "margin",
+      "type": "kpi",
+      "label": "Operating Margin",
+      "stage": "kpi"
+    },
+    {
+      "id": "eps",
+      "type": "earnings",
+      "label": "EPS",
+      "stage": "kpi"
+    },
+    {
+      "id": "eps-revision",
+      "type": "earnings",
+      "label": "EPS Revision",
+      "stage": "valuation"
+    },
+    {
+      "id": "forward-per",
+      "type": "valuation",
+      "label": "Forward PER",
+      "stage": "valuation"
+    },
+    {
+      "id": "ev-ebitda",
+      "type": "valuation",
+      "label": "EV / EBITDA",
+      "stage": "valuation"
+    },
+    {
+      "id": "article-us-30y-risk",
+      "type": "article",
+      "label": "미국 30년물 5%대가 10년물보다 더 위험한 이유",
+      "articleUrl": "/articles/us-30y-treasury-5-percent-risk-2026",
+      "stage": "macro"
+    },
+    {
+      "id": "article-ai-power-bottleneck",
+      "type": "article",
+      "label": "GPU 다음 병목은 발전소다",
+      "articleUrl": "/articles/ai-power-next-bottleneck",
+      "stage": "value_chain"
+    },
+    {
+      "id": "article-grid-transformer",
+      "type": "article",
+      "label": "AI 전력기기 투자 지도",
+      "articleUrl": "/articles/ai-power-grid-transformer-distribution",
+      "stage": "value_chain"
+    },
+    {
+      "id": "article-hd-electric",
+      "type": "article",
+      "label": "HD현대일렉트릭 AI 전력 분석",
+      "articleUrl": "/articles/hd-hyundai-electric-ai-power",
+      "stage": "company"
+    },
+    {
+      "id": "article-ls-electric",
+      "type": "article",
+      "label": "LS ELECTRIC AI 전력 분석",
+      "articleUrl": "/articles/ls-electric-ai-power",
+      "stage": "company"
+    },
+    {
+      "id": "article-korea-ai-power-compare",
+      "type": "article",
+      "label": "AI 전력 4사 비교",
+      "articleUrl": "/articles/korea-ai-power-companies-compare",
+      "stage": "valuation"
+    },
+    {
+      "id": "us-10y",
+      "type": "macro",
+      "label": "US 10Y Treasury",
+      "stage": "macro"
+    },
+    {
+      "id": "utilities-sector",
+      "type": "sector",
+      "label": "S&P 500 Utilities",
+      "stage": "sector"
+    },
+    {
+      "id": "sp500",
+      "type": "sector",
+      "label": "S&P 500",
+      "stage": "sector"
+    },
+    {
+      "id": "nasdaq",
+      "type": "sector",
+      "label": "Nasdaq",
+      "stage": "sector"
+    },
+    {
+      "id": "dividend-stocks",
+      "type": "sector",
+      "label": "High Dividend Stocks",
+      "stage": "sector"
+    },
+    {
+      "id": "article-treasury-utilities-2026",
+      "type": "article",
+      "label": "국채금리 5%와 유틸리티",
+      "articleUrl": "/articles/treasury-5-percent-utilities-2026",
+      "stage": "macro"
+    },
+    {
+      "id": "article-treasury-market-2026",
+      "type": "article",
+      "label": "금리 5% 시대 S&P500·나스닥·고배당주",
+      "articleUrl": "/articles/treasury-5-percent-sp500-nasdaq-dividend",
+      "stage": "macro"
+    },
+    {
+      "id": "article-ai-power-value-chain-v2",
+      "type": "article",
+      "label": "AI 전력 수혜주 밸류체인",
+      "articleUrl": "/articles/ai-power-beneficiaries-value-chain",
+      "stage": "value_chain"
+    },
+    {
+      "id": "article-transformer-bottleneck-v2",
+      "type": "article",
+      "label": "AI 전력 병목은 변압기다",
+      "articleUrl": "/articles/ai-transformer-bottleneck-backlog-leadtime-margin",
+      "stage": "bottleneck"
+    },
+    {
+      "id": "article-ai-power-global-compare",
+      "type": "article",
+      "label": "LS·HD·Eaton·GE Vernova 비교",
+      "articleUrl": "/articles/ai-power-ls-hd-eaton-ge-compare",
+      "stage": "company"
+    },
+    {
+      "id": "article-ai-power-valuation-v2",
+      "type": "article",
+      "label": "AI 전력 밸류에이션 비교",
+      "articleUrl": "/articles/ai-power-valuation-eps-per-ev-ebitda",
+      "stage": "valuation"
+    }
   ],
   "edges": [
-    {"from":"us-30y","to":"cost-of-capital","type":"affects"},
-    {"from":"cost-of-capital","to":"ai-data-center-demand","type":"affects"},
-    {"from":"ai-data-center-demand","to":"power-demand","type":"drives"},
-    {"from":"power-demand","to":"generation","type":"requires"},
-    {"from":"generation","to":"grid","type":"supplies"},
-    {"from":"grid","to":"transformer","type":"requires"},
-    {"from":"transformer","to":"electrical-equipment","type":"supplies"},
-    {"from":"ls-electric","to":"transformer","type":"supplies"},
-    {"from":"ls-electric","to":"electrical-equipment","type":"supplies"},
-    {"from":"hd-hyundai-electric","to":"transformer","type":"supplies"},
-    {"from":"eaton","to":"electrical-equipment","type":"supplies"},
-    {"from":"ge-vernova","to":"generation","type":"supplies"},
-    {"from":"ge-vernova","to":"grid","type":"supplies"},
-    {"from":"orders","to":"backlog","type":"drives"},
-    {"from":"backlog","to":"margin","type":"drives_earnings"},
-    {"from":"margin","to":"eps","type":"drives_earnings"},
-    {"from":"eps","to":"eps-revision","type":"drives_earnings"},
-    {"from":"eps-revision","to":"forward-per","type":"valued_by"},
-    {"from":"eps-revision","to":"ev-ebitda","type":"valued_by"},
-    {"from":"article-us-30y-risk","to":"ai-power-infrastructure","type":"belongs_to"},
-    {"from":"article-ai-power-bottleneck","to":"ai-power-infrastructure","type":"belongs_to"},
-    {"from":"article-grid-transformer","to":"ai-power-infrastructure","type":"belongs_to"},
-    {"from":"article-hd-electric","to":"ai-power-infrastructure","type":"belongs_to"},
-    {"from":"article-ls-electric","to":"ai-power-infrastructure","type":"belongs_to"},
-    {"from":"article-korea-ai-power-compare","to":"ai-power-infrastructure","type":"belongs_to"},
-    {"from":"article-us-30y-risk","to":"us-30y","type":"covered_by"},
-    {"from":"article-ai-power-bottleneck","to":"ai-data-center-demand","type":"covered_by"},
-    {"from":"article-ai-power-bottleneck","to":"generation","type":"covered_by"},
-    {"from":"article-grid-transformer","to":"grid","type":"covered_by"},
-    {"from":"article-grid-transformer","to":"transformer","type":"covered_by"},
-    {"from":"article-hd-electric","to":"hd-hyundai-electric","type":"covered_by"},
-    {"from":"article-hd-electric","to":"transformer","type":"covered_by"},
-    {"from":"article-ls-electric","to":"ls-electric","type":"covered_by"},
-    {"from":"article-ls-electric","to":"electrical-equipment","type":"covered_by"},
-    {"from":"article-korea-ai-power-compare","to":"forward-per","type":"covered_by"},
-    {"from":"article-korea-ai-power-compare","to":"margin","type":"covered_by"},
-    {"from":"article-us-30y-risk","to":"article-ai-power-bottleneck","type":"next"},
-    {"from":"article-ai-power-bottleneck","to":"article-us-30y-risk","type":"previous"},
-    {"from":"article-ai-power-bottleneck","to":"article-grid-transformer","type":"next"},
-    {"from":"article-grid-transformer","to":"article-ai-power-bottleneck","type":"previous"},
-    {"from":"article-grid-transformer","to":"article-hd-electric","type":"next"},
-    {"from":"article-hd-electric","to":"article-grid-transformer","type":"previous"},
-    {"from":"article-hd-electric","to":"article-ls-electric","type":"next"},
-    {"from":"article-ls-electric","to":"article-hd-electric","type":"previous"},
-    {"from":"article-ls-electric","to":"article-korea-ai-power-compare","type":"next"},
-    {"from":"article-korea-ai-power-compare","to":"article-ls-electric","type":"previous"}
+    {
+      "from": "us-30y",
+      "to": "cost-of-capital",
+      "type": "affects"
+    },
+    {
+      "from": "cost-of-capital",
+      "to": "ai-data-center-demand",
+      "type": "affects"
+    },
+    {
+      "from": "ai-data-center-demand",
+      "to": "power-demand",
+      "type": "drives"
+    },
+    {
+      "from": "power-demand",
+      "to": "generation",
+      "type": "requires"
+    },
+    {
+      "from": "generation",
+      "to": "grid",
+      "type": "supplies"
+    },
+    {
+      "from": "grid",
+      "to": "transformer",
+      "type": "requires"
+    },
+    {
+      "from": "transformer",
+      "to": "electrical-equipment",
+      "type": "supplies"
+    },
+    {
+      "from": "ls-electric",
+      "to": "transformer",
+      "type": "supplies"
+    },
+    {
+      "from": "ls-electric",
+      "to": "electrical-equipment",
+      "type": "supplies"
+    },
+    {
+      "from": "hd-hyundai-electric",
+      "to": "transformer",
+      "type": "supplies"
+    },
+    {
+      "from": "eaton",
+      "to": "electrical-equipment",
+      "type": "supplies"
+    },
+    {
+      "from": "ge-vernova",
+      "to": "generation",
+      "type": "supplies"
+    },
+    {
+      "from": "ge-vernova",
+      "to": "grid",
+      "type": "supplies"
+    },
+    {
+      "from": "orders",
+      "to": "backlog",
+      "type": "drives"
+    },
+    {
+      "from": "backlog",
+      "to": "margin",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "margin",
+      "to": "eps",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "eps",
+      "to": "eps-revision",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "eps-revision",
+      "to": "forward-per",
+      "type": "valued_by"
+    },
+    {
+      "from": "eps-revision",
+      "to": "ev-ebitda",
+      "type": "valued_by"
+    },
+    {
+      "from": "article-us-30y-risk",
+      "to": "ai-power-infrastructure",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-ai-power-bottleneck",
+      "to": "ai-power-infrastructure",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-grid-transformer",
+      "to": "ai-power-infrastructure",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-hd-electric",
+      "to": "ai-power-infrastructure",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-ls-electric",
+      "to": "ai-power-infrastructure",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-korea-ai-power-compare",
+      "to": "ai-power-infrastructure",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-us-30y-risk",
+      "to": "us-30y",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-bottleneck",
+      "to": "ai-data-center-demand",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-bottleneck",
+      "to": "generation",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-grid-transformer",
+      "to": "grid",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-grid-transformer",
+      "to": "transformer",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hd-electric",
+      "to": "hd-hyundai-electric",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hd-electric",
+      "to": "transformer",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ls-electric",
+      "to": "ls-electric",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ls-electric",
+      "to": "electrical-equipment",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-ai-power-compare",
+      "to": "forward-per",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-ai-power-compare",
+      "to": "margin",
+      "type": "covered_by"
+    },
+    {
+      "from": "us-10y",
+      "to": "cost-of-capital",
+      "type": "affects"
+    },
+    {
+      "from": "us-10y",
+      "to": "utilities-sector",
+      "type": "affects"
+    },
+    {
+      "from": "us-10y",
+      "to": "sp500",
+      "type": "affects"
+    },
+    {
+      "from": "us-10y",
+      "to": "nasdaq",
+      "type": "affects"
+    },
+    {
+      "from": "us-10y",
+      "to": "dividend-stocks",
+      "type": "affects"
+    },
+    {
+      "from": "power-demand",
+      "to": "utilities-sector",
+      "type": "drives"
+    },
+    {
+      "from": "ls-electric",
+      "to": "orders",
+      "type": "measured_by"
+    },
+    {
+      "from": "ls-electric",
+      "to": "backlog",
+      "type": "measured_by"
+    },
+    {
+      "from": "ls-electric",
+      "to": "margin",
+      "type": "measured_by"
+    },
+    {
+      "from": "hd-hyundai-electric",
+      "to": "orders",
+      "type": "measured_by"
+    },
+    {
+      "from": "hd-hyundai-electric",
+      "to": "backlog",
+      "type": "measured_by"
+    },
+    {
+      "from": "hd-hyundai-electric",
+      "to": "margin",
+      "type": "measured_by"
+    },
+    {
+      "from": "eaton",
+      "to": "orders",
+      "type": "measured_by"
+    },
+    {
+      "from": "eaton",
+      "to": "backlog",
+      "type": "measured_by"
+    },
+    {
+      "from": "eaton",
+      "to": "margin",
+      "type": "measured_by"
+    },
+    {
+      "from": "ge-vernova",
+      "to": "orders",
+      "type": "measured_by"
+    },
+    {
+      "from": "ge-vernova",
+      "to": "backlog",
+      "type": "measured_by"
+    },
+    {
+      "from": "ge-vernova",
+      "to": "margin",
+      "type": "measured_by"
+    },
+    {
+      "from": "article-treasury-utilities-2026",
+      "to": "ai-power-infrastructure",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-treasury-utilities-2026",
+      "to": "us-10y",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-treasury-utilities-2026",
+      "to": "utilities-sector",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-treasury-utilities-2026",
+      "to": "cost-of-capital",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-treasury-market-2026",
+      "to": "ai-power-infrastructure",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-treasury-market-2026",
+      "to": "us-10y",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-treasury-market-2026",
+      "to": "sp500",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-treasury-market-2026",
+      "to": "nasdaq",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-treasury-market-2026",
+      "to": "dividend-stocks",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-treasury-market-2026",
+      "to": "cost-of-capital",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-value-chain-v2",
+      "to": "ai-power-infrastructure",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-ai-power-value-chain-v2",
+      "to": "utilities-sector",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-value-chain-v2",
+      "to": "generation",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-value-chain-v2",
+      "to": "grid",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-value-chain-v2",
+      "to": "transformer",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-value-chain-v2",
+      "to": "electrical-equipment",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-value-chain-v2",
+      "to": "ai-data-center-demand",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-transformer-bottleneck-v2",
+      "to": "ai-power-infrastructure",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-transformer-bottleneck-v2",
+      "to": "transformer",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-transformer-bottleneck-v2",
+      "to": "orders",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-transformer-bottleneck-v2",
+      "to": "backlog",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-transformer-bottleneck-v2",
+      "to": "margin",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-global-compare",
+      "to": "ai-power-infrastructure",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-ai-power-global-compare",
+      "to": "ls-electric",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-global-compare",
+      "to": "hd-hyundai-electric",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-global-compare",
+      "to": "eaton",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-global-compare",
+      "to": "ge-vernova",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-global-compare",
+      "to": "orders",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-global-compare",
+      "to": "backlog",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-global-compare",
+      "to": "margin",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-valuation-v2",
+      "to": "ai-power-infrastructure",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-ai-power-valuation-v2",
+      "to": "eps-revision",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-valuation-v2",
+      "to": "forward-per",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-valuation-v2",
+      "to": "ev-ebitda",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-valuation-v2",
+      "to": "backlog",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-valuation-v2",
+      "to": "margin",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-valuation-v2",
+      "to": "eps",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-ai-power-compare",
+      "to": "article-treasury-utilities-2026",
+      "type": "next"
+    },
+    {
+      "from": "article-treasury-utilities-2026",
+      "to": "article-korea-ai-power-compare",
+      "type": "previous"
+    },
+    {
+      "from": "article-treasury-utilities-2026",
+      "to": "article-treasury-market-2026",
+      "type": "next"
+    },
+    {
+      "from": "article-treasury-market-2026",
+      "to": "article-treasury-utilities-2026",
+      "type": "previous"
+    },
+    {
+      "from": "article-treasury-market-2026",
+      "to": "article-ai-power-value-chain-v2",
+      "type": "next"
+    },
+    {
+      "from": "article-ai-power-value-chain-v2",
+      "to": "article-treasury-market-2026",
+      "type": "previous"
+    },
+    {
+      "from": "article-ai-power-value-chain-v2",
+      "to": "article-transformer-bottleneck-v2",
+      "type": "next"
+    },
+    {
+      "from": "article-transformer-bottleneck-v2",
+      "to": "article-ai-power-value-chain-v2",
+      "type": "previous"
+    },
+    {
+      "from": "article-transformer-bottleneck-v2",
+      "to": "article-ai-power-global-compare",
+      "type": "next"
+    },
+    {
+      "from": "article-ai-power-global-compare",
+      "to": "article-transformer-bottleneck-v2",
+      "type": "previous"
+    },
+    {
+      "from": "article-ai-power-global-compare",
+      "to": "article-ai-power-valuation-v2",
+      "type": "next"
+    },
+    {
+      "from": "article-ai-power-valuation-v2",
+      "to": "article-ai-power-global-compare",
+      "type": "previous"
+    }
   ],
   "articles": [
-    {"id":"article-us-30y-risk","title":"미국 30년물 5%대가 10년물보다 더 위험한 이유","url":"/articles/us-30y-treasury-5-percent-risk-2026","order":1,"pillar":"ai-power-infrastructure","topics":["us-30y","cost-of-capital"],"stage":"macro","previous":null,"next":"article-ai-power-bottleneck","status":"published"},
-    {"id":"article-ai-power-bottleneck","title":"GPU 다음 병목은 발전소다｜AI 데이터센터 전력 수요가 바꾸는 투자 지도","url":"/articles/ai-power-next-bottleneck","order":2,"pillar":"ai-power-infrastructure","topics":["ai-data-center-demand","power-demand","generation"],"stage":"value_chain","previous":"article-us-30y-risk","next":"article-grid-transformer","status":"published"},
-    {"id":"article-grid-transformer","title":"AI 전력기기 투자 지도｜송전·변압·배전의 병목을 읽는 법","url":"/articles/ai-power-grid-transformer-distribution","order":3,"pillar":"ai-power-infrastructure","topics":["grid","transformer","electrical-equipment","backlog","margin"],"stage":"bottleneck","previous":"article-ai-power-bottleneck","next":"article-hd-electric","status":"published"},
-    {"id":"article-hd-electric","title":"HD현대일렉트릭 AI 전력 분석","url":"/articles/hd-hyundai-electric-ai-power","order":4,"pillar":"ai-power-infrastructure","topics":["hd-hyundai-electric","transformer","orders","backlog","margin"],"stage":"company","previous":"article-grid-transformer","next":"article-ls-electric","status":"published"},
-    {"id":"article-ls-electric","title":"LS ELECTRIC AI 전력 분석","url":"/articles/ls-electric-ai-power","order":5,"pillar":"ai-power-infrastructure","topics":["ls-electric","electrical-equipment","orders","backlog","margin"],"stage":"company","previous":"article-hd-electric","next":"article-korea-ai-power-compare","status":"published"},
-    {"id":"article-korea-ai-power-compare","title":"AI 전력 4사 비교｜두산에너빌리티·효성중공업·HD현대일렉트릭·LS ELECTRIC","url":"/articles/korea-ai-power-companies-compare","order":6,"pillar":"ai-power-infrastructure","topics":["ls-electric","hd-hyundai-electric","backlog","margin","eps-revision","forward-per"],"stage":"valuation","previous":"article-ls-electric","next":null,"status":"published"}
+    {
+      "id": "article-us-30y-risk",
+      "title": "미국 30년물 5%대가 10년물보다 더 위험한 이유",
+      "url": "/articles/us-30y-treasury-5-percent-risk-2026",
+      "order": 1,
+      "pillar": "ai-power-infrastructure",
+      "topics": [
+        "us-30y",
+        "cost-of-capital"
+      ],
+      "stage": "macro",
+      "previous": null,
+      "next": "article-ai-power-bottleneck",
+      "status": "published"
+    },
+    {
+      "id": "article-ai-power-bottleneck",
+      "title": "GPU 다음 병목은 발전소다｜AI 데이터센터 전력 수요가 바꾸는 투자 지도",
+      "url": "/articles/ai-power-next-bottleneck",
+      "order": 2,
+      "pillar": "ai-power-infrastructure",
+      "topics": [
+        "ai-data-center-demand",
+        "power-demand",
+        "generation"
+      ],
+      "stage": "value_chain",
+      "previous": "article-us-30y-risk",
+      "next": "article-grid-transformer",
+      "status": "published"
+    },
+    {
+      "id": "article-grid-transformer",
+      "title": "AI 전력기기 투자 지도｜송전·변압·배전의 병목을 읽는 법",
+      "url": "/articles/ai-power-grid-transformer-distribution",
+      "order": 3,
+      "pillar": "ai-power-infrastructure",
+      "topics": [
+        "grid",
+        "transformer",
+        "electrical-equipment",
+        "backlog",
+        "margin"
+      ],
+      "stage": "bottleneck",
+      "previous": "article-ai-power-bottleneck",
+      "next": "article-hd-electric",
+      "status": "published"
+    },
+    {
+      "id": "article-hd-electric",
+      "title": "HD현대일렉트릭 AI 전력 분석",
+      "url": "/articles/hd-hyundai-electric-ai-power",
+      "order": 4,
+      "pillar": "ai-power-infrastructure",
+      "topics": [
+        "hd-hyundai-electric",
+        "transformer",
+        "orders",
+        "backlog",
+        "margin"
+      ],
+      "stage": "company",
+      "previous": "article-grid-transformer",
+      "next": "article-ls-electric",
+      "status": "published"
+    },
+    {
+      "id": "article-ls-electric",
+      "title": "LS ELECTRIC AI 전력 분석",
+      "url": "/articles/ls-electric-ai-power",
+      "order": 5,
+      "pillar": "ai-power-infrastructure",
+      "topics": [
+        "ls-electric",
+        "electrical-equipment",
+        "orders",
+        "backlog",
+        "margin"
+      ],
+      "stage": "company",
+      "previous": "article-hd-electric",
+      "next": "article-korea-ai-power-compare",
+      "status": "published"
+    },
+    {
+      "id": "article-korea-ai-power-compare",
+      "title": "AI 전력 4사 비교｜두산에너빌리티·효성중공업·HD현대일렉트릭·LS ELECTRIC",
+      "url": "/articles/korea-ai-power-companies-compare",
+      "order": 6,
+      "pillar": "ai-power-infrastructure",
+      "topics": [
+        "ls-electric",
+        "hd-hyundai-electric",
+        "backlog",
+        "margin",
+        "eps-revision",
+        "forward-per"
+      ],
+      "stage": "valuation",
+      "previous": "article-ls-electric",
+      "next": "article-treasury-utilities-2026",
+      "status": "published"
+    },
+    {
+      "id": "article-treasury-utilities-2026",
+      "title": "국채금리 5% 돌파에 S&P500 유틸리티 52주 신저가",
+      "url": "/articles/treasury-5-percent-utilities-2026",
+      "order": 7,
+      "pillar": "ai-power-infrastructure",
+      "topics": [
+        "us-10y",
+        "utilities-sector",
+        "cost-of-capital"
+      ],
+      "stage": "macro",
+      "status": "published",
+      "previous": "article-korea-ai-power-compare",
+      "next": "article-treasury-market-2026"
+    },
+    {
+      "id": "article-treasury-market-2026",
+      "title": "미국 국채금리 5% 시대｜S&P500·나스닥·고배당주는 왜 다르게 움직이나",
+      "url": "/articles/treasury-5-percent-sp500-nasdaq-dividend",
+      "order": 8,
+      "pillar": "ai-power-infrastructure",
+      "topics": [
+        "us-10y",
+        "sp500",
+        "nasdaq",
+        "dividend-stocks",
+        "cost-of-capital"
+      ],
+      "stage": "macro",
+      "status": "published",
+      "previous": "article-treasury-utilities-2026",
+      "next": "article-ai-power-value-chain-v2"
+    },
+    {
+      "id": "article-ai-power-value-chain-v2",
+      "title": "AI 전력 수혜주는 누구인가｜유틸리티·발전·변압기·전력기기·데이터센터 밸류체인",
+      "url": "/articles/ai-power-beneficiaries-value-chain",
+      "order": 9,
+      "pillar": "ai-power-infrastructure",
+      "topics": [
+        "utilities-sector",
+        "generation",
+        "grid",
+        "transformer",
+        "electrical-equipment",
+        "ai-data-center-demand"
+      ],
+      "stage": "value_chain",
+      "status": "published",
+      "previous": "article-treasury-market-2026",
+      "next": "article-transformer-bottleneck-v2"
+    },
+    {
+      "id": "article-transformer-bottleneck-v2",
+      "title": "AI 전력 병목은 변압기다｜왜 주문잔고·리드타임·마진을 봐야 하나",
+      "url": "/articles/ai-transformer-bottleneck-backlog-leadtime-margin",
+      "order": 10,
+      "pillar": "ai-power-infrastructure",
+      "topics": [
+        "transformer",
+        "orders",
+        "backlog",
+        "margin"
+      ],
+      "stage": "bottleneck",
+      "status": "published",
+      "previous": "article-ai-power-value-chain-v2",
+      "next": "article-ai-power-global-compare"
+    },
+    {
+      "id": "article-ai-power-global-compare",
+      "title": "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova 비교｜AI 전력 수요를 누가 실적으로 바꾸나",
+      "url": "/articles/ai-power-ls-hd-eaton-ge-compare",
+      "order": 11,
+      "pillar": "ai-power-infrastructure",
+      "topics": [
+        "ls-electric",
+        "hd-hyundai-electric",
+        "eaton",
+        "ge-vernova",
+        "orders",
+        "backlog",
+        "margin"
+      ],
+      "stage": "company",
+      "status": "published",
+      "previous": "article-transformer-bottleneck-v2",
+      "next": "article-ai-power-valuation-v2"
+    },
+    {
+      "id": "article-ai-power-valuation-v2",
+      "title": "AI 전력 수혜주 밸류에이션 비교｜EPS Revision·PER·EV/EBITDA로 다시 보기",
+      "url": "/articles/ai-power-valuation-eps-per-ev-ebitda",
+      "order": 12,
+      "pillar": "ai-power-infrastructure",
+      "topics": [
+        "eps-revision",
+        "forward-per",
+        "ev-ebitda",
+        "backlog",
+        "margin",
+        "eps"
+      ],
+      "stage": "valuation",
+      "status": "published",
+      "previous": "article-ai-power-global-compare",
+      "next": null
+    }
   ]
 }
