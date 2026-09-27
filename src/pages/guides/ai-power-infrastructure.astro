@@ -5,6 +5,8 @@ import graph from '../../../config/research-graph-ai-power-v1.json';
 import '../../styles/semiconductor-guide-v2.css';
 import '../../styles/ai-power-research-map-v1.css';
 
+const publishedArticles = graph.articles.filter((article) => article.status === 'published');
+
 const stageLabel = {
   macro: 'MACRO',
   value_chain: 'VALUE CHAIN',
@@ -28,7 +30,7 @@ const schema = {
     {
       '@type': 'ItemList',
       '@id': 'https://aijoylab.kr/guides/ai-power-infrastructure#itemlist',
-      itemListElement: graph.articles.map((article, index) => ({
+      itemListElement: publishedArticles.map((article, index) => ({
         '@type': 'ListItem',
         position: index + 1,
         url: `https://aijoylab.kr${article.url}`,
@@ -70,7 +72,7 @@ const schema = {
             <span>#장기금리</span><span>#AI데이터센터</span><span>#Grid</span><span>#Transformer</span><span>#Backlog</span><span>#Valuation</span>
           </div>
           <div class="sg-hero__meta">
-            <span><strong>{graph.articles.length}</strong> Core Research</span>
+            <span><strong>{publishedArticles.length}</strong> Core Research</span>
             <span><strong>{graph.nodes.length}</strong> Graph Nodes</span>
             <span><strong>{graph.edges.length}</strong> Graph Edges</span>
           </div>
@@ -111,7 +113,7 @@ const schema = {
         </div>
 
         <div class="sg-path">
-          {graph.articles.map((article) => (
+          {publishedArticles.map((article) => (
             <article class="sg-card">
               <div class="sg-card__no">{String(article.order).padStart(2, '0')}</div>
               <div>
