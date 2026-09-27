@@ -18,7 +18,7 @@ for(const viewport of [
   const errors=[];
   page.on('pageerror',(e)=>errors.push(String(e)));
   page.on('console',(msg)=>{if(msg.type()==='error'&&!msg.text().includes('[Report Only]'))errors.push(msg.text())});
-  const response=await page.goto(baseURL+'/studio/demo/',{waitUntil:'networkidle'});
+  const response=await page.goto(baseURL+'/studio/demo',{waitUntil:'networkidle'});
   const sections=page.locator('.studio-chapter');
   const count=await sections.count();
   if(count!==15) failures.push(viewport.name+': chapter count '+count);
