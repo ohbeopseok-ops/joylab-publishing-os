@@ -37,6 +37,8 @@ const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site
 const cover = book.data.coverImage;
 const readerPath = book.data.readerPath ?? `/books/${book.id}/read`;
 const readerCta = book.data.readerCta ?? '지금 읽기 · 작가의 말 + 1장';
+const releasePath = book.data.releasePath;
+const releaseCta = book.data.releaseCta ?? '정식 릴리스 보기';
 const mindmapPath = book.data.mindmapPath;
 const overline = book.data.overline ?? '오늘도 조금 더 나답게 살아가는 당신에게';
 const topics = book.data.topics ?? ['성장과 회복', '관계와 공감', '일과 삶의 균형', '리더에게 필요한 태도'];
@@ -92,6 +94,15 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
             data-analytics-target={book.id}
             data-analytics-placement="book_hero_v2"
           >{readerCta} <span aria-hidden="true">→</span></a>
+          {releasePath && (
+            <a
+              class="book-v2-secondary"
+              href={releasePath}
+              data-analytics-event="book_release_open"
+              data-analytics-target={book.id}
+              data-analytics-placement="book_hero_v2"
+            >{releaseCta}</a>
+          )}
           {mindmapPath && (
             <a
               class="book-v2-secondary"
@@ -122,6 +133,7 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
       <a href="#recommend">추천 대상</a>
       <a href="#toc">목차</a>
       <a href={readerPath}>{book.data.access === 'full' ? '웹 리더' : '미리보기'}</a>
+      {releasePath && <a href={releasePath} data-analytics-event="book_release_open" data-analytics-target={book.id} data-analytics-placement="book_tabs">Release</a>}
       {mindmapPath && <a href={mindmapPath} data-analytics-event="book_mindmap_open" data-analytics-target={book.id} data-analytics-placement="book_tabs">마인드맵</a>}
       <a href="#author">저자 소개</a>
       <a href="#related">함께 읽으면 좋은 글</a>
@@ -225,6 +237,7 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
         data-analytics-target={book.id}
         data-analytics-placement="book_closing_v2"
       >{readerCta} →</a>
+      {releasePath && <a href={releasePath} data-analytics-event="book_release_open" data-analytics-target={book.id} data-analytics-placement="book_closing_v2">{releaseCta} →</a>}
     </section>
   </main>
 </BaseLayout>
