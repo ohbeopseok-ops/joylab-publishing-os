@@ -1,7 +1,17 @@
 # JoyLab AdSense Post-Approval Activation V1
 
 ## Status
-AdSense site approval is complete. Do not enable the JoyLab ad placement yet until CMP and the real `article-end` ad unit are configured.
+AdSense site approval is complete and the real `article-end` slot is registered as `1843494813`.
+
+Do not enable JoyLab ad placement until **all** pre-activation gates pass:
+- ads.txt is Authorized;
+- Production Release Gate is GOLD;
+- AdSense Policy Audit has HOLD = 0;
+- Privacy / Terms / Advertising Disclosure still match the implementation;
+- CMP is configured and tested where required;
+- Auto Ads / Auto Optimize remain OFF for the controlled pilot.
+
+Only after these gates pass may `AD_PLACEMENT.enabled` be changed from `false` to `true`.
 
 ## Phase 1 — Google CMP
 AdSense → Privacy & messaging → European regulations.
@@ -20,10 +30,11 @@ Create:
 - name: `joylab_article_end`
 - size: Responsive
 
-Copy only the generated numeric ad slot ID into:
-`src/config/adPlacement.ts`
+Registered production slot:
+- `joylab_article_end`
+- `data-ad-slot="1843494813"`
 
-Do not copy another site's slot ID and do not invent an ID.
+The slot ID is stored in `src/config/adPlacement.ts`. Do not copy another site's slot ID and do not invent an ID.
 
 ## Phase 3 — First rollout
 Enable only `article-end`.
