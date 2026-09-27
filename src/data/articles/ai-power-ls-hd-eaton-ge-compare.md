@@ -16,9 +16,24 @@ seoTitle: "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova 비교"
 series: "AI Power Infrastructure"
 seriesOrder: 11
 readingTime: "약 11분"
+investmentIndustries:
+  - ai-infrastructure
+investmentTheses:
+  - power-supercycle
+investmentCompanies:
+  - "LS ELECTRIC"
+  - "HD현대일렉트릭"
+  - "Eaton"
+  - "GE Vernova"
+investmentResearchType: "compare"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "LS ELECTRIC HD현대일렉트릭 Eaton GE Vernova AI 전력 4사를 비교한 JoyLab 대표 이미지"
 ---
 
 AI 전력 수혜주를 비교할 때 가장 먼저 버려야 할 질문은 "어느 회사가 가장 좋은가"입니다.
+
+→ [AI Power Infrastructure 전체 투자 지도](/guides/ai-power-infrastructure)
+
 
 네 기업은 같은 전력 인프라 안에서도 맡는 역할이 다릅니다.
 
@@ -96,3 +111,10 @@ LS ELECTRIC은 데이터센터 가까운 배전과 변압기, HD현대일렉트�
 - [HD현대일렉트릭 2Q26](https://www.hd-hyundaielectric.com/elect/m/ko/PR/newsView.jsp?commBoardSeq=6175)
 - [Eaton 2Q26](https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-reports-record-second-quarter-2026-results.html)
 - [GE Vernova 2Q26](https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial)
+
+
+## 시리즈 이동
+
+- [이전 글｜AI 전력 병목은 변압기다](/articles/ai-transformer-bottleneck-backlog-leadtime-margin)
+- [전체 지도｜AI Power Infrastructure](/guides/ai-power-infrastructure)
+- [다음 글｜AI 전력 수혜주 밸류에이션 비교](/articles/ai-power-valuation-eps-per-ev-ebitda)
