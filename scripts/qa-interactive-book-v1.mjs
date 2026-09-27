@@ -164,7 +164,7 @@ for (const viewport of [
 
   const checks = {
     httpOk: status >= 200 && status < 400,
-    indexablePublishedReader: metrics.robots === 'index,follow',
+    readerNoindexFollow: metrics.robots === 'noindex,follow',
     noHorizontalOverflow: metrics.overflow <= 1,
     noPageErrors: pageErrors.length === 0,
     memoryDebtSaved: metrics.formsKeys.some((key) => key.endsWith(':memory-debt')),
