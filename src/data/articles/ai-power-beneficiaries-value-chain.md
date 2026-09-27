@@ -16,9 +16,20 @@ seoTitle: "AI 전력 수혜주는 누구인가｜전력 인프라 밸류체인"
 series: "AI Power Infrastructure"
 seriesOrder: 9
 readingTime: "약 10분"
+investmentIndustries:
+  - ai-infrastructure
+investmentTheses:
+  - ai-capex
+  - power-supercycle
+investmentResearchType: "explainer"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "유틸리티 발전 송전 변압기 전력기기 데이터센터를 연결한 AI 전력 밸류체인 JoyLab 대표 이미지"
 ---
 
 AI 데이터센터가 늘어난다고 모든 전력 관련 기업이 같은 방식으로 수혜를 받는 것은 아닙니다.
+
+→ [AI Power Infrastructure 전체 투자 지도](/guides/ai-power-infrastructure)
+
 
 전력은 만들어야 하고, 멀리 보내야 하고, 전압을 바꿔야 하고, 데이터센터 내부에서 다시 나눠야 합니다.
 
@@ -108,3 +119,10 @@ AI 전력 수혜주는 하나의 종목군이 아닙니다.
 - [HD현대일렉트릭](https://www.hd-hyundaielectric.com/elect/m/ko/PR/newsView.jsp?commBoardSeq=6175)
 - [Eaton 2Q 2026 Results](https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-reports-record-second-quarter-2026-results.html)
 - [GE Vernova 2Q 2026 Results](https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial)
+
+
+## 시리즈 이동
+
+- [이전 글｜미국 국채금리 5% 시대](/articles/treasury-5-percent-sp500-nasdaq-dividend)
+- [전체 지도｜AI Power Infrastructure](/guides/ai-power-infrastructure)
+- [다음 글｜AI 전력 병목은 변압기다](/articles/ai-transformer-bottleneck-backlog-leadtime-margin)
