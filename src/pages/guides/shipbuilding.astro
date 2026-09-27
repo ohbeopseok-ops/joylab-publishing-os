@@ -68,16 +68,17 @@ const published = steps.filter((entry) => entry.article);
 
   <main class="sg-main" id="research-path">
     <div class="sg-wrap sg-layout">
-
-      <ResearchGraphMap
+      <div class="sg-graph-span">
+    <ResearchGraphMap
         graph={shipbuildingGraph}
         eyebrow="JOYLAB RESEARCH GRAPH · SHIPBUILDING"
         title="Demand → Orderbook → Ship Mix → Delivery → Margin → Valuation"
         description="조선 수요가 수주잔고에 쌓인 뒤 선종 믹스·인도연도·생산성을 거쳐 마진과 밸류에이션으로 전환되는 흐름을 봅니다."
         primaryFlow={['lng-demand','orderbook','ship-mix','delivery-year','margin','eps-revision','forward-per']}
       />
+      </div>
 
-      <section>
+      <section class="sg-content">
         <div class="sg-section-head">
           <div><div class="sg-eyebrow">RESEARCH PATH</div><h2>기업을 하나씩 읽고 마지막에 비교합니다</h2></div>
           <p>같은 조선 업황을 타도 수주 구성·선종·생산성·방산 노출·지주 구조가 다릅니다. 기업별 Company Research를 먼저 읽고 마지막 Compare Hub에서 같은 Lens로 비교합니다.</p>

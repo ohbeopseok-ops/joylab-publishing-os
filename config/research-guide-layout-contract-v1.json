@@ -1,0 +1,65 @@
+{
+  "contract": "JoyLab.ResearchGuideLayout",
+  "version": "1.1.0",
+  "desktop": {
+    "graph": "full-width-row",
+    "belowGraph": "content-plus-rail",
+    "railMinWidthPx": 260,
+    "contentMinWidthPx": 560,
+    "graphHorizontalScrollbar": "forbidden"
+  },
+  "mobile": {
+    "layout": "single-column",
+    "pageHorizontalOverflow": "forbidden",
+    "graphInternalHorizontalScroll": "allowed"
+  },
+  "requiredClasses": [
+    "sg-layout",
+    "sg-graph-span",
+    "sg-content",
+    "sg-rail"
+  ],
+  "defaultMode": "graph-first",
+  "exceptions": [
+    {
+      "mode": "inline-compact",
+      "useWhen": "Graph is supporting context rather than the primary exploration surface",
+      "constraints": {
+        "maxLanes": 3,
+        "maxNodes": 8,
+        "desktopHorizontalScrollbar": "forbidden"
+      }
+    },
+    {
+      "mode": "tool-workspace",
+      "useWhen": "The page is an interactive tool or studio where controls and canvas must remain visible together",
+      "constraints": {
+        "researchGuideScaffold": "not-applicable"
+      }
+    },
+    {
+      "mode": "content-only",
+      "useWhen": "A guide has no meaningful graph or the graph would duplicate a simple linear reading path",
+      "constraints": {
+        "graph": "omit-instead-of-decorative"
+      }
+    }
+  ],
+  "compactPcMode": {
+    "status": "opt-in-after-visual-gold",
+    "purpose": "Reduce graph density without reintroducing desktop scrolling",
+    "considerWhenAny": [
+      "laneCount >= 6",
+      "nodeCount >= 24",
+      "primaryFlowCount >= 8",
+      "node labels repeatedly wrap beyond 2 lines"
+    ],
+    "rules": [
+      "keep all lanes visible without horizontal scroll at width >= 641px",
+      "hide secondary node metadata until selection",
+      "reduce chip and node padding before reducing font size",
+      "preserve selected-node detail and relationship meaning",
+      "never replace the full graph with an unrelated summary"
+    ]
+  }
+}

@@ -68,16 +68,17 @@ const articles = sequence
 
   <main class="sg-main">
     <div class="sg-wrap sg-layout">
-
-      <ResearchGraphMap
+      <div class="sg-graph-span">
+    <ResearchGraphMap
         graph={semiconductorGraph}
         eyebrow="JOYLAB RESEARCH GRAPH · SEMICONDUCTOR"
         title="Demand → HBM → Company → Margin → EPS Revision → Valuation"
         description="AI 메모리 수요와 사이클이 삼성전자·SK하이닉스의 실적과 밸류에이션으로 연결되는 경로를 봅니다."
         primaryFlow={['ai-memory-demand','hbm','sk-hynix','margin','eps-revision','forward-per']}
       />
+      </div>
 
-      <section id="research-path">
+      <section class="sg-content" id="research-path">
         <div class="sg-section-head">
           <div>
             <div class="sg-eyebrow">RESEARCH PATH</div>
