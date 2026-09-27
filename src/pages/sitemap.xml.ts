@@ -42,6 +42,7 @@ export async function GET({ site }: { site: URL }) {
     '/guides/ai-data-center-network',
     '/guides/how-internet-connects-the-world',
     '/guides/ai-security',
+    '/guides/ai-standards',
     '/guides/growth-leadership',
     '/guides/growth-leadership/literature',
     '/guides/growth-leadership/literature/old-man-and-the-sea',
