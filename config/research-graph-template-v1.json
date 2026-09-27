@@ -1,0 +1,22 @@
+{
+  "contract": "JoyLab.ResearchGraph",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "__VERTICAL_ID__",
+    "title": "__VERTICAL_TITLE__",
+    "url": "__PILLAR_URL__",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "__VERTICAL_ID__",
+      "type": "pillar",
+      "label": "__VERTICAL_TITLE__",
+      "articleUrl": "__PILLAR_URL__",
+      "stage": "pillar"
+    }
+  ],
+  "edges": [],
+  "articles": []
+}
