@@ -21,8 +21,9 @@ const requiredFiles = [
   'src/data/studio/series-02-source.json',
   'scripts/check-series-02-source-v1.mjs',
   'config/series-02-release-v1.json',
-  'public/studio/releases/series-02/v1-0-0/immutable-release-manifest.json',
-  'scripts/check-series-02-release-manifest-v1.mjs'
+  'src/data/studio/releases/series-02-v1.0.0-manifest.json',
+  'scripts/check-series-02-release-manifest-v1.mjs',
+  'src/pages/studio/releases/series-02/v1-0-0/immutable-release-manifest.json.ts'
 ];
 
 const failures = [];
