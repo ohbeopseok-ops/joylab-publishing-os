@@ -1,0 +1,86 @@
+name: Release Engine V2
+
+on:
+  workflow_run:
+    workflows: ['Deploy to Cloudflare Workers']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    if: >
+      (github.event_name == 'workflow_dispatch') ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve target SHA
+        id: target
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then
+            echo "sha=${{ github.event.workflow_run.head_sha }}" >> "$GITHUB_OUTPUT"
+            echo "conclusion=${{ github.event.workflow_run.conclusion }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "sha=${{ github.sha }}" >> "$GITHUB_OUTPUT"
+            echo "conclusion=success" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout protected main release state
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ steps.target.outputs.sha }}
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Evaluate RC to Published
+        env:
+          RELEASE_ENGINE_SHA: ${{ steps.target.outputs.sha }}
+          RELEASE_ENGINE_BRANCH: main
+          RELEASE_ENGINE_DEPLOY_CONCLUSION: ${{ steps.target.outputs.conclusion }}
+        run: node scripts/release-engine-v2.mjs
+
+      - name: Resolve immutable tag target
+        id: release
+        shell: bash
+        run: |
+          node <<'NODE' >> "$GITHUB_OUTPUT"
+          const fs=require('fs');
+          const m=JSON.parse(fs.readFileSync('qa-artifacts/release-engine-v2/published-release.json','utf8'));
+          console.log('tag='+m.tag);
+          console.log('commit_sha='+m.commitSha);
+          NODE
+
+      - name: Create or verify immutable tag
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+          TARGET_SHA: ${{ steps.release.outputs.commit_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          refs=$(git ls-remote --tags origin "refs/tags/$TAG" "refs/tags/$TAG^{}")
+          direct=$(printf '%s\n' "$refs" | awk -v ref="refs/tags/$TAG" '$2==ref {print $1}')
+          peeled=$(printf '%s\n' "$refs" | awk -v ref="refs/tags/$TAG^{}" '$2==ref {print $1}')
+          existing="${peeled:-$direct}"
+          if [ -n "$existing" ]; then
+            test "$existing" = "$TARGET_SHA"
+            echo "$TAG already resolves to immutable SHA $TARGET_SHA"
+            exit 0
+          fi
+          git tag -a "$TAG" "$TARGET_SHA" -m "$TAG · JoyLab Release Engine V2"
+          git push origin "refs/tags/$TAG"
+
+      - name: Upload Published Release V2
+        uses: actions/upload-artifact@v6
+        with:
+          name: release-engine-v2-published
+          path: qa-artifacts/release-engine-v2/published-release.json
+          if-no-files-found: error
+          retention-days: 365
