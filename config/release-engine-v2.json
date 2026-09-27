@@ -1,0 +1,10 @@
+{
+  "contract": "JoyLab Release Engine V2",
+  "activeRelease": "config/releases/series-02-v1.0.0.json",
+  "policy": {
+    "trigger": "Deploy to Cloudflare Workers workflow_run success on main",
+    "requireProtectedMain": true,
+    "immutableTags": true,
+    "publishedStateArtifact": "qa-artifacts/release-engine-v2/published-release.json"
+  }
+}
