@@ -117,13 +117,18 @@ jobs:
 
           check_follow_200_retry() {
             url="$1"
-            for i in {1..18}; do
-              code=$(curl -LsS -o /tmp/body -w '%{http_code}' --max-time 20 "$url" || true)
-              echo "$code $url (follow redirects, attempt $i/18)"
-              if [ "$code" = "200" ] && [ -s /tmp/body ]; then
-                return 0
+            for i in {1..12}; do
+              : > /tmp/body
+              if code=$(curl -LsS -o /tmp/body -w '%{http_code}' --max-time 10 "$url"); then
+                echo "$code $url (follow redirects, attempt $i/12)"
+                if [ "$code" = "200" ] && [ -s /tmp/body ]; then
+                  return 0
+                fi
+              else
+                curl_status=$?
+                echo "curl exit $curl_status $url (attempt $i/12)"
               fi
-              sleep 10
+              sleep 5
             done
             echo "Timed out waiting for propagated route: $url"
             return 1
