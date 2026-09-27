@@ -73,7 +73,6 @@ AI 전력 투자에서 흔히 보는 흐름은 다음과 같습니다.
 2. 유틸리티 기업의 CAPEX 계획이 유지되는가
 3. 데이터센터 전력 계약이 실제 투자로 전환되는가
 4. 전력기기 기업의 수주잔고와 마진이 계속 증가하는가
-
 장기금리 기준은 [U.S. Treasury](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve)에서 확인합니다.
 
 이 네 가지를 같이 봐야 금리 약세와 산업 성장 사이의 차이를 구분할 수 있습니다.
@@ -97,4 +96,4 @@ AI 전력 투자에서는 산업 수요만 볼 것이 아니라 먼저 금리를
 ## 시리즈 이동
 
 - [전체 지도｜AI Power Infrastructure](/guides/ai-power-infrastructure)
-- [다음 글｜미국 국채금리 5% 시대｜S&P500·나스닥·고배당주는 왜 다르게 움직이나](/articles/treasury-5-percent-sp500-nasdaq-dividend)
+- [다음 글｜미국 국채금리와 S&P500·나스닥·고배당주](/articles/treasury-5-percent-sp500-nasdaq-dividend)
