@@ -467,6 +467,13 @@ jobs:
           npm install --no-save --package-lock=false playwright@1.55.0
           npx playwright install --with-deps chromium
 
+      - name: Series 02 Production Reader 15/15 GOLD QA
+        if: ${{ !cancelled() }}
+        id: series02_reader_15_qa
+        env:
+          QA_BASE_URL: https://aijoylab.kr
+        run: node scripts/qa-series-02-reader-15.mjs
+
       - name: Production Mobile Visual GOLD QA
         if: ${{ !cancelled() }}
         id: production_mobile_visual_qa
@@ -494,6 +501,15 @@ jobs:
         env:
           QA_BASE_URL: https://aijoylab.kr
         run: node scripts/qa-weight-of-silence-mindmap.mjs
+
+      - name: Upload Series 02 Production Reader 15/15 GOLD QA
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: series-02-production-reader-15-gold
+          path: qa-artifacts/series-02-reader-15
+          if-no-files-found: error
+          retention-days: 30
 
       - name: Upload Production Mobile Visual GOLD QA
         if: always()
@@ -539,6 +555,7 @@ jobs:
           RELEASE_DOMAIN_RESULT: ${{ steps.custom_domain.outcome }}
           RELEASE_SMOKE_RESULT: ${{ steps.production_smoke.outcome }}
           RELEASE_STUDIO_SMOKE_RESULT: ${{ steps.studio_production_smoke.outcome }}
+          RELEASE_SERIES02_READER15_QA_RESULT: ${{ steps.series02_reader_15_qa.outcome }}
           RELEASE_MOBILE_VISUAL_QA_RESULT: ${{ steps.production_mobile_visual_qa.outcome }}
           RELEASE_RESPONSIVE_VISUAL_QA_RESULT: ${{ steps.production_responsive_visual_qa.outcome }}
           RELEASE_READER_QA_RESULT: ${{ steps.production_reader_qa.outcome }}
