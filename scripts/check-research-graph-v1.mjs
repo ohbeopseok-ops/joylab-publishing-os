@@ -81,7 +81,7 @@ if (!fs.existsSync(articleRoute)) {
   error('ARTICLE_ROUTE_MISSING', articleRoute);
 } else {
   const articleRouteSource = fs.readFileSync(articleRoute, 'utf8');
-  if (!/<AiPowerResearchNav\\s+articleId=\\{article\\.id\\}\\s*\\/>/.test(articleRouteSource)) {
+  if (!articleRouteSource.includes('<AiPowerResearchNav articleId={article.id} />')) {
     error('GRAPH_NAV_NOT_WIRED', 'AiPowerResearchNav must be rendered with articleId={article.id} by the article route');
   }
 }
