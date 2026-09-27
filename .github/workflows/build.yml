@@ -68,6 +68,8 @@ jobs:
           node --check scripts/qa-about-activation.mjs
           node --check scripts/qa-mobile-ui-v1.mjs
           node --check scripts/qa-interactive-book-v1.mjs
+          node --check scripts/qa-series-02-reader-15.mjs
+          node --check scripts/release-engine-v2.mjs
           node --check scripts/submit-indexnow.mjs
           node --check scripts/report-gsc-7d.mjs
           node --check scripts/build-distribution-pack.mjs
@@ -259,6 +261,9 @@ jobs:
       - name: Interactive Book V1 Chapter 1-11 QA
         run: node scripts/qa-interactive-book-v1.mjs
 
+      - name: Series 02 Interactive Reader 15/15 GOLD QA
+        run: npm run studio:reader15:qa
+
       - name: Stop Astro preview
         if: always()
         shell: bash
@@ -319,6 +324,14 @@ jobs:
           name: interactive-book-v1-qa
           path: qa-artifacts/interactive-book-v1
           if-no-files-found: warn
+
+      - name: Upload Series 02 Reader 15/15 GOLD QA
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: series-02-reader-15-gold
+          path: qa-artifacts/series-02-reader-15
+          if-no-files-found: error
 
       - name: Upload AdSense Policy Audit V1
         if: always()
