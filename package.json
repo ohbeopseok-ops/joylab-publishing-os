@@ -72,7 +72,8 @@
     "studio:print:self-test": "node scripts/generate-studio-print-pdf-v1.mjs --self-test",
     "studio:ssot": "node scripts/check-series-02-source-v1.mjs",
     "studio:pdf:preflight": "node scripts/preflight-studio-print-pdf-v1.mjs",
-    "studio:provenance": "node scripts/generate-export-provenance-v1.mjs"
+    "studio:provenance": "node scripts/generate-export-provenance-v1.mjs",
+    "studio:release:manifest": "node scripts/write-series-02-release-manifest-v1.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"

@@ -1,0 +1,11 @@
+{
+  "contract": "JoyLab Series 02 Release Contract V1",
+  "projectId": "series-02",
+  "releaseId": "series-02-v1.0.0",
+  "version": "1.0.0",
+  "state": "release-candidate",
+  "canonicalSource": "src/data/studio/series-02-source.json",
+  "requiredReadyChapters": 15,
+  "tag": "series-02-v1.0.0",
+  "promotionRule": "published only when JoyLab Release Gate V1 status is GOLD for the same commit SHA"
+}

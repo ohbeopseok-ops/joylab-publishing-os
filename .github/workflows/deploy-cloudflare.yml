@@ -538,6 +538,19 @@ jobs:
           RELEASE_MINDMAP_QA_RESULT: ${{ steps.production_mindmap_qa.outcome }}
         run: node scripts/write-release-gate-v1.mjs
 
+      - name: Publish Series 02 immutable release manifest
+        if: success()
+        run: npm run studio:release:manifest
+
+      - name: Upload Series 02 immutable release manifest
+        if: success()
+        uses: actions/upload-artifact@v6
+        with:
+          name: series-02-v1.0.0-release-manifest
+          path: qa-artifacts/studio-release/series-02/1.0.0/immutable-release-manifest.json
+          if-no-files-found: error
+          retention-days: 365
+
       - name: Upload JoyLab Release Gate V1
         if: always()
         uses: actions/upload-artifact@v6

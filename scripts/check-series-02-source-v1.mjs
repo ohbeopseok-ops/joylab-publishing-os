@@ -14,8 +14,8 @@ if(new Set(ids).size!==15) fail.push('chapter ids must be unique');
 
 const ready=source.chapters.filter(x=>x.manuscriptStatus==='ready');
 const outlines=source.chapters.filter(x=>x.manuscriptStatus==='outline');
-if(ready.length!==3) fail.push('V1 must have exactly 3 ready manuscript chapters');
-if(outlines.length!==12) fail.push('V1 must keep chapters 4-15 as outline until manuscript exists');
+if(ready.length!==15) fail.push('Release V1 must have exactly 15 ready manuscript chapters');
+if(outlines.length!==0) fail.push('Release V1 must have zero outline chapters');
 for(const ch of ready){
   if(!Array.isArray(ch.body)||ch.body.length<1) fail.push(ch.id+' ready chapter body missing');
   if(!ch.practice) fail.push(ch.id+' ready chapter practice missing');

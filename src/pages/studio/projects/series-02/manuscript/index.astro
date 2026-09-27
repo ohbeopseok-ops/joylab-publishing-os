@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import series02Source from '../../../../../data/studio/series-02-source.json';
+const firstChapter = series02Source.chapters[0];
 ---
 
 <BaseLayout title="Manuscript | Series 02 | JoyLab Studio" description="Series 02 원고 편집기 MVP" robots="noindex,follow" bodyClass="studio-editor-page">
@@ -9,24 +11,15 @@ import BaseLayout from '../../../../../layouts/BaseLayout.astro';
     <div class="editor-grid">
       <aside>
         <b>CHAPTERS</b>
-        <button class="selected" type="button">01 기억 부채 진단</button>
-        <button type="button">02 위험 점수</button>
-        <button type="button">03 Persona 0 Moment</button>
-        <button type="button">04 기억을 기록으로 바꾸다</button>
-        <button type="button">05 기록을 구조로 바꾸다</button>
-        <button type="button">06 구조를 시스템으로 바꾸다</button>
+        {series02Source.chapters.map((chapter, index) => <button class:list={{selected:index===0}} type="button">{String(chapter.order).padStart(2,'0')} {chapter.title}</button>)}
       </aside>
       <section class="editor">
         <div class="toolbar"><span id="save-state">Saved</span><button id="save-manuscript" type="button">Save</button></div>
-        <label>Chapter title<input id="chapter-title" value="기억 부채 진단" /></label>
-        <label>Source manuscript<textarea id="chapter-body" rows="18">우리는 머릿속에 너무 많은 일을 저장한 채 일합니다.
-
-기억하고 있는 사람에게 업무가 붙고, 그 사람이 자리를 비우는 순간 흐름이 멈춥니다.
-
-이 장에서는 지금 내 업무에서 ‘기억에만 존재하는 것’을 찾아 기록 가능한 단위로 바꿉니다.</textarea></label>
-        <p class="hint">MVP에서는 현재 브라우저에만 저장합니다. 이 화면은 향후 Source Manuscript의 단일 원본 편집기로 확장됩니다.</p>
+        <label>Chapter title<input id="chapter-title" value={firstChapter.title} /></label>
+        <label>Source manuscript<textarea id="chapter-body" rows="18">{firstChapter.body.join('\n\n')}</textarea></label>
+        <p class="hint">표시 원고는 canonical Series 02 Source of Truth 15/15에서 읽습니다. 브라우저 편집 내용은 로컬 초안으로만 저장됩니다.</p>
       </section>
-      <aside class="inspector"><b>OUTPUT IMPACT</b><span>Interactive Web</span><span>Web Preview</span><span>EPUB Draft</span><span>Print PDF Draft</span></aside>
+      <aside class="inspector"><b>OUTPUT IMPACT</b><span>Interactive Web</span><span>Web Preview</span><span>EPUB READY</span><span>Print PDF READY</span></aside>
     </div>
   </div>
   <script is:inline>
