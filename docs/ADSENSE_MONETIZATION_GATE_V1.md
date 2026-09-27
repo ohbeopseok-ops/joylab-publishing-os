@@ -35,7 +35,6 @@ These are **JoyLab internal operating thresholds**, not Google policy limits.
 - reading depth drop > 10%
 - CTA conversion drop > 15%
 - exit rate increase > 15%
-- pages/session drop > 10%
 - CTR > 5% or > 3× baseline: treat as an accidental-click/safety investigation signal
 
 ## Evidence minimum
@@ -92,7 +91,7 @@ The revenue model should be updated with observed JoyLab RPM after approval. Unt
 
 For the first 7-day pilot, the preferred stopping order is:
 
-`Policy/Consent → Layout → CLS → Reading Depth → CTA Conversion → Exit/Session → CTR anomaly → Revenue`
+`Policy/Consent → Layout → CLS → Reading Depth → CTA Conversion → Exit → CTR anomaly → Revenue`
 
 This keeps the research experience and accidental-click safety ahead of short-term monetization.
 
