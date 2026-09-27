@@ -6,7 +6,7 @@ export const AD_PLACEMENT = {
   slots: {
     articleMid30: { key: 'article-mid-30', slotId: '', minChars: 3200 },
     articleMid65: { key: 'article-mid-65', slotId: '', minChars: 5200 },
-    articleEnd: { key: 'article-end', slotId: '', minChars: 2200 },
+    articleEnd: { key: 'article-end', slotId: '1843494813', minChars: 2200 },
     archiveInFeed: { key: 'archive-in-feed', slotId: '', minCardsBefore: 6 }
   },
   exclusions: [
