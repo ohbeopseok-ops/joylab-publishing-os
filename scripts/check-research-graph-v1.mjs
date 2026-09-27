@@ -73,6 +73,19 @@ for (const article of graph.articles ?? []) {
 const pillarPage = path.join(root, 'src/pages/guides/ai-power-infrastructure.astro');
 if (!fs.existsSync(pillarPage)) error('PILLAR_PAGE_MISSING', pillarPage);
 
+const graphNavComponent = path.join(root, 'src/components/AiPowerResearchNav.astro');
+if (!fs.existsSync(graphNavComponent)) error('GRAPH_NAV_COMPONENT_MISSING', graphNavComponent);
+
+const articleRoute = path.join(root, 'src/pages/articles/[...slug].astro');
+if (!fs.existsSync(articleRoute)) {
+  error('ARTICLE_ROUTE_MISSING', articleRoute);
+} else {
+  const articleRouteSource = fs.readFileSync(articleRoute, 'utf8');
+  if (!articleRouteSource.includes('AiPowerResearchNav')) {
+    error('GRAPH_NAV_NOT_WIRED', 'AiPowerResearchNav must be rendered by the article route');
+  }
+}
+
 for (const item of warnings) console.warn(`⚠️ [${item.code}] ${item.message}`);
 for (const item of errors) console.error(`❌ [${item.code}] ${item.message}`);
 
