@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 108,
+  "articleCount": 109,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -429,6 +429,16 @@
     {
       "slug": "burnout-recovery-starts-with-pause",
       "route": "/articles/burnout-recovery-starts-with-pause",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "china-ai-token-ciyuan-discourse-power",
+      "route": "/articles/china-ai-token-ciyuan-discourse-power",
       "industries": [],
       "theses": [],
       "companies": [],
