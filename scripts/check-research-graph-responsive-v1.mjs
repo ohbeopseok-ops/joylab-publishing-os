@@ -6,20 +6,10 @@ const baseURL = process.env.QA_BASE_URL || 'http://127.0.0.1:4321';
 const out = path.join(process.cwd(), 'qa-artifacts', 'research-graph-responsive-gold');
 await fs.mkdir(out, { recursive: true });
 
-const viewports = [
-  { name: 'mobile-390', width: 390, height: 844 },
-  { name: 'tablet-1024', width: 1024, height: 1366 },
-  { name: 'desktop-1280', width: 1280, height: 900 },
-  { name: 'desktop-1440', width: 1440, height: 900 }
-];
-
-const pages = [
-  { name: 'growth-leadership', path: '/guides/growth-leadership' },
-  { name: 'ai-power', path: '/guides/ai-power-infrastructure' },
-  { name: 'semiconductor', path: '/guides/semiconductor-investing' },
-  { name: 'financials', path: '/guides/financials-value-up' },
-  { name: 'shipbuilding', path: '/guides/shipbuilding' }
-];
+const contract = JSON.parse(await fs.readFile(path.join(process.cwd(), 'config', 'research-graph-responsive-contract-v1.json'), 'utf8'));
+if (contract.contract !== 'JoyLab.ResearchGraphResponsive') throw new Error('Invalid responsive contract');
+const viewports = contract.viewports;
+const pages = contract.pages;
 
 const failures = [];
 const results = [];
@@ -99,14 +89,14 @@ for (const viewport of viewports) {
       firstLastCheck.mobileLastNodeSelectable = activeCount === 1;
     }
 
-    const desktopLike = viewport.width >= 1024;
+    const desktopLike = viewport.width >= contract.desktopMinWidth;
     const checks = {
       httpOk: status >= 200 && status < 400,
       graphPresent: firstLastCheck.columnCount === 5 && firstLastCheck.flowNodeCount >= 5,
-      noPageOverflow: documentMetrics.scrollWidth - documentMetrics.viewportWidth <= 1,
+      noPageOverflow: documentMetrics.scrollWidth - documentMetrics.viewportWidth <= contract.pageOverflowTolerancePx,
       noPageErrors: pageErrors.length === 0,
-      noDesktopCanvasOverflow: !desktopLike || firstLastCheck.canvasScrollWidth - firstLastCheck.canvasClientWidth <= 1,
-      noDesktopFlowOverflow: !desktopLike || firstLastCheck.flowScrollWidth - firstLastCheck.flowClientWidth <= 1,
+      noDesktopCanvasOverflow: !desktopLike || firstLastCheck.canvasScrollWidth - firstLastCheck.canvasClientWidth <= contract.desktopInternalOverflowTolerancePx,
+      noDesktopFlowOverflow: !desktopLike || firstLastCheck.flowScrollWidth - firstLastCheck.flowClientWidth <= contract.desktopInternalOverflowTolerancePx,
       desktopFirstLastVisible: !desktopLike || (firstLastCheck.firstLastColumnsInsideCanvas && firstLastCheck.firstLastFlowInsideRoot),
       mobileLastNodeSelectable: viewport.width !== 390 || firstLastCheck.mobileLastNodeSelectable === true
     };
