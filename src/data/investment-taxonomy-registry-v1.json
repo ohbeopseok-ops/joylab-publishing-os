@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 111,
+  "articleCount": 112,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -334,6 +334,16 @@
       "valueChains": [],
       "kpis": [],
       "researchType": "explainer"
+    },
+    {
+      "slug": "ai-translation-information-gatekeeper",
+      "route": "/articles/ai-translation-information-gatekeeper",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
     },
     {
       "slug": "ai-workflow-automation",

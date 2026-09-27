@@ -83,6 +83,7 @@ const isFinancialsSeries = article.data.series === '금융·주주환원 투자 
 const isGrowthResearch = article.data.category === '성장·리더십' || article.data.series === '침묵의 기술';
 const isChinaSemiconductorSeries = article.data.series === '미·중 반도체 전쟁';
 const isAiStandardsSeries = article.data.series === 'AI Standards & Tech Sovereignty';
+const isGrowthLeadershipSeries = article.data.series === '성장·리더십 가이드';
 const isChinaSemiconductorRiskArticle = article.id === 'china-semiconductor-risk-indicators';
 const aiEconomicsClusterIds = new Set(['ai-bubble-vs-compute-supercycle-2026','openai-anthropic-ipo-cash-burn-2026','ai-infrastructure-hbm-mlcc-power-grid-2026','samsung-hbm4-memory-outlook-2026-09-20','ai-api-key-compute-theft-2026']);
 const isAiEconomicsCluster = aiEconomicsClusterIds.has(article.id);
@@ -331,7 +332,7 @@ const scoreCriteria = [
           <div id="article-content" class="article-body"><Content /></div>
         </div>
 
-        {isAiStandardsSeries
+        {(isAiStandardsSeries || isGrowthLeadershipSeries)
           ? <ResearchGraphNav articleId={article.id} />
           : <AiPowerResearchNav articleId={article.id} />
         }

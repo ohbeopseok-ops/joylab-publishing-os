@@ -1,7 +1,7 @@
 # RESEARCH GRAPH CONTRACT V1
 
 Status: Active
-Version: 1.2.0
+Version: 1.3.0
 Scope: investing / ai / leadership
 
 ## Source of Truth
@@ -29,7 +29,7 @@ Legacy investing edges remain valid.
 
 ## Platform state
 Active: ai-power, semiconductor, financials, shipbuilding, ai-standards.
-Template-ready: growth-leadership.
+Active: ai-power, semiconductor, financials, shipbuilding, ai-standards, growth-leadership.
 
 ## Gate
 Run npm run research-graph:platform:check.

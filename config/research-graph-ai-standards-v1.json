@@ -114,6 +114,37 @@
       "label": "AI Token Economics",
       "articleUrl": "/articles/ai-token-economics",
       "stage": "measurement"
+    },
+    {
+      "id": "machine-translation",
+      "type": "language",
+      "label": "AI Translation",
+      "stage": "language"
+    },
+    {
+      "id": "local-context",
+      "type": "language",
+      "label": "Local Context",
+      "stage": "language"
+    },
+    {
+      "id": "source-verification",
+      "type": "governance",
+      "label": "Source Verification",
+      "stage": "governance"
+    },
+    {
+      "id": "information-gatekeeper",
+      "type": "discourse_power",
+      "label": "Information Gatekeeper",
+      "stage": "discourse_power"
+    },
+    {
+      "id": "ai-translation-information-gatekeeper",
+      "type": "article",
+      "label": "AI Translation Gatekeeper",
+      "articleUrl": "/articles/ai-translation-information-gatekeeper",
+      "stage": "language"
     }
   ],
   "edges": [
@@ -201,6 +232,61 @@
       "from": "ai-token-economics",
       "to": "china-ai-token-ciyuan-discourse-power",
       "type": "previous"
+    },
+    {
+      "from": "ai-token-economics",
+      "to": "ai-translation-information-gatekeeper",
+      "type": "next"
+    },
+    {
+      "from": "language-layer",
+      "to": "machine-translation",
+      "type": "enables"
+    },
+    {
+      "from": "machine-translation",
+      "to": "local-context",
+      "type": "requires"
+    },
+    {
+      "from": "local-context",
+      "to": "source-verification",
+      "type": "requires"
+    },
+    {
+      "from": "source-verification",
+      "to": "information-gatekeeper",
+      "type": "informs"
+    },
+    {
+      "from": "information-gatekeeper",
+      "to": "discourse-power",
+      "type": "shapes"
+    },
+    {
+      "from": "ai-translation-information-gatekeeper",
+      "to": "machine-translation",
+      "type": "covered_by"
+    },
+    {
+      "from": "ai-translation-information-gatekeeper",
+      "to": "local-context",
+      "type": "covered_by"
+    },
+    {
+      "from": "ai-translation-information-gatekeeper",
+      "to": "information-gatekeeper",
+      "type": "covered_by"
+    },
+    {
+      "from": "ai-translation-information-gatekeeper",
+      "to": "ai-standards",
+      "type": "belongs_to"
+    },
+    {
+      "from": "ai-translation-information-gatekeeper",
+      "to": "ai-token-economics",
+      "type": "previous"
     }
   ],
   "articles": [
@@ -233,6 +319,22 @@
       ],
       "stage": "measurement",
       "previous": "china-ai-token-ciyuan-discourse-power",
+      "next": "ai-translation-information-gatekeeper",
+      "status": "published"
+    },
+    {
+      "id": "ai-translation-information-gatekeeper",
+      "title": "AI 번역은 언어 장벽을 없앨까｜AI가 새로운 정보 게이트키퍼가 되는 이유",
+      "url": "/articles/ai-translation-information-gatekeeper",
+      "order": 3,
+      "pillar": "ai-standards",
+      "topics": [
+        "machine-translation",
+        "local-context",
+        "information-gatekeeper"
+      ],
+      "stage": "language",
+      "previous": "ai-token-economics",
       "next": null,
       "status": "published"
     }
