@@ -6,7 +6,9 @@ import { series02Demo } from '../../../data/studio/series-02-demo';
 const demo = interactiveBookContractSchema.parse(series02Demo);
 const assessment = demo.blocks.find((block) => block.type === 'self_assessment');
 const risk = demo.blocks.find((block) => block.type === 'risk_score');
-const persona = demo.blocks.find((block) => block.type === 'persona_canvas');
+const personas = demo.blocks.filter((block) => block.type === 'persona_canvas');
+const persona = personas[0];
+const extendedPersonas = personas.slice(1);
 
 if (!assessment || assessment.type !== 'self_assessment') throw new Error('Series 02 assessment block missing');
 if (!risk || risk.type !== 'risk_score') throw new Error('Series 02 risk block missing');
@@ -28,7 +30,7 @@ if (!persona || persona.type !== 'persona_canvas') throw new Error('Series 02 pe
         <span>READ</span><span>THINK</span><span>RECORD</span><span>ACT</span>
       </div>
       <div class="studio-progress" aria-live="polite">
-        <span id="studio-progress-label">0 / 3 완료</span>
+        <span id="studio-progress-label">0 / {demo.blocks.length} 완료</span>
         <div class="studio-progress-track"><div id="studio-progress-bar"></div></div>
       </div>
     </section>
@@ -125,6 +127,31 @@ if (!persona || persona.type !== 'persona_canvas') throw new Error('Series 02 pe
       </form>
     </section>
 
+    {extendedPersonas.map((block) => (
+      <section class="studio-chapter" data-block-id={block.id} id={block.chapterId}>
+        <p class="studio-kicker">{block.chapterId.toUpperCase()} · WORKBOOK</p>
+        <h2>{block.title}</h2>
+        <p class="studio-prompt">{block.prompt}</p>
+        {block.description && <p class="studio-help">{block.description}</p>}
+        <form class="studio-form" data-form-type="persona">
+          {block.fields.map((field) => (
+            <label class="studio-field studio-field--stacked">
+              <span>{field.label}{field.required ? ' *' : ''}</span>
+              <textarea
+                name={field.id}
+                placeholder={field.placeholder}
+                maxlength={field.maxLength}
+                required={field.required}
+                rows="3"
+              ></textarea>
+            </label>
+          ))}
+          <button class="studio-primary" type="submit">Workbook 저장</button>
+          <div class="studio-result" data-result hidden></div>
+        </form>
+      </section>
+    ))}
+
     <section class="studio-reset">
       <p>이 데모의 기록만 삭제할 수 있습니다.</p>
       <button id="studio-reset" class="studio-secondary" type="button">Series 02 기록 초기화</button>
@@ -147,7 +174,7 @@ if (!persona || persona.type !== 'persona_canvas') throw new Error('Series 02 pe
       if (!state.blocks) state.blocks = {};
 
       const updateProgress = () => {
-        const total = 3;
+        const total = document.querySelectorAll('.studio-chapter').length;
         const done = Object.values(state.blocks).filter((value) => value && value.completed).length;
         const label = document.getElementById('studio-progress-label');
         const bar = document.getElementById('studio-progress-bar');
@@ -219,7 +246,7 @@ if (!persona || persona.type !== 'persona_canvas') throw new Error('Series 02 pe
           }
 
           if (formType === 'persona') {
-            summary = '<strong>Persona 0 Moment 저장 완료</strong><span>이 기록은 현재 브라우저에만 저장됩니다.</span>';
+            summary = '<strong>Workbook 저장 완료</strong><span>이 기록은 현재 브라우저에만 저장됩니다.</span>';
           }
 
           state.blocks[blockId] = { values, completed: true, savedAt: new Date().toISOString() };

@@ -6,10 +6,11 @@ const routes = [
   { path: '/studio/', markers: ['INTERACTIVE PUBLISHING STUDIO','전자책·종이책·인터랙티브 북'] },
   { path: '/studio/projects/series-02/', markers: ['Series 02','OUTPUT STATUS','15 READY'] },
   { path: '/studio/projects/series-02/manuscript/', markers: ['MANUSCRIPT EDITOR','Series 02'] },
-  { path: '/studio/projects/series-02/interactive/', markers: ['INTERACTIVE','Series 02'] },
+  { path: '/studio/projects/series-02/interactive/', markers: ['INTERACTIVE','Series 02','chapter-15','Same Data, Different UI'] },
   { path: '/studio/projects/series-02/validation/', markers: ['VALIDATION','Studio Gate 결과'] },
   { path: '/studio/projects/series-02/preview/', markers: ['MULTI OUTPUT PREVIEW','Mobile','EPUB','Print'] },
-  { path: '/studio/projects/series-02/export/', markers: ['EXPORT','EPUB','Print PDF','REAL'] }
+  { path: '/studio/projects/series-02/export/', markers: ['EXPORT','EPUB','Print PDF','REAL'] },
+  { path: '/studio/releases/series-02/v1-0-0/', markers: ['PUBLISHED RELEASE','15 / 15','RELEASE GATE','GOLD','series-02-v1.0.0'] }
 ];
 
 async function fetchText(path) {
