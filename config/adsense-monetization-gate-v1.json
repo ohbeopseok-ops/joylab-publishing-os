@@ -22,8 +22,7 @@
     "clsDeltaMax": 0.03,
     "readingDepthDropPctMax": 10,
     "ctaConversionDropPctMax": 15,
-    "exitRateIncreasePctMax": 15,
-    "pagesPerSessionDropPctMax": 10
+    "exitRateIncreasePctMax": 15
   },
   "safety": {
     "ctrAbsoluteMaxPct": 5,
@@ -35,7 +34,6 @@
   },
   "decisions": {
     "ADVANCE": "Current slot may stay on and the next placement can enter a separate integration + QA change.",
-    "HOLD": "Keep current placement only; collect more evidence or improve UX before expansion.",
     "ROLLBACK": "Disable the newest placement and rerun Production GOLD QA.",
     "COLLECT": "Minimum evidence window has not been reached."
   }
