@@ -60,8 +60,7 @@ tocItems:
   - "Chapter 14. LeaderDesk Ops — 연결해서 판단하는 운영 본체"
   - "Chapter 15. 같은 데이터, 다른 인터페이스"
 closingQuote: "같은 데이터, 다른 인터페이스. 기록은 현장에서 붙잡고 판단은 운영 본체에서 연결한다."
-relatedArticleIds:
-  - "ai-productivity-operating-model"
+relatedArticleIds: ["ai-productivity-operating-model"]
 publisher: "JoyLab Books"
 draft: false
 ---
