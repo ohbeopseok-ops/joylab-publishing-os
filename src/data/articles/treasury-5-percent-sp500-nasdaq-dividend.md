@@ -101,3 +101,4 @@ S&P500은 분산과 이익 확산, 나스닥은 EPS 성장, 고배당주는 배�
 - [이전 글｜국채금리와 S&P500 유틸리티](/articles/treasury-5-percent-utilities-2026)
 - [전체 지도｜AI Power Infrastructure](/guides/ai-power-infrastructure)
 - [다음 글｜AI 전력 수혜주는 누구인가](/articles/ai-power-beneficiaries-value-chain)
+- 금리 기준: [U.S. Treasury](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve)
