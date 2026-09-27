@@ -9,7 +9,8 @@ const groups = [
   { key: 'valuation', label: 'VALUATION', types: ['valuation'] }
 ];
 
-const articleMap = new Map(graph.articles.map((article) => [article.id, article]));
+const publishedArticles = graph.articles.filter((article) => article.status === 'published');
+const articleMap = new Map(publishedArticles.map((article) => [article.id, article]));
 const nodeArticles = new Map();
 for (const edge of graph.edges) {
   if (edge.type !== 'covered_by') continue;
