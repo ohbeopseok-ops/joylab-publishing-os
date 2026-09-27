@@ -73,6 +73,7 @@ const codexSeriesIndex = codexSeries.findIndex((item) => item.id === article.id)
 const isCodexSeries = codexSeriesIndex >= 0;
 const codexPrev = isCodexSeries && codexSeriesIndex > 0 ? codexSeries[codexSeriesIndex - 1] : null;
 const codexNext = isCodexSeries && codexSeriesIndex < codexSeries.length - 1 ? codexSeries[codexSeriesIndex + 1] : null;
+const isAiPowerInfrastructureSeries = article.data.series === 'AI Power Infrastructure';
 const isAiPowerSeries = article.data.series?.startsWith('AI 전력');
 const isMoneyBasics = article.data.series === '돈 공부 기초';
 const isUsRatesSeries = article.data.series === '미국 금리 리서치';
@@ -137,6 +138,12 @@ const guideCta = isGrowthResearch
       href: '/guides/us-rates',
       label: '10년물·30년물·TIC·입찰·한국 전염경로 한 번에 보기 →'
     }
+  : isAiPowerInfrastructureSeries
+    ? {
+        title: 'AI Power Infrastructure',
+        href: '/guides/ai-power-infrastructure',
+        label: '금리 → 전력망 → 변압기 → 기업 → 밸류에이션 전체 지도 보기 →'
+      }
   : isAiPowerSeries
     ? {
         title: 'AI 전력 가이드',
