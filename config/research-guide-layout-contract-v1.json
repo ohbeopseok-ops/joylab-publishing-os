@@ -1,0 +1,22 @@
+{
+  "contract": "JoyLab.ResearchGuideLayout",
+  "version": "1.0.0",
+  "desktop": {
+    "graph": "full-width-row",
+    "belowGraph": "content-plus-rail",
+    "railMinWidthPx": 260,
+    "contentMinWidthPx": 560,
+    "graphHorizontalScrollbar": "forbidden"
+  },
+  "mobile": {
+    "layout": "single-column",
+    "pageHorizontalOverflow": "forbidden",
+    "graphInternalHorizontalScroll": "allowed"
+  },
+  "requiredClasses": [
+    "sg-layout",
+    "sg-graph-span",
+    "sg-content",
+    "sg-rail"
+  ]
+}
