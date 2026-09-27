@@ -147,6 +147,31 @@ jobs:
           grep -Fq 'LIBRARY · 출간일순' /tmp/body
           grep -Fq '출간일 2026. 9. 25.' /tmp/body
           grep -Fq '악보의 쉼표 사이에 고여 있는 침묵의 무게' /tmp/body
+          grep -Fq '/books/work-to-system' /tmp/body
+
+          check_200 "https://aijoylab.kr/books/work-to-system?deploy=${GITHUB_SHA}"
+          grep -Fq '업무를 시스템으로 바꾸는 법' /tmp/body
+          grep -Fq 'Chapter 1~3 미리보기' /tmp/body
+          grep -Fq '/labs/work-to-system-interactive' /tmp/body
+          grep -Fq '/studio/releases/series-02/v1-0-0/' /tmp/body
+          grep -Fq 'book_interactive_open' /tmp/body
+
+          check_200 "https://aijoylab.kr/books/work-to-system/read?deploy=${GITHUB_SHA}"
+          grep -Fq 'name="robots" content="noindex,follow"' /tmp/body
+          grep -Fq '기록은 많은데 왜 다시 찾게 될까' /tmp/body
+          grep -Fq 'Persona 0는 현장의 리더였다' /tmp/body
+          grep -Fq 'PREVIEW END' /tmp/body
+
+          check_200 "https://aijoylab.kr/labs/work-to-system-interactive?deploy=${GITHUB_SHA}"
+          grep -Fq 'PUBLISHED · INTERACTIVE READER' /tmp/body
+          grep -Fq 'Chapter 1~15' /tmp/body
+          grep -Fq 'Chapter 15 · 같은 데이터, 다른 인터페이스' /tmp/body
+
+          check_200 "https://aijoylab.kr/studio/releases/series-02/v1-0-0/?deploy=${GITHUB_SHA}"
+          grep -Fq 'PUBLISHED RELEASE' /tmp/body
+          grep -Fq 'EPUB3' /tmp/body
+          grep -Fq 'Print PDF' /tmp/body
+          grep -Fq 'IMMUTABLE RELEASE' /tmp/body
 
           headers=$(curl -sSI --max-time 20 https://aijoylab.kr/ | tr -d '\r')
           echo "$headers"
@@ -481,6 +506,14 @@ jobs:
           QA_BASE_URL: https://aijoylab.kr
         run: node scripts/qa-responsive-visual-v2.mjs
 
+      - name: Series 02 Production Interactive Reader GOLD QA
+        if: ${{ !cancelled() }}
+        id: production_series02_interactive_qa
+        env:
+          QA_BASE_URL: https://aijoylab.kr
+          QA_OUTPUT_DIR: qa-artifacts/series-02-production-interactive-gold
+        run: node scripts/qa-interactive-book-v1.mjs
+
       - name: Weight of Silence Production Reader GOLD QA
         if: ${{ !cancelled() }}
         id: production_reader_qa
@@ -513,6 +546,15 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+      - name: Upload Series 02 Production Interactive GOLD QA
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: series-02-production-interactive-gold
+          path: qa-artifacts/series-02-production-interactive-gold
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Upload Production Reader GOLD QA
         if: always()
         uses: actions/upload-artifact@v6
@@ -541,6 +583,7 @@ jobs:
           RELEASE_STUDIO_SMOKE_RESULT: ${{ steps.studio_production_smoke.outcome }}
           RELEASE_MOBILE_VISUAL_QA_RESULT: ${{ steps.production_mobile_visual_qa.outcome }}
           RELEASE_RESPONSIVE_VISUAL_QA_RESULT: ${{ steps.production_responsive_visual_qa.outcome }}
+          RELEASE_SERIES02_INTERACTIVE_QA_RESULT: ${{ steps.production_series02_interactive_qa.outcome }}
           RELEASE_READER_QA_RESULT: ${{ steps.production_reader_qa.outcome }}
           RELEASE_MINDMAP_QA_RESULT: ${{ steps.production_mindmap_qa.outcome }}
         run: node scripts/write-release-gate-v1.mjs
