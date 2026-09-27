@@ -67,6 +67,38 @@ if(action==='promote'){
   process.exit(0);
 }
 
+if(action==='ensure-tag'){
+  const manifest=JSON.parse(fs.readFileSync(path.resolve(root,spec.manifestPath),'utf8'));
+  if(manifest.state!=='published') fail.push('manifest must be published before tagging');
+  eq('manifest releaseId',manifest.releaseId,spec.releaseId);
+  eq('manifest version',manifest.version,spec.version);
+  eq('manifest tag',manifest.tag,spec.tag);
+  if(manifest.releaseGate?.status!=='GOLD') fail.push('manifest release gate must be GOLD');
+  if(!manifest.commitSha) fail.push('manifest commit SHA missing');
+  if(fail.length){fail.forEach((x)=>console.error('- '+x));process.exit(1);}
+
+  const ref='refs/tags/'+manifest.tag;
+  const output=execFileSync('git',['ls-remote','--tags','origin',ref,ref+'^{}'],{encoding:'utf8'});
+  const rows=output.trim().split(/\r?\n/).filter(Boolean).map((line)=>line.trim().split(/\s+/));
+  const peeled=rows.find((row)=>row[1]===ref+'^{}');
+  const direct=rows.find((row)=>row[1]===ref);
+  const resolved=(peeled?.[0]||direct?.[0]||'').trim();
+  if(resolved){
+    if(resolved!==manifest.commitSha){
+      console.error('Refusing to move immutable tag '+manifest.tag+' from '+resolved+' to '+manifest.commitSha);
+      process.exit(1);
+    }
+    console.log('JoyLab Release Engine V2 TAG EXISTS '+manifest.tag+' -> '+resolved);
+    process.exit(0);
+  }
+
+  execFileSync('git',['cat-file','-e',manifest.commitSha+'^{commit}'],{stdio:'inherit'});
+  execFileSync('git',['tag','-a',manifest.tag,manifest.commitSha,'-m',manifest.releaseId+' · JoyLab Release Gate GOLD'],{stdio:'inherit'});
+  execFileSync('git',['push','origin','refs/tags/'+manifest.tag],{stdio:'inherit'});
+  console.log('JoyLab Release Engine V2 TAG CREATED '+manifest.tag+' -> '+manifest.commitSha);
+  process.exit(0);
+}
+
 if(action==='verify-tag'){
   const manifest=JSON.parse(fs.readFileSync(path.resolve(root,spec.manifestPath),'utf8'));
   const ref='refs/tags/'+manifest.tag;
