@@ -4,6 +4,8 @@ subtitle: "상담사부터 리더까지 쓰는 생성형 AI 프롬프트 & 현�
 description: "고객센터 상담사와 리더를 위한 생성형 AI 실무 안내서. 프롬프트, CRM 요약, 고객응대 문장, 개인정보 보호 원칙과 현장형 미니 웹도구를 실무 관점에서 정리했습니다."
 author: "오법석"
 publishedAt: 2026-09-21
+coverImage: "/images/books/ax-customer-center-cover.jpg"
+ogImage: "/images/og/ax-customer-center-og.jpg"
 category: "AI·생산성"
 tags:
   - 고객센터
