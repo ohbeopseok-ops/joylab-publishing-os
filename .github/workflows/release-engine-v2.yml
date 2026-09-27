@@ -1,0 +1,85 @@
+name: JoyLab Release Engine V2
+
+on:
+  workflow_dispatch:
+    inputs:
+      project:
+        description: 'Project ID from config/release-engine-v2.json'
+        required: true
+        default: 'series-02'
+        type: string
+      action:
+        description: 'verify or tag'
+        required: true
+        default: 'verify'
+        type: choice
+        options:
+          - verify
+          - tag
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout protected main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Verify published release contract
+        env:
+          PROJECT_ID: ${{ inputs.project }}
+        run: node scripts/release-engine-v2.mjs "$PROJECT_ID" plan-tag
+
+      - name: Resolve release metadata
+        id: release
+        env:
+          PROJECT_ID: ${{ inputs.project }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE' >> "$GITHUB_OUTPUT"
+          const fs=require('fs');
+          const engine=JSON.parse(fs.readFileSync('config/release-engine-v2.json','utf8'));
+          const project=engine.projects[process.env.PROJECT_ID];
+          if(!project) throw new Error('Unknown project');
+          const release=JSON.parse(fs.readFileSync(project.releaseConfig,'utf8'));
+          console.log('tag='+release.tag);
+          console.log('target_sha='+release.publishedCommitSha);
+          NODE
+
+      - name: Create immutable tag when missing
+        if: ${{ inputs.action == 'tag' }}
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+          TARGET_SHA: ${{ steps.release.outputs.target_sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          refs=$(git ls-remote --tags origin "refs/tags/$TAG" "refs/tags/$TAG^{}")
+          direct=$(printf '%s\n' "$refs" | awk -v ref="refs/tags/$TAG" '$2==ref {print $1}')
+          peeled=$(printf '%s\n' "$refs" | awk -v ref="refs/tags/$TAG^{}" '$2==ref {print $1}')
+          existing="${peeled:-$direct}"
+          if [ -n "$existing" ]; then
+            test "$existing" = "$TARGET_SHA"
+            echo "$TAG already resolves to published SHA $TARGET_SHA"
+            exit 0
+          fi
+          git cat-file -e "$TARGET_SHA^{commit}"
+          git tag -a "$TAG" "$TARGET_SHA" -m "$TAG · JoyLab published release"
+          git push origin "refs/tags/$TAG"
+
+      - name: Verify immutable tag
+        if: ${{ inputs.action == 'tag' }}
+        env:
+          PROJECT_ID: ${{ inputs.project }}
+        run: node scripts/release-engine-v2.mjs "$PROJECT_ID" verify-tag
