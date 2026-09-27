@@ -265,7 +265,7 @@ AI가 가장 먼저 대체하는 것은 영어 자체가 아니라 **중간 수�
 
 영어는 모든 사람이 같은 깊이로 익혀야 하는 단일 필수과목에서, **필요한 순간 원문과 세계 지식에 직접 연결되는 검증 레버리지**로 바뀌고 있습니다.
 
-AI 번역과 정보 중개 구조를 먼저 보려면 [AI 번역은 언어 장벽을 없앨까](/articles/ai-translation-information-gatekeeper)를, Token·표준까지 연결하려면 [AI Standards & Tech Sovereignty](/guides/ai-standards)를 함께 볼 수 있습니다.
+AI 번역과 정보 중개 구조를 먼저 보려면 [AI 번역은 언어 장벽을 없앨까](/articles/ai-translation-information-gatekeeper)를, Token·표준까지 연결하려면 [AI Standards & Tech Sovereignty](/guides/ai-standards)를 함께 볼 수 있습니다. Agent·Workflow·Governance까지 포함한 전체 AI 활용 구조는 [AI·생산성 Research Map](/guides/ai-productivity)에서 이어서 볼 수 있습니다.
 
 ## Related Research
 
