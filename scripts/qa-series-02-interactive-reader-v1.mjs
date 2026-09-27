@@ -31,20 +31,37 @@ for(const viewport of [
     if(await page.locator(id).count()!==1) failures.push(viewport.name+': missing '+id);
   }
 
-  const last=page.locator('#chapter-15');
-  const fields=last.locator('textarea');
-  const fieldCount=await fields.count();
-  for(let i=0;i<fieldCount;i++) await fields.nth(i).fill('Series 02 GOLD QA '+viewport.name+' field '+(i+1));
-  const form = last.locator('form');
-  await form.evaluate((node) => {
-    if (!(node instanceof HTMLFormElement)) throw new Error('chapter 15 form missing');
-    node.requestSubmit();
-  });
-  await last.locator('[data-result]').waitFor({ state: 'visible', timeout: 5000 });
-  await page.waitForTimeout(100);
+  const lastSelector='[data-block-id="same-data-different-ui"]';
+  const last=page.locator(lastSelector);
+  const lastCount=await last.count();
+  if(lastCount!==1){
+    failures.push(viewport.name+': chapter 15 block count '+lastCount);
+  } else {
+    const fields=last.locator('textarea');
+    const fieldCount=await fields.count();
+    for(let i=0;i<fieldCount;i++) await fields.nth(i).fill('Series 02 GOLD QA '+viewport.name+' field '+(i+1));
 
-  const resultText=await last.locator('[data-result]').innerText();
-  if(!resultText.includes('저장 완료')) failures.push(viewport.name+': chapter 15 save result missing');
+    const submit=await page.evaluate(() => {
+      const section=document.querySelector('[data-block-id="same-data-different-ui"]');
+      const form=section?.querySelector('form');
+      if(!(form instanceof HTMLFormElement)) return {ok:false,sectionFound:!!section};
+      form.requestSubmit();
+      return {ok:true,sectionFound:true};
+    });
+    if(!submit.ok){
+      failures.push(viewport.name+': chapter 15 form missing');
+    } else {
+      await page.waitForTimeout(200);
+      const result=page.locator(lastSelector+' [data-result]');
+      const resultCount=await result.count();
+      if(resultCount!==1){
+        failures.push(viewport.name+': chapter 15 result count '+resultCount);
+      } else {
+        const resultText=await result.innerText();
+        if(!resultText.includes('저장 완료')) failures.push(viewport.name+': chapter 15 save result missing');
+      }
+    }
+  }
 
   const storage=await page.evaluate(()=>JSON.parse(localStorage.getItem('joylab-series-02-memory-debt-workbook-v1')||'{}'));
   if(!storage?.blocks?.['same-data-different-ui']?.completed) failures.push(viewport.name+': chapter 15 localStorage persistence missing');
