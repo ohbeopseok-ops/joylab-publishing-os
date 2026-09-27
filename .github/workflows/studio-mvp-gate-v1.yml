@@ -11,7 +11,8 @@ on:
       - 'scripts/check-series-02-release-manifest-v1.mjs'
       - 'scripts/write-series-02-release-manifest-v1.mjs'
       - 'config/series-02-release-v1.json'
-      - 'public/studio/releases/**'
+      - 'src/data/studio/releases/**'
+      - 'src/pages/studio/releases/**'
       - 'package.json'
       - '.github/workflows/studio-mvp-gate-v1.yml'
   workflow_dispatch:
