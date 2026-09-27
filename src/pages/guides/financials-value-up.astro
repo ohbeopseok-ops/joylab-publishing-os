@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FinancialsMiniResearchMap from '../../components/FinancialsMiniResearchMap.astro';
+import { getCollection } from 'astro:content';
+import { industryCoverage, thesisCoverage } from '../../lib/investment-taxonomy-registry';
+import '../../styles/financials-value-up-guide.css';
+
+const order = [
+  'financials-value-up-investing-guide',
+  'kb-financial-shareholder-return',
+  'bank-roe-cet1-guide',
+  'total-shareholder-return-buyback-cancellation-guide',
+  'korea-financial-holdings-compare'
+];
+
+const all = (await getCollection('articles')).filter((item) => !item.data.draft);
+const byId = new Map(all.map((item) => [item.id, item]));
+const articles = order.map((id) => byId.get(id)).filter(Boolean);
+
+const lenses = [
+  ['ROE','수익성','자본을 얼마나 효율적으로 이익으로 바꾸는가'],
+  ['CET1','자본','성장·손실·주주환원을 감당할 여력이 있는가'],
+  ['주주환원율','환원','배당·자사주 매입·소각이 실제로 실행되는가'],
+  ['PBR','재평가','시장이 수익성·자본·환원 구조를 얼마나 신뢰하는가']
+];
+---
+<BaseLayout
+  title="금융·주주환원 투자 가이드｜ROE·CET1·자사주·PBR | JoyLab"
+  description="KB·신한·하나·우리금융을 ROE, CET1, 배당, 자사주 매입·소각, PBR 재평가 조건으로 연결하는 JoyLab 금융·주주환원 리서치 허브입니다."
+  bodyClass="financials-value-up-guide"
+>
+  <header class="fvg-hero">
+    <div class="fvg-wrap">
+      <div class="fvg-kicker">JOYLAB INVESTING · FINANCIALS & VALUE-UP</div>
+      <h1>금융주는 배당률보다<br/><span>자본의 흐름</span>을 봅니다.</h1>
+      <p>ROE로 벌고, CET1으로 버티고, 초과자본을 배당·자사주 소각으로 돌리고, 그 구조가 반복될 때 PBR 재평가 조건이 생기는지 추적합니다.</p>
+      <div class="fvg-meta">
+        <span><b>{industryCoverage('financials-value-up')}</b> Research</span>
+        <span><b>{thesisCoverage('korea-value-up')}</b> Korea Value-up</span>
+        <span><b>4</b> Core KPIs</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="fvg-main">
+    <div class="fvg-wrap">
+      <section class="fvg-lens" aria-labelledby="lens-title">
+        <div class="fvg-section-head">
+          <div><small>READING LENS</small><h2 id="lens-title">ROE → CET1 → 주주환원율 → PBR</h2></div>
+          <p>한 숫자로 순위를 만들지 않고 네 축이 어떻게 연결되는지 봅니다.</p>
+        </div>
+        <div class="fvg-lens-grid">
+          {lenses.map(([kpi,title,note], index) => (
+            <article>
+              <em>{String(index+1).padStart(2,'0')}</em>
+              <strong>{kpi}</strong>
+              <b>{title}</b>
+              <p>{note}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <FinancialsMiniResearchMap />
+
+      <section class="fvg-series" aria-labelledby="series-title">
+        <div class="fvg-section-head">
+          <div><small>CORE SERIES</small><h2 id="series-title">5편으로 금융지주 판단 체계를 닫습니다</h2></div>
+          <a href="/guides/investing">전체 투자 리서치 →</a>
+        </div>
+
+        <div class="fvg-series-grid">
+          {articles.map((article, index) => (
+            <article class={index === articles.length - 1 ? 'is-compare' : ''}>
+              <div class="fvg-series-no">{String(index+1).padStart(2,'0')}</div>
+              <div>
+                <small>{article.data.investmentResearchType?.toUpperCase() ?? 'RESEARCH'}</small>
+                <h3><a href={`/articles/${article.id}`}>{article.data.cardTitle ?? article.data.title}</a></h3>
+                <p>{article.data.cardDescription ?? article.data.description}</p>
+                <div class="fvg-tags">{article.data.tags.slice(0,4).map((tag) => <span>#{tag}</span>)}</div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="fvg-compare">
+        <div>
+          <small>COMPARE HUB</small>
+          <h2>KB·신한·하나·우리<br/>같은 표에 놓고 봅니다.</h2>
+          <p>현재 숫자만 비교하지 않습니다. ROE의 지속성, CET1 기준선, 실제 자사주 소각, 다음 분기 재평가 조건을 같은 문법으로 추적합니다.</p>
+        </div>
+        <a href="/articles/korea-financial-holdings-compare">4대 금융지주 비교 열기 →</a>
+      </section>
+
+      <section class="fvg-update">
+        <small>QUARTERLY UPDATE CONTRACT</small>
+        <h2>분기마다 바꿔야 할 숫자</h2>
+        <div class="fvg-update-grid">
+          <span>순이익</span><span>ROE</span><span>NIM</span><span>Credit Cost</span>
+          <span>RWA</span><span>CET1</span><span>DPS</span><span>자사주 매입</span>
+          <span>실제 소각</span><span>BPS</span><span>PBR</span><span>환원 공식</span>
+        </div>
+      </section>
+    </div>
+  </main>
+</BaseLayout>
