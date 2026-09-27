@@ -1,0 +1,12 @@
+{
+  "contract": "JoyLab Series 02 Release Candidate V2",
+  "projectId": "series-02",
+  "releaseId": "series-02-v1.1.0",
+  "version": "1.1.0",
+  "state": "release-candidate",
+  "canonicalSource": "src/data/studio/series-02-source.json",
+  "requiredReadyChapters": 15,
+  "tag": "series-02-v1.1.0",
+  "promotionRule": "Release Engine V2 publishes only after a successful protected-main Cloudflare deployment whose JoyLab Release Gate is GOLD.",
+  "releasePage": "/studio/releases/series-02/v1-1-0/"
+}
