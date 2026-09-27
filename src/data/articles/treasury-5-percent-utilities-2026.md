@@ -97,3 +97,4 @@ AI 전력 투자에서는 산업 수요만 볼 것이 아니라 먼저 금리를
 
 - [전체 지도｜AI Power Infrastructure](/guides/ai-power-infrastructure)
 - [다음 글｜미국 국채금리와 S&P500·나스닥·고배당주](/articles/treasury-5-percent-sp500-nasdaq-dividend)
+- [함께 읽기｜GPU 다음 병목은 발전소다](/articles/ai-power-next-bottleneck)
