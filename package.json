@@ -75,7 +75,9 @@
     "studio:provenance": "node scripts/generate-export-provenance-v1.mjs",
     "studio:release:manifest": "node scripts/write-series-02-release-manifest-v1.mjs",
     "studio:release:verify": "node scripts/check-series-02-release-manifest-v1.mjs",
-    "research-graph:check": "node scripts/check-research-graph-v1.mjs"
+    "research-graph:check": "node scripts/check-research-graph-v1.mjs",
+    "release:v2": "node scripts/release-engine-v2.mjs",
+    "studio:reader15:qa": "node scripts/qa-series-02-reader-15.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"
