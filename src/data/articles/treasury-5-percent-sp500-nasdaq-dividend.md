@@ -16,9 +16,18 @@ seoTitle: "미국 국채금리 5% 시대｜S&P500·나스닥·고배당주 차�
 series: "AI Power Infrastructure"
 seriesOrder: 8
 readingTime: "약 9분"
+investmentTheses:
+  - macro-liquidity
+  - power-supercycle
+investmentResearchType: "macro"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "미국 국채금리 5% 환경에서 S&P500 나스닥 고배당주의 차이를 비교한 JoyLab 대표 이미지"
 ---
 
 미국 10년물 국채금리가 5%를 넘는 환경에서는 모든 주식이 같은 방식으로 움직이지 않습니다.
+
+→ [AI Power Infrastructure 전체 투자 지도](/guides/ai-power-infrastructure)
+
 
 2026년 9월 25일 미국 재무부 공식 수익률 기준 10년물은 **5.17%**, 30년물은 **5.49%**였습니다.
 
@@ -85,3 +94,10 @@ S&P500은 분산과 이익 확산, 나스닥은 EPS 성장, 고배당주는 배�
 ### Sources
 
 - [U.S. Treasury Daily Treasury Par Yield Curve Rates](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve)\n- [S&P Dow Jones Indices, S&P 500](https://www.spglobal.com/spdji/en/indices/equity/sp-500/)
+
+
+## 시리즈 이동
+
+- [이전 글｜국채금리 5% 돌파에 S&P500 유틸리티 52주 신저가](/articles/treasury-5-percent-utilities-2026)
+- [전체 지도｜AI Power Infrastructure](/guides/ai-power-infrastructure)
+- [다음 글｜AI 전력 수혜주는 누구인가](/articles/ai-power-beneficiaries-value-chain)
