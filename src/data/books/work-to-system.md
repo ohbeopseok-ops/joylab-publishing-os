@@ -2,7 +2,7 @@
 title: "업무를 시스템으로 바꾸는 법"
 subtitle: "상담 기록에서 시작해 리더의 운영 OS를 만들기까지"
 description: "기억 부채를 줄이고, 현장 기록을 데이터 구조로 바꾸고, 모바일 Coaching과 PC Ops를 하나의 운영 시스템으로 연결한 JoyLab Build Series 02."
-author: "JOYLAB"
+author: "오법석"
 publishedAt: 2026-09-27
 updatedAt: 2026-09-27
 featuredAt: 2026-09-27
