@@ -123,15 +123,7 @@ HD현대일렉트릭은 같은 PER 범위에서도 결과가 크게 달라집니
 
 AI 전력주에서는 다음 순서로 보는 것이 안전합니다.
 
-**Orders**
-→ **Backlog**
-→ **Revenue Conversion**
-→ **Margin**
-→ **2027 EPS Revision**
-→ **Forward PER**
-→ **Price**
-
-2027 기준값은 [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140)에서 확인합니다.
+**Orders** → **Backlog** → **Revenue Conversion** → **Margin** → **2027 EPS Revision** → **Forward PER** → **Price** · [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140)
 
 Backlog와 Margin이 좋아도 EPS Revision이 멈추면 높은 PER은 부담이 됩니다.
 
