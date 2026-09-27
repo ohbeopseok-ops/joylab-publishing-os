@@ -25,6 +25,7 @@ const analyticsContracts = {
   home_section_click: { targetPattern: /^(?:[A-Za-z0-9가-힣_-]{1,120}|\/guides\/[A-Za-z0-9_-]{1,100}\/?$)$/, placements: new Set(['editorial', 'major', 'latest', 'books', 'guide']) },
   book_preview_start: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['book_hero', 'book_hero_v2', 'book_toc_v2', 'book_closing_v2', 'book_footer']) },
   book_release_open: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['book_hero_v2', 'book_tabs', 'book_closing_v2']) },
+  book_interactive_open: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['book_hero_v2', 'book_tabs', 'book_closing_v2']) },
   book_mindmap_open: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['book_hero_v2', 'book_tabs']) },
   book_related_research_click: { targetPattern: /^[A-Za-z0-9_-]{1,120}$/, placementPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/ },
   book_landing_view: { targetPattern: /^[A-Za-z0-9가-힣_-]{1,120}$/, placements: new Set(['book_landing']) },

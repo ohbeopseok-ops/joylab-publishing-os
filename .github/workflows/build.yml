@@ -74,6 +74,7 @@ jobs:
           node --check scripts/check-asset-contract-v3.mjs
           node --check scripts/check-legacy-asset-cleanup.mjs
           node --check scripts/write-release-gate-v1.mjs
+          node --check scripts/release-engine-v2.mjs
           node --check scripts/fetch-adsense-metrics-v1.mjs
           node --check scripts/fetch-cloudflare-monetization-ux-v1.mjs
           node --check scripts/compose-adsense-monetization-snapshot-v1.mjs
@@ -123,6 +124,9 @@ jobs:
 
       - name: Validate production configuration baseline JSON
         run: node -e "JSON.parse(require('node:fs').readFileSync('config/production-baseline.json','utf8'))"
+
+      - name: Release Engine V2 contract
+        run: npm run release:engine:v2
 
       - name: Research Graph Gate V1
         run: npm run research-graph:check

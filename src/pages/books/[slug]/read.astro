@@ -31,6 +31,8 @@ const landingPath = `/books/${book.id}`;
 const canonical = new URL(landingPath, Astro.site ?? Astro.url.origin).toString();
 const storagePrefix = `joylab-book-${book.id}`;
 const interactiveChapters = getBookInteractions(book.id);
+const firstReadableHash = renderedChapters[0] ? `#chapter-${renderedChapters[0].chapter.data.order}` : landingPath;
+const previewCount = renderedChapters.length;
 ---
 
 <BaseLayout
@@ -104,7 +106,7 @@ const interactiveChapters = getBookInteractions(book.id);
       {book.data.access !== 'full' && (
         <div class="book-reader-toc__notice">
           <strong>미리보기</strong>
-          <p>작가의 말과 1장까지 공개되어 있습니다. 잠긴 장의 본문은 이 페이지에 포함되지 않습니다.</p>
+          <p>{previewCount}개 장이 미리보기로 공개되어 있습니다. 잠긴 장의 본문은 이 페이지에 포함되지 않습니다.</p>
         </div>
       )}
     </aside>
@@ -117,7 +119,7 @@ const interactiveChapters = getBookInteractions(book.id);
         {book.data.subtitle && <h2>{book.data.subtitle}</h2>}
         <div>글 · {book.data.author}</div>
         {book.data.heroQuote && <blockquote>“{book.data.heroQuote}”</blockquote>}
-        <a href="#chapter-0">읽기 시작 ↓</a>
+        <a href={firstReadableHash}>읽기 시작 ↓</a>
       </section>
 
       {renderedChapters.map(({ chapter, Content }) => (
@@ -139,7 +141,7 @@ const interactiveChapters = getBookInteractions(book.id);
       {book.data.access !== 'full' && (
         <section class="book-reader-lockwall" id="book-reader-lockwall">
           <small>PREVIEW END</small>
-          <h2>1장 미리보기가 끝났습니다.</h2>
+          <h2>{previewCount}개 장 미리보기가 끝났습니다.</h2>
           <p>이후 장은 현재 공개하지 않습니다. 책 소개 페이지에서 전체 목차를 확인할 수 있습니다.</p>
           <a href={landingPath}>책 소개로 돌아가기 →</a>
         </section>
