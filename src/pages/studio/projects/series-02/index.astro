@@ -4,6 +4,9 @@ import { interactiveBookContractSchema } from '../../../../lib/studio/interactiv
 import { series02Demo } from '../../../../data/studio/series-02-demo';
 import series02Source from '../../../../data/studio/series-02-source.json';
 const demo = interactiveBookContractSchema.parse(series02Demo);
+const interactiveChapterIds = new Set(demo.blocks.map((block) => block.chapterId));
+const interactiveReadyCount = interactiveChapterIds.size;
+const interactiveComplete = interactiveReadyCount === series02Source.chapters.length && series02Source.chapters.every((chapter) => interactiveChapterIds.has(chapter.id));
 const outputs = [
   { label: 'Interactive Web', status: 'READY' },
   { label: 'Web Preview', status: 'READY' },
@@ -26,11 +29,12 @@ const outputs = [
       <a href="/studio/projects/series-02/preview/">Preview</a>
       <a href="/studio/projects/series-02/export/">Export</a>
       <a href="/studio/demo/">Reader Demo</a>
+      <a href="/studio/releases/series-02-v1.0.0/">Release v1.0.0</a>
     </nav>
 
     <section class="metrics">
       <article><small>CHAPTERS</small><strong>{series02Source.chapters.length}</strong><span>{series02Source.chapters.filter((chapter) => chapter.manuscriptStatus === 'ready').length} READY · {series02Source.chapters.filter((chapter) => chapter.manuscriptStatus === 'outline').length} OUTLINE</span></article>
-      <article><small>INTERACTIVE</small><strong>{demo.blocks.length}</strong><span>Ch.1~15 READY</span></article>
+      <article><small>INTERACTIVE</small><strong>{interactiveReadyCount}</strong><span>{interactiveComplete ? `INTERACTIVE ${interactiveReadyCount}/${series02Source.chapters.length} READY` : `INTERACTIVE ${interactiveReadyCount}/${series02Source.chapters.length} PARTIAL`}</span></article>
       <article><small>VALIDATION</small><strong>CHECK</strong><span>Release GOLD Gate</span></article>
     </section>
 
@@ -46,7 +50,7 @@ const outputs = [
       <ol class="actions">
         <li><b>01</b><span>Chapter 1~15 canonical manuscript 15/15 확인</span><a href="/studio/projects/series-02/manuscript/">열기</a></li>
         <li><b>02</b><span>EPUB·Print PDF가 동일 canonical source를 소비하는지 확인</span><a href="/studio/projects/series-02/interactive/">열기</a></li>
-        <li><b>03</b><span>Validation → Preview → Export → Download Release GOLD 확인</span><a href="/studio/projects/series-02/validation/">검증</a></li>
+        <li><b>03</b><span>Published Release v1.0.0 다운로드·Provenance 확인</span><a href="/studio/releases/series-02-v1.0.0/">Release</a></li>
       </ol>
     </section>
   </div>
