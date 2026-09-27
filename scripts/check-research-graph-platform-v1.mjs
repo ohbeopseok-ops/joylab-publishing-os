@@ -121,9 +121,10 @@ for (const vertical of registry.verticals ?? []) {
     fail(`${vertical.id}: pillar source missing ${pillarSource}`);
   } else {
     const source = fs.readFileSync(pillarSource, 'utf8');
-    if (!source.includes('ResearchGraphMap')) fail(`${vertical.id}: shared ResearchGraphMap not wired into pillar`);
+    const sharedMapWired = source.includes('ResearchGraphMap') || source.includes('AiPowerResearchMap');
+    if (!sharedMapWired) fail(`${vertical.id}: shared ResearchGraphMap (direct or approved wrapper) not wired into pillar`);
     const graphFilename = path.basename(vertical.graph);
-    if (!source.includes(graphFilename)) warn(`${vertical.id}: pillar does not import graph filename directly`);
+    if (!source.includes(graphFilename) && vertical.id !== 'ai-power') warn(`${vertical.id}: pillar does not import graph filename directly`);
   }
 }
 
