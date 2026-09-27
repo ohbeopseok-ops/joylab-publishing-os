@@ -37,6 +37,8 @@ const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site
 const cover = book.data.coverImage;
 const readerPath = book.data.readerPath ?? `/books/${book.id}/read`;
 const readerCta = book.data.readerCta ?? '지금 읽기 · 작가의 말 + 1장';
+const interactivePath = book.data.interactivePath;
+const interactiveCta = book.data.interactiveCta ?? 'Interactive Reader';
 const releasePath = book.data.releasePath;
 const releaseCta = book.data.releaseCta ?? '정식 릴리스 보기';
 const mindmapPath = book.data.mindmapPath;
@@ -94,6 +96,15 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
             data-analytics-target={book.id}
             data-analytics-placement="book_hero_v2"
           >{readerCta} <span aria-hidden="true">→</span></a>
+          {interactivePath && (
+            <a
+              class="book-v2-secondary"
+              href={interactivePath}
+              data-analytics-event="book_interactive_open"
+              data-analytics-target={book.id}
+              data-analytics-placement="book_hero_v2"
+            >{interactiveCta}</a>
+          )}
           {releasePath && (
             <a
               class="book-v2-secondary"
@@ -133,6 +144,7 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
       <a href="#recommend">추천 대상</a>
       <a href="#toc">목차</a>
       <a href={readerPath}>{book.data.access === 'full' ? '웹 리더' : '미리보기'}</a>
+      {interactivePath && <a href={interactivePath} data-analytics-event="book_interactive_open" data-analytics-target={book.id} data-analytics-placement="book_tabs">Interactive</a>}
       {releasePath && <a href={releasePath} data-analytics-event="book_release_open" data-analytics-target={book.id} data-analytics-placement="book_tabs">Release</a>}
       {mindmapPath && <a href={mindmapPath} data-analytics-event="book_mindmap_open" data-analytics-target={book.id} data-analytics-placement="book_tabs">마인드맵</a>}
       <a href="#author">저자 소개</a>
@@ -237,6 +249,7 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
         data-analytics-target={book.id}
         data-analytics-placement="book_closing_v2"
       >{readerCta} →</a>
+      {interactivePath && <a href={interactivePath} data-analytics-event="book_interactive_open" data-analytics-target={book.id} data-analytics-placement="book_closing_v2">{interactiveCta} →</a>}
       {releasePath && <a href={releasePath} data-analytics-event="book_release_open" data-analytics-target={book.id} data-analytics-placement="book_closing_v2">{releaseCta} →</a>}
     </section>
   </main>
