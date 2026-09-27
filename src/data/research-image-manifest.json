@@ -1999,5 +1999,43 @@
         "caption": "같은 PER에서도 필요한 EPS와 가격 범위가 다릅니다."
       }
     ]
+  },
+  "china-ai-token-ciyuan-discourse-power": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Token에서 중국어 词元으로 이어지는 AI 언어·측정·표준·담론 권력 구조를 표현한 JoyLab Research 대표 이미지",
+      "caption": "TOKEN → 词元. Language → Measurement → Standard → Governance."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "중국 AI Token 词元 표준화의 핵심 사실과 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화 신호와 검증 포인트를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Language Measurement Standard Governance Discourse Power 연결을 설명한 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "ai-token-economics": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI Token이 사용량 측정에서 API 가격과 데이터 가치, 표준으로 연결되는 구조를 표현한 JoyLab Research 대표 이미지",
+      "caption": "TOKEN → METERING → PRICING → SETTLEMENT → STANDARD."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI Token 사용량과 API 과금 데이터 가치의 핵심 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화 신호와 검증 포인트를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Token Metering Pricing Settlement Standard Market 연결을 설명한 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
   }
 }
