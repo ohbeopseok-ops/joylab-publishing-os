@@ -41,7 +41,8 @@
       "key": "discourse",
       "label": "DISCOURSE POWER",
       "types": [
-        "discourse_power"
+        "discourse_power",
+        "capability"
       ]
     }
   ],
@@ -145,6 +146,19 @@
       "label": "AI Translation Gatekeeper",
       "articleUrl": "/articles/ai-translation-information-gatekeeper",
       "stage": "language"
+    },
+    {
+      "id": "deep-inquiry",
+      "type": "capability",
+      "label": "Deep Inquiry",
+      "stage": "discourse_power"
+    },
+    {
+      "id": "ai-era-english-deep-inquiry",
+      "type": "article",
+      "label": "Translation → Verification → Deep Inquiry",
+      "articleUrl": "/articles/ai-era-english-deep-inquiry",
+      "stage": "discourse_power"
     }
   ],
   "edges": [
@@ -287,6 +301,46 @@
       "from": "ai-translation-information-gatekeeper",
       "to": "ai-token-economics",
       "type": "previous"
+    },
+    {
+      "from": "ai-translation-information-gatekeeper",
+      "to": "ai-era-english-deep-inquiry",
+      "type": "next"
+    },
+    {
+      "from": "source-verification",
+      "to": "deep-inquiry",
+      "type": "enables"
+    },
+    {
+      "from": "deep-inquiry",
+      "to": "discourse-power",
+      "type": "informs"
+    },
+    {
+      "from": "ai-era-english-deep-inquiry",
+      "to": "machine-translation",
+      "type": "covered_by"
+    },
+    {
+      "from": "ai-era-english-deep-inquiry",
+      "to": "source-verification",
+      "type": "covered_by"
+    },
+    {
+      "from": "ai-era-english-deep-inquiry",
+      "to": "deep-inquiry",
+      "type": "covered_by"
+    },
+    {
+      "from": "ai-era-english-deep-inquiry",
+      "to": "ai-standards",
+      "type": "belongs_to"
+    },
+    {
+      "from": "ai-era-english-deep-inquiry",
+      "to": "ai-translation-information-gatekeeper",
+      "type": "previous"
     }
   ],
   "articles": [
@@ -335,6 +389,22 @@
       ],
       "stage": "language",
       "previous": "ai-token-economics",
+      "next": "ai-era-english-deep-inquiry",
+      "status": "published"
+    },
+    {
+      "id": "ai-era-english-deep-inquiry",
+      "title": "AI 시대 영어는 필요 없을까｜Translation → Verification → Deep Inquiry",
+      "url": "/articles/ai-era-english-deep-inquiry",
+      "order": 4,
+      "pillar": "ai-standards",
+      "topics": [
+        "machine-translation",
+        "source-verification",
+        "deep-inquiry"
+      ],
+      "stage": "discourse_power",
+      "previous": "ai-translation-information-gatekeeper",
       "next": null,
       "status": "published"
     }
