@@ -8,6 +8,11 @@ on:
       - 'src/data/studio/**'
       - 'config/contracts/interactive-block-v1.schema.json'
       - 'scripts/check-studio-mvp-v1.mjs'
+      - 'scripts/check-series-02-release-manifest-v1.mjs'
+      - 'scripts/write-series-02-release-manifest-v1.mjs'
+      - 'config/series-02-release-v1.json'
+      - 'public/studio/releases/**'
+      - 'package.json'
       - '.github/workflows/studio-mvp-gate-v1.yml'
   workflow_dispatch:
 
@@ -26,5 +31,7 @@ jobs:
       - run: npm ci
       - name: JoyLab Studio Gate V1
         run: npm run studio:gate
+      - name: Verify immutable Series 02 release manifest
+        run: npm run studio:release:verify
       - name: Astro build
         run: npm run build

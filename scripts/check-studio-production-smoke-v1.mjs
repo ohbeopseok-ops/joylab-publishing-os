@@ -85,4 +85,16 @@ for (let attempt = 1; attempt <= 8 && !verified; attempt++) {
 
 if (!verified) throw lastError ?? new Error('Studio artifact coherence failed');
 
+const immutablePath = '/studio/releases/series-02/v1-0-0/immutable-release-manifest.json';
+const immutableRes = await fetch(base + fresh(immutablePath), { redirect: 'follow', cache: 'no-store', headers: { 'cache-control': 'no-cache' } });
+if (immutableRes.status !== 200) throw new Error(immutablePath + ' expected 200, got ' + immutableRes.status);
+const immutable = await immutableRes.json();
+if (immutable.contract !== 'JoyLab Immutable Release Manifest V1') throw new Error('immutable manifest contract mismatch');
+if (immutable.releaseId !== 'series-02-v1.0.0') throw new Error('immutable manifest releaseId mismatch');
+if (immutable.tag !== 'series-02-v1.0.0') throw new Error('immutable manifest tag mismatch');
+if (immutable.commitSha !== 'bd8130c136cdd175a71df3b9c80580f5b0363362') throw new Error('immutable manifest GOLD commit mismatch');
+if (immutable.canonicalSource?.sha256 !== '495451d5afcf6621573b0914c770554a006946730133bf884e5a298c7a0386c8') throw new Error('immutable manifest source hash mismatch');
+if (immutable.releaseGate?.status !== 'GOLD') throw new Error('immutable manifest release gate is not GOLD');
+console.log('PASS', immutablePath, immutable.commitSha);
+
 console.log('Studio Production Smoke V1 PASS');
