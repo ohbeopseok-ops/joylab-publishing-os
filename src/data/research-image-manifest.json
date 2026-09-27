@@ -1809,5 +1809,24 @@
         "caption": "Earnings → Capital → Shareholder Return → Valuation 순서로 재점검합니다."
       }
     ]
+  },
+  "bank-roe-cet1-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "은행 ROE와 CET1 보는 법｜이익 성장과 자본 여력은 왜 다르게 움직이나 — JoyLab Research 대표 이미지",
+      "caption": "은행주의 수익성과 자본여력을 ROE·RWA·CET1 흐름으로 연결합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "은행 ROE와 CET1 분석 — ROE RWA CET1 NIM Credit Cost 핵심 신호 이미지",
+        "caption": "ROE·RWA·CET1·NIM·Credit Cost를 함께 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "은행 ROE와 CET1 분석 — 이익 위험 자본 주주환원 리서치 프레임워크 이미지",
+        "caption": "Earnings → Risk → Capital → Shareholder Return 순서로 읽습니다."
+      }
+    ]
   }
 }
