@@ -52,6 +52,7 @@ export async function GET({ site }: { site: URL }) {
     '/guides/semiconductor-investing',
     '/guides/ai-inference-memory',
     '/guides/ai-power',
+    '/guides/ai-power-infrastructure',
     '/guides/shipbuilding',
     '/guides/us-rates',
     '/guides/living-research',
