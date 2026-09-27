@@ -2,7 +2,7 @@ name: Series 02 Release Tag V1
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'feat/series-02-published-release-v1b']
     paths:
       - '.github/workflows/series-02-release-tag-v1.yml'
   workflow_dispatch:
@@ -47,12 +47,15 @@ jobs:
         run: |
           node <<'NODE'
           const fs=require('fs');
-          const release=JSON.parse(fs.readFileSync('src/data/studio/series-02-release-v1.json','utf8'));
+          const release=JSON.parse(fs.readFileSync('config/series-02-release-v1.json','utf8'));
           if(release.state!=='published') throw new Error('release metadata is not published');
-          if(release.commitSha!==process.env.TARGET_SHA) throw new Error('target SHA does not match published release metadata');
+          if(release.publishedCommitSha!==process.env.TARGET_SHA) throw new Error('target SHA does not match published release metadata');
           if(release.tag!==process.env.TAG) throw new Error('tag does not match published release metadata');
-          if(release.releaseGate?.status!=='GOLD') throw new Error('published release is not GOLD');
-          console.log('Published release metadata verified');
+                    const manifest=JSON.parse(fs.readFileSync('public/studio/releases/series-02/v1-0-0/immutable-release-manifest.json','utf8'));
+          if(manifest.releaseGate?.status!=='GOLD') throw new Error('immutable manifest is not GOLD');
+          if(manifest.commitSha!==process.env.TARGET_SHA) throw new Error('manifest commit SHA mismatch');
+          if(manifest.tag!==process.env.TAG) throw new Error('manifest tag mismatch');
+          console.log('Published release metadata + GOLD manifest verified');
           NODE
 
       - name: Create immutable release tag
