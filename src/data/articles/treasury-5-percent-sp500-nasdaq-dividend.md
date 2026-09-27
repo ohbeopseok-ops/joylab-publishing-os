@@ -98,6 +98,6 @@ S&P500은 분산과 이익 확산, 나스닥은 EPS 성장, 고배당주는 배�
 
 ## 시리즈 이동
 
-- [이전 글｜국채금리 5% 돌파에 S&P500 유틸리티 52주 신저가](/articles/treasury-5-percent-utilities-2026)
+- [이전 글｜국채금리와 S&P500 유틸리티](/articles/treasury-5-percent-utilities-2026)
 - [전체 지도｜AI Power Infrastructure](/guides/ai-power-infrastructure)
 - [다음 글｜AI 전력 수혜주는 누구인가](/articles/ai-power-beneficiaries-value-chain)
