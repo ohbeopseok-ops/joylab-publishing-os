@@ -1265,7 +1265,9 @@
     {
       "slug": "treasury-5-percent-sp500-nasdaq-dividend",
       "route": "/articles/treasury-5-percent-sp500-nasdaq-dividend",
-      "industries": [],
+      "industries": [
+        "financials-value-up"
+      ],
       "theses": [
         "macro-liquidity",
         "power-supercycle"
