@@ -167,7 +167,7 @@ jobs:
           grep -Fq 'Chapter 1~15' /tmp/body
           grep -Fq 'Chapter 15 · 같은 데이터, 다른 인터페이스' /tmp/body
 
-          check_200 "https://aijoylab.kr/studio/releases/series-02/v1-0-0/?deploy=${GITHUB_SHA}"
+          check_follow_200 "https://aijoylab.kr/studio/releases/series-02/v1-0-0/?deploy=${GITHUB_SHA}"
           grep -Fq 'PUBLISHED RELEASE' /tmp/body
           grep -Fq 'EPUB3' /tmp/body
           grep -Fq 'Print PDF' /tmp/body
