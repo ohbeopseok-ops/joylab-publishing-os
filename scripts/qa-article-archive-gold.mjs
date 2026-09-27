@@ -89,7 +89,12 @@ async function runArchive(viewport) {
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e)));
-  page.on('console', (m) => { if (m.type() === 'error') errors.push(`console: ${m.text()}`); });
+  page.on('console', (m) => {
+    if (m.type() !== 'error') return;
+    const message = m.text();
+    if (message.includes('[Report Only]') && message.includes('Content Security Policy')) return;
+    errors.push(`console: ${message}`);
+  });
   const response = await page.goto(`${baseURL}/#archive`, { waitUntil: 'networkidle' });
   await page.locator('#archive').scrollIntoViewIfNeeded();
   const initialCount = Number((await page.locator('#result-count').textContent())?.trim() || 0);

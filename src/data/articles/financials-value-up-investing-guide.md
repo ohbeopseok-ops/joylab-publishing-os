@@ -35,7 +35,7 @@ investmentKpis:
   - NIM
   - credit-cost
   - payout-ratio
-  - total-shareholder-return
+  - shareholder-payout-ratio
   - PBR
 investmentResearchType: pillar
 ---
@@ -164,7 +164,7 @@ CET1이 일정 기준 이상으로 유지되고, ROE가 높은 수준을 지속�
 
 **Cash Dividend + Share Buyback + Cancellation**
 
-특히 한국 금융주에서는 단순 배당성향만 보지 않고 **총주주환원율(TSR)**과 실제 소각 여부를 같이 확인하는 것이 중요합니다.
+특히 한국 금융주에서는 단순 배당성향만 보지 않고 **총주주환원율**과 실제 소각 여부를 같이 확인하는 것이 중요합니다.
 
 ## 5. CET1이 높으면 무조건 좋은가
 

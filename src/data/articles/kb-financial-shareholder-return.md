@@ -37,7 +37,7 @@ investmentKpis:
   - RWA
   - NIM
   - credit-cost
-  - total-shareholder-return
+  - shareholder-payout-ratio
   - PBR
 investmentResearchType: company
 ---
@@ -155,7 +155,7 @@ JoyLab에서는 다음처럼 봅니다.
 
 이 조합이 중요합니다.
 
-## 8. 2025년 TSR 52.4%가 의미하는 것
+## 8. 2025년 총주주환원율 52.4%가 의미하는 것
 
 KB금융은 2025년 총주주환원율을 **52.4%**로 공개했습니다. 현금배당 약 1조 5,800억원과 자사주 매입·소각 약 1조 4,800억원을 합쳐 총 주주환원 규모는 약 **3조 600억원**이었습니다. [KB금융 2025년 경영실적](https://www.kbfg.com/IR_new/2025_4/player/vod_kor.html)
 

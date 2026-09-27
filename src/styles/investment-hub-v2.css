@@ -71,3 +71,26 @@
 }
 
 .investment-hub-v2 .ih-card-related{margin-top:10px}.investment-hub-v2 .ih-card-related a{font-size:.74rem;font-weight:800;color:#1677ff}
+
+.investment-hub-v2 .fmmap{margin-top:48px;border:1px solid #dfe7f1;background:#fff;overflow:hidden}
+.investment-hub-v2 .fmmap__head{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;padding:24px;border-bottom:1px solid #e7edf5}
+.investment-hub-v2 .fmmap__head h2{margin:4px 0 8px;color:#10213c;font-size:1.35rem}
+.investment-hub-v2 .fmmap__head p{margin:0;color:#64748b;font-size:.85rem;line-height:1.7}
+.investment-hub-v2 .fmmap__head>a{color:#1677ff;font-weight:800;font-size:.76rem;white-space:nowrap}
+.investment-hub-v2 .fmmap__flow{display:grid;grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr;align-items:stretch;padding:22px;background:#f8fafc}
+.investment-hub-v2 .fmmap__step{display:flex;flex-direction:column;gap:6px;padding:18px;border:1px solid #dfe7f1;background:#fff;text-decoration:none;min-width:0}
+.investment-hub-v2 .fmmap__step em{font-style:normal;font-size:.62rem;font-weight:800;color:#7b8ba1;letter-spacing:.08em}
+.investment-hub-v2 .fmmap__step strong{font-size:1.3rem;color:#1677ff;line-height:1}
+.investment-hub-v2 .fmmap__step b{font-size:.82rem;color:#243a58}
+.investment-hub-v2 .fmmap__step span{font-size:.72rem;line-height:1.55;color:#718197}
+.investment-hub-v2 .fmmap__step:hover{border-color:#1677ff;background:#f7fbff}
+.investment-hub-v2 .fmmap__arrow{display:flex;align-items:center;justify-content:center;color:#1677ff;font-weight:900}
+.investment-hub-v2 .fmmap__articles{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 22px;border-top:1px solid #e7edf5}
+.investment-hub-v2 .fmmap__articles>span{font-size:.62rem;font-weight:800;letter-spacing:.08em;color:#8897aa;margin-right:4px}
+.investment-hub-v2 .fmmap__articles a{font-size:.72rem;font-weight:800;color:#405a78;padding:6px 8px;background:#f4f7fb}
+@media(max-width:820px){
+  .investment-hub-v2 .fmmap__head{display:block}
+  .investment-hub-v2 .fmmap__head>a{display:inline-block;margin-top:12px}
+  .investment-hub-v2 .fmmap__flow{grid-template-columns:1fr}
+  .investment-hub-v2 .fmmap__arrow{transform:rotate(90deg);min-height:22px}
+}

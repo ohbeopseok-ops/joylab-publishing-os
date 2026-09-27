@@ -15,8 +15,8 @@ JoyLab의 6개 투자 Industry 중 현재 Coverage 0인 **금융·주주환원**
 | 01 | 금융·주주환원 투자 가이드｜ROE·CET1·배당·자사주·PBR을 연결하는 법 | Pillar | ROE, CET1, payout, buyback, PBR | Cluster 진입점 |
 | 02 | KB금융 주주환원 보는 법｜ROE·CET1·배당·자사주를 연결하는 방법 | Company | ROE, CET1, DPS, buyback/cancel | 첫 Company Research |
 | 03 | 은행 ROE와 CET1 보는 법｜이익 성장과 자본 여력은 어떻게 연결되나 | Explainer | ROE, CET1, RWA, capital allocation | 핵심 지표 해설 |
-| 04 | 배당보다 자사주 소각이 중요한 순간｜총주주환원율을 읽는 법 | Explainer | TSR, payout, buyback, cancellation | 주주환원 메커니즘 |
-| 05 | 4대 금융지주 비교｜KB·신한·하나·우리의 PBR Re-rating 조건 | Compare | ROE, CET1, TSR, PBR | Compare Hub |
+| 04 | 배당보다 자사주 소각이 중요한 순간｜총주주환원율을 읽는 법 | Explainer | shareholder payout ratio, buyback, cancellation | 주주환원 메커니즘 |
+| 05 | 4대 금융지주 비교｜KB·신한·하나·우리의 PBR Re-rating 조건 | Compare | ROE, CET1, shareholder payout ratio, PBR | Compare Hub |
 
 ## Internal Link Contract
 

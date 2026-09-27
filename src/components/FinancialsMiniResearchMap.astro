@@ -1,0 +1,64 @@
+---
+const steps = [
+  {
+    id: 'roe',
+    label: 'ROE',
+    title: '이익 창출력',
+    note: '자기자본을 얼마나 효율적으로 이익으로 바꾸는가',
+    href: '/articles/bank-roe-cet1-guide'
+  },
+  {
+    id: 'cet1',
+    label: 'CET1',
+    title: '자본 여력',
+    note: '손실·성장·주주환원을 감당할 핵심 자본이 충분한가',
+    href: '/articles/bank-roe-cet1-guide'
+  },
+  {
+    id: 'tsr',
+    label: 'PAYOUT',
+    title: '주주환원',
+    note: '배당·자사주 매입·소각이 실제로 얼마나 실행되는가',
+    href: '/articles/total-shareholder-return-buyback-cancellation-guide'
+  },
+  {
+    id: 'pbr',
+    label: 'PBR',
+    title: '재평가',
+    note: '시장이 자본효율과 환원정책을 얼마나 신뢰하는가',
+    href: '/articles/financials-value-up-investing-guide'
+  }
+];
+---
+<section class="fmmap" aria-labelledby="fmmap-title">
+  <div class="fmmap__head">
+    <div>
+      <div class="sg-eyebrow">FINANCIALS MINI RESEARCH MAP</div>
+      <h2 id="fmmap-title">ROE → CET1 → 주주환원율 → PBR</h2>
+      <p>금융주를 배당률 하나가 아니라 <strong>수익성 → 자본 → 환원 → 재평가</strong> 흐름으로 읽습니다.</p>
+    </div>
+    <a href="/articles/kb-financial-shareholder-return">KB금융 사례 보기 →</a>
+  </div>
+
+  <div class="fmmap__flow" role="list">
+    {steps.map((step, index) => (
+      <>
+        <a class="fmmap__step" href={step.href} role="listitem">
+          <em>{String(index + 1).padStart(2, '0')}</em>
+          <strong>{step.label}</strong>
+          <b>{step.title}</b>
+          <span>{step.note}</span>
+        </a>
+        {index < steps.length - 1 && <div class="fmmap__arrow" aria-hidden="true">→</div>}
+      </>
+    ))}
+  </div>
+
+  <div class="fmmap__articles">
+    <span>RELATED RESEARCH</span>
+    <a href="/articles/financials-value-up-investing-guide">Pillar</a>
+    <a href="/articles/kb-financial-shareholder-return">KB금융</a>
+    <a href="/articles/bank-roe-cet1-guide">ROE·CET1</a>
+    <a href="/articles/total-shareholder-return-buyback-cancellation-guide">주주환원율·자사주 소각</a>
+  </div>
+</section>

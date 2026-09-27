@@ -90,8 +90,8 @@
       "label": "Credit Cost"
     },
     {
-      "id": "tsr",
-      "label": "Total Shareholder Return"
+      "id": "shareholder-payout-ratio",
+      "label": "Shareholder Payout Ratio"
     },
     {
       "id": "pbr",
@@ -593,7 +593,7 @@
     },
     {
       "from": "kb-financial",
-      "to": "tsr",
+      "to": "shareholder-payout-ratio",
       "type": "company-to-kpi"
     },
     {

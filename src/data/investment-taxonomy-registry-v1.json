@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 100,
+  "articleCount": 101,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -605,7 +605,7 @@
         "NIM",
         "credit-cost",
         "payout-ratio",
-        "total-shareholder-return",
+        "shareholder-payout-ratio",
         "PBR"
       ],
       "researchType": "pillar"
@@ -807,7 +807,7 @@
         "RWA",
         "NIM",
         "credit-cost",
-        "total-shareholder-return",
+        "shareholder-payout-ratio",
         "PBR"
       ],
       "researchType": "company"
@@ -1143,6 +1143,30 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "total-shareholder-return-buyback-cancellation-guide",
+      "route": "/articles/total-shareholder-return-buyback-cancellation-guide",
+      "industries": [
+        "financials-value-up"
+      ],
+      "theses": [
+        "korea-value-up"
+      ],
+      "companies": [],
+      "valueChains": [
+        "shareholder-return",
+        "capital-adequacy",
+        "valuation-rerating"
+      ],
+      "kpis": [
+        "shareholder-payout-ratio",
+        "payout-ratio",
+        "CET1",
+        "ROE",
+        "PBR"
+      ],
+      "researchType": "explainer"
     },
     {
       "slug": "us-30y-treasury-5-percent-risk-2026",

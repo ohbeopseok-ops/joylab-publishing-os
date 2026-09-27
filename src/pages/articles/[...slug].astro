@@ -76,6 +76,7 @@ const isAiPowerSeries = article.data.series?.startsWith('AI 전력');
 const isMoneyBasics = article.data.series === '돈 공부 기초';
 const isUsRatesSeries = article.data.series === '미국 금리 리서치';
 const isUsMacroSeries = article.data.series === '미국 경제지표 읽는 법';
+const isFinancialsSeries = article.data.series === '금융·주주환원 투자 가이드';
 const isGrowthResearch = article.data.category === '성장·리더십' || article.data.series === '침묵의 기술';
 const isChinaSemiconductorSeries = article.data.series === '미·중 반도체 전쟁';
 const isChinaSemiconductorRiskArticle = article.id === 'china-semiconductor-risk-indicators';
@@ -116,6 +117,12 @@ const guideCta = isGrowthResearch
       title: 'AI Economics Research Hub',
       href: '/guides/ai-economics',
       label: 'AI Economics → Infrastructure → Semiconductor → Security 전체 흐름 보기 →'
+    }
+  : isFinancialsSeries
+  ? {
+      title: '금융·주주환원 투자 가이드',
+      href: '/articles/financials-value-up-investing-guide',
+      label: 'ROE → CET1 → 주주환원율 → PBR 전체 흐름 보기 →'
     }
   : isUsMacroSeries
   ? {
