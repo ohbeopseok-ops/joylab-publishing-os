@@ -58,7 +58,7 @@ JoyLab은 4대 금융지주를 다음 순서로 비교합니다.
 
 ## 30초 비교표
 
-2026년 상반기·2분기 공시를 기준으로 보면 다음처럼 정리할 수 있습니다.
+2026년 상반기·2분기 공시를 기준으로 보면 다음처럼 정리할 수 있습니다. [KB금융 1H26](https://kbfg.com/IR_new/2026_2/player/vod_kor.html) [신한금융 2Q26](https://www.shinhangroup.com/kr/ir/finance/investorPresentations/detail/33171) [하나금융 재무지표](https://www.hanafn.com/ir/financial/summary/importantDetail.do) [우리금융 1H26](https://www.woorifg.com/kor/investor/disclosure/biz-report/list.do)
 
 | 금융지주 | ROE | CET1 | 주주환원 확인 포인트 | PBR에서 볼 것 |
 | --- | ---: | ---: | --- | --- |
@@ -67,8 +67,8 @@ JoyLab은 4대 금융지주를 다음 순서로 비교합니다.
 | 하나금융 | 10.62% | 13.21% | 50%+ 목표, 3Q 2,500억원 추가 자사주 매입·소각 | ROE 12% 목표로의 개선 속도 |
 | 우리금융 | 9.0%* | 13.74%** | 1H 자사주 매입·소각 3,500억원, 분기 DPS 220원 | CET1 개선이 ROE 상승으로 이어지는지 |
 
-* 우리금융은 상반기 공시에서 일회성 영향 제외 ROE 10.3%도 함께 제시했습니다.  
-** 2분기 잠정 CET1은 13.71%였고 이후 반기보고서 기준 13.74%로 확정됐습니다.
+* 우리금융은 상반기 실적에서 일회성 영향 제외 ROE 10.3%를 함께 설명했습니다. [우리금융 2026년 상반기 실적발표](https://www.woorifg.com/kor/investor/ir/earnings-announcement/view.do?seq=1358)  
+** 2분기 잠정 CET1은 13.71%였고 이후 반기보고서 기준 13.74%로 확정됐습니다. [우리금융 2026년 반기보고서](https://www.woorifg.com/kor/investor/disclosure/biz-report/list.do)
 
 KB금융은 2026년 상반기 ROE 14.09%, CET1 13.74%를 발표했고 7,000억원 규모의 추가 자사주 매입·소각과 2분기 주당 1,155원 배당을 결의했습니다. [KB금융 2026년 상반기 경영실적](https://kbfg.com/IR_new/2026_2/player/vod_kor.html)
 
@@ -78,13 +78,13 @@ KB금융은 2026년 상반기 ROE 14.09%, CET1 13.74%를 발표했고 7,000억�
 
 우리금융은 2026년 상반기 연결당기순이익 1조6,088.96억원, 상반기 현금배당 3,204.64억원, 자사주 매입·소각 3,500억원을 주주환원 현황에서 공개했습니다. [우리금융 주주환원현황](https://www.woorifg.com/kor/investor/ir/dividend/contentsid/606/index.do) 2분기 CET1 잠정치는 13.71%였고 반기보고서에서 13.74%로 확정됐습니다. [우리금융 2026년 반기보고서](https://www.woorifg.com/kor/investor/disclosure/biz-report/list.do)
 
-현재 PBR은 시장가격에 따라 계속 변하므로 이 글에서는 특정 시점 숫자로 고정하지 않습니다. 실제 투자 판단에서는 같은 기준일의 KRX 종가와 최근 BPS를 사용해 4개사를 다시 계산하는 편이 안전합니다.
+현재 PBR은 시장가격에 따라 계속 변하므로 이 글에서는 특정 시점 숫자로 고정하지 않습니다. 실제 비교에서는 같은 기준일의 KRX 종가와 최근 BPS를 사용해 다시 계산합니다. [KRX 정보데이터시스템](https://data.krx.co.kr)
 
 ## 1. 첫 번째 비교축｜ROE
 
 ROE는 금융지주가 자기자본을 얼마나 효율적으로 이익으로 바꾸는지를 보여줍니다.
 
-2026년 상반기 기준으로 보면 KB금융의 ROE가 가장 높게 확인되고, 신한금융이 그 뒤를 잇습니다. 하나금융은 10%대 초반, 우리금융은 9% 수준이며 일회성 요인을 제외하면 10%대 초반으로 설명됩니다.
+2026년 상반기·2분기 공식 발표 기준 ROE는 KB금융 14.09%, 신한금융 12.4%, 하나금융 10.62%로 공시됐고, 우리금융은 상반기 실적에서 9% 수준과 일회성 영향 제외 10.3%를 함께 설명했습니다. [KB금융 1H26](https://kbfg.com/IR_new/2026_2/player/vod_kor.html) [신한금융 2Q26](https://www.shinhangroup.com/kr/ir/finance/investorPresentations/detail/33171) [하나금융 재무지표](https://www.hanafn.com/ir/financial/summary/importantDetail.do) [우리금융 1H26](https://www.woorifg.com/kor/investor/ir/earnings-announcement/view.do?seq=1358)
 
 하지만 이 표를 그대로 순위표로 쓰면 안 됩니다.
 
@@ -102,17 +102,17 @@ ROE는 **출발점**이지 결론이 아닙니다.
 
 CET1은 성장과 손실흡수, 주주환원에 쓸 수 있는 핵심 자본의 두께를 보여줍니다.
 
-2분기 말 기준 4대 금융지주는 모두 13%대를 유지했습니다.
+2분기 말 기준 4대 금융지주는 모두 CET1 13%대를 유지했습니다. [KB금융 1H26](https://kbfg.com/IR_new/2026_2/player/vod_kor.html) [신한금융 2Q26](https://www.shinhangroup.com/kr/ir/finance/investorPresentations/detail/33171) [하나금융 2Q26 경영공시](https://www.hanafn.com/ir/disclosure/managementList.do) [우리금융 반기보고서](https://www.woorifg.com/kor/investor/disclosure/biz-report/list.do)
 
 여기서 중요한 점은 **CET1 절대값보다 회사가 어떤 기준선을 자본배분 공식에 연결하는가**입니다.
 
-KB금융은 13.5% 초과자본을 추가 주주환원 재원으로 연결하는 프레임워크를 설명했습니다.
+KB금융은 CET1 13.5% 초과자본을 추가 주주환원 재원으로 연결하는 프레임워크를 설명했습니다. [KB금융 1H26](https://kbfg.com/IR_new/2026_2/player/vod_kor.html)
 
-신한금융은 13%+를 안정적인 자본비율 목표로 제시하고 초과자본은 추가 환원을 원칙으로 하겠다고 밝혔습니다.
+신한금융은 CET1 13%+를 자본관리 목표로 제시하고 초과자본은 추가 환원을 원칙으로 하겠다고 밝혔습니다. [신한금융 Value-Up·1Q26](https://www.shinhangroup.com/kr/ir/finance/investorPresentations/detail/32583)
 
-하나금융 역시 기업가치 제고 계획 2.0에서 CET1 13% 이상을 목표로 하고 초과자본을 주주환원 재원으로 활용하는 방향을 제시했습니다.
+하나금융은 2026년 기업가치 제고 계획에서 CET1 관리와 주주환원을 함께 제시했습니다. [하나금융 IR](https://www.hanafn.com/ir/subMain.do)
 
-우리금융은 과거 상대적으로 낮았던 CET1을 빠르게 끌어올려 2026년 상반기 13% 후반대까지 개선했습니다. 이제 투자 포인트는 **자본비율 개선 자체보다 그 자본이 수익성과 환원으로 연결되는가**입니다.
+우리금융의 2026년 상반기 CET1은 반기보고서 기준 13% 후반대로 올라왔습니다. 따라서 다음 확인 포인트는 **자본비율 개선이 수익성과 환원으로 연결되는가**입니다. [우리금융 2026년 반기보고서](https://www.woorifg.com/kor/investor/disclosure/biz-report/list.do)
 
 ## 3. 세 번째 비교축｜주주환원
 
@@ -131,11 +131,11 @@ KB금융은 13.5% 초과자본을 추가 주주환원 재원으로 연결하는 
 
 KB는 CET1 초과분을 환원에 연결하는 자본연계형 구조가 특징입니다.
 
-신한은 50%+ 주주환원 원칙과 5,000만주 감축 목표를 함께 제시해 **총량과 주식 수 감소**를 동시에 봐야 합니다.
+신한은 50%+ 주주환원 원칙과 5,000만주 감축 목표를 함께 제시해 **총량과 주식 수 감소**를 동시에 봐야 합니다. [신한금융 Value-Up·1Q26](https://www.shinhangroup.com/kr/ir/finance/investorPresentations/detail/32583)
 
-하나는 50%+ 환원 목표와 ROE 12%, CET1 13%를 한 세트로 제시해 **수익성 개선과 환원의 동시 달성**이 핵심입니다.
+하나금융은 ROE·CET1·주주환원을 기업가치 제고 계획의 핵심 축으로 제시하고 있어 **수익성 개선과 환원의 동시 달성**을 확인해야 합니다. [하나금융 IR](https://www.hanafn.com/ir/subMain.do)
 
-우리는 CET1 개선 이후 자사주 매입·소각을 확대하고 있어 **자본 정상화 이후 환원 확대의 지속성**을 확인하는 단계입니다.
+우리금융은 2026년 상반기 자사주 매입·소각 3,500억원을 공시해 **자본 정상화 이후 환원 확대의 지속성**을 확인하는 단계입니다. [우리금융 주주환원현황](https://www.woorifg.com/kor/investor/ir/dividend/contentsid/606/index.do)
 
 ## 4. 네 번째 비교축｜PBR
 
@@ -161,28 +161,28 @@ ROE가 낮고 자본을 비효율적으로 쌓는 회사라면 낮은 PBR이 오
 
 ### KB금융
 
-- ROE가 높은 수준을 유지하는가
+- ROE가 높은 수준을 유지하는가 [KB금융 1H26](https://kbfg.com/IR_new/2026_2/player/vod_kor.html)
 - CET1 13.5% 초과자본이 반복적으로 환원되는가
 - 비은행 이익이 그룹 ROE를 안정적으로 받치는가
 - 자사주 소각이 실제 주식 수 감소로 이어지는가
 
 ### 신한금융
 
-- ROE 10~12% 이상 범위가 지속되는가
+- ROE 10~12% 범위의 목표가 실제 실적으로 이어지는가 [신한금융 Value-Up·1Q26](https://www.shinhangroup.com/kr/ir/finance/investorPresentations/detail/32583)
 - CET1 13%+가 유지되는가
 - 50%+ 환원과 5,000만주 감축 계획이 실제 실행되는가
 - PBR-ROC Logic Tree가 실적 개선으로 연결되는가
 
 ### 하나금융
 
-- ROE 12% 목표에 가까워지는가
-- CET1 13% 이상을 지키면서 RWA를 효율적으로 관리하는가
+- ROE 개선이 이어지는가 [하나금융 재무지표](https://www.hanafn.com/ir/financial/summary/importantDetail.do)
+- CET1을 안정적으로 유지하면서 RWA를 효율적으로 관리하는가
 - 증권·비은행 성장으로 ROE가 구조적으로 개선되는가
 - 50%+ 환원 목표가 반복 가능한 공식으로 정착하는가
 
 ### 우리금융
 
-- CET1 13% 후반 개선이 일회성 자산재평가 효과를 넘어 유지되는가
+- CET1 13% 후반 개선이 유지되는가 [우리금융 2026년 반기보고서](https://www.woorifg.com/kor/investor/disclosure/biz-report/list.do)
 - 비은행 편입 후 ROE가 올라가는가
 - 자사주 매입·소각 규모가 이익 성장과 함께 확대되는가
 - 자본 정상화 이후 PBR 할인 축소 조건이 생기는가
