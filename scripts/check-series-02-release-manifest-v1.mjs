@@ -5,7 +5,7 @@ import { execFileSync } from 'node:child_process';
 
 const root=process.cwd();
 const config=JSON.parse(fs.readFileSync(path.join(root,'config/series-02-release-v1.json'),'utf8'));
-const manifestPath=path.join(root,'public/studio/releases/series-02/v1-0-0/immutable-release-manifest.json');
+const manifestPath=path.join(root,'src/data/studio/releases/series-02-v1.0.0-manifest.json');
 const manifest=JSON.parse(fs.readFileSync(manifestPath,'utf8'));
 const sourceBytes=fs.readFileSync(path.join(root,config.canonicalSource));
 const source=JSON.parse(sourceBytes.toString('utf8'));
