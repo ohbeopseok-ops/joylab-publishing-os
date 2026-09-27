@@ -11,6 +11,7 @@ const checks = {
   customDomain: process.env.RELEASE_DOMAIN_RESULT || 'unknown',
   productionSmoke: process.env.RELEASE_SMOKE_RESULT || 'unknown',
   studioProductionSmoke: process.env.RELEASE_STUDIO_SMOKE_RESULT || 'unknown',
+  series02Reader15Qa: process.env.RELEASE_SERIES02_READER15_QA_RESULT || 'unknown',
   productionMobileVisualQa: process.env.RELEASE_MOBILE_VISUAL_QA_RESULT || 'unknown',
   productionResponsiveVisualQa: process.env.RELEASE_RESPONSIVE_VISUAL_QA_RESULT || 'unknown',
   productionReaderQa: process.env.RELEASE_READER_QA_RESULT || 'unknown',

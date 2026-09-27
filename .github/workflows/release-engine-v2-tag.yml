@@ -1,0 +1,55 @@
+name: Release Engine V2 Tag
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'config/releases/**'
+      - 'public/studio/releases/**/immutable-release-manifest.json'
+      - 'scripts/release-engine-v2.mjs'
+      - '.github/workflows/release-engine-v2-tag.yml'
+  workflow_dispatch:
+    inputs:
+      release_config:
+        description: 'Release spec path'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  ensure-tags:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Ensure immutable release tag
+        env:
+          INPUT_CONFIG: ${{ inputs.release_config }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "$INPUT_CONFIG" ]; then
+            node scripts/release-engine-v2.mjs ensure-tag --config="$INPUT_CONFIG"
+            exit 0
+          fi
+
+          found=0
+          for cfg in config/releases/*.json; do
+            [ -f "$cfg" ] || continue
+            state=$(node -e 'const fs=require("fs");const s=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));process.stdout.write(String(s.state||""))' "$cfg")
+            if [ "$state" != "published" ]; then
+              continue
+            fi
+            found=1
+            node scripts/release-engine-v2.mjs ensure-tag --config="$cfg"
+          done
+          [ "$found" = "1" ] || echo "No published Release Engine V2 specs to tag."
