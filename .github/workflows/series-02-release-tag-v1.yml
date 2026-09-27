@@ -66,10 +66,13 @@ jobs:
         run: |
           set -euo pipefail
           git cat-file -e "$TARGET_SHA^{commit}"
-          existing=$(git ls-remote --tags origin "refs/tags/$TAG" | awk '{print $1}')
+          refs=$(git ls-remote --tags origin "refs/tags/$TAG" "refs/tags/$TAG^{}")
+          direct=$(printf '%s\n' "$refs" | awk -v ref="refs/tags/$TAG" '$2==ref {print $1}')
+          peeled=$(printf '%s\n' "$refs" | awk -v ref="refs/tags/$TAG^{}" '$2==ref {print $1}')
+          existing="${peeled:-$direct}"
           if [ -n "$existing" ]; then
             if [ "$existing" = "$TARGET_SHA" ]; then
-              echo "$TAG already points to GOLD SHA $TARGET_SHA"
+              echo "$TAG already resolves to GOLD SHA $TARGET_SHA"
               exit 0
             fi
             echo "Refusing to move immutable tag $TAG from $existing to $TARGET_SHA"
