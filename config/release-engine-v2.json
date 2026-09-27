@@ -1,0 +1,12 @@
+{
+  "contract": "JoyLab Release Engine V2 Registry",
+  "activeReleaseConfig": "config/series-02-release-v1.json",
+  "publishedManifest": "public/studio/releases/series-02/v1-0-0/immutable-release-manifest.json",
+  "policy": {
+    "trigger": "successful Deploy to Cloudflare Workers workflow_run on protected main",
+    "candidateState": "release-candidate",
+    "publishedState": "published",
+    "tagRule": "immutable; never move an existing tag",
+    "supersedeOnly": true
+  }
+}
