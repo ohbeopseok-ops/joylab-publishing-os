@@ -45,6 +45,12 @@ const pages = [
     maxScreens: { 'iphone-390': 38, 'iphone-430': 34, 'ipad-820': 16, 'desktop-1440': 18 }
   },
   {
+    name: 'research-map',
+    path: '/research-map',
+    selectors: ['.grm-hero', '.grm-overview', '.grm-domain-section', '#site-footer-v2'],
+    maxScreens: { 'iphone-390': 14, 'iphone-430': 13, 'ipad-820': 10, 'desktop-1440': 10 }
+  },
+  {
     name: 'search',
     path: '/search?q=AI',
     selectors: ['.search-hero', '.search-main', '#site-footer-v2'],

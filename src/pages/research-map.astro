@@ -1,0 +1,203 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import platform from '../../config/research-graph-platform-v1.json';
+import '../styles/global-research-map-v1.css';
+
+const graphModules = import.meta.glob('../../config/research-graph-*-v1.json', { eager: true });
+const graphByFilename = new Map(
+  Object.entries(graphModules).map(([path, module]: [string, any]) => [
+    path.split('/').pop(),
+    module.default ?? module
+  ])
+);
+
+const domainOrder = ['investing','ai','leadership'];
+const domainMeta: Record<string,{label:string;title:string;description:string;hub:string}> = {
+  investing: {
+    label: 'INVESTING',
+    title: '산업 구조에서 기업 가치까지',
+    description: 'Macro · Value Chain · Company · KPI · Valuation을 연결합니다.',
+    hub: '/guides/investing'
+  },
+  ai: {
+    label: 'AI',
+    title: '기술에서 업무·표준까지',
+    description: 'Agent·Workflow와 Language·Measurement·Standard·Governance를 함께 봅니다.',
+    hub: '/guides/ai-productivity'
+  },
+  leadership: {
+    label: 'LEADERSHIP',
+    title: '행동에서 반복 가능한 성과까지',
+    description: 'Behavior · Leader · Team · Culture · Outcome을 하나의 운영 구조로 연결합니다.',
+    hub: '/guides/growth-leadership'
+  }
+};
+
+const verticals = platform.verticals
+  .filter((vertical) => vertical.status === 'active' && vertical.graph)
+  .map((vertical) => {
+    const filename = vertical.graph?.split('/').pop();
+    const graph:any = filename ? graphByFilename.get(filename) : null;
+    if (!graph) return null;
+    const published = graph.articles.filter((article:any) => article.status === 'published');
+    const flow = (graph.lanes?.length ? graph.lanes.map((lane:any) => lane.label) : [])
+      .slice(0, 6);
+    return {
+      ...vertical,
+      graphData: graph,
+      published,
+      articleCount: published.length,
+      nodeCount: graph.nodes.length,
+      edgeCount: graph.edges.length,
+      flow
+    };
+  })
+  .filter(Boolean);
+
+const domains = domainOrder.map((domain) => {
+  const items = verticals.filter((vertical:any) => vertical.domain === domain);
+  return {
+    id: domain,
+    ...domainMeta[domain],
+    items,
+    articleCount: items.reduce((sum:number, item:any) => sum + item.articleCount, 0),
+    nodeCount: items.reduce((sum:number, item:any) => sum + item.nodeCount, 0)
+  };
+});
+
+const totalArticles = verticals.reduce((sum:number, item:any) => sum + item.articleCount, 0);
+const totalNodes = verticals.reduce((sum:number, item:any) => sum + item.nodeCount, 0);
+const canonical = 'https://aijoylab.kr/research-map';
+---
+<BaseLayout
+  title="Global Research Map V1｜Investing · AI · Leadership | JoyLab"
+  description="JoyLab의 Investing, AI, Leadership Research Graph를 하나의 Atlas에서 탐색합니다. 산업·기술·조직 리서치를 공통 Graph Contract로 연결합니다."
+  canonical={canonical}
+  bodyClass="global-research-map-page"
+>
+  <section class="grm-hero">
+    <div class="grm-wrap">
+      <div class="grm-eyebrow">JOYLAB · GLOBAL RESEARCH MAP V1</div>
+      <h1>Investing · AI · Leadership<br /><span>하나의 Research Atlas로.</span></h1>
+      <p>글 목록이 아니라 <strong>판단 구조</strong>를 탐색합니다. 각 Vertical은 같은 <code>JoyLab.ResearchGraph</code> Contract를 사용하고, 이 페이지는 Platform Registry의 Active Graph를 자동으로 읽습니다.</p>
+      <div class="grm-stats" aria-label="Global Research Map 현황">
+        <span><strong>{domains.length}</strong> Domains</span>
+        <span><strong>{verticals.length}</strong> Active Graphs</span>
+        <span><strong>{totalArticles}</strong> Graph Articles</span>
+        <span><strong>{totalNodes}</strong> Nodes</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="grm-main">
+    <div class="grm-wrap">
+      <nav class="grm-filter" aria-label="Research domain filter">
+        <button type="button" class="is-active" data-grm-filter="all" aria-pressed="true">ALL</button>
+        {domains.map((domain) => <button type="button" data-grm-filter={domain.id} aria-pressed="false">{domain.label}</button>)}
+      </nav>
+
+      <section class="grm-overview" aria-labelledby="grm-overview-title">
+        <div class="grm-section-head">
+          <div><span>DOMAIN OVERVIEW</span><h2 id="grm-overview-title">세 개의 판단 문법</h2></div>
+          <p>분야는 달라도 구조는 같습니다. 사실을 노드로 만들고 관계를 Edge로 연결하며, 실제 발행 리서치를 Graph Evidence로 붙입니다.</p>
+        </div>
+        <div class="grm-domain-cards">
+          {domains.map((domain) => (
+            <a href={domain.hub} class="grm-domain-card" data-grm-domain-card={domain.id}>
+              <small>{domain.label}</small>
+              <h3>{domain.title}</h3>
+              <p>{domain.description}</p>
+              <div><span>{domain.items.length} Graphs</span><span>{domain.articleCount} Articles</span><span>{domain.nodeCount} Nodes</span></div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <div class="grm-atlas" aria-label="Active Research Graphs">
+        {domains.map((domain) => (
+          <section class="grm-domain-section" data-grm-domain={domain.id} aria-labelledby={`grm-domain-${domain.id}`}>
+            <header class="grm-domain-head">
+              <div><span>{domain.label}</span><h2 id={`grm-domain-${domain.id}`}>{domain.title}</h2><p>{domain.description}</p></div>
+              <a href={domain.hub}>Domain Hub →</a>
+            </header>
+
+            <div class="grm-vertical-grid">
+              {domain.items.map((vertical:any) => (
+                <article class="grm-vertical-card">
+                  <div class="grm-vertical-top">
+                    <span class="grm-status">ACTIVE</span>
+                    <span>{vertical.articleCount} Research · {vertical.nodeCount} Nodes · {vertical.edgeCount} Edges</span>
+                  </div>
+                  <h3>{vertical.label}</h3>
+                  <div class="grm-flow" aria-label={`${vertical.label} flow`}>
+                    {(vertical.flow.length ? vertical.flow : ['GRAPH']).map((step:string, index:number) => (
+                      <>
+                        <span>{step}</span>
+                        {index < (vertical.flow.length ? vertical.flow.length : 1) - 1 && <i aria-hidden="true">→</i>}
+                      </>
+                    ))}
+                  </div>
+                  <div class="grm-article-list">
+                    {vertical.published.slice(0, 4).map((article:any) => (
+                      <a href={article.url}><small>{String(article.order).padStart(2,'0')}</small><span>{article.title}</span></a>
+                    ))}
+                  </div>
+                  <a class="grm-open" href={vertical.pillar}>{vertical.label} Graph 열기 →</a>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <section class="grm-contract">
+        <span>ONE CONTRACT · MANY DOMAINS</span>
+        <h2>Article → Node → Edge → Graph → Platform</h2>
+        <p>Global Research Map은 별도의 수동 데이터베이스가 아닙니다. 각 Vertical의 Graph JSON과 Platform Registry를 읽기 때문에 기존 투자·AI·리더십 Graph가 확장되면 Atlas도 함께 확장됩니다.</p>
+      </section>
+    </div>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context':'https://schema.org',
+    '@type':'CollectionPage',
+    '@id': canonical + '#collection',
+    url: canonical,
+    name:'JoyLab Global Research Map V1',
+    description:'Investing, AI, Leadership Research Graph를 연결하는 JoyLab Global Research Atlas',
+    inLanguage:'ko-KR',
+    isPartOf:{'@id':'https://aijoylab.kr/#website'},
+    mainEntity:{
+      '@type':'ItemList',
+      numberOfItems: verticals.length,
+      itemListElement: verticals.map((vertical:any,index:number)=>({
+        '@type':'ListItem',
+        position:index+1,
+        name:vertical.label,
+        url:new URL(vertical.pillar, canonical).toString()
+      }))
+    }
+  })}></script>
+
+  <script is:inline>
+    (() => {
+      const buttons = [...document.querySelectorAll('[data-grm-filter]')];
+      const sections = [...document.querySelectorAll('[data-grm-domain]')];
+      const cards = [...document.querySelectorAll('[data-grm-domain-card]')];
+      const apply = (domain) => {
+        buttons.forEach((button) => {
+          const active = button.dataset.grmFilter === domain;
+          button.classList.toggle('is-active', active);
+          button.setAttribute('aria-pressed', String(active));
+        });
+        sections.forEach((section) => {
+          section.hidden = domain !== 'all' && section.dataset.grmDomain !== domain;
+        });
+        cards.forEach((card) => {
+          card.classList.toggle('is-muted', domain !== 'all' && card.dataset.grmDomainCard !== domain);
+        });
+      };
+      buttons.forEach((button) => button.addEventListener('click', () => apply(button.dataset.grmFilter || 'all')));
+    })();
+  </script>
+</BaseLayout>
