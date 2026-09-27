@@ -4,6 +4,7 @@ import '../../styles/semiconductor-guide-v2.css';
 import '../../styles/investment-hub-v2.css';
 import { industryCoverage, thesisCoverage } from '../../lib/investment-taxonomy-registry';
 import InvestmentResearchMap from '../../components/InvestmentResearchMap.astro';
+import FinancialsMiniResearchMap from '../../components/FinancialsMiniResearchMap.astro';
 
 const clusters = [
   {
@@ -57,7 +58,7 @@ const clusters = [
     title: '금융·주주환원',
     href: '/articles/financials-value-up-investing-guide',
     thesis: 'ROE → 자본비율 → 배당 → 자사주 → PBR → Re-rating',
-    note: 'Pillar와 KB금융 Company Research를 시작으로 ROE·CET1·주주환원 축을 구축 중입니다.',
+    note: 'Pillar·KB금융·ROE/CET1·TSR까지 수익성 → 자본 → 환원 → 재평가 축을 구축 중입니다.',
     coverage: industryCoverage('financials-value-up'),
     status: 'YELLOW'
   },
@@ -150,12 +151,14 @@ const theses = [
                   <a class="sg-card__cta" href={cluster.href}>{cluster.status === 'RED' ? 'Content Gap 보기 →' : '클러스터 열기 →'}</a>
                 </div>
                 {cluster.id === 'financials-value-up' && (
-                  <div class="ih-card-related"><a href="/articles/kb-financial-shareholder-return">KB금융 Company Research →</a></div>
+                  <div class="ih-card-related"><a href="/articles/kb-financial-shareholder-return">KB금융</a><span> · </span><a href="/articles/bank-roe-cet1-guide">ROE·CET1</a><span> · </span><a href="/articles/total-shareholder-return-buyback-cancellation-guide">TSR</a></div>
                 )}
               </div>
             </article>
           ))}
         </div>
+
+        <FinancialsMiniResearchMap />
 
         <section class="ih-thesis-section" aria-labelledby="ih-thesis-title">
           <div class="sg-section-head sg-section-head--compact">
