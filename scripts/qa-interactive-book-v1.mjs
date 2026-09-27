@@ -138,6 +138,8 @@ for (const viewport of [
     const robots = document.querySelector('meta[name="robots"]')?.getAttribute('content');
     const raw = localStorage.getItem('joylab-book-work-to-system-lab-interactive-forms');
     const forms = raw ? JSON.parse(raw) : {};
+    const rawNotes = localStorage.getItem('joylab-book-work-to-system-lab-interactive-notes');
+    const notes = rawNotes ? JSON.parse(rawNotes) : {};
     const viewportWidth = window.innerWidth;
     const overflow = Math.max(document.body.scrollWidth, document.documentElement.scrollWidth) - viewportWidth;
     return {
@@ -162,6 +164,7 @@ for (const viewport of [
       hasSavedResultsHeading: Array.from(document.querySelectorAll('#book-interactive-panel-body h3')).some((el) => el.textContent?.trim() === '실습 결과'),
       artifactCount: document.getElementById('book-artifact-count')?.textContent?.trim(),
       formsKeys: Object.keys(forms).sort(),
+      notesKeys: Object.keys(notes).sort(),
       robots,
       overflow
     };
@@ -196,7 +199,7 @@ for (const viewport of [
     postSaveSaved: metrics.formsKeys.some((key) => key.endsWith(':post-save-flow')),
     densitySaved: metrics.formsKeys.some((key) => key.endsWith(':information-density')),
     chapter15Rendered: metrics.chapterCount === 15 && metrics.tocChapter15 === true,
-    splitContextSaved: metrics.formsKeys.some((key) => key.endsWith(':split-context')) || true,
+    splitContextSaved: metrics.notesKeys.some((key) => key.endsWith(':split-context')),
     coachingComplete: metrics.coachingStatus?.includes('Canvas 완료') === true,
     opsComplete: metrics.opsStatus?.includes('Canvas 완료') === true,
     coachingSaved: metrics.formsKeys.some((key) => key.endsWith(':coaching-three-tab')),
