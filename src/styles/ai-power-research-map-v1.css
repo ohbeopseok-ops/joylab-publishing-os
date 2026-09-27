@@ -19,3 +19,16 @@
 .rg__company-kpi button{appearance:none;border:1px solid #93c5fd;border-radius:999px;background:#fff;color:#1d4ed8;padding:7px 10px;font-size:.72rem;font-weight:800;cursor:pointer}
 .rg__detail-links>div{display:grid;gap:8px}
 @media(max-width:760px){.rg__edge-panels{grid-template-columns:1fr}.rg__flow-wrap{margin-top:2px}}
+
+.rg__canvas{position:relative;overflow-x:auto;padding:2px 0 8px}
+.rg__canvas .rg__grid{position:relative;z-index:2;overflow:visible;min-width:max-content}
+.rg__svg{position:absolute;inset:0;z-index:1;overflow:visible;pointer-events:none}
+.rg__svg-edge{fill:none;stroke:#94a3b8;stroke-width:1.5;stroke-opacity:.38;vector-effect:non-scaling-stroke;transition:stroke .18s ease,stroke-opacity .18s ease,stroke-width .18s ease}
+.rg__svg-edge.is-active{stroke:#2563eb;stroke-opacity:.95;stroke-width:2.6}
+.rg__svg-edge.is-dimmed{stroke-opacity:.08}
+.rg__svg marker path{fill:#94a3b8}
+@media(max-width:760px){
+  .rg__canvas{padding-bottom:12px}
+  .rg__svg-edge{stroke-width:1.25;stroke-opacity:.25}
+  .rg__svg-edge.is-active{stroke-width:2.25;stroke-opacity:.95}
+}
