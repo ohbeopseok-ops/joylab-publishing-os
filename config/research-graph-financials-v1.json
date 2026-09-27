@@ -1,0 +1,472 @@
+{
+  "contract": "JoyLab.ResearchGraph",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "financials-value-up",
+    "title": "Financials & Value-up",
+    "url": "/guides/financials-value-up",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "financials-value-up",
+      "type": "pillar",
+      "label": "Financials & Value-up",
+      "articleUrl": "/guides/financials-value-up",
+      "stage": "pillar"
+    },
+    {
+      "id": "rates",
+      "type": "macro",
+      "label": "Rates",
+      "stage": "macro"
+    },
+    {
+      "id": "korea-banks",
+      "type": "sector",
+      "label": "Korea Financial Holdings",
+      "stage": "sector"
+    },
+    {
+      "id": "kb-financial",
+      "type": "company",
+      "label": "KB Financial",
+      "ticker": "105560",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "shinhan-financial",
+      "type": "company",
+      "label": "Shinhan Financial",
+      "ticker": "055550",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "hana-financial",
+      "type": "company",
+      "label": "Hana Financial",
+      "ticker": "086790",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "woori-financial",
+      "type": "company",
+      "label": "Woori Financial",
+      "ticker": "316140",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "roe",
+      "type": "kpi",
+      "label": "ROE",
+      "stage": "kpi"
+    },
+    {
+      "id": "cet1",
+      "type": "kpi",
+      "label": "CET1",
+      "stage": "kpi"
+    },
+    {
+      "id": "shareholder-return",
+      "type": "kpi",
+      "label": "Shareholder Return",
+      "stage": "kpi"
+    },
+    {
+      "id": "bps",
+      "type": "earnings",
+      "label": "BPS",
+      "stage": "kpi"
+    },
+    {
+      "id": "pbr",
+      "type": "valuation",
+      "label": "PBR",
+      "stage": "valuation"
+    },
+    {
+      "id": "article-financials-value-up-investing-guide",
+      "type": "article",
+      "label": "금융·주주환원 투자 가이드",
+      "articleUrl": "/articles/financials-value-up-investing-guide",
+      "stage": "sector"
+    },
+    {
+      "id": "article-kb-financial-shareholder-return",
+      "type": "article",
+      "label": "KB금융 주주환원",
+      "articleUrl": "/articles/kb-financial-shareholder-return",
+      "stage": "company"
+    },
+    {
+      "id": "article-bank-roe-cet1-guide",
+      "type": "article",
+      "label": "은행 ROE와 CET1",
+      "articleUrl": "/articles/bank-roe-cet1-guide",
+      "stage": "earnings"
+    },
+    {
+      "id": "article-total-shareholder-return-buyback-cancellation-guide",
+      "type": "article",
+      "label": "총주주환원과 자사주 소각",
+      "articleUrl": "/articles/total-shareholder-return-buyback-cancellation-guide",
+      "stage": "valuation"
+    },
+    {
+      "id": "article-korea-financial-holdings-compare",
+      "type": "article",
+      "label": "4대 금융지주 비교",
+      "articleUrl": "/articles/korea-financial-holdings-compare",
+      "stage": "valuation"
+    }
+  ],
+  "edges": [
+    {
+      "from": "rates",
+      "to": "korea-banks",
+      "type": "affects"
+    },
+    {
+      "from": "korea-banks",
+      "to": "roe",
+      "type": "measured_by"
+    },
+    {
+      "from": "korea-banks",
+      "to": "cet1",
+      "type": "measured_by"
+    },
+    {
+      "from": "roe",
+      "to": "bps",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "cet1",
+      "to": "shareholder-return",
+      "type": "affects"
+    },
+    {
+      "from": "shareholder-return",
+      "to": "pbr",
+      "type": "valued_by"
+    },
+    {
+      "from": "bps",
+      "to": "pbr",
+      "type": "valued_by"
+    },
+    {
+      "from": "kb-financial",
+      "to": "roe",
+      "type": "measured_by"
+    },
+    {
+      "from": "kb-financial",
+      "to": "cet1",
+      "type": "measured_by"
+    },
+    {
+      "from": "kb-financial",
+      "to": "shareholder-return",
+      "type": "measured_by"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "roe",
+      "type": "measured_by"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "cet1",
+      "type": "measured_by"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "shareholder-return",
+      "type": "measured_by"
+    },
+    {
+      "from": "hana-financial",
+      "to": "roe",
+      "type": "measured_by"
+    },
+    {
+      "from": "hana-financial",
+      "to": "cet1",
+      "type": "measured_by"
+    },
+    {
+      "from": "hana-financial",
+      "to": "shareholder-return",
+      "type": "measured_by"
+    },
+    {
+      "from": "woori-financial",
+      "to": "roe",
+      "type": "measured_by"
+    },
+    {
+      "from": "woori-financial",
+      "to": "cet1",
+      "type": "measured_by"
+    },
+    {
+      "from": "woori-financial",
+      "to": "shareholder-return",
+      "type": "measured_by"
+    },
+    {
+      "from": "article-financials-value-up-investing-guide",
+      "to": "financials-value-up",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-financials-value-up-investing-guide",
+      "to": "korea-banks",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-financials-value-up-investing-guide",
+      "to": "roe",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-financials-value-up-investing-guide",
+      "to": "cet1",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-financials-value-up-investing-guide",
+      "to": "shareholder-return",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-financials-value-up-investing-guide",
+      "to": "pbr",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-financials-value-up-investing-guide",
+      "to": "article-kb-financial-shareholder-return",
+      "type": "next"
+    },
+    {
+      "from": "article-kb-financial-shareholder-return",
+      "to": "financials-value-up",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-kb-financial-shareholder-return",
+      "to": "kb-financial",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-kb-financial-shareholder-return",
+      "to": "cet1",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-kb-financial-shareholder-return",
+      "to": "shareholder-return",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-kb-financial-shareholder-return",
+      "to": "article-financials-value-up-investing-guide",
+      "type": "previous"
+    },
+    {
+      "from": "article-kb-financial-shareholder-return",
+      "to": "article-bank-roe-cet1-guide",
+      "type": "next"
+    },
+    {
+      "from": "article-bank-roe-cet1-guide",
+      "to": "financials-value-up",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-bank-roe-cet1-guide",
+      "to": "roe",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-bank-roe-cet1-guide",
+      "to": "cet1",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-bank-roe-cet1-guide",
+      "to": "article-kb-financial-shareholder-return",
+      "type": "previous"
+    },
+    {
+      "from": "article-bank-roe-cet1-guide",
+      "to": "article-total-shareholder-return-buyback-cancellation-guide",
+      "type": "next"
+    },
+    {
+      "from": "article-total-shareholder-return-buyback-cancellation-guide",
+      "to": "financials-value-up",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-total-shareholder-return-buyback-cancellation-guide",
+      "to": "shareholder-return",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-total-shareholder-return-buyback-cancellation-guide",
+      "to": "pbr",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-total-shareholder-return-buyback-cancellation-guide",
+      "to": "article-bank-roe-cet1-guide",
+      "type": "previous"
+    },
+    {
+      "from": "article-total-shareholder-return-buyback-cancellation-guide",
+      "to": "article-korea-financial-holdings-compare",
+      "type": "next"
+    },
+    {
+      "from": "article-korea-financial-holdings-compare",
+      "to": "financials-value-up",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-korea-financial-holdings-compare",
+      "to": "kb-financial",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-financial-holdings-compare",
+      "to": "shinhan-financial",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-financial-holdings-compare",
+      "to": "hana-financial",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-financial-holdings-compare",
+      "to": "woori-financial",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-financial-holdings-compare",
+      "to": "roe",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-financial-holdings-compare",
+      "to": "cet1",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-financial-holdings-compare",
+      "to": "pbr",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-korea-financial-holdings-compare",
+      "to": "article-total-shareholder-return-buyback-cancellation-guide",
+      "type": "previous"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-financials-value-up-investing-guide",
+      "title": "금융·주주환원 투자 가이드",
+      "url": "/articles/financials-value-up-investing-guide",
+      "order": 1,
+      "pillar": "financials-value-up",
+      "topics": [
+        "korea-banks",
+        "roe",
+        "cet1",
+        "shareholder-return",
+        "pbr"
+      ],
+      "stage": "sector",
+      "previous": null,
+      "next": "article-kb-financial-shareholder-return",
+      "status": "published"
+    },
+    {
+      "id": "article-kb-financial-shareholder-return",
+      "title": "KB금융 주주환원",
+      "url": "/articles/kb-financial-shareholder-return",
+      "order": 2,
+      "pillar": "financials-value-up",
+      "topics": [
+        "kb-financial",
+        "cet1",
+        "shareholder-return"
+      ],
+      "stage": "company",
+      "previous": "article-financials-value-up-investing-guide",
+      "next": "article-bank-roe-cet1-guide",
+      "status": "published"
+    },
+    {
+      "id": "article-bank-roe-cet1-guide",
+      "title": "은행 ROE와 CET1",
+      "url": "/articles/bank-roe-cet1-guide",
+      "order": 3,
+      "pillar": "financials-value-up",
+      "topics": [
+        "roe",
+        "cet1"
+      ],
+      "stage": "earnings",
+      "previous": "article-kb-financial-shareholder-return",
+      "next": "article-total-shareholder-return-buyback-cancellation-guide",
+      "status": "published"
+    },
+    {
+      "id": "article-total-shareholder-return-buyback-cancellation-guide",
+      "title": "총주주환원과 자사주 소각",
+      "url": "/articles/total-shareholder-return-buyback-cancellation-guide",
+      "order": 4,
+      "pillar": "financials-value-up",
+      "topics": [
+        "shareholder-return",
+        "pbr"
+      ],
+      "stage": "valuation",
+      "previous": "article-bank-roe-cet1-guide",
+      "next": "article-korea-financial-holdings-compare",
+      "status": "published"
+    },
+    {
+      "id": "article-korea-financial-holdings-compare",
+      "title": "4대 금융지주 비교",
+      "url": "/articles/korea-financial-holdings-compare",
+      "order": 5,
+      "pillar": "financials-value-up",
+      "topics": [
+        "kb-financial",
+        "shinhan-financial",
+        "hana-financial",
+        "woori-financial",
+        "roe",
+        "cet1",
+        "pbr"
+      ],
+      "stage": "valuation",
+      "previous": "article-total-shareholder-return-buyback-cancellation-guide",
+      "next": null,
+      "status": "published"
+    }
+  ]
+}
