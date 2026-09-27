@@ -48,10 +48,7 @@ const graph = [
     mainEntity: article.data.faqs.map((item) => ({
       '@type': 'Question',
       name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer
-      }
+      acceptedAnswer: { '@type': 'Answer', text: item.answer }
     }))
   }] : [])
 ];

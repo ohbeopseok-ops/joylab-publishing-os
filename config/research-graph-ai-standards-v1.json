@@ -1,0 +1,240 @@
+{
+  "contract": "JoyLab.ResearchGraph",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "ai-standards",
+    "title": "AI Standards & Tech Sovereignty",
+    "url": "/guides/ai-standards",
+    "domain": "ai",
+    "status": "published"
+  },
+  "lanes": [
+    {
+      "key": "language",
+      "label": "LANGUAGE",
+      "types": [
+        "language"
+      ]
+    },
+    {
+      "key": "measurement",
+      "label": "MEASUREMENT",
+      "types": [
+        "measurement"
+      ]
+    },
+    {
+      "key": "standard",
+      "label": "STANDARD",
+      "types": [
+        "standard"
+      ]
+    },
+    {
+      "key": "governance",
+      "label": "GOVERNANCE",
+      "types": [
+        "governance"
+      ]
+    },
+    {
+      "key": "discourse",
+      "label": "DISCOURSE POWER",
+      "types": [
+        "discourse_power"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ai-standards",
+      "type": "pillar",
+      "label": "AI Standards & Tech Sovereignty",
+      "articleUrl": "/guides/ai-standards",
+      "stage": "pillar"
+    },
+    {
+      "id": "language-layer",
+      "type": "language",
+      "label": "Technology Language",
+      "stage": "language"
+    },
+    {
+      "id": "token-concept",
+      "type": "language",
+      "label": "Token → 词元",
+      "stage": "language"
+    },
+    {
+      "id": "token-metering",
+      "type": "measurement",
+      "label": "Token Metering",
+      "stage": "measurement"
+    },
+    {
+      "id": "token-pricing",
+      "type": "measurement",
+      "label": "Pricing / Settlement",
+      "stage": "measurement"
+    },
+    {
+      "id": "ai-standard",
+      "type": "standard",
+      "label": "AI Standard",
+      "stage": "standard"
+    },
+    {
+      "id": "iso-sc42",
+      "type": "standard",
+      "label": "ISO/IEC JTC 1/SC 42",
+      "stage": "standard"
+    },
+    {
+      "id": "ai-governance",
+      "type": "governance",
+      "label": "AI Governance",
+      "stage": "governance"
+    },
+    {
+      "id": "discourse-power",
+      "type": "discourse_power",
+      "label": "Discourse Power",
+      "stage": "discourse_power"
+    },
+    {
+      "id": "china-ai-token-ciyuan-discourse-power",
+      "type": "article",
+      "label": "Token → 词元",
+      "articleUrl": "/articles/china-ai-token-ciyuan-discourse-power",
+      "stage": "language"
+    },
+    {
+      "id": "ai-token-economics",
+      "type": "article",
+      "label": "AI Token Economics",
+      "articleUrl": "/articles/ai-token-economics",
+      "stage": "measurement"
+    }
+  ],
+  "edges": [
+    {
+      "from": "language-layer",
+      "to": "token-concept",
+      "type": "defines"
+    },
+    {
+      "from": "token-concept",
+      "to": "token-metering",
+      "type": "quantifies"
+    },
+    {
+      "from": "token-metering",
+      "to": "token-pricing",
+      "type": "enables"
+    },
+    {
+      "from": "token-pricing",
+      "to": "ai-standard",
+      "type": "standardizes"
+    },
+    {
+      "from": "ai-standard",
+      "to": "ai-governance",
+      "type": "governs"
+    },
+    {
+      "from": "ai-governance",
+      "to": "discourse-power",
+      "type": "shapes"
+    },
+    {
+      "from": "ai-standard",
+      "to": "iso-sc42",
+      "type": "aligns_with"
+    },
+    {
+      "from": "china-ai-token-ciyuan-discourse-power",
+      "to": "language-layer",
+      "type": "covered_by"
+    },
+    {
+      "from": "china-ai-token-ciyuan-discourse-power",
+      "to": "token-concept",
+      "type": "covered_by"
+    },
+    {
+      "from": "china-ai-token-ciyuan-discourse-power",
+      "to": "discourse-power",
+      "type": "covered_by"
+    },
+    {
+      "from": "china-ai-token-ciyuan-discourse-power",
+      "to": "ai-standards",
+      "type": "belongs_to"
+    },
+    {
+      "from": "china-ai-token-ciyuan-discourse-power",
+      "to": "ai-token-economics",
+      "type": "next"
+    },
+    {
+      "from": "ai-token-economics",
+      "to": "token-metering",
+      "type": "covered_by"
+    },
+    {
+      "from": "ai-token-economics",
+      "to": "token-pricing",
+      "type": "covered_by"
+    },
+    {
+      "from": "ai-token-economics",
+      "to": "ai-standard",
+      "type": "covered_by"
+    },
+    {
+      "from": "ai-token-economics",
+      "to": "ai-standards",
+      "type": "belongs_to"
+    },
+    {
+      "from": "ai-token-economics",
+      "to": "china-ai-token-ciyuan-discourse-power",
+      "type": "previous"
+    }
+  ],
+  "articles": [
+    {
+      "id": "china-ai-token-ciyuan-discourse-power",
+      "title": "중국은 왜 Token을 ‘词元’이라 부르나｜AI 시대 영어와 담론 권력",
+      "url": "/articles/china-ai-token-ciyuan-discourse-power",
+      "order": 1,
+      "pillar": "ai-standards",
+      "topics": [
+        "language-layer",
+        "token-concept",
+        "discourse-power"
+      ],
+      "stage": "language",
+      "previous": null,
+      "next": "ai-token-economics",
+      "status": "published"
+    },
+    {
+      "id": "ai-token-economics",
+      "title": "AI Token은 새로운 경제 단위가 될까｜측정·가격·데이터 가치의 재편",
+      "url": "/articles/ai-token-economics",
+      "order": 2,
+      "pillar": "ai-standards",
+      "topics": [
+        "token-metering",
+        "token-pricing",
+        "ai-standard"
+      ],
+      "stage": "measurement",
+      "previous": "china-ai-token-ciyuan-discourse-power",
+      "next": null,
+      "status": "published"
+    }
+  ]
+}

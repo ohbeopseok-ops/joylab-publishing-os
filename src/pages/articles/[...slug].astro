@@ -4,6 +4,7 @@ import ArticleGrowthPath from '../../components/ArticleGrowthPath.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import ArticleSeoSchema from '../../components/ArticleSeoSchema.astro';
 import AiPowerResearchNav from '../../components/AiPowerResearchNav.astro';
+import ResearchGraphNav from '../../components/ResearchGraphNav.astro';
 import ChinaSemiconductorSeriesNav from '../../components/ChinaSemiconductorSeriesNav.astro';
 import ChinaSemiconductorRiskScore from '../../components/ChinaSemiconductorRiskScore.astro';
 import '../../styles/interactive.css';
@@ -330,7 +331,10 @@ const scoreCriteria = [
           <div id="article-content" class="article-body"><Content /></div>
         </div>
 
-        <AiPowerResearchNav articleId={article.id} />
+        {isAiStandardsSeries
+          ? <ResearchGraphNav articleId={article.id} />
+          : <AiPowerResearchNav articleId={article.id} />
+        }
 
         {isChinaSemiconductorRiskArticle && <ChinaSemiconductorRiskScore />}
         {isChinaSemiconductorSeries && <ChinaSemiconductorSeriesNav currentId={article.id} />}

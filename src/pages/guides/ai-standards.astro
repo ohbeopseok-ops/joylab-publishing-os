@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import AiStandardsResearchGraph from '../../components/AiStandardsResearchGraph.astro';
+import ResearchGraphMap from '../../components/ResearchGraphMap.astro';
+import graph from '../../../config/research-graph-ai-standards-v1.json';
 import '../../styles/semiconductor-guide-v2.css';
 
 const canonical = 'https://aijoylab.kr/guides/ai-standards';
+const publishedArticles = graph.articles.filter((article) => article.status === 'published');
 const faqs = [
   {
     q: 'AI 표준은 무엇을 정하나요?',
@@ -49,15 +51,13 @@ const schema = {
       '@type': 'ItemList',
       '@id': canonical + '#research-cluster',
       name: 'AI Standards & Tech Sovereignty Research Cluster',
-      numberOfItems: 1,
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: '중국은 왜 Token을 ‘词元’이라 부르나｜AI 시대 영어와 담론 권력',
-          url: 'https://aijoylab.kr/articles/china-ai-token-ciyuan-discourse-power'
-        }
-      ]
+      numberOfItems: publishedArticles.length,
+      itemListElement: publishedArticles.map((article, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: article.title,
+        url: new URL(article.url, canonical).toString()
+      }))
     },
     {
       '@type': 'FAQPage',
@@ -133,7 +133,15 @@ const schema = {
         </section>
 
         <section id="research-graph">
-          <AiStandardsResearchGraph />
+          <ResearchGraphMap
+            graph={graph}
+            eyebrow="JOYLAB RESEARCH GRAPH · AI STANDARDS"
+            title="Language → Measurement → Standard → Governance → Discourse Power"
+            description="용어가 계량법과 표준, 거버넌스로 이동하는 경로와 실제 발행 리서치를 함께 탐색합니다."
+            hubHref="/guides/ai-productivity"
+            hubLabel="AI·생산성 Hub →"
+            primaryFlow={['language-layer','token-metering','ai-standard','ai-governance','discourse-power']}
+          />
         </section>
 
         <section class="as-section">

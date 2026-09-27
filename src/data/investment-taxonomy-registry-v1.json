@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 109,
+  "articleCount": 111,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -304,6 +304,16 @@
     {
       "slug": "ai-productivity-roi",
       "route": "/articles/ai-productivity-roi",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "ai-token-economics",
+      "route": "/articles/ai-token-economics",
       "industries": [],
       "theses": [],
       "companies": [],
@@ -969,6 +979,23 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "ls-hd-electric-2027-eps-per-scenario",
+      "route": "/articles/ls-hd-electric-2027-eps-per-scenario",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "power-supercycle"
+      ],
+      "companies": [
+        "LS ELECTRIC",
+        "HD Hyundai Electric"
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "compare"
     },
     {
       "slug": "mcp-security-tool-poisoning-2026",

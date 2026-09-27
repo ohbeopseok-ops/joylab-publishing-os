@@ -1,0 +1,308 @@
+---
+import '../styles/research-graph-map-v3.css';
+
+interface Props {
+  graph: any;
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  hubHref?: string;
+  hubLabel?: string;
+  primaryFlow?: string[];
+}
+
+const {
+  graph,
+  eyebrow = 'JOYLAB RESEARCH GRAPH V3',
+  title = 'Macro → Value Chain → Company → KPI → Valuation',
+  description = '방향이 있는 Edge와 KPI를 따라 투자 논리를 탐색합니다.',
+  hubHref = '/guides/investing',
+  hubLabel = 'Investment Hub →',
+  primaryFlow = []
+} = Astro.props;
+
+const defaultGroups = [
+  { key: 'macro', label: 'MACRO / MARKET', types: ['macro','sector'] },
+  { key: 'value_chain', label: 'VALUE CHAIN', types: ['demand','value_chain','bottleneck'] },
+  { key: 'company', label: 'COMPANY', types: ['company'] },
+  { key: 'kpi', label: 'KPI', types: ['kpi','earnings'] },
+  { key: 'valuation', label: 'VALUATION', types: ['valuation'] }
+];
+
+const groups = Array.isArray(graph.lanes) && graph.lanes.length > 0 ? graph.lanes : defaultGroups;
+
+const nodeById = new Map(graph.nodes.map((node:any) => [node.id, node]));
+const publishedArticles = graph.articles.filter((article:any) => article.status === 'published');
+const articleMap = new Map(publishedArticles.map((article:any) => [article.id, article]));
+const nodeArticles = new Map();
+
+for (const edge of graph.edges) {
+  if (edge.type !== 'covered_by') continue;
+  const article = articleMap.get(edge.from);
+  if (!article) continue;
+  const list = nodeArticles.get(edge.to) ?? [];
+  list.push(article);
+  nodeArticles.set(edge.to, list);
+}
+
+const drawableEdges = graph.edges.filter((edge:any) =>
+  !['covered_by','belongs_to','previous','next'].includes(edge.type) &&
+  nodeById.has(edge.from) &&
+  nodeById.has(edge.to)
+);
+
+const nodePayload = Object.fromEntries(graph.nodes.map((node:any) => {
+  const incoming = drawableEdges
+    .filter((edge:any) => edge.to === node.id)
+    .map((edge:any) => ({ ...edge, node: nodeById.get(edge.from) }))
+    .filter((edge:any) => edge.node);
+
+  const outgoing = drawableEdges
+    .filter((edge:any) => edge.from === node.id)
+    .map((edge:any) => ({ ...edge, node: nodeById.get(edge.to) }))
+    .filter((edge:any) => edge.node);
+
+  const kpis = node.type === 'company'
+    ? outgoing.filter((edge:any) => ['kpi','earnings','valuation'].includes(edge.node.type)).map((edge:any) => edge.node)
+    : [];
+
+  return [
+    node.id,
+    {
+      ...node,
+      incoming,
+      outgoing,
+      neighbors: [...new Set([...incoming, ...outgoing].map((edge:any) => edge.node.id))],
+      kpis,
+      articles: nodeArticles.get(node.id) ?? []
+    }
+  ];
+}));
+---
+
+<section class="rg" data-research-map-v3>
+  <div class="rg__head">
+    <div>
+      <span>{eyebrow}</span>
+      <h2>{title}</h2>
+      <p>{description}</p>
+    </div>
+    <a href={hubHref}>{hubLabel}</a>
+  </div>
+
+  {primaryFlow.length > 0 && (
+    <div class="rg__flow-wrap" aria-label="핵심 방향성 Edge">
+      <div class="rg__flow">
+        {primaryFlow.map((id, index) => {
+          const node:any = nodeById.get(id);
+          if (!node) return null;
+          return (
+            <>
+              <button type="button" class="rg__flow-node" data-node-id={node.id}>{node.label}</button>
+              {index < primaryFlow.length - 1 && <span class="rg__flow-edge" aria-hidden="true">→</span>}
+            </>
+          );
+        })}
+      </div>
+    </div>
+  )}
+
+  <div class="rg__canvas" data-rg-canvas>
+    <svg class="rg__svg" data-rg-svg aria-hidden="true">
+      <defs>
+        <marker id="rg-arrow-v3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L8,4 L0,8 z"></path>
+        </marker>
+      </defs>
+      <g data-rg-paths></g>
+    </svg>
+
+    <div class="rg__grid" role="list" aria-label="Research Graph">
+      {groups.map((group, groupIndex) => (
+        <section class="rg__column" aria-labelledby={`rg-${group.key}`}>
+          <div class="rg__column-title" id={`rg-${group.key}`}>
+            <em>{String(groupIndex + 1).padStart(2, '0')}</em>
+            <strong>{group.label}</strong>
+          </div>
+          <div class="rg__nodes">
+            {graph.nodes
+              .filter((node:any) => group.types.includes(node.type))
+              .map((node:any) => (
+                <button
+                  class="rg__node"
+                  type="button"
+                  data-node-id={node.id}
+                  aria-pressed="false"
+                >
+                  <span>{node.label}</span>
+                  {node.ticker && <small>{node.market} · {node.ticker}</small>}
+                </button>
+              ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+
+  <aside class="rg__detail" aria-live="polite">
+    <div class="rg__detail-main">
+      <span class="rg__detail-kicker">SELECT A NODE</span>
+      <h3 data-rg-title>{graph.pillar.title}</h3>
+      <p data-rg-summary>노드를 선택하면 들어오는 Edge, 나가는 Edge, KPI와 관련 리서치를 확인할 수 있습니다.</p>
+
+      <div class="rg__edge-panels">
+        <div>
+          <b>INCOMING</b>
+          <div data-rg-incoming class="rg__edge-list"><span>—</span></div>
+        </div>
+        <div>
+          <b>OUTGOING</b>
+          <div data-rg-outgoing class="rg__edge-list"><span>—</span></div>
+        </div>
+      </div>
+
+      <div class="rg__company-kpi" data-rg-kpi hidden>
+        <b>COMPANY KPI</b>
+        <div data-rg-kpi-list></div>
+      </div>
+    </div>
+
+    <div class="rg__detail-links">
+      <strong>RELATED RESEARCH</strong>
+      <div data-rg-links>
+        <a href={graph.pillar.url}>Pillar 전체 보기 →</a>
+      </div>
+    </div>
+  </aside>
+
+  <script type="application/json" data-rg-payload set:html={JSON.stringify({
+    nodes: nodePayload,
+    edges: drawableEdges
+  })}></script>
+</section>
+
+<script is:inline>
+(() => {
+  document.querySelectorAll('[data-research-map-v3]').forEach((root) => {
+    if (root.dataset.rgReady === '1') return;
+    root.dataset.rgReady = '1';
+
+    const payloadEl = root.querySelector('[data-rg-payload]');
+    if (!payloadEl) return;
+    const payload = JSON.parse(payloadEl.textContent || '{"nodes":{},"edges":[]}');
+    const nodes = payload.nodes || {};
+    const edges = payload.edges || [];
+
+    const title = root.querySelector('[data-rg-title]');
+    const summary = root.querySelector('[data-rg-summary]');
+    const links = root.querySelector('[data-rg-links]');
+    const incoming = root.querySelector('[data-rg-incoming]');
+    const outgoing = root.querySelector('[data-rg-outgoing]');
+    const kpiBox = root.querySelector('[data-rg-kpi]');
+    const kpiList = root.querySelector('[data-rg-kpi-list]');
+    const buttons = [...root.querySelectorAll('[data-node-id]')];
+    const canvas = root.querySelector('[data-rg-canvas]');
+    const svg = root.querySelector('[data-rg-svg]');
+    const paths = root.querySelector('[data-rg-paths]');
+    let activeId = null;
+
+    const edgeLabel = (edge, direction) => {
+      const from = direction === 'incoming' ? edge.node.label : edge.type.replaceAll('_', ' ');
+      const to = direction === 'incoming' ? edge.type.replaceAll('_', ' ') : edge.node.label;
+      return `<span><strong>${from}</strong><em>→</em><small>${to}</small></span>`;
+    };
+
+    const nodeButton = (id) => root.querySelector(`.rg__grid [data-node-id="${CSS.escape(id)}"]`);
+
+    function drawEdges() {
+      if (!canvas || !svg || !paths) return;
+      const canvasRect = canvas.getBoundingClientRect();
+      svg.setAttribute('viewBox', `0 0 ${canvas.scrollWidth} ${canvas.scrollHeight}`);
+      svg.setAttribute('width', String(canvas.scrollWidth));
+      svg.setAttribute('height', String(canvas.scrollHeight));
+
+      paths.innerHTML = edges.map((edge) => {
+        const fromEl = nodeButton(edge.from);
+        const toEl = nodeButton(edge.to);
+        if (!fromEl || !toEl) return '';
+
+        const a = fromEl.getBoundingClientRect();
+        const b = toEl.getBoundingClientRect();
+        const sx = a.right - canvasRect.left + canvas.scrollLeft;
+        const sy = a.top + a.height / 2 - canvasRect.top + canvas.scrollTop;
+        const tx = b.left - canvasRect.left + canvas.scrollLeft;
+        const ty = b.top + b.height / 2 - canvasRect.top + canvas.scrollTop;
+
+        const forward = tx >= sx;
+        const startX = forward ? sx : a.left - canvasRect.left + canvas.scrollLeft;
+        const endX = forward ? tx : b.right - canvasRect.left + canvas.scrollLeft;
+        const dx = Math.max(28, Math.abs(endX - startX) * 0.42);
+        const c1x = forward ? startX + dx : startX - dx;
+        const c2x = forward ? endX - dx : endX + dx;
+        const related = activeId && (edge.from === activeId || edge.to === activeId);
+        const dimmed = activeId && !related;
+        const cls = ['rg__svg-edge', related ? 'is-active' : '', dimmed ? 'is-dimmed' : ''].filter(Boolean).join(' ');
+        return `<path class="${cls}" data-edge-from="${edge.from}" data-edge-to="${edge.to}" d="M ${startX} ${sy} C ${c1x} ${sy}, ${c2x} ${ty}, ${endX} ${ty}" marker-end="url(#rg-arrow-v3)"><title>${edge.from} ${edge.type} ${edge.to}</title></path>`;
+      }).join('');
+    }
+
+    function selectNode(id) {
+      const node = nodes[id];
+      if (!node) return;
+      activeId = id;
+
+      buttons.forEach((button) => {
+        const active = button.dataset.nodeId === id;
+        const related = node.neighbors.includes(button.dataset.nodeId);
+        button.classList.toggle('is-active', active);
+        button.classList.toggle('is-related', !active && related);
+        button.setAttribute('aria-pressed', String(active));
+      });
+
+      title.textContent = node.label;
+      summary.textContent = node.type === 'company'
+        ? `${node.market || ''} ${node.ticker || ''} · 직접 Edge ${node.neighbors.length}개 · 연결 리서치 ${(node.articles || []).length}개`
+        : `${node.type.replaceAll('_', ' ').toUpperCase()} · 직접 Edge ${node.neighbors.length}개 · 연결 리서치 ${(node.articles || []).length}개`;
+
+      incoming.innerHTML = node.incoming.length
+        ? node.incoming.map((edge) => edgeLabel(edge, 'incoming')).join('')
+        : '<span>직접 들어오는 Edge 없음</span>';
+
+      outgoing.innerHTML = node.outgoing.length
+        ? node.outgoing.map((edge) => edgeLabel(edge, 'outgoing')).join('')
+        : '<span>직접 나가는 Edge 없음</span>';
+
+      if (node.type === 'company' && node.kpis.length) {
+        kpiBox.hidden = false;
+        kpiList.innerHTML = node.kpis.map((kpi) => `<button type="button" data-jump-node="${kpi.id}">${kpi.label}</button>`).join('');
+      } else {
+        kpiBox.hidden = true;
+        kpiList.innerHTML = '';
+      }
+
+      const articleLinks = (node.articles || []).map((article) =>
+        `<a href="${article.url}">${article.title} →</a>`
+      );
+      links.innerHTML = articleLinks.length
+        ? articleLinks.join('')
+        : '<span>직접 연결된 발행 리서치는 다음 확장 대상입니다.</span>';
+
+      root.querySelectorAll('[data-jump-node]').forEach((button) => {
+        button.addEventListener('click', () => selectNode(button.dataset.jumpNode));
+      });
+      drawEdges();
+    }
+
+    buttons.forEach((button) => button.addEventListener('click', () => selectNode(button.dataset.nodeId)));
+
+    const redraw = () => requestAnimationFrame(drawEdges);
+    window.addEventListener('resize', redraw, { passive: true });
+    canvas?.addEventListener('scroll', redraw, { passive: true });
+    if ('ResizeObserver' in window && canvas) new ResizeObserver(redraw).observe(canvas);
+
+    const first = root.querySelector('.rg__flow-node[data-node-id]') || buttons[0];
+    if (first) selectNode(first.dataset.nodeId);
+    else drawEdges();
+  });
+})();
+</script>

@@ -10,6 +10,9 @@ on:
       - 'scripts/check-studio-mvp-v1.mjs'
       - 'scripts/check-series-02-release-manifest-v1.mjs'
       - 'scripts/write-series-02-release-manifest-v1.mjs'
+      - 'scripts/release-engine-v2.mjs'
+      - 'config/release-engine-v2.json'
+      - '.github/workflows/release-engine-v2.yml'
       - 'config/series-02-release-v1.json'
       - 'public/studio/releases/**'
       - 'package.json'
@@ -33,5 +36,7 @@ jobs:
         run: npm run studio:gate
       - name: Verify immutable Series 02 release manifest
         run: npm run studio:release:verify
+      - name: Release Engine V2 published-state verification
+        run: npm run release:engine:v2
       - name: Astro build
         run: npm run build

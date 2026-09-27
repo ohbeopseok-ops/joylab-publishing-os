@@ -1,0 +1,55 @@
+{
+  "contract": "JoyLab.ResearchGraphPlatform",
+  "version": "1.2.0",
+  "mapComponent": "src/components/ResearchGraphMap.astro",
+  "graphContract": "JoyLab.ResearchGraph",
+  "verticals": [
+    {
+      "id": "ai-power",
+      "label": "AI Power Infrastructure",
+      "status": "active",
+      "graph": "config/research-graph-ai-power-v1.json",
+      "pillar": "/guides/ai-power-infrastructure",
+      "domain": "investing"
+    },
+    {
+      "id": "semiconductor",
+      "label": "Semiconductor Investing",
+      "status": "active",
+      "pillar": "/guides/semiconductor-investing",
+      "domain": "investing",
+      "graph": "config/research-graph-semiconductor-v1.json"
+    },
+    {
+      "id": "financials",
+      "label": "Financials & Value-up",
+      "status": "active",
+      "pillar": "/guides/financials-value-up",
+      "domain": "investing",
+      "graph": "config/research-graph-financials-v1.json"
+    },
+    {
+      "id": "shipbuilding",
+      "label": "Shipbuilding & Defense",
+      "status": "active",
+      "pillar": "/guides/shipbuilding",
+      "domain": "investing",
+      "graph": "config/research-graph-shipbuilding-v1.json"
+    },
+    {
+      "id": "ai-standards",
+      "label": "AI Standards & Tech Sovereignty",
+      "status": "active",
+      "graph": "config/research-graph-ai-standards-v1.json",
+      "pillar": "/guides/ai-standards",
+      "domain": "ai"
+    },
+    {
+      "id": "growth-leadership",
+      "label": "Growth & Leadership",
+      "status": "template_ready",
+      "pillar": "/guides/growth-leadership",
+      "domain": "leadership"
+    }
+  ]
+}

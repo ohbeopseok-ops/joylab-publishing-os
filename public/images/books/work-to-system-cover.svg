@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="960" viewBox="0 0 640 960" role="img" aria-labelledby="t d">
+<title id="t">업무를 시스템으로 바꾸는 법 표지</title><desc id="d">JoyLab Build Series 02 book cover</desc>
+<rect width="640" height="960" fill="#111827"/>
+<rect x="48" y="48" width="544" height="864" rx="24" fill="none" stroke="#D8A23A" stroke-width="2"/>
+<text x="72" y="112" fill="#D8A23A" font-size="22" font-family="sans-serif" font-weight="700" letter-spacing="2">JOYLAB BUILD SERIES 02</text>
+<text x="72" y="280" fill="#F9FAFB" font-size="54" font-family="sans-serif" font-weight="800">
+<tspan x="72" dy="0">업무를</tspan><tspan x="72" dy="72">시스템으로</tspan><tspan x="72" dy="72">바꾸는 법</tspan></text>
+<text x="72" y="540" fill="#CBD5E1" font-size="24" font-family="sans-serif">
+<tspan x="72" dy="0">상담 기록에서 시작해</tspan><tspan x="72" dy="38">리더의 운영 OS를 만들기까지</tspan></text>
+<line x1="72" y1="670" x2="568" y2="670" stroke="#334155"/>
+<text x="72" y="728" fill="#D8A23A" font-size="19" font-family="sans-serif" font-weight="700">READ → RECORD → CONNECT → EXECUTE</text>
+<text x="72" y="850" fill="#F9FAFB" font-size="24" font-family="sans-serif" font-weight="700">JOYLAB BOOKS</text>
+</svg>

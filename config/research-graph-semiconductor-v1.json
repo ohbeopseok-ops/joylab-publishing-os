@@ -1,0 +1,450 @@
+{
+  "contract": "JoyLab.ResearchGraph",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "semiconductor-investing",
+    "title": "Semiconductor Investing",
+    "url": "/guides/semiconductor-investing",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "semiconductor-investing",
+      "type": "pillar",
+      "label": "Semiconductor Investing",
+      "articleUrl": "/guides/semiconductor-investing",
+      "stage": "pillar"
+    },
+    {
+      "id": "ai-memory-demand",
+      "type": "demand",
+      "label": "AI Memory Demand",
+      "stage": "value_chain"
+    },
+    {
+      "id": "hbm",
+      "type": "value_chain",
+      "label": "HBM",
+      "stage": "value_chain"
+    },
+    {
+      "id": "memory-cycle",
+      "type": "sector",
+      "label": "Memory Cycle",
+      "stage": "sector"
+    },
+    {
+      "id": "foreign-flow",
+      "type": "macro",
+      "label": "Foreign Investor Flow",
+      "stage": "macro"
+    },
+    {
+      "id": "samsung-electronics",
+      "type": "company",
+      "label": "Samsung Electronics",
+      "ticker": "005930",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "sk-hynix",
+      "type": "company",
+      "label": "SK hynix",
+      "ticker": "000660",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "asp",
+      "type": "kpi",
+      "label": "Memory ASP",
+      "stage": "kpi"
+    },
+    {
+      "id": "inventory",
+      "type": "kpi",
+      "label": "Inventory",
+      "stage": "kpi"
+    },
+    {
+      "id": "margin",
+      "type": "kpi",
+      "label": "Operating Margin",
+      "stage": "kpi"
+    },
+    {
+      "id": "eps-revision",
+      "type": "earnings",
+      "label": "EPS Revision",
+      "stage": "valuation"
+    },
+    {
+      "id": "forward-per",
+      "type": "valuation",
+      "label": "Forward PER",
+      "stage": "valuation"
+    },
+    {
+      "id": "article-what-is-hbm",
+      "type": "article",
+      "label": "HBM이란 무엇인가",
+      "articleUrl": "/articles/what-is-hbm",
+      "stage": "value_chain"
+    },
+    {
+      "id": "article-semiconductor-cycle",
+      "type": "article",
+      "label": "반도체 사이클",
+      "articleUrl": "/articles/semiconductor-cycle",
+      "stage": "sector"
+    },
+    {
+      "id": "article-foreign-investor-flow",
+      "type": "article",
+      "label": "외국인 수급",
+      "articleUrl": "/articles/foreign-investor-flow",
+      "stage": "macro"
+    },
+    {
+      "id": "article-samsung-electronics-outlook",
+      "type": "article",
+      "label": "삼성전자 전망",
+      "articleUrl": "/articles/samsung-electronics-outlook",
+      "stage": "company"
+    },
+    {
+      "id": "article-sk-hynix-outlook",
+      "type": "article",
+      "label": "SK하이닉스 전망",
+      "articleUrl": "/articles/sk-hynix-outlook",
+      "stage": "company"
+    },
+    {
+      "id": "article-samsung-vs-sk-hynix-ai-memory",
+      "type": "article",
+      "label": "삼성전자 vs SK하이닉스",
+      "articleUrl": "/articles/samsung-vs-sk-hynix-ai-memory",
+      "stage": "valuation"
+    }
+  ],
+  "edges": [
+    {
+      "from": "ai-memory-demand",
+      "to": "hbm",
+      "type": "drives"
+    },
+    {
+      "from": "hbm",
+      "to": "samsung-electronics",
+      "type": "supplies"
+    },
+    {
+      "from": "hbm",
+      "to": "sk-hynix",
+      "type": "supplies"
+    },
+    {
+      "from": "memory-cycle",
+      "to": "asp",
+      "type": "affects"
+    },
+    {
+      "from": "inventory",
+      "to": "asp",
+      "type": "affects"
+    },
+    {
+      "from": "asp",
+      "to": "margin",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "margin",
+      "to": "eps-revision",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "eps-revision",
+      "to": "forward-per",
+      "type": "valued_by"
+    },
+    {
+      "from": "foreign-flow",
+      "to": "samsung-electronics",
+      "type": "affects"
+    },
+    {
+      "from": "foreign-flow",
+      "to": "sk-hynix",
+      "type": "affects"
+    },
+    {
+      "from": "samsung-electronics",
+      "to": "margin",
+      "type": "measured_by"
+    },
+    {
+      "from": "sk-hynix",
+      "to": "margin",
+      "type": "measured_by"
+    },
+    {
+      "from": "article-what-is-hbm",
+      "to": "semiconductor-investing",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-what-is-hbm",
+      "to": "hbm",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-what-is-hbm",
+      "to": "ai-memory-demand",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-what-is-hbm",
+      "to": "article-semiconductor-cycle",
+      "type": "next"
+    },
+    {
+      "from": "article-semiconductor-cycle",
+      "to": "semiconductor-investing",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-semiconductor-cycle",
+      "to": "memory-cycle",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-semiconductor-cycle",
+      "to": "asp",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-semiconductor-cycle",
+      "to": "inventory",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-semiconductor-cycle",
+      "to": "article-what-is-hbm",
+      "type": "previous"
+    },
+    {
+      "from": "article-semiconductor-cycle",
+      "to": "article-foreign-investor-flow",
+      "type": "next"
+    },
+    {
+      "from": "article-foreign-investor-flow",
+      "to": "semiconductor-investing",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-foreign-investor-flow",
+      "to": "foreign-flow",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-foreign-investor-flow",
+      "to": "article-semiconductor-cycle",
+      "type": "previous"
+    },
+    {
+      "from": "article-foreign-investor-flow",
+      "to": "article-samsung-electronics-outlook",
+      "type": "next"
+    },
+    {
+      "from": "article-samsung-electronics-outlook",
+      "to": "semiconductor-investing",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-samsung-electronics-outlook",
+      "to": "samsung-electronics",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-electronics-outlook",
+      "to": "hbm",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-electronics-outlook",
+      "to": "margin",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-electronics-outlook",
+      "to": "article-foreign-investor-flow",
+      "type": "previous"
+    },
+    {
+      "from": "article-samsung-electronics-outlook",
+      "to": "article-sk-hynix-outlook",
+      "type": "next"
+    },
+    {
+      "from": "article-sk-hynix-outlook",
+      "to": "semiconductor-investing",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-sk-hynix-outlook",
+      "to": "sk-hynix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-sk-hynix-outlook",
+      "to": "hbm",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-sk-hynix-outlook",
+      "to": "margin",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-sk-hynix-outlook",
+      "to": "article-samsung-electronics-outlook",
+      "type": "previous"
+    },
+    {
+      "from": "article-sk-hynix-outlook",
+      "to": "article-samsung-vs-sk-hynix-ai-memory",
+      "type": "next"
+    },
+    {
+      "from": "article-samsung-vs-sk-hynix-ai-memory",
+      "to": "semiconductor-investing",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-samsung-vs-sk-hynix-ai-memory",
+      "to": "samsung-electronics",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-vs-sk-hynix-ai-memory",
+      "to": "sk-hynix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-vs-sk-hynix-ai-memory",
+      "to": "eps-revision",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-vs-sk-hynix-ai-memory",
+      "to": "forward-per",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-vs-sk-hynix-ai-memory",
+      "to": "article-sk-hynix-outlook",
+      "type": "previous"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-what-is-hbm",
+      "title": "HBM이란 무엇인가",
+      "url": "/articles/what-is-hbm",
+      "order": 1,
+      "pillar": "semiconductor-investing",
+      "topics": [
+        "hbm",
+        "ai-memory-demand"
+      ],
+      "stage": "value_chain",
+      "previous": null,
+      "next": "article-semiconductor-cycle",
+      "status": "published"
+    },
+    {
+      "id": "article-semiconductor-cycle",
+      "title": "반도체 사이클",
+      "url": "/articles/semiconductor-cycle",
+      "order": 2,
+      "pillar": "semiconductor-investing",
+      "topics": [
+        "memory-cycle",
+        "asp",
+        "inventory"
+      ],
+      "stage": "sector",
+      "previous": "article-what-is-hbm",
+      "next": "article-foreign-investor-flow",
+      "status": "published"
+    },
+    {
+      "id": "article-foreign-investor-flow",
+      "title": "외국인 수급",
+      "url": "/articles/foreign-investor-flow",
+      "order": 3,
+      "pillar": "semiconductor-investing",
+      "topics": [
+        "foreign-flow"
+      ],
+      "stage": "macro",
+      "previous": "article-semiconductor-cycle",
+      "next": "article-samsung-electronics-outlook",
+      "status": "published"
+    },
+    {
+      "id": "article-samsung-electronics-outlook",
+      "title": "삼성전자 전망",
+      "url": "/articles/samsung-electronics-outlook",
+      "order": 4,
+      "pillar": "semiconductor-investing",
+      "topics": [
+        "samsung-electronics",
+        "hbm",
+        "margin"
+      ],
+      "stage": "company",
+      "previous": "article-foreign-investor-flow",
+      "next": "article-sk-hynix-outlook",
+      "status": "published"
+    },
+    {
+      "id": "article-sk-hynix-outlook",
+      "title": "SK하이닉스 전망",
+      "url": "/articles/sk-hynix-outlook",
+      "order": 5,
+      "pillar": "semiconductor-investing",
+      "topics": [
+        "sk-hynix",
+        "hbm",
+        "margin"
+      ],
+      "stage": "company",
+      "previous": "article-samsung-electronics-outlook",
+      "next": "article-samsung-vs-sk-hynix-ai-memory",
+      "status": "published"
+    },
+    {
+      "id": "article-samsung-vs-sk-hynix-ai-memory",
+      "title": "삼성전자 vs SK하이닉스",
+      "url": "/articles/samsung-vs-sk-hynix-ai-memory",
+      "order": 6,
+      "pillar": "semiconductor-investing",
+      "topics": [
+        "samsung-electronics",
+        "sk-hynix",
+        "eps-revision",
+        "forward-per"
+      ],
+      "stage": "valuation",
+      "previous": "article-sk-hynix-outlook",
+      "next": null,
+      "status": "published"
+    }
+  ]
+}

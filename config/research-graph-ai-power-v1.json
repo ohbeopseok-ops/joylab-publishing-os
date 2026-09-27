@@ -1,6 +1,6 @@
 {
   "contract": "JoyLab.ResearchGraph",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "pillar": {
     "id": "ai-power-infrastructure",
     "title": "AI Power Infrastructure",
@@ -250,6 +250,19 @@
       "type": "article",
       "label": "AI 전력 밸류에이션 비교",
       "articleUrl": "/articles/ai-power-valuation-eps-per-ev-ebitda",
+      "stage": "valuation"
+    },
+    {
+      "id": "implied-eps",
+      "type": "valuation",
+      "label": "Implied EPS",
+      "stage": "valuation"
+    },
+    {
+      "id": "article-ai-power-2027-eps-per",
+      "type": "article",
+      "label": "LS·HD 2027 EPS × PER 시나리오",
+      "articleUrl": "/articles/ls-hd-electric-2027-eps-per-scenario",
       "stage": "valuation"
     }
   ],
@@ -710,6 +723,51 @@
       "type": "covered_by"
     },
     {
+      "from": "eps-revision",
+      "to": "implied-eps",
+      "type": "affects"
+    },
+    {
+      "from": "implied-eps",
+      "to": "forward-per",
+      "type": "affects"
+    },
+    {
+      "from": "article-ai-power-2027-eps-per",
+      "to": "ai-power-infrastructure",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-ai-power-2027-eps-per",
+      "to": "ls-electric",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-2027-eps-per",
+      "to": "hd-hyundai-electric",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-2027-eps-per",
+      "to": "eps",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-2027-eps-per",
+      "to": "eps-revision",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-2027-eps-per",
+      "to": "forward-per",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ai-power-2027-eps-per",
+      "to": "implied-eps",
+      "type": "covered_by"
+    },
+    {
       "from": "article-us-30y-risk",
       "to": "article-ai-power-bottleneck",
       "type": "next"
@@ -817,6 +875,16 @@
     {
       "from": "article-ai-power-valuation-v2",
       "to": "article-ai-power-global-compare",
+      "type": "previous"
+    },
+    {
+      "from": "article-ai-power-valuation-v2",
+      "to": "article-ai-power-2027-eps-per",
+      "type": "next"
+    },
+    {
+      "from": "article-ai-power-2027-eps-per",
+      "to": "article-ai-power-valuation-v2",
       "type": "previous"
     }
   ],
@@ -1032,6 +1100,25 @@
       "stage": "valuation",
       "status": "published",
       "previous": "article-ai-power-global-compare",
+      "next": "article-ai-power-2027-eps-per"
+    },
+    {
+      "id": "article-ai-power-2027-eps-per",
+      "title": "LS ELECTRIC·HD현대일렉트릭 2027 EPS × PER 시나리오｜20·25·30·40배에서 주가는 얼마인가",
+      "url": "/articles/ls-hd-electric-2027-eps-per-scenario",
+      "order": 13,
+      "pillar": "ai-power-infrastructure",
+      "topics": [
+        "ls-electric",
+        "hd-hyundai-electric",
+        "eps",
+        "eps-revision",
+        "forward-per",
+        "implied-eps"
+      ],
+      "stage": "valuation",
+      "status": "published",
+      "previous": "article-ai-power-valuation-v2",
       "next": null
     }
   ]

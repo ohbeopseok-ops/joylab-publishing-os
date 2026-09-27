@@ -348,6 +348,24 @@ const workToSystem: BookInteractionMap = {
       placeholder: '예: 현장 20초 기록 / PC에서 주간 패턴 분석'
     }
   ],
+  13: [
+    {
+      type: 'reflection',
+      id: 'coaching-capture-rule',
+      title: 'LeaderDesk Coaching Capture Rule',
+      prompt: '현장에서 20~30초 안에 반드시 남겨야 할 최소 기록 규칙을 한 문장으로 정해보세요.',
+      placeholder: '예: 대상 + 관찰 사실 + 다음 확인만 남기고 세부 분류는 PC에서 보강한다.'
+    }
+  ],
+  14: [
+    {
+      type: 'reflection',
+      id: 'ops-recovery-board',
+      title: 'LeaderDesk Ops Recovery Board',
+      prompt: 'PC에서 오늘 판단을 위해 한 화면에 함께 보여야 할 세 가지 정보를 적어보세요.',
+      placeholder: '예: 최근 기억파편 / KPI 변화 / 오늘 Follow-up'
+    }
+  ],
   15: [
     {
       type: 'action',

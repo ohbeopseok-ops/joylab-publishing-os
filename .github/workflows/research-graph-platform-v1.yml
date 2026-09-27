@@ -1,0 +1,46 @@
+name: Research Graph Platform V1
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'config/research-graph-*.json'
+      - 'src/components/ResearchGraphMap.astro'
+      - 'src/components/AiPowerResearchMap.astro'
+      - 'src/pages/guides/ai-power-infrastructure.astro'
+      - 'src/pages/guides/semiconductor-investing.astro'
+      - 'src/pages/guides/financials-value-up.astro'
+      - 'src/pages/guides/shipbuilding.astro'
+      - 'src/styles/research-graph-map-v3.css'
+      - 'scripts/check-research-graph-platform-v1.mjs'
+      - 'package.json'
+      - '.github/workflows/research-graph-platform-v1.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'config/research-graph-*.json'
+      - 'src/components/ResearchGraphMap.astro'
+      - 'src/components/AiPowerResearchMap.astro'
+      - 'scripts/check-research-graph-platform-v1.mjs'
+      - 'package.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research-graph-platform:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Validate platform registry and active graph contracts
+        run: npm run research-graph:platform:check
+      - name: Build production site
+        run: |
+          npm ci
+          npm run build

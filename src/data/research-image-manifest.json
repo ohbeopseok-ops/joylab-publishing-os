@@ -1,4 +1,99 @@
 {
+  "china-us-treasury-holdings-2026": {
+    "hero": {
+      "src": "/images/research/china-us-treasury-editorial-hero.svg",
+      "alt": "중국의 미국 국채 보유 감소와 6334억 달러 보유액을 보여주는 JoyLab 금융 에디토리얼 대표 이미지",
+      "caption": "중국 단독 매도보다 중요한 것은 미국 국채의 매수자 구조가 어떻게 바뀌는가입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/us-treasury-major-holders-jun-2026.svg",
+        "alt": "2026년 6월 일본 영국 중국의 미국 국채 보유액 비교 차트",
+        "caption": "2026년 6월 주요 해외 보유국 비교. Source: U.S. Treasury TIC."
+      },
+      {
+        "src": "/images/research/china-us-treasury-buyer-regime.svg",
+        "alt": "미국 국채 매수자가 중앙은행에서 민간과 레버리지 자금으로 이동하는 구조를 설명한 인포그래픽",
+        "caption": "핵심 변화는 중국 단독 매도가 아니라 Buyer Regime의 변화입니다."
+      }
+    ]
+  },
+  "who-buys-us-treasuries-2026": {
+    "hero": {
+      "src": "/images/research/us-treasury-buyers-editorial-hero.svg",
+      "alt": "일본 영국 중국과 글로벌 금융허브를 연결해 미국 국채 매수자 지형도를 표현한 JoyLab 대표 이미지",
+      "caption": "미국 국채는 국가별 보유액뿐 아니라 수탁·민간·레버리지 자금까지 함께 봐야 합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/us-treasury-major-holders-jun-2026.svg",
+        "alt": "2026년 6월 미국 국채 주요 해외 보유국 비교 차트",
+        "caption": "일본 1.1167조 달러, 영국 9399억 달러, 중국 6334억 달러."
+      },
+      {
+        "src": "/images/research/us-treasury-official-private-chart.svg",
+        "alt": "2026년 6월 외국 공식기관과 민간 투자자의 장기 미국 증권 순매수를 비교한 차트",
+        "caption": "잔액 변화와 거래 흐름을 분리해서 봐야 Buyer Map이 정확해집니다."
+      }
+    ]
+  },
+  "us-30y-treasury-5-percent-risk-2026": {
+    "hero": {
+      "src": "/images/research/us-30y-editorial-hero.svg",
+      "alt": "미국 30년물 5.38퍼센트와 장기 재정 리스크를 표현한 JoyLab 금융 에디토리얼 대표 이미지",
+      "caption": "10년물은 가격 경계선이고, 30년물 5.3%대는 구조 경계선입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/us-30y-vs-10y-compare.svg",
+        "alt": "미국 10년물과 30년물 금리의 역할과 시장 영향을 비교한 인포그래픽",
+        "caption": "같은 장기금리라도 10년물과 30년물이 전달하는 신호는 다릅니다."
+      },
+      {
+        "src": "/images/research/us-30y-fiscal-loop.svg",
+        "alt": "재정적자와 국채 공급 증가가 장기금리와 이자비용을 높이는 재정 루프 인포그래픽",
+        "caption": "적자 확대 → 공급 증가 → 장기금리 상승 → 이자비용 증가의 구조를 추적합니다."
+      }
+    ]
+  },
+  "how-to-read-us-treasury-auctions-2026": {
+    "hero": {
+      "src": "/images/research/treasury-auction-editorial-hero.svg",
+      "alt": "미국 국채 입찰에서 Tail Indirect Dealer 지표를 강조한 JoyLab 금융 에디토리얼 대표 이미지",
+      "caption": "Bid-to-Cover는 수요의 양을, Tail·Indirect·Dealer는 수요의 질을 보여줍니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/treasury-auction-reading-order.svg",
+        "alt": "미국 국채 입찰을 Tail Indirect Dealer Bid-to-Cover 사후금리 순으로 읽는 인포그래픽",
+        "caption": "입찰은 Tail → Indirect → Dealer → B/C → 사후 금리 반응 순으로 읽습니다."
+      },
+      {
+        "src": "/images/research/treasury-auction-sep2026-chart.svg",
+        "alt": "2026년 9월 미국 10년물과 30년물 국채 입찰 결과 비교 차트",
+        "caption": "9월 10Y·30Y 입찰은 높은 금리에서도 최종 실수요가 강했던 사례입니다."
+      }
+    ]
+  },
+  "us-rates-korea-semiconductor-transmission-2026": {
+    "hero": {
+      "src": "/images/research/us-rates-korea-transmission-hero.svg",
+      "alt": "미국 금리 상승이 원달러와 외국인 수급을 거쳐 삼성전자와 SK하이닉스에 전달되는 JoyLab 금융 에디토리얼 대표 이미지",
+      "caption": "미국 금리는 실적을 바꾸기 전에 외국인이 그 실적에 지불할 가격을 바꿉니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/us-rates-korea-transmission-infographic.svg",
+        "alt": "미국 10년물에서 EPS Revision까지 이어지는 7단계 한국 반도체 전염경로 인포그래픽",
+        "caption": "US 10Y → US 30Y → Auction → USD/KRW → KOSPI 외국인 → 반도체 수급 → EPS Revision."
+      },
+      {
+        "src": "/images/research/us-rates-korea-flow-chart.svg",
+        "alt": "2026년 9월 10일과 11일 삼성전자와 SK하이닉스 외국인 순매도 비교 차트",
+        "caption": "이틀간 삼성전자·SK하이닉스 외국인 순매도 합계는 약 5.18조원입니다."
+      }
+    ]
+  },
   "ai-agent-governance": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
@@ -18,101 +113,6 @@
       }
     ]
   },
-  "ai-agent-hbm-demand": {
-    "hero": {
-      "src": "/images/research/ai-agent-hbm-demand-vector.svg",
-      "alt": "AI 에이전트 반복 추론과 KV Cache가 GPU HBM 수요로 이어지는 구조",
-      "caption": "AI Agent → 반복 추론 → KV Cache → HBM으로 이어지는 메모리 병목을 시각화합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "AI 에이전트와 KV Cache가 HBM 수요를 확대하는 핵심 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "Agentic inference의 핵심 신호와 메모리 병목을 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "AI Agent에서 HBM까지 이어지는 수요 전송 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Agent → Token → Context → KV Cache → HBM 순서로 판단 구조를 정리합니다."
-      }
-    ]
-  },
-  "ai-agent-security-prompt-to-rce-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "AI 에이전트 보안｜프롬프트가 실행 권한으로 바뀌는 순간 — JoyLab Research Standard v1.0 공통 대표 이미지",
-      "caption": "JoyLab AI Security Research 기본 Hero. 핵심 공격면과 방어 구조는 본문에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "AI 에이전트 보안｜프롬프트가 실행 권한으로 바뀌는 순간 — 핵심 위협 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 위협 신호와 변화 방향을 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "AI 에이전트 보안｜프롬프트가 실행 권한으로 바뀌는 순간 — 공격면과 방어 계층을 구조화한 JoyLab Research Framework 이미지",
-        "caption": "공격면 → 권한 → 실행 → 방어 순서로 구조화합니다."
-      }
-    ]
-  },
-  "ai-api-key-compute-theft-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "해커들은 왜 데이터 대신 AI 연산 권한을 노리는가 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
-      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "해커들은 왜 데이터 대신 AI 연산 권한을 노리는가 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "해커들은 왜 데이터 대신 AI 연산 권한을 노리는가 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "ai-bubble-vs-compute-supercycle-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "AI 거품론 vs 컴퓨팅 슈퍼사이클｜둘 다 맞을 수 있는 이유 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
-      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "AI 거품론 vs 컴퓨팅 슈퍼사이클｜둘 다 맞을 수 있는 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "AI 거품론 vs 컴퓨팅 슈퍼사이클｜둘 다 맞을 수 있는 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "ai-data-center-capacity-stack-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "AI 데이터센터 병목｜서버를 사도 바로 돌릴 수 없는 이유 — JoyLab Research 대표 이미지",
-      "caption": "JoyLab AI Infrastructure Research 기본 Hero."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "AI 데이터센터 병목｜서버를 사도 바로 돌릴 수 없는 이유 — 핵심 신호 이미지",
-        "caption": "병목과 Capacity 신호를 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "AI 데이터센터 병목｜서버를 사도 바로 돌릴 수 없는 이유 — 리서치 프레임워크 이미지",
-        "caption": "Demand → Bottleneck → Capacity → Economics 구조로 봅니다."
-      }
-    ]
-  },
   "ai-data-center-cooling-bottleneck": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
@@ -129,120 +129,6 @@
         "src": "/images/research/joylab-research-framework.svg",
         "alt": "AI 데이터센터 냉각이 전력 투자의 마지막 병목인 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "ai-data-center-interconnect-dci": {
-    "hero": {
-      "src": "/images/research/ai-data-center-network/ai-data-center-interconnect-dci-hero.svg",
-      "alt": "AI 데이터센터의 Rack에서 Campus, Metro DCI, Region, Global Backbone까지 광네트워크가 이어지는 구조를 보여주는 JoyLab 대표 이미지",
-      "caption": "DCI는 Rack과 Campus를 넘어 여러 데이터센터와 리전을 하나의 AI 인프라로 연결하는 네트워크 계층입니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "AI 데이터센터 DCI에서 PAM4 coherent-lite coherent DSP가 거리별로 쓰이는 구조를 정리한 JoyLab Visual Research 이미지",
-        "caption": "Rack → Campus → Metro → Region으로 갈수록 필요한 광기술과 reach 조건이 달라집니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "AI 데이터센터 DCI를 Reach Latency Signal Integrity Resilience 순서로 분석한 JoyLab 프레임워크 이미지",
-        "caption": "Reach → Latency → Signal Integrity → Resilience 순서로 DCI를 판단합니다."
-      }
-    ]
-  },
-  "ai-database-security-data-layer-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "AI 데이터베이스 보안｜권한 통제를 데이터 계층으로 내려야 하는 이유 — JoyLab Research Standard v1.0 공통 대표 이미지",
-      "caption": "JoyLab AI Security Research 기본 Hero. 핵심 공격면과 방어 구조는 본문에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "AI 데이터베이스 보안｜권한 통제를 데이터 계층으로 내려야 하는 이유 — 핵심 위협 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 위협 신호와 변화 방향을 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "AI 데이터베이스 보안｜권한 통제를 데이터 계층으로 내려야 하는 이유 — 공격면과 방어 계층을 구조화한 JoyLab Research Framework 이미지",
-        "caption": "공격면 → 권한 → 실행 → 방어 순서로 구조화합니다."
-      }
-    ]
-  },
-  "ai-inference-hbm-earnings": {
-    "hero": {
-      "src": "/images/research/ai-inference-hbm-earnings-vector.svg",
-      "alt": "AI 추론 수요가 HBM과 서버 메모리를 거쳐 ASP·마진·실적 성장으로 연결되는 구조",
-      "caption": "AI 추론 → HBM·DRAM → ASP·제품 믹스 → 마진·실적으로 이어지는 전송 구조를 시각화합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "AI 추론과 HBM 수요가 기업 실적으로 전환되는 핵심 지표를 정리한 JoyLab Visual Research 이미지",
-        "caption": "추론 수요·HBM 출하·ASP·수율·제품 믹스의 변화를 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "AI 추론에서 삼성전자 SK하이닉스 EPS까지 이어지는 실적 전송 프레임워크 이미지",
-        "caption": "Inference → Shipment → ASP → Yield → Margin → EPS 순서로 실적 연결고리를 점검합니다."
-      }
-    ]
-  },
-  "ai-infrastructure-hbm-mlcc-power-grid-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "AI 인프라 투자, HBM 다음은 MLCC·전력망인가 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
-      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "AI 인프라 투자, HBM 다음은 MLCC·전력망인가 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "AI 인프라 투자, HBM 다음은 MLCC·전력망인가 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "ai-network-800g-1-6t": {
-    "hero": {
-      "src": "/images/research/ai-data-center-network/ai-network-800g-1-6t-hero.svg",
-      "alt": "800G에서 1.6T로 전환되는 AI 데이터센터 광네트워크와 200G PAM4 링크 구조를 보여주는 JoyLab 대표 이미지",
-      "caption": "AI 데이터센터 네트워크가 800G에서 1.6T로 이동하는 이유를 bandwidth density와 power per bit 관점에서 봅니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "800G와 1.6T AI 데이터센터 네트워크 전환의 핵심 기술 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "200G/lane, 포트 밀도, 전력/bit, CPO 전환 신호를 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "AI 데이터센터 네트워크를 Bandwidth Lane Speed Power per Bit Reach Thermal 순서로 정리한 JoyLab 프레임워크 이미지",
-        "caption": "Bandwidth → Lane Speed → Power/bit → Reach → Thermal → Serviceability 순서로 봅니다."
-      }
-    ]
-  },
-  "ai-power-beneficiaries-value-chain": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "유틸리티·발전·변압기·전력기기·데이터센터를 연결한 AI 전력 밸류체인 — JoyLab Research Standard 대표 이미지",
-      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "유틸리티·발전·변압기·전력기기·데이터센터를 연결한 AI 전력 밸류체인의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "유틸리티·발전·변압기·전력기기·데이터센터를 연결한 AI 전력 밸류체인를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
       }
     ]
   },
@@ -284,25 +170,6 @@
       }
     ]
   },
-  "ai-power-ls-hd-eaton-ge-compare": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova AI 전력 비교 — JoyLab Research Standard 대표 이미지",
-      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova AI 전력 비교의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova AI 전력 비교를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
-      }
-    ]
-  },
   "ai-power-next-bottleneck": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
@@ -319,25 +186,6 @@
         "src": "/images/research/joylab-research-framework.svg",
         "alt": "GPU 다음 병목은 발전소다｜AI 데이터센터 전력 수요가 바꾸는 투자 지도 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "ai-power-valuation-eps-per-ev-ebitda": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "EPS Revision·PER·EV/EBITDA로 보는 AI 전력 밸류에이션 — JoyLab Research Standard 대표 이미지",
-      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "EPS Revision·PER·EV/EBITDA로 보는 AI 전력 밸류에이션의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "EPS Revision·PER·EV/EBITDA로 보는 AI 전력 밸류에이션를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
       }
     ]
   },
@@ -427,25 +275,6 @@
       }
     ]
   },
-  "ai-transformer-bottleneck-backlog-leadtime-margin": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "변압기 병목을 수주잔고·리드타임·마진으로 해석하는 AI 전력 리서치 — JoyLab Research Standard 대표 이미지",
-      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "변압기 병목을 수주잔고·리드타임·마진으로 해석하는 AI 전력 리서치의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "변압기 병목을 수주잔고·리드타임·마진으로 해석하는 AI 전력 리서치를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
-      }
-    ]
-  },
   "ai-workflow-automation": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
@@ -465,44 +294,6 @@
       }
     ]
   },
-  "bach-counterpoint-order-in-chaos": {
-    "hero": {
-      "src": "/images/research/reader-pack/bach-counterpoint.svg",
-      "alt": "서로 교차하는 금빛 선율로 바흐의 대위법과 균형을 표현한 JoyLab Research 이미지",
-      "caption": "복잡함이 혼란이 되지 않으려면 각 선율의 독립성과 관계가 함께 필요합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/reader-pack/bach-four-voices.svg",
-        "alt": "여러 선율이 교차하면서 하나의 질서를 만드는 대위법 구조 인포그래픽",
-        "caption": "서로 다른 선율이 관계를 맺을 때 복잡함은 질서가 됩니다."
-      },
-      {
-        "src": "/images/research/reader-pack/bach-life-voices.svg",
-        "alt": "일 관계 회복 성장 네 개의 삶의 선율을 보여주는 인포그래픽",
-        "caption": "Work, Relationship, Recovery, Growth를 네 개의 선율로 나눠 균형을 점검합니다."
-      }
-    ]
-  },
-  "bank-roe-cet1-guide": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "은행 ROE와 CET1 보는 법｜이익 성장과 자본 여력은 왜 다르게 움직이나 — JoyLab Research 대표 이미지",
-      "caption": "은행주의 수익성과 자본여력을 ROE·RWA·CET1 흐름으로 연결합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "은행 ROE와 CET1 분석 — ROE RWA CET1 NIM Credit Cost 핵심 신호 이미지",
-        "caption": "ROE·RWA·CET1·NIM·Credit Cost를 함께 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "은행 ROE와 CET1 분석 — 이익 위험 자본 주주환원 리서치 프레임워크 이미지",
-        "caption": "Earnings → Risk → Capital → Shareholder Return 순서로 읽습니다."
-      }
-    ]
-  },
   "bess-ups-bbu-data-center": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
@@ -518,310 +309,6 @@
       {
         "src": "/images/research/joylab-research-framework.svg",
         "alt": "BESS·UPS·BBU 차이｜AI 데이터센터가 정전에 대비하는 3중 안전망 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "burnout-recovery-starts-with-pause": {
-    "hero": {
-      "src": "/images/research/reader-pack/burnout-pause.svg",
-      "alt": "끊어진 수평선과 쉼표로 번아웃 이후 감속과 회복을 표현한 JoyLab Research 이미지",
-      "caption": "다시 달리기 전에 멈출 수 있는 구조부터 만드는 것이 회복의 시작입니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/reader-pack/burnout-recovery-gate.svg",
-        "alt": "Reduce Recover Re-enter 세 단계 회복 게이트 인포그래픽",
-        "caption": "Reduce → Recover → Re-enter 순서로 회복기를 나눕니다."
-      },
-      {
-        "src": "/images/research/reader-pack/burnout-stop-list.svg",
-        "alt": "번아웃 회복기에 하지 않을 것 세 가지를 정리한 Stop List 인포그래픽",
-        "caption": "새 루틴을 더하기 전에 먼저 하지 않을 일을 줄입니다."
-      }
-    ]
-  },
-  "china-ai-token-ciyuan-discourse-power": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "중국의 Token ‘词元’ 표준화와 Language → Measurement → Standard → Governance 흐름을 설명하는 JoyLab Research 대표 이미지",
-      "caption": "중국의 AI 언어·측정·표준 전략을 Fact → Interpretation → Scenario → Action 구조로 분석합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "중국의 영어 교육 논쟁과 Token ‘词元’, AI 표준화 정책의 확인된 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "영어 교육 논쟁, 词元 표준명, 국가 AI 표준화 지침을 확인된 사실과 분석 가설로 분리합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "Language → Measurement → Standard → Governance → Discourse Power로 이어지는 JoyLab AI Standards 분석 프레임워크 이미지",
-        "caption": "용어가 계량·표준·거버넌스로 이동하는 경로를 따라 기술 주권의 구조를 읽습니다."
-      }
-    ]
-  },
-  "china-memory-self-sufficiency": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "중국 메모리 자립을 봐야 하는 이유 — JoyLab Research 대표 이미지",
-      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "중국 메모리 자립을 봐야 하는 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "중국 메모리 자립을 봐야 하는 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "china-semiconductor-equipment-localization": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "중국 반도체 장비 국산화 어디까지 왔나 — JoyLab Research 대표 이미지",
-      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "중국 반도체 장비 국산화 어디까지 왔나 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "중국 반도체 장비 국산화 어디까지 왔나 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "china-semiconductor-risk-indicators": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "중국 반도체 자립｜투자자가 볼 숫자 10개 — JoyLab Research 대표 이미지",
-      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "중국 반도체 자립｜투자자가 볼 숫자 10개 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "중국 반도체 자립｜투자자가 볼 숫자 10개 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "china-us-treasury-holdings-2026": {
-    "hero": {
-      "src": "/images/research/china-us-treasury-editorial-hero.svg",
-      "alt": "중국의 미국 국채 보유 감소와 6334억 달러 보유액을 보여주는 JoyLab 금융 에디토리얼 대표 이미지",
-      "caption": "중국 단독 매도보다 중요한 것은 미국 국채의 매수자 구조가 어떻게 바뀌는가입니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/us-treasury-major-holders-jun-2026.svg",
-        "alt": "2026년 6월 일본 영국 중국의 미국 국채 보유액 비교 차트",
-        "caption": "2026년 6월 주요 해외 보유국 비교. Source: U.S. Treasury TIC."
-      },
-      {
-        "src": "/images/research/china-us-treasury-buyer-regime.svg",
-        "alt": "미국 국채 매수자가 중앙은행에서 민간과 레버리지 자금으로 이동하는 구조를 설명한 인포그래픽",
-        "caption": "핵심 변화는 중국 단독 매도가 아니라 Buyer Regime의 변화입니다."
-      }
-    ]
-  },
-  "codex-automation-gold-cases-5": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "Codex 자동화 GOLD CASE 5개와 완료 조건 검증표를 소개하는 JoyLab AI·생산성 대표 이미지",
-      "caption": "자동화는 생성 성공이 아니라 같은 기준으로 다시 재현 가능한지 검증해야 합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "Contract PASS와 Runtime PASS를 구분하는 Codex 자동화 검증 신호 이미지",
-        "caption": "설계 계약 검증과 실제 실행 검증을 분리해 자동화 성숙도를 판단합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "Input Process Quality Gate Output Human Review로 GOLD CASE를 검증하는 JoyLab 프레임워크 이미지",
-        "caption": "Input → Process → Quality Gate → Output → Human Review를 모두 통과해야 GOLD CASE 후보가 됩니다."
-      }
-    ]
-  },
-  "codex-build-your-own-plugin-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "Skill MCP plugin.json을 하나의 Codex Plugin으로 패키징하는 JoyLab AI·생산성 대표 이미지",
-      "caption": "나만의 Plugin은 업무 절차·품질 기준·외부 도구 연결을 하나의 재사용 가능한 실행 패키지로 만드는 단계입니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "Skill부터 시작해 필요할 때 MCP를 연결하는 Codex Plugin 설계 신호 이미지",
-        "caption": "먼저 Skill을 안정화하고 외부 시스템 연결이 필요할 때만 MCP를 추가합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "Skill MCP plugin json Local Test Workspace Share 순서로 Plugin을 만드는 JoyLab 프레임워크 이미지",
-        "caption": "Skill → MCP → plugin.json → Local Test → Workspace Share 순서로 패키징합니다."
-      }
-    ]
-  },
-  "codex-computer-use-guide-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "Codex Computer Use로 브라우저와 데스크톱 앱의 GUI 작업을 안전하게 실행하는 JoyLab 대표 이미지",
-      "caption": "Computer Use는 GUI가 꼭 필요한 작업에서 승인·중단·검증 기준과 함께 사용하는 것이 핵심입니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "Computer Use 적용 여부를 파일 API Plugin Browser GUI 순서로 판단하는 JoyLab Visual Research 이미지",
-        "caption": "구조화된 파일·API·Plugin 방법을 먼저 검토하고 GUI 작업은 필요한 경우에만 사용합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "범위 승인 중단 조건 검증 로그로 Computer Use를 운영하는 JoyLab 프레임워크 이미지",
-        "caption": "Scope → Approval → Stop Conditions → Verification → Log 순서로 안전하게 운영합니다."
-      }
-    ]
-  },
-  "codex-goal-mode-guide-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "Codex Goal Mode에서 목표와 성공 기준을 정의해 장기 작업을 완료하는 JoyLab 대표 이미지",
-      "caption": "Goal Mode의 핵심은 긴 작업이 아니라 결과와 성공 기준을 명확히 정의하는 것입니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "Goal Mode의 Scope Success Criteria Constraints Verification Stop Conditions를 정리한 JoyLab Visual Research 이미지",
-        "caption": "Scope·Success Criteria·Constraints·Verification·Stop Conditions가 Goal Mode의 핵심 계약입니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "Outcome Criteria Execute Verify Report 흐름으로 Goal Mode를 설계하는 JoyLab 프레임워크 이미지",
-        "caption": "Outcome → Criteria → Execute → Verify → Report 순서로 완료 기준까지 반복합니다."
-      }
-    ]
-  },
-  "codex-guide-6-steps-2026": {
-    "hero": {
-      "src": "/images/research/codex-guide-6-steps-hero.svg",
-      "alt": "Codex 초보자를 위한 6단계 활용 흐름과 프로젝트 작업 화면을 표현한 JoyLab AI·생산성 대표 이미지",
-      "caption": "첨부된 실제 Codex 화면 구성을 바탕으로 세팅부터 실행까지의 흐름을 JoyLab 에디토리얼 비주얼로 재구성했습니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/codex-guide-setup-modes.svg",
-        "alt": "Codex 개인 맞춤 설정과 일반·목표·계획 작업 모드를 한 화면에 정리한 인포그래픽",
-        "caption": "Step 1–2. 프로젝트 폴더와 권한을 먼저 잡고, 작업 성격에 따라 즉시 실행·목표·계획 방식을 구분합니다."
-      },
-      {
-        "src": "/images/research/codex-guide-workflow.svg",
-        "alt": "Codex Skills Plugins Computer Use Terminal 네 단계를 연결한 업무 자동화 인포그래픽",
-        "caption": "Step 3–6. 반복 작업을 Skill로 고정하고 Plugin·Computer Use·Terminal을 필요한 지점에 연결합니다."
-      }
-    ]
-  },
-  "codex-non-developer-automation-10": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "비개발자를 위한 Codex 업무 자동화 10가지 사례를 소개하는 JoyLab AI·생산성 대표 이미지",
-      "caption": "자동화의 출발점은 기능이 아니라 반복 가능한 업무 단위를 정의하는 것입니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "Codex 자동화 후보 업무의 반복 빈도와 규칙성을 점검하는 JoyLab Visual Research 이미지",
-        "caption": "반복성·입력 규칙성·출력 규칙성·오류 위험도를 기준으로 자동화 후보를 고릅니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "Codex 업무 자동화를 Input Process Quality Gate Output 구조로 설계하는 JoyLab 프레임워크 이미지",
-        "caption": "입력 → 처리 → 품질 게이트 → 결과물 구조를 고정하면 반복 자동화의 안정성이 높아집니다."
-      }
-    ]
-  },
-  "codex-plugin-guide-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "Gmail Google Drive GitHub를 Codex Plugin으로 연결하는 JoyLab AI·생산성 대표 이미지",
-      "caption": "Plugin은 앱 연결이 아니라 실제 업무 데이터와 도구를 Skill 기반 워크플로에 연결하는 계층입니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "Gmail Drive GitHub를 읽기 중심으로 연결하고 권한을 단계적으로 확장하는 JoyLab Visual Research 이미지",
-        "caption": "처음에는 읽기 중심으로 시작하고 필요한 쓰기 권한만 추가합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "문제 정의 데이터 최소권한 Skill 승인 검증 확장 순서로 Plugin을 설계하는 JoyLab 프레임워크 이미지",
-        "caption": "문제 정의 → 필요한 데이터 → 최소 권한 → Skill → 승인 → 검증 → 확장 순서로 설계합니다."
-      }
-    ]
-  },
-  "codex-skill-guide-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "Codex Skill을 Input Process Quality Gate Output 구조로 설계하는 JoyLab AI·생산성 대표 이미지",
-      "caption": "Skill은 프롬프트 저장이 아니라 반복 업무의 입력·처리·품질 기준·출력을 고정하는 업무 자산입니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "반복 업무에서 Skill 후보를 찾는 기준을 정리한 JoyLab Visual Research 이미지",
-        "caption": "반복 빈도와 입력·출력 규칙성을 기준으로 Skill 후보를 찾습니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "Input Process Quality Gate Output 네 단계로 Codex Skill을 설계하는 JoyLab 프레임워크 이미지",
-        "caption": "Input → Process → Quality Gate → Output 네 요소를 고정하면 재사용성이 높아집니다."
-      }
-    ]
-  },
-  "cxmt-dram-vs-samsung-sk-hynix": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "CXMT는 삼성·SK DRAM을 얼마나 따라왔나 — JoyLab Research 대표 이미지",
-      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "CXMT는 삼성·SK DRAM을 얼마나 따라왔나 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "CXMT는 삼성·SK DRAM을 얼마나 따라왔나 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "cxmt-ymtc-memory-oversupply": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "CXMT·YMTC 증설이 메모리 공급과잉을 만들까 — JoyLab Research 대표 이미지",
-      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "CXMT·YMTC 증설이 메모리 공급과잉을 만들까 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "CXMT·YMTC 증설이 메모리 공급과잉을 만들까 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
@@ -883,25 +370,6 @@
       }
     ]
   },
-  "financials-value-up-investing-guide": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "금융·주주환원 투자 가이드｜ROE·CET1·배당·자사주·PBR을 연결하는 법 — JoyLab Research Standard 대표 이미지",
-      "caption": "금융주의 수익성·자본여력·주주환원·밸류에이션을 하나의 흐름으로 읽습니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "금융·주주환원 투자 가이드 — ROE CET1 배당 자사주 PBR 핵심 신호 이미지",
-        "caption": "ROE → CET1 → 주주환원 → PBR의 핵심 신호를 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "금융·주주환원 투자 가이드 — Fact Interpretation Scenario Action 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 금융주의 재평가 조건을 점검합니다."
-      }
-    ]
-  },
   "foreign-investor-flow": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
@@ -918,25 +386,6 @@
         "src": "/images/research/joylab-research-framework.svg",
         "alt": "외국인 수급 보는 법｜순매수보다 중요한 5가지 신호 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "gpu-compute-economics-rubin-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "GPU 병목의 본질｜칩 수량보다 토큰당 비용과 랙 효율이 중요한 이유 — JoyLab Research 대표 이미지",
-      "caption": "JoyLab AI Infrastructure Research 기본 Hero."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "GPU 병목의 본질｜칩 수량보다 토큰당 비용과 랙 효율이 중요한 이유 — 핵심 신호 이미지",
-        "caption": "병목과 Capacity 신호를 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "GPU 병목의 본질｜칩 수량보다 토큰당 비용과 랙 효율이 중요한 이유 — 리서치 프레임워크 이미지",
-        "caption": "Demand → Bottleneck → Capacity → Economics 구조로 봅니다."
       }
     ]
   },
@@ -975,44 +424,6 @@
         "src": "/images/research/joylab-research-framework.svg",
         "alt": "한화오션 조선 수혜 보는 법｜LNG선·특수선·수주잔고의 질 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "hbm-us-china-ai-chip-war": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "HBM이 미·중 반도체 전쟁의 핵심인 이유 — JoyLab Research 대표 이미지",
-      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "HBM이 미·중 반도체 전쟁의 핵심인 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "HBM이 미·중 반도체 전쟁의 핵심인 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "hbm3e-hbm4-zhbm": {
-    "hero": {
-      "src": "/images/research/hbm3e-hbm4-zhbm-vector.svg",
-      "alt": "HBM3E에서 HBM4와 zHBM 3D 메모리 구조로 진화하는 AI 메모리 로드맵",
-      "caption": "HBM3E → HBM4 → zHBM으로 이어지는 메모리 기술의 구조적 진화를 시각화합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "HBM3E HBM4 HBM4E zHBM의 기술 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "대역폭·I/O·적층·로직 베이스다이·3D 통합의 변화를 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "HBM 세대에서 zHBM 3D 아키텍처로 이어지는 기술 프레임워크를 설명한 이미지",
-        "caption": "현재 매출 → 다음 세대 → 미래 옵션 순서로 기술과 실적의 시간을 분리합니다."
       }
     ]
   },
@@ -1073,44 +484,6 @@
       }
     ]
   },
-  "how-submarine-cables-work": {
-    "hero": {
-      "src": "/images/research/global-connectivity/how-submarine-cables-work-hero.svg",
-      "alt": "광섬유와 중계기, 육양국을 통해 국제 인터넷 데이터가 이동하는 해저 광케이블 구조를 보여주는 JoyLab 대표 이미지",
-      "caption": "인터넷 데이터는 광섬유·중계기·육양국을 거쳐 대륙 사이를 이동합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "해저 광케이블 작동 원리 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "해저 광케이블 작동 원리 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "how-to-read-us-treasury-auctions-2026": {
-    "hero": {
-      "src": "/images/research/treasury-auction-editorial-hero.svg",
-      "alt": "미국 국채 입찰에서 Tail Indirect Dealer 지표를 강조한 JoyLab 금융 에디토리얼 대표 이미지",
-      "caption": "Bid-to-Cover는 수요의 양을, Tail·Indirect·Dealer는 수요의 질을 보여줍니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/treasury-auction-reading-order.svg",
-        "alt": "미국 국채 입찰을 Tail Indirect Dealer Bid-to-Cover 사후금리 순으로 읽는 인포그래픽",
-        "caption": "입찰은 Tail → Indirect → Dealer → B/C → 사후 금리 반응 순으로 읽습니다."
-      },
-      {
-        "src": "/images/research/treasury-auction-sep2026-chart.svg",
-        "alt": "2026년 9월 미국 10년물과 30년물 국채 입찰 결과 비교 차트",
-        "caption": "9월 10Y·30Y 입찰은 높은 금리에서도 최종 실수요가 강했던 사례입니다."
-      }
-    ]
-  },
   "hyosung-heavy-industries-ai-power": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
@@ -1127,25 +500,6 @@
         "src": "/images/research/joylab-research-framework.svg",
         "alt": "효성중공업 AI 전력 수혜 보는 법｜초고압 변압기·수주잔고·미국 전력망 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "kb-financial-shareholder-return": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "KB금융 주주환원 보는 법｜ROE·CET1·배당·자사주를 연결하는 방법 — JoyLab Research 대표 이미지",
-      "caption": "KB금융의 이익·자본·주주환원 구조를 ROE와 CET1 중심으로 읽습니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "KB금융 주주환원 분석 — ROE CET1 RWA NIM Credit Cost 핵심 신호 이미지",
-        "caption": "ROE·CET1·RWA·NIM·Credit Cost를 같은 흐름에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "KB금융 주주환원 분석 — 이익 자본 배당 자사주 PBR 리서치 프레임워크 이미지",
-        "caption": "Earnings → Capital → Shareholder Return → Valuation 순서로 재점검합니다."
       }
     ]
   },
@@ -1170,25 +524,6 @@
         "src": "/images/research/joylab-research-compare.svg",
         "alt": "AI 전력 4사 비교｜두산에너빌리티·효성중공업·HD현대일렉트릭·LS ELECTRIC — 비교형 또는 밸류체인형 리서치의 선택 기준을 정리한 JoyLab 비교 이미지",
         "caption": "비교형·밸류체인형 글은 핵심 차이를 세 번째 보조 시각자료로 보완할 수 있습니다."
-      }
-    ]
-  },
-  "korea-financial-holdings-compare": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "4대 금융지주 비교｜KB·신한·하나·우리 ROE·CET1·주주환원율·PBR — JoyLab Research 대표 이미지",
-      "caption": "4대 금융지주를 수익성·자본·주주환원·밸류에이션의 같은 기준으로 비교합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "4대 금융지주 비교 — ROE CET1 주주환원 PBR 핵심 신호 이미지",
-        "caption": "ROE → CET1 → 주주환원율 → PBR 흐름을 같은 기준으로 추적합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "4대 금융지주 비교 — 수익성 자본 환원 재평가 리서치 프레임워크 이미지",
-        "caption": "Profitability → Capital → Shareholder Return → Valuation 순서로 비교합니다."
       }
     ]
   },
@@ -1254,25 +589,6 @@
       }
     ]
   },
-  "mcp-security-tool-poisoning-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "MCP 보안｜도구 연결이 새로운 공급망 공격면이 되는 이유 — JoyLab Research Standard v1.0 공통 대표 이미지",
-      "caption": "JoyLab AI Security Research 기본 Hero. 핵심 공격면과 방어 구조는 본문에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "MCP 보안｜도구 연결이 새로운 공급망 공격면이 되는 이유 — 핵심 위협 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 위협 신호와 변화 방향을 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "MCP 보안｜도구 연결이 새로운 공급망 공격면이 되는 이유 — 공격면과 방어 계층을 구조화한 JoyLab Research Framework 이미지",
-        "caption": "공격면 → 권한 → 실행 → 방어 순서로 구조화합니다."
-      }
-    ]
-  },
   "money-basics-7-economic-terms": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
@@ -1288,25 +604,6 @@
       {
         "src": "/images/research/joylab-research-framework.svg",
         "alt": "돈 공부 시작 전에 꼭 알아야 할 7가지 경제 용어｜환율·금리·GDP부터 레버리지까지 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "openai-anthropic-ipo-cash-burn-2026": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "오픈AI·앤트로픽 IPO 논의가 중요한 이유｜성장보다 현금흐름을 보게 된다 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
-      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "오픈AI·앤트로픽 IPO 논의가 중요한 이유｜성장보다 현금흐름을 보게 된다 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "오픈AI·앤트로픽 IPO 논의가 중요한 이유｜성장보다 현금흐름을 보게 된다 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
@@ -1327,25 +624,6 @@
         "src": "/images/research/joylab-research-framework.svg",
         "alt": "OpenAI Data agent 공개｜회사 데이터에 질문하면 분석·대시보드·액션까지 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "optical-dsp-lpo-lro-1-6t": {
-    "hero": {
-      "src": "/images/research/ai-data-center-network/optical-dsp-lpo-lro-1-6t-hero.svg",
-      "alt": "1.6T AI 데이터센터 광모듈에서 DSP 기반 플러거블과 LPO, LRO/TRO의 신호처리 구조를 비교한 JoyLab 대표 이미지",
-      "caption": "1.6T 광모듈 경쟁은 속도보다 DSP 위치와 전력, 신호무결성, 도달거리의 균형이 핵심입니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "Optical DSP LPO LRO TRO의 전력과 신호처리 차이를 정리한 JoyLab Visual Research 이미지",
-        "caption": "DSP·LPO·LRO/TRO의 전력, 지연, 신호보정, reach 차이를 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "1.6T 광모듈을 Power Signal Integrity Latency Reach Serviceability 순서로 비교한 JoyLab 프레임워크 이미지",
-        "caption": "Power → Signal Integrity → Latency → Reach → Serviceability 순서로 비교합니다."
       }
     ]
   },
@@ -1406,25 +684,6 @@
       }
     ]
   },
-  "samsung-hbm4-memory-outlook-2026-09-20": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "삼성전자 반도체 업황 분석｜HBM4·HBM4E가 중요한 이유 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
-      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "삼성전자 반도체 업황 분석｜HBM4·HBM4E가 중요한 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "삼성전자 반도체 업황 분석｜HBM4·HBM4E가 중요한 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
   "samsung-heavy-industries-shipbuilding": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
@@ -1468,44 +727,6 @@
       }
     ]
   },
-  "samsung-xian-vs-sk-hynix-wuxi": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "삼성전자 시안 vs SK하이닉스 우시 — JoyLab Research 대표 이미지",
-      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "삼성전자 시안 vs SK하이닉스 우시 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "삼성전자 시안 vs SK하이닉스 우시 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "satellite-vs-submarine-cable": {
-    "hero": {
-      "src": "/images/research/global-connectivity/satellite-vs-submarine-cable-hero.svg",
-      "alt": "저궤도 위성 인터넷과 해저 광케이블의 Capacity Reach Resilience 역할 차이를 비교하는 JoyLab 대표 이미지",
-      "caption": "해저 케이블은 Capacity, 위성은 Reach와 Mobility를 중심으로 서로 보완합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "위성 인터넷과 해저 광케이블 비교 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "위성 인터넷과 해저 광케이블 비교 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
   "semiconductor-cycle": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
@@ -1522,25 +743,6 @@
         "src": "/images/research/joylab-research-framework.svg",
         "alt": "반도체 사이클 보는 법｜D램 가격·재고·CAPEX로 판단하기 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "silicon-photonics-ai-network": {
-    "hero": {
-      "src": "/images/research/ai-data-center-network/silicon-photonics-ai-network-hero.svg",
-      "alt": "실리콘 칩 위의 광도파로와 광학 엔진이 스위치 ASIC과 광섬유를 연결하는 Silicon Photonics 구조를 보여주는 JoyLab 대표 이미지",
-      "caption": "Silicon Photonics는 광학 기능을 실리콘 칩 수준에 집적해 AI 네트워크의 대역폭 밀도와 전력 효율을 높이는 기술입니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "Silicon Photonics와 400G lane AI 네트워크 전환의 핵심 기술 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "광도파로, 광변조기, 200G·400G lane, CPO 전환 신호를 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "Silicon Photonics를 Bandwidth Density Power per Bit Yield Thermal Serviceability 순서로 정리한 JoyLab 프레임워크 이미지",
-        "caption": "Bandwidth Density → Power/bit → Yield → Thermal → Serviceability 순서로 판단합니다."
       }
     ]
   },
@@ -1563,155 +765,383 @@
       }
     ]
   },
-  "strong-retail-sales-nasdaq-rally-2026": {
+  "what-is-ai-agent": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "강한 미국 소비에도 나스닥이 오를 수 있는 이유를 금리와 EPS의 경쟁으로 설명하는 JoyLab 리서치 대표 이미지",
-      "caption": "나스닥의 방향은 경제지표 자체보다 금리 상승폭과 이익 기대의 상대강도로 결정됩니다."
+      "alt": "AI 에이전트란 무엇인가｜챗봇과 다른 진짜 이유 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
     },
     "supporting": [
       {
         "src": "/images/research/joylab-research-signal.svg",
-        "alt": "금리 부담과 이익 성장 기대가 나스닥 방향을 결정하는 핵심 신호 이미지",
-        "caption": "금리와 EPS 중 어느 쪽의 변화가 더 강한지 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "경제지표에서 국채금리와 EPS 리비전을 거쳐 나스닥으로 이어지는 JoyLab 분석 프레임워크 이미지",
-        "caption": "Macro Surprise → Yield → EPS Revision → Valuation → Price의 순서로 해석합니다."
-      }
-    ]
-  },
-  "submarine-cable-failure-repair": {
-    "hero": {
-      "src": "/images/research/global-connectivity/submarine-cable-failure-repair-hero.svg",
-      "alt": "해저 케이블 단선 후 트래픽 우회와 수리선 복구 과정을 보여주는 JoyLab 대표 이미지",
-      "caption": "인터넷 복원력의 핵심은 끊어지지 않는 선보다 끊어져도 우회하고 복구하는 구조입니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "해저 케이블 장애와 복구 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "alt": "AI 에이전트란 무엇인가｜챗봇과 다른 진짜 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
         "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
       },
       {
         "src": "/images/research/joylab-research-framework.svg",
-        "alt": "해저 케이블 장애와 복구 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
+        "alt": "AI 에이전트란 무엇인가｜챗봇과 다른 진짜 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
   },
-  "submarine-cable-history": {
+  "what-is-hbm": {
     "hero": {
-      "src": "/images/research/global-connectivity/submarine-cable-history-hero.svg",
-      "alt": "TAT-1 전화 케이블에서 현대 해저 광섬유까지 대서양 통신 인프라의 진화를 보여주는 JoyLab 대표 이미지",
-      "caption": "36개 음성 회선에서 글로벌 인터넷 백본까지, 해저 통신의 물리 인프라가 어떻게 진화했는지 봅니다."
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "HBM이란 무엇인가｜AI 시대 메모리 반도체가 중요한 이유 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
     },
     "supporting": [
       {
         "src": "/images/research/joylab-research-signal.svg",
-        "alt": "TAT-1에서 광케이블까지 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "alt": "HBM이란 무엇인가｜AI 시대 메모리 반도체가 중요한 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
         "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
       },
       {
         "src": "/images/research/joylab-research-framework.svg",
-        "alt": "TAT-1에서 광케이블까지 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
+        "alt": "HBM이란 무엇인가｜AI 시대 메모리 반도체가 중요한 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
   },
-  "submarine-cables-ai-infrastructure": {
+  "samsung-hbm4-memory-outlook-2026-09-20": {
     "hero": {
-      "src": "/images/research/global-connectivity/submarine-cables-ai-infrastructure-hero.svg",
-      "alt": "AI 데이터센터와 클라우드 리전, 해저 광케이블이 글로벌 사용자를 연결하는 구조를 보여주는 JoyLab 대표 이미지",
-      "caption": "AI 인프라는 GPU에서 끝나지 않고 데이터센터 밖의 Global Network까지 이어집니다."
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "삼성전자 반도체 업황 분석｜HBM4·HBM4E가 중요한 이유 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
     },
     "supporting": [
       {
         "src": "/images/research/joylab-research-signal.svg",
-        "alt": "AI 시대 글로벌 네트워크 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "alt": "삼성전자 반도체 업황 분석｜HBM4·HBM4E가 중요한 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
         "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
       },
       {
         "src": "/images/research/joylab-research-framework.svg",
-        "alt": "AI 시대 글로벌 네트워크 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
+        "alt": "삼성전자 반도체 업황 분석｜HBM4·HBM4E가 중요한 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
   },
-  "total-shareholder-return-buyback-cancellation-guide": {
+  "ai-infrastructure-hbm-mlcc-power-grid-2026": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "총주주환원율 TSR 보는 법｜배당·자사주 매입·소각 차이 — JoyLab Research 대표 이미지",
-      "caption": "배당·자사주 매입·소각을 ROE·CET1·PBR 흐름으로 연결합니다."
+      "alt": "AI 인프라 투자, HBM 다음은 MLCC·전력망인가 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
     },
     "supporting": [
       {
         "src": "/images/research/joylab-research-signal.svg",
-        "alt": "총주주환원율 분석 — 배당 자사주 매입 소각 TSR 핵심 신호 이미지",
-        "caption": "배당·매입·소각을 분리해 총주주환원을 읽습니다."
+        "alt": "AI 인프라 투자, HBM 다음은 MLCC·전력망인가 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
       },
       {
         "src": "/images/research/joylab-research-framework.svg",
-        "alt": "총주주환원율 분석 — ROE CET1 TSR PBR 리서치 프레임워크 이미지",
-        "caption": "ROE → CET1 → TSR → PBR 순서로 자본배분을 점검합니다."
+        "alt": "AI 인프라 투자, HBM 다음은 MLCC·전력망인가 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
   },
-  "treasury-5-percent-sp500-nasdaq-dividend": {
+  "ai-bubble-vs-compute-supercycle-2026": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "미국 국채금리와 S&P500·나스닥·고배당주 차이를 비교한 리서치 — JoyLab Research Standard 대표 이미지",
-      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+      "alt": "AI 거품론 vs 컴퓨팅 슈퍼사이클｜둘 다 맞을 수 있는 이유 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
     },
     "supporting": [
       {
         "src": "/images/research/joylab-research-signal.svg",
-        "alt": "미국 국채금리와 S&P500·나스닥·고배당주 차이를 비교한 리서치의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+        "alt": "AI 거품론 vs 컴퓨팅 슈퍼사이클｜둘 다 맞을 수 있는 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
       },
       {
         "src": "/images/research/joylab-research-framework.svg",
-        "alt": "미국 국채금리와 S&P500·나스닥·고배당주 차이를 비교한 리서치를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+        "alt": "AI 거품론 vs 컴퓨팅 슈퍼사이클｜둘 다 맞을 수 있는 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
   },
-  "treasury-5-percent-utilities-2026": {
+  "openai-anthropic-ipo-cash-burn-2026": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "미국 국채금리와 S&P500 유틸리티 약세를 연결한 AI Power 리서치 — JoyLab Research Standard 대표 이미지",
-      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+      "alt": "오픈AI·앤트로픽 IPO 논의가 중요한 이유｜성장보다 현금흐름을 보게 된다 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
     },
     "supporting": [
       {
         "src": "/images/research/joylab-research-signal.svg",
-        "alt": "미국 국채금리와 S&P500 유틸리티 약세를 연결한 AI Power 리서치의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+        "alt": "오픈AI·앤트로픽 IPO 논의가 중요한 이유｜성장보다 현금흐름을 보게 된다 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
       },
       {
         "src": "/images/research/joylab-research-framework.svg",
-        "alt": "미국 국채금리와 S&P500 유틸리티 약세를 연결한 AI Power 리서치를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+        "alt": "오픈AI·앤트로픽 IPO 논의가 중요한 이유｜성장보다 현금흐름을 보게 된다 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
   },
-  "us-30y-treasury-5-percent-risk-2026": {
+  "ai-api-key-compute-theft-2026": {
     "hero": {
-      "src": "/images/research/us-30y-editorial-hero.svg",
-      "alt": "미국 30년물 5.38퍼센트와 장기 재정 리스크를 표현한 JoyLab 금융 에디토리얼 대표 이미지",
-      "caption": "10년물은 가격 경계선이고, 30년물 5.3%대는 구조 경계선입니다."
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "해커들은 왜 데이터 대신 AI 연산 권한을 노리는가 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
     },
     "supporting": [
       {
-        "src": "/images/research/us-30y-vs-10y-compare.svg",
-        "alt": "미국 10년물과 30년물 금리의 역할과 시장 영향을 비교한 인포그래픽",
-        "caption": "같은 장기금리라도 10년물과 30년물이 전달하는 신호는 다릅니다."
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "해커들은 왜 데이터 대신 AI 연산 권한을 노리는가 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
       },
       {
-        "src": "/images/research/us-30y-fiscal-loop.svg",
-        "alt": "재정적자와 국채 공급 증가가 장기금리와 이자비용을 높이는 재정 루프 인포그래픽",
-        "caption": "적자 확대 → 공급 증가 → 장기금리 상승 → 이자비용 증가의 구조를 추적합니다."
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "해커들은 왜 데이터 대신 AI 연산 권한을 노리는가 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ai-agent-security-prompt-to-rce-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 에이전트 보안｜프롬프트가 실행 권한으로 바뀌는 순간 — JoyLab Research Standard v1.0 공통 대표 이미지",
+      "caption": "JoyLab AI Security Research 기본 Hero. 핵심 공격면과 방어 구조는 본문에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 에이전트 보안｜프롬프트가 실행 권한으로 바뀌는 순간 — 핵심 위협 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 위협 신호와 변화 방향을 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 에이전트 보안｜프롬프트가 실행 권한으로 바뀌는 순간 — 공격면과 방어 계층을 구조화한 JoyLab Research Framework 이미지",
+        "caption": "공격면 → 권한 → 실행 → 방어 순서로 구조화합니다."
+      }
+    ]
+  },
+  "mcp-security-tool-poisoning-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "MCP 보안｜도구 연결이 새로운 공급망 공격면이 되는 이유 — JoyLab Research Standard v1.0 공통 대표 이미지",
+      "caption": "JoyLab AI Security Research 기본 Hero. 핵심 공격면과 방어 구조는 본문에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "MCP 보안｜도구 연결이 새로운 공급망 공격면이 되는 이유 — 핵심 위협 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 위협 신호와 변화 방향을 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "MCP 보안｜도구 연결이 새로운 공급망 공격면이 되는 이유 — 공격면과 방어 계층을 구조화한 JoyLab Research Framework 이미지",
+        "caption": "공격면 → 권한 → 실행 → 방어 순서로 구조화합니다."
+      }
+    ]
+  },
+  "ai-database-security-data-layer-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 데이터베이스 보안｜권한 통제를 데이터 계층으로 내려야 하는 이유 — JoyLab Research Standard v1.0 공통 대표 이미지",
+      "caption": "JoyLab AI Security Research 기본 Hero. 핵심 공격면과 방어 구조는 본문에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 데이터베이스 보안｜권한 통제를 데이터 계층으로 내려야 하는 이유 — 핵심 위협 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 위협 신호와 변화 방향을 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 데이터베이스 보안｜권한 통제를 데이터 계층으로 내려야 하는 이유 — 공격면과 방어 계층을 구조화한 JoyLab Research Framework 이미지",
+        "caption": "공격면 → 권한 → 실행 → 방어 순서로 구조화합니다."
+      }
+    ]
+  },
+  "gpu-compute-economics-rubin-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "GPU 병목의 본질｜칩 수량보다 토큰당 비용과 랙 효율이 중요한 이유 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab AI Infrastructure Research 기본 Hero."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "GPU 병목의 본질｜칩 수량보다 토큰당 비용과 랙 효율이 중요한 이유 — 핵심 신호 이미지",
+        "caption": "병목과 Capacity 신호를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "GPU 병목의 본질｜칩 수량보다 토큰당 비용과 랙 효율이 중요한 이유 — 리서치 프레임워크 이미지",
+        "caption": "Demand → Bottleneck → Capacity → Economics 구조로 봅니다."
+      }
+    ]
+  },
+  "ai-data-center-capacity-stack-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI 데이터센터 병목｜서버를 사도 바로 돌릴 수 없는 이유 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab AI Infrastructure Research 기본 Hero."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 데이터센터 병목｜서버를 사도 바로 돌릴 수 없는 이유 — 핵심 신호 이미지",
+        "caption": "병목과 Capacity 신호를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 데이터센터 병목｜서버를 사도 바로 돌릴 수 없는 이유 — 리서치 프레임워크 이미지",
+        "caption": "Demand → Bottleneck → Capacity → Economics 구조로 봅니다."
+      }
+    ]
+  },
+  "codex-guide-6-steps-2026": {
+    "hero": {
+      "src": "/images/research/codex-guide-6-steps-hero.svg",
+      "alt": "Codex 초보자를 위한 6단계 활용 흐름과 프로젝트 작업 화면을 표현한 JoyLab AI·생산성 대표 이미지",
+      "caption": "첨부된 실제 Codex 화면 구성을 바탕으로 세팅부터 실행까지의 흐름을 JoyLab 에디토리얼 비주얼로 재구성했습니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/codex-guide-setup-modes.svg",
+        "alt": "Codex 개인 맞춤 설정과 일반·목표·계획 작업 모드를 한 화면에 정리한 인포그래픽",
+        "caption": "Step 1–2. 프로젝트 폴더와 권한을 먼저 잡고, 작업 성격에 따라 즉시 실행·목표·계획 방식을 구분합니다."
+      },
+      {
+        "src": "/images/research/codex-guide-workflow.svg",
+        "alt": "Codex Skills Plugins Computer Use Terminal 네 단계를 연결한 업무 자동화 인포그래픽",
+        "caption": "Step 3–6. 반복 작업을 Skill로 고정하고 Plugin·Computer Use·Terminal을 필요한 지점에 연결합니다."
+      }
+    ]
+  },
+  "codex-non-developer-automation-10": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "비개발자를 위한 Codex 업무 자동화 10가지 사례를 소개하는 JoyLab AI·생산성 대표 이미지",
+      "caption": "자동화의 출발점은 기능이 아니라 반복 가능한 업무 단위를 정의하는 것입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Codex 자동화 후보 업무의 반복 빈도와 규칙성을 점검하는 JoyLab Visual Research 이미지",
+        "caption": "반복성·입력 규칙성·출력 규칙성·오류 위험도를 기준으로 자동화 후보를 고릅니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Codex 업무 자동화를 Input Process Quality Gate Output 구조로 설계하는 JoyLab 프레임워크 이미지",
+        "caption": "입력 → 처리 → 품질 게이트 → 결과물 구조를 고정하면 반복 자동화의 안정성이 높아집니다."
+      }
+    ]
+  },
+  "codex-skill-guide-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Codex Skill을 Input Process Quality Gate Output 구조로 설계하는 JoyLab AI·생산성 대표 이미지",
+      "caption": "Skill은 프롬프트 저장이 아니라 반복 업무의 입력·처리·품질 기준·출력을 고정하는 업무 자산입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "반복 업무에서 Skill 후보를 찾는 기준을 정리한 JoyLab Visual Research 이미지",
+        "caption": "반복 빈도와 입력·출력 규칙성을 기준으로 Skill 후보를 찾습니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Input Process Quality Gate Output 네 단계로 Codex Skill을 설계하는 JoyLab 프레임워크 이미지",
+        "caption": "Input → Process → Quality Gate → Output 네 요소를 고정하면 재사용성이 높아집니다."
+      }
+    ]
+  },
+  "codex-plugin-guide-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Gmail Google Drive GitHub를 Codex Plugin으로 연결하는 JoyLab AI·생산성 대표 이미지",
+      "caption": "Plugin은 앱 연결이 아니라 실제 업무 데이터와 도구를 Skill 기반 워크플로에 연결하는 계층입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Gmail Drive GitHub를 읽기 중심으로 연결하고 권한을 단계적으로 확장하는 JoyLab Visual Research 이미지",
+        "caption": "처음에는 읽기 중심으로 시작하고 필요한 쓰기 권한만 추가합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "문제 정의 데이터 최소권한 Skill 승인 검증 확장 순서로 Plugin을 설계하는 JoyLab 프레임워크 이미지",
+        "caption": "문제 정의 → 필요한 데이터 → 최소 권한 → Skill → 승인 → 검증 → 확장 순서로 설계합니다."
+      }
+    ]
+  },
+  "codex-automation-gold-cases-5": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Codex 자동화 GOLD CASE 5개와 완료 조건 검증표를 소개하는 JoyLab AI·생산성 대표 이미지",
+      "caption": "자동화는 생성 성공이 아니라 같은 기준으로 다시 재현 가능한지 검증해야 합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Contract PASS와 Runtime PASS를 구분하는 Codex 자동화 검증 신호 이미지",
+        "caption": "설계 계약 검증과 실제 실행 검증을 분리해 자동화 성숙도를 판단합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Input Process Quality Gate Output Human Review로 GOLD CASE를 검증하는 JoyLab 프레임워크 이미지",
+        "caption": "Input → Process → Quality Gate → Output → Human Review를 모두 통과해야 GOLD CASE 후보가 됩니다."
+      }
+    ]
+  },
+  "codex-computer-use-guide-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Codex Computer Use로 브라우저와 데스크톱 앱의 GUI 작업을 안전하게 실행하는 JoyLab 대표 이미지",
+      "caption": "Computer Use는 GUI가 꼭 필요한 작업에서 승인·중단·검증 기준과 함께 사용하는 것이 핵심입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Computer Use 적용 여부를 파일 API Plugin Browser GUI 순서로 판단하는 JoyLab Visual Research 이미지",
+        "caption": "구조화된 파일·API·Plugin 방법을 먼저 검토하고 GUI 작업은 필요한 경우에만 사용합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "범위 승인 중단 조건 검증 로그로 Computer Use를 운영하는 JoyLab 프레임워크 이미지",
+        "caption": "Scope → Approval → Stop Conditions → Verification → Log 순서로 안전하게 운영합니다."
+      }
+    ]
+  },
+  "codex-goal-mode-guide-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Codex Goal Mode에서 목표와 성공 기준을 정의해 장기 작업을 완료하는 JoyLab 대표 이미지",
+      "caption": "Goal Mode의 핵심은 긴 작업이 아니라 결과와 성공 기준을 명확히 정의하는 것입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Goal Mode의 Scope Success Criteria Constraints Verification Stop Conditions를 정리한 JoyLab Visual Research 이미지",
+        "caption": "Scope·Success Criteria·Constraints·Verification·Stop Conditions가 Goal Mode의 핵심 계약입니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Outcome Criteria Execute Verify Report 흐름으로 Goal Mode를 설계하는 JoyLab 프레임워크 이미지",
+        "caption": "Outcome → Criteria → Execute → Verify → Report 순서로 완료 기준까지 반복합니다."
+      }
+    ]
+  },
+  "codex-build-your-own-plugin-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Skill MCP plugin.json을 하나의 Codex Plugin으로 패키징하는 JoyLab AI·생산성 대표 이미지",
+      "caption": "나만의 Plugin은 업무 절차·품질 기준·외부 도구 연결을 하나의 재사용 가능한 실행 패키지로 만드는 단계입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Skill부터 시작해 필요할 때 MCP를 연결하는 Codex Plugin 설계 신호 이미지",
+        "caption": "먼저 Skill을 안정화하고 외부 시스템 연결이 필요할 때만 MCP를 추가합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Skill MCP plugin json Local Test Workspace Share 순서로 Plugin을 만드는 JoyLab 프레임워크 이미지",
+        "caption": "Skill → MCP → plugin.json → Local Test → Workspace Share 순서로 패키징합니다."
       }
     ]
   },
@@ -1734,41 +1164,22 @@
       }
     ]
   },
-  "us-china-chip-export-control-timeline": {
+  "strong-retail-sales-nasdaq-rally-2026": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "미·중 반도체 규제 타임라인 — JoyLab Research 대표 이미지",
-      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+      "alt": "강한 미국 소비에도 나스닥이 오를 수 있는 이유를 금리와 EPS의 경쟁으로 설명하는 JoyLab 리서치 대표 이미지",
+      "caption": "나스닥의 방향은 경제지표 자체보다 금리 상승폭과 이익 기대의 상대강도로 결정됩니다."
     },
     "supporting": [
       {
         "src": "/images/research/joylab-research-signal.svg",
-        "alt": "미·중 반도체 규제 타임라인 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+        "alt": "금리 부담과 이익 성장 기대가 나스닥 방향을 결정하는 핵심 신호 이미지",
+        "caption": "금리와 EPS 중 어느 쪽의 변화가 더 강한지 확인합니다."
       },
       {
         "src": "/images/research/joylab-research-framework.svg",
-        "alt": "미·중 반도체 규제 타임라인 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
-      }
-    ]
-  },
-  "us-china-semiconductor-war": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "미·중 반도체 전쟁 총정리 — JoyLab Research 대표 이미지",
-      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "미·중 반도체 전쟁 총정리 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "미·중 반도체 전쟁 총정리 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+        "alt": "경제지표에서 국채금리와 EPS 리비전을 거쳐 나스닥으로 이어지는 JoyLab 분석 프레임워크 이미지",
+        "caption": "Macro Surprise → Yield → EPS Revision → Valuation → Price의 순서로 해석합니다."
       }
     ]
   },
@@ -1810,6 +1221,25 @@
       }
     ]
   },
+  "us-ppi-fed-margin-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "2026년 8월 미국 PPI 5.4%와 기업 원가, Fed 금리, 나스닥 연결 구조를 표현한 JoyLab 리서치 대표 이미지",
+      "caption": "PPI는 소비자물가보다 앞단에서 기업의 원가와 마진 압력을 보여주는 지표입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "2026년 8월 미국 PPI 5.4%와 기업 원가, Fed 금리, 나스닥 연결 구조를 표현한 JoyLab 리서치 대표 이미지 핵심 신호 이미지",
+        "caption": "핵심 수치와 시장 반응을 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "2026년 8월 미국 PPI 5.4%와 기업 원가, Fed 금리, 나스닥 연결 구조를 표현한 JoyLab 리서치 대표 이미지 전송경로 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Fed → Yield → EPS → Price 순서로 구조화합니다."
+      }
+    ]
+  },
   "us-jobs-report-fed-nasdaq-guide": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
@@ -1848,60 +1278,421 @@
       }
     ]
   },
-  "us-ppi-fed-margin-guide": {
+  "why-we-cannot-stand-silence": {
+    "hero": {
+      "src": "/images/research/reader-pack/silence-attention.svg",
+      "alt": "딥 네이비 여백과 쉼표로 공백 공포와 주의력을 표현한 JoyLab Research 이미지",
+      "caption": "공백을 즉시 자극으로 채우는 습관을 멈추고, 비어 있는 시간을 다시 견디는 감각을 탐구합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/reader-pack/silence-loop.svg",
+        "alt": "공백에서 스마트폰 확인과 잠깐의 해소로 이어지는 행동 루프 인포그래픽",
+        "caption": "공백 → 불편함 → 스마트폰 확인 → 잠깐의 해소로 이어지는 자동 행동 루프."
+      },
+      {
+        "src": "/images/research/reader-pack/silence-10min.svg",
+        "alt": "하루 10분 무입력 구간 실천법을 보여주는 인포그래픽",
+        "caption": "화면과 음악, 할 일 정리를 멈추고 10분의 무입력 구간을 연습합니다."
+      }
+    ]
+  },
+  "bach-counterpoint-order-in-chaos": {
+    "hero": {
+      "src": "/images/research/reader-pack/bach-counterpoint.svg",
+      "alt": "서로 교차하는 금빛 선율로 바흐의 대위법과 균형을 표현한 JoyLab Research 이미지",
+      "caption": "복잡함이 혼란이 되지 않으려면 각 선율의 독립성과 관계가 함께 필요합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/reader-pack/bach-four-voices.svg",
+        "alt": "여러 선율이 교차하면서 하나의 질서를 만드는 대위법 구조 인포그래픽",
+        "caption": "서로 다른 선율이 관계를 맺을 때 복잡함은 질서가 됩니다."
+      },
+      {
+        "src": "/images/research/reader-pack/bach-life-voices.svg",
+        "alt": "일 관계 회복 성장 네 개의 삶의 선율을 보여주는 인포그래픽",
+        "caption": "Work, Relationship, Recovery, Growth를 네 개의 선율로 나눠 균형을 점검합니다."
+      }
+    ]
+  },
+  "burnout-recovery-starts-with-pause": {
+    "hero": {
+      "src": "/images/research/reader-pack/burnout-pause.svg",
+      "alt": "끊어진 수평선과 쉼표로 번아웃 이후 감속과 회복을 표현한 JoyLab Research 이미지",
+      "caption": "다시 달리기 전에 멈출 수 있는 구조부터 만드는 것이 회복의 시작입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/reader-pack/burnout-recovery-gate.svg",
+        "alt": "Reduce Recover Re-enter 세 단계 회복 게이트 인포그래픽",
+        "caption": "Reduce → Recover → Re-enter 순서로 회복기를 나눕니다."
+      },
+      {
+        "src": "/images/research/reader-pack/burnout-stop-list.svg",
+        "alt": "번아웃 회복기에 하지 않을 것 세 가지를 정리한 Stop List 인포그래픽",
+        "caption": "새 루틴을 더하기 전에 먼저 하지 않을 일을 줄입니다."
+      }
+    ]
+  },
+  "us-china-semiconductor-war": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "2026년 8월 미국 PPI 5.4%와 기업 원가, Fed 금리, 나스닥 연결 구조를 표현한 JoyLab 리서치 대표 이미지",
-      "caption": "PPI는 소비자물가보다 앞단에서 기업의 원가와 마진 압력을 보여주는 지표입니다."
+      "alt": "미·중 반도체 전쟁 총정리 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
     },
     "supporting": [
       {
         "src": "/images/research/joylab-research-signal.svg",
-        "alt": "2026년 8월 미국 PPI 5.4%와 기업 원가, Fed 금리, 나스닥 연결 구조를 표현한 JoyLab 리서치 대표 이미지 핵심 신호 이미지",
-        "caption": "핵심 수치와 시장 반응을 한 화면에서 확인합니다."
-      },
-      {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "2026년 8월 미국 PPI 5.4%와 기업 원가, Fed 금리, 나스닥 연결 구조를 표현한 JoyLab 리서치 대표 이미지 전송경로 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Fed → Yield → EPS → Price 순서로 구조화합니다."
-      }
-    ]
-  },
-  "us-rates-korea-semiconductor-transmission-2026": {
-    "hero": {
-      "src": "/images/research/us-rates-korea-transmission-hero.svg",
-      "alt": "미국 금리 상승이 원달러와 외국인 수급을 거쳐 삼성전자와 SK하이닉스에 전달되는 JoyLab 금융 에디토리얼 대표 이미지",
-      "caption": "미국 금리는 실적을 바꾸기 전에 외국인이 그 실적에 지불할 가격을 바꿉니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/us-rates-korea-transmission-infographic.svg",
-        "alt": "미국 10년물에서 EPS Revision까지 이어지는 7단계 한국 반도체 전염경로 인포그래픽",
-        "caption": "US 10Y → US 30Y → Auction → USD/KRW → KOSPI 외국인 → 반도체 수급 → EPS Revision."
-      },
-      {
-        "src": "/images/research/us-rates-korea-flow-chart.svg",
-        "alt": "2026년 9월 10일과 11일 삼성전자와 SK하이닉스 외국인 순매도 비교 차트",
-        "caption": "이틀간 삼성전자·SK하이닉스 외국인 순매도 합계는 약 5.18조원입니다."
-      }
-    ]
-  },
-  "what-is-ai-agent": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "AI 에이전트란 무엇인가｜챗봇과 다른 진짜 이유 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
-      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "AI 에이전트란 무엇인가｜챗봇과 다른 진짜 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "alt": "미·중 반도체 전쟁 총정리 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
         "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
       },
       {
         "src": "/images/research/joylab-research-framework.svg",
-        "alt": "AI 에이전트란 무엇인가｜챗봇과 다른 진짜 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "alt": "미·중 반도체 전쟁 총정리 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "us-china-chip-export-control-timeline": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "미·중 반도체 규제 타임라인 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미·중 반도체 규제 타임라인 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "미·중 반도체 규제 타임라인 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "samsung-xian-vs-sk-hynix-wuxi": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "삼성전자 시안 vs SK하이닉스 우시 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "삼성전자 시안 vs SK하이닉스 우시 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "삼성전자 시안 vs SK하이닉스 우시 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "cxmt-dram-vs-samsung-sk-hynix": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "CXMT는 삼성·SK DRAM을 얼마나 따라왔나 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "CXMT는 삼성·SK DRAM을 얼마나 따라왔나 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "CXMT는 삼성·SK DRAM을 얼마나 따라왔나 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ymtc-nand-vs-samsung-sk-hynix": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "YMTC는 삼성·SK NAND를 얼마나 따라왔나 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "YMTC는 삼성·SK NAND를 얼마나 따라왔나 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "YMTC는 삼성·SK NAND를 얼마나 따라왔나 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "china-memory-self-sufficiency": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "중국 메모리 자립을 봐야 하는 이유 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "중국 메모리 자립을 봐야 하는 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "중국 메모리 자립을 봐야 하는 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "china-semiconductor-equipment-localization": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "중국 반도체 장비 국산화 어디까지 왔나 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "중국 반도체 장비 국산화 어디까지 왔나 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "중국 반도체 장비 국산화 어디까지 왔나 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "hbm-us-china-ai-chip-war": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "HBM이 미·중 반도체 전쟁의 핵심인 이유 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "HBM이 미·중 반도체 전쟁의 핵심인 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "HBM이 미·중 반도체 전쟁의 핵심인 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "cxmt-ymtc-memory-oversupply": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "CXMT·YMTC 증설이 메모리 공급과잉을 만들까 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "CXMT·YMTC 증설이 메모리 공급과잉을 만들까 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "CXMT·YMTC 증설이 메모리 공급과잉을 만들까 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "china-semiconductor-risk-indicators": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "중국 반도체 자립｜투자자가 볼 숫자 10개 — JoyLab Research 대표 이미지",
+      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "중국 반도체 자립｜투자자가 볼 숫자 10개 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "중국 반도체 자립｜투자자가 볼 숫자 10개 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ai-agent-hbm-demand": {
+    "hero": {
+      "src": "/images/research/ai-agent-hbm-demand-vector.svg",
+      "alt": "AI 에이전트 반복 추론과 KV Cache가 GPU HBM 수요로 이어지는 구조",
+      "caption": "AI Agent → 반복 추론 → KV Cache → HBM으로 이어지는 메모리 병목을 시각화합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 에이전트와 KV Cache가 HBM 수요를 확대하는 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "Agentic inference의 핵심 신호와 메모리 병목을 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI Agent에서 HBM까지 이어지는 수요 전송 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Agent → Token → Context → KV Cache → HBM 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "hbm3e-hbm4-zhbm": {
+    "hero": {
+      "src": "/images/research/hbm3e-hbm4-zhbm-vector.svg",
+      "alt": "HBM3E에서 HBM4와 zHBM 3D 메모리 구조로 진화하는 AI 메모리 로드맵",
+      "caption": "HBM3E → HBM4 → zHBM으로 이어지는 메모리 기술의 구조적 진화를 시각화합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "HBM3E HBM4 HBM4E zHBM의 기술 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "대역폭·I/O·적층·로직 베이스다이·3D 통합의 변화를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "HBM 세대에서 zHBM 3D 아키텍처로 이어지는 기술 프레임워크를 설명한 이미지",
+        "caption": "현재 매출 → 다음 세대 → 미래 옵션 순서로 기술과 실적의 시간을 분리합니다."
+      }
+    ]
+  },
+  "ai-inference-hbm-earnings": {
+    "hero": {
+      "src": "/images/research/ai-inference-hbm-earnings-vector.svg",
+      "alt": "AI 추론 수요가 HBM과 서버 메모리를 거쳐 ASP·마진·실적 성장으로 연결되는 구조",
+      "caption": "AI 추론 → HBM·DRAM → ASP·제품 믹스 → 마진·실적으로 이어지는 전송 구조를 시각화합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 추론과 HBM 수요가 기업 실적으로 전환되는 핵심 지표를 정리한 JoyLab Visual Research 이미지",
+        "caption": "추론 수요·HBM 출하·ASP·수율·제품 믹스의 변화를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 추론에서 삼성전자 SK하이닉스 EPS까지 이어지는 실적 전송 프레임워크 이미지",
+        "caption": "Inference → Shipment → ASP → Yield → Margin → EPS 순서로 실적 연결고리를 점검합니다."
+      }
+    ]
+  },
+  "submarine-cable-history": {
+    "hero": {
+      "src": "/images/research/global-connectivity/submarine-cable-history-hero.svg",
+      "alt": "TAT-1 전화 케이블에서 현대 해저 광섬유까지 대서양 통신 인프라의 진화를 보여주는 JoyLab 대표 이미지",
+      "caption": "36개 음성 회선에서 글로벌 인터넷 백본까지, 해저 통신의 물리 인프라가 어떻게 진화했는지 봅니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "TAT-1에서 광케이블까지 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "TAT-1에서 광케이블까지 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "how-submarine-cables-work": {
+    "hero": {
+      "src": "/images/research/global-connectivity/how-submarine-cables-work-hero.svg",
+      "alt": "광섬유와 중계기, 육양국을 통해 국제 인터넷 데이터가 이동하는 해저 광케이블 구조를 보여주는 JoyLab 대표 이미지",
+      "caption": "인터넷 데이터는 광섬유·중계기·육양국을 거쳐 대륙 사이를 이동합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "해저 광케이블 작동 원리 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "해저 광케이블 작동 원리 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "submarine-cable-failure-repair": {
+    "hero": {
+      "src": "/images/research/global-connectivity/submarine-cable-failure-repair-hero.svg",
+      "alt": "해저 케이블 단선 후 트래픽 우회와 수리선 복구 과정을 보여주는 JoyLab 대표 이미지",
+      "caption": "인터넷 복원력의 핵심은 끊어지지 않는 선보다 끊어져도 우회하고 복구하는 구조입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "해저 케이블 장애와 복구 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "해저 케이블 장애와 복구 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "submarine-cables-ai-infrastructure": {
+    "hero": {
+      "src": "/images/research/global-connectivity/submarine-cables-ai-infrastructure-hero.svg",
+      "alt": "AI 데이터센터와 클라우드 리전, 해저 광케이블이 글로벌 사용자를 연결하는 구조를 보여주는 JoyLab 대표 이미지",
+      "caption": "AI 인프라는 GPU에서 끝나지 않고 데이터센터 밖의 Global Network까지 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 시대 글로벌 네트워크 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 시대 글로벌 네트워크 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "satellite-vs-submarine-cable": {
+    "hero": {
+      "src": "/images/research/global-connectivity/satellite-vs-submarine-cable-hero.svg",
+      "alt": "저궤도 위성 인터넷과 해저 광케이블의 Capacity Reach Resilience 역할 차이를 비교하는 JoyLab 대표 이미지",
+      "caption": "해저 케이블은 Capacity, 위성은 Reach와 Mobility를 중심으로 서로 보완합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "위성 인터넷과 해저 광케이블 비교 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "위성 인터넷과 해저 광케이블 비교 구조를 Fact Interpretation Scenario Action 프레임으로 정리한 JoyLab Visual Research 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "ai-network-800g-1-6t": {
+    "hero": {
+      "src": "/images/research/ai-data-center-network/ai-network-800g-1-6t-hero.svg",
+      "alt": "800G에서 1.6T로 전환되는 AI 데이터센터 광네트워크와 200G PAM4 링크 구조를 보여주는 JoyLab 대표 이미지",
+      "caption": "AI 데이터센터 네트워크가 800G에서 1.6T로 이동하는 이유를 bandwidth density와 power per bit 관점에서 봅니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "800G와 1.6T AI 데이터센터 네트워크 전환의 핵심 기술 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "200G/lane, 포트 밀도, 전력/bit, CPO 전환 신호를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 데이터센터 네트워크를 Bandwidth Lane Speed Power per Bit Reach Thermal 순서로 정리한 JoyLab 프레임워크 이미지",
+        "caption": "Bandwidth → Lane Speed → Power/bit → Reach → Thermal → Serviceability 순서로 봅니다."
       }
     ]
   },
@@ -1924,79 +1715,288 @@
       }
     ]
   },
-  "what-is-hbm": {
+  "silicon-photonics-ai-network": {
     "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "HBM이란 무엇인가｜AI 시대 메모리 반도체가 중요한 이유 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
-      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+      "src": "/images/research/ai-data-center-network/silicon-photonics-ai-network-hero.svg",
+      "alt": "실리콘 칩 위의 광도파로와 광학 엔진이 스위치 ASIC과 광섬유를 연결하는 Silicon Photonics 구조를 보여주는 JoyLab 대표 이미지",
+      "caption": "Silicon Photonics는 광학 기능을 실리콘 칩 수준에 집적해 AI 네트워크의 대역폭 밀도와 전력 효율을 높이는 기술입니다."
     },
     "supporting": [
       {
         "src": "/images/research/joylab-research-signal.svg",
-        "alt": "HBM이란 무엇인가｜AI 시대 메모리 반도체가 중요한 이유 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+        "alt": "Silicon Photonics와 400G lane AI 네트워크 전환의 핵심 기술 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "광도파로, 광변조기, 200G·400G lane, CPO 전환 신호를 확인합니다."
       },
       {
         "src": "/images/research/joylab-research-framework.svg",
-        "alt": "HBM이란 무엇인가｜AI 시대 메모리 반도체가 중요한 이유 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+        "alt": "Silicon Photonics를 Bandwidth Density Power per Bit Yield Thermal Serviceability 순서로 정리한 JoyLab 프레임워크 이미지",
+        "caption": "Bandwidth Density → Power/bit → Yield → Thermal → Serviceability 순서로 판단합니다."
       }
     ]
   },
-  "who-buys-us-treasuries-2026": {
+  "optical-dsp-lpo-lro-1-6t": {
     "hero": {
-      "src": "/images/research/us-treasury-buyers-editorial-hero.svg",
-      "alt": "일본 영국 중국과 글로벌 금융허브를 연결해 미국 국채 매수자 지형도를 표현한 JoyLab 대표 이미지",
-      "caption": "미국 국채는 국가별 보유액뿐 아니라 수탁·민간·레버리지 자금까지 함께 봐야 합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/us-treasury-major-holders-jun-2026.svg",
-        "alt": "2026년 6월 미국 국채 주요 해외 보유국 비교 차트",
-        "caption": "일본 1.1167조 달러, 영국 9399억 달러, 중국 6334억 달러."
-      },
-      {
-        "src": "/images/research/us-treasury-official-private-chart.svg",
-        "alt": "2026년 6월 외국 공식기관과 민간 투자자의 장기 미국 증권 순매수를 비교한 차트",
-        "caption": "잔액 변화와 거래 흐름을 분리해서 봐야 Buyer Map이 정확해집니다."
-      }
-    ]
-  },
-  "why-we-cannot-stand-silence": {
-    "hero": {
-      "src": "/images/research/reader-pack/silence-attention.svg",
-      "alt": "딥 네이비 여백과 쉼표로 공백 공포와 주의력을 표현한 JoyLab Research 이미지",
-      "caption": "공백을 즉시 자극으로 채우는 습관을 멈추고, 비어 있는 시간을 다시 견디는 감각을 탐구합니다."
-    },
-    "supporting": [
-      {
-        "src": "/images/research/reader-pack/silence-loop.svg",
-        "alt": "공백에서 스마트폰 확인과 잠깐의 해소로 이어지는 행동 루프 인포그래픽",
-        "caption": "공백 → 불편함 → 스마트폰 확인 → 잠깐의 해소로 이어지는 자동 행동 루프."
-      },
-      {
-        "src": "/images/research/reader-pack/silence-10min.svg",
-        "alt": "하루 10분 무입력 구간 실천법을 보여주는 인포그래픽",
-        "caption": "화면과 음악, 할 일 정리를 멈추고 10분의 무입력 구간을 연습합니다."
-      }
-    ]
-  },
-  "ymtc-nand-vs-samsung-sk-hynix": {
-    "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "YMTC는 삼성·SK NAND를 얼마나 따라왔나 — JoyLab Research 대표 이미지",
-      "caption": "JoyLab Research Standard. 핵심 논지와 데이터는 Visual Research에서 이어집니다."
+      "src": "/images/research/ai-data-center-network/optical-dsp-lpo-lro-1-6t-hero.svg",
+      "alt": "1.6T AI 데이터센터 광모듈에서 DSP 기반 플러거블과 LPO, LRO/TRO의 신호처리 구조를 비교한 JoyLab 대표 이미지",
+      "caption": "1.6T 광모듈 경쟁은 속도보다 DSP 위치와 전력, 신호무결성, 도달거리의 균형이 핵심입니다."
     },
     "supporting": [
       {
         "src": "/images/research/joylab-research-signal.svg",
-        "alt": "YMTC는 삼성·SK NAND를 얼마나 따라왔나 — 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
-        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+        "alt": "Optical DSP LPO LRO TRO의 전력과 신호처리 차이를 정리한 JoyLab Visual Research 이미지",
+        "caption": "DSP·LPO·LRO/TRO의 전력, 지연, 신호보정, reach 차이를 확인합니다."
       },
       {
         "src": "/images/research/joylab-research-framework.svg",
-        "alt": "YMTC는 삼성·SK NAND를 얼마나 따라왔나 — Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
-        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+        "alt": "1.6T 광모듈을 Power Signal Integrity Latency Reach Serviceability 순서로 비교한 JoyLab 프레임워크 이미지",
+        "caption": "Power → Signal Integrity → Latency → Reach → Serviceability 순서로 비교합니다."
+      }
+    ]
+  },
+  "ai-data-center-interconnect-dci": {
+    "hero": {
+      "src": "/images/research/ai-data-center-network/ai-data-center-interconnect-dci-hero.svg",
+      "alt": "AI 데이터센터의 Rack에서 Campus, Metro DCI, Region, Global Backbone까지 광네트워크가 이어지는 구조를 보여주는 JoyLab 대표 이미지",
+      "caption": "DCI는 Rack과 Campus를 넘어 여러 데이터센터와 리전을 하나의 AI 인프라로 연결하는 네트워크 계층입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI 데이터센터 DCI에서 PAM4 coherent-lite coherent DSP가 거리별로 쓰이는 구조를 정리한 JoyLab Visual Research 이미지",
+        "caption": "Rack → Campus → Metro → Region으로 갈수록 필요한 광기술과 reach 조건이 달라집니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 데이터센터 DCI를 Reach Latency Signal Integrity Resilience 순서로 분석한 JoyLab 프레임워크 이미지",
+        "caption": "Reach → Latency → Signal Integrity → Resilience 순서로 DCI를 판단합니다."
+      }
+    ]
+  },
+  "financials-value-up-investing-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "금융·주주환원 투자 가이드｜ROE·CET1·배당·자사주·PBR을 연결하는 법 — JoyLab Research Standard 대표 이미지",
+      "caption": "금융주의 수익성·자본여력·주주환원·밸류에이션을 하나의 흐름으로 읽습니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "금융·주주환원 투자 가이드 — ROE CET1 배당 자사주 PBR 핵심 신호 이미지",
+        "caption": "ROE → CET1 → 주주환원 → PBR의 핵심 신호를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "금융·주주환원 투자 가이드 — Fact Interpretation Scenario Action 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 금융주의 재평가 조건을 점검합니다."
+      }
+    ]
+  },
+  "kb-financial-shareholder-return": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "KB금융 주주환원 보는 법｜ROE·CET1·배당·자사주를 연결하는 방법 — JoyLab Research 대표 이미지",
+      "caption": "KB금융의 이익·자본·주주환원 구조를 ROE와 CET1 중심으로 읽습니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "KB금융 주주환원 분석 — ROE CET1 RWA NIM Credit Cost 핵심 신호 이미지",
+        "caption": "ROE·CET1·RWA·NIM·Credit Cost를 같은 흐름에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "KB금융 주주환원 분석 — 이익 자본 배당 자사주 PBR 리서치 프레임워크 이미지",
+        "caption": "Earnings → Capital → Shareholder Return → Valuation 순서로 재점검합니다."
+      }
+    ]
+  },
+  "bank-roe-cet1-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "은행 ROE와 CET1 보는 법｜이익 성장과 자본 여력은 왜 다르게 움직이나 — JoyLab Research 대표 이미지",
+      "caption": "은행주의 수익성과 자본여력을 ROE·RWA·CET1 흐름으로 연결합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "은행 ROE와 CET1 분석 — ROE RWA CET1 NIM Credit Cost 핵심 신호 이미지",
+        "caption": "ROE·RWA·CET1·NIM·Credit Cost를 함께 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "은행 ROE와 CET1 분석 — 이익 위험 자본 주주환원 리서치 프레임워크 이미지",
+        "caption": "Earnings → Risk → Capital → Shareholder Return 순서로 읽습니다."
+      }
+    ]
+  },
+  "total-shareholder-return-buyback-cancellation-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "총주주환원율 TSR 보는 법｜배당·자사주 매입·소각 차이 — JoyLab Research 대표 이미지",
+      "caption": "배당·자사주 매입·소각을 ROE·CET1·PBR 흐름으로 연결합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "총주주환원율 분석 — 배당 자사주 매입 소각 TSR 핵심 신호 이미지",
+        "caption": "배당·매입·소각을 분리해 총주주환원을 읽습니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "총주주환원율 분석 — ROE CET1 TSR PBR 리서치 프레임워크 이미지",
+        "caption": "ROE → CET1 → TSR → PBR 순서로 자본배분을 점검합니다."
+      }
+    ]
+  },
+  "korea-financial-holdings-compare": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "4대 금융지주 비교｜KB·신한·하나·우리 ROE·CET1·주주환원율·PBR — JoyLab Research 대표 이미지",
+      "caption": "4대 금융지주를 수익성·자본·주주환원·밸류에이션의 같은 기준으로 비교합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "4대 금융지주 비교 — ROE CET1 주주환원 PBR 핵심 신호 이미지",
+        "caption": "ROE → CET1 → 주주환원율 → PBR 흐름을 같은 기준으로 추적합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "4대 금융지주 비교 — 수익성 자본 환원 재평가 리서치 프레임워크 이미지",
+        "caption": "Profitability → Capital → Shareholder Return → Valuation 순서로 비교합니다."
+      }
+    ]
+  },
+  "treasury-5-percent-utilities-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "미국 국채금리와 S&P500 유틸리티 약세를 연결한 AI Power 리서치 — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미국 국채금리와 S&P500 유틸리티 약세를 연결한 AI Power 리서치의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "미국 국채금리와 S&P500 유틸리티 약세를 연결한 AI Power 리서치를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "treasury-5-percent-sp500-nasdaq-dividend": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "미국 국채금리와 S&P500·나스닥·고배당주 차이를 비교한 리서치 — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미국 국채금리와 S&P500·나스닥·고배당주 차이를 비교한 리서치의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "미국 국채금리와 S&P500·나스닥·고배당주 차이를 비교한 리서치를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "ai-power-beneficiaries-value-chain": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "유틸리티·발전·변압기·전력기기·데이터센터를 연결한 AI 전력 밸류체인 — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "유틸리티·발전·변압기·전력기기·데이터센터를 연결한 AI 전력 밸류체인의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "유틸리티·발전·변압기·전력기기·데이터센터를 연결한 AI 전력 밸류체인를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "ai-transformer-bottleneck-backlog-leadtime-margin": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "변압기 병목을 수주잔고·리드타임·마진으로 해석하는 AI 전력 리서치 — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "변압기 병목을 수주잔고·리드타임·마진으로 해석하는 AI 전력 리서치의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "변압기 병목을 수주잔고·리드타임·마진으로 해석하는 AI 전력 리서치를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "ai-power-ls-hd-eaton-ge-compare": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova AI 전력 비교 — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova AI 전력 비교의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova AI 전력 비교를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "ai-power-valuation-eps-per-ev-ebitda": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "EPS Revision·PER·EV/EBITDA로 보는 AI 전력 밸류에이션 — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "EPS Revision·PER·EV/EBITDA로 보는 AI 전력 밸류에이션의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "EPS Revision·PER·EV/EBITDA로 보는 AI 전력 밸류에이션를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "ls-hd-electric-2027-eps-per-scenario": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "LS ELECTRIC과 HD현대일렉트릭의 2027 EPS와 PER 20·25·30·40배를 비교한 JoyLab 대표 이미지",
+      "caption": "2027 EPS Proxy와 멀티플 민감도를 분리해 밸류에이션을 읽습니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "LS ELECTRIC과 HD현대일렉트릭 2027 EPS 민감도를 정리한 JoyLab Visual Research 이미지",
+        "caption": "EPS Revision이 시나리오 주가에 미치는 영향을 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-compare.svg",
+        "alt": "LS ELECTRIC과 HD현대일렉트릭의 PER 20·25·30·40배 시나리오를 비교한 JoyLab 이미지",
+        "caption": "같은 PER에서도 필요한 EPS와 가격 범위가 다릅니다."
       }
     ]
   }
