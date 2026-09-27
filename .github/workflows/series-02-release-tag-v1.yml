@@ -2,7 +2,7 @@ name: Series 02 Release Tag V1
 
 on:
   push:
-    branches: [main, 'feat/series-02-published-release-v1b']
+    branches: [main]
     paths:
       - '.github/workflows/series-02-release-tag-v1.yml'
   workflow_dispatch:
