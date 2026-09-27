@@ -1,0 +1,61 @@
+{
+  "contract": "JoyLab.ResearchGraphResponsive",
+  "version": "1.0.0",
+  "desktopMinWidth": 761,
+  "pageOverflowTolerancePx": 1,
+  "desktopInternalOverflowTolerancePx": 1,
+  "mobileInternalScroll": "allowed",
+  "viewports": [
+    {
+      "name": "mobile-390",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "tablet-1024",
+      "width": 1024,
+      "height": 1366
+    },
+    {
+      "name": "desktop-1280",
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "name": "desktop-1440",
+      "width": 1440,
+      "height": 900
+    }
+  ],
+  "pages": [
+    {
+      "name": "growth-leadership",
+      "path": "/guides/growth-leadership"
+    },
+    {
+      "name": "ai-power",
+      "path": "/guides/ai-power-infrastructure"
+    },
+    {
+      "name": "semiconductor",
+      "path": "/guides/semiconductor-investing"
+    },
+    {
+      "name": "financials",
+      "path": "/guides/financials-value-up"
+    },
+    {
+      "name": "shipbuilding",
+      "path": "/guides/shipbuilding"
+    }
+  ],
+  "invariants": {
+    "pageHorizontalOverflow": "FAIL",
+    "desktopGraphCanvasScrollbar": "FAIL",
+    "desktopPrimaryFlowScrollbar": "FAIL",
+    "desktopFirstAndLastLaneVisibility": "REQUIRED",
+    "mobilePageHorizontalOverflow": "FAIL",
+    "mobileGraphInternalScroll": "ALLOWED",
+    "mobileLastFlowNodeSelectable": "REQUIRED"
+  }
+}
