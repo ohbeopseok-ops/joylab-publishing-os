@@ -1,7 +1,7 @@
 {
   "contract": "JoyLab.ResearchGraphResponsive",
-  "version": "1.0.0",
-  "desktopMinWidth": 761,
+  "version": "1.1.0",
+  "desktopMinWidth": 641,
   "pageOverflowTolerancePx": 1,
   "desktopInternalOverflowTolerancePx": 1,
   "mobileInternalScroll": "allowed",
@@ -10,6 +10,11 @@
       "name": "mobile-390",
       "width": 390,
       "height": 844
+    },
+    {
+      "name": "tablet-768",
+      "width": 768,
+      "height": 1024
     },
     {
       "name": "tablet-1024",
@@ -56,6 +61,7 @@
     "desktopFirstAndLastLaneVisibility": "REQUIRED",
     "mobilePageHorizontalOverflow": "FAIL",
     "mobileGraphInternalScroll": "ALLOWED",
-    "mobileLastFlowNodeSelectable": "REQUIRED"
+    "mobileLastFlowNodeSelectable": "REQUIRED",
+    "tablet641PlusGraphInternalScrollbar": "FAIL"
   }
 }
