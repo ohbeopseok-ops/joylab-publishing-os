@@ -175,6 +175,11 @@ Token은 이미 API 사용량을 비용으로 바꾸고 있습니다. 중국은 
 
 이 흐름을 Agent·Workflow·Governance까지 확장해서 보려면 [AI·생산성 Research Map](/guides/ai-productivity)에서 전체 구조를 이어서 볼 수 있습니다.
 
+## Related Research
+
+- [중국은 왜 Token을 ‘词元’이라 부르나｜AI 시대 영어와 담론 권력](/articles/china-ai-token-ciyuan-discourse-power)
+- [AI 에이전트 거버넌스｜권한·승인·로그·복구를 어떻게 설계할까](/articles/ai-agent-governance)
+
 ## Sources
 
 - [OpenAI — API Pricing](https://developers.openai.com/api/docs/pricing)
