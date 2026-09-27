@@ -12,6 +12,7 @@ on:
       - 'src/pages/guides/financials-value-up.astro'
       - 'src/pages/guides/shipbuilding.astro'
       - 'config/research-graph-*.json'
+      - 'config/research-graph-responsive-contract-v1.json'
       - 'scripts/check-research-graph-responsive-v1.mjs'
       - '.github/workflows/research-graph-responsive-gold.yml'
       - 'package.json'
