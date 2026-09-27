@@ -68,8 +68,11 @@ async function fetchPeriod(periodStart, periodEnd){
   for(const metric of ['PAGE_VIEWS','IMPRESSIONS','ESTIMATED_EARNINGS','PAGE_VIEWS_RPM','ACTIVE_VIEW_VIEWABILITY','AD_REQUESTS_COVERAGE','PAGE_VIEWS_CTR']){
     params.append('metrics',metric);
   }
-  params.append('filters',`OWNED_SITE_DOMAIN_NAME==${DOMAIN}`);
-  params.append('filters',`PAGE_URL=@${DOMAIN}/articles/`);
+  // Use one compatible PAGE_URL filter with an exact scheme + host boundary.
+  // This avoids the rejected OWNED_SITE_DOMAIN_NAME + PAGE_URL combination
+  // while preventing similarly named hosts (for example preview-aijoylab.kr)
+  // from contaminating the production aijoylab.kr article metrics.
+  params.append('filters',`PAGE_URL=@https://${DOMAIN}/articles/`);
   params.set('currencyCode','KRW');
   params.set('startDate.year',String(periodStart.year));
   params.set('startDate.month',String(periodStart.month));
