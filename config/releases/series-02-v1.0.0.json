@@ -1,0 +1,17 @@
+{
+  "contract": "JoyLab Release Engine Contract V2",
+  "projectId": "series-02",
+  "releaseId": "series-02-v1.0.0",
+  "version": "1.0.0",
+  "state": "published",
+  "canonicalSource": "src/data/studio/series-02-source.json",
+  "requiredReadyChapters": 15,
+  "tag": "series-02-v1.0.0",
+  "releasePath": "/studio/releases/series-02/v1-0-0/",
+  "manifestPath": "public/studio/releases/series-02/v1-0-0/immutable-release-manifest.json",
+  "artifacts": {
+    "epub": "/studio/exports/series-02-memory-debt.epub",
+    "printPdf": "/studio/exports/series-02-memory-debt-print.pdf",
+    "provenance": "/studio/exports/export-provenance-v1.json"
+  }
+}
