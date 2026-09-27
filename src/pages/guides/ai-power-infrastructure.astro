@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AiPowerResearchMap from '../../components/AiPowerResearchMap.astro';
+import graph from '../../../config/research-graph-ai-power-v1.json';
+import '../../styles/semiconductor-guide-v2.css';
+import '../../styles/ai-power-research-map-v1.css';
+
+const stageLabel = {
+  macro: 'MACRO',
+  value_chain: 'VALUE CHAIN',
+  bottleneck: 'BOTTLENECK',
+  company: 'COMPANY',
+  valuation: 'VALUATION'
+};
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage',
+      '@id': 'https://aijoylab.kr/guides/ai-power-infrastructure#webpage',
+      url: 'https://aijoylab.kr/guides/ai-power-infrastructure',
+      name: 'AI Power Infrastructure｜AI 데이터센터 전력·변압기 투자 지도',
+      description: '금리에서 발전·전력망·변압기·전력기기·기업 KPI·밸류에이션까지 연결하는 JoyLab AI Power Research Graph.',
+      inLanguage: 'ko-KR',
+      mainEntity: { '@id': 'https://aijoylab.kr/guides/ai-power-infrastructure#itemlist' }
+    },
+    {
+      '@type': 'ItemList',
+      '@id': 'https://aijoylab.kr/guides/ai-power-infrastructure#itemlist',
+      itemListElement: graph.articles.map((article, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `https://aijoylab.kr${article.url}`,
+        name: article.title
+      }))
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': 'https://aijoylab.kr/guides/ai-power-infrastructure#breadcrumb',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: '홈', item: 'https://aijoylab.kr/' },
+        { '@type': 'ListItem', position: 2, name: '투자·경제', item: 'https://aijoylab.kr/guides/investing' },
+        { '@type': 'ListItem', position: 3, name: 'AI Power Infrastructure', item: 'https://aijoylab.kr/guides/ai-power-infrastructure' }
+      ]
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="AI Power Infrastructure｜AI 데이터센터 전력·변압기 투자 지도 | JoyLab"
+  description="미국 장기금리에서 AI 데이터센터 전력 수요, Grid, 변압기, 전력기기, Company KPI와 Valuation까지 연결하는 JoyLab 투자 리서치 지도입니다."
+  bodyClass="semiconductor-guide-v2"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <section class="sg-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">AI POWER INFRASTRUCTURE · RESEARCH GRAPH V1</div>
+          <h1>전력 수요를<br /><span>EPS까지 연결합니다.</span></h1>
+          <p class="sg-hero__lead">
+            AI 데이터센터를 단순 테마로 보지 않습니다.
+            <strong>금리 → Power Demand → Grid → Transformer → Company → KPI → Valuation</strong>
+            순서로 실제 투자 논리를 추적합니다.
+          </p>
+          <div class="sg-hero__chips" aria-label="AI Power 핵심 주제">
+            <span>#장기금리</span><span>#AI데이터센터</span><span>#Grid</span><span>#Transformer</span><span>#Backlog</span><span>#Valuation</span>
+          </div>
+          <div class="sg-hero__meta">
+            <span><strong>{graph.articles.length}</strong> Core Research</span>
+            <span><strong>{graph.nodes.length}</strong> Graph Nodes</span>
+            <span><strong>{graph.edges.length}</strong> Graph Edges</span>
+          </div>
+        </div>
+
+        <aside class="sg-lens" aria-label="AI Power 읽는 법">
+          <div class="sg-lens__brand">JOYLAB<br /><b>AI POWER</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>MACRO</b><span>장기금리와 자본비용부터 봅니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>BOTTLENECK</b><span>Grid·변압·배전의 병목을 찾습니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>VALUATION</b><span>수주가 Margin·EPS·가격으로 전환되는지 봅니다.</span></div></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <main class="sg-main">
+    <div class="sg-wrap">
+      <section class="sg-rule" aria-labelledby="ai-power-framework">
+        <div class="sg-eyebrow">INVESTMENT LOGIC</div>
+        <h2 id="ai-power-framework">10Y/30Y → Cost of Capital → Power Demand → Backlog → Margin → EPS → Valuation</h2>
+        <div class="sg-rule__grid">
+          <div class="sg-rule__step"><b>FACT</b><span>금리·수요·수주·마진을 확인합니다.</span></div>
+          <div class="sg-rule__step"><b>BOTTLENECK</b><span>공급 탄력성이 가장 낮은 지점을 찾습니다.</span></div>
+          <div class="sg-rule__step"><b>EARNINGS</b><span>Backlog가 매출과 EPS로 전환되는지 봅니다.</span></div>
+          <div class="sg-rule__step"><b>PRICE</b><span>성장 기대가 멀티플에 얼마나 반영됐는지 봅니다.</span></div>
+        </div>
+      </section>
+
+      <AiPowerResearchMap />
+
+      <section aria-labelledby="ai-power-core-research">
+        <div class="sg-section-head">
+          <div>
+            <div class="sg-eyebrow">CORE RESEARCH · 6</div>
+            <h2 id="ai-power-core-research">현재 production에서 연결된 6개 리서치</h2>
+          </div>
+          <p>Graph V1은 존재하는 발행 문서만 연결합니다. 새 Company Research가 생기면 같은 계약에 Node와 Edge를 추가합니다.</p>
+        </div>
+
+        <div class="sg-path">
+          {graph.articles.map((article) => (
+            <article class="sg-card">
+              <div class="sg-card__no">{String(article.order).padStart(2, '0')}</div>
+              <div>
+                <div class="sg-card__role">{stageLabel[article.stage] ?? article.stage.toUpperCase()}</div>
+                <h3><a href={article.url}>{article.title}</a></h3>
+                <p>{article.topics.slice(0, 4).map((topic) => `#${topic}`).join(' · ')}</p>
+                <div class="sg-card__foot">
+                  <span>{article.status.toUpperCase()}</span>
+                  <a class="sg-card__cta" href={article.url}>리서치 열기 →</a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="sg-insights" aria-labelledby="ai-power-next">
+        <div class="sg-section-head sg-section-head--compact">
+          <div><div class="sg-eyebrow">COVERAGE GAP</div><h2 id="ai-power-next">다음 Graph 확장 대상</h2></div>
+        </div>
+        <div class="sg-insights__grid">
+          <div><em>COMPANY</em><b>Eaton</b><p>데이터센터 내부 배전·전력관리 노드는 생성됐고 독립 Company Research는 아직 비어 있습니다.</p></div>
+          <div><em>COMPANY</em><b>GE Vernova</b><p>Generation·Grid 연결 노드는 생성됐고 독립 Company Research는 다음 확장 대상입니다.</p></div>
+          <div><em>VALUATION</em><b>EPS Revision</b><p>현재 비교글을 시작점으로 Forward PER·EV/EBITDA 추적을 확장합니다.</p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</BaseLayout>
