@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FinancialsMiniResearchMap from '../../components/FinancialsMiniResearchMap.astro';
+import ResearchGraphMap from '../../components/ResearchGraphMap.astro';
+import financialsGraph from '../../../config/research-graph-financials-v1.json';
 import { getCollection } from 'astro:content';
 import { industryCoverage, thesisCoverage } from '../../lib/investment-taxonomy-registry';
 import '../../styles/financials-value-up-guide.css';
@@ -61,6 +63,15 @@ const lenses = [
           ))}
         </div>
       </section>
+
+
+      <ResearchGraphMap
+        graph={financialsGraph}
+        eyebrow="JOYLAB RESEARCH GRAPH · FINANCIALS"
+        title="Rates → ROE → CET1 → Shareholder Return → PBR"
+        description="금융지주의 수익성·자본여력·주주환원이 PBR 재평가로 연결되는 경로를 탐색합니다."
+        primaryFlow={['rates','korea-banks','roe','cet1','shareholder-return','pbr']}
+      />
 
       <FinancialsMiniResearchMap />
 
