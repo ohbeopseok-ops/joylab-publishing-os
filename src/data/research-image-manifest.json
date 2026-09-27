@@ -1866,5 +1866,119 @@
         "caption": "Profitability → Capital → Shareholder Return → Valuation 순서로 비교합니다."
       }
     ]
+  },
+  "treasury-5-percent-utilities-2026": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "미국 국채금리와 S&P500 유틸리티 약세를 연결한 AI Power 리서치 — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미국 국채금리와 S&P500 유틸리티 약세를 연결한 AI Power 리서치의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "미국 국채금리와 S&P500 유틸리티 약세를 연결한 AI Power 리서치를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "treasury-5-percent-sp500-nasdaq-dividend": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "미국 국채금리와 S&P500·나스닥·고배당주 차이를 비교한 리서치 — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미국 국채금리와 S&P500·나스닥·고배당주 차이를 비교한 리서치의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "미국 국채금리와 S&P500·나스닥·고배당주 차이를 비교한 리서치를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "ai-power-beneficiaries-value-chain": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "유틸리티·발전·변압기·전력기기·데이터센터를 연결한 AI 전력 밸류체인 — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "유틸리티·발전·변압기·전력기기·데이터센터를 연결한 AI 전력 밸류체인의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "유틸리티·발전·변압기·전력기기·데이터센터를 연결한 AI 전력 밸류체인를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "ai-transformer-bottleneck-backlog-leadtime-margin": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "변압기 병목을 수주잔고·리드타임·마진으로 해석하는 AI 전력 리서치 — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "변압기 병목을 수주잔고·리드타임·마진으로 해석하는 AI 전력 리서치의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "변압기 병목을 수주잔고·리드타임·마진으로 해석하는 AI 전력 리서치를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "ai-power-ls-hd-eaton-ge-compare": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova AI 전력 비교 — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova AI 전력 비교의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova AI 전력 비교를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "ai-power-valuation-eps-per-ev-ebitda": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "EPS Revision·PER·EV/EBITDA로 보는 AI 전력 밸류에이션 — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 기본 Hero. 본문의 근거와 투자 프레임을 Visual Research에서 이어서 확인합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "EPS Revision·PER·EV/EBITDA로 보는 AI 전력 밸류에이션의 핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 Fact 기준으로 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "EPS Revision·PER·EV/EBITDA로 보는 AI 전력 밸류에이션를 Fact Interpretation Scenario Action 순서로 분석하는 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 투자 판단 구조를 정리합니다."
+      }
+    ]
   }
 }
