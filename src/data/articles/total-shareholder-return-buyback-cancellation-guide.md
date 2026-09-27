@@ -49,7 +49,7 @@ investmentResearchType: explainer
 
 > **ROE → CET1 → 초과자본 → 배당·자사주 매입 → 실제 소각 → 주당가치 → PBR**
 
-이 글은 [금융·주주환원 투자 가이드](/articles/financials-value-up-investing-guide)의 4편입니다. 앞선 구조는 [은행 ROE와 CET1 보는 법](/articles/bank-roe-cet1-guide), 실제 회사 사례는 [KB금융 주주환원 보는 법](/articles/kb-financial-shareholder-return)에서 이어집니다.
+이 글은 [금융·주주환원 투자 가이드](/articles/financials-value-up-investing-guide)의 4편입니다. 전체 산업 구조는 [JoyLab 투자 리서치 클러스터](/guides/investing)에서 볼 수 있고, 앞선 구조는 [은행 ROE와 CET1 보는 법](/articles/bank-roe-cet1-guide), 실제 회사 사례는 [KB금융 주주환원 보는 법](/articles/kb-financial-shareholder-return)에서 이어집니다.
 
 ## 30초 핵심 답변
 
@@ -175,7 +175,7 @@ KB금융은 CET1 13.5%를 초과하는 자본을 추가 주주환원 재원으�
 
 ## 8. 제도도 '매입보다 실제 처리'를 더 중요하게 보기 시작했다
 
-금융위원회는 2026년 6월 자기주식 공시 강화 제도를 발표하면서 모든 자기주식 보유 상장회사에 대해 보유현황, 향후 처분·소각계획, 실제 이행현황까지 공시하도록 범위를 넓혔습니다.
+금융위원회는 2026년 6월 자기주식 공시 강화 제도를 발표하면서 모든 자기주식 보유 상장회사에 대해 보유현황, 향후 처분·소각계획, 실제 이행현황까지 공시하도록 범위를 넓혔습니다. [금융위원회 2026년 자기주식 공시 강화](https://www.fsc.go.kr/po010101/87169)
 
 또한 금융위원회 자료에 따르면 2026년 1~5월 상장회사 자기주식 소각 규모는 43.1조원으로, 2025년 전체 21.4조원을 웃돌았습니다. [금융위원회 2026년 자기주식 공시 강화](https://www.fsc.go.kr/po010101/87169)
 
