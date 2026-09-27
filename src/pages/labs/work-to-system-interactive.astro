@@ -12,7 +12,7 @@ const interactions = getBookInteractions(bookSlug);
 
 <BaseLayout
   title="Series 02 Interactive Lab｜업무를 시스템으로 바꾸는 법"
-  description="JOYLAB BUILD SERIES 02 Chapter 1~11 인터랙티브 전자책 파일럿."
+  description="JOYLAB BUILD SERIES 02 Chapter 1~15 인터랙티브 전자책 GOLD Reader."
   robots="noindex,nofollow"
   bodyClass="book-reader-shell"
 >
@@ -25,7 +25,7 @@ const interactions = getBookInteractions(bookSlug);
       <div class="book-reader-hero__copy">
         <small>JOYLAB BUILD SERIES 02 · INTERACTIVE PILOT</small>
         <h1>업무를 시스템으로 바꾸는 법</h1>
-        <p>Chapter 1~11 · 문제 정의 → 데이터 구조 → First Screen → One-line Capture → Post-save Flow → Information Density</p>
+        <p>Chapter 1~15 · 기억 부채 → 데이터 계약 → 모바일 Coaching → PC Ops → Same Data, Different UI</p>
       </div>
       <div class="series02-lab-note">
         <strong>이 페이지는 정식 출간 전 인터랙션 검증용입니다.</strong>
@@ -47,6 +47,10 @@ const interactions = getBookInteractions(bookSlug);
         <a href="#chapter-9"><b>09</b><span>One-line Capture</span></a>
         <a href="#chapter-10"><b>10</b><span>Post-save Flow</span></a>
         <a href="#chapter-11"><b>11</b><span>Information Density</span></a>
+        <a href="#chapter-12"><b>12</b><span>Context Split</span></a>
+        <a href="#chapter-13"><b>13</b><span>LeaderDesk Coaching</span></a>
+        <a href="#chapter-14"><b>14</b><span>LeaderDesk Ops</span></a>
+        <a href="#chapter-15"><b>15</b><span>Same Data, Different UI</span></a>
         <div class="series02-lab-flow">
           <span>ASK</span><i>→</i><span>BUILD</span><i>→</i><span>SAVE</span>
         </div>
@@ -244,7 +248,51 @@ const interactions = getBookInteractions(bookSlug);
         <section class="series02-lab-checkpoint" aria-labelledby="series02-checkpoint-c-title">
           <small>CHECKPOINT C</small>
           <h2 id="series02-checkpoint-c-title">가장 작은 운영 흐름이 완성됐습니다.</h2>
-          <p>First Screen, One-line Capture, 저장 후 다음 행동, 최근 정보량까지 정했습니다. 이제 Chapter 12~15에서 이 흐름을 모바일 Coaching과 PC Ops로 나누고 같은 데이터 계약으로 다시 연결합니다.</p>
+          <p>First Screen, One-line Capture, 저장 후 다음 행동, 최근 정보량까지 정했습니다. 이제 이 흐름을 모바일 Coaching과 PC Ops로 나누고 같은 데이터 계약으로 다시 연결합니다.</p>
+        </section>
+
+        <section class="book-reader-chapter" id="chapter-12" data-reader-chapter data-order="12" data-label="Chapter 12 · 하나의 앱에 모든 기능을 넣지 않기로 했다">
+          <div class="book-reader-chapter__eyebrow">CHAPTER 12 · SPLIT → SAVE</div>
+          <h2>하나의 앱에 모든 기능을 넣지 않기로 했다</h2>
+          <div class="book-reader-prose">
+            <p>현장에서 20초 안에 남기는 일과 PC에서 여러 사람의 기록·KPI를 연결해 판단하는 일은 같은 화면을 요구하지 않습니다.</p>
+            <p>같은 데이터를 쓰더라도 사용 순간이 다르면 인터페이스를 나누는 편이 더 단순할 수 있습니다.</p>
+            <p>아래 실습에서 하나의 앱에 섞여 있던 두 사용 순간을 직접 분리해보세요.</p>
+          </div>
+        </section>
+
+        <section class="book-reader-chapter" id="chapter-13" data-reader-chapter data-order="13" data-label="Chapter 13 · LeaderDesk Coaching">
+          <div class="book-reader-chapter__eyebrow">CHAPTER 13 · MOBILE → SAVE</div>
+          <h2>LeaderDesk Coaching — 현장에서 붙잡는 기록</h2>
+          <div class="book-reader-prose">
+            <p>Coaching의 역할은 현장에서 생각이 사라지기 전에 기억파편을 붙잡는 것입니다.</p>
+            <p>기록 / 오늘 / 더보기의 세 탭으로 기능을 나누면 사용자는 지금 해야 할 행동을 빠르게 찾을 수 있습니다.</p>
+          </div>
+        </section>
+
+        <section class="book-reader-chapter" id="chapter-14" data-reader-chapter data-order="14" data-label="Chapter 14 · LeaderDesk Ops">
+          <div class="book-reader-chapter__eyebrow">CHAPTER 14 · CONNECT → DECIDE</div>
+          <h2>LeaderDesk Ops — 연결해서 판단하는 운영 본체</h2>
+          <div class="book-reader-prose">
+            <p>Ops는 모바일을 크게 만든 화면이 아닙니다. 기록, KPI, Follow-up, 운영 루틴을 연결해 오늘 무엇을 먼저 볼지 결정하는 PC 운영 본체입니다.</p>
+            <p>아래 Daily Board에서 사람·숫자·Follow-up·시간 루틴을 한 화면에 배치해보세요.</p>
+          </div>
+        </section>
+
+        <section class="book-reader-chapter" id="chapter-15" data-reader-chapter data-order="15" data-label="Chapter 15 · 같은 데이터, 다른 인터페이스">
+          <div class="book-reader-chapter__eyebrow">CHAPTER 15 · CONNECT → COMPLETE</div>
+          <h2>같은 데이터, 다른 인터페이스</h2>
+          <div class="book-reader-prose">
+            <p>제품은 둘로 나뉘어도 데이터의 의미는 하나여야 합니다.</p>
+            <p>모바일과 PC가 같은 객체·ID·원문·Follow-up 의미를 공유할 때 기록은 현장에서 운영으로 자연스럽게 이어집니다.</p>
+            <p>마지막 실습에서 Same Data, Different UI 원칙을 자신의 업무에 적용해보세요.</p>
+          </div>
+        </section>
+
+        <section class="series02-lab-checkpoint" aria-labelledby="series02-checkpoint-d-title">
+          <small>CHECKPOINT D · COMPLETE</small>
+          <h2 id="series02-checkpoint-d-title">Series 02 Interactive 15/15이 완성됐습니다.</h2>
+          <p>기억 부채 진단에서 시작해 데이터 계약, 모바일 Coaching, PC Ops, 같은 데이터 계약까지 하나의 흐름으로 연결했습니다.</p>
           <button type="button" id="series02-open-records">내 기록 확인 →</button>
         </section>
       </main>

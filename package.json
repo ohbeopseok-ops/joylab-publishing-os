@@ -76,7 +76,9 @@
     "studio:release:manifest": "node scripts/write-series-02-release-manifest-v1.mjs",
     "studio:release:verify": "node scripts/check-series-02-release-manifest-v1.mjs",
     "research-graph:check": "node scripts/check-research-graph-v1.mjs",
-    "research-graph:platform:check": "node scripts/check-research-graph-platform-v1.mjs"
+    "research-graph:platform:check": "node scripts/check-research-graph-platform-v1.mjs",
+    "release:v2:verify": "node scripts/release-engine-v2.mjs series-02 verify-tag",
+    "release:v2:plan": "node scripts/release-engine-v2.mjs series-02 plan-tag"
   },
   "dependencies": {
     "astro": "^7.3.2"

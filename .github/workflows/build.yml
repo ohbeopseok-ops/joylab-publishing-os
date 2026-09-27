@@ -68,6 +68,7 @@ jobs:
           node --check scripts/qa-about-activation.mjs
           node --check scripts/qa-mobile-ui-v1.mjs
           node --check scripts/qa-interactive-book-v1.mjs
+          node --check scripts/release-engine-v2.mjs
           node --check scripts/submit-indexnow.mjs
           node --check scripts/report-gsc-7d.mjs
           node --check scripts/build-distribution-pack.mjs
@@ -256,7 +257,10 @@ jobs:
       - name: Growth Literature PC/Mobile GOLD QA
         run: node scripts/qa-growth-literature-gold.mjs
 
-      - name: Interactive Book V1 Chapter 1-11 QA
+      - name: Release Engine V2 published contract
+        run: npm run release:v2:verify
+
+      - name: Interactive Book V1 Chapter 1-15 GOLD QA
         run: node scripts/qa-interactive-book-v1.mjs
 
       - name: Stop Astro preview

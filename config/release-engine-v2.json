@@ -1,0 +1,22 @@
+{
+  "contract": "JoyLab Release Engine V2",
+  "version": 2,
+  "projects": {
+    "series-02": {
+      "projectId": "series-02",
+      "releaseConfig": "config/series-02-release-v1.json",
+      "manifest": "public/studio/releases/series-02/v1-0-0/immutable-release-manifest.json",
+      "source": "src/data/studio/series-02-source.json",
+      "tagPrefix": "series-02-v",
+      "requiredGate": "JoyLab Release Gate V1",
+      "requiredStatus": "GOLD"
+    }
+  },
+  "rules": [
+    "release config state must be published before tag creation",
+    "manifest commitSha must equal publishedCommitSha",
+    "manifest source SHA256 must equal release config sourceSha256",
+    "existing tags are immutable and may only be accepted when they resolve to the published commit",
+    "new versions supersede prior versions; published tags are never moved"
+  ]
+}

@@ -92,6 +92,26 @@ for (const viewport of [
   await density.locator('.book-interactive-density-options button[data-value="5"]').click();
   await density.locator('textarea').fill('현장에서는 최근 흐름만 빠르게 확인하면 되므로 5건이면 충분하다.');
 
+  const splitContext = page.locator('[data-interaction-id="split-context"]');
+  await splitContext.locator('textarea').fill('현장 20초 기록 / PC에서 기록·KPI·Follow-up을 연결해 판단');
+
+  const coaching = page.locator('[data-interaction-id="coaching-three-tab"]');
+  const coachingInputs = coaching.locator('textarea');
+  await coachingInputs.nth(0).fill('기억파편과 STT 원문을 빠르게 남긴다');
+  await coachingInputs.nth(1).fill('오늘 Follow-up과 최근 기록을 확인한다');
+  await coachingInputs.nth(2).fill('정식 면담과 백업·복원을 관리한다');
+
+  const ops = page.locator('[data-interaction-id="ops-daily-board"]');
+  const opsInputs = ops.locator('textarea');
+  await opsInputs.nth(0).fill('오늘 우선 개입 TOP3');
+  await opsInputs.nth(1).fill('실행률 Auto QA AHT NPS');
+  await opsInputs.nth(2).fill('당일 16시와 익일 10시 재점검');
+  await opsInputs.nth(3).fill('10시 12시 16시 18시 운영 루틴');
+
+  const sameUi = page.locator('[data-interaction-id="same-data-different-ui"]');
+  const sameUiChecks = sameUi.locator('input[type="checkbox"]');
+  for (let i=0;i<await sameUiChecks.count();i++) await sameUiChecks.nth(i).check();
+
   await page.waitForTimeout(350);
   await page.locator('#series02-open-records').click();
   await page.waitForTimeout(100);
@@ -109,11 +129,17 @@ for (const viewport of [
     const oneLineStatus = document.querySelector('[data-interaction-id="one-line-capture"] .book-interactive-status')?.textContent?.trim();
     const postSaveStatus = document.querySelector('[data-interaction-id="post-save-flow"] .book-interactive-status')?.textContent?.trim();
     const densityStatus = document.querySelector('[data-interaction-id="information-density"] .book-interactive-status')?.textContent?.trim();
+    const coachingStatus = document.querySelector('[data-interaction-id="coaching-three-tab"] .book-interactive-status')?.textContent?.trim();
+    const opsStatus = document.querySelector('[data-interaction-id="ops-daily-board"] .book-interactive-status')?.textContent?.trim();
+    const chapterCount = document.querySelectorAll('[data-reader-chapter]').length;
+    const tocChapter15 = Boolean(document.querySelector('a[href="#chapter-15"]'));
     const oneLineCounter = document.querySelector('[data-interaction-id="one-line-capture"] .book-interactive-char-counter')?.textContent?.trim();
     const panel = document.getElementById('book-interactive-panel');
     const robots = document.querySelector('meta[name="robots"]')?.getAttribute('content');
     const raw = localStorage.getItem('joylab-book-work-to-system-lab-interactive-forms');
     const forms = raw ? JSON.parse(raw) : {};
+    const rawNotes = localStorage.getItem('joylab-book-work-to-system-lab-interactive-notes');
+    const notes = rawNotes ? JSON.parse(rawNotes) : {};
     const viewportWidth = window.innerWidth;
     const overflow = Math.max(document.body.scrollWidth, document.documentElement.scrollWidth) - viewportWidth;
     return {
@@ -129,11 +155,16 @@ for (const viewport of [
       oneLineStatus,
       postSaveStatus,
       densityStatus,
+      coachingStatus,
+      opsStatus,
+      chapterCount,
+      tocChapter15,
       oneLineCounter,
       panelOpen: panel?.classList.contains('is-open') ?? false,
       hasSavedResultsHeading: Array.from(document.querySelectorAll('#book-interactive-panel-body h3')).some((el) => el.textContent?.trim() === '실습 결과'),
       artifactCount: document.getElementById('book-artifact-count')?.textContent?.trim(),
       formsKeys: Object.keys(forms).sort(),
+      notesKeys: Object.keys(notes).sort(),
       robots,
       overflow
     };
@@ -167,19 +198,25 @@ for (const viewport of [
     oneLineSaved: metrics.formsKeys.some((key) => key.endsWith(':one-line-capture')),
     postSaveSaved: metrics.formsKeys.some((key) => key.endsWith(':post-save-flow')),
     densitySaved: metrics.formsKeys.some((key) => key.endsWith(':information-density')),
+    chapter15Rendered: metrics.chapterCount === 15 && metrics.tocChapter15 === true,
+    splitContextSaved: metrics.notesKeys.some((key) => key.endsWith(':split-context')),
+    coachingComplete: metrics.coachingStatus?.includes('Canvas 완료') === true,
+    opsComplete: metrics.opsStatus?.includes('Canvas 완료') === true,
+    coachingSaved: metrics.formsKeys.some((key) => key.endsWith(':coaching-three-tab')),
+    opsSaved: metrics.formsKeys.some((key) => key.endsWith(':ops-daily-board')),
     recordsPanelOpen: metrics.panelOpen === true,
     savedResultsVisible: metrics.hasSavedResultsHeading === true,
-    elevenArtifacts: Number(metrics.artifactCount) >= 11
+    fifteenChapterArtifacts: Number(metrics.artifactCount) >= 14
   };
 
-  const screenshot = path.join(outputDir, `series02-ch01-11-${viewport.name}.png`);
+  const screenshot = path.join(outputDir, `series02-ch01-15-${viewport.name}.png`);
   await page.screenshot({ path: screenshot, fullPage: true });
 
   const passed = Object.values(checks).every(Boolean);
   report.push({ viewport, status, metrics, pageErrors, checks, passed, screenshot });
   if (!passed) failures.push(viewport.name);
 
-  console.log(`${passed ? 'PASS' : 'FAIL'} Interactive Book V1 Ch01-11 ${viewport.name} score=${metrics.score} band=${metrics.band} artifacts=${metrics.artifactCount}`);
+  console.log(`${passed ? 'PASS' : 'FAIL'} Interactive Book V1 Ch01-15 ${viewport.name} score=${metrics.score} band=${metrics.band} artifacts=${metrics.artifactCount}`);
   await context.close();
 }
 

@@ -76,6 +76,7 @@ const books = defineCollection({
     canonical: z.string().optional(),
     readerPath: z.string().optional(),
     readerCta: z.string().optional(),
+    releasePath: z.string().optional(),
     mindmapPath: z.string().optional(),
     relatedArticleIds: z.array(z.string()).max(6).optional(),
     overline: z.string().optional(),
