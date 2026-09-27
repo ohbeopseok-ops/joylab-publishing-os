@@ -1,0 +1,52 @@
+name: Research Guide Production Visual GOLD
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/pages/guides/**'
+      - 'src/components/ResearchGraphMap.astro'
+      - 'src/components/AiPowerResearchMap.astro'
+      - 'src/styles/research-graph-map-v3.css'
+      - 'src/styles/semiconductor-guide-v2.css'
+      - 'src/styles/financials-value-up-guide.css'
+      - 'config/research-guide-layout-contract-v1.json'
+      - 'config/research-graph-responsive-contract-v1.json'
+      - 'scripts/check-research-guide-production-visual-v1.mjs'
+      - '.github/workflows/research-guide-production-visual-gold.yml'
+  workflow_dispatch:
+
+jobs:
+  production-visual-gold:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.19.0'
+          cache: npm
+
+      - name: Install project
+        run: npm ci
+
+      - name: Install Playwright runtime
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run production visual GOLD
+        env:
+          PRODUCTION_BASE_URL: https://aijoylab.kr
+        run: node scripts/check-research-guide-production-visual-v1.mjs
+
+      - name: Upload production screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-guide-production-visual-gold
+          path: qa-artifacts/research-guide-production-visual-gold
+          if-no-files-found: error
