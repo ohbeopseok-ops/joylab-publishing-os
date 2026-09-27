@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+<rect width="800" height="1200" fill="#111827"/>
+<rect x="54" y="54" width="692" height="1092" rx="24" fill="none" stroke="#D4A33D" stroke-width="2"/>
+<text x="86" y="120" fill="#D4A33D" font-family="sans-serif" font-size="22" font-weight="700" letter-spacing="3">JOYLAB BUILD SERIES 02</text>
+<text x="86" y="340" fill="#F9FAFB" font-family="sans-serif" font-size="62" font-weight="800">업무를</text>
+<text x="86" y="425" fill="#F9FAFB" font-family="sans-serif" font-size="62" font-weight="800">시스템으로</text>
+<text x="86" y="510" fill="#D4A33D" font-family="sans-serif" font-size="62" font-weight="800">바꾸는 법</text>
+<line x1="86" y1="575" x2="714" y2="575" stroke="#374151" stroke-width="2"/>
+<text x="86" y="640" fill="#D1D5DB" font-family="sans-serif" font-size="25">상담 기록에서 시작해</text>
+<text x="86" y="680" fill="#D1D5DB" font-family="sans-serif" font-size="25">리더의 운영 OS를 만들기까지</text>
+<g transform="translate(86 820)">
+<rect width="180" height="96" rx="14" fill="#1F2937" stroke="#D4A33D"/>
+<text x="20" y="40" fill="#F9FAFB" font-family="sans-serif" font-size="16" font-weight="700">CAPTURE</text>
+<text x="20" y="68" fill="#9CA3AF" font-family="sans-serif" font-size="14">현장 기록</text>
+<path d="M200 48h70" stroke="#D4A33D" stroke-width="3"/>
+<rect x="290" width="180" height="96" rx="14" fill="#1F2937" stroke="#D4A33D"/>
+<text x="310" y="40" fill="#F9FAFB" font-family="sans-serif" font-size="16" font-weight="700">CONNECT</text>
+<text x="310" y="68" fill="#9CA3AF" font-family="sans-serif" font-size="14">데이터 계약</text>
+<path d="M490 48h70" stroke="#D4A33D" stroke-width="3"/>
+<rect x="580" width="120" height="96" rx="14" fill="#D4A33D"/>
+<text x="598" y="40" fill="#111827" font-family="sans-serif" font-size="16" font-weight="800">ACT</text>
+<text x="598" y="68" fill="#111827" font-family="sans-serif" font-size="14">운영 실행</text>
+</g>
+<text x="86" y="1080" fill="#F9FAFB" font-family="sans-serif" font-size="24" font-weight="700">오법석 · JOYLAB</text>
+</svg>

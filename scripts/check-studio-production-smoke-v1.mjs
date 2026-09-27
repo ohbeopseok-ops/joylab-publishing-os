@@ -33,6 +33,14 @@ for (const route of routes) {
   console.log('PASS', route.path);
 }
 
+const bookLandingPath = '/books/work-to-system';
+const { text: bookLanding } = await fetchText(bookLandingPath);
+for (const marker of ['업무를 시스템으로 바꾸는 법','웹 미리보기','Interactive Workbook','EPUB · PDF Release','/studio/projects/series-02/preview/','/studio/demo/','/studio/releases/series-02/v1-0-0/']) {
+  if (!bookLanding.includes(marker)) throw new Error(bookLandingPath + ' marker missing: ' + marker);
+}
+if (bookLanding.includes('name="robots" content="noindex')) throw new Error(bookLandingPath + ' must remain indexable');
+console.log('PASS', bookLandingPath);
+
 const epubPath = '/studio/exports/series-02-memory-debt.epub';
 const pdfPath = '/studio/exports/series-02-memory-debt-print.pdf';
 const manifestPath = '/studio/exports/export-provenance-v1.json';
