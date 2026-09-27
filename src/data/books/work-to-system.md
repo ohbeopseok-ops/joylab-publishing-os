@@ -28,7 +28,7 @@ access: full
 previewChapterCount: 15
 readerPath: "/studio/projects/series-02/preview/"
 readerCta: "웹 미리보기 열기"
-interactivePath: "/studio/demo/"
+interactivePath: "/studio/demo"
 releasePath: "/studio/releases/series-02/v1-0-0/"
 overline: "JOYLAB BUILD SERIES 02 · WORK TO SYSTEM"
 topics:
