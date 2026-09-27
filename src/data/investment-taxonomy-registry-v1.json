@@ -605,7 +605,7 @@
         "NIM",
         "credit-cost",
         "payout-ratio",
-        "total-shareholder-return",
+        "shareholder-payout-ratio",
         "PBR"
       ],
       "researchType": "pillar"
@@ -807,7 +807,7 @@
         "RWA",
         "NIM",
         "credit-cost",
-        "total-shareholder-return",
+        "shareholder-payout-ratio",
         "PBR"
       ],
       "researchType": "company"
@@ -1160,7 +1160,7 @@
         "valuation-rerating"
       ],
       "kpis": [
-        "total-shareholder-return",
+        "shareholder-payout-ratio",
         "payout-ratio",
         "CET1",
         "ROE",
