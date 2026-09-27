@@ -70,6 +70,21 @@
       "id": "kb-financial",
       "label": "KB Financial",
       "industry": "financials-value-up"
+    },
+    {
+      "id": "shinhan-financial",
+      "label": "Shinhan Financial",
+      "industry": "financials-value-up"
+    },
+    {
+      "id": "hana-financial",
+      "label": "Hana Financial",
+      "industry": "financials-value-up"
+    },
+    {
+      "id": "woori-financial",
+      "label": "Woori Financial",
+      "industry": "financials-value-up"
     }
   ],
   "kpis": [
@@ -605,6 +620,171 @@
       "from": "kb-financial",
       "to": "rwa",
       "type": "company-to-kpi"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "roe",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "cet1",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "nim",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "credit-cost",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "shareholder-payout-ratio",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "pbr",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "rwa",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "banking-profitability",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "capital-adequacy",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "shareholder-return",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "shinhan-financial",
+      "to": "valuation-rerating",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "hana-financial",
+      "to": "roe",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hana-financial",
+      "to": "cet1",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hana-financial",
+      "to": "nim",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hana-financial",
+      "to": "credit-cost",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hana-financial",
+      "to": "shareholder-payout-ratio",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hana-financial",
+      "to": "pbr",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hana-financial",
+      "to": "rwa",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "hana-financial",
+      "to": "banking-profitability",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "hana-financial",
+      "to": "capital-adequacy",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "hana-financial",
+      "to": "shareholder-return",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "hana-financial",
+      "to": "valuation-rerating",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "woori-financial",
+      "to": "roe",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "woori-financial",
+      "to": "cet1",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "woori-financial",
+      "to": "nim",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "woori-financial",
+      "to": "credit-cost",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "woori-financial",
+      "to": "shareholder-payout-ratio",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "woori-financial",
+      "to": "pbr",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "woori-financial",
+      "to": "rwa",
+      "type": "company-to-kpi"
+    },
+    {
+      "from": "woori-financial",
+      "to": "banking-profitability",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "woori-financial",
+      "to": "capital-adequacy",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "woori-financial",
+      "to": "shareholder-return",
+      "type": "company-to-value-chain"
+    },
+    {
+      "from": "woori-financial",
+      "to": "valuation-rerating",
+      "type": "company-to-value-chain"
     }
   ]
 }
