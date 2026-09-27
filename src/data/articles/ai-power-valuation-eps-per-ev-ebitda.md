@@ -16,9 +16,19 @@ seoTitle: "AI 전력 수혜주 밸류에이션｜EPS Revision·PER·EV/EBITDA"
 series: "AI Power Infrastructure"
 seriesOrder: 12
 readingTime: "약 10분"
+investmentIndustries:
+  - ai-infrastructure
+investmentTheses:
+  - power-supercycle
+investmentResearchType: "compare"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "AI 전력 수혜주의 EPS Revision PER EV EBITDA 밸류에이션을 비교한 JoyLab 대표 이미지"
 ---
 
 좋은 산업과 좋은 가격은 같은 말이 아닙니다.
+
+→ [AI Power Infrastructure 전체 투자 지도](/guides/ai-power-infrastructure)
+
 
 AI 데이터센터 전력 수요가 강해도 이미 높은 성장 기대가 주가에 반영됐다면 이후 수익률은 실적 추정치의 추가 상향에 더 민감해집니다.
 
@@ -108,3 +118,9 @@ AI 전력주는 산업 성장만으로 판단하기 어렵습니다.
 - [HD현대일렉트릭 2Q26](https://www.hd-hyundaielectric.com/elect/m/ko/PR/newsView.jsp?commBoardSeq=6175)
 - [Eaton 2Q26](https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-reports-record-second-quarter-2026-results.html)
 - [GE Vernova 2Q26](https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial)
+
+
+## 시리즈 이동
+
+- [이전 글｜LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova 비교](/articles/ai-power-ls-hd-eaton-ge-compare)
+- [전체 지도｜AI Power Infrastructure](/guides/ai-power-infrastructure)
