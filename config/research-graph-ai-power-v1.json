@@ -710,6 +710,56 @@
       "type": "covered_by"
     },
     {
+      "from": "article-us-30y-risk",
+      "to": "article-ai-power-bottleneck",
+      "type": "next"
+    },
+    {
+      "from": "article-ai-power-bottleneck",
+      "to": "article-us-30y-risk",
+      "type": "previous"
+    },
+    {
+      "from": "article-ai-power-bottleneck",
+      "to": "article-grid-transformer",
+      "type": "next"
+    },
+    {
+      "from": "article-grid-transformer",
+      "to": "article-ai-power-bottleneck",
+      "type": "previous"
+    },
+    {
+      "from": "article-grid-transformer",
+      "to": "article-hd-electric",
+      "type": "next"
+    },
+    {
+      "from": "article-hd-electric",
+      "to": "article-grid-transformer",
+      "type": "previous"
+    },
+    {
+      "from": "article-hd-electric",
+      "to": "article-ls-electric",
+      "type": "next"
+    },
+    {
+      "from": "article-ls-electric",
+      "to": "article-hd-electric",
+      "type": "previous"
+    },
+    {
+      "from": "article-ls-electric",
+      "to": "article-korea-ai-power-compare",
+      "type": "next"
+    },
+    {
+      "from": "article-korea-ai-power-compare",
+      "to": "article-ls-electric",
+      "type": "previous"
+    },
+    {
       "from": "article-korea-ai-power-compare",
       "to": "article-treasury-utilities-2026",
       "type": "next"
