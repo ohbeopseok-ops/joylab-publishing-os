@@ -204,9 +204,17 @@ for (const viewport of viewports) {
 
     const footerBudget = viewport.width <= 430 ? 720 : viewport.width <= 820 ? 680 : 620;
     const expectedToggle = viewport.width <= 640;
-    const fundingChoicesCors = errors.some((error) => error.includes('fundingchoicesmessages.google.com') && error.includes('blocked by CORS policy'));
-    const fundingChoicesNetFail = errors.some((error) => error === 'console: Failed to load resource: net::ERR_FAILED');
-    const effectiveErrors = fundingChoicesCors && fundingChoicesNetFail && errors.length === 2 ? [] : errors;
+    const knownFundingChoicesResearchMapNoise =
+      item.name === 'research-map' &&
+      viewport.name === 'desktop-1440' &&
+      errors.length === 2 &&
+      errors.some((error) =>
+        error.includes("Access to XMLHttpRequest at 'https://fundingchoicesmessages.google.com/el/") &&
+        error.includes("from origin 'https://aijoylab.kr'") &&
+        error.includes("blocked by CORS policy")
+      ) &&
+      errors.some((error) => error === 'console: Failed to load resource: net::ERR_FAILED');
+    const effectiveErrors = knownFundingChoicesResearchMapNoise ? [] : errors;
     const checks = {
       httpOk: status >= 200 && status < 400,
       noPageErrors: effectiveErrors.length === 0,
