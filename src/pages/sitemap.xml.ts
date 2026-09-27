@@ -34,6 +34,7 @@ export async function GET({ site }: { site: URL }) {
     '/advertising-disclosure',
     '/articles',
     '/guides/investing',
+    '/guides/financials-value-up',
     '/guides/ai-productivity',
     '/guides/codex',
     '/guides/ai-economics',
