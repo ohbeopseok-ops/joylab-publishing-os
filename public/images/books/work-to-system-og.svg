@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#111827"/>
+<rect x="46" y="46" width="1108" height="538" rx="28" fill="none" stroke="#D4A33D" stroke-width="2"/>
+<text x="80" y="112" fill="#D4A33D" font-family="sans-serif" font-size="22" font-weight="700" letter-spacing="3">JOYLAB BUILD SERIES 02</text>
+<text x="80" y="255" fill="#F9FAFB" font-family="sans-serif" font-size="58" font-weight="800">업무를 시스템으로 바꾸는 법</text>
+<text x="80" y="318" fill="#D1D5DB" font-family="sans-serif" font-size="28">상담 기록에서 시작해 리더의 운영 OS를 만들기까지</text>
+<g transform="translate(80 405)">
+<rect width="240" height="92" rx="16" fill="#1F2937" stroke="#D4A33D"/>
+<text x="26" y="40" fill="#F9FAFB" font-family="sans-serif" font-size="18" font-weight="700">15 CHAPTERS</text>
+<text x="26" y="67" fill="#9CA3AF" font-family="sans-serif" font-size="15">Canonical Manuscript</text>
+<rect x="270" width="240" height="92" rx="16" fill="#1F2937" stroke="#D4A33D"/>
+<text x="296" y="40" fill="#F9FAFB" font-family="sans-serif" font-size="18" font-weight="700">INTERACTIVE 15/15</text>
+<text x="296" y="67" fill="#9CA3AF" font-family="sans-serif" font-size="15">Read · Record · Act</text>
+<rect x="540" width="240" height="92" rx="16" fill="#D4A33D"/>
+<text x="566" y="40" fill="#111827" font-family="sans-serif" font-size="18" font-weight="800">PUBLISHED v1.0.0</text>
+<text x="566" y="67" fill="#111827" font-family="sans-serif" font-size="15">EPUB · PDF · Web</text>
+</g>
+<text x="80" y="555" fill="#F9FAFB" font-family="sans-serif" font-size="20" font-weight="700">JOYLAB · 생각을 분석하고, 분석을 실행으로.</text>
+</svg>
