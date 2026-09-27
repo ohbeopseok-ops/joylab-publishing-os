@@ -65,15 +65,19 @@ const lenses = [
       </section>
 
 
-      <ResearchGraphMap
-        graph={financialsGraph}
-        eyebrow="JOYLAB RESEARCH GRAPH · FINANCIALS"
-        title="Rates → ROE → CET1 → Shareholder Return → PBR"
-        description="금융지주의 수익성·자본여력·주주환원이 PBR 재평가로 연결되는 경로를 탐색합니다."
-        primaryFlow={['rates','korea-banks','roe','cet1','shareholder-return','pbr']}
-      />
+      <div class="fvg-graph-span">
+        <ResearchGraphMap
+          graph={financialsGraph}
+          eyebrow="JOYLAB RESEARCH GRAPH · FINANCIALS"
+          title="Rates → ROE → CET1 → Shareholder Return → PBR"
+          description="금융지주의 수익성·자본여력·주주환원이 PBR 재평가로 연결되는 경로를 탐색합니다."
+          primaryFlow={['rates','korea-banks','roe','cet1','shareholder-return','pbr']}
+        />
+      </div>
 
-      <FinancialsMiniResearchMap />
+      <div class="fvg-layout">
+        <section class="fvg-content">
+          <FinancialsMiniResearchMap />
 
       <section class="fvg-series" aria-labelledby="series-title">
         <div class="fvg-section-head">
@@ -114,6 +118,28 @@ const lenses = [
           <span>실제 소각</span><span>BPS</span><span>PBR</span><span>환원 공식</span>
         </div>
       </section>
+        </section>
+
+        <aside class="fvg-rail" aria-label="금융·주주환원 가이드 사용법">
+          <section class="fvg-rail-card is-dark">
+            <small>START HERE</small>
+            <h3>ROE와 CET1부터</h3>
+            <p>수익성과 자본여력을 먼저 확인한 뒤 실제 주주환원과 PBR 재평가 조건으로 이동합니다.</p>
+            <a href="/articles/bank-roe-cet1-guide">ROE·CET1 읽기 →</a>
+          </section>
+          <section class="fvg-rail-card">
+            <small>COMPARE HUB</small>
+            <h3>4대 금융지주 비교</h3>
+            <p>KB·신한·하나·우리금융을 같은 KPI와 주주환원 기준으로 비교합니다.</p>
+            <a href="/articles/korea-financial-holdings-compare">비교 허브 열기 →</a>
+          </section>
+          <section class="fvg-rail-card">
+            <small>UPDATE RHYTHM</small>
+            <h3>분기 숫자 갱신</h3>
+            <p>ROE·CET1·DPS·자사주 매입·실제 소각·PBR을 같은 주기로 업데이트합니다.</p>
+          </section>
+        </aside>
+      </div>
     </div>
   </main>
 </BaseLayout>
