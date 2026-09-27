@@ -1,0 +1,37 @@
+{
+  "contract": "JoyLab.ResearchGraphPlatform",
+  "version": "1.0.0",
+  "mapComponent": "src/components/ResearchGraphMap.astro",
+  "graphContract": "JoyLab.ResearchGraph",
+  "verticals": [
+    {
+      "id": "ai-power",
+      "label": "AI Power Infrastructure",
+      "status": "active",
+      "graph": "config/research-graph-ai-power-v1.json",
+      "pillar": "/guides/ai-power-infrastructure",
+      "domain": "investing"
+    },
+    {
+      "id": "semiconductor",
+      "label": "Semiconductor Investing",
+      "status": "template_ready",
+      "pillar": "/guides/semiconductor-investing",
+      "domain": "investing"
+    },
+    {
+      "id": "financials",
+      "label": "Financials & Value-up",
+      "status": "template_ready",
+      "pillar": "/guides/financials-value-up",
+      "domain": "investing"
+    },
+    {
+      "id": "shipbuilding",
+      "label": "Shipbuilding & Defense",
+      "status": "template_ready",
+      "pillar": "/guides/shipbuilding",
+      "domain": "investing"
+    }
+  ]
+}
