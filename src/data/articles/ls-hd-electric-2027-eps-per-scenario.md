@@ -30,7 +30,7 @@ heroAlt: "LS ELECTRIC과 HD현대일렉트릭의 2027 EPS와 PER 20·25·30·40�
 
 AI 전력 기업의 주가를 볼 때 가장 중요한 질문은 단순히 "수주가 늘어나는가"가 아닙니다.
 
-**2027년 이익이 실제로 얼마나 커지고, 시장이 그 이익에 몇 배의 PER을 줄 것인가**가 최종 주가 범위를 결정합니다.
+**2027년 이익이 실제로 얼마나 커지고, 시장이 그 이익에 몇 배의 PER을 줄 것인가**가 최종 주가 범위를 결정합니다. [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140)
 
 → [AI Power Infrastructure 전체 투자 지도](/guides/ai-power-infrastructure)
 
@@ -42,17 +42,17 @@ EPS는 단순화하면 지배주주 순이익을 보통주 수로 나눈 값입�
 
 LS ELECTRIC의 발행주식수는 1억5,000만주입니다. [WISEreport](https://comp.wisereport.co.kr/company/c1010001.aspx?cmp_cd=010120)
 
-따라서 보수적 2027 EPS proxy는 다음과 같습니다.
+따라서 보수적 2027 EPS proxy는 다음과 같습니다. [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140) · [LS ELECTRIC 주식수](https://comp.wisereport.co.kr/company/c1010001.aspx?cmp_cd=010120)
 
-**6,550억원 ÷ 1억5,000만주 = 약 4,367원**
+**6,550억원 ÷ 1억5,000만주 = 약 4,367원** [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140) · [LS ELECTRIC 주식수](https://comp.wisereport.co.kr/company/c1010001.aspx?cmp_cd=010120)
 
 HD현대일렉트릭의 발행주식수는 36,047,135주입니다. [WISEreport](https://comp.wisereport.co.kr/company/c1010001.aspx?cmp_cd=267260)
 
-따라서 보수적 2027 EPS proxy는 다음과 같습니다.
+따라서 보수적 2027 EPS proxy는 다음과 같습니다. [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140) · [HD현대일렉트릭 주식수](https://comp.wisereport.co.kr/company/c1010001.aspx?cmp_cd=267260)
 
-**1조2,040억원 ÷ 36,047,135주 = 약 33,401원**
+**1조2,040억원 ÷ 36,047,135주 = 약 33,401원** [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140) · [HD현대일렉트릭 주식수](https://comp.wisereport.co.kr/company/c1010001.aspx?cmp_cd=267260)
 
-이 값은 2027년 컨센서스 평균 EPS가 아니라, 공개 리서치에서 확인되는 **보수적 순이익 하단을 현재 주식수로 환산한 시나리오용 EPS**입니다.
+이 값은 2027년 컨센서스 평균 EPS가 아니라, 공개 리서치에서 확인되는 **보수적 순이익 하단을 현재 주식수로 환산한 시나리오용 EPS**입니다. [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140)
 
 ## 2. LS ELECTRIC｜EPS 4,367원 × PER
 
@@ -65,13 +65,13 @@ HD현대일렉트릭의 발행주식수는 36,047,135주입니다. [WISEreport](
 
 LS ELECTRIC의 특징은 이 표가 매우 명확하게 보여줍니다.
 
-**보수적 이익 하단을 사용할 경우 40배 PER에서도 높은 가격을 정당화하기 어렵습니다.**
+**보수적 이익 하단을 사용할 경우 40배 PER에서도 높은 가격을 정당화하기 어렵습니다.** [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140)
 
 즉 LS ELECTRIC을 높은 가격대에서 평가하려면 단순히 전력 슈퍼사이클이 계속된다는 전제만으로는 부족합니다.
 
 필요한 것은 다음 둘 중 하나입니다.
 
-- 2027 EPS가 4,367원을 의미 있게 상회하는 추가 Revision
+- 2027 EPS가 4,367원을 의미 있게 상회하는 추가 Revision [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140)
 - 시장이 40배를 넘어서는 높은 성장 멀티플을 지속적으로 부여
 
 따라서 LS ELECTRIC은 **EPS Revision 의존도**를 반드시 확인해야 합니다.
@@ -87,11 +87,11 @@ LS ELECTRIC의 특징은 이 표가 매우 명확하게 보여줍니다.
 
 HD현대일렉트릭은 같은 PER 범위에서도 결과가 크게 달라집니다.
 
-핵심 이유는 2027년 보수적 EPS proxy 자체가 높기 때문입니다.
+핵심 이유는 2027년 보수적 EPS proxy 자체가 높기 때문입니다. [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140)
 
-20배는 약 66.8만원, 25배는 약 83.5만원, 30배는 약 100만원, 40배는 약 133.6만원입니다.
+20배는 약 66.8만원, 25배는 약 83.5만원, 30배는 약 100만원, 40배는 약 133.6만원입니다. [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140) · [HD현대일렉트릭 주식수](https://comp.wisereport.co.kr/company/c1010001.aspx?cmp_cd=267260)
 
-따라서 투자자가 확인해야 할 것은 "30배가 비싼가"가 아니라 **2027년 EPS 3.34만원이 유지되거나 더 상향될 수 있는가**입니다.
+따라서 투자자가 확인해야 할 것은 "30배가 비싼가"가 아니라 **2027년 EPS 3.34만원이 유지되거나 더 상향될 수 있는가**입니다. [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140)
 
 ## 4. 같은 PER을 적용하면 무엇이 보이나
 
@@ -115,7 +115,7 @@ HD현대일렉트릭은 같은 PER 범위에서도 결과가 크게 달라집니
 
 **필요 EPS = 주가 ÷ 목표 PER**
 
-예를 들어 특정 가격을 30배 PER로 설명하려면 그 가격을 30으로 나눈 EPS가 실제 실적 전망에서 가능한지 확인하면 됩니다.
+예를 들어 특정 가격을 30배 PER로 설명하려면 그 가격을 30으로 나눈 EPS가 실제 실적 전망에서 가능한지 확인하면 됩니다. [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140)
 
 이 방식은 "주가가 비싸 보인다"는 감상을 **시장이 요구하는 이익 수준**으로 바꿉니다.
 
@@ -131,6 +131,8 @@ AI 전력주에서는 다음 순서로 보는 것이 안전합니다.
 → **Forward PER**
 → **Price**
 
+2027 기준값은 [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140)에서 확인합니다.
+
 Backlog와 Margin이 좋아도 EPS Revision이 멈추면 높은 PER은 부담이 됩니다.
 
 반대로 주가가 올라도 EPS가 더 빠르게 상향된다면 Forward PER 부담은 완화될 수 있습니다.
@@ -139,7 +141,7 @@ Backlog와 Margin이 좋아도 EPS Revision이 멈추면 높은 PER은 부담이
 
 이번 시나리오에서 가장 중요한 결론은 목표주가 숫자 자체가 아닙니다.
 
-LS ELECTRIC은 **보수적 2027 EPS가 얼마나 더 상향돼야 현재의 높은 성장 기대를 설명할 수 있는가**가 핵심이고, HD현대일렉트릭은 **3만원대 EPS가 실제로 유지되면서 20~30배 이상의 멀티플을 받을 수 있는가**가 핵심입니다.
+LS ELECTRIC은 **보수적 2027 EPS가 얼마나 더 상향돼야 현재의 높은 성장 기대를 설명할 수 있는가**가 핵심이고, HD현대일렉트릭은 **3만원대 EPS가 실제로 유지되면서 20~30배 이상의 멀티플을 받을 수 있는가**가 핵심입니다. [2027 추정치 기준](https://consensus.hankyung.com/analysis/downpdf?report_idx=650140)
 
 즉 AI 전력주의 다음 싸움은 수주가 아니라 **EPS Revision과 Multiple의 조합**입니다.
 
