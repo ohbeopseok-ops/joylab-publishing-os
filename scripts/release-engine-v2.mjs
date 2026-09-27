@@ -44,7 +44,21 @@ if(config.state==='published'){
 }
 
 if(config.state!=='release-candidate') fail('unsupported release state: '+config.state);
-if(!gate) fail('release gate artifact missing');
+if(!gate) {
+  fs.writeFileSync(path.join(resultDir,'result.json'),JSON.stringify({
+    contract:'JoyLab Release Engine V2 Result',
+    action:'validate-candidate',
+    releaseId:config.releaseId,
+    version:config.version,
+    tag:config.tag,
+    sourceSha256:sourceHash,
+    readyChapters:ready.length,
+    shouldTag:false,
+    state:'release-candidate'
+  },null,2)+'\n');
+  console.log('Release Engine V2: release-candidate validated; waiting for post-deploy GOLD evidence');
+  process.exit(0);
+}
 if(gate.status!=='GOLD') fail('release candidate cannot publish unless Release Gate is GOLD');
 if(!gate.commitSha) fail('Release Gate commit SHA missing');
 
