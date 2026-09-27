@@ -124,3 +124,4 @@ AI 전력주는 산업 성장만으로 판단하기 어렵습니다.
 
 - [이전 글｜LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova 비교](/articles/ai-power-ls-hd-eaton-ge-compare)
 - [전체 지도｜AI Power Infrastructure](/guides/ai-power-infrastructure)
+- [함께 읽기｜한국 AI 전력 기업 비교](/articles/korea-ai-power-companies-compare)
