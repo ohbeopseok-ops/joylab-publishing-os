@@ -1,0 +1,37 @@
+{
+  "contract": "JoyLab Immutable Release Manifest V1",
+  "projectId": "series-02",
+  "releaseId": "series-02-v1.0.0",
+  "version": "1.0.0",
+  "tag": "series-02-v1.0.0",
+  "state": "published",
+  "commitSha": "bd8130c136cdd175a71df3b9c80580f5b0363362",
+  "canonicalSource": {
+    "path": "src/data/studio/series-02-source.json",
+    "sha256": "495451d5afcf6621573b0914c770554a006946730133bf884e5a298c7a0386c8",
+    "readyChapters": 15,
+    "totalChapters": 15
+  },
+  "releaseGate": {
+    "gate": "JoyLab Release Gate V1",
+    "status": "GOLD",
+    "runId": "36284878906",
+    "runAttempt": "1",
+    "checks": {
+      "build": "success",
+      "cloudflareDeploy": "success",
+      "customDomain": "success",
+      "productionSmoke": "success",
+      "studioProductionSmoke": "success",
+      "productionMobileVisualQa": "success",
+      "productionResponsiveVisualQa": "success",
+      "productionReaderQa": "success",
+      "productionMindmapQa": "success"
+    }
+  },
+  "immutability": {
+    "rule": "releaseId + version + tag + commitSha + source.sha256 are immutable once published",
+    "supersedeOnly": true
+  },
+  "publishedAt": "2026-09-27T01:17:03.851Z"
+}
