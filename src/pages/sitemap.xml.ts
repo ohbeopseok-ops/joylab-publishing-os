@@ -33,6 +33,7 @@ export async function GET({ site }: { site: URL }) {
     '/terms',
     '/advertising-disclosure',
     '/articles',
+    '/research-map',
     '/guides/investing',
     '/guides/financials-value-up',
     '/guides/ai-productivity',
