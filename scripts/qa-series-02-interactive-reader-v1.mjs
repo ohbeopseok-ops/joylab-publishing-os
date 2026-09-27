@@ -19,64 +19,87 @@ for(const viewport of [
   page.on('pageerror',e=>errors.push(String(e)));
   page.on('console',msg=>{if(msg.type()==='error' && !msg.text().includes('[Report Only]')) errors.push(msg.text());});
 
-  const res=await page.goto(baseURL+'/studio/demo/',{waitUntil:'networkidle'});
-  if((res?.status()??0)!==200) failures.push(viewport.name+': /studio/demo/ status '+(res?.status()??0));
+  let row={viewport:viewport.name,status:0,chapters:0,chapter15Persisted:false,progress:'',overflow:0,errors};
+  try {
+    const res=await page.goto(baseURL+'/studio/demo/',{waitUntil:'domcontentloaded',timeout:15000});
+    row.status=res?.status()??0;
+    if(row.status!==200) failures.push(viewport.name+': /studio/demo/ status '+row.status);
 
-  const chapters=page.locator('.studio-chapter');
-  const count=await chapters.count();
-  if(count!==15) failures.push(viewport.name+': expected 15 chapters, got '+count);
-
-  for(let i=1;i<=15;i++){
-    const id='#chapter-'+String(i).padStart(2,'0');
-    if(await page.locator(id).count()!==1) failures.push(viewport.name+': missing '+id);
-  }
-
-  const lastSelector='[data-block-id="same-data-different-ui"]';
-  const last=page.locator(lastSelector);
-  const lastCount=await last.count();
-  if(lastCount!==1){
-    failures.push(viewport.name+': chapter 15 block count '+lastCount);
-  } else {
-    const fields=last.locator('textarea');
-    const fieldCount=await fields.count();
-    for(let i=0;i<fieldCount;i++) await fields.nth(i).fill('Series 02 GOLD QA '+viewport.name+' field '+(i+1));
-
-    const submit=await page.evaluate(() => {
+    const snapshot=await page.evaluate((viewportName)=>{
+      const chapters=Array.from(document.querySelectorAll('.studio-chapter'));
+      const chapterIds=chapters.map((node)=>node.id);
       const section=document.querySelector('[data-block-id="same-data-different-ui"]');
       const form=section?.querySelector('form');
-      if(!(form instanceof HTMLFormElement)) return {ok:false,sectionFound:!!section};
-      form.requestSubmit();
-      return {ok:true,sectionFound:true};
-    });
-    if(!submit.ok){
-      failures.push(viewport.name+': chapter 15 form missing');
-    } else {
-      await page.waitForTimeout(200);
-      const result=page.locator(lastSelector+' [data-result]');
-      const resultCount=await result.count();
-      if(resultCount!==1){
-        failures.push(viewport.name+': chapter 15 result count '+resultCount);
-      } else {
-        const resultText=await result.innerText();
-        if(!resultText.includes('저장 완료')) failures.push(viewport.name+': chapter 15 save result missing');
+      const textareas=section ? Array.from(section.querySelectorAll('textarea')) : [];
+
+      textareas.forEach((field,index)=>{
+        field.value='Series 02 GOLD QA '+viewportName+' field '+(index+1);
+        field.dispatchEvent(new Event('input',{bubbles:true}));
+        field.dispatchEvent(new Event('change',{bubbles:true}));
+      });
+
+      let submitted=false;
+      if(form instanceof HTMLFormElement){
+        form.requestSubmit();
+        submitted=true;
       }
+
+      return {
+        chapterCount:chapters.length,
+        chapterIds,
+        sectionFound:!!section,
+        formFound:form instanceof HTMLFormElement,
+        fieldCount:textareas.length,
+        submitted
+      };
+    },viewport.name);
+
+    row.chapters=snapshot.chapterCount;
+    if(snapshot.chapterCount!==15) failures.push(viewport.name+': expected 15 chapters, got '+snapshot.chapterCount);
+    for(let i=1;i<=15;i++){
+      const id='chapter-'+String(i).padStart(2,'0');
+      if(!snapshot.chapterIds.includes(id)) failures.push(viewport.name+': missing #'+id);
     }
+    if(!snapshot.sectionFound) failures.push(viewport.name+': chapter 15 block missing');
+    if(!snapshot.formFound) failures.push(viewport.name+': chapter 15 form missing');
+    if(snapshot.fieldCount<3) failures.push(viewport.name+': chapter 15 fields missing');
+    if(!snapshot.submitted) failures.push(viewport.name+': chapter 15 submit did not run');
+
+    await page.waitForTimeout(150);
+
+    const state=await page.evaluate(()=>{
+      let storage={};
+      try { storage=JSON.parse(localStorage.getItem('joylab-series-02-memory-debt-workbook-v1')||'{}'); } catch {}
+      const result=document.querySelector('[data-block-id="same-data-different-ui"] [data-result]');
+      const progress=document.getElementById('studio-progress-label');
+      return {
+        persisted:!!storage?.blocks?.['same-data-different-ui']?.completed,
+        resultText:result?.textContent||'',
+        resultHidden:result instanceof HTMLElement ? result.hidden : true,
+        progress:progress?.textContent||'',
+        overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth
+      };
+    });
+
+    row.chapter15Persisted=state.persisted;
+    row.progress=state.progress;
+    row.overflow=state.overflow;
+    if(!state.persisted) failures.push(viewport.name+': chapter 15 localStorage persistence missing');
+    if(state.resultHidden || !state.resultText.includes('저장 완료')) failures.push(viewport.name+': chapter 15 save result missing');
+    if(!/^1 \/ 15 완료$/.test(state.progress.trim())) failures.push(viewport.name+': progress mismatch '+state.progress);
+    if(state.overflow>1) failures.push(viewport.name+': horizontal overflow '+state.overflow+'px');
+    if(errors.length) failures.push(viewport.name+': runtime errors '+errors.join(' | '));
+
+    await page.screenshot({path:path.join(out,viewport.name+'.png'),fullPage:false});
+  } catch(error) {
+    failures.push(viewport.name+': '+String(error?.message||error));
+    row.exception=String(error?.message||error);
+  } finally {
+    report.push(row);
+    await context.close();
   }
-
-  const storage=await page.evaluate(()=>JSON.parse(localStorage.getItem('joylab-series-02-memory-debt-workbook-v1')||'{}'));
-  if(!storage?.blocks?.['same-data-different-ui']?.completed) failures.push(viewport.name+': chapter 15 localStorage persistence missing');
-
-  const progress=await page.locator('#studio-progress-label').innerText();
-  if(!/^1 \/ 15 완료$/.test(progress)) failures.push(viewport.name+': progress mismatch '+progress);
-
-  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
-  if(overflow>1) failures.push(viewport.name+': horizontal overflow '+overflow+'px');
-  if(errors.length) failures.push(viewport.name+': runtime errors '+errors.join(' | '));
-
-  await page.screenshot({path:path.join(out,viewport.name+'.png'),fullPage:true});
-  report.push({viewport:viewport.name,status:res?.status()??0,chapters:count,chapter15Persisted:!!storage?.blocks?.['same-data-different-ui']?.completed,progress,overflow,errors});
-  await context.close();
 }
+
 await browser.close();
 await fs.writeFile(path.join(out,'report.json'),JSON.stringify({failures,report},null,2)+'\n');
 if(failures.length){console.error('Series 02 Interactive Reader 15/15 GOLD QA: FAIL');failures.forEach(x=>console.error('- '+x));process.exit(1);}
