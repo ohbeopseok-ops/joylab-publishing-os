@@ -90,7 +90,8 @@ AI 전력 투자에서는 산업 수요만 볼 것이 아니라 먼저 금리를
 ### Sources
 
 - [U.S. Treasury Daily Treasury Par Yield Curve Rates](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve)
-- [S&P Dow Jones Indices, S&P 500 Utilities](https://www.spglobal.com/spdji/en/indices/equity/sp-500-utilities-sector/)\n- [Investing.com, S&P 500 Utilities hits a 52-week low](https://in.investing.com/news/stock-market-news/sp-500-utilities-hits-a-52week-low-bargain-buy-or-ratedriven-value-trap-5606455)
+- [S&P Dow Jones Indices, S&P 500 Utilities](https://www.spglobal.com/spdji/en/indices/equity/sp-500-utilities-sector/)
+- [Investing.com, S&P 500 Utilities hits a 52-week low](https://in.investing.com/news/stock-market-news/sp-500-utilities-hits-a-52week-low-bargain-buy-or-ratedriven-value-trap-5606455)
 
 
 ## 시리즈 이동
