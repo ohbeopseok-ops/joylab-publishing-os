@@ -37,6 +37,10 @@ const canonical = book.data.canonical ?? new URL(`/books/${book.id}`, Astro.site
 const cover = book.data.coverImage;
 const readerPath = book.data.readerPath ?? `/books/${book.id}/read`;
 const readerCta = book.data.readerCta ?? '지금 읽기 · 작가의 말 + 1장';
+const interactivePath = book.data.interactivePath;
+const releasePath = book.data.releasePath;
+const epubPath = book.data.epubPath;
+const pdfPath = book.data.pdfPath;
 const mindmapPath = book.data.mindmapPath;
 const overline = book.data.overline ?? '오늘도 조금 더 나답게 살아가는 당신에게';
 const topics = book.data.topics ?? ['성장과 회복', '관계와 공감', '일과 삶의 균형', '리더에게 필요한 태도'];
@@ -92,6 +96,8 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
             data-analytics-target={book.id}
             data-analytics-placement="book_hero_v2"
           >{readerCta} <span aria-hidden="true">→</span></a>
+          {interactivePath && <a class="book-v2-secondary" href={interactivePath} data-analytics-event="book_interactive_open" data-analytics-target={book.id} data-analytics-placement="book_hero_v2">Interactive 15장 체험</a>}
+          {releasePath && <a class="book-v2-secondary" href={releasePath} data-analytics-event="book_release_open" data-analytics-target={book.id} data-analytics-placement="book_hero_v2">EPUB·PDF Release</a>}
           {mindmapPath && (
             <a
               class="book-v2-secondary"
@@ -122,6 +128,8 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
       <a href="#recommend">추천 대상</a>
       <a href="#toc">목차</a>
       <a href={readerPath}>{book.data.access === 'full' ? '웹 리더' : '미리보기'}</a>
+      {interactivePath && <a href={interactivePath}>Interactive</a>}
+      {releasePath && <a href={releasePath}>Release</a>}
       {mindmapPath && <a href={mindmapPath} data-analytics-event="book_mindmap_open" data-analytics-target={book.id} data-analytics-placement="book_tabs">마인드맵</a>}
       <a href="#author">저자 소개</a>
       <a href="#related">함께 읽으면 좋은 글</a>
@@ -216,6 +224,20 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
         ))}
       </div>
     </section>
+
+    {(releasePath || epubPath || pdfPath) && (
+      <section class="book-v2-section">
+        <div class="book-v2-section-head">
+          <div><p class="book-v2-label">PUBLISHED OUTPUTS</p><h2>읽기에서 다운로드까지</h2></div>
+          {releasePath && <a href={releasePath}>Release provenance →</a>}
+        </div>
+        <div class="book-v2-related-grid">
+          {interactivePath && <a href={interactivePath}><small>INTERACTIVE</small><h3>15개 Chapter Workbook</h3><p>읽기·기록·실행을 브라우저 localStorage에 저장합니다.</p><span>Interactive 열기 →</span></a>}
+          {epubPath && <a href={epubPath}><small>EPUB3</small><h3>전자책 다운로드</h3><p>EPUBCheck를 통과한 Series 02 전자책입니다.</p><span>EPUB 다운로드 →</span></a>}
+          {pdfPath && <a href={pdfPath}><small>PRINT PDF · A5</small><h3>Print PDF 다운로드</h3><p>PDF preflight를 통과한 A5 출력본입니다.</p><span>PDF 다운로드 →</span></a>}
+        </div>
+      </section>
+    )}
 
     <section class="book-v2-closing">
       <p>“{closingQuote}”</p>
