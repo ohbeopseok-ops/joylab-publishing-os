@@ -1,0 +1,85 @@
+{
+  "contract": "JoyLab.ResearchGraphCompact",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "ls-electric-ai-power",
+    "title": "LS ELECTRIC Compact Thesis",
+    "url": "/articles/ls-electric-ai-power",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "data-center-power",
+      "type": "demand",
+      "label": "Data Center Power Demand",
+      "signals": [
+        {
+          "id": "distribution",
+          "label": "Distribution",
+          "note": "데이터센터 내부 배전반·차단기 직접 수주가 반복되는지 봅니다."
+        },
+        {
+          "id": "transformer",
+          "label": "Transformer",
+          "note": "초고압 변압기 증설 물량이 북미·데이터센터 수요로 소화되는지 확인합니다."
+        },
+        {
+          "id": "capacity",
+          "label": "Busan Capacity",
+          "note": "부산 제2생산동 가동률과 매출 전환 속도를 봅니다."
+        }
+      ]
+    },
+    {
+      "id": "power-mix",
+      "type": "value_chain",
+      "label": "Distribution / Transformer Mix"
+    },
+    {
+      "id": "margin",
+      "type": "earnings",
+      "label": "Power Margin"
+    },
+    {
+      "id": "valuation",
+      "type": "valuation",
+      "label": "Valuation"
+    }
+  ],
+  "edges": [
+    {
+      "from": "data-center-power",
+      "to": "power-mix",
+      "type": "drives"
+    },
+    {
+      "from": "power-mix",
+      "to": "margin",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "margin",
+      "to": "valuation",
+      "type": "valued_by"
+    },
+    {
+      "from": "article-ls-electric-ai-power",
+      "to": "power-mix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-ls-electric-ai-power",
+      "to": "margin",
+      "type": "covered_by"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-ls-electric-ai-power",
+      "title": "LS ELECTRIC Compact Thesis",
+      "url": "/articles/ls-electric-ai-power",
+      "status": "published"
+    }
+  ]
+}

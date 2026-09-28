@@ -72,6 +72,46 @@
       "path": "/articles/kb-financial-shareholder-return",
       "mode": "compact",
       "reason": "company research 4-node profitability-to-PBR thesis"
+    },
+    {
+      "path": "/articles/hd-hyundai-heavy-industries-shipbuilding",
+      "mode": "compact",
+      "reason": "shipbuilding company research 4-node order-quality thesis"
+    },
+    {
+      "path": "/articles/hanwha-ocean-shipbuilding",
+      "mode": "compact",
+      "reason": "shipbuilding company research 4-node LNG/special-ship thesis"
+    },
+    {
+      "path": "/articles/samsung-heavy-industries-shipbuilding",
+      "mode": "compact",
+      "reason": "shipbuilding company research 4-node LNG/FLNG thesis"
+    },
+    {
+      "path": "/articles/hd-ksoe-shipbuilding",
+      "mode": "compact",
+      "reason": "shipbuilding holding-company 4-node group thesis"
+    },
+    {
+      "path": "/articles/doosan-enerbility-ai-power",
+      "mode": "compact",
+      "reason": "AI power company research 4-node generation thesis"
+    },
+    {
+      "path": "/articles/hyosung-heavy-industries-ai-power",
+      "mode": "compact",
+      "reason": "AI power company research 4-node grid-bottleneck thesis"
+    },
+    {
+      "path": "/articles/hd-hyundai-electric-ai-power",
+      "mode": "compact",
+      "reason": "AI power company research 4-node transformer thesis"
+    },
+    {
+      "path": "/articles/ls-electric-ai-power",
+      "mode": "compact",
+      "reason": "AI power company research 4-node data-center distribution thesis"
     }
   ]
 }

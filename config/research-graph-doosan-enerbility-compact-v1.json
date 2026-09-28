@@ -1,0 +1,85 @@
+{
+  "contract": "JoyLab.ResearchGraphCompact",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "doosan-enerbility-ai-power",
+    "title": "Doosan Enerbility Compact Thesis",
+    "url": "/articles/doosan-enerbility-ai-power",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "ai-power-demand",
+      "type": "demand",
+      "label": "AI Power Demand",
+      "signals": [
+        {
+          "id": "gas-turbine",
+          "label": "Gas Turbine",
+          "note": "데이터센터 전력 부족이 실제 대형 가스터빈 계약으로 이어지는지 봅니다."
+        },
+        {
+          "id": "nuclear-smr",
+          "label": "Nuclear / SMR",
+          "note": "원전·SMR 수주가 AI 전력 수요와 별도의 장기 성장축을 만드는지 확인합니다."
+        },
+        {
+          "id": "service",
+          "label": "Service / LTSA",
+          "note": "장비 납품 뒤 장기 서비스 매출이 반복 수익으로 누적되는지 봅니다."
+        }
+      ]
+    },
+    {
+      "id": "generation-mix",
+      "type": "value_chain",
+      "label": "Generation Mix"
+    },
+    {
+      "id": "service-margin",
+      "type": "earnings",
+      "label": "Service / Margin"
+    },
+    {
+      "id": "valuation",
+      "type": "valuation",
+      "label": "Valuation"
+    }
+  ],
+  "edges": [
+    {
+      "from": "ai-power-demand",
+      "to": "generation-mix",
+      "type": "drives"
+    },
+    {
+      "from": "generation-mix",
+      "to": "service-margin",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "service-margin",
+      "to": "valuation",
+      "type": "valued_by"
+    },
+    {
+      "from": "article-doosan-enerbility-ai-power",
+      "to": "generation-mix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-doosan-enerbility-ai-power",
+      "to": "service-margin",
+      "type": "covered_by"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-doosan-enerbility-ai-power",
+      "title": "Doosan Enerbility Compact Thesis",
+      "url": "/articles/doosan-enerbility-ai-power",
+      "status": "published"
+    }
+  ]
+}

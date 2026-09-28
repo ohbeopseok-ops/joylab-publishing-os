@@ -1,0 +1,85 @@
+{
+  "contract": "JoyLab.ResearchGraphCompact",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "hd-hyundai-electric-ai-power",
+    "title": "HD Hyundai Electric Compact Thesis",
+    "url": "/articles/hd-hyundai-electric-ai-power",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "north-america-demand",
+      "type": "demand",
+      "label": "North America Grid Demand",
+      "signals": [
+        {
+          "id": "transformer",
+          "label": "Transformer",
+          "note": "북미 초고압 변압기 수주가 장기 고마진 매출로 전환되는지 봅니다."
+        },
+        {
+          "id": "distribution",
+          "label": "Distribution",
+          "note": "데이터센터·반도체향 배전기기까지 수익성이 확산되는지 확인합니다."
+        },
+        {
+          "id": "alabama",
+          "label": "Alabama Expansion",
+          "note": "제2공장 증설이 가격 경쟁보다 수주 소화와 출하 증가로 이어지는지 봅니다."
+        }
+      ]
+    },
+    {
+      "id": "product-mix",
+      "type": "value_chain",
+      "label": "Transformer / Distribution Mix"
+    },
+    {
+      "id": "margin",
+      "type": "earnings",
+      "label": "Margin"
+    },
+    {
+      "id": "valuation",
+      "type": "valuation",
+      "label": "Valuation"
+    }
+  ],
+  "edges": [
+    {
+      "from": "north-america-demand",
+      "to": "product-mix",
+      "type": "drives"
+    },
+    {
+      "from": "product-mix",
+      "to": "margin",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "margin",
+      "to": "valuation",
+      "type": "valued_by"
+    },
+    {
+      "from": "article-hd-hyundai-electric-ai-power",
+      "to": "product-mix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hd-hyundai-electric-ai-power",
+      "to": "margin",
+      "type": "covered_by"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-hd-hyundai-electric-ai-power",
+      "title": "HD Hyundai Electric Compact Thesis",
+      "url": "/articles/hd-hyundai-electric-ai-power",
+      "status": "published"
+    }
+  ]
+}

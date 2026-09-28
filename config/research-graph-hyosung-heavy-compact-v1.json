@@ -1,0 +1,85 @@
+{
+  "contract": "JoyLab.ResearchGraphCompact",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "hyosung-heavy-industries-ai-power",
+    "title": "Hyosung Heavy Industries Compact Thesis",
+    "url": "/articles/hyosung-heavy-industries-ai-power",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "grid-bottleneck",
+      "type": "demand",
+      "label": "Grid Bottleneck",
+      "signals": [
+        {
+          "id": "us-transformer",
+          "label": "US Transformer",
+          "note": "미국 초고압 변압기·차단기 주문이 고마진 수주잔고로 쌓이는지 봅니다."
+        },
+        {
+          "id": "capacity",
+          "label": "Capacity",
+          "note": "멤피스·창원 증설이 납기 단축과 출하 증가로 연결되는지 확인합니다."
+        },
+        {
+          "id": "construction-mix",
+          "label": "Construction Mix",
+          "note": "건설 부문 변동성이 중공업 이익 개선을 희석하지 않는지 봅니다."
+        }
+      ]
+    },
+    {
+      "id": "orderbook",
+      "type": "value_chain",
+      "label": "US Orderbook"
+    },
+    {
+      "id": "capacity-margin",
+      "type": "earnings",
+      "label": "Capacity / Margin"
+    },
+    {
+      "id": "valuation",
+      "type": "valuation",
+      "label": "Valuation"
+    }
+  ],
+  "edges": [
+    {
+      "from": "grid-bottleneck",
+      "to": "orderbook",
+      "type": "drives"
+    },
+    {
+      "from": "orderbook",
+      "to": "capacity-margin",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "capacity-margin",
+      "to": "valuation",
+      "type": "valued_by"
+    },
+    {
+      "from": "article-hyosung-heavy-industries-ai-power",
+      "to": "orderbook",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hyosung-heavy-industries-ai-power",
+      "to": "capacity-margin",
+      "type": "covered_by"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-hyosung-heavy-industries-ai-power",
+      "title": "Hyosung Heavy Industries Compact Thesis",
+      "url": "/articles/hyosung-heavy-industries-ai-power",
+      "status": "published"
+    }
+  ]
+}

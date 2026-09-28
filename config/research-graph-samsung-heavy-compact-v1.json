@@ -1,0 +1,85 @@
+{
+  "contract": "JoyLab.ResearchGraphCompact",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "samsung-heavy-industries-shipbuilding",
+    "title": "Samsung Heavy Industries Compact Thesis",
+    "url": "/articles/samsung-heavy-industries-shipbuilding",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "lng-flng-demand",
+      "type": "demand",
+      "label": "LNG / FLNG Demand",
+      "signals": [
+        {
+          "id": "lng",
+          "label": "LNG Carrier",
+          "note": "고선가 LNG선 잔고가 매출과 마진으로 전환되는지 봅니다."
+        },
+        {
+          "id": "flng",
+          "label": "FLNG / Offshore",
+          "note": "FLNG·FPSO 프로젝트의 원가·공정률이 안정적으로 관리되는지 확인합니다."
+        },
+        {
+          "id": "smart-yard",
+          "label": "Smart Yard",
+          "note": "AI·로봇 자동화가 실제 생산성 개선과 원가 절감으로 이어지는지 봅니다."
+        }
+      ]
+    },
+    {
+      "id": "project-mix",
+      "type": "value_chain",
+      "label": "Project Mix"
+    },
+    {
+      "id": "productivity-margin",
+      "type": "earnings",
+      "label": "Productivity / Margin"
+    },
+    {
+      "id": "valuation",
+      "type": "valuation",
+      "label": "Valuation"
+    }
+  ],
+  "edges": [
+    {
+      "from": "lng-flng-demand",
+      "to": "project-mix",
+      "type": "drives"
+    },
+    {
+      "from": "project-mix",
+      "to": "productivity-margin",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "productivity-margin",
+      "to": "valuation",
+      "type": "valued_by"
+    },
+    {
+      "from": "article-samsung-heavy-industries-shipbuilding",
+      "to": "project-mix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-heavy-industries-shipbuilding",
+      "to": "productivity-margin",
+      "type": "covered_by"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-samsung-heavy-industries-shipbuilding",
+      "title": "Samsung Heavy Industries Compact Thesis",
+      "url": "/articles/samsung-heavy-industries-shipbuilding",
+      "status": "published"
+    }
+  ]
+}

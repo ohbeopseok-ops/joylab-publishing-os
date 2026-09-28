@@ -1,0 +1,85 @@
+{
+  "contract": "JoyLab.ResearchGraphCompact",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "hd-hyundai-heavy-industries-shipbuilding",
+    "title": "HD Hyundai Heavy Industries Compact Thesis",
+    "url": "/articles/hd-hyundai-heavy-industries-shipbuilding",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "order-quality",
+      "type": "demand",
+      "label": "Order Quality",
+      "signals": [
+        {
+          "id": "ship-mix",
+          "label": "Ship Mix",
+          "note": "LNG선·가스선·고사양 상선의 비중과 인도연도별 선가를 봅니다."
+        },
+        {
+          "id": "defense",
+          "label": "Defense / MRO",
+          "note": "함정·잠수함·MRO가 상선과 다른 장기 수요를 만드는지 확인합니다."
+        },
+        {
+          "id": "engine",
+          "label": "Engine",
+          "note": "친환경 이중연료·대형 엔진이 추가 마진 레이어로 연결되는지 봅니다."
+        }
+      ]
+    },
+    {
+      "id": "portfolio-mix",
+      "type": "value_chain",
+      "label": "Ship / Defense / Engine Mix"
+    },
+    {
+      "id": "margin",
+      "type": "earnings",
+      "label": "Margin / Productivity"
+    },
+    {
+      "id": "valuation",
+      "type": "valuation",
+      "label": "Valuation"
+    }
+  ],
+  "edges": [
+    {
+      "from": "order-quality",
+      "to": "portfolio-mix",
+      "type": "drives"
+    },
+    {
+      "from": "portfolio-mix",
+      "to": "margin",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "margin",
+      "to": "valuation",
+      "type": "valued_by"
+    },
+    {
+      "from": "article-hd-hyundai-heavy-industries-shipbuilding",
+      "to": "portfolio-mix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hd-hyundai-heavy-industries-shipbuilding",
+      "to": "margin",
+      "type": "covered_by"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-hd-hyundai-heavy-industries-shipbuilding",
+      "title": "HD Hyundai Heavy Industries Compact Thesis",
+      "url": "/articles/hd-hyundai-heavy-industries-shipbuilding",
+      "status": "published"
+    }
+  ]
+}

@@ -5,6 +5,7 @@ on:
     paths:
       - 'src/pages/articles/**'
       - 'src/components/ResearchGraphMap.astro'
+      - 'src/config/companyCompactResearch.ts'
       - 'src/styles/research-graph-map-v3.css'
       - 'config/research-graph-*-compact-v1.json'
       - 'config/research-graph-display-modes-v1.json'
