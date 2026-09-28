@@ -36,6 +36,7 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 
 ## Research Brief
 
+→ [반도체 투자 전체 구조 보기](/guides/semiconductor-investing)  
 → [삼성전자 AI 메모리 전체 구조 보기](/articles/samsung-electronics-outlook)  
 → [HBM4·HBM4E 메모리 업황 보기](/articles/samsung-hbm4-memory-outlook-2026-09-20)
 
