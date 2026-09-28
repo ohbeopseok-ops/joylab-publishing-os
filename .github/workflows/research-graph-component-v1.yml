@@ -1,0 +1,39 @@
+name: Research Graph Component V1
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'config/research-graph-ai-component-infrastructure-v1.json'
+      - 'src/pages/guides/ai-component-infrastructure.astro'
+      - 'scripts/check-research-graph-component-v1.mjs'
+      - 'package.json'
+      - '.github/workflows/research-graph-component-v1.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'config/research-graph-ai-component-infrastructure-v1.json'
+      - 'src/pages/guides/ai-component-infrastructure.astro'
+      - 'scripts/check-research-graph-component-v1.mjs'
+      - 'package.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  component-research-graph:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Validate AI Component Research Graph
+        run: npm run research-graph:component:check
+      - name: Build production site
+        run: |
+          npm ci
+          npm run build

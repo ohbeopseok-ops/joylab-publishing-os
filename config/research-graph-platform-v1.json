@@ -1,6 +1,6 @@
 {
   "contract": "JoyLab.ResearchGraphPlatform",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "mapComponent": "src/components/ResearchGraphMap.astro",
   "graphContract": "JoyLab.ResearchGraph",
   "verticals": [
@@ -19,6 +19,14 @@
       "pillar": "/guides/semiconductor-investing",
       "domain": "investing",
       "graph": "config/research-graph-semiconductor-v1.json"
+    },
+    {
+      "id": "ai-component-infrastructure",
+      "label": "AI Component Infrastructure",
+      "status": "active",
+      "graph": "config/research-graph-ai-component-infrastructure-v1.json",
+      "pillar": "/guides/ai-component-infrastructure",
+      "domain": "investing"
     },
     {
       "id": "financials",

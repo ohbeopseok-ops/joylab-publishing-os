@@ -129,7 +129,7 @@ for (const vertical of registry.verticals ?? []) {
   }
 }
 
-for (const expected of ['ai-power', 'semiconductor', 'financials', 'shipbuilding', 'ai-standards', 'growth-leadership']) {
+for (const expected of ['ai-power', 'semiconductor', 'ai-component-infrastructure', 'financials', 'shipbuilding', 'ai-standards', 'growth-leadership']) {
   if (!ids.has(expected)) fail('required vertical missing: ' + expected);
 }
 
