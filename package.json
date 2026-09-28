@@ -7,7 +7,7 @@
     "node": ">=22.19.0"
   },
   "scripts": {
-    "dev": "node scripts/materialize-weight-of-silence-reader.mjs && node scripts/build-book-assets.mjs && node scripts/apply-curated-research-images.mjs && astro dev",
+    "dev": "node scripts/sync-company-compact-scaffolds-v1.mjs && node scripts/check-company-research-auto-enrollment-v1.mjs && node scripts/materialize-weight-of-silence-reader.mjs && node scripts/build-book-assets.mjs && node scripts/apply-curated-research-images.mjs && astro dev",
     "check:heroes": "node scripts/check-hero-quality.mjs",
     "treasury:sync": "node scripts/sync-treasury-structure.mjs",
     "treasury:self-test": "node scripts/sync-treasury-structure.mjs --self-test",
@@ -18,7 +18,7 @@
     "market-transmission:sync": "node scripts/sync-market-transmission.mjs",
     "market-transmission:self-test": "node scripts/sync-market-transmission.mjs --self-test",
     "learn-mode:self-test": "node scripts/check-treasury-learn-mode.mjs",
-    "prebuild": "node scripts/check-build-log-v1.mjs && node scripts/materialize-weight-of-silence-reader.mjs && node scripts/build-book-assets.mjs && node scripts/sync-treasury-structure.mjs && node scripts/sync-rates-timeseries.mjs && node scripts/update-treasury-risk-history.mjs && node scripts/sync-market-transmission.mjs && node scripts/check-treasury-learn-mode.mjs && node scripts/apply-curated-research-images.mjs && node scripts/generate-studio-epub-v1.mjs",
+    "prebuild": "node scripts/sync-company-compact-scaffolds-v1.mjs && node scripts/check-company-research-auto-enrollment-v1.mjs && node scripts/check-build-log-v1.mjs && node scripts/materialize-weight-of-silence-reader.mjs && node scripts/build-book-assets.mjs && node scripts/sync-treasury-structure.mjs && node scripts/sync-rates-timeseries.mjs && node scripts/update-treasury-risk-history.mjs && node scripts/sync-market-transmission.mjs && node scripts/check-treasury-learn-mode.mjs && node scripts/apply-curated-research-images.mjs && node scripts/generate-studio-epub-v1.mjs",
     "build": "astro build",
     "postbuild": "node scripts/build-distribution-mobile-pages.mjs",
     "preview": "astro preview",
@@ -85,7 +85,9 @@
     "mobile-article:monetization-order": "node scripts/check-mobile-article-monetization-order-v1.mjs",
     "company-compact:preview-qa": "node scripts/check-company-compact-rollout-v1.mjs",
     "company-compact:scaffold": "node scripts/create-company-compact-scaffold-v1.mjs",
-    "company-compact:contract": "node scripts/check-company-compact-contract-v1.mjs"
+    "company-compact:contract": "node scripts/check-company-compact-contract-v1.mjs",
+    "company-compact:sync": "node scripts/sync-company-compact-scaffolds-v1.mjs",
+    "company-research:auto-enrollment": "node scripts/check-company-research-auto-enrollment-v1.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"

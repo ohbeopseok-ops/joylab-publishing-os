@@ -21,6 +21,12 @@ jobs:
           node-version: '22.19.0'
           cache: npm
       - run: npm ci
+      - name: Auto-sync Company Compact specs for Production GOLD
+        run: npm run company-compact:sync
+      - name: Check Company Research auto enrollment
+        run: npm run company-research:auto-enrollment
+      - name: Run Company Compact Contract
+        run: npm run company-compact:contract
       - run: npm install --no-save playwright@1.55.0
       - run: npx playwright install --with-deps chromium
 

@@ -1122,15 +1122,15 @@
         "semiconductor"
       ],
       "theses": [
-        "ai-capex",
-        "memory-supercycle"
+        "memory-supercycle",
+        "ai-capex"
       ],
       "companies": [
         "Samsung Electronics"
       ],
       "valueChains": [],
       "kpis": [],
-      "researchType": null
+      "researchType": "company"
     },
     {
       "slug": "samsung-heavy-industries-shipbuilding",

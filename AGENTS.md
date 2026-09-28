@@ -99,6 +99,23 @@ Use for:
 - production smoke
 - GOLD restoration
 
+### Company Research / Compact auto-enrollment
+Read:
+- `docs/COMPANY_COMPACT_SCAFFOLD_V1.md`
+- `docs/COMPANY_RESEARCH_AUTO_PIPELINE_V1.md`
+
+Use for:
+- new `investmentResearchType: company` articles
+- company-specific investment thesis articles
+- adding a second/third thesis for an already-covered company
+
+Hard rule:
+- Company Research is atomic: article + Compact spec + auto-sync + contract/QA.
+- Create `config/company-compact-specs/<articleId>.json` in the same change.
+- Do not edit `src/pages/articles/[...slug].astro` for normal Company Research enrollment.
+- Run `npm run company-compact:sync` and `npm run company-research:auto-enrollment`.
+- A company article is not complete if it is missing from Compact Preview/Production QA targets.
+
 ### Generic copy, isolated CSS, low-risk local changes
 Do not automatically load AdSense, Books, Mobile, Home Slot, Brand, or Release documents unless the touched area depends on them.
 
