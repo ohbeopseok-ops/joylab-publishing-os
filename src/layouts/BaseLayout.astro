@@ -6,6 +6,7 @@ import TreasuryLearnAssist from '../components/TreasuryLearnAssist.astro';
 import TreasuryTodayReading from '../components/TreasuryTodayReading.astro';
 import IdentitySchema from '../components/IdentitySchema.astro';
 import AnalyticsEvents from '../components/AnalyticsEvents.astro';
+import AdSlot from '../components/AdSlot.astro';
 import { SITE_IDENTITY } from '../config/siteIdentity';
 import '../styles/global.css';
 import '../styles/info.css';
@@ -36,6 +37,7 @@ const showTreasuryRiskDelta = bodyClasses.includes('rates-hub-v2');
 const showTreasuryLearnAssist = bodyClasses.includes('rates-hub-v2');
 const showTreasuryTodayReading = bodyClasses.includes('rates-hub-v2');
 const pathname = Astro.url.pathname;
+const showGuideEndAd = pathname.startsWith('/guides/');
 const navState = {
   investing: pathname.startsWith('/guides/investing') || pathname.startsWith('/guides/financials-value-up') || pathname.startsWith('/guides/semiconductor') || pathname.startsWith('/guides/ai-inference-memory') || pathname.startsWith('/guides/ai-power') || pathname.startsWith('/guides/shipbuilding') || pathname.startsWith('/guides/us-rates'),
   ai: pathname.startsWith('/guides/ai-productivity') || pathname.startsWith('/guides/ai-economics') || pathname.startsWith('/guides/ai-infrastructure') || pathname.startsWith('/guides/ai-security') || pathname.startsWith('/guides/ai-standards'),
@@ -104,6 +106,11 @@ const navState = {
     </main>
     {showTreasuryLearnAssist && <TreasuryLearnAssist />}
     {showTreasuryTodayReading && <TreasuryTodayReading />}
+    {showGuideEndAd && (
+      <div class="container guide-end-ad-shell" aria-label="가이드 하단 광고 영역">
+        <AdSlot placement="guide-end" />
+      </div>
+    )}
     <SiteFooter />
     <AnalyticsEvents />
     <script is:inline>

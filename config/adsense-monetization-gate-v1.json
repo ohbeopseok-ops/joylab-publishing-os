@@ -3,6 +3,7 @@
   "name": "JoyLab AdSense Monetization Gate V1",
   "stages": [
     "article-end",
+    "guide-end",
     "article-mid65",
     "article-mid30"
   ],
