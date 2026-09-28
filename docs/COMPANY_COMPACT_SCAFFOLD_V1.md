@@ -64,3 +64,18 @@ Production GOLD는 모든 등록 기업에 대해 다음을 확인합니다.
 
 일반적인 신규 기업 추가에서는 `src/pages/articles/[...slug].astro`와 QA 스크립트를 직접 수정하지 않습니다.  
 Scaffold가 registry와 target contract를 갱신하며 article route는 `getCompanyCompactResearch(article.id)`로 자동 연결됩니다.
+
+
+## 자동 실행 모드
+
+앞으로 신규 Company Research는 spec을 아래 경로에 두면 됩니다.
+
+```text
+config/company-compact-specs/<articleId>.json
+```
+
+`npm run dev`와 `npm run build`가 자동으로 `company-compact:sync`를 먼저 실행합니다.
+아직 등록되지 않은 spec만 Scaffold하고, 이미 등록된 spec은 idempotent하게 SKIP합니다.
+
+신규 `investmentResearchType: company` article에 spec/target이 없으면
+`company-research:auto-enrollment` gate가 FAIL하여 누락을 차단합니다.
