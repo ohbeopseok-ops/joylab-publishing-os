@@ -56,5 +56,22 @@
     "selectedNodeSummary": true,
     "relatedResearch": true,
     "fullGraphLink": true
-  }
+  },
+  "currentCompactArticles": [
+    {
+      "path": "/articles/samsung-electronics-outlook",
+      "mode": "compact",
+      "reason": "company research 4-node investment thesis"
+    },
+    {
+      "path": "/articles/sk-hynix-outlook",
+      "mode": "compact",
+      "reason": "company research 4-node AI memory thesis"
+    },
+    {
+      "path": "/articles/kb-financial-shareholder-return",
+      "mode": "compact",
+      "reason": "company research 4-node profitability-to-PBR thesis"
+    }
+  ]
 }
