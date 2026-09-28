@@ -38,6 +38,8 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 
 → [반도체 투자 전체 구조 보기](/guides/semiconductor-investing)
 
+→ [9월 28일 삼성전자 27만원 급락·수급 점검](/articles/samsung-market-close-2026-09-28)
+
 
 삼성전자 메모리 사업을 볼 때 2026년의 핵심은 단순히 DRAM 가격이 오르는가가 아니다.
 
