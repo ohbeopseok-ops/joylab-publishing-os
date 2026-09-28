@@ -1,0 +1,85 @@
+{
+  "contract": "JoyLab.ResearchGraphCompact",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "samsung-electronics-outlook",
+    "title": "Samsung Electronics Compact Thesis",
+    "url": "/articles/samsung-electronics-outlook",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "ai-memory-demand",
+      "type": "demand",
+      "label": "AI Memory Demand"
+    },
+    {
+      "id": "memory-mix",
+      "type": "value_chain",
+      "label": "Memory Mix",
+      "signals": [
+        {
+          "id": "hbm",
+          "label": "HBM",
+          "note": "인증·양산·수율과 공급 물량이 실제 이익 기여로 연결되는지 봅니다."
+        },
+        {
+          "id": "dram",
+          "label": "DRAM",
+          "note": "범용 DRAM 가격과 서버 수요가 ASP·마진을 얼마나 끌어올리는지 봅니다."
+        },
+        {
+          "id": "nand",
+          "label": "NAND",
+          "note": "NAND 가격·재고·수요 회복이 메모리 이익 변동성을 보완하는지 확인합니다."
+        }
+      ]
+    },
+    {
+      "id": "eps-revision",
+      "type": "earnings",
+      "label": "Margin / EPS Revision"
+    },
+    {
+      "id": "forward-per",
+      "type": "valuation",
+      "label": "Valuation"
+    }
+  ],
+  "edges": [
+    {
+      "from": "ai-memory-demand",
+      "to": "memory-mix",
+      "type": "drives"
+    },
+    {
+      "from": "memory-mix",
+      "to": "eps-revision",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "eps-revision",
+      "to": "forward-per",
+      "type": "valued_by"
+    },
+    {
+      "from": "article-samsung-electronics-outlook",
+      "to": "memory-mix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-electronics-outlook",
+      "to": "eps-revision",
+      "type": "covered_by"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-samsung-electronics-outlook",
+      "title": "삼성전자 전망",
+      "url": "/articles/samsung-electronics-outlook",
+      "status": "published"
+    }
+  ]
+}
