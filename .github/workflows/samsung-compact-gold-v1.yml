@@ -1,0 +1,52 @@
+name: Samsung Compact GOLD V1
+
+on:
+  pull_request:
+    paths:
+      - 'src/components/ResearchGraphMap.astro'
+      - 'src/styles/research-graph-map-v3.css'
+      - 'src/pages/articles/[...slug].astro'
+      - 'config/research-graph-samsung-compact-v1.json'
+      - 'scripts/check-samsung-compact-gold-v1.mjs'
+      - 'package.json'
+      - '.github/workflows/samsung-compact-gold-v1.yml'
+  workflow_dispatch:
+
+jobs:
+  samsung-compact-gold:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.19.0'
+          cache: npm
+      - run: npm ci
+      - run: npm install --no-save playwright@1.55.0
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: Start preview
+        run: |
+          npm run preview -- --host 127.0.0.1 > /tmp/joylab-preview.log 2>&1 &
+          echo $! > /tmp/joylab-preview.pid
+      - name: Wait for preview
+        run: |
+          for i in {1..40}; do
+            if curl -fsS http://127.0.0.1:4321/articles/samsung-electronics-outlook > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/joylab-preview.log
+          exit 1
+      - name: Run Samsung Compact GOLD
+        env:
+          QA_BASE_URL: http://127.0.0.1:4321
+        run: npm run samsung-compact:gold
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: samsung-compact-gold
+          path: qa-artifacts/samsung-compact-gold
+          if-no-files-found: warn
