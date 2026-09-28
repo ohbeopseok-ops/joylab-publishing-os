@@ -9,6 +9,7 @@ on:
       - 'src/components/AiPowerResearchMap.astro'
       - 'src/pages/guides/ai-power-infrastructure.astro'
       - 'src/pages/guides/semiconductor-investing.astro'
+      - 'src/pages/guides/ai-component-infrastructure.astro'
       - 'src/pages/guides/financials-value-up.astro'
       - 'src/pages/guides/shipbuilding.astro'
       - 'src/styles/research-graph-map-v3.css'
@@ -21,6 +22,7 @@ on:
       - 'config/research-graph-*.json'
       - 'src/components/ResearchGraphMap.astro'
       - 'src/components/AiPowerResearchMap.astro'
+      - 'src/pages/guides/ai-component-infrastructure.astro'
       - 'scripts/check-research-graph-platform-v1.mjs'
       - 'package.json'
   workflow_dispatch:
