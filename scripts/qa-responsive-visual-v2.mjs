@@ -100,11 +100,29 @@ for (const viewport of viewports) {
     page.on('console', (msg) => {
       if (msg.type() !== 'error') return;
       const text = msg.text();
+      const sourceUrl = msg.location()?.url || '';
       const benignGoogleReportOnlyFrameError =
         text.includes('[Report Only]') &&
         text.includes("Refused to frame 'https://www.google.com/'") &&
         text.includes("frame-ancestors 'self'");
-      if (!benignGoogleReportOnlyFrameError) errors.push('console: ' + text);
+      const benignGoogleAdsRumError =
+        text.includes('https://pagead2.googlesyndication.com/pagead/js/rum.js') &&
+        text.includes('Error: carr');
+      const benignFundingChoicesCorsError =
+        text.includes("Access to XMLHttpRequest at 'https://fundingchoicesmessages.google.com/") &&
+        text.includes("has been blocked by CORS policy");
+      const benignFailedGoogleResource =
+        text === 'Failed to load resource: net::ERR_FAILED' &&
+        sourceUrl.startsWith('https://fundingchoicesmessages.google.com/');
+
+      if (
+        !benignGoogleReportOnlyFrameError &&
+        !benignGoogleAdsRumError &&
+        !benignFundingChoicesCorsError &&
+        !benignFailedGoogleResource
+      ) {
+        errors.push('console: ' + text);
+      }
     });
 
     const response = await page.goto(baseURL + item.path, { waitUntil: 'networkidle' });
