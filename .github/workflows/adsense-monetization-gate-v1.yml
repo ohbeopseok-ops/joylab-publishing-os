@@ -218,3 +218,157 @@ jobs:
             exit 1
           fi
           test "$DECISION" = "ADVANCE" -o "$DECISION" = "COLLECT"
+
+
+  book-evaluate:
+    if: ${{ vars.ADSENSE_MONETIZATION_ENABLED == 'true' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'live')) }}
+    runs-on: ubuntu-latest
+    env:
+      OUT_DIR: qa-artifacts/adsense-monetization-gate-v1-book
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Fetch AdSense Books family metrics
+        env:
+          ADSENSE_OAUTH_CLIENT_ID: ${{ secrets.ADSENSE_OAUTH_CLIENT_ID }}
+          ADSENSE_OAUTH_CLIENT_SECRET: ${{ secrets.ADSENSE_OAUTH_CLIENT_SECRET }}
+          ADSENSE_OAUTH_REFRESH_TOKEN: ${{ secrets.ADSENSE_OAUTH_REFRESH_TOKEN }}
+          ADSENSE_ACCOUNT_RESOURCE: ${{ vars.ADSENSE_ACCOUNT_RESOURCE }}
+          ADSENSE_SITE_DOMAIN: aijoylab.kr
+          ADSENSE_PAGE_PREFIX: /books/
+          ADSENSE_REPORT_DAYS: "7"
+          ADSENSE_METRICS_OUT: qa-artifacts/adsense-monetization-gate-v1-book/adsense.json
+        run: |
+          mkdir -p "$OUT_DIR"
+          node scripts/fetch-adsense-metrics-v1.mjs
+
+      - name: Fetch Cloudflare Books landing UX
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ANALYTICS_READ_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_READ_TOKEN }}
+          MONETIZATION_PAGE_SCOPE: book
+          MONETIZATION_UX_DAYS: "7"
+          CLOUDFLARE_UX_OUT: qa-artifacts/adsense-monetization-gate-v1-book/cloudflare-ux.json
+        run: node scripts/fetch-cloudflare-monetization-ux-v1.mjs
+
+      - name: Compose Books landing monetization snapshot
+        env:
+          ADSENSE_MONETIZATION_STAGE: book-end
+          ADSENSE_METRICS_JSON: qa-artifacts/adsense-monetization-gate-v1-book/adsense.json
+          CLOUDFLARE_UX_JSON: qa-artifacts/adsense-monetization-gate-v1-book/cloudflare-ux.json
+          MONETIZATION_SNAPSHOT_OUT: qa-artifacts/adsense-monetization-gate-v1-book/snapshot.json
+        run: node scripts/compose-adsense-monetization-snapshot-v1.mjs
+
+      - name: Evaluate Books landing monetization gate
+        id: book_gate
+        continue-on-error: true
+        run: |
+          node scripts/evaluate-adsense-monetization-v1.mjs "$OUT_DIR/snapshot.json" | tee "$OUT_DIR/result.json"
+
+      - name: Generate Books landing monetization dashboard
+        if: always()
+        env:
+          MONETIZATION_RESULT_JSON: qa-artifacts/adsense-monetization-gate-v1-book/result.json
+          MONETIZATION_DASHBOARD_OUT: qa-artifacts/adsense-monetization-gate-v1-book/dashboard
+        run: node scripts/generate-adsense-monetization-dashboard-v1.mjs
+
+      - name: Publish Books landing decision to job summary
+        if: always()
+        shell: bash
+        run: |
+          DECISION="$(cat "$OUT_DIR/dashboard/decision.txt" 2>/dev/null || echo UNKNOWN)"
+          {
+            echo "# JoyLab Books Landing Monetization"
+            echo
+            echo "## $DECISION"
+            echo
+            echo "Stage: book-end"
+            echo
+            echo "Reader: ad-free"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload Books landing dashboard and evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: adsense-monetization-gate-v1-book
+          path: qa-artifacts/adsense-monetization-gate-v1-book
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Enforce Books landing rollback decision
+        if: always()
+        shell: bash
+        run: |
+          DECISION="$(cat "$OUT_DIR/dashboard/decision.txt" 2>/dev/null || echo UNKNOWN)"
+          if [ "$DECISION" = "ROLLBACK" ]; then
+            echo "Books Landing Monetization Gate requested ROLLBACK."
+            exit 1
+          fi
+          test "$DECISION" = "ADVANCE" -o "$DECISION" = "COLLECT"
+
+  dashboard-v2:
+    needs:
+      - evaluate
+      - guide-evaluate
+    if: ${{ always() && vars.ADSENSE_MONETIZATION_ENABLED == 'true' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'live')) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Download Article monetization evidence
+        uses: actions/download-artifact@v6
+        with:
+          name: adsense-monetization-gate-v1
+          path: qa-artifacts-v2/article
+
+      - name: Download Guide monetization evidence
+        uses: actions/download-artifact@v6
+        with:
+          name: adsense-monetization-gate-v1-guide
+          path: qa-artifacts-v2/guide
+
+      - name: Generate Monetization Dashboard V2
+        env:
+          ARTICLE_SNAPSHOT_JSON: qa-artifacts-v2/article/snapshot.json
+          GUIDE_SNAPSHOT_JSON: qa-artifacts-v2/guide/snapshot.json
+          ARTICLE_RESULT_JSON: qa-artifacts-v2/article/result.json
+          GUIDE_RESULT_JSON: qa-artifacts-v2/guide/result.json
+          MONETIZATION_DASHBOARD_V2_OUT: qa-artifacts/adsense-monetization-dashboard-v2
+        run: node scripts/generate-adsense-monetization-dashboard-v2.mjs
+
+      - name: Publish V2 summary
+        shell: bash
+        run: |
+          DECISION="$(cat qa-artifacts/adsense-monetization-dashboard-v2/decision.txt 2>/dev/null || echo UNKNOWN)"
+          {
+            echo "# JoyLab Monetization Dashboard V2"
+            echo
+            echo "## $DECISION"
+            echo
+            echo "Surfaces: Article × Guide"
+            echo
+            echo "Books Landing: separate pilot gate; Reader remains ad-free"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload Monetization Dashboard V2
+        uses: actions/upload-artifact@v6
+        with:
+          name: adsense-monetization-dashboard-v2
+          path: qa-artifacts/adsense-monetization-dashboard-v2
+          if-no-files-found: error
+          retention-days: 90

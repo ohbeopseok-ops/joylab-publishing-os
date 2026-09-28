@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 114,
+  "articleCount": 115,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -1097,6 +1097,23 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "samsung-daily-analysis-2026-09-28",
+      "route": "/articles/samsung-daily-analysis-2026-09-28",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "memory-supercycle",
+        "ai-capex"
+      ],
+      "companies": [
+        "Samsung Electronics"
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "company"
     },
     {
       "slug": "samsung-electronics-outlook",

@@ -2076,6 +2076,25 @@
       }
     ]
   },
+  "samsung-daily-analysis-2026-09-28": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "삼성전자 2026년 9월 28일 급락과 외국인 수급, 미국 장기금리, 반도체 실적을 분석한 JoyLab Research 대표 이미지",
+      "caption": "주가 급락을 수급·금리·환율과 3분기 실적 전망으로 분리해 판단합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "삼성전자 급락의 외국인 수급, 원달러 환율, 미국 국채금리 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "가격보다 먼저 외국인 매도 강도와 금리·환율의 진정 여부를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "삼성전자 일간 리서치를 Fact Flow Earnings Thesis Action 순서로 정리한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Flow → Earnings → Thesis → Action 순서로 급락의 의미를 분리합니다."
+      }
+    ]
+  },
   "samsung-market-close-2026-09-28": {
     "hero": {
       "src": "/images/research/joylab-research-default-hero.svg",

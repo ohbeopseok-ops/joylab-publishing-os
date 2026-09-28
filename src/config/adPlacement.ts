@@ -8,6 +8,7 @@ export const AD_PLACEMENT = {
     articleMid65: { key: 'article-mid-65', slotId: '', minChars: 5200 },
     articleEnd: { key: 'article-end', slotId: '1843494813', minChars: 2200 },
     guideEnd: { key: 'guide-end', slotId: '1843494813' },
+    bookEnd: { key: 'book-end', slotId: '1843494813' },
     archiveInFeed: { key: 'archive-in-feed', slotId: '', minCardsBefore: 6 }
   },
   exclusions: [
