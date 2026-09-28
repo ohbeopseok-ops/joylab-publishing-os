@@ -42,12 +42,12 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 <!-- evidence: https://www.samsung.com/sec/ir/financial-information/earnings-release/ -->
 
 2026년 9월 28일 삼성전자는 **270,000원(-5.43%)**에 마감했다. 시가 284,500원에서 출발해 장중 고점 285,500원을 기록한 뒤 저가 270,000원에서 거래를 마쳤다.
-<!-- evidence: https://stock.mk.co.kr/price/dealer/KR7145210001 -->
+<!-- evidence: https://data.krx.co.kr/ -->
 
 같은 날 코스피는 **6,889.74(-2.70%)**로 7,000선을 다시 내줬고, 원/달러 환율은 오후 3시 30분 기준 **1,365.1원**으로 상승했다. 추석 연휴 동안 미국 10년물 국채금리가 **5.22%**까지 올라간 충격이 국내 대형 성장주와 반도체주에 한꺼번에 반영됐다.
 <!-- evidence: https://www.yna.co.kr/view/AKR20260928120000002 -->
 
-다만 이날 주가 급락과 삼성전자의 3분기 실적 전망은 같은 방향으로 움직이지 않았다. 최근 시장의 3분기 영업이익 컨센서스는 **약 111조원**까지 높아져 있다.
+다만 이날 주가 급락과 삼성전자의 3분기 실적 전망은 같은 방향으로 움직이지 않았다. 9월 21~27일 에프앤가이드 집계를 인용한 복수 보도에서는 3분기 영업이익 컨센서스를 **약 111조원**으로 제시했다.
 <!-- evidence: https://www.mt.co.kr/industry/2026/09/28/2026092719264354029 -->
 
 따라서 오늘의 핵심 질문은 하나다.
@@ -88,11 +88,11 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 주가가 저가에서 끝났다는 점은 장중 매수세가 매도 압력을 충분히 흡수하지 못했다는 뜻이다.
 
 특히 코스피 역시 큰 폭으로 하락했지만 삼성전자의 낙폭이 더 컸다. 따라서 오늘 움직임을 단순한 시장 조정으로만 보기 어렵다.
-<!-- evidence: https://stock.mk.co.kr/price/dealer/KR7145210001 -->
+<!-- evidence: https://data.krx.co.kr/ -->
 
 ---
 
-## 2. FLOW｜실제 핵심은 삼성전자 단독 -2.45조원이 아니라 ‘반도체 동반 매도’
+## 2. FLOW｜실제 핵심은 ‘반도체 동반 매도’
 
 당일 보도 기준 삼성전자 외국인 순매도는 약 **1조3,757억원**, 기관 순매도는 약 **6,644억원**이다.
 <!-- evidence: https://www.yna.co.kr/amp/view/AKR20260928034551008 -->
@@ -138,7 +138,7 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 
 가격과 실적 전망은 현재 엇갈리고 있다.
 
-9월 27~28일 보도된 에프앤가이드 집계 기준 삼성전자의 2026년 3분기 영업이익 컨센서스는 약 **111조원** 수준이다.
+9월 21~27일 에프앤가이드 집계를 인용한 연합뉴스·머니투데이 보도 기준 삼성전자의 2026년 3분기 영업이익 컨센서스는 **약 111.4~111.8조원**이다. 이는 회사 확정 실적이 아니라 증권사 전망치 평균이다.
 <!-- evidence: https://www.mt.co.kr/industry/2026/09/28/2026092719264354029 -->
 
 최근 시장에서는 메모리 가격 강세와 HBM4 매출 확대, 파운드리 가동률 개선이 3분기 실적을 지지할 가능성이 거론되고 있다.
@@ -190,7 +190,7 @@ AI 서버 메모리 수요와 삼성전자의 HBM4·서버 DRAM·eSSD·CXL 확�
 이유는 펀더멘털이 아니라 **수급이 아직 진정됐다는 증거가 없기 때문**이다.
 
 27만원은 가격 자체로는 이전보다 낮아졌지만, 거래량 증가를 동반한 저가 마감 이후에는 지지선 숫자보다 매도 강도의 변화가 더 중요하다.
-<!-- evidence: https://stock.mk.co.kr/price/dealer/KR7145210001 -->
+<!-- evidence: https://data.krx.co.kr/ -->
 
 ---
 
@@ -205,10 +205,10 @@ AI 서버 메모리 수요와 삼성전자의 HBM4·서버 DRAM·eSSD·CXL 확�
 ### ② 270,000원 회복력
 
 27만원을 단순히 터치하는 것이 아니라 장중 저점 이후 **종가 기준으로 지켜내는지** 본다.
-<!-- evidence: https://stock.mk.co.kr/price/dealer/KR7145210001 -->
+<!-- evidence: https://data.krx.co.kr/ -->
 
 반대로 27만원을 다시 크게 이탈하면 가격보다 수급 안정 확인을 우선한다.
-<!-- evidence: https://stock.mk.co.kr/price/dealer/KR7145210001 -->
+<!-- evidence: https://data.krx.co.kr/ -->
 
 ### ③ 금리·환율 동시 안정
 
@@ -256,8 +256,9 @@ AI 서버 메모리 수요와 삼성전자의 HBM4·서버 DRAM·eSSD·CXL 확�
 - 연합뉴스, 2026-09-28, 코스피 6,889.74 마감 및 시장 수급: https://www.yna.co.kr/view/AKR20260928124200008
 - 연합뉴스, 2026-09-28, 삼성전자·SK하이닉스 급락 및 종목별 외국인·기관 순매매: https://www.yna.co.kr/amp/view/AKR20260928034551008
 - 연합뉴스, 2026-09-28, 원/달러 1,365.1원 및 미국 10년물 5.22%: https://www.yna.co.kr/view/AKR20260928120000002
-- 매일경제 마켓, 2026-09-28, 삼성전자 종가·OHLC·거래량·거래대금: https://stock.mk.co.kr/price/dealer/KR7145210001
-- 머니투데이, 2026-09-28, 삼성전자 3Q26 영업이익 컨센서스 약 111.8조원: https://www.mt.co.kr/industry/2026/09/28/2026092719264354029
+- KRX 정보데이터시스템, 2026-09-28, 삼성전자 시세·거래량·거래대금 원천 데이터: https://data.krx.co.kr/
+- 연합뉴스, 2026-09-23, 에프앤가이드 삼성전자 3Q26 영업이익 추정치 약 111.4조원: https://www.yna.co.kr/view/AKR20260923161100008
+- 머니투데이, 2026-09-28, 에프앤가이드 삼성전자 3Q26 영업이익 컨센서스 약 111.8조원: https://www.mt.co.kr/industry/2026/09/28/2026092719264354029
 - 머니투데이, 2026-09-28, 삼성전자 CXL·AI 메모리 전략: https://www.mt.co.kr/industry/2026/09/28/2026092815580639077
 - KRX 정보데이터시스템, 2026-09-28, 국내 주식 시세·투자자별 거래 원천 데이터: https://data.krx.co.kr/
 - Samsung IR, 2026 실적발표: https://www.samsung.com/sec/ir/financial-information/earnings-release/
