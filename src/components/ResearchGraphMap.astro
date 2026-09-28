@@ -25,7 +25,8 @@ const {
   compactMaxNodes = 4
 } = Astro.props;
 
-const compactFlow = primaryFlow.slice(0, Math.max(1, compactMaxNodes));
+const effectiveCompactMaxNodes = Math.min(4, Math.max(1, compactMaxNodes));
+const compactFlow = primaryFlow.slice(0, effectiveCompactMaxNodes);
 const renderedFlow = mode === 'compact' ? compactFlow : primaryFlow;
 
 const defaultGroups = [
