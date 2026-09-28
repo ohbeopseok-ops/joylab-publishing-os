@@ -69,6 +69,12 @@ const pages = [
     maxScreens: { 'iphone-390': 13, 'iphone-430': 12, 'ipad-820': 9, 'desktop-1440': 10 }
   },
   {
+    name: 'ai-component-guide',
+    path: '/guides/ai-component-infrastructure',
+    selectors: ['.aci-hero', '.aci-main', '.aci-score', '[data-research-map-v3]', '#site-footer-v2'],
+    maxScreens: { 'iphone-390': 20, 'iphone-430': 18, 'ipad-820': 12, 'desktop-1440': 12 }
+  },
+  {
     name: 'ai-productivity-guide',
     path: '/guides/ai-productivity',
     selectors: ['.sg-hero', '.sg-main', '.sg-path', '#site-footer-v2'],
