@@ -1,0 +1,51 @@
+{
+  "key": "samsung-daily-20260928",
+  "articleId": "samsung-daily-analysis-2026-09-28",
+  "companyName": "Samsung Electronics",
+  "eyebrow": "SAMSUNG ELECTRONICS · DAILY RISK COMPACT",
+  "description": "9월 28일 급락을 금리·환율·외국인 수급과 3분기 실적 전망으로 분리해 투자 논리와 실행 신호를 압축합니다.",
+  "hubHref": "/guides/semiconductor-investing",
+  "hubLabel": "전체 Semiconductor Graph →",
+  "reason": "Samsung daily price-flow-earnings thesis 4-node investment flow",
+  "signalNode": "flow-shock",
+  "signalId": "foreign-flow",
+  "nodes": [
+    {
+      "id": "macro-discount-rate",
+      "type": "demand",
+      "label": "Rates / FX"
+    },
+    {
+      "id": "flow-shock",
+      "type": "value_chain",
+      "label": "Foreign Flow Shock",
+      "signals": [
+        {
+          "id": "foreign-flow",
+          "label": "Foreign Net Flow",
+          "note": "삼성전자 외국인 순매도 규모가 전일 대비 뚜렷하게 둔화되는지 확인합니다."
+        },
+        {
+          "id": "relative-strength",
+          "label": "Relative Strength",
+          "note": "삼성전자의 KOSPI 대비 상대수익률이 음(-)의 구간에서 회복되는지 봅니다."
+        },
+        {
+          "id": "fx-stability",
+          "label": "FX Stability",
+          "note": "원/달러 환율이 추가 상승을 멈추고 외국인 환차손 압력이 완화되는지 확인합니다."
+        }
+      ]
+    },
+    {
+      "id": "q3-earnings",
+      "type": "earnings",
+      "label": "3Q Earnings Consensus"
+    },
+    {
+      "id": "price-thesis",
+      "type": "valuation",
+      "label": "Price / Thesis"
+    }
+  ]
+}
