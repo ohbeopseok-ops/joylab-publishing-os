@@ -93,4 +93,4 @@ if (failed) {
   process.exit(1);
 }
 
-console.log('Company Compact Production GOLD PASS · Shipbuilding 4 + AI Power 4');
+console.log(`Company Compact Production GOLD PASS · ${pages.length} company research pages`);
