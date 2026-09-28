@@ -1,0 +1,23 @@
+{
+  "contract": "JoyLab.ResearchGraphCompact",
+  "version": "1.0.0",
+  "pillar": {"id":"sk-hynix-outlook","title":"SK hynix Compact Thesis","url":"/articles/sk-hynix-outlook","domain":"investing","status":"published"},
+  "nodes": [
+    {"id":"ai-memory-demand","type":"demand","label":"AI Memory Demand"},
+    {"id":"hbm-execution","type":"value_chain","label":"HBM Execution","signals":[
+      {"id":"hbm4","label":"HBM4","note":"양산 출하·수율·세대 전환 속도가 실제 공급 증가로 이어지는지 봅니다."},
+      {"id":"long-term-contracts","label":"Long-term Contracts","note":"장기공급계약이 단기 주문보다 높은 수요 가시성을 제공하는지 확인합니다."},
+      {"id":"capacity","label":"Capacity / CAPEX","note":"Y2·M17 증설과 패키징 능력이 수요 증가를 따라가면서 공급과잉을 만들지 않는지 봅니다."}
+    ]},
+    {"id":"margin-fcf","type":"earnings","label":"Margin / FCF"},
+    {"id":"valuation","type":"valuation","label":"Valuation"}
+  ],
+  "edges": [
+    {"from":"ai-memory-demand","to":"hbm-execution","type":"drives"},
+    {"from":"hbm-execution","to":"margin-fcf","type":"drives_earnings"},
+    {"from":"margin-fcf","to":"valuation","type":"valued_by"},
+    {"from":"article-sk-hynix-outlook","to":"hbm-execution","type":"covered_by"},
+    {"from":"article-sk-hynix-outlook","to":"margin-fcf","type":"covered_by"}
+  ],
+  "articles":[{"id":"article-sk-hynix-outlook","title":"SK하이닉스 전망","url":"/articles/sk-hynix-outlook","status":"published"}]
+}
