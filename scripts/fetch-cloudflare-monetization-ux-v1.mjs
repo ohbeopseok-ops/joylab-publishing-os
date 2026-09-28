@@ -32,7 +32,7 @@ async function windowMetrics(fromDaysAgo,toDaysAgo){
   const clsRows=await query(`
     SELECT blob2 AS cls_value, blob4 AS path, SUM(_sample_interval) AS samples
     FROM ${dataset}
-    WHERE ${where} AND index1 = 'article_cls'
+    WHERE ${where} AND index1 = 'article_cls_v2'
     GROUP BY blob2, blob4
   `);
   const get=(event,placement=null)=>events
@@ -120,7 +120,7 @@ const payload={
     readingDepthPct:'Share of article views reaching at least 50% scroll depth.',
     exitRatePct:'Share of article views ending before 25% scroll depth and before 30 visible seconds.',
     ctaConversionPct:'Article contact CTA clicks divided by article views.',
-    clsP75:'Weighted p75 of client-reported CLS values.'
+    clsP75:'Weighted p75 of Web Vitals session-window CLS v2 values.'
   },
   current,
   baseline
