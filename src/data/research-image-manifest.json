@@ -2075,5 +2075,24 @@
         "caption": "Translation → Verification → Deep Inquiry 순서로 인간과 AI의 역할을 나눕니다."
       }
     ]
+  },
+  "samsung-market-close-2026-09-28": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "삼성전자 27만원 급락과 외국인 수급, 반도체 업황을 분석한 JoyLab Research 대표 이미지",
+      "caption": "가격 급락을 펀더멘털·수급·환율·실적 기대의 네 축으로 분해합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "삼성전자 외국인 수급과 원달러 환율, 반도체 시장 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "단기 가격보다 외국인 수급·환율·미국 반도체 흐름의 변화 신호를 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "삼성전자 급락을 Fact Mechanism Earnings Risk Scenario 순서로 해석하는 JoyLab 프레임워크 이미지",
+        "caption": "Fact → Mechanism → Earnings → Risk → Scenario 순서로 판단 기준을 정리합니다."
+      }
+    ]
   }
 }
