@@ -1,0 +1,51 @@
+{
+  "key": "company-slug",
+  "articleId": "existing-company-article-slug",
+  "companyName": "Company Name",
+  "eyebrow": "COMPANY NAME · COMPACT THESIS",
+  "description": "기업의 투자 논리를 네 단계로 압축한 설명입니다.",
+  "hubHref": "/guides/example-hub",
+  "hubLabel": "전체 Example Graph →",
+  "reason": "company research 4-node thesis",
+  "signalNode": "execution-node",
+  "signalId": "signal-a",
+  "nodes": [
+    {
+      "id": "demand-node",
+      "type": "demand",
+      "label": "Demand"
+    },
+    {
+      "id": "execution-node",
+      "type": "value_chain",
+      "label": "Execution",
+      "signals": [
+        {
+          "id": "signal-a",
+          "label": "Signal A",
+          "note": "첫 번째 확인 신호"
+        },
+        {
+          "id": "signal-b",
+          "label": "Signal B",
+          "note": "두 번째 확인 신호"
+        },
+        {
+          "id": "signal-c",
+          "label": "Signal C",
+          "note": "세 번째 확인 신호"
+        }
+      ]
+    },
+    {
+      "id": "earnings-node",
+      "type": "earnings",
+      "label": "Margin / EPS"
+    },
+    {
+      "id": "valuation-node",
+      "type": "valuation",
+      "label": "Valuation"
+    }
+  ]
+}
