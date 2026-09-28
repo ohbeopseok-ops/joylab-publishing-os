@@ -36,6 +36,9 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 
 ## Research Brief
 
+→ [반도체 투자 전체 구조 보기](/guides/semiconductor-investing)
+
+
 삼성전자 메모리 사업을 볼 때 2026년의 핵심은 단순히 DRAM 가격이 오르는가가 아니다.
 
 중요한 변화는 **HBM4 양산 → HBM4E 샘플 → 서버 DRAM·eSSD 확대**가 하나의 흐름으로 연결되고 있다는 점이다.
