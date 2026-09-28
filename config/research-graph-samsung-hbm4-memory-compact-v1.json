@@ -1,0 +1,85 @@
+{
+  "contract": "JoyLab.ResearchGraphCompact",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "samsung-hbm4-memory-outlook-2026-09-20",
+    "title": "Samsung Electronics HBM4 Compact Thesis",
+    "url": "/articles/samsung-hbm4-memory-outlook-2026-09-20",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "ai-server-demand",
+      "type": "demand",
+      "label": "AI Server Demand"
+    },
+    {
+      "id": "hbm-execution",
+      "type": "value_chain",
+      "label": "HBM4 / HBM4E Execution",
+      "signals": [
+        {
+          "id": "hbm4-shipment",
+          "label": "HBM4 Shipment",
+          "note": "HBM4 양산 출하가 고객 매출과 반복 주문으로 이어지는지 봅니다."
+        },
+        {
+          "id": "hbm4e-qualification",
+          "label": "HBM4E Qualification",
+          "note": "HBM4E 샘플이 고객 인증과 양산 채택 단계로 전환되는지 확인합니다."
+        },
+        {
+          "id": "yield-supply",
+          "label": "Yield / Supply",
+          "note": "수율과 공급능력이 출하 확대를 따라가면서 원가와 마진을 훼손하지 않는지 봅니다."
+        }
+      ]
+    },
+    {
+      "id": "premium-memory-mix",
+      "type": "earnings",
+      "label": "Premium Memory Mix"
+    },
+    {
+      "id": "ds-earnings-valuation",
+      "type": "valuation",
+      "label": "DS Earnings / Valuation"
+    }
+  ],
+  "edges": [
+    {
+      "from": "ai-server-demand",
+      "to": "hbm-execution",
+      "type": "drives"
+    },
+    {
+      "from": "hbm-execution",
+      "to": "premium-memory-mix",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "premium-memory-mix",
+      "to": "ds-earnings-valuation",
+      "type": "valued_by"
+    },
+    {
+      "from": "article-samsung-hbm4-memory-outlook-2026-09-20",
+      "to": "hbm-execution",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-hbm4-memory-outlook-2026-09-20",
+      "to": "premium-memory-mix",
+      "type": "covered_by"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-samsung-hbm4-memory-outlook-2026-09-20",
+      "title": "Samsung Electronics HBM4",
+      "url": "/articles/samsung-hbm4-memory-outlook-2026-09-20",
+      "status": "published"
+    }
+  ]
+}

@@ -117,6 +117,15 @@
       "signalNode": "data-center-power",
       "signalId": "distribution",
       "expectedHub": "/guides/ai-power-infrastructure"
+    },
+    {
+      "graphKey": "samsung-hbm4-memory",
+      "name": "samsung-hbm4-memory",
+      "articleId": "samsung-hbm4-memory-outlook-2026-09-20",
+      "path": "/articles/samsung-hbm4-memory-outlook-2026-09-20",
+      "signalNode": "hbm-execution",
+      "signalId": "hbm4-shipment",
+      "expectedHub": "/guides/semiconductor-investing"
     }
   ]
 }
