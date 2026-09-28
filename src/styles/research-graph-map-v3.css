@@ -91,3 +91,26 @@
   .sg-layout>.sg-content,
   .sg-layout>.sg-rail{grid-column:1}
 }
+
+
+/* ResearchGraph Compact Mode V1 */
+.rg--compact{padding:20px;border-radius:18px}
+.rg--compact .rg__head{margin-bottom:16px}
+.rg--compact .rg__head h2{font-size:clamp(20px,2.2vw,28px)}
+.rg--compact .rg__head p{font-size:.88rem;line-height:1.55}
+.rg--compact .rg__flow-wrap{margin-bottom:12px;padding:10px}
+.rg--compact .rg__flow-node{min-height:40px;font-size:.72rem}
+.rg--compact .rg__detail{grid-template-columns:minmax(0,1fr) minmax(220px,.7fr);gap:14px;padding:16px}
+.rg--compact .rg__detail h3{font-size:1.15rem}
+.rg--compact .rg__edge-panels,
+.rg--compact .rg__company-kpi{display:none!important}
+.rg--compact .rg__detail-links a{padding:9px 10px;font-size:.78rem}
+.rg__compact-footer{display:flex;justify-content:flex-end;margin-top:10px}
+.rg__compact-footer a{color:#bfdbfe;font-size:.76rem;font-weight:800;text-decoration:none}
+@media(max-width:640px){
+  .rg--compact{padding:16px}
+  .rg--compact .rg__flow-wrap{overflow-x:auto}
+  .rg--compact .rg__flow{width:max-content;min-width:max-content}
+  .rg--compact .rg__flow-node{flex:0 0 auto;min-width:max-content}
+  .rg--compact .rg__detail{grid-template-columns:1fr}
+}

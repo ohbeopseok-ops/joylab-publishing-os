@@ -1,0 +1,27 @@
+name: Research Graph Compact Mode V1
+
+on:
+  pull_request:
+    paths:
+      - 'src/components/ResearchGraphMap.astro'
+      - 'src/styles/research-graph-map-v3.css'
+      - 'config/research-graph-ui-contract-v2.json'
+      - 'config/research-graph-display-modes-v1.json'
+      - 'scripts/check-research-graph-compact-v1.mjs'
+      - '.github/workflows/research-graph-compact-v1.yml'
+      - 'package.json'
+  workflow_dispatch:
+
+jobs:
+  compact-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.19.0'
+          cache: npm
+      - run: npm ci
+      - run: npm run research-graph:compact:check
+      - run: npm run build

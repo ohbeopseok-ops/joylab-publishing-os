@@ -9,6 +9,8 @@ interface Props {
   hubHref?: string;
   hubLabel?: string;
   primaryFlow?: string[];
+  mode?: 'full' | 'compact';
+  compactMaxNodes?: number;
 }
 
 const {
@@ -18,8 +20,14 @@ const {
   description = '방향이 있는 Edge와 KPI를 따라 투자 논리를 탐색합니다.',
   hubHref = '/guides/investing',
   hubLabel = 'Investment Hub →',
-  primaryFlow = []
+  primaryFlow = [],
+  mode = 'full',
+  compactMaxNodes = 4
 } = Astro.props;
+
+const effectiveCompactMaxNodes = Math.min(4, Math.max(1, compactMaxNodes));
+const compactFlow = primaryFlow.slice(0, effectiveCompactMaxNodes);
+const renderedFlow = mode === 'compact' ? compactFlow : primaryFlow;
 
 const defaultGroups = [
   { key: 'macro', label: 'MACRO / MARKET', types: ['macro','sector'] },
@@ -80,7 +88,7 @@ const nodePayload = Object.fromEntries(graph.nodes.map((node:any) => {
 }));
 ---
 
-<section class="rg" data-research-map-v3>
+<section class:list={['rg', mode === 'compact' && 'rg--compact']} data-research-map-v3 data-rg-mode={mode}>
   <div class="rg__head">
     <div>
       <span>{eyebrow}</span>
@@ -90,16 +98,16 @@ const nodePayload = Object.fromEntries(graph.nodes.map((node:any) => {
     <a href={hubHref}>{hubLabel}</a>
   </div>
 
-  {primaryFlow.length > 0 && (
+  {renderedFlow.length > 0 && (
     <div class="rg__flow-wrap" aria-label="핵심 방향성 Edge">
       <div class="rg__flow">
-        {primaryFlow.map((id, index) => {
+        {renderedFlow.map((id, index) => {
           const node:any = nodeById.get(id);
           if (!node) return null;
           return (
             <>
               <button type="button" class="rg__flow-node" data-node-id={node.id}>{node.label}</button>
-              {index < primaryFlow.length - 1 && <span class="rg__flow-edge" aria-hidden="true">→</span>}
+              {index < renderedFlow.length - 1 && <span class="rg__flow-edge" aria-hidden="true">→</span>}
             </>
           );
         })}
@@ -107,6 +115,7 @@ const nodePayload = Object.fromEntries(graph.nodes.map((node:any) => {
     </div>
   )}
 
+  {mode === 'full' && (
   <div class="rg__canvas" data-rg-canvas>
     <svg class="rg__svg" data-rg-svg aria-hidden="true">
       <defs>
@@ -143,6 +152,7 @@ const nodePayload = Object.fromEntries(graph.nodes.map((node:any) => {
       ))}
     </div>
   </div>
+  )}
 
   <aside class="rg__detail" aria-live="polite">
     <div class="rg__detail-main">
@@ -174,6 +184,12 @@ const nodePayload = Object.fromEntries(graph.nodes.map((node:any) => {
       </div>
     </div>
   </aside>
+
+  {mode === 'compact' && (
+    <div class="rg__compact-footer">
+      <a href={hubHref}>전체 Graph 보기 →</a>
+    </div>
+  )}
 
   <script type="application/json" data-rg-payload set:html={JSON.stringify({
     nodes: nodePayload,

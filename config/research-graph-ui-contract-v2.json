@@ -1,0 +1,26 @@
+{
+  "contract": "JoyLab.ResearchGraphUI",
+  "version": "2.0.0",
+  "modes": {
+    "full": {
+      "intendedFor": ["research-hub", "industry-guide", "system-map"],
+      "desktop": {
+        "fullWidth": true,
+        "nodeMatrix": true,
+        "horizontalScrollbar": false
+      }
+    },
+    "compact": {
+      "intendedFor": ["company-research", "article-inline-graph", "single-thesis-flow"],
+      "primaryNodesMax": 4,
+      "nodeMatrix": false,
+      "selectedNodeDetail": true,
+      "relatedResearch": true,
+      "fullGraphLink": true
+    }
+  },
+  "mobile": {
+    "pageHorizontalOverflow": false,
+    "internalGraphScroll": true
+  }
+}

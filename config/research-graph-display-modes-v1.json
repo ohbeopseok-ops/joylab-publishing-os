@@ -1,0 +1,60 @@
+{
+  "contract": "JoyLab.ResearchGraphDisplayModes",
+  "version": "1.0.0",
+  "defaultMode": "full",
+  "currentGraphGuides": [
+    {
+      "path": "/guides/shipbuilding",
+      "mode": "full",
+      "reason": "industry research hub with multi-lane graph"
+    },
+    {
+      "path": "/guides/semiconductor-investing",
+      "mode": "full",
+      "reason": "industry research hub with company and KPI lanes"
+    },
+    {
+      "path": "/guides/growth-leadership",
+      "mode": "full",
+      "reason": "system map across behavior, leader, team, culture and outcome"
+    },
+    {
+      "path": "/guides/financials-value-up",
+      "mode": "full",
+      "reason": "multi-KPI financial holdings research hub"
+    },
+    {
+      "path": "/guides/ai-power-infrastructure",
+      "mode": "full",
+      "reason": "macro to valuation infrastructure graph"
+    },
+    {
+      "path": "/guides/ai-standards",
+      "mode": "full",
+      "reason": "AI standards system graph with multi-lane relationships"
+    }
+  ],
+  "hubCandidates": [
+    {
+      "path": "/guides/ai-infrastructure",
+      "recommendedMode": "full"
+    },
+    {
+      "path": "/guides/ai-power",
+      "recommendedMode": "full"
+    }
+  ],
+  "compactUseCases": [
+    "company-research",
+    "article-inline-graph",
+    "single-thesis-decision-flow",
+    "sidebar-explainer"
+  ],
+  "compactRules": {
+    "primaryNodesMax": 4,
+    "fullNodeMatrix": false,
+    "selectedNodeSummary": true,
+    "relatedResearch": true,
+    "fullGraphLink": true
+  }
+}
