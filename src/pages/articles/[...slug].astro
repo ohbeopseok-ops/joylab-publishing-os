@@ -355,6 +355,21 @@ const scoreCriteria = [
 
         <AdSlot placement="article-end" enabled={showArticleEndAd} />
 
+        <div class="mobile-after-article-cta research-guide-cta" aria-label="다음 리서치 안내">
+          <small>START HERE</small>
+          <strong>{guideCta.title}</strong>
+          <a href={guideCta.href}>{guideCta.label}</a>
+        </div>
+
+        {related.length > 0 && (
+          <div class="mobile-after-article-related research-rail__card related-card" aria-label="관련 리서치">
+            <h3>Related Research</h3>
+            <div class="research-related">
+              {related.map((item) => <a href={`/articles/${item.id}`}><b>{item.data.title}</b><span>{item.data.category} · {item.data.readingTime ?? '약 6분'}</span></a>)}
+            </div>
+          </div>
+        )}
+
         {(article.data.faqs?.length ?? 0) > 0 && (
           <section class="research-panel article-faq" aria-labelledby="article-faq-title">
             <h2 class="research-panel__title" id="article-faq-title">FAQ</h2>
