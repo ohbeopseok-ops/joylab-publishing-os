@@ -40,11 +40,19 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 → [삼성전자 AI 메모리 전체 구조 보기](/articles/samsung-electronics-outlook)  
 → [HBM4·HBM4E 메모리 업황 보기](/articles/samsung-hbm4-memory-outlook-2026-09-20)
 
+<!-- evidence: https://www.samsung.com/sec/ir/financial-information/earnings-release/ -->
+
 2026년 9월 28일 삼성전자는 **270,000원(-5.43%)**에 마감했다. 시가 284,500원에서 출발해 장중 고점 285,500원을 기록한 뒤 저가 270,000원에서 거래를 마쳤다.
+
+<!-- evidence: https://stock.mk.co.kr/price/dealer/KR7145210001 -->
 
 같은 날 코스피는 **6,889.74(-2.70%)**로 7,000선을 다시 내줬고, 원/달러 환율은 오후 3시 30분 기준 **1,365.1원**으로 상승했다. 추석 연휴 동안 미국 10년물 국채금리가 **5.22%**까지 올라간 충격이 국내 대형 성장주와 반도체주에 한꺼번에 반영됐다.
 
+<!-- evidence: https://www.yna.co.kr/view/AKR20260928120000002 -->
+
 다만 이날 주가 급락과 삼성전자의 3분기 실적 전망은 같은 방향으로 움직이지 않았다. 최근 시장의 3분기 영업이익 컨센서스는 **약 111조원**까지 높아져 있다.
+
+<!-- evidence: https://www.mt.co.kr/industry/2026/09/28/2026092719264354029 -->
 
 따라서 오늘의 핵심 질문은 하나다.
 
@@ -61,11 +69,15 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 5. 반면 삼성전자 3분기 영업이익 컨센서스는 약 **111조원**으로 실적 기대는 여전히 높은 수준이다.
 6. 결론적으로 현재는 **펀더멘털 훼손 확인보다 수급 진정 확인이 먼저 필요한 구간**으로 본다.
 
+<!-- evidence: https://www.mt.co.kr/industry/2026/09/28/2026092719264354029 -->
+
 ---
 
 ## 1. PRICE｜27만원 저가 마감, 시장보다 두 배 가까운 낙폭
 
 9월 28일 삼성전자의 확정 시세는 다음과 같다.
+
+<!-- evidence: https://www.samsung.com/sec/ir/financial-information/earnings-release/ -->
 
 | 항목 | 9월 28일 |
 |---|---:|
@@ -83,13 +95,19 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 
 특히 코스피 역시 큰 폭으로 하락했지만 삼성전자의 낙폭이 더 컸다. 따라서 오늘 움직임을 단순한 시장 조정으로만 보기 어렵다.
 
+<!-- evidence: https://stock.mk.co.kr/price/dealer/KR7145210001 -->
+
 ---
 
 ## 2. FLOW｜실제 핵심은 삼성전자 단독 -2.45조원이 아니라 ‘반도체 동반 매도’
 
 당일 보도 기준 삼성전자 외국인 순매도는 약 **1조3,757억원**, 기관 순매도는 약 **6,644억원**이다.
 
+<!-- evidence: https://www.yna.co.kr/amp/view/AKR20260928034551008 -->
+
 같은 날 SK하이닉스에서는 외국인이 약 **1조7,275억원**을 순매도했다.
+
+<!-- evidence: https://www.yna.co.kr/amp/view/AKR20260928034551008 -->
 
 즉 외국인 매도는 삼성전자 한 종목에만 집중됐다기보다 **삼성전자 + SK하이닉스 양대 메모리 대형주에 동시에 집중된 반도체 리스크오프**로 보는 편이 더 정확하다.
 
@@ -98,6 +116,8 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 - 외국인: 약 **-3조2,403억원**
 - 기관: 약 **-1조174억원**
 - 개인: 약 **+2조6,053억원**
+
+<!-- evidence: https://www.yna.co.kr/amp/view/AKR20260928034551008 -->
 
 이 수급 구조는 오늘의 하락을 개별 기업 펀더멘털 뉴스 하나로 설명하기 어렵게 만든다.
 
@@ -109,9 +129,13 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 
 추석 연휴 기간 미국 10년물 국채금리는 **5.22%**까지 올라 2007년 이후 최고 수준으로 상승했다.
 
+<!-- evidence: https://www.yna.co.kr/view/AKR20260928120000002 -->
+
 국내 시장이 연휴 후 한꺼번에 이 변화를 반영하면서 성장주와 반도체주에 할인율 충격이 발생했다.
 
 여기에 원/달러 환율은 9월 28일 오후 3시 30분 기준 **1,365.1원**, 전 거래일 대비 7.6원 상승했다.
+
+<!-- evidence: https://www.yna.co.kr/view/AKR20260928120000002 -->
 
 외국인 입장에서 한국 대형주는 다음 두 가지 압력을 동시에 받는다.
 
@@ -127,6 +151,8 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 가격과 실적 전망은 현재 엇갈리고 있다.
 
 9월 27~28일 보도된 에프앤가이드 집계 기준 삼성전자의 2026년 3분기 영업이익 컨센서스는 약 **111조원** 수준이다.
+
+<!-- evidence: https://www.mt.co.kr/industry/2026/09/28/2026092719264354029 -->
 
 최근 시장에서는 메모리 가격 강세와 HBM4 매출 확대, 파운드리 가동률 개선이 3분기 실적을 지지할 가능성이 거론되고 있다.
 
@@ -149,7 +175,11 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 
 삼성전자는 2026년 2월 HBM4 상용 출하를 시작했고, 이후 차세대 HBM 로드맵을 확장하고 있다.
 
+<!-- evidence: https://en.yna.co.kr/view/AEN20260212007951320 -->
+
 9월 28일에는 다음 달 OCP 글로벌 서밋에서 **CXL 기반 메모리 확장·공유 기술**을 공개할 계획이 보도됐다.
+
+<!-- evidence: https://www.mt.co.kr/industry/2026/09/28/2026092815580639077 -->
 
 AI 추론이 확대되면 KV 캐시 저장 공간이 커지고, HBM만으로 모든 데이터를 처리하기 어렵다. 이 때문에 HBM과 함께 CXL 메모리, SSD, 서버 DRAM을 계층적으로 사용하는 구조가 중요해진다.
 
@@ -158,6 +188,8 @@ AI 추론이 확대되면 KV 캐시 저장 공간이 커지고, HBM만으로 모
 **AI CAPEX → HBM4 → 서버 DRAM/eSSD → CXL 메모리 확장 → DS 이익**
 
 오늘 주가가 5% 넘게 하락했지만 이 기술·수요 경로 자체가 무효화됐다는 근거는 아직 확인되지 않았다.
+
+<!-- evidence: https://www.samsung.com/sec/ir/financial-information/earnings-release/ -->
 
 ---
 
@@ -175,6 +207,8 @@ AI 서버 메모리 수요와 삼성전자의 HBM4·서버 DRAM·eSSD·CXL 확�
 
 27만원은 가격 자체로는 이전보다 낮아졌지만, 거래량 증가를 동반한 저가 마감 이후에는 지지선 숫자보다 매도 강도의 변화가 더 중요하다.
 
+<!-- evidence: https://stock.mk.co.kr/price/dealer/KR7145210001 -->
+
 ---
 
 ## 7. Tomorrow Watch｜다음 거래일 확인할 3가지
@@ -189,11 +223,17 @@ AI 서버 메모리 수요와 삼성전자의 HBM4·서버 DRAM·eSSD·CXL 확�
 
 27만원을 단순히 터치하는 것이 아니라 장중 저점 이후 **종가 기준으로 지켜내는지** 본다.
 
+<!-- evidence: https://stock.mk.co.kr/price/dealer/KR7145210001 -->
+
 반대로 27만원을 다시 크게 이탈하면 가격보다 수급 안정 확인을 우선한다.
+
+<!-- evidence: https://stock.mk.co.kr/price/dealer/KR7145210001 -->
 
 ### ③ 금리·환율 동시 안정
 
 미국 10년물 금리가 추가 상승하는지, 원/달러가 1,370원을 넘어서는지 확인한다.
+
+<!-- evidence: https://www.yna.co.kr/view/AKR20260928120000002 -->
 
 주가 반등의 질을 높이려면 최소한 둘 중 하나가 아니라 **금리와 환율이 함께 안정되는 편이 유리하다.**
 
@@ -209,9 +249,13 @@ AI 서버 메모리 수요와 삼성전자의 HBM4·서버 DRAM·eSSD·CXL 확�
 
 실적 기대는 유지되지만 금리·환율 변동성이 남아 있어 27만원 안팎에서 높은 변동성이 이어진다. 외국인 수급이 안정될 때까지 주가가 실적보다 느리게 반응한다.
 
+<!-- evidence: https://www.yna.co.kr/view/AKR20260928120000002 -->
+
 ### BEAR
 
 미국 장기금리가 추가 상승하고 원/달러가 1,370원을 상향 돌파한다. 반도체 대형주 외국인 매도가 이어지는 가운데 3분기 실적 추정치까지 하향되면 단순 수급 조정을 넘어 투자 논리 재점검이 필요하다.
+
+<!-- evidence: https://www.yna.co.kr/view/AKR20260928120000002 -->
 
 ---
 
@@ -219,11 +263,15 @@ AI 서버 메모리 수요와 삼성전자의 HBM4·서버 DRAM·eSSD·CXL 확�
 
 **FACT** — 270,000원, -5.43%, 외국인 약 -1.38조원, 기관 약 -0.66조원, 원/달러 1,365.1원.
 
+<!-- evidence: https://www.yna.co.kr/view/AKR20260928120000002 -->
+
 **INTERPRETATION** — 실적 추정치 악화보다 글로벌 금리·환율·외국인 수급 충격이 주가에 먼저 반영됐다.
 
 **SCENARIO** — 수급 진정 + 금리/환율 안정 + 3Q 컨센서스 유지가 동시에 확인되면 급락 이후 재평가 구간으로 전환될 수 있다.
 
 **ACTION** — 현재는 신규 진입을 서두르기보다 외국인 매도 강도와 27만원 회복력을 먼저 확인한다.
+
+<!-- evidence: https://www.yna.co.kr/amp/view/AKR20260928034551008 -->
 
 ---
 
