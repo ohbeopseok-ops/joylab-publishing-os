@@ -1,0 +1,54 @@
+name: Company Compact Production GOLD V1
+
+on:
+  workflow_run:
+    workflows: ['Deploy to Cloudflare Workers']
+    types: [completed]
+
+jobs:
+  production-gold:
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.19.0'
+          cache: npm
+      - run: npm ci
+      - run: npm install --no-save playwright@1.55.0
+      - run: npx playwright install --with-deps chromium
+
+      - name: Verify deployed workflow revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOYED_SHA"
+          echo "Validating production deployed by successful Cloudflare run for $DEPLOYED_SHA"
+          test "$DEPLOYED_SHA" = "${{ github.event.workflow_run.head_sha }}"
+
+      - name: Verify Wave 2 production marker
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="https://aijoylab.kr/articles/hd-hyundai-heavy-industries-shipbuilding"
+          html="$(curl -fsSL --max-time 20 "$url?production-gold=$DEPLOYED_SHA")"
+          grep -Fq 'HD HYUNDAI HEAVY INDUSTRIES · COMPACT THESIS' <<< "$html"
+          echo "Wave 2 production marker found after successful deploy for $DEPLOYED_SHA"
+
+      - name: Run production GOLD
+        env:
+          QA_BASE_URL: https://aijoylab.kr
+        run: node scripts/check-company-compact-production-gold-v1.mjs
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: company-compact-production-gold
+          path: qa-artifacts/company-compact-production-gold
+          if-no-files-found: warn
