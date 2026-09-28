@@ -13,6 +13,7 @@ const requireText = (name, source, text) => {
 requireText('component', component, "mode?: 'full' | 'compact'");
 requireText('component', component, "mode === 'compact'");
 requireText('component', component, 'compactMaxNodes');
+requireText('component', component, 'Math.min(4, Math.max(1, compactMaxNodes))');
 requireText('component', component, 'rg--compact');
 requireText('component', component, '전체 Graph 보기');
 requireText('css', css, '.rg--compact');
@@ -24,6 +25,10 @@ if (contract.contract !== 'JoyLab.ResearchGraphUI' || contract.version !== '2.0.
 if (inventory.defaultMode !== 'full') failures.push('full must remain default mode');
 if (inventory.currentGraphGuides.some((entry) => entry.mode !== 'full')) {
   failures.push('current research hub guides must remain full mode in V1');
+}
+const requiredFullRoutes = ['/guides/shipbuilding','/guides/semiconductor-investing','/guides/growth-leadership','/guides/financials-value-up','/guides/ai-power-infrastructure','/guides/ai-standards'];
+for (const route of requiredFullRoutes) {
+  if (!inventory.currentGraphGuides.some((entry) => entry.path === route && entry.mode === 'full')) failures.push('missing full-mode inventory route: ' + route);
 }
 if (contract.modes.compact.primaryNodesMax !== 4) failures.push('compact primary node max must be 4');
 
