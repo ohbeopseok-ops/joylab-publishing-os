@@ -4,6 +4,7 @@
   "stages": [
     "article-end",
     "guide-end",
+    "book-end",
     "article-mid65",
     "article-mid30"
   ],
