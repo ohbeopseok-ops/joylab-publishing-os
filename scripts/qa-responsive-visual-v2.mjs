@@ -96,6 +96,7 @@ for (const viewport of viewports) {
     await page.route('**/__analytics/event', (route) => route.fulfill({ status: 204, body: '' }));
 
     const errors = [];
+    let sawFundingChoicesCors = false;
     page.on('pageerror', (error) => errors.push(String(error)));
     page.on('console', (msg) => {
       if (msg.type() !== 'error') return;
@@ -110,9 +111,10 @@ for (const viewport of viewports) {
       const benignFundingChoicesCorsError =
         text.includes("Access to XMLHttpRequest at 'https://fundingchoicesmessages.google.com/") &&
         text.includes("has been blocked by CORS policy");
+      if (benignFundingChoicesCorsError) sawFundingChoicesCors = true;
       const benignFailedGoogleResource =
         text === 'Failed to load resource: net::ERR_FAILED' &&
-        page.url().startsWith('https://aijoylab.kr/');
+        sawFundingChoicesCors;
 
       if (
         !benignGoogleReportOnlyFrameError &&
