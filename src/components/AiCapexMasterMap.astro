@@ -1,0 +1,98 @@
+---
+import master from '../../config/ai-capex-master-map-v2.json';
+import semiconductor from '../../config/research-graph-semiconductor-v1.json';
+import componentGraph from '../../config/research-graph-ai-component-infrastructure-v1.json';
+import power from '../../config/research-graph-ai-power-v1.json';
+import '../styles/ai-capex-master-map-v2.css';
+
+const graphs: Record<string, any> = {
+  semiconductor,
+  'ai-component-infrastructure': componentGraph,
+  'ai-power': power
+};
+
+const resolveRef = (ref: string) => {
+  const [vertical, nodeId] = ref.split(':');
+  const graph = graphs[vertical];
+  const node = graph?.nodes?.find((item: any) => item.id === nodeId);
+  return node ? { ...node, vertical, ref } : { id: nodeId, label: ref, vertical, ref, missing: true };
+};
+
+const branches = master.branches.map((branch) => ({
+  ...branch,
+  pathNodes: branch.path.map(resolveRef),
+  companyNodes: branch.companies.map(resolveRef)
+}));
+
+const crossEdges = master.crossEdges.map((edge) => ({
+  ...edge,
+  fromNode: resolveRef(edge.from),
+  toNode: resolveRef(edge.to)
+}));
+---
+
+<section class="acm" aria-labelledby="acm-title">
+  <header class="acm__head">
+    <div>
+      <span>JOYLAB · AI CAPEX MASTER MAP V2</span>
+      <h2 id="acm-title">Memory → Component → Power를 하나의 CAPEX 흐름으로</h2>
+      <p>{master.thesis}</p>
+    </div>
+    <a href="/guides/ai-component-infrastructure">Component Graph →</a>
+  </header>
+
+  <div class="acm__origin">
+    <small>ORIGIN</small>
+    <strong>Hyperscaler AI CAPEX</strong>
+    <span>Microsoft · Meta · Google · Amazon</span>
+  </div>
+
+  <div class="acm__branches">
+    {branches.map((branch) => (
+      <article class={'acm__branch acm__branch--' + branch.id}>
+        <div class="acm__branch-head">
+          <small>{branch.label}</small>
+          <p>{branch.description}</p>
+        </div>
+
+        <div class="acm__flow" aria-label={branch.label + ' value chain'}>
+          {branch.pathNodes.map((node, index) => (
+            <>
+              <span class="acm__node">{node.label}</span>
+              {index < branch.pathNodes.length - 1 && <i aria-hidden="true">→</i>}
+            </>
+          ))}
+        </div>
+
+        <div class="acm__companies">
+          {branch.companyNodes.map((company) => (
+            <span>
+              <strong>{company.label}</strong>
+              {company.ticker && <small>{company.ticker}</small>}
+            </span>
+          ))}
+        </div>
+
+        <a class="acm__open" href={
+          branch.id === 'memory' ? '/guides/semiconductor-investing' :
+          branch.id === 'component' ? '/guides/ai-component-infrastructure' :
+          '/guides/ai-power-infrastructure'
+        }>전체 Graph 열기 →</a>
+      </article>
+    ))}
+  </div>
+
+  <div class="acm__cross" aria-label="Cross vertical edges">
+    <div class="acm__cross-title"><span>CROSS-VERTICAL EDGES</span><b>한 Vertical에서 끝나지 않는 인과관계</b></div>
+    <div class="acm__cross-grid">
+      {crossEdges.map((edge) => (
+        <div>
+          <small>{edge.label}</small>
+          <span>{edge.fromNode.label}</span>
+          <i>→</i>
+          <strong>{edge.toNode.label}</strong>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
