@@ -20,6 +20,14 @@ featured: true
 draft: false
 seoTitle: "삼성전자 HBM4·HBM4E 분석｜2026 메모리 반도체 업황 전망"
 series: "AI 반도체 리서치"
+investmentIndustries:
+  - semiconductor
+investmentTheses:
+  - memory-supercycle
+  - ai-capex
+investmentCompanies:
+  - "Samsung Electronics"
+investmentResearchType: company
 readingTime: "약 8분"
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "삼성전자 HBM4와 HBM4E, AI 메모리 업황을 분석한 JoyLab Research 대표 이미지"
