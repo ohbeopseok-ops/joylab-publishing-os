@@ -2,7 +2,7 @@
 import { AD_PLACEMENT } from '../config/adPlacement';
 
 interface Props {
-  placement: 'article-mid-30' | 'article-mid-65' | 'article-end' | 'guide-end' | 'archive-in-feed';
+  placement: 'article-mid-30' | 'article-mid-65' | 'article-end' | 'guide-end' | 'book-end' | 'archive-in-feed';
   slotId?: string;
   label?: string;
   enabled?: boolean;
@@ -22,6 +22,7 @@ const configuredSlot = {
   'article-mid-65': AD_PLACEMENT.slots.articleMid65.slotId,
   'article-end': AD_PLACEMENT.slots.articleEnd.slotId,
   'guide-end': AD_PLACEMENT.slots.guideEnd.slotId,
+  'book-end': AD_PLACEMENT.slots.bookEnd.slotId,
   'archive-in-feed': AD_PLACEMENT.slots.archiveInFeed.slotId
 }[placement];
 
