@@ -26,6 +26,11 @@ Do not place ads:
 - next to Buy/Sell scenario controls or investment scorecards;
 - around Contact CTA, Books CTA, next/previous navigation, menu or search controls.
 
+## Guide pages
+- `/guides/*` may render one `guide-end` unit after the guide experience and before the global footer.
+- `guide-end` reuses the approved JoyLab responsive display unit; do not create or invent a slot ID in code.
+- Keep Home, Research Map, Studio, Preview/Export, and Books Reader free of this rollout.
+
 ## Archive
 - Optional `archive-in-feed` only after at least six organic cards.
 - It must be visually labelled and must not mimic a research card.
