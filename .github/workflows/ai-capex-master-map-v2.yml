@@ -1,0 +1,45 @@
+name: AI CAPEX Master Map V2
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'config/ai-capex-master-map-v2.json'
+      - 'config/research-graph-*.json'
+      - 'src/components/AiCapexMasterMap.astro'
+      - 'src/styles/ai-capex-master-map-v2.css'
+      - 'src/pages/research-map.astro'
+      - 'scripts/check-ai-capex-master-map-v2.mjs'
+      - 'package.json'
+      - '.github/workflows/ai-capex-master-map-v2.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'config/ai-capex-master-map-v2.json'
+      - 'config/research-graph-*.json'
+      - 'src/components/AiCapexMasterMap.astro'
+      - 'src/styles/ai-capex-master-map-v2.css'
+      - 'src/pages/research-map.astro'
+      - 'scripts/check-ai-capex-master-map-v2.mjs'
+      - 'package.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ai-capex-master-map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Validate cross-vertical AI CAPEX contract
+        run: npm run ai-capex-master-map:check
+      - name: Build production site
+        run: |
+          npm ci
+          npm run build

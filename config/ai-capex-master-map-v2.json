@@ -1,0 +1,36 @@
+{
+  "contract": "JoyLab.AICapexMasterMap",
+  "version": "2.0.0",
+  "title": "AI CAPEX Master Map V2",
+  "thesis": "Hyperscaler AI CAPEX propagates through memory bandwidth, compute packaging, server power density, and grid infrastructure before appearing in company KPIs and EPS.",
+  "sourceVerticals": ["semiconductor","ai-component-infrastructure","ai-power"],
+  "branches": [
+    {
+      "id": "memory",
+      "label": "MEMORY",
+      "description": "AI 연산량 증가가 메모리 대역폭 병목을 만들고 HBM 수요와 메모리 이익으로 전달됩니다.",
+      "path": ["semiconductor:ai-memory-demand","semiconductor:hbm"],
+      "companies": ["semiconductor:sk-hynix","semiconductor:samsung-electronics"]
+    },
+    {
+      "id": "component",
+      "label": "PACKAGE · PCB · COMPONENT",
+      "description": "Compute Density가 패키지·PCB·전력 안정화 부품의 사양과 탑재량을 높입니다.",
+      "path": ["ai-component-infrastructure:hyperscaler-ai-capex","ai-component-infrastructure:ai-compute-density","ai-component-infrastructure:advanced-package-bottleneck","ai-component-infrastructure:fc-bga"],
+      "companies": ["ai-component-infrastructure:samsung-electro-mechanics","ai-component-infrastructure:isupetasys","ai-component-infrastructure:daeduck-electronics","ai-component-infrastructure:lg-innotek"]
+    },
+    {
+      "id": "power",
+      "label": "POWER · GRID",
+      "description": "AI 데이터센터 전력수요가 Grid·Transformer·Electrical Equipment의 주문과 수주잔고로 전달됩니다.",
+      "path": ["ai-power:ai-data-center-demand","ai-power:power-demand","ai-power:grid","ai-power:transformer"],
+      "companies": ["ai-power:ls-electric","ai-power:hd-hyundai-electric"]
+    }
+  ],
+  "crossEdges": [
+    {"from":"ai-component-infrastructure:hyperscaler-ai-capex","to":"semiconductor:ai-memory-demand","type":"funds","label":"CAPEX → Memory"},
+    {"from":"ai-component-infrastructure:hyperscaler-ai-capex","to":"ai-power:ai-data-center-demand","type":"funds","label":"CAPEX → Data Center"},
+    {"from":"ai-component-infrastructure:ai-compute-density","to":"semiconductor:hbm","type":"requires","label":"Compute Density → Bandwidth"},
+    {"from":"ai-component-infrastructure:power-density","to":"ai-power:power-demand","type":"escalates","label":"Server Power Density → Grid Demand"}
+  ]
+}

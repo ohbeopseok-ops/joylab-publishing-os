@@ -1,6 +1,6 @@
 {
   "contract": "JoyLab.ResearchGraphResponsive",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "desktopMinWidth": 641,
   "pageOverflowTolerancePx": 1,
   "desktopInternalOverflowTolerancePx": 1,
@@ -44,6 +44,10 @@
     {
       "name": "semiconductor",
       "path": "/guides/semiconductor-investing"
+    },
+    {
+      "name": "ai-component",
+      "path": "/guides/ai-component-infrastructure"
     },
     {
       "name": "financials",

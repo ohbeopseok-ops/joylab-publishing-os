@@ -69,6 +69,12 @@ const pages = [
     maxScreens: { 'iphone-390': 13, 'iphone-430': 12, 'ipad-820': 9, 'desktop-1440': 10 }
   },
   {
+    name: 'ai-component-guide',
+    path: '/guides/ai-component-infrastructure',
+    selectors: ['.aci-hero', '.aci-main', '.aci-score', '[data-research-map-v3]', '#site-footer-v2'],
+    maxScreens: { 'iphone-390': 20, 'iphone-430': 18, 'ipad-820': 12, 'desktop-1440': 12 }
+  },
+  {
     name: 'ai-productivity-guide',
     path: '/guides/ai-productivity',
     selectors: ['.sg-hero', '.sg-main', '.sg-path', '#site-footer-v2'],
@@ -96,6 +102,7 @@ for (const viewport of viewports) {
     await page.route('**/__analytics/event', (route) => route.fulfill({ status: 204, body: '' }));
 
     const errors = [];
+    let lastFundingChoicesCorsAt = 0;
     page.on('pageerror', (error) => errors.push(String(error)));
     page.on('console', (msg) => {
       if (msg.type() !== 'error') return;
@@ -104,7 +111,17 @@ for (const viewport of viewports) {
         text.includes('[Report Only]') &&
         text.includes("Refused to frame 'https://www.google.com/'") &&
         text.includes("frame-ancestors 'self'");
-      if (!benignGoogleReportOnlyFrameError) errors.push('console: ' + text);
+      const benignFundingChoicesCors =
+        text.includes('fundingchoicesmessages.google.com') &&
+        text.includes('blocked by CORS policy');
+      if (benignFundingChoicesCors) {
+        lastFundingChoicesCorsAt = Date.now();
+        return;
+      }
+      const benignFundingChoicesFollowup =
+        text.includes('Failed to load resource: net::ERR_FAILED') &&
+        Date.now() - lastFundingChoicesCorsAt < 2000;
+      if (!benignGoogleReportOnlyFrameError && !benignFundingChoicesFollowup) errors.push('console: ' + text);
     });
 
     const response = await page.goto(baseURL + item.path, { waitUntil: 'networkidle' });
