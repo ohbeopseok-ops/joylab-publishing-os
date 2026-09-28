@@ -88,7 +88,8 @@
     "company-compact:contract": "node scripts/check-company-compact-contract-v1.mjs",
     "company-compact:sync": "node scripts/sync-company-compact-scaffolds-v1.mjs",
     "company-research:auto-enrollment": "node scripts/check-company-research-auto-enrollment-v1.mjs",
-    "research-graph:component:check": "node scripts/check-research-graph-component-v1.mjs"
+    "research-graph:component:check": "node scripts/check-research-graph-component-v1.mjs",
+    "ai-capex-master-map:check": "node scripts/check-ai-capex-master-map-v2.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"
