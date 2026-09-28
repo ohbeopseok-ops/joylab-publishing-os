@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ResearchGraphMap from '../../components/ResearchGraphMap.astro';
+import graph from '../../../config/research-graph-ai-component-infrastructure-v1.json';
+
+const scorecards = [
+  { name: '이수페타시스', ticker: '007660', score: 84, thesis: 'AI 가속기·스위치용 고다층 PCB 직접 노출' },
+  { name: '삼성전기', ticker: '009150', score: 83, thesis: 'FC-BGA + 고신뢰성 MLCC의 이중 병목 노출' },
+  { name: '대덕전자', ticker: '353200', score: 79, thesis: 'FC-BGA + AI/네트워크 MLB 믹스 개선' },
+  { name: 'LG이노텍', ticker: '011070', score: 66, thesis: '광학 중심에서 FC-BGA·AI 기판으로 확장' }
+];
+---
+<BaseLayout
+  title="AI Component Infrastructure｜FC-BGA·MLCC·AI PCB | JoyLab"
+  description="AI CAPEX가 FC-BGA, MLCC, 고다층 PCB를 거쳐 삼성전기·LG이노텍·대덕전자·이수페타시스의 실적과 EPS로 전달되는 구조를 추적합니다."
+  bodyClass="ai-component-infrastructure"
+>
+  <section class="aci-hero">
+    <div class="aci-wrap">
+      <span>JOYLAB · COMPONENT INFRASTRUCTURE</span>
+      <h1>GPU 다음 병목은<br /><strong>Package · PCB · Power Component</strong></h1>
+      <p>AI CAPEX를 Memory에서 끝내지 않고, 고성능 연산이 만드는 패키징·PCB·전력 안정화 부품의 수요까지 연결합니다.</p>
+    </div>
+  </section>
+
+  <main class="aci-wrap aci-main">
+    <ResearchGraphMap
+      graph={graph}
+      eyebrow="JOYLAB RESEARCH GRAPH · COMPONENT INFRASTRUCTURE"
+      title="AI CAPEX → Compute Density → FC-BGA / MLCC / PCB → Company → EPS"
+      description="AI 서버의 고성능화가 부품 밀도와 공정 난도를 높이고, 그것이 기업의 제품 믹스·마진·EPS Revision으로 이어지는 경로를 봅니다."
+      primaryFlow={['hyperscaler-ai-capex','ai-compute-density','advanced-package-bottleneck','fc-bga','samsung-electro-mechanics','operating-margin','eps-revision','forward-per']}
+      hubHref="/research-map"
+      hubLabel="Global Research Map →"
+    />
+
+    <section class="aci-score">
+      <div class="aci-head"><span>AI CAPEX SCORE</span><h2>같은 기판주가 아니라, 전달 경로가 다릅니다</h2></div>
+      <div class="aci-grid">
+        {scorecards.map((item) => (
+          <article>
+            <div><b>{item.score}</b><small>/100</small></div>
+            <h3>{item.name}</h3>
+            <p>{item.ticker} · {item.thesis}</p>
+          </article>
+        ))}
+      </div>
+      <p class="aci-note">Score는 매수 순위가 아니라 AI CAPEX 직접성·실적 전환·기술/고객 해자·2027 가시성·가격 부담을 동일 프레임으로 비교한 연구 지표입니다.</p>
+    </section>
+
+    <section class="aci-method">
+      <span>JOYLAB METHOD</span>
+      <h2>CAPEX → Bottleneck → Product → Company → KPI → EPS → Valuation</h2>
+      <p>새 기업 리서치는 제품 이름만 붙이지 않습니다. 어떤 CAPEX가 어떤 병목을 만들고, 어떤 KPI를 통해 EPS와 밸류에이션으로 전달되는지 Graph Edge로 증명합니다.</p>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .aci-wrap{width:min(1180px,calc(100% - 32px));margin:0 auto}
+  .aci-hero{padding:76px 0 48px;background:#0b1220;color:#fff}
+  .aci-hero span,.aci-head span,.aci-method>span{font-size:.76rem;letter-spacing:.14em;font-weight:800}
+  .aci-hero h1{font-size:clamp(2.2rem,6vw,4.8rem);line-height:1.02;margin:18px 0}
+  .aci-hero strong{color:#f4c95d}.aci-hero p{max-width:760px;color:#c8d0df;line-height:1.75}
+  .aci-main{padding:48px 0 80px}.aci-score,.aci-method{margin-top:48px}
+  .aci-head h2,.aci-method h2{font-size:clamp(1.7rem,4vw,2.7rem);margin:8px 0 22px}
+  .aci-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .aci-grid article{border:1px solid #dfe4ec;border-radius:16px;padding:22px;background:#fff}
+  .aci-grid b{font-size:2.3rem}.aci-grid small{color:#6b7280}.aci-grid h3{margin:12px 0 6px}.aci-grid p,.aci-note,.aci-method p{color:#5b6472;line-height:1.65}
+  .aci-method{border-top:1px solid #dfe4ec;padding-top:38px}
+  @media(max-width:820px){.aci-grid{grid-template-columns:1fr 1fr}.aci-hero{padding-top:54px}}
+  @media(max-width:520px){.aci-grid{grid-template-columns:1fr}}
+</style>
