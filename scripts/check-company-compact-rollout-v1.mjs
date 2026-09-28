@@ -1,30 +1,14 @@
 import { chromium } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import targetsContract from '../config/company-compact-targets-v1.json' with { type: 'json' };
 
 const baseURL = process.env.QA_BASE_URL || 'http://127.0.0.1:4321';
 const outDir = path.join(process.cwd(), 'qa-artifacts', 'company-compact-rollout');
 await fs.mkdir(outDir, { recursive: true });
 
-const pages = [
-  { name: 'samsung', path: '/articles/samsung-electronics-outlook', signalNode: 'memory-mix', signalId: 'hbm', expectedHub: '/guides/semiconductor-investing' },
-  { name: 'sk-hynix', path: '/articles/sk-hynix-outlook', signalNode: 'hbm-execution', signalId: 'hbm4', expectedHub: '/guides/semiconductor-investing' },
-  { name: 'kb-financial', path: '/articles/kb-financial-shareholder-return', signalNode: 'capital-buffer', signalId: 'cet1', expectedHub: '/guides/financials-value-up' },
-  { name: 'hd-hyundai-heavy', path: '/articles/hd-hyundai-heavy-industries-shipbuilding', signalNode: 'order-quality', signalId: 'ship-mix', expectedHub: '/guides/shipbuilding' },
-  { name: 'hanwha-ocean', path: '/articles/hanwha-ocean-shipbuilding', signalNode: 'orderbook-quality', signalId: 'lng', expectedHub: '/guides/shipbuilding' },
-  { name: 'samsung-heavy', path: '/articles/samsung-heavy-industries-shipbuilding', signalNode: 'lng-flng-demand', signalId: 'flng', expectedHub: '/guides/shipbuilding' },
-  { name: 'hd-ksoe', path: '/articles/hd-ksoe-shipbuilding', signalNode: 'group-orderbook', signalId: 'subsidiary-mix', expectedHub: '/guides/shipbuilding' },
-  { name: 'doosan-enerbility', path: '/articles/doosan-enerbility-ai-power', signalNode: 'ai-power-demand', signalId: 'gas-turbine', expectedHub: '/guides/ai-power-infrastructure' },
-  { name: 'hyosung-heavy', path: '/articles/hyosung-heavy-industries-ai-power', signalNode: 'grid-bottleneck', signalId: 'us-transformer', expectedHub: '/guides/ai-power-infrastructure' },
-  { name: 'hd-hyundai-electric', path: '/articles/hd-hyundai-electric-ai-power', signalNode: 'north-america-demand', signalId: 'transformer', expectedHub: '/guides/ai-power-infrastructure' },
-  { name: 'ls-electric', path: '/articles/ls-electric-ai-power', signalNode: 'data-center-power', signalId: 'distribution', expectedHub: '/guides/ai-power-infrastructure' }
-]
-
-const viewports = [
-  { name: 'mobile-390', width: 390, height: 844 },
-  { name: 'desktop-1280', width: 1280, height: 900 },
-  { name: 'desktop-1440', width: 1440, height: 900 }
-];
+const pages = targetsContract.targets;
+const viewports = targetsContract.viewports;
 
 const browser = await chromium.launch({ headless: true });
 const results = [];
