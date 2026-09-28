@@ -6,6 +6,8 @@ import { AD_PLACEMENT } from '../../config/adPlacement';
 import ArticleSeoSchema from '../../components/ArticleSeoSchema.astro';
 import AiPowerResearchNav from '../../components/AiPowerResearchNav.astro';
 import ResearchGraphNav from '../../components/ResearchGraphNav.astro';
+import ResearchGraphMap from '../../components/ResearchGraphMap.astro';
+import samsungCompactGraph from '../../../config/research-graph-samsung-compact-v1.json';
 import ChinaSemiconductorSeriesNav from '../../components/ChinaSemiconductorSeriesNav.astro';
 import ChinaSemiconductorRiskScore from '../../components/ChinaSemiconductorRiskScore.astro';
 import '../../styles/interactive.css';
@@ -255,6 +257,22 @@ const scoreCriteria = [
             ))}
           </div>
         </section>
+
+        {isSamsung && (
+          <section class="research-panel samsung-compact-graph" aria-labelledby="samsung-compact-graph-title">
+            <ResearchGraphMap
+              graph={samsungCompactGraph}
+              mode="compact"
+              compactMaxNodes={4}
+              eyebrow="SAMSUNG ELECTRONICS · COMPACT THESIS"
+              title="AI Memory Demand → Memory Mix → Margin / EPS Revision → Valuation"
+              description="삼성전자 투자 논리를 네 단계로 압축합니다. Memory Mix를 선택하면 HBM·DRAM·NAND 세부 신호를 펼쳐볼 수 있습니다."
+              hubHref="/guides/semiconductor-investing"
+              hubLabel="전체 Semiconductor Graph →"
+              primaryFlow={['ai-memory-demand','memory-mix','eps-revision','forward-per']}
+            />
+          </section>
+        )}
 
         {supportingImages.length > 0 && (
           <section id="visual-research" class="research-panel" aria-labelledby="visual-research-title">
