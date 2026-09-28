@@ -15,8 +15,52 @@ const seenArticles = new Set();
 const seenKeys = new Set();
 
 if (targets.contract !== 'JoyLab.CompanyCompactTargets') errors.push('invalid target contract name');
-if (!Array.isArray(targets.viewports) || targets.viewports.length < 3) errors.push('target contract must define >=3 viewports');
+const requiredViewports = [
+  { name: 'mobile-390', width: 390, height: 844 },
+  { name: 'desktop-1280', width: 1280, height: 900 },
+  { name: 'desktop-1440', width: 1440, height: 900 }
+];
+if (!Array.isArray(targets.viewports)) {
+  errors.push('target contract must define viewports');
+} else {
+  for (const requiredViewport of requiredViewports) {
+    const actual = targets.viewports.find((item) => item.name === requiredViewport.name);
+    if (!actual) {
+      errors.push('missing required viewport: ' + requiredViewport.name);
+      continue;
+    }
+    if (actual.width !== requiredViewport.width || actual.height !== requiredViewport.height) {
+      errors.push(
+        `${requiredViewport.name}: expected ${requiredViewport.width}x${requiredViewport.height}, got ${actual.width}x${actual.height}`
+      );
+    }
+  }
+}
 if (!Array.isArray(targets.targets) || targets.targets.length === 0) errors.push('target contract has no targets');
+
+const targetArticleIds = new Set((targets.targets || []).map((item) => item.articleId));
+const targetPaths = new Set((targets.targets || []).map((item) => item.path));
+const registryArticleIds = new Set(
+  [...registry.matchAll(/^\s{2}'([^']+)':\s*\{/gm)].map((match) => match[1])
+);
+const displayCompactPaths = new Set(
+  (display.currentCompactArticles || [])
+    .filter((item) => item.mode === 'compact')
+    .map((item) => item.path)
+);
+
+for (const articleId of registryArticleIds) {
+  if (!targetArticleIds.has(articleId)) errors.push('registry article missing from target contract: ' + articleId);
+}
+for (const articleId of targetArticleIds) {
+  if (!registryArticleIds.has(articleId)) errors.push('target article missing from registry: ' + articleId);
+}
+for (const compactPath of displayCompactPaths) {
+  if (!targetPaths.has(compactPath)) errors.push('display compact path missing from target contract: ' + compactPath);
+}
+for (const targetPath of targetPaths) {
+  if (!displayCompactPaths.has(targetPath)) errors.push('target path missing from display inventory: ' + targetPath);
+}
 
 for (const target of targets.targets || []) {
   if (seenArticles.has(target.articleId)) errors.push('duplicate articleId: ' + target.articleId);
