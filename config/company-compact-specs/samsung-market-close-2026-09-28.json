@@ -1,0 +1,51 @@
+{
+  "key": "samsung-market-close-2026-09-28",
+  "articleId": "samsung-market-close-2026-09-28",
+  "companyName": "Samsung Electronics",
+  "eyebrow": "SAMSUNG ELECTRONICS · DAILY MARKET THESIS",
+  "description": "금리·환율·외국인 수급 충격이 삼성전자 가격에 반영된 뒤 실적·AI 메모리 펀더멘털로 다시 연결되는지를 네 단계로 압축합니다.",
+  "hubHref": "/guides/semiconductor-investing",
+  "hubLabel": "전체 Semiconductor Graph →",
+  "reason": "Samsung daily market close 4-node investment flow",
+  "signalNode": "flow-fx",
+  "signalId": "foreign-flow",
+  "nodes": [
+    {
+      "id": "macro-discount-rate",
+      "type": "macro",
+      "label": "Rate / Risk-off"
+    },
+    {
+      "id": "flow-fx",
+      "type": "value_chain",
+      "label": "Foreign Flow / FX",
+      "signals": [
+        {
+          "id": "foreign-flow",
+          "label": "Foreign Flow",
+          "note": "삼성전자 외국인 순매도 강도가 둔화되는지 확인합니다."
+        },
+        {
+          "id": "usdkrw",
+          "label": "USD/KRW",
+          "note": "원·달러 환율이 외국인 위험회피를 추가로 자극하는지 봅니다."
+        },
+        {
+          "id": "semi-us",
+          "label": "US Semiconductor",
+          "note": "미국 반도체 섹터가 한국장 2차 충격을 강화하거나 완화하는지 확인합니다."
+        }
+      ]
+    },
+    {
+      "id": "earnings-thesis",
+      "type": "earnings",
+      "label": "Memory Earnings Thesis"
+    },
+    {
+      "id": "price-valuation",
+      "type": "valuation",
+      "label": "Price / Valuation"
+    }
+  ]
+}
