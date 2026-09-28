@@ -85,4 +85,4 @@ if (failed) {
   process.exit(1);
 }
 
-console.log('Company Compact Rollout Preview QA PASS · 11 company research pages');
+console.log(`Company Compact Rollout Preview QA PASS · ${pages.length} company research pages`);
