@@ -53,8 +53,8 @@ if (read90.status !== 204) throw new Error(`article_read_90 expected 204, got ${
 const earlyExit = await post({ event: 'article_exit', target: 'foreign-investor-flow', placement: 'early_exit', path: '/articles/foreign-investor-flow' });
 if (earlyExit.status !== 204) throw new Error(`article_exit expected 204, got ${earlyExit.status}`);
 
-const cls = await post({ event: 'article_cls', target: '0.043', placement: 'article_page', path: '/articles/foreign-investor-flow' });
-if (cls.status !== 204) throw new Error(`article_cls expected 204, got ${cls.status}`);
+const cls = await post({ event: 'article_cls_v2', target: '0.043', placement: 'article_page', path: '/articles/foreign-investor-flow' });
+if (cls.status !== 204) throw new Error(`article_cls_v2 expected 204, got ${cls.status}`);
 
 const internal = await post({ event: 'article_internal_link_click', target: '/articles/semiconductor-cycle', placement: 'article_body', path: '/articles/foreign-investor-flow' });
 if (internal.status !== 204) throw new Error(`article_internal_link_click expected 204, got ${internal.status}`);
