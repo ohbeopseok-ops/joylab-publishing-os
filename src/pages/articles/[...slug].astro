@@ -7,9 +7,7 @@ import ArticleSeoSchema from '../../components/ArticleSeoSchema.astro';
 import AiPowerResearchNav from '../../components/AiPowerResearchNav.astro';
 import ResearchGraphNav from '../../components/ResearchGraphNav.astro';
 import ResearchGraphMap from '../../components/ResearchGraphMap.astro';
-import samsungCompactGraph from '../../../config/research-graph-samsung-compact-v1.json';
-import skHynixCompactGraph from '../../../config/research-graph-sk-hynix-compact-v1.json';
-import kbFinancialCompactGraph from '../../../config/research-graph-kb-financial-compact-v1.json';
+import { getCompanyCompactResearch } from '../../config/companyCompactResearch';
 import ChinaSemiconductorSeriesNav from '../../components/ChinaSemiconductorSeriesNav.astro';
 import ChinaSemiconductorRiskScore from '../../components/ChinaSemiconductorRiskScore.astro';
 import '../../styles/interactive.css';
@@ -67,37 +65,7 @@ const articleImage = article.data.ogImage ?? heroImage;
 const articleImageUrl = articleImage ? new URL(articleImage, Astro.site ?? Astro.url.origin).toString() : undefined;
 const isCompareHub = article.id === 'samsung-vs-sk-hynix-ai-memory';
 const isSamsung = article.id === 'samsung-electronics-outlook';
-const compactCompanyResearch = article.id === 'samsung-electronics-outlook'
-  ? {
-      graph: samsungCompactGraph,
-      eyebrow: 'SAMSUNG ELECTRONICS · COMPACT THESIS',
-      title: 'AI Memory Demand → Memory Mix → Margin / EPS Revision → Valuation',
-      description: '삼성전자 투자 논리를 네 단계로 압축합니다. Memory Mix를 선택하면 HBM·DRAM·NAND 세부 신호를 펼쳐볼 수 있습니다.',
-      hubHref: '/guides/semiconductor-investing',
-      hubLabel: '전체 Semiconductor Graph →',
-      primaryFlow: ['ai-memory-demand','memory-mix','eps-revision','forward-per']
-    }
-  : article.id === 'sk-hynix-outlook'
-  ? {
-      graph: skHynixCompactGraph,
-      eyebrow: 'SK HYNIX · COMPACT THESIS',
-      title: 'AI Memory Demand → HBM Execution → Margin / FCF → Valuation',
-      description: 'SK하이닉스 투자 논리를 네 단계로 압축합니다. HBM Execution을 선택하면 HBM4·장기계약·CAPEX 세부 신호를 펼쳐볼 수 있습니다.',
-      hubHref: '/guides/semiconductor-investing',
-      hubLabel: '전체 Semiconductor Graph →',
-      primaryFlow: ['ai-memory-demand','hbm-execution','margin-fcf','valuation']
-    }
-  : article.id === 'kb-financial-shareholder-return'
-  ? {
-      graph: kbFinancialCompactGraph,
-      eyebrow: 'KB FINANCIAL · COMPACT THESIS',
-      title: 'Profitability / ROE → CET1 / Capital Buffer → Shareholder Return → PBR Re-rating',
-      description: 'KB금융의 주주환원 논리를 네 단계로 압축합니다. 각 노드를 선택하면 ROE·CET1·배당·자사주 소각 같은 핵심 신호를 확인할 수 있습니다.',
-      hubHref: '/guides/financials-value-up',
-      hubLabel: '전체 Financials Graph →',
-      primaryFlow: ['profitability','capital-buffer','shareholder-return','pbr-rerating']
-    }
-  : null;
+const compactCompanyResearch = getCompanyCompactResearch(article.id);
 const codexSeries = [
   { id: 'codex-guide-6-steps-2026', ep: 'EP01', short: 'Codex 6단계 시작 가이드' },
   { id: 'codex-non-developer-automation-10', ep: 'EP02', short: '비개발자 자동화 10가지' },
