@@ -79,7 +79,8 @@
     "research-graph:platform:check": "node scripts/check-research-graph-platform-v1.mjs",
     "release:engine:v2": "node scripts/release-engine-v2.mjs",
     "research-graph:responsive:gold": "node scripts/check-research-graph-responsive-v1.mjs",
-    "research-guide:scaffold": "node scripts/create-research-guide-scaffold-v1.mjs"
+    "research-guide:scaffold": "node scripts/create-research-guide-scaffold-v1.mjs",
+    "research-graph:compact:check": "node scripts/check-research-graph-compact-v1.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"
