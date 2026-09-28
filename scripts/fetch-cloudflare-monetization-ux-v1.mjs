@@ -30,10 +30,10 @@ async function windowMetrics(fromDaysAgo,toDaysAgo){
     GROUP BY index1, blob3
   `);
   const clsRows=await query(`
-    SELECT blob2 AS cls_value, SUM(_sample_interval) AS samples
+    SELECT blob2 AS cls_value, blob4 AS path, SUM(_sample_interval) AS samples
     FROM ${dataset}
     WHERE ${where} AND index1 = 'article_cls'
-    GROUP BY blob2
+    GROUP BY blob2, blob4
   `);
   const get=(event,placement=null)=>events
     .filter(r=>r.event===event && (placement==null||r.placement===placement))
@@ -45,20 +45,55 @@ async function windowMetrics(fromDaysAgo,toDaysAgo){
   const cta=get('article_contact_click');
   const earlyExit=get('article_exit','early_exit');
 
-  const distribution=clsRows
-    .map(r=>({value:Number(r.cls_value),samples:Number(r.samples||0)}))
-    .filter(r=>Number.isFinite(r.value)&&r.samples>0)
-    .sort((a,b)=>a.value-b.value);
-  const totalSamples=distribution.reduce((s,r)=>s+r.samples,0);
-  let clsP75=null;
-  if(totalSamples>0){
-    const target=totalSamples*0.75;
+  const clsSamples=clsRows
+    .map(r=>({
+      value:Number(r.cls_value),
+      path:String(r.path||'-'),
+      samples:Number(r.samples||0)
+    }))
+    .filter(r=>Number.isFinite(r.value)&&r.samples>0);
+
+  const weightedP75=(rows)=>{
+    const distribution=rows
+      .map(r=>({value:r.value,samples:r.samples}))
+      .sort((a,b)=>a.value-b.value);
+    const total=distribution.reduce((s,r)=>s+r.samples,0);
+    if(!total) return null;
+    const target=total*0.75;
     let cumulative=0;
     for(const row of distribution){
       cumulative+=row.samples;
-      if(cumulative>=target){clsP75=row.value;break;}
+      if(cumulative>=target) return row.value;
     }
+    return distribution.at(-1)?.value??null;
+  };
+
+  const distributionMap=new Map();
+  for(const row of clsSamples){
+    const key=row.value;
+    distributionMap.set(key,(distributionMap.get(key)||0)+row.samples);
   }
+  const distribution=[...distributionMap.entries()]
+    .map(([value,samples])=>({value:Number(value),samples}))
+    .sort((a,b)=>a.value-b.value);
+
+  const byPathMap=new Map();
+  for(const row of clsSamples){
+    const list=byPathMap.get(row.path)||[];
+    list.push(row);
+    byPathMap.set(row.path,list);
+  }
+  const clsByPath=[...byPathMap.entries()]
+    .map(([path,rows])=>({
+      path,
+      samples:rows.reduce((s,r)=>s+r.samples,0),
+      p75:weightedP75(rows),
+      max:Math.max(...rows.map(r=>r.value))
+    }))
+    .sort((a,b)=>(b.p75??-1)-(a.p75??-1)||b.samples-a.samples);
+
+  const totalSamples=clsSamples.reduce((s,r)=>s+r.samples,0);
+  const clsP75=weightedP75(clsSamples);
   return {
     views,
     read50,
@@ -70,7 +105,9 @@ async function windowMetrics(fromDaysAgo,toDaysAgo){
     ctaConversionPct:views?cta/views*100:null,
     exitRatePct:views?earlyExit/views*100:null,
     clsP75,
-    clsSamples:totalSamples
+    clsSamples:totalSamples,
+    clsDistribution:distribution,
+    clsByPath
   };
 }
 const current=await windowMetrics(days+1,1);
