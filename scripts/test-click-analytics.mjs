@@ -68,6 +68,24 @@ if (homeClick.status !== 204) throw new Error(`home_section_click expected 204, 
 const guideClick = await post({ event: 'home_section_click', target: '/guides/ai-productivity', placement: 'guide', path: '/' });
 if (guideClick.status !== 204) throw new Error(`guide home_section_click expected 204, got ${guideClick.status}`);
 
+const guideView = await post({ event: 'guide_view', target: 'ai-productivity', placement: 'guide_page', path: '/guides/ai-productivity' });
+if (guideView.status !== 204) throw new Error(`guide_view expected 204, got ${guideView.status}`);
+
+const guideRead50 = await post({ event: 'guide_read_50', target: 'ai-productivity', placement: 'guide_page', path: '/guides/ai-productivity' });
+if (guideRead50.status !== 204) throw new Error(`guide_read_50 expected 204, got ${guideRead50.status}`);
+
+const guideRead90 = await post({ event: 'guide_read_90', target: 'ai-productivity', placement: 'guide_page', path: '/guides/ai-productivity' });
+if (guideRead90.status !== 204) throw new Error(`guide_read_90 expected 204, got ${guideRead90.status}`);
+
+const guideCta = await post({ event: 'guide_cta_click', target: '/articles/what-is-ai-agent', placement: 'guide_page', path: '/guides/ai-productivity' });
+if (guideCta.status !== 204) throw new Error(`guide_cta_click expected 204, got ${guideCta.status}`);
+
+const guideExit = await post({ event: 'guide_exit', target: 'ai-productivity', placement: 'early_exit', path: '/guides/ai-productivity' });
+if (guideExit.status !== 204) throw new Error(`guide_exit expected 204, got ${guideExit.status}`);
+
+const guideCls = await post({ event: 'guide_cls_v2', target: '0.021', placement: 'guide_page', path: '/guides/ai-productivity' });
+if (guideCls.status !== 204) throw new Error(`guide_cls_v2 expected 204, got ${guideCls.status}`);
+
 const bookPreview = await post({ event: 'book_preview_start', target: 'weight-of-silence', placement: 'book_hero_v2', path: '/books/weight-of-silence' });
 if (bookPreview.status !== 204) throw new Error(`book_preview_start V2 expected 204, got ${bookPreview.status}`);
 
@@ -82,6 +100,21 @@ if (relatedResearch.status !== 204) throw new Error(`book_related_research_click
 
 const bookLanding = await post({ event: 'book_landing_view', target: 'problem-to-service', placement: 'book_landing', path: '/books/problem-to-service' });
 if (bookLanding.status !== 204) throw new Error(`book_landing_view expected 204, got ${bookLanding.status}`);
+
+const bookLandingRead50 = await post({ event: 'book_landing_read_50', target: 'problem-to-service', placement: 'book_landing', path: '/books/problem-to-service' });
+if (bookLandingRead50.status !== 204) throw new Error(`book_landing_read_50 expected 204, got ${bookLandingRead50.status}`);
+
+const bookLandingRead90 = await post({ event: 'book_landing_read_90', target: 'problem-to-service', placement: 'book_landing', path: '/books/problem-to-service' });
+if (bookLandingRead90.status !== 204) throw new Error(`book_landing_read_90 expected 204, got ${bookLandingRead90.status}`);
+
+const bookLandingCta = await post({ event: 'book_landing_cta_click', target: '/books/problem-to-service/read', placement: 'book_landing', path: '/books/problem-to-service' });
+if (bookLandingCta.status !== 204) throw new Error(`book_landing_cta_click expected 204, got ${bookLandingCta.status}`);
+
+const bookLandingExit = await post({ event: 'book_landing_exit', target: 'problem-to-service', placement: 'early_exit', path: '/books/problem-to-service' });
+if (bookLandingExit.status !== 204) throw new Error(`book_landing_exit expected 204, got ${bookLandingExit.status}`);
+
+const bookLandingCls = await post({ event: 'book_landing_cls_v2', target: '0.018', placement: 'book_landing', path: '/books/problem-to-service' });
+if (bookLandingCls.status !== 204) throw new Error(`book_landing_cls_v2 expected 204, got ${bookLandingCls.status}`);
 
 const bookReader = await post({ event: 'book_reader_view', target: 'problem-to-service', placement: 'book_reader', path: '/books/problem-to-service/read' });
 if (bookReader.status !== 204) throw new Error(`book_reader_view expected 204, got ${bookReader.status}`);
@@ -113,7 +146,7 @@ for (const placement of ['book_hero_v2', 'book_tabs', 'book_closing_v2']) {
   if (response.status !== 204) throw new Error(`book_interactive_open ${placement} expected 204, got ${response.status}`);
 }
 
-if (writes.length !== 34) throw new Error(`Expected thirty-four analytics writes, got ${writes.length}`);
+if (writes.length !== 45) throw new Error(`Expected forty-five analytics writes, got ${writes.length}`);
 if (writes[1].blobs.join('|') !== 'social_click|threads|about|/about') throw new Error(`Unexpected About social payload: ${JSON.stringify(writes[1])}`);
 if (writes[2].blobs.join('|') !== 'social_click|x|footer|/') throw new Error(`Unexpected X social payload: ${JSON.stringify(writes[2])}`);
 if (writes[3].blobs.join('|') !== 'social_click|youtube|about|/about') throw new Error(`Unexpected YouTube social payload: ${JSON.stringify(writes[3])}`);
@@ -139,6 +172,6 @@ if (invalidExternalHomeTarget.status !== 400) throw new Error(`Expected external
 const invalidRssSocial = await post({ event: 'social_click', target: 'rss', placement: 'about', path: '/about' });
 if (invalidRssSocial.status !== 400) throw new Error(`Expected RSS social target 400, got ${invalidRssSocial.status}`);
 
-if (writes.length !== 34) throw new Error('Invalid events must not be written');
+if (writes.length !== 45) throw new Error('Invalid events must not be written');
 
 console.log('Click Analytics V3 worker contract passed.');
