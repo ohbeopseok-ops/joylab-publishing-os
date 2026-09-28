@@ -1,0 +1,81 @@
+{
+  "contract": "JoyLab.ResearchGraph",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "ai-component-infrastructure",
+    "title": "AI Component Infrastructure",
+    "url": "/guides/ai-component-infrastructure",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {"id":"ai-component-infrastructure","type":"pillar","label":"AI Component Infrastructure","articleUrl":"/guides/ai-component-infrastructure","stage":"pillar"},
+    {"id":"hyperscaler-ai-capex","type":"demand","label":"Hyperscaler AI CAPEX","stage":"value_chain"},
+    {"id":"ai-compute-density","type":"value_chain","label":"AI Compute Density","stage":"value_chain"},
+    {"id":"advanced-package-bottleneck","type":"bottleneck","label":"Advanced Package Bottleneck","stage":"bottleneck"},
+    {"id":"fc-bga","type":"value_chain","label":"FC-BGA","stage":"value_chain"},
+    {"id":"power-density","type":"bottleneck","label":"AI Server Power Density","stage":"bottleneck"},
+    {"id":"high-reliability-mlcc","type":"value_chain","label":"High-reliability MLCC","stage":"value_chain"},
+
+    {"id":"samsung-electro-mechanics","type":"company","label":"Samsung Electro-Mechanics","ticker":"009150","market":"KRX","stage":"company",
+      "signals":[
+        {"id":"ai-capex-score","label":"AI CAPEX Score 83/100","note":"MLCC + FC-BGA 동시 노출. 실적 전환은 강하지만 밸류에이션 프리미엄이 높아진 구간."},
+        {"id":"watch","label":"Watch","note":"AI MLCC·FC-BGA 매출 → 영업이익률 → 2027 EPS Revision → Forward PER"}
+      ]
+    },
+    {"id":"lg-innotek","type":"company","label":"LG Innotek","ticker":"011070","market":"KRX","stage":"company",
+      "signals":[
+        {"id":"ai-capex-score","label":"AI CAPEX Score 66/100","note":"광학 비중이 여전히 높지만 FC-BGA와 AI 반도체 기판 비중 확대를 추적."},
+        {"id":"watch","label":"Watch","note":"패키지솔루션 매출 비중과 FC-BGA 고객 확대"}
+      ]
+    },
+    {"id":"daeduck-electronics","type":"company","label":"Daeduck Electronics","ticker":"353200","market":"KRX","stage":"company",
+      "signals":[
+        {"id":"ai-capex-score","label":"AI CAPEX Score 79/100","note":"FC-BGA와 AI/네트워크 MLB가 동시 성장. 2Q26 수익성 개선이 확인된 단계."},
+        {"id":"watch","label":"Watch","note":"FC-BGA 가동률·Large Body ABF·AI Compute Board 믹스"}
+      ]
+    },
+    {"id":"isupetasys","type":"company","label":"ISU Petasys","ticker":"007660","market":"KRX","stage":"company",
+      "signals":[
+        {"id":"ai-capex-score","label":"AI CAPEX Score 84/100","note":"AI 가속기·스위치용 고다층 PCB 직접 노출과 20%대 영업이익률이 강점."},
+        {"id":"watch","label":"Watch","note":"AI ASIC·네트워크 수주잔고, 다중적층 비중, CAPA 증설"}
+      ]
+    },
+
+    {"id":"ai-product-mix","type":"kpi","label":"AI Product Mix","stage":"kpi"},
+    {"id":"capacity-utilization","type":"kpi","label":"Capacity / Utilization","stage":"kpi"},
+    {"id":"operating-margin","type":"kpi","label":"Operating Margin","stage":"kpi"},
+    {"id":"eps-revision","type":"earnings","label":"EPS Revision","stage":"valuation"},
+    {"id":"forward-per","type":"valuation","label":"Forward PER","stage":"valuation"}
+  ],
+  "edges": [
+    {"from":"hyperscaler-ai-capex","to":"ai-compute-density","type":"drives"},
+    {"from":"ai-compute-density","to":"advanced-package-bottleneck","type":"drives"},
+    {"from":"advanced-package-bottleneck","to":"fc-bga","type":"requires"},
+    {"from":"ai-compute-density","to":"power-density","type":"drives"},
+    {"from":"power-density","to":"high-reliability-mlcc","type":"requires"},
+
+    {"from":"fc-bga","to":"samsung-electro-mechanics","type":"supplies"},
+    {"from":"high-reliability-mlcc","to":"samsung-electro-mechanics","type":"supplies"},
+    {"from":"fc-bga","to":"lg-innotek","type":"supplies"},
+    {"from":"fc-bga","to":"daeduck-electronics","type":"supplies"},
+    {"from":"ai-compute-density","to":"isupetasys","type":"requires"},
+
+    {"from":"samsung-electro-mechanics","to":"ai-product-mix","type":"measured_by"},
+    {"from":"lg-innotek","to":"ai-product-mix","type":"measured_by"},
+    {"from":"daeduck-electronics","to":"capacity-utilization","type":"measured_by"},
+    {"from":"isupetasys","to":"capacity-utilization","type":"measured_by"},
+    {"from":"ai-product-mix","to":"operating-margin","type":"drives_earnings"},
+    {"from":"capacity-utilization","to":"operating-margin","type":"drives_earnings"},
+    {"from":"operating-margin","to":"eps-revision","type":"drives_earnings"},
+    {"from":"eps-revision","to":"forward-per","type":"valued_by"}
+  ],
+  "articles": [],
+  "lanes": [
+    {"key":"demand","label":"AI CAPEX","types":["demand"]},
+    {"key":"bottleneck","label":"BOTTLENECK / PRODUCT","types":["value_chain","bottleneck"]},
+    {"key":"company","label":"COMPANY","types":["company"]},
+    {"key":"kpi","label":"KPI","types":["kpi","earnings"]},
+    {"key":"valuation","label":"VALUATION","types":["valuation"]}
+  ]
+}
