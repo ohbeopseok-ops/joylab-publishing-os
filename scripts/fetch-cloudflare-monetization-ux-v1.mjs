@@ -4,14 +4,45 @@ import path from 'node:path';
 const accountId=process.env.CLOUDFLARE_ACCOUNT_ID;
 const token=process.env.CLOUDFLARE_ANALYTICS_READ_TOKEN;
 const dataset=process.env.CLOUDFLARE_ANALYTICS_DATASET || 'joylab_events_v1';
-const scope=process.env.MONETIZATION_PAGE_SCOPE === 'guide' ? 'guide' : 'article';
+const requestedScope=process.env.MONETIZATION_PAGE_SCOPE || 'article';
+const scopeConfig={
+  article:{
+    scope:'article',
+    view:'article_view',
+    read50:'article_read_50',
+    read90:'article_read_90',
+    cta:'article_contact_click',
+    exit:'article_exit',
+    cls:'article_cls_v2'
+  },
+  guide:{
+    scope:'guide',
+    view:'guide_view',
+    read50:'guide_read_50',
+    read90:'guide_read_90',
+    cta:'guide_cta_click',
+    exit:'guide_exit',
+    cls:'guide_cls_v2'
+  },
+  book:{
+    scope:'book',
+    view:'book_landing_view',
+    read50:'book_landing_read_50',
+    read90:'book_landing_read_90',
+    cta:'book_landing_cta_click',
+    exit:'book_landing_exit',
+    cls:'book_landing_cls_v2'
+  }
+};
+const selected=scopeConfig[requestedScope] || scopeConfig.article;
+const scope=selected.scope;
 const eventNames={
-  view:`${scope}_view`,
-  read50:`${scope}_read_50`,
-  read90:`${scope}_read_90`,
-  cta:scope==='guide'?'guide_cta_click':'article_contact_click',
-  exit:`${scope}_exit`,
-  cls:`${scope}_cls_v2`
+  view:selected.view,
+  read50:selected.read50,
+  read90:selected.read90,
+  cta:selected.cta,
+  exit:selected.exit,
+  cls:selected.cls
 };
 const days=Math.max(1,Math.min(30,Number(process.env.MONETIZATION_UX_DAYS || 7)));
 const out=process.env.CLOUDFLARE_UX_OUT || 'qa-artifacts/adsense-monetization-gate-v1/cloudflare-ux.json';
@@ -129,7 +160,7 @@ const payload={
   metricDefinitions:{
     readingDepthPct:`Share of ${scope} views reaching at least 50% scroll depth.`,
     exitRatePct:`Share of ${scope} views ending before 25% scroll depth and before 30 visible seconds.`,
-    ctaConversionPct:scope==='guide'?'Guide internal CTA clicks divided by guide views.':'Article contact CTA clicks divided by article views.',
+    ctaConversionPct:scope==='guide'?'Guide internal CTA clicks divided by guide views.':scope==='book'?'Books landing CTA clicks divided by Books landing views.':'Article contact CTA clicks divided by article views.',
     clsP75:'Weighted p75 of Web Vitals session-window CLS v2 values.'
   },
   current,
