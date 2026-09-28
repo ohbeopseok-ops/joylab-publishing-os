@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AiCapexMasterMap from '../components/AiCapexMasterMap.astro';
 import platform from '../../config/research-graph-platform-v1.json';
 import '../styles/global-research-map-v1.css';
 
@@ -112,6 +113,8 @@ const canonical = 'https://aijoylab.kr/research-map';
           ))}
         </div>
       </section>
+
+      <AiCapexMasterMap />
 
       <div class="grm-atlas" aria-label="Active Research Graphs">
         {domains.map((domain) => (
