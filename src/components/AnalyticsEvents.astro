@@ -254,7 +254,7 @@
         checkDepth();
         const early = readingDepth() < 25 && visibleSeconds < 30;
         send('article_exit', articleId, early ? 'early_exit' : 'normal_exit');
-        send('article_cls', Math.max(0, clsValue).toFixed(3), 'article_page');
+        send('article_cls_v2', Math.max(0, clsValue).toFixed(3), 'article_page');
       };
 
       addEventListener('pagehide', sendExitSignals, { once: true });
