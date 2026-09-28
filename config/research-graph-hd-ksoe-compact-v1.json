@@ -1,0 +1,85 @@
+{
+  "contract": "JoyLab.ResearchGraphCompact",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "hd-ksoe-shipbuilding",
+    "title": "HD KSOE Compact Thesis",
+    "url": "/articles/hd-ksoe-shipbuilding",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "group-orderbook",
+      "type": "demand",
+      "label": "Group Orderbook",
+      "signals": [
+        {
+          "id": "subsidiary-mix",
+          "label": "Subsidiary Mix",
+          "note": "현대중공업·삼호·미포 등 자회사별 선종·마진 믹스를 분리해 봅니다."
+        },
+        {
+          "id": "overseas-yards",
+          "label": "Overseas Yards",
+          "note": "해외야드 투자가 생산능력과 원가 경쟁력으로 연결되는지 확인합니다."
+        },
+        {
+          "id": "capital-allocation",
+          "label": "Capital Allocation",
+          "note": "자회사 이익과 현금흐름이 배당·투자·지주가치로 연결되는지 봅니다."
+        }
+      ]
+    },
+    {
+      "id": "subsidiary-earnings",
+      "type": "value_chain",
+      "label": "Subsidiary Earnings Mix"
+    },
+    {
+      "id": "group-opm",
+      "type": "earnings",
+      "label": "Group OPM / Capital Allocation"
+    },
+    {
+      "id": "holding-discount",
+      "type": "valuation",
+      "label": "Holding Discount / Valuation"
+    }
+  ],
+  "edges": [
+    {
+      "from": "group-orderbook",
+      "to": "subsidiary-earnings",
+      "type": "drives"
+    },
+    {
+      "from": "subsidiary-earnings",
+      "to": "group-opm",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "group-opm",
+      "to": "holding-discount",
+      "type": "valued_by"
+    },
+    {
+      "from": "article-hd-ksoe-shipbuilding",
+      "to": "subsidiary-earnings",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hd-ksoe-shipbuilding",
+      "to": "group-opm",
+      "type": "covered_by"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-hd-ksoe-shipbuilding",
+      "title": "HD KSOE Compact Thesis",
+      "url": "/articles/hd-ksoe-shipbuilding",
+      "status": "published"
+    }
+  ]
+}
