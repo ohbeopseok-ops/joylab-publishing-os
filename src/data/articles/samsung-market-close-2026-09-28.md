@@ -199,6 +199,7 @@ JoyLab 관점에서는 27만원이라는 가격 하나보다 **조건의 변화*
 
 ## Sources
 
+- KRX Data System, 국내 주식·투자자별 매매 데이터: https://data.krx.co.kr/contents/MDC/MAIN/main/index.cmd
 - 연합뉴스, 2026-09-28, 삼성전자·SK하이닉스 5%대 급락: https://www.yna.co.kr/amp/view/AKR20260928034551008
 - 연합뉴스, 2026-09-28, 거래소 외국인 순매수도 상위종목: https://www.yna.co.kr/amp/view/AKR20260928119000008
 - 연합뉴스, 2026-09-28, 코스피 6,889.74 마감: https://www.yna.co.kr/amp/view/AKR20260928116600008
