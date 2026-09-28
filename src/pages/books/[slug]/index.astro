@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BookSchema from '../../../components/BookSchema.astro';
+import AdSlot from '../../../components/AdSlot.astro';
 import { getCollection, render } from 'astro:content';
 import '../../../styles/books.css';
 import '../../../styles/book-call-center-ai.css';
@@ -218,6 +219,10 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
         <a href="/about">JoyLab과 저자 소개 보기 →</a>
       </div>
     </section>
+
+    <div class="book-v2-ad-break" aria-label="Books 상세 페이지 광고 영역">
+      <AdSlot placement="book-end" />
+    </div>
 
     <section id="related" class="book-v2-section book-v2-related">
       <div class="book-v2-section-head">
