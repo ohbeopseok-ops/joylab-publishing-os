@@ -9,7 +9,10 @@ on:
       - 'src/styles/research-graph-map-v3.css'
       - 'config/research-graph-*-compact-v1.json'
       - 'config/research-graph-display-modes-v1.json'
+      - 'config/company-compact-targets-v1.json'
       - 'scripts/check-company-compact-rollout-v1.mjs'
+      - 'scripts/create-company-compact-scaffold-v1.mjs'
+      - 'scripts/check-company-compact-contract-v1.mjs'
       - 'package.json'
       - '.github/workflows/company-compact-rollout-gold-v1.yml'
   workflow_dispatch:
@@ -25,6 +28,8 @@ jobs:
           node-version: '22.19.0'
           cache: npm
       - run: npm ci
+      - name: Run Company Compact Contract
+        run: npm run company-compact:contract
       - run: npm install --no-save playwright@1.55.0
       - run: npx playwright install --with-deps chromium
       - run: npm run build
