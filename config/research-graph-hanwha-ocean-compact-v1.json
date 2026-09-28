@@ -1,0 +1,85 @@
+{
+  "contract": "JoyLab.ResearchGraphCompact",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "hanwha-ocean-shipbuilding",
+    "title": "Hanwha Ocean Compact Thesis",
+    "url": "/articles/hanwha-ocean-shipbuilding",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "orderbook-quality",
+      "type": "demand",
+      "label": "Orderbook Quality",
+      "signals": [
+        {
+          "id": "lng",
+          "label": "LNG Ships",
+          "note": "고선가 LNG선 물량이 반복 가능한 상선 마진으로 이어지는지 봅니다."
+        },
+        {
+          "id": "special-ship",
+          "label": "Special Ships",
+          "note": "잠수함·수상함의 양산·수출 파이프라인이 실제 계약으로 전환되는지 확인합니다."
+        },
+        {
+          "id": "offshore",
+          "label": "Offshore",
+          "note": "해양 프로젝트 매출이 일회성이 아니라 안정된 손익으로 이어지는지 봅니다."
+        }
+      ]
+    },
+    {
+      "id": "mix",
+      "type": "value_chain",
+      "label": "LNG / Special Ship Mix"
+    },
+    {
+      "id": "margin",
+      "type": "earnings",
+      "label": "Margin"
+    },
+    {
+      "id": "valuation",
+      "type": "valuation",
+      "label": "Valuation"
+    }
+  ],
+  "edges": [
+    {
+      "from": "orderbook-quality",
+      "to": "mix",
+      "type": "drives"
+    },
+    {
+      "from": "mix",
+      "to": "margin",
+      "type": "drives_earnings"
+    },
+    {
+      "from": "margin",
+      "to": "valuation",
+      "type": "valued_by"
+    },
+    {
+      "from": "article-hanwha-ocean-shipbuilding",
+      "to": "mix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-hanwha-ocean-shipbuilding",
+      "to": "margin",
+      "type": "covered_by"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-hanwha-ocean-shipbuilding",
+      "title": "Hanwha Ocean Compact Thesis",
+      "url": "/articles/hanwha-ocean-shipbuilding",
+      "status": "published"
+    }
+  ]
+}
