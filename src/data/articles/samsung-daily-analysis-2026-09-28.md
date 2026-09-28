@@ -259,6 +259,7 @@ AI 서버 메모리 수요와 삼성전자의 HBM4·서버 DRAM·eSSD·CXL 확�
 - 매일경제 마켓, 2026-09-28, 삼성전자 종가·OHLC·거래량·거래대금: https://stock.mk.co.kr/price/dealer/KR7145210001
 - 머니투데이, 2026-09-28, 삼성전자 3Q26 영업이익 컨센서스 약 111.8조원: https://www.mt.co.kr/industry/2026/09/28/2026092719264354029
 - 머니투데이, 2026-09-28, 삼성전자 CXL·AI 메모리 전략: https://www.mt.co.kr/industry/2026/09/28/2026092815580639077
+- KRX 정보데이터시스템, 2026-09-28, 국내 주식 시세·투자자별 거래 원천 데이터: https://data.krx.co.kr/
 - Samsung IR, 2026 실적발표: https://www.samsung.com/sec/ir/financial-information/earnings-release/
 - Yonhap News Agency, 2026-02-12, Samsung HBM4 commercial shipment: https://en.yna.co.kr/view/AEN20260212007951320
 
