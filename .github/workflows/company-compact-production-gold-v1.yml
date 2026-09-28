@@ -1,24 +1,21 @@
 name: Company Compact Production GOLD V1
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'src/config/companyCompactResearch.ts'
-      - 'config/research-graph-*-compact-v1.json'
-      - 'src/pages/articles/**'
-      - 'src/components/ResearchGraphMap.astro'
-      - 'src/styles/research-graph-map-v3.css'
-      - 'scripts/check-company-compact-production-gold-v1.mjs'
-      - '.github/workflows/company-compact-production-gold-v1.yml'
-  workflow_dispatch:
+  workflow_run:
+    workflows: ['Deploy to Cloudflare Workers']
+    types: [completed]
 
 jobs:
   production-gold:
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: '22.19.0'
@@ -27,22 +24,22 @@ jobs:
       - run: npm install --no-save playwright@1.55.0
       - run: npx playwright install --with-deps chromium
 
-      - name: Wait for Wave 2 production marker
+      - name: Verify deployed workflow revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOYED_SHA"
+          echo "Validating production deployed by successful Cloudflare run for $DEPLOYED_SHA"
+          test "$DEPLOYED_SHA" = "${{ github.event.workflow_run.head_sha }}"
+
+      - name: Verify Wave 2 production marker
         shell: bash
         run: |
           set -euo pipefail
           url="https://aijoylab.kr/articles/hd-hyundai-heavy-industries-shipbuilding"
-          for i in {1..30}; do
-            html="$(curl -fsSL --max-time 20 "$url?production-gold=$GITHUB_SHA" || true)"
-            if grep -Fq 'HD HYUNDAI HEAVY INDUSTRIES · COMPACT THESIS' <<< "$html"; then
-              echo "Wave 2 production marker found"
-              exit 0
-            fi
-            echo "Waiting for production Wave 2 ($i/30)..."
-            sleep 10
-          done
-          echo "Production Wave 2 marker not found"
-          exit 1
+          html="$(curl -fsSL --max-time 20 "$url?production-gold=$DEPLOYED_SHA")"
+          grep -Fq 'HD HYUNDAI HEAVY INDUSTRIES · COMPACT THESIS' <<< "$html"
+          echo "Wave 2 production marker found after successful deploy for $DEPLOYED_SHA"
 
       - name: Run production GOLD
         env:
