@@ -5,7 +5,7 @@ on:
     paths:
       - 'src/components/ResearchGraphMap.astro'
       - 'src/styles/research-graph-map-v3.css'
-      - 'src/pages/articles/[...slug].astro'
+      - 'src/pages/articles/**'
       - 'config/research-graph-samsung-compact-v1.json'
       - 'scripts/check-samsung-compact-gold-v1.mjs'
       - 'package.json'
