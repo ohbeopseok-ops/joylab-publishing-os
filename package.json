@@ -81,7 +81,8 @@
     "research-graph:responsive:gold": "node scripts/check-research-graph-responsive-v1.mjs",
     "research-guide:scaffold": "node scripts/create-research-guide-scaffold-v1.mjs",
     "research-graph:compact:check": "node scripts/check-research-graph-compact-v1.mjs",
-    "samsung-compact:gold": "node scripts/check-samsung-compact-gold-v1.mjs"
+    "samsung-compact:gold": "node scripts/check-samsung-compact-gold-v1.mjs",
+    "mobile-article:monetization-order": "node scripts/check-mobile-article-monetization-order-v1.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"
