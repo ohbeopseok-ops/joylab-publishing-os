@@ -20,6 +20,7 @@
   ],
   "targets": [
     {
+      "graphKey": "samsung",
       "name": "samsung",
       "articleId": "samsung-electronics-outlook",
       "path": "/articles/samsung-electronics-outlook",
@@ -28,6 +29,7 @@
       "expectedHub": "/guides/semiconductor-investing"
     },
     {
+      "graphKey": "sk-hynix",
       "name": "sk-hynix",
       "articleId": "sk-hynix-outlook",
       "path": "/articles/sk-hynix-outlook",
@@ -36,6 +38,7 @@
       "expectedHub": "/guides/semiconductor-investing"
     },
     {
+      "graphKey": "kb-financial",
       "name": "kb-financial",
       "articleId": "kb-financial-shareholder-return",
       "path": "/articles/kb-financial-shareholder-return",
@@ -44,6 +47,7 @@
       "expectedHub": "/guides/financials-value-up"
     },
     {
+      "graphKey": "hd-hyundai-heavy",
       "name": "hd-hyundai-heavy",
       "articleId": "hd-hyundai-heavy-industries-shipbuilding",
       "path": "/articles/hd-hyundai-heavy-industries-shipbuilding",
@@ -52,6 +56,7 @@
       "expectedHub": "/guides/shipbuilding"
     },
     {
+      "graphKey": "hanwha-ocean",
       "name": "hanwha-ocean",
       "articleId": "hanwha-ocean-shipbuilding",
       "path": "/articles/hanwha-ocean-shipbuilding",
@@ -60,6 +65,7 @@
       "expectedHub": "/guides/shipbuilding"
     },
     {
+      "graphKey": "samsung-heavy",
       "name": "samsung-heavy",
       "articleId": "samsung-heavy-industries-shipbuilding",
       "path": "/articles/samsung-heavy-industries-shipbuilding",
@@ -68,6 +74,7 @@
       "expectedHub": "/guides/shipbuilding"
     },
     {
+      "graphKey": "hd-ksoe",
       "name": "hd-ksoe",
       "articleId": "hd-ksoe-shipbuilding",
       "path": "/articles/hd-ksoe-shipbuilding",
@@ -76,6 +83,7 @@
       "expectedHub": "/guides/shipbuilding"
     },
     {
+      "graphKey": "doosan-enerbility",
       "name": "doosan-enerbility",
       "articleId": "doosan-enerbility-ai-power",
       "path": "/articles/doosan-enerbility-ai-power",
@@ -84,6 +92,7 @@
       "expectedHub": "/guides/ai-power-infrastructure"
     },
     {
+      "graphKey": "hyosung-heavy",
       "name": "hyosung-heavy",
       "articleId": "hyosung-heavy-industries-ai-power",
       "path": "/articles/hyosung-heavy-industries-ai-power",
@@ -92,6 +101,7 @@
       "expectedHub": "/guides/ai-power-infrastructure"
     },
     {
+      "graphKey": "hd-hyundai-electric",
       "name": "hd-hyundai-electric",
       "articleId": "hd-hyundai-electric-ai-power",
       "path": "/articles/hd-hyundai-electric-ai-power",
@@ -100,6 +110,7 @@
       "expectedHub": "/guides/ai-power-infrastructure"
     },
     {
+      "graphKey": "ls-electric",
       "name": "ls-electric",
       "articleId": "ls-electric-ai-power",
       "path": "/articles/ls-electric-ai-power",
