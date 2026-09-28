@@ -10,6 +10,8 @@ import hyosungHeavyCompactGraph from '../../config/research-graph-hyosung-heavy-
 import hdHyundaiElectricCompactGraph from '../../config/research-graph-hd-hyundai-electric-compact-v1.json';
 import lsElectricCompactGraph from '../../config/research-graph-ls-electric-compact-v1.json';
 
+import samsungHbm4MemoryCompactGraph from '../../config/research-graph-samsung-hbm4-memory-compact-v1.json';
+
 export const companyCompactResearch = {
   'samsung-electronics-outlook': {
     graph: samsungCompactGraph,
@@ -109,6 +111,15 @@ export const companyCompactResearch = {
     hubHref: '/guides/ai-power-infrastructure',
     hubLabel: '전체 AI Power Graph →',
     primaryFlow: ['data-center-power','power-mix','margin','valuation']
+  },
+  'samsung-hbm4-memory-outlook-2026-09-20': {
+    graph: samsungHbm4MemoryCompactGraph,
+    eyebrow: 'SAMSUNG ELECTRONICS · HBM4 COMPACT THESIS',
+    title: 'AI Server Demand → HBM4 / HBM4E Execution → Premium Memory Mix → DS Earnings / Valuation',
+    description: 'HBM4·HBM4E 양산과 고객 채택이 고부가 메모리 믹스와 DS 실적·밸류에이션으로 연결되는지를 네 단계로 압축합니다.',
+    hubHref: '/guides/semiconductor-investing',
+    hubLabel: '전체 Semiconductor Graph →',
+    primaryFlow: ['ai-server-demand','hbm-execution','premium-memory-mix','ds-earnings-valuation']
   }
 } as const;
 
