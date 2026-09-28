@@ -4,6 +4,15 @@ import path from 'node:path';
 const accountId=process.env.CLOUDFLARE_ACCOUNT_ID;
 const token=process.env.CLOUDFLARE_ANALYTICS_READ_TOKEN;
 const dataset=process.env.CLOUDFLARE_ANALYTICS_DATASET || 'joylab_events_v1';
+const scope=process.env.MONETIZATION_PAGE_SCOPE === 'guide' ? 'guide' : 'article';
+const eventNames={
+  view:`${scope}_view`,
+  read50:`${scope}_read_50`,
+  read90:`${scope}_read_90`,
+  cta:scope==='guide'?'guide_cta_click':'article_contact_click',
+  exit:`${scope}_exit`,
+  cls:`${scope}_cls_v2`
+};
 const days=Math.max(1,Math.min(30,Number(process.env.MONETIZATION_UX_DAYS || 7)));
 const out=process.env.CLOUDFLARE_UX_OUT || 'qa-artifacts/adsense-monetization-gate-v1/cloudflare-ux.json';
 
@@ -26,24 +35,24 @@ async function windowMetrics(fromDaysAgo,toDaysAgo){
   const events=await query(`
     SELECT index1 AS event, blob3 AS placement, SUM(_sample_interval) AS count
     FROM ${dataset}
-    WHERE ${where} AND index1 IN ('article_view','article_read_50','article_read_90','article_contact_click','article_exit')
+    WHERE ${where} AND index1 IN ('${eventNames.view}','${eventNames.read50}','${eventNames.read90}','${eventNames.cta}','${eventNames.exit}')
     GROUP BY index1, blob3
   `);
   const clsRows=await query(`
     SELECT blob2 AS cls_value, blob4 AS path, SUM(_sample_interval) AS samples
     FROM ${dataset}
-    WHERE ${where} AND index1 = 'article_cls_v2'
+    WHERE ${where} AND index1 = '${eventNames.cls}'
     GROUP BY blob2, blob4
   `);
   const get=(event,placement=null)=>events
     .filter(r=>r.event===event && (placement==null||r.placement===placement))
     .reduce((sum,r)=>sum+Number(r.count||0),0);
 
-  const views=get('article_view');
-  const read50=get('article_read_50');
-  const read90=get('article_read_90');
-  const cta=get('article_contact_click');
-  const earlyExit=get('article_exit','early_exit');
+  const views=get(eventNames.view);
+  const read50=get(eventNames.read50);
+  const read90=get(eventNames.read90);
+  const cta=get(eventNames.cta);
+  const earlyExit=get(eventNames.exit,'early_exit');
 
   const clsSamples=clsRows
     .map(r=>({
@@ -115,11 +124,12 @@ const baseline=await windowMetrics(days*2+1,days+1);
 const payload={
   source:'cloudflare-analytics-engine',
   dataset,
+  scope,
   windowDays:days,
   metricDefinitions:{
-    readingDepthPct:'Share of article views reaching at least 50% scroll depth.',
-    exitRatePct:'Share of article views ending before 25% scroll depth and before 30 visible seconds.',
-    ctaConversionPct:'Article contact CTA clicks divided by article views.',
+    readingDepthPct:`Share of ${scope} views reaching at least 50% scroll depth.`,
+    exitRatePct:`Share of ${scope} views ending before 25% scroll depth and before 30 visible seconds.`,
+    ctaConversionPct:scope==='guide'?'Guide internal CTA clicks divided by guide views.':'Article contact CTA clicks divided by article views.',
     clsP75:'Weighted p75 of Web Vitals session-window CLS v2 values.'
   },
   current,
