@@ -175,6 +175,11 @@ const nodePayload = Object.fromEntries(graph.nodes.map((node:any) => {
         <b>COMPANY KPI</b>
         <div data-rg-kpi-list></div>
       </div>
+
+      <div class="rg__signals" data-rg-signals hidden>
+        <b>KEY SIGNALS</b>
+        <div data-rg-signal-list></div>
+      </div>
     </div>
 
     <div class="rg__detail-links">
@@ -216,6 +221,8 @@ const nodePayload = Object.fromEntries(graph.nodes.map((node:any) => {
     const outgoing = root.querySelector('[data-rg-outgoing]');
     const kpiBox = root.querySelector('[data-rg-kpi]');
     const kpiList = root.querySelector('[data-rg-kpi-list]');
+    const signalBox = root.querySelector('[data-rg-signals]');
+    const signalList = root.querySelector('[data-rg-signal-list]');
     const buttons = [...root.querySelectorAll('[data-node-id]')];
     const canvas = root.querySelector('[data-rg-canvas]');
     const svg = root.querySelector('[data-rg-svg]');
@@ -295,6 +302,23 @@ const nodePayload = Object.fromEntries(graph.nodes.map((node:any) => {
         kpiBox.hidden = true;
         kpiList.innerHTML = '';
       }
+
+      if (signalBox && signalList && Array.isArray(node.signals) && node.signals.length) {
+        signalBox.hidden = false;
+        signalList.innerHTML = node.signals.map((signal) =>
+          `<button type="button" class="rg__signal" data-signal-id="${signal.id}" aria-expanded="false"><strong>${signal.label}</strong><span>${signal.note || ''}</span></button>`
+        ).join('');
+      } else if (signalBox && signalList) {
+        signalBox.hidden = true;
+        signalList.innerHTML = '';
+      }
+
+      root.querySelectorAll('[data-signal-id]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const expanded = button.getAttribute('aria-expanded') === 'true';
+          button.setAttribute('aria-expanded', String(!expanded));
+        });
+      });
 
       const articleLinks = (node.articles || []).map((article) =>
         `<a href="${article.url}">${article.title} →</a>`
