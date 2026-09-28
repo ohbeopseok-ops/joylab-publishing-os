@@ -96,11 +96,11 @@ for (const viewport of viewports) {
     await page.route('**/__analytics/event', (route) => route.fulfill({ status: 204, body: '' }));
 
     const errors = [];
-    let sawFundingChoicesCors = false;
     page.on('pageerror', (error) => errors.push(String(error)));
     page.on('console', (msg) => {
       if (msg.type() !== 'error') return;
       const text = msg.text();
+      const sourceUrl = msg.location()?.url || '';
       const benignGoogleReportOnlyFrameError =
         text.includes('[Report Only]') &&
         text.includes("Refused to frame 'https://www.google.com/'") &&
@@ -111,10 +111,9 @@ for (const viewport of viewports) {
       const benignFundingChoicesCorsError =
         text.includes("Access to XMLHttpRequest at 'https://fundingchoicesmessages.google.com/") &&
         text.includes("has been blocked by CORS policy");
-      if (benignFundingChoicesCorsError) sawFundingChoicesCors = true;
       const benignFailedGoogleResource =
         text === 'Failed to load resource: net::ERR_FAILED' &&
-        sawFundingChoicesCors;
+        sourceUrl.startsWith('https://fundingchoicesmessages.google.com/');
 
       if (
         !benignGoogleReportOnlyFrameError &&
