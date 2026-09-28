@@ -72,6 +72,16 @@
       "from": "article-samsung-hbm4-memory-outlook-2026-09-20",
       "to": "premium-memory-mix",
       "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-market-close-2026-09-28",
+      "to": "premium-memory-mix",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-samsung-market-close-2026-09-28",
+      "to": "ds-earnings-valuation",
+      "type": "covered_by"
     }
   ],
   "articles": [
@@ -79,6 +89,12 @@
       "id": "article-samsung-hbm4-memory-outlook-2026-09-20",
       "title": "Samsung Electronics HBM4",
       "url": "/articles/samsung-hbm4-memory-outlook-2026-09-20",
+      "status": "published"
+    },
+    {
+      "id": "article-samsung-market-close-2026-09-28",
+      "title": "Samsung Electronics Daily Market Close",
+      "url": "/articles/samsung-market-close-2026-09-28",
       "status": "published"
     }
   ]
