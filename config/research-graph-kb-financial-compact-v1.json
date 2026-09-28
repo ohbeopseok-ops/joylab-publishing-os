@@ -1,0 +1,31 @@
+{
+  "contract": "JoyLab.ResearchGraphCompact",
+  "version": "1.0.0",
+  "pillar": {"id":"kb-financial-shareholder-return","title":"KB Financial Compact Thesis","url":"/articles/kb-financial-shareholder-return","domain":"investing","status":"published"},
+  "nodes": [
+    {"id":"profitability","type":"kpi","label":"Profitability / ROE","signals":[
+      {"id":"roe","label":"ROE","note":"자본을 얼마나 효율적으로 이익으로 전환하는지 확인합니다."},
+      {"id":"nim","label":"NIM","note":"핵심 이자이익의 질과 조달비용 압력을 함께 봅니다."},
+      {"id":"credit-cost","label":"Credit Cost","note":"높은 ROE가 건전성 비용 악화로 만들어진 것은 아닌지 확인합니다."}
+    ]},
+    {"id":"capital-buffer","type":"kpi","label":"CET1 / Capital Buffer","signals":[
+      {"id":"cet1","label":"CET1","note":"주주환원 이후에도 자본비율이 기준선 위에 남는지 봅니다."},
+      {"id":"rwa","label":"RWA","note":"위험가중자산 증가 속도가 자본여력을 잠식하지 않는지 확인합니다."},
+      {"id":"capital-threshold","label":"Capital Threshold","note":"회사 환원 공식의 기준선 위 잉여자본이 유지되는지 봅니다."}
+    ]},
+    {"id":"shareholder-return","type":"kpi","label":"Shareholder Return","signals":[
+      {"id":"dividend","label":"Dividend","note":"분기 배당과 연간 현금환원이 지속되는지 확인합니다."},
+      {"id":"buyback","label":"Buyback","note":"자사주 매입 계획이 실제 집행으로 이어지는지 봅니다."},
+      {"id":"cancellation","label":"Cancellation","note":"매입한 자사주가 실제 소각돼 주식 수 감소로 연결되는지 확인합니다."}
+    ]},
+    {"id":"pbr-rerating","type":"valuation","label":"PBR Re-rating"}
+  ],
+  "edges":[
+    {"from":"profitability","to":"capital-buffer","type":"supports"},
+    {"from":"capital-buffer","to":"shareholder-return","type":"enables"},
+    {"from":"shareholder-return","to":"pbr-rerating","type":"valued_by"},
+    {"from":"article-kb-financial-shareholder-return","to":"capital-buffer","type":"covered_by"},
+    {"from":"article-kb-financial-shareholder-return","to":"shareholder-return","type":"covered_by"}
+  ],
+  "articles":[{"id":"article-kb-financial-shareholder-return","title":"KB금융 주주환원","url":"/articles/kb-financial-shareholder-return","status":"published"}]
+}
