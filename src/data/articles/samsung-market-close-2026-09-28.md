@@ -42,6 +42,7 @@ ogImage: "/images/research/joylab-research-default-hero.svg"
 **Related Research**
 - [삼성전자 HBM4·HBM4E 분석](/articles/samsung-hbm4-memory-outlook-2026-09-20)
 - [삼성전자 vs SK하이닉스 AI 메모리 경쟁](/articles/samsung-vs-sk-hynix-ai-memory)
+- Research Hub: https://aijoylab.kr/guides/semiconductor-investing
 
 **2026년 9월 28일 삼성전자는 270,000원으로 전 거래일보다 5.43% 하락했다.** 같은 날 SK하이닉스도 5.05% 내렸고, 코스피는 2.70% 하락한 6,889.74로 마감했다. Source: https://www.yna.co.kr/amp/view/AKR20260928116600008
 
