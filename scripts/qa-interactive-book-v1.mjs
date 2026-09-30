@@ -20,7 +20,12 @@ for (const viewport of [
   const pageErrors = [];
 
   page.on('pageerror', (error) => pageErrors.push(String(error)));
-  let lastFundingChoicesCorsAt = 0;
+  let pendingFundingChoicesFailure = false;
+  page.on('requestfailed', (request) => {
+    if (request.url().includes('fundingchoicesmessages.google.com')) {
+      pendingFundingChoicesFailure = true;
+    }
+  });
   page.on('console', (msg) => {
     if (msg.type() !== 'error') return;
     const message = msg.text();
@@ -30,13 +35,11 @@ for (const viewport of [
     const benignFundingChoicesCors =
       message.includes('fundingchoicesmessages.google.com') &&
       message.includes('blocked by CORS policy');
-    if (benignFundingChoicesCors) {
-      lastFundingChoicesCorsAt = Date.now();
-      return;
-    }
+    if (benignFundingChoicesCors) return;
     const benignFundingChoicesFollowup =
-      message.includes('Failed to load resource: net::ERR_FAILED') &&
-      Date.now() - lastFundingChoicesCorsAt < 2000;
+      pendingFundingChoicesFailure &&
+      message.includes('Failed to load resource: net::ERR_FAILED');
+    if (benignFundingChoicesFollowup) pendingFundingChoicesFailure = false;
     if (!benignReportOnly && !benignFundingChoicesFollowup) pageErrors.push(`console: ${message}`);
   });
 
