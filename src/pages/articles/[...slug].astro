@@ -87,6 +87,7 @@ const isUsRatesSeries = article.data.series === '미국 금리 리서치';
 const isUsMacroSeries = article.data.series === '미국 경제지표 읽는 법';
 const isFinancialsSeries = article.data.series === '금융·주주환원 투자 가이드';
 const isGrowthResearch = article.data.category === '성장·리더십' || article.data.series === '침묵의 기술';
+const isCustomerCenterAxSeries = article.data.series === '고객센터 AX 리서치';
 const isChinaSemiconductorSeries = article.data.series === '미·중 반도체 전쟁';
 const isAiStandardsSeries = article.data.series === 'AI Standards & Tech Sovereignty';
 const isGrowthLeadershipSeries = article.data.series === '성장·리더십 가이드';
@@ -99,7 +100,13 @@ const globalConnectivityClusterIds = new Set(['submarine-cable-history','how-sub
 const isAiSecurityCluster = aiSecurityClusterIds.has(article.id);
 const isAiInfrastructureCluster = aiInfrastructureClusterIds.has(article.id);
 const isGlobalConnectivityCluster = globalConnectivityClusterIds.has(article.id);
-const guideCta = isAiStandardsSeries
+const guideCta = isCustomerCenterAxSeries
+  ? {
+      title: 'Customer Center AX',
+      href: '/books/ax-customer-center',
+      label: '전자책과 5단 Research Graph 전체 보기 →'
+    }
+  : isAiStandardsSeries
   ? {
       title: 'AI Standards & Tech Sovereignty',
       href: '/guides/ai-standards',
@@ -176,7 +183,13 @@ const guideCta = isAiStandardsSeries
           href: '/guides/semiconductor-investing',
           label: 'HBM부터 비교까지 한 번에 보기 →'
         };
-const takeaways = isGrowthResearch
+const takeaways = isCustomerCenterAxSeries
+  ? [
+      ['업무 경계', 'AI가 맡을 반복 업무와 사람이 확인할 판단·승인 영역을 분리합니다.'],
+      ['통제 기준', 'PII·SOP·환각·승인을 같은 업무 흐름 안에서 통제합니다.'],
+      ['운영 연결', '생산성 개선을 QA 코칭과 리더의 학습 루프까지 연결합니다.']
+    ]
+  : isGrowthResearch
   ? [
       ['핵심 질문', `${article.data.tags.slice(0, 2).join('·')}를 중심으로 삶과 조직의 문제를 다시 정의합니다.`],
       ['해석 기준', '개념과 사례를 분리해 보고, 무엇이 구조적 원인인지 살펴봅니다.'],
@@ -245,8 +258,8 @@ const scoreCriteria = [
           <h2 class="research-panel__title" id="brief-title">Research Brief</h2>
           <ul>
             <li>{article.data.description}</li>
-            <li>{isGrowthResearch ? 'JoyLab은 개념, 경험, 행동을 하나의 흐름으로 연결해 해석합니다.' : 'JoyLab은 단일 뉴스보다 여러 변수를 한 흐름으로 연결해 판단합니다.'}</li>
-            <li>{isGrowthResearch ? '이 글은 정답을 제시하기보다 스스로 판단하고 적용할 기준을 남기는 리서치입니다.' : '이 글은 매수·매도 지시가 아니라 판단 기준과 재점검 조건을 제공하는 리서치입니다.'}</li>
+            <li>{isCustomerCenterAxSeries ? 'JoyLab은 업무 범위, 근거, 승인, 기록을 하나의 AX 운영 흐름으로 연결해 봅니다.' : isGrowthResearch ? 'JoyLab은 개념, 경험, 행동을 하나의 흐름으로 연결해 해석합니다.' : 'JoyLab은 단일 뉴스보다 여러 변수를 한 흐름으로 연결해 판단합니다.'}</li>
+            <li>{isCustomerCenterAxSeries ? '이 글은 AI 사용을 늘리는 방법보다 실제 상담 업무에서 안전하게 적용하고 재점검할 기준을 남깁니다.' : isGrowthResearch ? '이 글은 정답을 제시하기보다 스스로 판단하고 적용할 기준을 남기는 리서치입니다.' : '이 글은 매수·매도 지시가 아니라 판단 기준과 재점검 조건을 제공하는 리서치입니다.'}</li>
           </ul>
         </section>
 
@@ -290,9 +303,16 @@ const scoreCriteria = [
         )}
 
         <section class="research-panel" aria-labelledby="framework-title">
-          <h2 class="research-panel__title" id="framework-title">{isGrowthResearch ? 'JoyLab 성장·리더십 프레임워크' : 'JoyLab 투자 프레임워크'}</h2>
+          <h2 class="research-panel__title" id="framework-title">{isCustomerCenterAxSeries ? 'JoyLab Customer Center AX 프레임워크' : isGrowthResearch ? 'JoyLab 성장·리더십 프레임워크' : 'JoyLab 투자 프레임워크'}</h2>
           <div class="framework-grid">
-            {isGrowthResearch ? (
+            {isCustomerCenterAxSeries ? (
+              <>
+                <div class="framework-step"><em>SCOPE</em><strong>AI가 어디까지 맡는가?</strong><p>반복 업무와 사람의 판단·승인 영역을 먼저 분리합니다.</p></div>
+                <div class="framework-step"><em>GROUND</em><strong>무엇을 근거로 답하는가?</strong><p>SOP·전산·공식 기준을 우선하고 모르는 내용은 확인 필요로 남깁니다.</p></div>
+                <div class="framework-step"><em>CONTROL</em><strong>어디에서 사람이 확인하는가?</strong><p>PII·금액·보상·예외 판단은 승인과 최종 확인 지점을 둡니다.</p></div>
+                <div class="framework-step"><em>LEARN</em><strong>무엇을 다음 표준으로 남기는가?</strong><p>오류·재작업·코칭 결과를 프롬프트와 팀 표준 업데이트로 연결합니다.</p></div>
+              </>
+            ) : isGrowthResearch ? (
               <>
                 <div class="framework-step"><em>OBSERVE</em><strong>무엇이 일어나고 있는가?</strong><p>감정과 평가보다 먼저 실제 상황과 반복 패턴을 관찰합니다.</p></div>
                 <div class="framework-step"><em>INTERPRET</em><strong>왜 이런 일이 생기는가?</strong><p>개인 성향, 관계, 구조, 환경 요인을 나누어 해석합니다.</p></div>
@@ -385,7 +405,13 @@ const scoreCriteria = [
           </section>
         )}
 
-        {(isAiStandardsSeries || isGrowthLeadershipSeries)
+        {isCustomerCenterAxSeries ? (
+          <nav class="mobile-after-article-cta research-guide-cta" aria-label="Customer Center AX 시리즈">
+            <small>CUSTOMER CENTER AX</small>
+            <strong>AX 운영모델 → 보안 → 생산성 → QA 코칭 → 리더십</strong>
+            <a href="/books/ax-customer-center">전자책과 Research Graph 전체 보기 →</a>
+          </nav>
+        ) : (isAiStandardsSeries || isGrowthLeadershipSeries)
           ? <ResearchGraphNav articleId={article.id} />
           : <AiPowerResearchNav articleId={article.id} />
         }
