@@ -134,6 +134,26 @@ Hard rule:
 - Run `npm run company-compact:sync` and `npm run company-research:auto-enrollment`.
 - A company article is not complete if it is missing from Compact Preview/Production QA targets.
 
+
+### Customer Center AX / 홈상담 Copilot Knowledge
+
+Read:
+- `docs/knowledge/CUSTOMER_CENTER_AX_KNOWLEDGE_CONTRACT_V1.md`
+- `config/customer-center-ax-knowledge-contract-v1.json`
+- `docs/copilot/home-consult-senior-system-prompt-v1.md`
+
+Use for:
+- ‘홈상담 옆자리 선배’ Copilot
+- customer-center AX knowledge changes
+- SOP / Playbook / Research / Book retrieval order
+- customer-service answer authority and conflict handling
+
+Hard rule:
+- Authority order is `SOP / 공식 전산 → 승인된 Playbook → 검증된 Research → Book Framework`.
+- Lower layers must never override higher layers.
+- While SOP is `required_but_unconfigured`, do not finalize binding answers about amounts, compensation, exceptions, terms, law, customer rights, or company policy.
+- Run `npm run customer-center-ax:knowledge:check` for every touched knowledge-layer change.
+
 ### Generic copy, isolated CSS, low-risk local changes
 Do not automatically load AdSense, Books, Mobile, Home Slot, Brand, or Release documents unless the touched area depends on them.
 
