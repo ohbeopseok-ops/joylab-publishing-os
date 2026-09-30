@@ -1,0 +1,43 @@
+name: Customer Center AX Knowledge Contract V1
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'config/customer-center-ax-knowledge-contract-v1.json'
+      - 'docs/copilot/home-consult-senior-system-prompt-v1.md'
+      - 'docs/knowledge/CUSTOMER_CENTER_AX_KNOWLEDGE_CONTRACT_V1.md'
+      - 'docs/playbooks/customer-center-ax-playbook-v1.md'
+      - 'src/data/articles/customer-center-*.md'
+      - 'src/data/books/ax-customer-center.md'
+      - 'scripts/check-customer-center-ax-knowledge-contract-v1.mjs'
+      - 'package.json'
+      - '.github/workflows/customer-center-ax-knowledge-contract-v1.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'config/customer-center-ax-knowledge-contract-v1.json'
+      - 'docs/copilot/home-consult-senior-system-prompt-v1.md'
+      - 'docs/knowledge/CUSTOMER_CENTER_AX_KNOWLEDGE_CONTRACT_V1.md'
+      - 'docs/playbooks/customer-center-ax-playbook-v1.md'
+      - 'src/data/articles/customer-center-*.md'
+      - 'src/data/books/ax-customer-center.md'
+      - 'scripts/check-customer-center-ax-knowledge-contract-v1.mjs'
+      - 'package.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  knowledge-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Validate Customer Center AX knowledge authority and sources
+        run: npm run customer-center-ax:knowledge:check
