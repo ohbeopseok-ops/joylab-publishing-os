@@ -10,8 +10,8 @@ draft: false
 seoTitle: "상담 생산성 설계법｜CRM 3줄 요약과 현장형 AI 도구"
 series: "고객센터 AX 리서치"
 seriesOrder: 3
-heroImage: "/images/books/ax-customer-center-cover.webp"
-heroAlt: "AX 시대 살아남는 고객센터 전자책 표지"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "상담 생산성 설계법｜CRM 3줄 요약과 미니 웹도구를 안전하게 쓰는 구조 — JoyLab Research"
 readingTime: "약 7분"
 ---
 
