@@ -47,6 +47,7 @@ for (const viewport of viewports) {
     await page.route('**/__analytics/event', (route) => route.fulfill({ status: 204, body: '' }));
     const errors = [];
     page.on('pageerror', (error) => errors.push(String(error)));
+    let lastFundingChoicesCorsAt = 0;
     page.on('console', (msg) => {
       if (msg.type() !== 'error') return;
       const text = msg.text();
@@ -54,7 +55,17 @@ for (const viewport of viewports) {
         text.includes('[Report Only]') &&
         text.includes("Refused to frame 'https://www.google.com/'") &&
         text.includes("frame-ancestors 'self'");
-      if (!benignGoogleReportOnlyFrameError) errors.push('console: ' + text);
+      const benignFundingChoicesCors =
+        text.includes('fundingchoicesmessages.google.com') &&
+        text.includes('blocked by CORS policy');
+      if (benignFundingChoicesCors) {
+        lastFundingChoicesCorsAt = Date.now();
+        return;
+      }
+      const benignFundingChoicesFollowup =
+        text.includes('Failed to load resource: net::ERR_FAILED') &&
+        Date.now() - lastFundingChoicesCorsAt < 2000;
+      if (!benignGoogleReportOnlyFrameError && !benignFundingChoicesFollowup) errors.push('console: ' + text);
     });
 
     const response = await page.goto(baseURL + item.path, { waitUntil: 'networkidle' });
