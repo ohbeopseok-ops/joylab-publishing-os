@@ -89,6 +89,32 @@ if (promptPath && fs.existsSync(path.join(root, promptPath))) {
   }
 }
 
+
+const intakePath = path.join(root, 'config/customer-center-ax-sop-intake-v1.json');
+if (!fs.existsSync(intakePath)) {
+  fail('SOP intake registry missing');
+} else {
+  const intake = JSON.parse(fs.readFileSync(intakePath, 'utf8'));
+  if (intake.contract !== 'JoyLab.CustomerCenterAXSOPIntakeRegistry') fail('invalid SOP intake contract');
+  for (const candidate of intake.candidates ?? []) {
+    if (!candidate.id || !candidate.title || !candidate.authorityClass || !candidate.recommendedLayer) {
+      fail('SOP intake candidate required fields missing');
+    }
+    if (candidate.sopEligible === true) {
+      if (candidate.authorityClass !== intake.promotionRule?.requiredAuthorityClass) {
+        fail('SOP eligible candidate must be official_policy: ' + candidate.id);
+      }
+      if (candidate.approvalStatus !== intake.promotionRule?.requiredApprovalStatus) {
+        fail('SOP eligible candidate must be approved: ' + candidate.id);
+      }
+      if ((candidate.blockers ?? []).length) fail('SOP eligible candidate cannot have blockers: ' + candidate.id);
+    }
+    if (['field_evidence','quality_control','execution_aid','operating_standard'].includes(candidate.authorityClass) && candidate.sopEligible === true) {
+      fail('non-policy source cannot enter SOP layer: ' + candidate.id);
+    }
+  }
+}
+
 if (errors.length) {
   for (const e of errors) console.error('❌ ' + e);
   console.error('\nCustomer Center AX Knowledge Contract V1 FAILED: ' + errors.length + ' error(s)');
