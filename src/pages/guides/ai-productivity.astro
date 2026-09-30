@@ -18,6 +18,14 @@ const collection = (await getCollection('articles')).filter((item) => !item.data
 const byId = new Map(collection.map((item) => [item.id, item]));
 const steps = sequence.map((entry) => ({ ...entry, article: byId.get(entry.id) }));
 const published = steps.filter((entry) => entry.article);
+const customerCenterAxTrack = [
+  { id: 'customer-center-ax-operating-model', step: '01', role: 'AX MODEL', title: 'AX 운영모델', note: 'AI를 상담사 대체가 아니라 판단 보조 시스템으로 설계하고, 사람이 남아야 할 결정 지점을 분리합니다.' },
+  { id: 'customer-center-ai-security-guardrails', step: '02', role: 'AI SECURITY', title: 'AI 보안', note: 'PII·SOP·환각·승인·기록을 하나의 가드레일로 묶어 실제 상담 업무의 통제 기준을 만듭니다.' },
+  { id: 'customer-center-crm-productivity', step: '03', role: 'PRODUCTIVITY', title: '상담 생산성', note: 'CRM 3줄 요약과 현장형 미니 웹도구를 반복업무 축소와 재작업 감소로 연결합니다.' },
+  { id: 'customer-center-qa-coaching-loop', step: '04', role: 'QA COACHING', title: 'QA 코칭', note: 'SBI + Alternative 구조로 평가를 행동 변화와 재실행 확인까지 연결합니다.' },
+  { id: 'customer-center-ax-leadership', step: '05', role: 'LEADERSHIP', title: 'AX 리더십', note: '성과·보안·코칭·학습을 리더의 운영 리듬 안에 통합합니다.' }
+].map((entry) => ({ ...entry, article: byId.get(entry.id) }));
+const publishedCustomerCenterAx = customerCenterAxTrack.filter((entry) => entry.article);
 ---
 <BaseLayout
   title="AI·생산성 가이드｜에이전트부터 운영모델·플랫폼 비교까지 | JoyLab"
@@ -100,6 +108,57 @@ const published = steps.filter((entry) => entry.article);
           </div>
         </section>
 
+
+        <section class="sg-insights" id="customer-center-ax-track" aria-labelledby="customer-center-ax-title">
+          <div class="sg-section-head">
+            <div>
+              <div class="sg-eyebrow">CUSTOMER CENTER AX TRACK</div>
+              <h2 id="customer-center-ax-title">고객센터 AX를 5단계 실무 구조로 연결합니다</h2>
+            </div>
+            <p>AI 생산성의 공통 원칙을 고객센터 현장에 적용한 전용 Track입니다. 자동화보다 먼저 판단 경계와 보안을 정하고, 생산성 → QA 코칭 → 리더십으로 확장합니다.</p>
+          </div>
+
+          <nav class="sg-map" aria-label="Customer Center AX 5단계 경로">
+            {publishedCustomerCenterAx.map(({ article, step, title, role }, index) => (
+              <a class={`sg-map__step ${index === 0 ? 'is-start' : ''} ${index === publishedCustomerCenterAx.length - 1 ? 'is-compare' : ''}`} href={`/articles/${article!.id}`}>
+                <em>{step}</em><b>{title}</b><span>{role}</span>
+              </a>
+            ))}
+          </nav>
+
+          <div class="sg-path" style="margin-top:22px">
+            {publishedCustomerCenterAx.map(({ article, step, role, note }, index) => (
+              <article class={`sg-card ${index === publishedCustomerCenterAx.length - 1 ? 'is-key' : ''}`}>
+                <div class="sg-card__no">{step}</div>
+                <div>
+                  <div class="sg-card__role">{role}</div>
+                  <h3><a href={`/articles/${article!.id}`}>{article!.data.title}</a></h3>
+                  <p>{note}</p>
+                  <div class="sg-card__foot">
+                    {article!.data.tags.slice(0, 3).map((tag) => <span>#{tag}</span>)}
+                    <a class="sg-card__cta" href={`/articles/${article!.id}`}>리서치 읽기 →</a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div class="sg-rule" style="margin-top:22px">
+            <div class="sg-eyebrow">AX PRODUCT HUB</div>
+            <h2>Research에서 끝내지 않고 전자책과 실행 도구로 이어집니다</h2>
+            <div class="sg-rule__grid ai-prod-rule-grid">
+              <div class="sg-rule__step"><b>BOOK</b><span>『AX 시대 살아남는 고객센터』에서 전체 구조와 실전 프롬프트를 통합해서 봅니다.</span></div>
+              <div class="sg-rule__step"><b>GRAPH</b><span>Customer Center AX Guide에서 5개 리서치의 관계를 Research Graph로 탐색합니다.</span></div>
+              <div class="sg-rule__step"><b>READER</b><span>Web Reader에서 테마·글꼴·글자크기를 저장하며 현장형 도구와 함께 읽습니다.</span></div>
+              <div class="sg-rule__step"><b>NEXT</b><span>다음 단계는 Playbook과 Copilot Knowledge로 연결해 실제 운영 순간에 호출 가능한 지식으로 전환합니다.</span></div>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+              <a class="sg-card__cta" href="/guides/customer-center-ax">Customer Center AX Guide →</a>
+              <a class="sg-card__cta" href="/books/ax-customer-center">AX 전자책 보기 →</a>
+            </div>
+          </div>
+        </section>
+
         <section class="sg-rule" aria-labelledby="ai-prod-rule-title">
           <div class="sg-eyebrow">JOYLAB METHOD</div>
           <h2 id="ai-prod-rule-title">Problem → Capability → Workflow Fit → Human Control → Measurement → Risk → Scenario → Action</h2>
@@ -127,6 +186,13 @@ const published = steps.filter((entry) => entry.article);
           <small>CORE RESEARCH</small>
           <h3>7개 Gold Case 연결</h3>
           <ol><li>AI 에이전트</li><li>AI 업무자동화 구조</li><li>AI 도입 ROI</li><li>Agent Governance</li><li>Agent System Design</li><li>Operating Model</li><li>플랫폼 Compare Hub</li></ol>
+        </section>
+
+        <section class="sg-rail-card">
+          <small>CUSTOMER CENTER AX</small>
+          <h3>현장형 AX 5단 Track</h3>
+          <p>AX 운영모델 → AI 보안 → 상담 생산성 → QA 코칭 → 리더십으로 이어지는 고객센터 전용 실행 경로입니다.</p>
+          <a href="#customer-center-ax-track">5단 Track 바로가기 →</a>
         </section>
         <section class="sg-rail-card">
           <small>CODEX HUB</small>
