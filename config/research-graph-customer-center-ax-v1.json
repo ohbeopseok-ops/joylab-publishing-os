@@ -1,0 +1,43 @@
+{
+  "contract": "JoyLab.ResearchGraph",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "customer-center-ax",
+    "title": "고객센터 AX",
+    "url": "/books/ax-customer-center",
+    "domain": "ai-productivity",
+    "status": "published"
+  },
+  "lanes": [
+    { "key": "ax", "label": "CUSTOMER CENTER AX", "types": ["ax"] },
+    { "key": "security", "label": "AI SECURITY", "types": ["security"] },
+    { "key": "productivity", "label": "PRODUCTIVITY", "types": ["productivity"] },
+    { "key": "coaching", "label": "QA COACHING", "types": ["coaching"] },
+    { "key": "leadership", "label": "LEADERSHIP", "types": ["leadership"] }
+  ],
+  "nodes": [
+    { "id": "cc-ax-model", "type": "ax", "label": "AX 운영모델", "description": "AI를 상담사 대체가 아니라 판단 보조 시스템으로 설계" },
+    { "id": "cc-ai-security", "type": "security", "label": "AI 보안·가드레일", "description": "PII·SOP·환각·승인·기록 통제" },
+    { "id": "cc-productivity", "type": "productivity", "label": "상담 생산성", "description": "CRM 3줄 요약과 현장형 미니 웹도구" },
+    { "id": "cc-qa-coaching", "type": "coaching", "label": "QA 코칭", "description": "SBI + Alternative 행동 변화 루프" },
+    { "id": "cc-ax-leadership", "type": "leadership", "label": "AX 리더십", "description": "성과·보안·학습을 운영 리듬으로 통합" }
+  ],
+  "edges": [
+    { "from": "cc-ax-model", "to": "cc-ai-security", "type": "requires" },
+    { "from": "cc-ai-security", "to": "cc-productivity", "type": "enables" },
+    { "from": "cc-productivity", "to": "cc-qa-coaching", "type": "measured_by" },
+    { "from": "cc-qa-coaching", "to": "cc-ax-leadership", "type": "drives" },
+    { "from": "customer-center-ax-operating-model", "to": "cc-ax-model", "type": "covered_by" },
+    { "from": "customer-center-ai-security-guardrails", "to": "cc-ai-security", "type": "covered_by" },
+    { "from": "customer-center-crm-productivity", "to": "cc-productivity", "type": "covered_by" },
+    { "from": "customer-center-qa-coaching-loop", "to": "cc-qa-coaching", "type": "covered_by" },
+    { "from": "customer-center-ax-leadership", "to": "cc-ax-leadership", "type": "covered_by" }
+  ],
+  "articles": [
+    { "id": "customer-center-ax-operating-model", "title": "고객센터 AX 운영모델", "url": "/articles/customer-center-ax-operating-model", "order": 1, "pillar": "customer-center-ax", "topics": ["AX","운영모델"], "stage": "ax", "previous": null, "next": "customer-center-ai-security-guardrails", "status": "published" },
+    { "id": "customer-center-ai-security-guardrails", "title": "고객센터 AI 보안 가이드", "url": "/articles/customer-center-ai-security-guardrails", "order": 2, "pillar": "customer-center-ax", "topics": ["AI보안","PII","SOP"], "stage": "security", "previous": "customer-center-ax-operating-model", "next": "customer-center-crm-productivity", "status": "published" },
+    { "id": "customer-center-crm-productivity", "title": "상담 생산성 설계법", "url": "/articles/customer-center-crm-productivity", "order": 3, "pillar": "customer-center-ax", "topics": ["CRM","생산성"], "stage": "productivity", "previous": "customer-center-ai-security-guardrails", "next": "customer-center-qa-coaching-loop", "status": "published" },
+    { "id": "customer-center-qa-coaching-loop", "title": "AI QA 코칭 설계법", "url": "/articles/customer-center-qa-coaching-loop", "order": 4, "pillar": "customer-center-ax", "topics": ["QA","코칭"], "stage": "coaching", "previous": "customer-center-crm-productivity", "next": "customer-center-ax-leadership", "status": "published" },
+    { "id": "customer-center-ax-leadership", "title": "AX 고객센터 리더십", "url": "/articles/customer-center-ax-leadership", "order": 5, "pillar": "customer-center-ax", "topics": ["리더십","운영리듬"], "stage": "leadership", "previous": "customer-center-qa-coaching-loop", "next": null, "status": "published" }
+  ]
+}
