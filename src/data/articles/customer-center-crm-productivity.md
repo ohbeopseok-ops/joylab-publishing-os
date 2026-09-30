@@ -10,6 +10,8 @@ draft: false
 seoTitle: "상담 생산성 설계법｜CRM 3줄 요약과 현장형 AI 도구"
 series: "고객센터 AX 리서치"
 seriesOrder: 3
+heroImage: "/images/books/ax-customer-center-cover.webp"
+heroAlt: "AX 시대 살아남는 고객센터 전자책 표지"
 readingTime: "약 7분"
 ---
 
@@ -69,3 +71,10 @@ AI 결과를 사람이 다시 고치는 시간이 너무 크지 않은가.
 ## Book Link
 
 실제 CRM 프롬프트와 도구 예시는 [『AX 시대 살아남는 고객센터』](/books/ax-customer-center)에서 확인할 수 있습니다.
+
+
+## Research Path
+
+- [AI·생산성 허브](/guides/ai-productivity)
+- [고객센터 AI 보안 가이드](/articles/customer-center-ai-security-guardrails)
+- [AI QA 코칭 설계법](/articles/customer-center-qa-coaching-loop)
