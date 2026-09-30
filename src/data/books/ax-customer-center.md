@@ -49,12 +49,7 @@ tocItems:
   - "제10~12장. QA 코칭·VOC 자동화 및 AX 조직 문화"
   - "부록. 핵심 프롬프트 치트키 5선"
 closingQuote: "기술은 고객을 향하고, AI는 상담사의 판단을 보조해야 한다."
-relatedArticleIds:
-  - customer-center-ax-operating-model
-  - customer-center-ai-security-guardrails
-  - customer-center-crm-productivity
-  - customer-center-qa-coaching-loop
-  - customer-center-ax-leadership
+relatedArticleIds: ["customer-center-ax-operating-model", "customer-center-ai-security-guardrails", "customer-center-crm-productivity", "customer-center-qa-coaching-loop", "customer-center-ax-leadership"]
 publisher: "JoyLab Books"
 draft: false
 ---
