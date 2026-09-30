@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 115,
+  "articleCount": 120,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -604,6 +604,56 @@
     {
       "slug": "codex-skill-guide-2026",
       "route": "/articles/codex-skill-guide-2026",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "customer-center-ai-security-guardrails",
+      "route": "/articles/customer-center-ai-security-guardrails",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "customer-center-ax-leadership",
+      "route": "/articles/customer-center-ax-leadership",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "customer-center-ax-operating-model",
+      "route": "/articles/customer-center-ax-operating-model",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "customer-center-crm-productivity",
+      "route": "/articles/customer-center-crm-productivity",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "customer-center-qa-coaching-loop",
+      "route": "/articles/customer-center-qa-coaching-loop",
       "industries": [],
       "theses": [],
       "companies": [],
