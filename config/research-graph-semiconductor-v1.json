@@ -127,6 +127,43 @@
       "label": "삼성전자 vs SK하이닉스",
       "articleUrl": "/articles/samsung-vs-sk-hynix-ai-memory",
       "stage": "valuation"
+    },
+    {
+      "id": "institutional-flow",
+      "type": "macro",
+      "label": "Institutional & ETF Flow",
+      "stage": "macro"
+    },
+    {
+      "id": "hanmi-semiconductor",
+      "type": "company",
+      "label": "Hanmi Semiconductor",
+      "ticker": "042700",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "db-hitek",
+      "type": "company",
+      "label": "DB HiTek",
+      "ticker": "000990",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "hpsp",
+      "type": "company",
+      "label": "HPSP",
+      "ticker": "403870",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "article-semiconductor-giant-shoulder-flow",
+      "type": "article",
+      "label": "반도체 Giant Shoulder",
+      "articleUrl": "/articles/semiconductor-giant-shoulder-flow",
+      "stage": "macro"
     }
   ],
   "edges": [
@@ -256,11 +293,6 @@
       "type": "previous"
     },
     {
-      "from": "article-foreign-investor-flow",
-      "to": "article-samsung-electronics-outlook",
-      "type": "next"
-    },
-    {
       "from": "article-samsung-electronics-outlook",
       "to": "semiconductor-investing",
       "type": "belongs_to"
@@ -279,11 +311,6 @@
       "from": "article-samsung-electronics-outlook",
       "to": "margin",
       "type": "covered_by"
-    },
-    {
-      "from": "article-samsung-electronics-outlook",
-      "to": "article-foreign-investor-flow",
-      "type": "previous"
     },
     {
       "from": "article-samsung-electronics-outlook",
@@ -349,6 +376,81 @@
       "from": "article-samsung-vs-sk-hynix-ai-memory",
       "to": "article-sk-hynix-outlook",
       "type": "previous"
+    },
+    {
+      "from": "foreign-flow",
+      "to": "institutional-flow",
+      "type": "affects"
+    },
+    {
+      "from": "institutional-flow",
+      "to": "hanmi-semiconductor",
+      "type": "affects"
+    },
+    {
+      "from": "institutional-flow",
+      "to": "db-hitek",
+      "type": "affects"
+    },
+    {
+      "from": "institutional-flow",
+      "to": "hpsp",
+      "type": "affects"
+    },
+    {
+      "from": "article-semiconductor-giant-shoulder-flow",
+      "to": "semiconductor-investing",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-semiconductor-giant-shoulder-flow",
+      "to": "foreign-flow",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-semiconductor-giant-shoulder-flow",
+      "to": "institutional-flow",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-semiconductor-giant-shoulder-flow",
+      "to": "eps-revision",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-semiconductor-giant-shoulder-flow",
+      "to": "hanmi-semiconductor",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-semiconductor-giant-shoulder-flow",
+      "to": "db-hitek",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-semiconductor-giant-shoulder-flow",
+      "to": "hpsp",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-foreign-investor-flow",
+      "to": "article-semiconductor-giant-shoulder-flow",
+      "type": "next"
+    },
+    {
+      "from": "article-semiconductor-giant-shoulder-flow",
+      "to": "article-foreign-investor-flow",
+      "type": "previous"
+    },
+    {
+      "from": "article-semiconductor-giant-shoulder-flow",
+      "to": "article-samsung-electronics-outlook",
+      "type": "next"
+    },
+    {
+      "from": "article-samsung-electronics-outlook",
+      "to": "article-semiconductor-giant-shoulder-flow",
+      "type": "previous"
     }
   ],
   "articles": [
@@ -394,6 +496,25 @@
       ],
       "stage": "macro",
       "previous": "article-semiconductor-cycle",
+      "next": "article-semiconductor-giant-shoulder-flow",
+      "status": "published"
+    },
+    {
+      "id": "article-semiconductor-giant-shoulder-flow",
+      "title": "반도체 Giant Shoulder",
+      "url": "/articles/semiconductor-giant-shoulder-flow",
+      "order": 4,
+      "pillar": "semiconductor-investing",
+      "topics": [
+        "foreign-flow",
+        "institutional-flow",
+        "eps-revision",
+        "hanmi-semiconductor",
+        "db-hitek",
+        "hpsp"
+      ],
+      "stage": "macro",
+      "previous": "article-foreign-investor-flow",
       "next": "article-samsung-electronics-outlook",
       "status": "published"
     },
@@ -401,7 +522,7 @@
       "id": "article-samsung-electronics-outlook",
       "title": "삼성전자 전망",
       "url": "/articles/samsung-electronics-outlook",
-      "order": 4,
+      "order": 5,
       "pillar": "semiconductor-investing",
       "topics": [
         "samsung-electronics",
@@ -409,7 +530,7 @@
         "margin"
       ],
       "stage": "company",
-      "previous": "article-foreign-investor-flow",
+      "previous": "article-semiconductor-giant-shoulder-flow",
       "next": "article-sk-hynix-outlook",
       "status": "published"
     },
@@ -417,7 +538,7 @@
       "id": "article-sk-hynix-outlook",
       "title": "SK하이닉스 전망",
       "url": "/articles/sk-hynix-outlook",
-      "order": 5,
+      "order": 6,
       "pillar": "semiconductor-investing",
       "topics": [
         "sk-hynix",
@@ -433,7 +554,7 @@
       "id": "article-samsung-vs-sk-hynix-ai-memory",
       "title": "삼성전자 vs SK하이닉스",
       "url": "/articles/samsung-vs-sk-hynix-ai-memory",
-      "order": 6,
+      "order": 7,
       "pillar": "semiconductor-investing",
       "topics": [
         "samsung-electronics",
