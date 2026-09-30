@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 115,
+  "articleCount": 116,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -1243,6 +1243,34 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "semiconductor-giant-shoulder-flow",
+      "route": "/articles/semiconductor-giant-shoulder-flow",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "memory-supercycle",
+        "macro-liquidity"
+      ],
+      "companies": [
+        "한미반도체",
+        "DB하이텍",
+        "HPSP"
+      ],
+      "valueChains": [
+        "semiconductor-equipment",
+        "semiconductor-foundry",
+        "semiconductor-test"
+      ],
+      "kpis": [
+        "ETF overlap",
+        "institutional flow",
+        "foreign flow",
+        "EPS Revision"
+      ],
+      "researchType": "explainer"
     },
     {
       "slug": "silicon-photonics-ai-network",
