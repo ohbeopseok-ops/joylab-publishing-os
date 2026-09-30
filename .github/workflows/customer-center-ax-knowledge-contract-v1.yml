@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'config/customer-center-ax-knowledge-contract-v1.json'
+      - 'config/customer-center-ax-sop-intake-v1.json'
       - 'docs/copilot/home-consult-senior-system-prompt-v1.md'
       - 'docs/knowledge/CUSTOMER_CENTER_AX_KNOWLEDGE_CONTRACT_V1.md'
       - 'docs/playbooks/customer-center-ax-playbook-v1.md'
