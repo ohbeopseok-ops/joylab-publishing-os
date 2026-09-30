@@ -24,11 +24,11 @@ body.homepage-v2 .home-books-v2{
   padding-top:26px;
 }
 body.homepage-v2 .home-books-v2__grid{
-  grid-template-columns:220px minmax(0,1fr) 240px;
-  gap:28px;
+  grid-template-columns:210px minmax(0,1fr) 230px;
+  gap:24px;
   align-items:center;
   min-height:0;
-  padding:24px 26px;
+  padding:20px 24px;
   border-radius:22px;
 }
 body.homepage-v2 .home-books-v2__cover{
@@ -38,13 +38,13 @@ body.homepage-v2 .home-books-v2__cover img,
 body.homepage-v2 .home-books-v2__text-cover{
   width:100%;
   height:auto;
-  max-height:300px;
+  max-height:286px;
   aspect-ratio:2/3;
   object-fit:contain;
 }
 body.homepage-v2 .home-books-v2__copy h2{
-  margin:6px 0 10px;
-  font-size:clamp(2rem,3vw,3rem);
+  margin:4px 0 8px;
+  font-size:clamp(1.9rem,2.8vw,2.8rem);
   line-height:1.08;
 }
 body.homepage-v2 .home-books-v2__lead{
@@ -53,8 +53,8 @@ body.homepage-v2 .home-books-v2__lead{
   line-height:1.65;
 }
 body.homepage-v2 .home-books-v2__book{
-  margin-top:16px;
-  padding-top:14px;
+  margin-top:12px;
+  padding-top:12px;
 }
 body.homepage-v2 .home-books-v2__book h3{
   margin:6px 0 7px;
@@ -71,7 +71,7 @@ body.homepage-v2 .home-books-v2__book p{
   line-height:1.58;
 }
 body.homepage-v2 .home-books-v2__actions{
-  margin-top:14px;
+  margin-top:10px;
 }
 body.homepage-v2 .home-books-v2__actions a{
   min-height:40px;
