@@ -9,9 +9,10 @@ const sequence = [
   { id: 'what-is-hbm', step: '01', role: '기초 개념', short: 'HBM', note: 'AI 메모리의 핵심인 HBM 구조와 투자 체크포인트를 이해합니다.' },
   { id: 'semiconductor-cycle', step: '02', role: '업황 판단', short: 'Cycle', note: 'D램 가격·재고·CAPEX로 반도체 사이클의 위치를 판단합니다.' },
   { id: 'foreign-investor-flow', step: '03', role: '시장 수급', short: 'Flow', note: '외국인 순매수를 환율·지속성·가격 반응과 함께 해석합니다.' },
-  { id: 'samsung-electronics-outlook', step: '04', role: '종목 허브', short: 'Samsung', note: '실적·HBM·수급을 삼성전자 투자 판단으로 연결합니다.' },
-  { id: 'sk-hynix-outlook', step: '05', role: '종목 허브', short: 'SK hynix', note: 'HBM4·실적·CAPEX·수급을 SK하이닉스 관점에서 연결합니다.' },
-  { id: 'samsung-vs-sk-hynix-ai-memory', step: '06', role: '비교 판단', short: 'Compare', note: '두 종목의 AI 메모리 투자 논리와 리스크를 같은 기준으로 비교합니다.' }
+  { id: 'semiconductor-giant-shoulder-flow', step: '04', role: '큰손 추적', short: 'Giant Flow', note: 'ETF·기관·외국인·EPS Revision을 겹쳐 반도체 큰손 자금의 방향을 확인합니다.' },
+  { id: 'samsung-electronics-outlook', step: '05', role: '종목 허브', short: 'Samsung', note: '실적·HBM·수급을 삼성전자 투자 판단으로 연결합니다.' },
+  { id: 'sk-hynix-outlook', step: '06', role: '종목 허브', short: 'SK hynix', note: 'HBM4·실적·CAPEX·수급을 SK하이닉스 관점에서 연결합니다.' },
+  { id: 'samsung-vs-sk-hynix-ai-memory', step: '07', role: '비교 판단', short: 'Compare', note: '두 종목의 AI 메모리 투자 논리와 리스크를 같은 기준으로 비교합니다.' }
 ];
 
 const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
@@ -22,7 +23,7 @@ const articles = sequence
 ---
 <BaseLayout
   title="반도체 투자 가이드｜HBM부터 삼성전자·SK하이닉스 비교까지 | JoyLab"
-  description="HBM, 반도체 사이클, 외국인 수급, 삼성전자, SK하이닉스, 두 종목 비교까지 JoyLab의 반도체 투자 핵심 글 6개를 한 흐름으로 연결합니다."
+  description="HBM, 반도체 사이클, 외국인 수급, 삼성전자, SK하이닉스, 두 종목 비교까지 JoyLab의 반도체 투자 핵심 글 7개를 한 흐름으로 연결합니다."
   bodyClass="semiconductor-guide-v2"
 >
   <section class="sg-hero">
@@ -36,7 +37,7 @@ const articles = sequence
             <span>#HBM</span><span>#메모리사이클</span><span>#외국인수급</span><span>#삼성전자</span><span>#SK하이닉스</span>
           </div>
           <div class="sg-hero__meta" aria-label="가이드 정보">
-            <span><strong>6</strong> Research</span>
+            <span><strong>7</strong> Research</span>
             <span><strong>5</strong> Decision Layers</span>
             <span><strong>1</strong> Research Map</span>
           </div>
@@ -52,7 +53,7 @@ const articles = sequence
 
       <div class="sg-map-head">
         <div><span>START HERE</span><b>반도체 투자 가이드</b></div>
-        <a href="#research-path">6개 리서치 전체 보기 →</a>
+        <a href="#research-path">7개 리서치 전체 보기 →</a>
       </div>
       <nav class="sg-map" aria-label="반도체 리서치 경로">
         {articles.map(({ article, step, short, role }, index) => (
@@ -84,7 +85,7 @@ const articles = sequence
             <div class="sg-eyebrow">RESEARCH PATH</div>
             <h2>판단 근거를 순서대로 쌓습니다</h2>
           </div>
-          <p>기술을 이해하고 업황을 확인한 뒤 실제 자금의 방향을 봅니다. 마지막에는 삼성전자와 SK하이닉스를 같은 기준으로 비교합니다.</p>
+          <p>기술을 이해하고 업황을 확인한 뒤 실제 자금의 방향을 봅니다. 큰손 자금의 방향을 추가로 확인한 뒤 마지막에는 삼성전자와 SK하이닉스를 같은 기준으로 비교합니다.</p>
         </div>
 
         <div class="sg-path">
@@ -149,7 +150,7 @@ const articles = sequence
         <section class="sg-rail-card">
           <small>HOW TO USE</small>
           <h3>세 번 나눠 읽기</h3>
-          <ol><li>01~02: 기술과 업황</li><li>03: 자금의 방향</li><li>04~06: 종목과 비교</li></ol>
+          <ol><li>01~02: 기술과 업황</li><li>03~04: 자금의 방향</li><li>05~07: 종목과 비교</li></ol>
         </section>
         <section class="sg-rail-card">
           <small>AI MEMORY</small>
