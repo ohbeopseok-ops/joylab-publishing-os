@@ -2,6 +2,8 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import BookSchema from '../../../components/BookSchema.astro';
 import AdSlot from '../../../components/AdSlot.astro';
+import ResearchGraphMap from '../../../components/ResearchGraphMap.astro';
+import axResearchGraph from '../../../../config/research-graph-customer-center-ax-v1.json';
 import { getCollection, render } from 'astro:content';
 import '../../../styles/books.css';
 import '../../../styles/book-call-center-ai.css';
@@ -223,6 +225,20 @@ const closingQuote = book.data.closingQuote ?? '조금 덜 완벽해도, 조금 
     <div class="book-v2-ad-break" aria-label="Books 상세 페이지 광고 영역">
       <AdSlot placement="book-end" />
     </div>
+
+    {book.id === 'ax-customer-center' && (
+      <section class="book-v2-section" aria-labelledby="ax-research-graph-title">
+        <ResearchGraphMap
+          graph={axResearchGraph}
+          eyebrow="CUSTOMER CENTER AX RESEARCH GRAPH"
+          title="고객센터 AX → AI 보안 → 상담 생산성 → QA 코칭 → 리더십"
+          description="전자책의 핵심 논리를 5개 후속 리서치로 확장했습니다. 각 노드를 선택하면 연결된 리서치로 이동할 수 있습니다."
+          hubHref="/books/ax-customer-center"
+          hubLabel="AX 전자책 허브"
+          primaryFlow={['cc-ax-model','cc-ai-security','cc-productivity','cc-qa-coaching','cc-ax-leadership']}
+        />
+      </section>
+    )}
 
     <section id="related" class="book-v2-section book-v2-related">
       <div class="book-v2-section-head">
