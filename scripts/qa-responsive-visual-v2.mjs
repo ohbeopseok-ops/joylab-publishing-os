@@ -266,6 +266,18 @@ for (const viewport of viewports) {
         metrics.homepageCompact?.booksToLatest != null &&
         metrics.homepageCompact.booksToLatest >= 0 &&
         metrics.homepageCompact.booksToLatest <= 48
+      ),
+      homepageHeroHeight: !desktopHomepageCompact || (
+        metrics.selectorMetrics['.home-hero']?.height != null &&
+        metrics.selectorMetrics['.home-hero'].height <= 530
+      ),
+      homepagePillarsHeight: !desktopHomepageCompact || (
+        metrics.selectorMetrics['.home-pillars']?.height != null &&
+        metrics.selectorMetrics['.home-pillars'].height <= 370
+      ),
+      homepageGuideHeight: !desktopHomepageCompact || (
+        metrics.selectorMetrics['.home-guide']?.height != null &&
+        metrics.selectorMetrics['.home-guide'].height <= 380
       )
     };
 
