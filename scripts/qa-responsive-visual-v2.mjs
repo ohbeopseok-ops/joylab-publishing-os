@@ -239,6 +239,9 @@ for (const viewport of viewports) {
     const footerBudget = viewport.width <= 430 ? 720 : viewport.width <= 820 ? 680 : 620;
     const expectedToggle = viewport.width <= 640;
     const desktopHomepageCompact = item.name === 'home' && viewport.width >= 1280;
+    const homepageDensityLimit = item.name === 'home'
+      ? ({ 'desktop-1280': 7.0, 'desktop-1440': 6.2 }[viewport.name] ?? null)
+      : null;
     const checks = {
       httpOk: status >= 200 && status < 400,
       noPageErrors: errors.length === 0,
@@ -278,7 +281,8 @@ for (const viewport of viewports) {
       homepageGuideHeight: !desktopHomepageCompact || (
         metrics.selectorMetrics['.home-guide']?.height != null &&
         metrics.selectorMetrics['.home-guide'].height <= 380
-      )
+      ),
+      homepageTotalDensity: homepageDensityLimit == null || metrics.screenCount <= homepageDensityLimit
     };
 
     const passed = Object.values(checks).every(Boolean);

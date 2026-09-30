@@ -47,6 +47,7 @@ Use for:
 Read:
 - `docs/HOMEPAGE_DESIGN_CONTRACT_V1.md`
 - `docs/HOMEPAGE_VERTICAL_BUDGET_CONTRACT_V2.md` for desktop vertical budgets
+- `docs/HOMEPAGE_TOTAL_DENSITY_CONTRACT_V3.md` for total desktop page length
 
 Use for:
 - homepage section height
@@ -54,11 +55,13 @@ Use for:
 - Books → Latest spacing
 - homepage compact-rhythm changes
 - Hero / Pillars / Research Guide vertical height budgets
+- total homepage desktop density
 
 Hard rule:
 - Keep desktop Hero ≤ 530px, Pillars ≤ 370px, Research Guide ≤ 380px.
 - Keep desktop Books shelf ≤ 390px.
 - Keep Guide → Books and Books → Latest gaps within 0–48px.
+- Keep total homepage density ≤ 7.00 screens at 1280×800 and ≤ 6.20 screens at 1440×900.
 - Enforce through Responsive Visual Gate V2; do not weaken thresholds only to make CI green.
 
 ### Brand identity and official channels
