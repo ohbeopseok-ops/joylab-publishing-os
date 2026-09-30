@@ -10,8 +10,8 @@ draft: false
 seoTitle: "AI QA 코칭 설계법｜SBI와 대체 스크립트로 행동 변화 만들기"
 series: "고객센터 AX 리서치"
 seriesOrder: 4
-heroImage: "/images/books/ax-customer-center-cover.webp"
-heroAlt: "AX 시대 살아남는 고객센터 전자책 표지"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "AI QA 코칭 설계법｜SBI + Alternative로 행동 변화를 만드는 법 — JoyLab Research"
 readingTime: "약 7분"
 ---
 
