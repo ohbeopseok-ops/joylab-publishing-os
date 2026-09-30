@@ -38,6 +38,7 @@ export async function GET({ site }: { site: URL }) {
     '/guides/financials-value-up',
     '/guides/ai-productivity',
     '/guides/customer-center-ax',
+    '/guides/customer-center-ax/playbook',
     '/guides/codex',
     '/guides/ai-economics',
     '/guides/ai-infrastructure',
