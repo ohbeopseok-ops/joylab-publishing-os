@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Audience to Sponsored Agent to Conversion</title>
+<desc id="desc">A dark blue editorial diagram showing a user, ad creative, conversational AI agent, and conversion flow.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#07152f"/><stop offset="1" stop-color="#0b1020"/></linearGradient>
+  <linearGradient id="glow" x1="0" x2="1"><stop stop-color="#42a5ff"/><stop offset=".55" stop-color="#6f63ff"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+  <filter id="blur"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="1200" height="675" fill="url(#bg)"/>
+<circle cx="600" cy="320" r="170" fill="#2846ff" opacity=".13" filter="url(#blur)"/>
+<path d="M150 338 C300 240 390 415 520 310 S760 220 865 315 S1010 390 1080 320" fill="none" stroke="url(#glow)" stroke-width="5" opacity=".9"/>
+<path d="M150 358 C300 260 390 435 520 330 S760 240 865 335 S1010 410 1080 340" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity=".38"/>
+<g transform="translate(80 230)">
+  <circle cx="75" cy="85" r="55" fill="#101b35" stroke="#4b83ff" stroke-width="2"/>
+  <circle cx="75" cy="68" r="18" fill="#8ca7d6"/>
+  <path d="M40 125c7-28 63-28 70 0" fill="#8ca7d6"/>
+  <text x="75" y="190" text-anchor="middle" fill="#b7cffd" font-family="Arial,sans-serif" font-size="22">Audience</text>
+</g>
+<g transform="translate(300 185)">
+  <rect x="0" y="0" width="210" height="270" rx="24" fill="#f8fafc"/>
+  <rect x="22" y="22" width="166" height="128" rx="16" fill="#e7edf8"/>
+  <circle cx="105" cy="86" r="42" fill="none" stroke="#68758d" stroke-width="12"/>
+  <rect x="24" y="173" width="130" height="12" rx="6" fill="#9aa8bf"/>
+  <rect x="24" y="198" width="90" height="10" rx="5" fill="#c5cfdd"/>
+  <rect x="24" y="226" width="162" height="26" rx="13" fill="#172a52"/>
+  <text x="105" y="315" text-anchor="middle" fill="#d4e3ff" font-family="Arial,sans-serif" font-size="22">Creative</text>
+</g>
+<g transform="translate(535 130)">
+  <rect x="0" y="0" width="310" height="370" rx="34" fill="#0e1b3a" stroke="#6b8cff" stroke-width="3"/>
+  <rect x="38" y="60" width="234" height="145" rx="26" fill="#1c4da8" stroke="#5fe2ff" stroke-width="2"/>
+  <circle cx="82" cy="107" r="25" fill="#08162f" stroke="#5fe2ff" stroke-width="5"/>
+  <circle cx="73" cy="105" r="4" fill="#dff9ff"/><circle cx="91" cy="105" r="4" fill="#dff9ff"/>
+  <rect x="122" y="87" width="112" height="12" rx="6" fill="#c4d4ff"/>
+  <rect x="122" y="112" width="92" height="10" rx="5" fill="#93b6ff"/>
+  <rect x="50" y="232" width="210" height="24" rx="12" fill="#243763"/>
+  <rect x="50" y="274" width="178" height="24" rx="12" fill="#243763"/>
+  <rect x="50" y="316" width="220" height="24" rx="12" fill="#243763"/>
+  <text x="155" y="420" text-anchor="middle" fill="#d4e3ff" font-family="Arial,sans-serif" font-size="22">Sponsored Agent</text>
+</g>
+<g transform="translate(920 205)">
+  <rect x="0" y="0" width="190" height="285" rx="28" fill="#f8fafc"/>
+  <rect x="20" y="22" width="150" height="115" rx="15" fill="#e7edf8"/>
+  <circle cx="95" cy="79" r="38" fill="none" stroke="#68758d" stroke-width="11"/>
+  <rect x="22" y="164" width="132" height="11" rx="6" fill="#9aa8bf"/>
+  <rect x="22" y="188" width="92" height="9" rx="5" fill="#c5cfdd"/>
+  <rect x="22" y="222" width="146" height="36" rx="18" fill="#264fbc"/>
+  <circle cx="167" cy="25" r="24" fill="#12b6d5"/>
+  <path d="M155 25l8 8 15-18" fill="none" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="95" y="335" text-anchor="middle" fill="#d4e3ff" font-family="Arial,sans-serif" font-size="22">Conversion</text>
+</g>
+<text x="600" y="58" text-anchor="middle" fill="#ffffff" font-family="Arial,sans-serif" font-size="34" font-weight="700">AI-NATIVE ADVERTISING STACK</text>
+<text x="600" y="94" text-anchor="middle" fill="#9bb9e9" font-family="Arial,sans-serif" font-size="18">Audience → Creative → Conversation → Decision</text>
+</svg>
