@@ -155,5 +155,12 @@
         "caption": "진짜 시험은 Safety·Competition·Capital의 인센티브가 충돌할 때 시작됩니다."
       }
     ]
+  },
+  "semiconductor-giant-shoulder-flow": {
+    "hero": {
+      "src": "/images/research/generated/semiconductor-giant-shoulder-flow-hero.webp",
+      "alt": "한국 반도체 시장에서 기관과 ETF 자금이 반도체 웨이퍼와 장비로 이동하는 Giant Shoulder 투자 리서치 이미지",
+      "caption": "ETF·기관·외국인 수급과 EPS Revision이 같은 방향으로 정렬되는 순간을 추적합니다."
+    }
   }
 }
