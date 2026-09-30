@@ -43,6 +43,21 @@ Use for:
 - Books slot
 - homepage content duplication/exclusion
 
+### Homepage visual rhythm
+Read:
+- `docs/HOMEPAGE_DESIGN_CONTRACT_V1.md`
+
+Use for:
+- homepage section height
+- Guide → Books spacing
+- Books → Latest spacing
+- homepage compact-rhythm changes
+
+Hard rule:
+- Keep desktop Books shelf ≤ 390px.
+- Keep Guide → Books and Books → Latest gaps within 0–48px.
+- Enforce through Responsive Visual Gate V2; do not weaken thresholds only to make CI green.
+
 ### Brand identity and official channels
 Read:
 - `docs/BRAND_IDENTITY_CONTRACT_V1.md`
