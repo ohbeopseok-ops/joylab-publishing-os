@@ -7,9 +7,13 @@ const {
 const pageUrl = canonical;
 const bookId = `${pageUrl}#book`;
 const pageId = `${pageUrl}#webpage`;
-const personId = book.data.author === '오법석'
+const isFounderAuthor = book.data.author === '오법석';
+const isBrandAuthor = ['JOYLAB', 'JoyLab'].includes(book.data.author);
+const authorId = isFounderAuthor
   ? 'https://aijoylab.kr/#founder'
-  : `${pageUrl}#author`;
+  : isBrandAuthor
+    ? 'https://aijoylab.kr/#organization'
+    : `${pageUrl}#author`;
 const booksUrl = new URL('/books', Astro.site ?? Astro.url.origin).toString();
 const homeUrl = new URL('/', Astro.site ?? Astro.url.origin).toString();
 const aboutUrl = new URL('/about', Astro.site ?? Astro.url.origin).toString();
@@ -18,10 +22,11 @@ const graph = {
   '@context': 'https://schema.org',
   '@graph': [
     {
-      '@type': 'Person',
-      '@id': personId,
+      '@type': isBrandAuthor ? 'Organization' : 'Person',
+      '@id': authorId,
       name: book.data.author,
-      ...(book.data.author === '오법석' ? { url: aboutUrl } : {})
+      ...(isFounderAuthor ? { url: aboutUrl } : {}),
+      ...(isBrandAuthor ? { url: homeUrl } : {})
     },
     {
       '@type': 'Book',
@@ -33,7 +38,7 @@ const graph = {
       inLanguage: 'ko-KR',
       datePublished: book.data.publishedAt.toISOString(),
       ...(book.data.updatedAt ? { dateModified: book.data.updatedAt.toISOString() } : {}),
-      author: { '@id': personId },
+      author: { '@id': authorId },
       ...(book.data.coverImage ? { image: new URL(book.data.coverImage, Astro.site ?? Astro.url.origin).toString() } : {}),
       ...(book.data.isbn ? { isbn: book.data.isbn } : {}),
       ...(book.data.publisher ? {
