@@ -1,0 +1,71 @@
+{
+  "contract": "JoyLab.CustomerCenterAXSOPIntakeRegistry",
+  "version": "1.0.0",
+  "policy": "Only sources with authorityClass=official_policy, approvalStatus=approved, no unresolved blockers, and a resolvable secure source may enter the binding SOP layer.",
+  "candidates": [
+    {
+      "id": "general-consulting-operations-summary",
+      "title": "맞춤제안_일반상담실_업무_통합정리.md",
+      "sourceSurface": "private_library",
+      "authorityClass": "operating_standard",
+      "recommendedLayer": "operational_reference",
+      "approvalStatus": "not_verified_as_official_policy",
+      "sopEligible": false,
+      "rationale": "운영 구조·KPI·코칭 기준 정리 자료이며 문서 자체가 JoyLab 대화 및 대시보드 운영안 정리라고 명시한다."
+    },
+    {
+      "id": "enterprise-identity-training-guide",
+      "title": "기업고객센터_본인확인_응대교육_QA코칭가이드.docx",
+      "sourceSurface": "private_library",
+      "authorityClass": "policy_training_guide",
+      "recommendedLayer": "sop_candidate",
+      "approvalStatus": "pending_final_operating_confirmation",
+      "sopEligible": false,
+      "blockers": [
+        "휴대폰 인증 1차 거부 시 신용카드 인증 공통 적용 여부",
+        "직전 인증 재사용 시간 기준",
+        "영업 담당자·대리점 이관 가능 범위와 처리 책임",
+        "설치주소 없는 상품의 정확한 대상 범위",
+        "SMS 미수신·휴대폰 부재 시 승인된 대체 인증 수단"
+      ],
+      "rationale": "본인확인 강화 기준을 구체적으로 담지만 교육 전 운영 확정 항목이 남아 있어 binding SOP로 승격할 수 없다."
+    },
+    {
+      "id": "enterprise-identity-quick-script",
+      "title": "기업고객센터_본인확인_상담화면용_퀵스크립트.docx",
+      "sourceSurface": "private_library",
+      "authorityClass": "execution_aid",
+      "recommendedLayer": "playbook",
+      "approvalStatus": "depends_on_final_operating_notice",
+      "sopEligible": false,
+      "rationale": "상담 실행 문구이며 문서 자체가 최종 운영 공지의 대체 인증·재인증 유효시간·이관 범위를 우선하도록 명시한다."
+    },
+    {
+      "id": "enterprise-identity-qa-checklist",
+      "title": "기업고객센터_본인확인_QA코칭체크리스트.xlsx",
+      "sourceSurface": "private_library",
+      "authorityClass": "quality_control",
+      "recommendedLayer": "qa_control",
+      "approvalStatus": "usable_as_evaluation_standard",
+      "sopEligible": false,
+      "rationale": "본인확인 수행 여부·중대오류·코칭을 평가하는 통제 자료이며 정책 원문이 아니라 평가 기준이다."
+    },
+    {
+      "id": "consultant-real-question-cases",
+      "title": "01_상담사_실제질문_사례.md",
+      "sourceSurface": "private_library",
+      "authorityClass": "field_evidence",
+      "recommendedLayer": "field_signal",
+      "approvalStatus": "usable_for_intent_and_language",
+      "sopEligible": false,
+      "rationale": "실제 상담사 질문 표현과 현장 상황을 학습하는 자료로, 정책·절차 권위는 갖지 않는다."
+    }
+  ],
+  "promotionRule": {
+    "requiredAuthorityClass": "official_policy",
+    "requiredApprovalStatus": "approved",
+    "requireResolvableSecureSource": true,
+    "requireZeroUnresolvedBlockers": true,
+    "onPromotion": "register source in knowledge contract SOP layer and rerun Knowledge Contract Gate"
+  }
+}
