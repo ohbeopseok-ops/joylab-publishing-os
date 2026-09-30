@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Google Meta OpenAI advertising structure comparison</title>
+<desc id="desc">A three-column comparison of intent capture, demand discovery, and decision assistance.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#081426"/><stop offset="1" stop-color="#10162a"/></linearGradient></defs>
+<rect width="1200" height="675" fill="url(#bg)"/>
+<text x="70" y="82" fill="#8fb8ff" font-family="Arial,sans-serif" font-size="18" font-weight="700">JOYLAB COMPARISON FRAME</text>
+<text x="70" y="134" fill="#fff" font-family="Arial,sans-serif" font-size="38" font-weight="700">Google · Meta · OpenAI — 광고 인터페이스의 차이</text>
+<g font-family="Arial,sans-serif">
+  <g transform="translate(70 205)">
+    <rect width="320" height="350" rx="28" fill="#111f38" stroke="#3b82f6" stroke-width="2"/>
+    <text x="35" y="62" fill="#fff" font-size="30" font-weight="700">Google</text>
+    <text x="35" y="104" fill="#82b5ff" font-size="22" font-weight="700">INTENT CAPTURE</text>
+    <line x1="35" y1="132" x2="285" y2="132" stroke="#304b72"/>
+    <text x="35" y="180" fill="#d9e5f8" font-size="19">사용자 상태</text>
+    <text x="285" y="180" text-anchor="end" fill="#fff" font-size="19" font-weight="700">찾는다</text>
+    <text x="35" y="230" fill="#d9e5f8" font-size="19">핵심 신호</text>
+    <text x="285" y="230" text-anchor="end" fill="#fff" font-size="19" font-weight="700">Search Intent</text>
+    <text x="35" y="280" fill="#d9e5f8" font-size="19">인터페이스</text>
+    <text x="285" y="280" text-anchor="end" fill="#fff" font-size="19" font-weight="700">Search / Media</text>
+  </g>
+  <g transform="translate(440 205)">
+    <rect width="320" height="350" rx="28" fill="#181b3a" stroke="#7c6cff" stroke-width="2"/>
+    <text x="35" y="62" fill="#fff" font-size="30" font-weight="700">Meta</text>
+    <text x="35" y="104" fill="#b6a8ff" font-size="22" font-weight="700">DEMAND DISCOVERY</text>
+    <line x1="35" y1="132" x2="285" y2="132" stroke="#4b4370"/>
+    <text x="35" y="180" fill="#d9e5f8" font-size="19">사용자 상태</text>
+    <text x="285" y="180" text-anchor="end" fill="#fff" font-size="19" font-weight="700">발견한다</text>
+    <text x="35" y="230" fill="#d9e5f8" font-size="19">핵심 신호</text>
+    <text x="285" y="230" text-anchor="end" fill="#fff" font-size="19" font-weight="700">Interest / Behavior</text>
+    <text x="35" y="280" fill="#d9e5f8" font-size="19">인터페이스</text>
+    <text x="285" y="280" text-anchor="end" fill="#fff" font-size="19" font-weight="700">Feed / Reels</text>
+  </g>
+  <g transform="translate(810 205)">
+    <rect width="320" height="350" rx="28" fill="#0d2b39" stroke="#22d3ee" stroke-width="2"/>
+    <text x="35" y="62" fill="#fff" font-size="30" font-weight="700">OpenAI</text>
+    <text x="35" y="104" fill="#7cecff" font-size="22" font-weight="700">DECISION ASSISTANCE</text>
+    <line x1="35" y1="132" x2="285" y2="132" stroke="#285566"/>
+    <text x="35" y="180" fill="#d9e5f8" font-size="19">사용자 상태</text>
+    <text x="285" y="180" text-anchor="end" fill="#fff" font-size="19" font-weight="700">질문·비교한다</text>
+    <text x="35" y="230" fill="#d9e5f8" font-size="19">핵심 신호</text>
+    <text x="285" y="230" text-anchor="end" fill="#fff" font-size="19" font-weight="700">Conversation Context</text>
+    <text x="35" y="280" fill="#d9e5f8" font-size="19">인터페이스</text>
+    <text x="285" y="280" text-anchor="end" fill="#fff" font-size="19" font-weight="700">Dialogue</text>
+  </g>
+</g>
+<text x="70" y="618" fill="#9db1d1" font-family="Arial,sans-serif" font-size="17">※ JoyLab 분석 프레임. 각 기업의 공식 슬로건이나 공식 분류가 아닙니다.</text>
+</svg>

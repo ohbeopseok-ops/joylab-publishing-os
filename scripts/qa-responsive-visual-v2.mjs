@@ -70,6 +70,12 @@ const pages = [
     maxScreens: { 'iphone-390': 28, 'iphone-430': 27, 'ipad-820': 21, 'desktop-1280': 24, 'desktop-1440': 23 }
   },
   {
+    name: 'chatgpt-sponsored-agent',
+    path: '/articles/chatgpt-sponsored-agent-advertising',
+    selectors: ['.research-cover', '.research-layout', '.research-v2-content', '#site-footer-v2'],
+    maxScreens: { 'iphone-390': 28, 'iphone-430': 27, 'ipad-820': 21, 'desktop-1280': 24, 'desktop-1440': 23 }
+  },
+  {
     name: 'investing-guide',
     path: '/guides/investing',
     selectors: ['.sg-hero', '.sg-main', '.sg-path', '#site-footer-v2'],

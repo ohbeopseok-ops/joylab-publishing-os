@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 121,
+  "articleCount": 122,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -459,6 +459,16 @@
     {
       "slug": "burnout-recovery-starts-with-pause",
       "route": "/articles/burnout-recovery-starts-with-pause",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "chatgpt-sponsored-agent-advertising",
+      "route": "/articles/chatgpt-sponsored-agent-advertising",
       "industries": [],
       "theses": [],
       "companies": [],

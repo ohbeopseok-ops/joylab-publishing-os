@@ -2208,5 +2208,24 @@
         "caption": "핵심 구조를 원칙 → 통제 → 실행 순서로 정리합니다."
       }
     ]
+  },
+  "chatgpt-sponsored-agent-advertising": {
+    "hero": {
+      "src": "/images/research/chatgpt-sponsored-agent-advertising.svg",
+      "alt": "Audience에서 Creative, Sponsored Agent, Conversion으로 이어지는 AI 네이티브 광고 구조",
+      "caption": "광고와 전환 사이에 대화형 의사결정 레이어가 들어오는 구조를 시각화합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/chatgpt-sponsored-agent-stack.svg",
+        "alt": "Audience Creative Sponsored Agent Conversion 네 단계의 AI 네이티브 광고 스택",
+        "caption": "Audience → Creative → Sponsored Agent → Conversion으로 이어지는 AI-native 광고 스택입니다."
+      },
+      {
+        "src": "/images/research/chatgpt-sponsored-agent-platforms.svg",
+        "alt": "Google Meta OpenAI 광고 구조를 Intent Capture Demand Discovery Decision Assistance로 비교한 도식",
+        "caption": "Google의 Intent, Meta의 Discovery, OpenAI의 대화형 Decision Layer를 구조적으로 비교합니다."
+      }
+    ]
   }
 }
