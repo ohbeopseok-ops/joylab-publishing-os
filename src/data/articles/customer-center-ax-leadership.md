@@ -10,6 +10,8 @@ draft: false
 seoTitle: "AX 고객센터 리더십｜성과 보안 학습 운영체계"
 series: "고객센터 AX 리서치"
 seriesOrder: 5
+heroImage: "/images/books/ax-customer-center-cover.webp"
+heroAlt: "AX 시대 살아남는 고객센터 전자책 표지"
 readingTime: "약 8분"
 ---
 
@@ -65,3 +67,10 @@ AX 환경에서 리더는 모든 답을 알려주는 사람이 아니라 다음 
 ## Book Link
 
 전체 흐름과 현장형 프롬프트·웹도구는 [『AX 시대 살아남는 고객센터』](/books/ax-customer-center)에서 한 번에 볼 수 있습니다.
+
+
+## Research Path
+
+- [성장·리더십 허브](/guides/growth-leadership)
+- [AI QA 코칭 설계법](/articles/customer-center-qa-coaching-loop)
+- [고객센터 AX 운영모델](/articles/customer-center-ax-operating-model)
