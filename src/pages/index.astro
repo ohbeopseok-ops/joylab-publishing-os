@@ -20,14 +20,7 @@ const featuredBook = [...books].sort((a, b) => {
   return featuredDelta || b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf();
 })[0];
 
-const workInProgressBook = allBooks
-  .filter((item) => item.data.draft)
-  .sort((a, b) => {
-    const bDate = b.data.updatedAt?.valueOf() ?? b.data.publishedAt.valueOf();
-    const aDate = a.data.updatedAt?.valueOf() ?? a.data.publishedAt.valueOf();
-    return bDate - aDate;
-  })[0];
-const shelfBook = workInProgressBook ?? books.find((item) => item.id !== featuredBook?.id);
+const shelfBook = books.find((item) => item.id !== featuredBook?.id);
 
 const articles = (await getCollection('articles'))
   .filter((item) => !item.data.draft)
@@ -217,23 +210,19 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
             </div>
           </div>
 
-          <aside class="home-books-v2__shelf" aria-label={workInProgressBook ? '현재 집필 중인 책' : '다음 추천 도서'}>
+          <aside class="home-books-v2__shelf" aria-label="다음 추천 도서">
             <div class="home-books-v2__shelf-head">
-              <small>{workInProgressBook ? 'WORK IN PROGRESS' : 'NEXT ON SHELF'}</small>
-              <span>{workInProgressBook ? '집필 중' : '다음 읽기'}</span>
+              <small>NEXT ON SHELF</small>
+              <span>다음 읽기</span>
             </div>
             {shelfBook ? (
               <>
                 <strong>{shelfBook.data.title}</strong>
                 <p>{shelfBook.data.subtitle ?? shelfBook.data.description}</p>
-                {workInProgressBook ? (
-                  <span class="home-books-v2__status">원고 정리 · 공개 준비</span>
-                ) : (
-                  <a href={`/books/${shelfBook.id}`}>다음 책 보기 →</a>
-                )}
+                <a href={`/books/${shelfBook.id}`}>다음 책 보기 →</a>
               </>
             ) : (
-              <p>새로운 JoyLab Books 원고를 준비하고 있습니다.</p>
+              <p>새로운 JoyLab Books를 준비하고 있습니다.</p>
             )}
             <a class="home-books-v2__all" href="/books">JoyLab Books 전체 보기 →</a>
           </aside>
