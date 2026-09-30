@@ -16,6 +16,9 @@ seoTitle: "ChatGPT 광고의 진짜 변화는 배너가 아니다｜Sponsored Ag
 canonical: "https://aijoylab.kr/articles/chatgpt-sponsored-agent-advertising"
 series: "AI 광고·Agent Commerce"
 readingTime: "약 12분"
+heroImage: "/images/research/chatgpt-sponsored-agent-advertising.svg"
+heroAlt: "Audience에서 Creative, Sponsored Agent, Conversion으로 이어지는 AI 네이티브 광고 구조"
+ogImage: "/images/research/chatgpt-sponsored-agent-advertising.svg"
 faqs:
   - question: "ChatGPT Sponsored Agent란 무엇인가?"
     answer: "ChatGPT 광고를 본 사용자가 광고주의 비즈니스·제품·서비스를 대표하는 AI와 별도의 대화를 시작해 질문할 수 있도록 하는 광고 형식입니다."
@@ -33,7 +36,7 @@ faqs:
 
 사용자가 무언가를 찾고, 광고가 노출되고, 광고를 클릭하면 랜딩페이지로 이동합니다. 소셜미디어 광고 역시 사용자가 피드를 보는 동안 광고를 발견하고, 클릭 이후 쇼핑몰·앱·랜딩페이지로 이동하는 흐름이 중심이었습니다.
 
-지난 20년 동안 타기팅, 자동입찰, 추천 알고리즘과 크리에이티브 최적화는 크게 발전했습니다. 그러나 광고 퍼널의 기본 골격은 비교적 안정적이었습니다.
+JoyLab은 기존 디지털 광고 퍼널을 비교 기준으로 삼아 이번 변화를 분석합니다.
 
 **Audience → Creative → Click → Landing Page → Conversion**
 
@@ -51,6 +54,8 @@ OpenAI가 공개한 Sponsored Agents를 이 구조에 넣으면 새로운 단계
 - Sponsored Agent의 구조적 의미는 광고 클릭 이후 랜딩페이지로 바로 이동하기 전에 사용자가 브랜드를 대표하는 AI와 질문·비교를 할 수 있다는 점입니다.
 - JoyLab은 이를 **Audience → Creative → Sponsored Agent → Conversion**이라는 AI-native Advertising Stack으로 해석합니다.
 - 현재 Sponsored Agents는 제한적인 테스트 단계이므로 장기적인 시장 지배력이나 대규모 확산을 확정적으로 전제하지 않습니다.
+
+출처: [OpenAI — Reimagining advertising with AI](https://openai.com/index/reimagining-advertising-with-ai/), [OpenAI Help Center — Sponsored agents in ChatGPT ads](https://help.openai.com/en/articles/20001524-sponsored-agents-in-chatgpt-ads)
 
 ## Key Takeaways
 
@@ -79,6 +84,8 @@ OpenAI 광고 도구 약관은 Sponsored Agent를 광고주의 비즈니스·제
 Sponsored Agent 구조에서는 사용자가 광고에서 별도의 대화를 시작해 이런 질문을 이어갈 수 있습니다.
 
 2026년 9월 기준 이 기능은 일부 선정 광고주를 대상으로 제한적으로 테스트되고 있습니다. 따라서 아직 완성된 대규모 광고 플랫폼으로 단정할 단계는 아닙니다.
+
+출처: [OpenAI Help Center — Sponsored agents in ChatGPT ads](https://help.openai.com/en/articles/20001524-sponsored-agents-in-chatgpt-ads)
 
 ## 1. AUDIENCE | 키워드에서 ‘의사결정 맥락’으로
 
@@ -250,5 +257,7 @@ Sponsored Agent의 핵심은 배너 광고 하나가 늘어났다는 데 있지 
 이제 기업이 던져야 할 질문도 달라집니다.
 
 **“우리 광고를 어떻게 만들 것인가?”**에서 **“AI가 우리 회사를 얼마나 정확하게 설명할 수 있는가?”**로.
+
+이 주제를 업무 자동화와 연결해 보려면 [**AI·생산성 Research Guide**](/guides/ai-productivity)에서 전체 구조를 먼저 볼 수 있습니다.
 
 다음 글에서는 [**AI 에이전트란 무엇인가｜챗봇과 다른 진짜 이유**](/articles/what-is-ai-agent)를 통해 대화형 에이전트의 기본 구조를 이어서 봅니다.
