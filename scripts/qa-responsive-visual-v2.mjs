@@ -10,6 +10,7 @@ const viewports = [
   { name: 'iphone-390', width: 390, height: 844, touch: true },
   { name: 'iphone-430', width: 430, height: 932, touch: true },
   { name: 'ipad-820', width: 820, height: 1180, touch: true },
+  { name: 'desktop-1280', width: 1280, height: 800, touch: false },
   { name: 'desktop-1440', width: 1440, height: 900, touch: false }
 ];
 
@@ -18,73 +19,73 @@ const pages = [
     name: 'home',
     path: '/',
     selectors: ['.home-hero', '.home-pillars', '.home-guide', '.home-archive', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 18, 'iphone-430': 17, 'ipad-820': 12, 'desktop-1440': 18 }
+    maxScreens: { 'iphone-390': 18, 'iphone-430': 17, 'ipad-820': 12, 'desktop-1280': 19, 'desktop-1440': 18 }
   },
   {
     name: 'about',
     path: '/about',
     selectors: ['.about-v2-hero', '.about-official', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 11.5, 'iphone-430': 10.8, 'ipad-820': 8.5, 'desktop-1440': 9 }
+    maxScreens: { 'iphone-390': 11.5, 'iphone-430': 10.8, 'ipad-820': 8.5, 'desktop-1280': 9.5, 'desktop-1440': 9 }
   },
   {
     name: 'contact',
     path: '/contact',
     selectors: ['.contact-hero', '.contact-form-card', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 8.5, 'iphone-430': 8, 'ipad-820': 6.5, 'desktop-1440': 7 }
+    maxScreens: { 'iphone-390': 8.5, 'iphone-430': 8, 'ipad-820': 6.5, 'desktop-1280': 7.5, 'desktop-1440': 7 }
   },
   {
     name: 'books',
     path: '/books',
     selectors: ['.books-v2-launch-hero', '.books-v2-launch-hero__cover', '.books-v2-library', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 10.5, 'iphone-430': 9.8, 'ipad-820': 8, 'desktop-1440': 9 }
+    maxScreens: { 'iphone-390': 10.5, 'iphone-430': 9.8, 'ipad-820': 8, 'desktop-1280': 9.5, 'desktop-1440': 9 }
   },
   {
     name: 'articles-index',
     path: '/articles',
     selectors: ['main', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 38, 'iphone-430': 34, 'ipad-820': 16, 'desktop-1440': 18 }
+    maxScreens: { 'iphone-390': 38, 'iphone-430': 34, 'ipad-820': 16, 'desktop-1280': 19, 'desktop-1440': 18 }
   },
   {
     name: 'research-map',
     path: '/research-map',
     selectors: ['.grm-hero', '.grm-overview', '.grm-domain-section', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 14, 'iphone-430': 13, 'ipad-820': 10, 'desktop-1440': 10 }
+    maxScreens: { 'iphone-390': 14, 'iphone-430': 13, 'ipad-820': 10, 'desktop-1280': 11, 'desktop-1440': 10 }
   },
   {
     name: 'search',
     path: '/search?q=AI',
     selectors: ['.search-hero', '.search-main', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 18, 'iphone-430': 17, 'ipad-820': 13, 'desktop-1440': 15 }
+    maxScreens: { 'iphone-390': 18, 'iphone-430': 17, 'ipad-820': 13, 'desktop-1280': 16, 'desktop-1440': 15 }
   },
   {
     name: 'research',
     path: '/articles/china-us-treasury-holdings-2026',
     selectors: ['.research-cover', '.research-layout', '.research-v2-content', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 24, 'iphone-430': 23, 'ipad-820': 18, 'desktop-1440': 20 }
+    maxScreens: { 'iphone-390': 24, 'iphone-430': 23, 'ipad-820': 18, 'desktop-1280': 21, 'desktop-1440': 20 }
   },
   {
     name: 'investing-guide',
     path: '/guides/investing',
     selectors: ['.sg-hero', '.sg-main', '.sg-path', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 13, 'iphone-430': 12, 'ipad-820': 9, 'desktop-1440': 10 }
+    maxScreens: { 'iphone-390': 13, 'iphone-430': 12, 'ipad-820': 9, 'desktop-1280': 11, 'desktop-1440': 10 }
   },
   {
     name: 'ai-component-guide',
     path: '/guides/ai-component-infrastructure',
     selectors: ['.aci-hero', '.aci-main', '.aci-score', '[data-research-map-v3]', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 20, 'iphone-430': 18, 'ipad-820': 12, 'desktop-1440': 12 }
+    maxScreens: { 'iphone-390': 20, 'iphone-430': 18, 'ipad-820': 12, 'desktop-1280': 13, 'desktop-1440': 12 }
   },
   {
     name: 'ai-productivity-guide',
     path: '/guides/ai-productivity',
     selectors: ['.sg-hero', '.sg-main', '.sg-path', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 17, 'iphone-430': 16, 'ipad-820': 12, 'desktop-1440': 13 }
+    maxScreens: { 'iphone-390': 17, 'iphone-430': 16, 'ipad-820': 12, 'desktop-1280': 14, 'desktop-1440': 13 }
   },
   {
     name: 'growth-leadership-guide',
     path: '/guides/growth-leadership',
     selectors: ['.sg-hero', '.sg-main', '.sg-path', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 20, 'iphone-430': 19, 'ipad-820': 14, 'desktop-1440': 15 }
+    maxScreens: { 'iphone-390': 20, 'iphone-430': 19, 'ipad-820': 14, 'desktop-1280': 16, 'desktop-1440': 15 }
   }
 ];
 
@@ -140,7 +141,7 @@ for (const viewport of viewports) {
 
     await page.waitForFunction(() => [...document.images].every((img) => img.complete), null, { timeout: 5000 }).catch(() => {});
 
-    const metrics = await page.evaluate(({ selectors, height, touch }) => {
+    const metrics = await page.evaluate(({ selectors, height, touch, itemName, viewportWidth }) => {
       const doc = document.documentElement;
       const body = document.body;
       const visible = (el) => {
@@ -206,6 +207,21 @@ for (const viewport of viewports) {
       }));
       const docHeight = Math.max(doc.scrollHeight, body.scrollHeight);
 
+      let homepageCompact = null;
+      if (itemName === 'home' && viewportWidth >= 1280) {
+        const guide = document.querySelector('.home-guide');
+        const books = document.querySelector('.home-books-v2__grid');
+        const latest = document.querySelector('.home-section--latest');
+        const guideRect = guide?.getBoundingClientRect();
+        const booksRect = books?.getBoundingClientRect();
+        const latestRect = latest?.getBoundingClientRect();
+        homepageCompact = {
+          booksHeight: booksRect ? Math.round(booksRect.height) : null,
+          guideToBooks: guideRect && booksRect ? Math.round(booksRect.top - guideRect.bottom) : null,
+          booksToLatest: booksRect && latestRect ? Math.round(latestRect.top - booksRect.bottom) : null
+        };
+      }
+
       return {
         overflow: Math.max(doc.scrollWidth, body.scrollWidth) - window.innerWidth,
         docHeight,
@@ -215,12 +231,14 @@ for (const viewport of viewports) {
         footerHeight: footerRect ? Math.round(footerRect.height) : null,
         socialMinHeight: socialHeights.length ? Math.min(...socialHeights) : null,
         toggleVisible: visible(document.querySelector('.homepage-nav-toggle')),
-        brokenImages: images.filter((img) => !img.complete || img.width === 0).map((img) => img.src)
+        brokenImages: images.filter((img) => !img.complete || img.width === 0).map((img) => img.src),
+        homepageCompact
       };
-    }, { selectors: item.selectors, height: viewport.height, touch: viewport.touch });
+    }, { selectors: item.selectors, height: viewport.height, touch: viewport.touch, itemName: item.name, viewportWidth: viewport.width });
 
     const footerBudget = viewport.width <= 430 ? 720 : viewport.width <= 820 ? 680 : 620;
     const expectedToggle = viewport.width <= 640;
+    const desktopHomepageCompact = item.name === 'home' && viewport.width >= 1280;
     const checks = {
       httpOk: status >= 200 && status < 400,
       noPageErrors: errors.length === 0,
@@ -234,7 +252,21 @@ for (const viewport of viewports) {
       responsiveNav: metrics.toggleVisible === expectedToggle,
       footerWithinContract: metrics.footerHeight === null || metrics.footerHeight <= footerBudget,
       footerTouchTarget: !viewport.touch || metrics.socialMinHeight === null || metrics.socialMinHeight >= 48,
-      criticalTouchTargets: metrics.tinyTargets.length === 0
+      criticalTouchTargets: metrics.tinyTargets.length === 0,
+      homepageBooksHeight: !desktopHomepageCompact || (
+        metrics.homepageCompact?.booksHeight != null &&
+        metrics.homepageCompact.booksHeight <= 390
+      ),
+      homepageGuideToBooksGap: !desktopHomepageCompact || (
+        metrics.homepageCompact?.guideToBooks != null &&
+        metrics.homepageCompact.guideToBooks >= 0 &&
+        metrics.homepageCompact.guideToBooks <= 48
+      ),
+      homepageBooksToLatestGap: !desktopHomepageCompact || (
+        metrics.homepageCompact?.booksToLatest != null &&
+        metrics.homepageCompact.booksToLatest >= 0 &&
+        metrics.homepageCompact.booksToLatest <= 48
+      )
     };
 
     const passed = Object.values(checks).every(Boolean);
@@ -263,6 +295,7 @@ for (const r of results) {
     ' screens=' + r.metrics.screenCount.toFixed(2) +
     ' footer=' + r.metrics.footerHeight +
     ' failed=' + failed.join('|') +
+    (r.metrics.homepageCompact ? ' compact=' + JSON.stringify(r.metrics.homepageCompact) : '') +
     (r.metrics.tinyTargets.length ? ' tiny=' + JSON.stringify(r.metrics.tinyTargets) : '')
   );
 }
