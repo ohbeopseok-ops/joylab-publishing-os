@@ -65,7 +65,7 @@
       "label": "Customer Center AX",
       "status": "active",
       "graph": "config/research-graph-customer-center-ax-v1.json",
-      "pillar": "/books/ax-customer-center",
+      "pillar": "/guides/customer-center-ax",
       "domain": "ai"
     }
   ]
