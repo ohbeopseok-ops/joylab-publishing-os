@@ -4,6 +4,9 @@ import path from 'node:path';
 const root = process.cwd();
 const sourceRoot = path.join(root, 'src/data/generated-hero-parts');
 const outputRoot = path.join(root, 'public/images/research/generated');
+const payloadFixes = new Map([
+  ['semiconductor-giant-shoulder-flow-hero', ['+ilfe5CC', '+life5CC']]
+]);
 
 if (!fs.existsSync(sourceRoot)) {
   console.log('No generated Hero parts found; skipping assembly.');
@@ -21,7 +24,7 @@ for (const entry of fs.readdirSync(sourceRoot, { withFileTypes: true })) {
     .sort();
   if (!parts.length) continue;
 
-  const base64 = parts.map((name) => fs.readFileSync(path.join(dir, name), 'utf8').trim()).join('');
+  let base64 = parts.map((name) => fs.readFileSync(path.join(dir, name), 'utf8').trim()).join('');
   const fix = payloadFixes.get(entry.name);
   if (fix) base64 = base64.replace(fix[0], fix[1]);
   const bytes = Buffer.from(base64, 'base64');
