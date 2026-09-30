@@ -50,7 +50,7 @@ OpenAI가 공개한 Sponsored Agents를 이 구조에 넣으면 새로운 단계
 
 ## Research Brief
 
-- OpenAI는 2026년 9월 Sponsored Agents를 포함한 새로운 광고 기능을 공개했습니다.
+- OpenAI는 2026년 9월 Sponsored Agents를 포함한 새로운 광고 기능을 공개했습니다. ([OpenAI 공식 발표](https://openai.com/index/reimagining-advertising-with-ai/))
 - Sponsored Agent의 구조적 의미는 광고 클릭 이후 랜딩페이지로 바로 이동하기 전에 사용자가 브랜드를 대표하는 AI와 질문·비교를 할 수 있다는 점입니다.
 - JoyLab은 이를 **Audience → Creative → Sponsored Agent → Conversion**이라는 AI-native Advertising Stack으로 해석합니다.
 - 현재 Sponsored Agents는 제한적인 테스트 단계이므로 장기적인 시장 지배력이나 대규모 확산을 확정적으로 전제하지 않습니다.
@@ -83,7 +83,7 @@ OpenAI 광고 도구 약관은 Sponsored Agent를 광고주의 비즈니스·제
 
 Sponsored Agent 구조에서는 사용자가 광고에서 별도의 대화를 시작해 이런 질문을 이어갈 수 있습니다.
 
-2026년 9월 기준 이 기능은 일부 선정 광고주를 대상으로 제한적으로 테스트되고 있습니다. 따라서 아직 완성된 대규모 광고 플랫폼으로 단정할 단계는 아닙니다.
+2026년 9월 기준 이 기능은 일부 선정 광고주를 대상으로 제한적으로 테스트되고 있습니다. 따라서 아직 완성된 대규모 광고 플랫폼으로 단정할 단계는 아닙니다. ([OpenAI Help Center](https://help.openai.com/en/articles/20001524-sponsored-agents-in-chatgpt-ads))
 
 출처: [OpenAI Help Center — Sponsored agents in ChatGPT ads](https://help.openai.com/en/articles/20001524-sponsored-agents-in-chatgpt-ads)
 
@@ -258,6 +258,6 @@ Sponsored Agent의 핵심은 배너 광고 하나가 늘어났다는 데 있지 
 
 **“우리 광고를 어떻게 만들 것인가?”**에서 **“AI가 우리 회사를 얼마나 정확하게 설명할 수 있는가?”**로.
 
-이 주제를 업무 자동화와 연결해 보려면 [**AI·생산성 Research Guide**](/guides/ai-productivity)에서 전체 구조를 먼저 볼 수 있습니다.
+이 주제를 업무 자동화와 연결해 보려면 [**AI·생산성 Research Guide**](/guides/ai-productivity)에서 전체 구조를 먼저 볼 수 있습니다. 기업 데이터와 대화형 업무 인터페이스의 연결은 [**OpenAI Data agent 분석**](/articles/openai-data-agent-chatgpt-work)에서 이어집니다.
 
 다음 글에서는 [**AI 에이전트란 무엇인가｜챗봇과 다른 진짜 이유**](/articles/what-is-ai-agent)를 통해 대화형 에이전트의 기본 구조를 이어서 봅니다.
