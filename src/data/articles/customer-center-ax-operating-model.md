@@ -10,8 +10,8 @@ draft: false
 seoTitle: "고객센터 AX 운영모델｜상담사 판단을 보조하는 AI 설계법"
 series: "고객센터 AX 리서치"
 seriesOrder: 1
-heroImage: "/images/books/ax-customer-center-cover.webp"
-heroAlt: "AX 시대 살아남는 고객센터 전자책 표지"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "고객센터 AX 운영모델｜AI를 상담사 대체가 아니라 판단 보조 시스템으로 만드는 법 — JoyLab Research"
 readingTime: "약 7분"
 ---
 
