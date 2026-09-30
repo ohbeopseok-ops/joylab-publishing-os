@@ -2113,5 +2113,100 @@
         "caption": "Fact → Mechanism → Earnings → Risk → Scenario 순서로 판단 기준을 정리합니다."
       }
     ]
+  },
+  "customer-center-ax-operating-model": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "고객센터 AX 운영모델｜AI를 상담사 대체가 아니라 판단 보조 시스템으로 만드는 법 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 실행 구조는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "고객센터 AX 운영모델｜AI를 상담사 대체가 아니라 판단 보조 시스템으로 만드는 법 — 핵심 신호와 변화 포인트를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 신호와 변화 포인트를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "고객센터 AX 운영모델｜AI를 상담사 대체가 아니라 판단 보조 시스템으로 만드는 법 — 분석 구조와 실행 흐름을 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "핵심 구조를 원칙 → 통제 → 실행 순서로 정리합니다."
+      }
+    ]
+  },
+  "customer-center-ai-security-guardrails": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "고객센터 AI 보안 가이드｜PII·SOP·환각을 동시에 통제하는 5단계 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 실행 구조는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "고객센터 AI 보안 가이드｜PII·SOP·환각을 동시에 통제하는 5단계 — 핵심 신호와 변화 포인트를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 신호와 변화 포인트를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "고객센터 AI 보안 가이드｜PII·SOP·환각을 동시에 통제하는 5단계 — 분석 구조와 실행 흐름을 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "핵심 구조를 원칙 → 통제 → 실행 순서로 정리합니다."
+      }
+    ]
+  },
+  "customer-center-crm-productivity": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "상담 생산성 설계법｜CRM 3줄 요약과 미니 웹도구를 안전하게 쓰는 구조 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 실행 구조는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "상담 생산성 설계법｜CRM 3줄 요약과 미니 웹도구를 안전하게 쓰는 구조 — 핵심 신호와 변화 포인트를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 신호와 변화 포인트를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "상담 생산성 설계법｜CRM 3줄 요약과 미니 웹도구를 안전하게 쓰는 구조 — 분석 구조와 실행 흐름을 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "핵심 구조를 원칙 → 통제 → 실행 순서로 정리합니다."
+      }
+    ]
+  },
+  "customer-center-qa-coaching-loop": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AI QA 코칭 설계법｜SBI + Alternative로 행동 변화를 만드는 법 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 실행 구조는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AI QA 코칭 설계법｜SBI + Alternative로 행동 변화를 만드는 법 — 핵심 신호와 변화 포인트를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 신호와 변화 포인트를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI QA 코칭 설계법｜SBI + Alternative로 행동 변화를 만드는 법 — 분석 구조와 실행 흐름을 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "핵심 구조를 원칙 → 통제 → 실행 순서로 정리합니다."
+      }
+    ]
+  },
+  "customer-center-ax-leadership": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "AX 고객센터 리더십｜성과·보안·학습을 하나의 운영 리듬으로 묶는 법 — JoyLab Research Standard v1.0 공통 프리미엄 리서치 대표 이미지",
+      "caption": "JoyLab Research Standard v1.0 기본 Hero. 핵심 논지와 실행 구조는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "AX 고객센터 리더십｜성과·보안·학습을 하나의 운영 리듬으로 묶는 법 — 핵심 신호와 변화 포인트를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 신호와 변화 포인트를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AX 고객센터 리더십｜성과·보안·학습을 하나의 운영 리듬으로 묶는 법 — 분석 구조와 실행 흐름을 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "핵심 구조를 원칙 → 통제 → 실행 순서로 정리합니다."
+      }
+    ]
   }
 }

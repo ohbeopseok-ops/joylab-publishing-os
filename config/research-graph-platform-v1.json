@@ -1,6 +1,6 @@
 {
   "contract": "JoyLab.ResearchGraphPlatform",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "mapComponent": "src/components/ResearchGraphMap.astro",
   "graphContract": "JoyLab.ResearchGraph",
   "verticals": [
@@ -59,6 +59,14 @@
       "pillar": "/guides/growth-leadership",
       "domain": "leadership",
       "graph": "config/research-graph-growth-leadership-v1.json"
+    },
+    {
+      "id": "customer-center-ax",
+      "label": "Customer Center AX",
+      "status": "active",
+      "graph": "config/research-graph-customer-center-ax-v1.json",
+      "pillar": "/guides/customer-center-ax",
+      "domain": "ai"
     }
   ]
 }

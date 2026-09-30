@@ -992,8 +992,21 @@
       }
     }
 
+    // Reading preferences persist across sessions
+    const READING_PREFS_KEY = 'joylab-ax-reading-prefs-v3';
+    function loadReadingPrefs() {
+      try { return JSON.parse(localStorage.getItem(READING_PREFS_KEY) || '{}'); }
+      catch (_) { return {}; }
+    }
+    function saveReadingPrefs(patch) {
+      try {
+        const next = { ...loadReadingPrefs(), ...patch };
+        localStorage.setItem(READING_PREFS_KEY, JSON.stringify(next));
+      } catch (_) {}
+    }
+
     // Theme Switcher
-    function setTheme(theme) {
+    function setTheme(theme, persist = true, notify = true) {
       const body = document.getElementById('body-app');
       body.classList.remove('theme-dark', 'theme-light', 'theme-sepia');
       body.classList.add('theme-' + theme);
@@ -1006,29 +1019,35 @@
       if (theme === 'light') document.getElementById('theme-btn-light').className = "p-1.5 rounded bg-slate-200 text-amber-600";
       if (theme === 'sepia') document.getElementById('theme-btn-sepia').className = "p-1.5 rounded bg-sepia-200 text-amber-800";
 
-      triggerToast(theme === 'dark' ? '다크 모드 적용' : (theme === 'light' ? '라이트 모드 적용' : '세피아 페이퍼 모드 적용'));
+      if (persist) saveReadingPrefs({ theme });
+      if (notify) triggerToast(theme === 'dark' ? '다크 모드 적용' : (theme === 'light' ? '라이트 모드 적용' : '세피아 페이퍼 모드 적용'));
     }
 
     // Font Family Toggle
     let isSerif = false;
-    function toggleFontFamily() {      isSerif = !isSerif;
+    function applyFontFamily(serif, persist = true, notify = true) {
+      isSerif = Boolean(serif);
       const body = document.getElementById('body-app');
       const indicator = document.getElementById('font-family-indicator');
       if (isSerif) {
         body.classList.remove('book-body-font-sans');
         body.classList.add('book-body-font-serif');
         indicator.textContent = '고딕체';
-        triggerToast('명조체(Serif) 독서 모드');
+        if (notify) triggerToast('명조체(Serif) 독서 모드');
       } else {
         body.classList.remove('book-body-font-serif');
         body.classList.add('book-body-font-sans');
         indicator.textContent = '명조체';
-        triggerToast('프리텐다드 고딕(Sans) 모드');
+        if (notify) triggerToast('프리텐다드 고딕(Sans) 모드');
       }
+      if (persist) saveReadingPrefs({ fontFamily: isSerif ? 'serif' : 'sans' });
+    }
+    function toggleFontFamily() {
+      applyFontFamily(!isSerif);
     }
 
     // Font Size Adjuster
-    function changeFontSize(size) {
+    function changeFontSize(size, persist = true) {
       const body = document.getElementById('body-app');
       body.classList.remove('font-size-sm', 'font-size-base', 'font-size-lg');
       body.classList.add('font-size-' + size);
@@ -1037,6 +1056,7 @@
         b.className = "px-2 py-1 rounded hover:bg-slate-700 font-bold text-slate-300";
       });
       document.getElementById('btn-font-' + size).className = "px-2 py-1 rounded bg-indigo-600 text-white font-bold";
+      if (persist) saveReadingPrefs({ fontSize: size });
     }
 
     // Prompt Box Copy Function
@@ -1285,6 +1305,10 @@
 
     // Initialize on page load
     window.addEventListener('DOMContentLoaded', () => {
+      const prefs = loadReadingPrefs();
+      setTheme(['dark','light','sepia'].includes(prefs.theme) ? prefs.theme : 'dark', false, false);
+      applyFontFamily(prefs.fontFamily === 'serif', false, false);
+      changeFontSize(['sm','base','lg'].includes(prefs.fontSize) ? prefs.fontSize : 'base', false);
       buildTocMenu();
       populatePads();
       generateCrmText();

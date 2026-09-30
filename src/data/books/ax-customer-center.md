@@ -1,9 +1,10 @@
 ---
 title: "AX 시대 살아남는 고객센터"
-subtitle: "상담사부터 리더까지 쓰는 생성형 AI 프롬프트 & 현장형 미니 웹도구"
+subtitle: "상담사부터 리더까지 쓰는 생성형 AI 프롬프트 & 현장형 미니 웹도구 · GOLD v3"
 description: "고객센터 상담사와 리더를 위한 생성형 AI 실무 안내서. 프롬프트, CRM 요약, 고객응대 문장, 개인정보 보호 원칙과 현장형 미니 웹도구를 실무 관점에서 정리했습니다."
 author: "오법석"
 publishedAt: 2026-09-21
+updatedAt: 2026-09-30
 category: "AI·생산성"
 tags:
   - 고객센터
@@ -48,6 +49,7 @@ tocItems:
   - "제10~12장. QA 코칭·VOC 자동화 및 AX 조직 문화"
   - "부록. 핵심 프롬프트 치트키 5선"
 closingQuote: "기술은 고객을 향하고, AI는 상담사의 판단을 보조해야 한다."
+relatedArticleIds: ["customer-center-ax-operating-model", "customer-center-ai-security-guardrails", "customer-center-crm-productivity", "customer-center-qa-coaching-loop", "customer-center-ax-leadership"]
 publisher: "JoyLab Books"
 draft: false
 ---

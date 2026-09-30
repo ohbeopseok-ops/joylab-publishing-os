@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ResearchGraphMap from '../../components/ResearchGraphMap.astro';
+import graph from '../../../config/research-graph-customer-center-ax-v1.json';
+import '../../styles/research-graph-map-v3.css';
+---
+
+<BaseLayout
+  title="Customer Center AX 가이드｜AI 보안·상담 생산성·QA 코칭·리더십 | JoyLab"
+  description="고객센터 AX를 운영모델, AI 보안, 상담 생산성, QA 코칭, 리더십 운영체계의 5단 Research Graph로 연결한 JoyLab 가이드입니다."
+  bodyClass="customer-center-ax-guide"
+>
+  <main style="max-width:1240px;margin:0 auto;padding:48px 20px 80px;">
+    <header style="max-width:860px;margin-bottom:32px;">
+      <p style="font-size:.78rem;font-weight:800;letter-spacing:.12em;color:#64748b;">JOYLAB · CUSTOMER CENTER AX</p>
+      <h1 style="font-size:clamp(2rem,5vw,4rem);line-height:1.05;margin:10px 0 18px;">고객센터 AX는<br/>도구보다 운영 구조입니다.</h1>
+      <p style="font-size:1.05rem;line-height:1.8;color:#475569;">AI를 상담사 대체가 아니라 판단 보조 시스템으로 배치하고, 보안·생산성·QA 코칭·리더십을 하나의 학습 루프로 연결합니다.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px;">
+        <a href="/books/ax-customer-center" style="display:inline-block;padding:12px 16px;border-radius:10px;background:#0f172a;color:#fff;text-decoration:none;font-weight:700;">전자책 읽기 →</a>
+        <a href="/guides/ai-productivity" style="display:inline-block;padding:12px 16px;border-radius:10px;border:1px solid #cbd5e1;color:#0f172a;text-decoration:none;font-weight:700;">AI·생산성 가이드 →</a>
+      </div>
+    </header>
+
+    <ResearchGraphMap
+      graph={graph}
+      eyebrow="CUSTOMER CENTER AX RESEARCH GRAPH"
+      title="AX 운영모델 → AI 보안 → 상담 생산성 → QA 코칭 → 리더십"
+      description="전자책의 핵심 논리를 5개 검증 가능한 리서치와 실행 흐름으로 확장합니다."
+      hubHref="/books/ax-customer-center"
+      hubLabel="AX 전자책"
+      primaryFlow={['cc-ax-model','cc-ai-security','cc-productivity','cc-qa-coaching','cc-ax-leadership']}
+    />
+  </main>
+</BaseLayout>
