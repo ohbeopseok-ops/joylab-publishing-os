@@ -10,6 +10,8 @@ draft: false
 seoTitle: "AI QA 코칭 설계법｜SBI와 대체 스크립트로 행동 변화 만들기"
 series: "고객센터 AX 리서치"
 seriesOrder: 4
+heroImage: "/images/books/ax-customer-center-cover.webp"
+heroAlt: "AX 시대 살아남는 고객센터 전자책 표지"
 readingTime: "약 7분"
 ---
 
@@ -42,7 +44,7 @@ AI는 Observe와 Alternative 초안을 빠르게 만들 수 있습니다. 그러
 - 상담사의 의도나 성격을 추측하지 않는다
 - 실제 발화와 행동만 근거로 삼는다
 - 잘된 점과 수정할 행동을 분리한다
-- 대체 스크립트를 1~2개만 제시한다
+- 대체 스크립트를 한두 개만 제시한다
 - 다음 재확인 시점을 남긴다
 
 ## 리더가 보는 지표
@@ -60,3 +62,10 @@ AI는 Observe와 Alternative 초안을 빠르게 만들 수 있습니다. 그러
 ## Book Link
 
 SBI + Alternative 프롬프트 예시는 [『AX 시대 살아남는 고객센터』](/books/ax-customer-center)의 QA 코칭 파트에서 확인할 수 있습니다.
+
+
+## Research Path
+
+- [성장·리더십 허브](/guides/growth-leadership)
+- [상담 생산성 설계법](/articles/customer-center-crm-productivity)
+- [AX 고객센터 리더십](/articles/customer-center-ax-leadership)
