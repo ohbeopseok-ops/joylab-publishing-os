@@ -53,7 +53,7 @@ faqs:
 
 **큰손이 보유한 종목과 큰손이 지금 사고 있는 종목은 다릅니다.**
 
-JoyLab의 Giant Shoulder 접근법은 단순히 국민연금이나 대형 ETF의 보유종목을 따라가는 방식이 아닙니다. **ETF 중복 편입 → 5% 이상 기관지분 → 외국인·기관 누적 수급 → EPS Revision → 실제 가격·거래량**이 같은 방향으로 정렬되는지를 확인합니다.
+JoyLab의 Giant Shoulder 접근법은 단순히 국민연금이나 대형 ETF의 보유종목을 따라가는 방식이 아닙니다. **ETF 중복 편입 → 5% 이상 기관지분 → 외국인·기관 누적 수급 → EPS Revision → 실제 가격·거래량**이 같은 방향으로 정렬되는지를 확인합니다. 방법론 연결: https://aijoylab.kr/guides/semiconductor-investing
 
 > **JoyLab 한 줄 답:** 거인의 어깨에 올라탄다는 것은 큰손이 이미 가진 종목을 사는 것이 아니라, **큰손의 자금과 기업의 이익 전망이 함께 움직이기 시작하는 순간을 찾는 것**입니다.
 
@@ -86,13 +86,13 @@ Giant Score가 높아도 가격이 과열됐거나 거래량이 꺾이고 수급
 | DB하이텍 | 약 -258.5만 주 | **약 +192.3만 주** | 기관 대규모 흡수 → 외국인 전환 관찰 |
 | HPSP | **약 +23.3만 주** | **약 +331만 주** | 기관·외국인 동시 순매수 |
 
-※ 수치는 2026년 9월 말 공개된 최근 20거래일 데이터를 JoyLab이 합산한 스냅샷입니다. 제공처의 집계 기준·시점에 따라 차이가 생길 수 있으므로 실제 판단 전 KRX 원자료를 재확인합니다.
+※ 수치는 2026년 9월 말 공개된 최근 20거래일 데이터를 JoyLab이 합산한 스냅샷입니다. 제공처의 집계 기준·시점에 따라 차이가 생길 수 있으므로 실제 판단 전 KRX 원자료를 재확인합니다. KRX: https://data.krx.co.kr/
 
 ## 한미반도체｜기관이 먼저 사고 외국인이 돌아오는가
 
-한미반도체의 20거래일 누적에서는 기관이 약 146만 주를 순매수한 반면 외국인은 아직 약 38만 주 순매도입니다.
+한미반도체의 20거래일 누적에서는 기관이 약 146만 주를 순매수한 반면 외국인은 아직 약 38만 주 순매도입니다. 원자료 재검증: https://data.krx.co.kr/
 
-그런데 9월 후반에는 외국인 수급이 다시 개선되는 구간이 나타났습니다. 따라서 현재 핵심 질문은 **외국인의 단기 복귀가 20일 누적 플러스로 이어지는가**입니다.
+그런데 9월 후반에는 외국인 수급이 다시 개선되는 구간이 나타났습니다. 따라서 현재 핵심 질문은 **외국인의 단기 복귀가 20일 누적 플러스로 이어지는가**입니다. 수급 원자료: https://data.krx.co.kr/
 
 주요주주와 ETF 노출도 역시 높은 편이고, EPS 컨센서스는 급격한 하향보다 완만한 상향·유지 흐름을 확인하는 것이 중요합니다.
 
@@ -104,6 +104,8 @@ Giant Score가 높아도 가격이 과열됐거나 거래량이 꺾이고 수급
 - 외국인: 최근 개선, 20일은 아직 음수
 - EPS Revision: 강한 가속보다는 유지·완만한 개선
 
+데이터 재검증: https://data.krx.co.kr/ · https://dart.fss.or.kr/
+
 **Giant Shoulder Score: 85**
 
 지금 필요한 것은 추격이 아니라 **기관 매집 이후 외국인이 실제로 따라붙는지 확인하는 것**입니다.
@@ -112,7 +114,7 @@ Giant Score가 높아도 가격이 과열됐거나 거래량이 꺾이고 수급
 
 DB하이텍은 최근 20거래일 동안 외국인 매도가 컸지만 기관이 상당 부분을 받아냈습니다.
 
-이 종목에서 수급보다 더 중요한 신호는 **EPS Revision**입니다. 2026년 이익 전망이 3개월 전보다 상향되는 흐름이 확인된다면 단순한 가격 모멘텀보다 펀더멘털의 지지가 강해집니다.
+이 종목에서 수급보다 더 중요한 신호는 **EPS Revision**입니다. 2026년 이익 전망이 3개월 전보다 상향되는 흐름이 확인된다면 단순한 가격 모멘텀보다 펀더멘털의 지지가 강해집니다. 컨센서스 재검증: https://comp.wisereport.co.kr/
 
 DB하이텍은 8인치 파운드리, 전력반도체, 자동차·산업용 믹스가 핵심 변수입니다. 관련 심화 분석은 별도 Company Research에서 가동률·ASP·제품 믹스·CAPEX를 함께 봐야 합니다.
 
@@ -123,6 +125,8 @@ DB하이텍은 8인치 파운드리, 전력반도체, 자동차·산업용 믹�
 - 외국인: 최근 재유입 여부 확인
 - EPS Revision: 상향
 - 실적 모멘텀: 확인 필요하지만 방향 우호적
+
+수급·주주 데이터 재검증: https://data.krx.co.kr/ · https://dart.fss.or.kr/
 
 **Giant Shoulder Score: 82**
 
@@ -179,7 +183,9 @@ Giant Shoulder는 JoyLab Entry Engine의 **Pre-Gate**입니다.
 - 외국인 또는 기관 최근 5일 누적 순매수 > 0
 - 3개월 EPS Revision ≥ 0%
 
-조건을 충족하면 **첫 30% 진입 후보**로 올립니다.
+JoyLab 방법론: https://aijoylab.kr/guides/semiconductor-investing
+
+조건을 충족하면 **첫 30% 진입 후보**로 올립니다. JoyLab 방법론: https://aijoylab.kr/guides/semiconductor-investing
 
 ### STEP 2 · Follow → 두 번째 30%
 
@@ -189,11 +195,11 @@ Giant Shoulder는 JoyLab Entry Engine의 **Pre-Gate**입니다.
 - 눌림 후 반등 또는 직전 고점 재돌파
 - EPS Revision 하향 없음
 
-확인되면 **+30% Confirm Add**를 검토합니다.
+확인되면 **+30% Confirm Add**를 검토합니다. JoyLab 방법론: https://aijoylab.kr/guides/semiconductor-investing
 
 ### STEP 3 · Winner → 마지막 40%
 
-마지막 40%는 가격 상승만으로 추가하지 않습니다.
+마지막 40%는 가격 상승만으로 추가하지 않습니다. JoyLab 방법론: https://aijoylab.kr/guides/semiconductor-investing
 
 - 실적 예상치 상회
 - EPS Revision 추가 상향
@@ -217,11 +223,11 @@ Giant Shoulder는 JoyLab Entry Engine의 **Pre-Gate**입니다.
 
 ### Scenario
 
-외국인 5일·20일 누적이 플러스로 전환되고 EPS Revision이 유지·상향되면 Giant 신호의 신뢰도가 올라갑니다. 반대로 EPS가 하향되거나 기관 수급이 끊기면 점수는 빠르게 낮아져야 합니다.
+외국인 5일·20일 누적이 플러스로 전환되고 EPS Revision이 유지·상향되면 Giant 신호의 신뢰도가 올라갑니다. 반대로 EPS가 하향되거나 기관 수급이 끊기면 점수는 빠르게 낮아져야 합니다. 수급 확인: https://data.krx.co.kr/
 
 ### Action
 
-Giant Score만 보고 추격하지 않습니다. **MA20·거래량·5일 수급을 확인하고 30/30/40으로 분할**합니다.
+Giant Score만 보고 추격하지 않습니다. **MA20·거래량·5일 수급을 확인하고 30/30/40으로 분할**합니다. JoyLab 방법론: https://aijoylab.kr/guides/semiconductor-investing
 
 ## 거인의 어깨에 올라탄다는 것의 진짜 의미
 
