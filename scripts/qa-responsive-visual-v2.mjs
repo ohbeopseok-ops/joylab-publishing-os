@@ -64,6 +64,12 @@ const pages = [
     maxScreens: { 'iphone-390': 24, 'iphone-430': 23, 'ipad-820': 18, 'desktop-1280': 21, 'desktop-1440': 20 }
   },
   {
+    name: 'giant-shoulder-research',
+    path: '/articles/semiconductor-giant-shoulder-flow',
+    selectors: ['.research-cover', '.research-layout', '.research-v2-content', '#site-footer-v2'],
+    maxScreens: { 'iphone-390': 28, 'iphone-430': 27, 'ipad-820': 21, 'desktop-1280': 24, 'desktop-1440': 23 }
+  },
+  {
     name: 'investing-guide',
     path: '/guides/investing',
     selectors: ['.sg-hero', '.sg-main', '.sg-path', '#site-footer-v2'],
