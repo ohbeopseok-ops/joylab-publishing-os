@@ -46,14 +46,17 @@ Use for:
 ### Homepage visual rhythm
 Read:
 - `docs/HOMEPAGE_DESIGN_CONTRACT_V1.md`
+- `docs/HOMEPAGE_VERTICAL_BUDGET_CONTRACT_V2.md` for desktop vertical budgets
 
 Use for:
 - homepage section height
 - Guide → Books spacing
 - Books → Latest spacing
 - homepage compact-rhythm changes
+- Hero / Pillars / Research Guide vertical height budgets
 
 Hard rule:
+- Keep desktop Hero ≤ 530px, Pillars ≤ 370px, Research Guide ≤ 380px.
 - Keep desktop Books shelf ≤ 390px.
 - Keep Guide → Books and Books → Latest gaps within 0–48px.
 - Enforce through Responsive Visual Gate V2; do not weaken thresholds only to make CI green.
