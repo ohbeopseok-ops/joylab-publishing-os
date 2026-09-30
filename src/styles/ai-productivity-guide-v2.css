@@ -29,9 +29,20 @@
   grid-template-columns:repeat(5,minmax(0,1fr));
   max-width:100%;
   min-width:0;
+  background:#071a33;
+  border-color:#15365f;
+  box-shadow:0 14px 32px rgba(15,23,42,.12);
 }
 .ai-productivity-guide-v2 #customer-center-ax-track .sg-map__step{
   min-width:0;
+  color:#f8fafc;
+  border-right-color:rgba(255,255,255,.14);
+}
+.ai-productivity-guide-v2 #customer-center-ax-track .sg-map__step span{
+  color:#cbd5e1;
+}
+.ai-productivity-guide-v2 #customer-center-ax-track .sg-map__step em{
+  color:#7db7ff;
 }
 @media(max-width:640px){
   .ai-productivity-guide-v2 #customer-center-ax-track .sg-map{
