@@ -103,8 +103,7 @@ Giant Score가 높아도 가격이 과열됐거나 거래량이 꺾이고 수급
 - 장기 기관주주: 확인
 - 외국인: 최근 개선, 20일은 아직 음수
 - EPS Revision: 강한 가속보다는 유지·완만한 개선
-
-데이터 재검증: https://data.krx.co.kr/ · https://dart.fss.or.kr/
+- 데이터 재검증: https://data.krx.co.kr/ · https://dart.fss.or.kr/
 
 **Giant Shoulder Score: 85**
 
@@ -125,8 +124,7 @@ DB하이텍은 8인치 파운드리, 전력반도체, 자동차·산업용 믹�
 - 외국인: 최근 재유입 여부 확인
 - EPS Revision: 상향
 - 실적 모멘텀: 확인 필요하지만 방향 우호적
-
-수급·주주 데이터 재검증: https://data.krx.co.kr/ · https://dart.fss.or.kr/
+- 수급·주주 데이터 재검증: https://data.krx.co.kr/ · https://dart.fss.or.kr/
 
 **Giant Shoulder Score: 82**
 
@@ -182,8 +180,7 @@ Giant Shoulder는 JoyLab Entry Engine의 **Pre-Gate**입니다.
 - 거래량 ≥ 20일 평균 × 1.2
 - 외국인 또는 기관 최근 5일 누적 순매수 > 0
 - 3개월 EPS Revision ≥ 0%
-
-JoyLab 방법론: https://aijoylab.kr/guides/semiconductor-investing
+- JoyLab 방법론: https://aijoylab.kr/guides/semiconductor-investing
 
 조건을 충족하면 **첫 30% 진입 후보**로 올립니다. JoyLab 방법론: https://aijoylab.kr/guides/semiconductor-investing
 
@@ -252,6 +249,7 @@ JoyLab Giant Shoulder Engine이 찾으려는 것은 바로 이 교집합입니�
 - [삼성전자 AI 메모리 수혜 보는 법](/articles/samsung-electronics-outlook)
 - [SK하이닉스 AI 메모리 수혜 보는 법](/articles/sk-hynix-outlook)
 - [삼성전자 vs SK하이닉스 AI 메모리 비교](/articles/samsung-vs-sk-hynix-ai-memory)
+- 반도체 리서치 허브: https://aijoylab.kr/guides/semiconductor-investing
 
 ## 검증용 데이터
 
