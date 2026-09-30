@@ -22,6 +22,8 @@ for (const entry of fs.readdirSync(sourceRoot, { withFileTypes: true })) {
   if (!parts.length) continue;
 
   const base64 = parts.map((name) => fs.readFileSync(path.join(dir, name), 'utf8').trim()).join('');
+  const fix = payloadFixes.get(entry.name);
+  if (fix) base64 = base64.replace(fix[0], fix[1]);
   const bytes = Buffer.from(base64, 'base64');
   const out = path.join(outputRoot, `${entry.name}.webp`);
   fs.writeFileSync(out, bytes);
