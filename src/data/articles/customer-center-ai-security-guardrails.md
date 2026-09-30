@@ -10,6 +10,8 @@ draft: false
 seoTitle: "고객센터 AI 보안 가이드｜PII SOP 환각 5단계 통제"
 series: "고객센터 AX 리서치"
 seriesOrder: 2
+heroImage: "/images/books/ax-customer-center-cover.webp"
+heroAlt: "AX 시대 살아남는 고객센터 전자책 표지"
 readingTime: "약 7분"
 ---
 
@@ -57,3 +59,10 @@ AI가 만든 결과가 고객 권리, 보상, 예외 처리, 법률 판단에 �
 ## Book Link
 
 프롬프트와 PII 점검 예시는 [『AX 시대 살아남는 고객센터』](/books/ax-customer-center)의 실전 파트에서 확인할 수 있습니다.
+
+
+## Research Path
+
+- [AI·생산성 허브](/guides/ai-productivity)
+- [고객센터 AX 운영모델](/articles/customer-center-ax-operating-model)
+- [상담 생산성 설계법](/articles/customer-center-crm-productivity)
