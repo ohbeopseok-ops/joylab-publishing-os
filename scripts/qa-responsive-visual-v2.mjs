@@ -141,7 +141,7 @@ for (const viewport of viewports) {
 
     await page.waitForFunction(() => [...document.images].every((img) => img.complete), null, { timeout: 5000 }).catch(() => {});
 
-    const metrics = await page.evaluate(({ selectors, height, touch }) => {
+    const metrics = await page.evaluate(({ selectors, height, touch, itemName, viewportWidth }) => {
       const doc = document.documentElement;
       const body = document.body;
       const visible = (el) => {
@@ -207,6 +207,21 @@ for (const viewport of viewports) {
       }));
       const docHeight = Math.max(doc.scrollHeight, body.scrollHeight);
 
+      let homepageCompact = null;
+      if (itemName === 'home' && viewportWidth >= 1280) {
+        const guide = document.querySelector('.home-guide');
+        const books = document.querySelector('.home-books-v2__grid');
+        const latest = document.querySelector('.home-section--latest');
+        const guideRect = guide?.getBoundingClientRect();
+        const booksRect = books?.getBoundingClientRect();
+        const latestRect = latest?.getBoundingClientRect();
+        homepageCompact = {
+          booksHeight: booksRect ? Math.round(booksRect.height) : null,
+          guideToBooks: guideRect && booksRect ? Math.round(booksRect.top - guideRect.bottom) : null,
+          booksToLatest: booksRect && latestRect ? Math.round(latestRect.top - booksRect.bottom) : null
+        };
+      }
+
       return {
         overflow: Math.max(doc.scrollWidth, body.scrollWidth) - window.innerWidth,
         docHeight,
@@ -216,12 +231,14 @@ for (const viewport of viewports) {
         footerHeight: footerRect ? Math.round(footerRect.height) : null,
         socialMinHeight: socialHeights.length ? Math.min(...socialHeights) : null,
         toggleVisible: visible(document.querySelector('.homepage-nav-toggle')),
-        brokenImages: images.filter((img) => !img.complete || img.width === 0).map((img) => img.src)
+        brokenImages: images.filter((img) => !img.complete || img.width === 0).map((img) => img.src),
+        homepageCompact
       };
-    }, { selectors: item.selectors, height: viewport.height, touch: viewport.touch });
+    }, { selectors: item.selectors, height: viewport.height, touch: viewport.touch, itemName: item.name, viewportWidth: viewport.width });
 
     const footerBudget = viewport.width <= 430 ? 720 : viewport.width <= 820 ? 680 : 620;
     const expectedToggle = viewport.width <= 640;
+    const desktopHomepageCompact = item.name === 'home' && viewport.width >= 1280;
     const checks = {
       httpOk: status >= 200 && status < 400,
       noPageErrors: errors.length === 0,
@@ -235,7 +252,21 @@ for (const viewport of viewports) {
       responsiveNav: metrics.toggleVisible === expectedToggle,
       footerWithinContract: metrics.footerHeight === null || metrics.footerHeight <= footerBudget,
       footerTouchTarget: !viewport.touch || metrics.socialMinHeight === null || metrics.socialMinHeight >= 48,
-      criticalTouchTargets: metrics.tinyTargets.length === 0
+      criticalTouchTargets: metrics.tinyTargets.length === 0,
+      homepageBooksHeight: !desktopHomepageCompact || (
+        metrics.homepageCompact?.booksHeight != null &&
+        metrics.homepageCompact.booksHeight <= 390
+      ),
+      homepageGuideToBooksGap: !desktopHomepageCompact || (
+        metrics.homepageCompact?.guideToBooks != null &&
+        metrics.homepageCompact.guideToBooks >= 0 &&
+        metrics.homepageCompact.guideToBooks <= 48
+      ),
+      homepageBooksToLatestGap: !desktopHomepageCompact || (
+        metrics.homepageCompact?.booksToLatest != null &&
+        metrics.homepageCompact.booksToLatest >= 0 &&
+        metrics.homepageCompact.booksToLatest <= 48
+      )
     };
 
     const passed = Object.values(checks).every(Boolean);
@@ -264,6 +295,7 @@ for (const r of results) {
     ' screens=' + r.metrics.screenCount.toFixed(2) +
     ' footer=' + r.metrics.footerHeight +
     ' failed=' + failed.join('|') +
+    (r.metrics.homepageCompact ? ' compact=' + JSON.stringify(r.metrics.homepageCompact) : '') +
     (r.metrics.tinyTargets.length ? ' tiny=' + JSON.stringify(r.metrics.tinyTargets) : '')
   );
 }
