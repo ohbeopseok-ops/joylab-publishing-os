@@ -22,3 +22,31 @@
   .ai-productivity-guide-v2 .sg-map__step{min-width:144px;scroll-snap-align:start}
   .ai-productivity-guide-v2 .ai-prod-rule-grid{grid-template-columns:1fr}
 }
+
+
+/* Customer Center AX Track */
+.ai-productivity-guide-v2 #customer-center-ax-track .sg-map{
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  max-width:100%;
+  min-width:0;
+}
+.ai-productivity-guide-v2 #customer-center-ax-track .sg-map__step{
+  min-width:0;
+}
+@media(max-width:640px){
+  .ai-productivity-guide-v2 #customer-center-ax-track .sg-map{
+    display:grid;
+    grid-template-columns:1fr;
+    overflow:visible;
+    scroll-snap-type:none;
+  }
+  .ai-productivity-guide-v2 #customer-center-ax-track .sg-map__step{
+    min-width:0;
+    width:100%;
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .ai-productivity-guide-v2 #customer-center-ax-track .sg-map__step:last-child{
+    border-bottom:0;
+  }
+}
