@@ -10,8 +10,8 @@ draft: false
 seoTitle: "AX 고객센터 리더십｜성과 보안 학습 운영체계"
 series: "고객센터 AX 리서치"
 seriesOrder: 5
-heroImage: "/images/books/ax-customer-center-cover.webp"
-heroAlt: "AX 시대 살아남는 고객센터 전자책 표지"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "AX 고객센터 리더십｜성과·보안·학습을 하나의 운영 리듬으로 묶는 법 — JoyLab Research"
 readingTime: "약 8분"
 ---
 
