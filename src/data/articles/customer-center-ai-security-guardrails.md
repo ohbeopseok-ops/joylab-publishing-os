@@ -10,8 +10,8 @@ draft: false
 seoTitle: "고객센터 AI 보안 가이드｜PII SOP 환각 5단계 통제"
 series: "고객센터 AX 리서치"
 seriesOrder: 2
-heroImage: "/images/books/ax-customer-center-cover.webp"
-heroAlt: "AX 시대 살아남는 고객센터 전자책 표지"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "고객센터 AI 보안 가이드｜PII·SOP·환각을 동시에 통제하는 5단계 — JoyLab Research"
 readingTime: "약 7분"
 ---
 
