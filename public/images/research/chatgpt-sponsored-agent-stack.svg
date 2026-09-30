@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">AI-native advertising stack</title>
+<desc id="desc">Audience, Creative, Sponsored Agent, Conversion four-stage advertising stack.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07152f"/><stop offset="1" stop-color="#0c1326"/></linearGradient>
+  <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#38bdf8"/><stop offset=".52" stop-color="#6366f1"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+</defs>
+<rect width="1200" height="675" fill="url(#bg)"/>
+<text x="70" y="90" fill="#8fb8ff" font-family="Arial,sans-serif" font-size="18" font-weight="700">JOYLAB VISUAL RESEARCH</text>
+<text x="70" y="142" fill="#fff" font-family="Arial,sans-serif" font-size="38" font-weight="700">Audience → Creative → Sponsored Agent → Conversion</text>
+<text x="70" y="180" fill="#9cb1d8" font-family="Arial,sans-serif" font-size="20">광고와 구매 사이에 ‘대화형 검토 단계’가 들어오는 구조</text>
+<line x1="145" y1="355" x2="1055" y2="355" stroke="url(#line)" stroke-width="8" stroke-linecap="round"/>
+<g font-family="Arial,sans-serif">
+  <g transform="translate(80 260)">
+    <circle cx="65" cy="95" r="65" fill="#10254c" stroke="#3b82f6" stroke-width="3"/>
+    <circle cx="65" cy="77" r="18" fill="#9bb8e9"/><path d="M30 130c8-31 62-31 70 0" fill="#9bb8e9"/>
+    <text x="65" y="195" text-anchor="middle" fill="#dbeafe" font-size="24" font-weight="700">AUDIENCE</text>
+    <text x="65" y="226" text-anchor="middle" fill="#8fa9d0" font-size="16">Intent · Context</text>
+  </g>
+  <g transform="translate(340 260)">
+    <rect x="0" y="30" width="150" height="130" rx="20" fill="#f3f6fb"/>
+    <rect x="18" y="48" width="114" height="64" rx="10" fill="#dce6f5"/>
+    <rect x="18" y="126" width="88" height="10" rx="5" fill="#8295b5"/>
+    <text x="75" y="195" text-anchor="middle" fill="#dbeafe" font-size="24" font-weight="700">CREATIVE</text>
+    <text x="75" y="226" text-anchor="middle" fill="#8fa9d0" font-size="16">Dynamic Message</text>
+  </g>
+  <g transform="translate(610 230)">
+    <rect x="0" y="0" width="220" height="200" rx="30" fill="#143f91" stroke="#5ee7ff" stroke-width="3"/>
+    <circle cx="55" cy="65" r="26" fill="#081b3f" stroke="#5ee7ff" stroke-width="4"/>
+    <circle cx="47" cy="63" r="4" fill="#fff"/><circle cx="63" cy="63" r="4" fill="#fff"/>
+    <rect x="95" y="48" width="88" height="12" rx="6" fill="#c8ddff"/>
+    <rect x="95" y="75" width="68" height="10" rx="5" fill="#8ab9ff"/>
+    <rect x="34" y="115" width="152" height="18" rx="9" fill="#274f9e"/>
+    <rect x="34" y="148" width="120" height="18" rx="9" fill="#274f9e"/>
+    <text x="110" y="245" text-anchor="middle" fill="#dbeafe" font-size="24" font-weight="700">SPONSORED AGENT</text>
+    <text x="110" y="276" text-anchor="middle" fill="#8fa9d0" font-size="16">Question · Compare · Verify</text>
+  </g>
+  <g transform="translate(955 260)">
+    <circle cx="65" cy="95" r="65" fill="#0d3646" stroke="#22d3ee" stroke-width="3"/>
+    <path d="M31 96l22 23 46-54" fill="none" stroke="#7ff6ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="65" y="195" text-anchor="middle" fill="#dbeafe" font-size="24" font-weight="700">CONVERSION</text>
+    <text x="65" y="226" text-anchor="middle" fill="#8fa9d0" font-size="16">Action · CRM</text>
+  </g>
+</g>
+<rect x="70" y="570" width="1060" height="1" fill="#273a61"/>
+<text x="70" y="615" fill="#cbd8ef" font-family="Arial,sans-serif" font-size="20">JoyLab Interpretation</text>
+<text x="295" y="615" fill="#fff" font-family="Arial,sans-serif" font-size="20" font-weight="700">광고의 다음 경쟁 단위는 클릭이 아니라 ‘대화’가 될 수 있다.</text>
+</svg>
