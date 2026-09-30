@@ -20,13 +20,24 @@ for (const viewport of [
   const pageErrors = [];
 
   page.on('pageerror', (error) => pageErrors.push(String(error)));
+  let lastFundingChoicesCorsAt = 0;
   page.on('console', (msg) => {
     if (msg.type() !== 'error') return;
     const message = msg.text();
     const benignReportOnly =
       message.includes('[Report Only]') &&
       message.includes('Content Security Policy');
-    if (!benignReportOnly) pageErrors.push(`console: ${message}`);
+    const benignFundingChoicesCors =
+      message.includes('fundingchoicesmessages.google.com') &&
+      message.includes('blocked by CORS policy');
+    if (benignFundingChoicesCors) {
+      lastFundingChoicesCorsAt = Date.now();
+      return;
+    }
+    const benignFundingChoicesFollowup =
+      message.includes('Failed to load resource: net::ERR_FAILED') &&
+      Date.now() - lastFundingChoicesCorsAt < 2000;
+    if (!benignReportOnly && !benignFundingChoicesFollowup) pageErrors.push(`console: ${message}`);
   });
 
   const response = await page.goto(`${baseURL}${route}`, { waitUntil: 'networkidle' });
