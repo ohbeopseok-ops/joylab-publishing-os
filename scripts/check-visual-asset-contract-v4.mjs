@@ -172,6 +172,7 @@ async function validateAsset({ slug, role, src, tag = '', index = null }) {
 }
 
 const pages = walk(articleRoot).filter((file) => path.basename(file) === 'index.html' && path.relative(articleRoot, file).split(path.sep).length === 2);
+if (!pages.length) failures.push('No Article pages found in dist; Visual Asset Contract V4 requires at least one rendered article.');
 
 for (const file of pages) {
   const html = fs.readFileSync(file, 'utf8');
