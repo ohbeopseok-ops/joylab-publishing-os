@@ -94,7 +94,8 @@
     "ai-capex-leader:self-test": "node scripts/update-ai-capex-leader-v1.mjs --self-test",
     "ai-capex-market:update": "node scripts/update-ai-capex-market-snapshot-v1.mjs",
     "ai-capex-market:self-test": "node scripts/update-ai-capex-market-snapshot-v1.mjs --self-test",
-    "article-vertical-budget:gate": "node scripts/check-article-vertical-budget-v1.mjs"
+    "monetization-layout:gate": "node scripts/check-monetization-layout-contract-v2.mjs",
+    "monetization-layout:production": "node scripts/check-monetization-production-smoke-v2.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"
