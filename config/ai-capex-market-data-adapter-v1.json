@@ -102,7 +102,7 @@
     {
       "id": "ir",
       "label": "IR",
-      "required": true,
+      "required": false,
       "role": "primary-source evidence for CAPEX exposure, backlog, product ramp and bottlenecks",
       "inputs": [
         "ticker",
@@ -144,7 +144,7 @@
       "NOT_CONNECTED",
       "FALLBACK"
     ],
-    "readyRule": "KRX + Price + Flow must be LIVE or valid FALLBACK; IR must have at least one non-stale primary-source item; EPS may be STALE without blocking price gates.",
+    "readyRule": "KRX + Price + Flow must be LIVE or valid FALLBACK. EPS and IR freshness do not block market snapshot readiness; stale/missing IR only blocks fundamental-score upgrades.",
     "sample": {
       "asOf": "2026-10-01T16:10:00+09:00",
       "ticker": "000660",
