@@ -8,82 +8,145 @@ const outDir = process.env.QA_OUTPUT_DIR || 'qa-artifacts/monetization-layout-pr
 await fs.mkdir(outDir, { recursive: true });
 
 const browser = await chromium.launch({ headless: true });
-const rows = [];
+const viewportByName = new Map(contract.viewports.map((viewport) => [viewport.name, viewport]));
+const reports = [];
 
-try {
-  for (const viewport of contract.viewports) {
-    const page = await browser.newPage({ viewport: { width: viewport.width, height: viewport.height } });
+async function measureState(target, viewport, state) {
+  const page = await browser.newPage({ viewport: { width: viewport.width, height: viewport.height } });
 
-    await page.route('https://pagead2.googlesyndication.com/**', (route) => route.abort());
-    await page.addInitScript(({ height }) => {
-      const fill = () => {
-        document.querySelectorAll('ins.adsbygoogle').forEach((el) => {
-          el.dataset.adStatus = 'filled';
+  await page.route('https://pagead2.googlesyndication.com/**', (route) => route.abort());
+  await page.addInitScript(({ state, height }) => {
+    const apply = () => {
+      document.querySelectorAll('ins.adsbygoogle').forEach((el) => {
+        el.dataset.adStatus = state;
+        if (state === 'filled') {
           el.style.height = `${height}px`;
           el.style.minHeight = `${height}px`;
-        });
-      };
-      new MutationObserver(fill).observe(document.documentElement, { childList: true, subtree: true });
-      document.addEventListener('DOMContentLoaded', fill, { once: true });
-    }, { height: contract.states.filled.syntheticHeightPx });
-
-    const response = await page.goto(baseURL + contract.productionRegression.path, { waitUntil: 'networkidle' });
-    if (!response || response.status() >= 400) throw new Error(`${viewport.name}: production page failed`);
-    await page.waitForTimeout(300);
-
-    const measurement = await page.evaluate((selectors) => {
-      const author = document.querySelector(selectors.author);
-      const ad = document.querySelector(selectors.ad);
-      const graph = document.querySelector(selectors.graph);
-      if (!author || !ad || !graph) {
-        return {
-          missing: true,
-          found: { author: !!author, ad: !!ad, graph: !!graph }
-        };
-      }
-
-      const ar = author.getBoundingClientRect();
-      const dr = ad.getBoundingClientRect();
-      const gr = graph.getBoundingClientRect();
-      const style = getComputedStyle(ad);
-
-      return {
-        missing: false,
-        authorToAdPx: dr.top - ar.bottom,
-        adToGraphPx: gr.top - dr.bottom,
-        adMarginTopPx: Number.parseFloat(style.marginTop) || 0,
-        adMarginBottomPx: Number.parseFloat(style.marginBottom) || 0,
-        adWidthPx: dr.width,
-        adHeightPx: dr.height,
-        pageOverflowPx: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth)
-      };
-    }, contract.productionRegression.selectors);
-
-    if (measurement.missing) throw new Error(`${viewport.name}: production regression selector missing ${JSON.stringify(measurement.found)}`);
-    if (measurement.adMarginTopPx < contract.states.filled.minOuterSpacingPx || measurement.adMarginTopPx > contract.states.filled.maxOuterSpacingPx) {
-      throw new Error(`${viewport.name}: ad top spacing ${measurement.adMarginTopPx}px outside contract`);
-    }
-    if (measurement.adMarginBottomPx < contract.states.filled.minOuterSpacingPx || measurement.adMarginBottomPx > contract.states.filled.maxOuterSpacingPx) {
-      throw new Error(`${viewport.name}: ad bottom spacing ${measurement.adMarginBottomPx}px outside contract`);
-    }
-    if (measurement.adWidthPx > contract.limits.slotMaxWidthPx + 0.75) throw new Error(`${viewport.name}: ad width overflow ${measurement.adWidthPx}px`);
-    if (measurement.pageOverflowPx > contract.limits.horizontalOverflowPx + 0.75) throw new Error(`${viewport.name}: page horizontal overflow ${measurement.pageOverflowPx}px`);
-
-    const row = {
-      viewport: viewport.name,
-      width: viewport.width,
-      height: viewport.height,
-      ...measurement
+        } else {
+          el.style.height = '0px';
+          el.style.minHeight = '0px';
+        }
+      });
     };
-    rows.push(row);
+    new MutationObserver(apply).observe(document.documentElement, { childList: true, subtree: true });
+    document.addEventListener('DOMContentLoaded', apply, { once: true });
+  }, { state, height: contract.states.filled.syntheticHeightPx });
 
+  const response = await page.goto(baseURL + target.path, { waitUntil: 'networkidle' });
+  if (!response || response.status() >= 400) {
+    throw new Error(`${target.name}/${viewport.name}/${state}: production page failed`);
+  }
+  await page.waitForTimeout(300);
+
+  const measurement = await page.evaluate(({ selectors, state }) => {
+    const before = document.querySelector(selectors.before);
+    const ad = document.querySelector(selectors.ad);
+    const after = document.querySelector(selectors.after);
+    if (!before || !ad || !after) {
+      return { missing: true, found: { before: !!before, ad: !!ad, after: !!after } };
+    }
+
+    const br = before.getBoundingClientRect();
+    const ar = ad.getBoundingClientRect();
+    const xr = after.getBoundingClientRect();
+    const style = getComputedStyle(ad);
+
+    return {
+      missing: false,
+      state,
+      pageHeightPx: document.documentElement.scrollHeight,
+      beforeToAdPx: ar.top - br.bottom,
+      adToAfterPx: xr.top - ar.bottom,
+      adMarginTopPx: Number.parseFloat(style.marginTop) || 0,
+      adMarginBottomPx: Number.parseFloat(style.marginBottom) || 0,
+      adWidthPx: ar.width,
+      adHeightPx: ar.height,
+      adDisplay: style.display,
+      pageOverflowPx: Math.max(0, document.documentElement.scrollWidth - document.documentElement.clientWidth)
+    };
+  }, { selectors: target.selectors, state });
+
+  if (measurement.missing) {
+    throw new Error(`${target.name}/${viewport.name}/${state}: selector missing ${JSON.stringify(measurement.found)}`);
+  }
+
+  if (state === 'filled') {
+    if (measurement.adDisplay === 'none' || measurement.adHeightPx <= 0) {
+      throw new Error(`${target.name}/${viewport.name}: filled ad is not visible`);
+    }
+    if (measurement.adMarginTopPx < contract.states.filled.minOuterSpacingPx ||
+        measurement.adMarginTopPx > contract.states.filled.maxOuterSpacingPx) {
+      throw new Error(`${target.name}/${viewport.name}: top spacing ${measurement.adMarginTopPx}px outside contract`);
+    }
+    if (measurement.adMarginBottomPx < contract.states.filled.minOuterSpacingPx ||
+        measurement.adMarginBottomPx > contract.states.filled.maxOuterSpacingPx) {
+      throw new Error(`${target.name}/${viewport.name}: bottom spacing ${measurement.adMarginBottomPx}px outside contract`);
+    }
+    if (measurement.adWidthPx > contract.limits.slotMaxWidthPx + 0.75) {
+      throw new Error(`${target.name}/${viewport.name}: ad width ${measurement.adWidthPx}px exceeds contract`);
+    }
+  } else if (measurement.adHeightPx + measurement.adMarginTopPx + measurement.adMarginBottomPx >
+             contract.states.unfilled.maxReservedOuterHeightPx + 0.75) {
+    throw new Error(`${target.name}/${viewport.name}: unfilled reserved height exceeds contract`);
+  }
+
+  if (measurement.pageOverflowPx > contract.limits.horizontalOverflowPx + 0.75) {
+    throw new Error(`${target.name}/${viewport.name}/${state}: horizontal overflow ${measurement.pageOverflowPx}px`);
+  }
+
+  if (state === 'filled') {
     await page.screenshot({
-      path: path.join(outDir, `${viewport.name}-ax-customer-center.png`),
+      path: path.join(outDir, `${target.surface}-${viewport.name}-filled.png`),
       fullPage: true
     });
+  }
 
-    console.log('PRODUCTION PASS', JSON.stringify(row));
-    await page.close();
+  await page.close();
+  return measurement;
+}
+
+try {
+  for (const target of contract.productionTargets) {
+    for (const viewportName of target.viewportNames) {
+      const viewport = viewportByName.get(viewportName);
+      if (!viewport) throw new Error(`${target.name}: unknown viewport ${viewportName}`);
+
+      const unfilled = await measureState(target, viewport, 'unfilled');
+      const filled = await measureState(target, viewport, 'filled');
+
+      const pageHeightDeltaPx = filled.pageHeightPx - unfilled.pageHeightPx;
+      const pageHeightDeltaPct = unfilled.pageHeightPx > 0
+        ? Number(((pageHeightDeltaPx / unfilled.pageHeightPx) * 100).toFixed(3))
+        : 0;
+
+      const distanceFields = target.distanceFields || {
+        beforeToAd: 'beforeToAdPx',
+        adToAfter: 'adToAfterPx'
+      };
+
+      const row = {
+        surface: target.surface,
+        target: target.name,
+        path: target.path,
+        viewport: viewport.name,
+        width: viewport.width,
+        height: viewport.height,
+        pageHeightUnfilledPx: unfilled.pageHeightPx,
+        pageHeightFilledPx: filled.pageHeightPx,
+        pageHeightDeltaPx,
+        pageHeightDeltaPct,
+        [distanceFields.beforeToAd]: filled.beforeToAdPx,
+        [distanceFields.adToAfter]: filled.adToAfterPx,
+        adMarginTopPx: filled.adMarginTopPx,
+        adMarginBottomPx: filled.adMarginBottomPx,
+        adWidthPx: filled.adWidthPx,
+        adHeightPx: filled.adHeightPx,
+        pageOverflowPx: filled.pageOverflowPx
+      };
+
+      reports.push(row);
+      console.log('PRODUCTION PASS', JSON.stringify(row));
+    }
   }
 } finally {
   await browser.close();
@@ -93,15 +156,15 @@ const report = {
   schemaVersion: 2,
   name: 'JoyLab Monetization Layout Production Smoke V2',
   baseURL,
-  path: contract.productionRegression.path,
   measuredAt: new Date().toISOString(),
   contract: {
     spacingPx: [contract.states.filled.minOuterSpacingPx, contract.states.filled.maxOuterSpacingPx],
     slotMaxWidthPx: contract.limits.slotMaxWidthPx,
-    horizontalOverflowPx: contract.limits.horizontalOverflowPx
+    horizontalOverflowPx: contract.limits.horizontalOverflowPx,
+    verticalDensityKpi: contract.verticalDensityKpi
   },
-  measurements: rows
+  measurements: reports
 };
 
 await fs.writeFile(path.join(outDir, 'measurements.json'), JSON.stringify(report, null, 2) + '\n');
-console.log('Monetization Layout Production Smoke V2 PASS · measurements.json written');
+console.log('Monetization Layout Production Smoke V2 PASS · book + guide + Vertical Density KPI written');
