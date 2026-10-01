@@ -44,6 +44,7 @@ jobs:
           const history=JSON.parse(fs.readFileSync('src/data/ai-capex-leader-history-v1.json','utf8'));
           const events=JSON.parse(fs.readFileSync('src/data/ai-capex-regime-events-v1.json','utf8'));
           if(!Array.isArray(leader.leaders)||leader.leaders.length!==10) throw new Error('leader universe must be 10');
+          if(leader.leaders.some((x)=>!Number.isFinite(Number(x.score))||Number(x.score)<0||Number(x.score)>100)) throw new Error('leader score must be within 0..100');
           if(!leader.skHynixGate) throw new Error('SK hynix hard gate missing');
           if(!Array.isArray(history.snapshots)||!Array.isArray(events.events)) throw new Error('history contract invalid');
           console.log('AI CAPEX Leader contracts PASS');
