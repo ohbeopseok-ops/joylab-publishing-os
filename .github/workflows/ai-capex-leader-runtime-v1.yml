@@ -85,7 +85,20 @@ jobs:
           git push --force-with-lease origin "$BRANCH"
           PR_NUMBER="$(gh pr list --base main --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
           if [ -z "$PR_NUMBER" ]; then
-            gh pr create --base main --head "$BRANCH"               --title "data(ai-capex): refresh leader scores $(date -u +%Y-%m-%d)"               --body "Automated AI CAPEX Leader Runtime refresh. This persistent branch carries forward unmerged history. Protected main is preserved; merge only after required gates pass."
+            set +e
+            PR_OUTPUT="$(gh pr create --base main --head "$BRANCH"               --title "data(ai-capex): refresh leader scores $(date -u +%Y-%m-%d)"               --body "Automated AI CAPEX Leader Runtime refresh. This persistent branch carries forward unmerged history. Protected main is preserved; merge only after required gates pass." 2>&1)"
+            PR_EXIT=$?
+            set -e
+            if [ "$PR_EXIT" -eq 0 ]; then
+              echo "$PR_OUTPUT"
+              echo "Runtime PR created."
+            elif printf '%s' "$PR_OUTPUT" | grep -Fq "GitHub Actions is not permitted to create or approve pull requests"; then
+              echo "::warning title=Runtime PR creation blocked::GitHub Actions PR creation is disabled in repository settings. Data was pushed successfully to $BRANCH."
+              echo "Open this URL to create the PR manually: https://github.com/${GITHUB_REPOSITORY}/compare/main...${BRANCH}?expand=1"
+            else
+              echo "$PR_OUTPUT" >&2
+              exit "$PR_EXIT"
+            fi
           else
             gh pr comment "$PR_NUMBER" --body "Runtime refreshed on the existing bot branch; history and regime events were carried forward."
           fi
