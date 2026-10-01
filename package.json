@@ -95,7 +95,8 @@
     "ai-capex-market:update": "node scripts/update-ai-capex-market-snapshot-v1.mjs",
     "ai-capex-market:self-test": "node scripts/update-ai-capex-market-snapshot-v1.mjs --self-test",
     "monetization-layout:gate": "node scripts/check-monetization-layout-contract-v2.mjs",
-    "monetization-layout:production": "node scripts/check-monetization-production-smoke-v2.mjs"
+    "monetization-layout:production": "node scripts/check-monetization-production-smoke-v2.mjs",
+    "archive-in-feed:activation-gate": "node scripts/check-archive-in-feed-activation-v1.mjs"
   },
   "dependencies": {
     "astro": "^7.3.2"
