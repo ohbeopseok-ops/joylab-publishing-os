@@ -8,10 +8,10 @@ import history from '../../data/ai-capex-leader-history-v1.json';
 const leaders = capex.leaders;
 const gate = capex.skHynixGate;
 const events = regime.events;
-const latestHistory = history.snapshots.at(-1);
+const latestHistory = [...history.snapshots].reverse().find((snapshot) => snapshot.asOf <= capex.asOf) ?? history.snapshots.at(-1);
 const momentumByTicker = Object.fromEntries(
   leaders.map((leader) => {
-    const series = history.snapshots.slice(-30).map((snapshot) => {
+    const series = history.snapshots.filter((snapshot) => snapshot.asOf <= capex.asOf).slice(-30).map((snapshot) => {
       const index = snapshot.leaders.findIndex((item) => item.ticker === leader.ticker);
       const item = index >= 0 ? snapshot.leaders[index] : null;
       return item ? {
@@ -101,7 +101,7 @@ const layers = [
       <div class="acm-momentum-grid">
         <article class="acm-chart-card">
           <div><small>SCORE</small><b id="acm-score-range">Last {defaultMomentumSeries.length} snapshots</b></div>
-          <svg id="acm-score-chart" viewBox="0 0 600 160" role="img" aria-label="Leader Score trend"><line x1="0" y1="40" x2="600" y2="40"></line><line x1="0" y1="96" x2="600" y2="96"></line><polyline points=""></polyline></svg>
+          <svg id="acm-score-chart" viewBox="0 0 600 160" role="img" aria-label="Leader Score trend"><line x1="0" y1="80" x2="600" y2="80"></line><line x1="0" y1="115" x2="600" y2="115"></line><polyline points=""></polyline></svg>
           <div class="acm-chart-foot"><span>Leader 80</span><span>Strong 70</span></div>
         </article>
         <article class="acm-chart-card">
@@ -180,14 +180,15 @@ const layers = [
     const makePoints = (series, key, invert = false) => {
       if (!series.length) return '';
       const values = series.map((item) => Number(item[key]));
-      const min = key === 'score' ? Math.min(60, ...values) : 1;
+      const min = key === 'score' ? 60 : 1;
       const max = key === 'score' ? 100 : Math.max(10, ...values);
       const width = 600;
       const height = 140;
       return series.map((item, index) => {
         const x = series.length === 1 ? width / 2 : (index / (series.length - 1)) * width;
         const raw = Number(item[key]);
-        const ratio = max === min ? .5 : (raw - min) / (max - min);
+        const ratioRaw = max === min ? .5 : (raw - min) / (max - min);
+        const ratio = Math.max(0, Math.min(1, ratioRaw));
         const y = invert ? ratio * height + 10 : (1 - ratio) * height + 10;
         return `${x.toFixed(1)},${y.toFixed(1)}`;
       }).join(' ');
