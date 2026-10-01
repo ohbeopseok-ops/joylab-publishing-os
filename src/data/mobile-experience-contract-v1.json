@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "viewports": [
+    { "name": "iphone-390", "width": 390, "height": 844 },
+    { "name": "iphone-430", "width": 430, "height": 932 }
+  ],
+  "pages": [
+    { "name": "home", "path": "/" },
+    { "name": "articles", "path": "/articles" },
+    { "name": "giant-shoulder", "path": "/articles/semiconductor-giant-shoulder-flow" },
+    { "name": "investing-guide", "path": "/guides/investing" }
+  ],
+  "budgets": {
+    "lcpMs": 2500,
+    "cls": 0.1,
+    "fontReadyMs": 1200
+  },
+  "font": {
+    "requiredFamilies": ["Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI"]
+  },
+  "firstContentEntry": {
+    "viewport": { "width": 390, "height": 844 },
+    "researchBriefTopPx": 1000,
+    "firstBodyH2TopPx": 3200
+  }
+}
