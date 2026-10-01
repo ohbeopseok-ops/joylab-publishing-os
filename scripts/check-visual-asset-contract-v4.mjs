@@ -155,7 +155,6 @@ async function validateAsset({ slug, role, src, tag = '', index = null }) {
   }
 
   const metric = await inspectRaster(file, rules.rasterQuality);
-  const roleRules = rules.roles[role];
   if (metric.width < roleRules.hardMinWidth || metric.height < roleRules.hardMinHeight) {
     failures.push(`${slug}: ${role} undersized ${metric.width}x${metric.height}; minimum ${roleRules.hardMinWidth}x${roleRules.hardMinHeight}`);
   } else if (metric.width < roleRules.recommendedWidth || metric.height < roleRules.recommendedHeight) {
