@@ -6,25 +6,63 @@
   "dimensions": {
     "score": {
       "label": "Score",
-      "range": [0,100],
-      "metrics": ["current","delta1d","delta5d","delta20d","slope5d","high30d","low30d"],
+      "range": [
+        0,
+        100
+      ],
+      "metrics": [
+        "current",
+        "delta1d",
+        "delta5d",
+        "delta20d",
+        "slope5d",
+        "high30d",
+        "low30d"
+      ],
       "signal": {
         "ACCELERATING": "delta5d >= 3 AND slope5d > 0",
-        "IMPROVING": "delta5d > 0",
-        "FLAT": "abs(delta5d) < 1",
-        "WEAKENING": "delta5d <= -1",
+        "IMPROVING": "1 <= delta5d < 3 OR (delta5d >= 3 AND slope5d <= 0)",
+        "FLAT": "-1 < delta5d < 1",
+        "WEAKENING": "-3 < delta5d <= -1 OR (delta5d <= -3 AND slope5d >= 0)",
         "DETERIORATING": "delta5d <= -3 AND slope5d < 0"
-      }
+      },
+      "signalEvaluation": "Evaluate predicates top-to-bottom; predicates are defined to be mutually exclusive."
     },
     "rank": {
       "label": "Rank",
-      "metrics": ["current","delta1d","delta5d","best30d","worst30d","daysInTop3","daysInTop5"],
-      "direction": "lower-is-better"
+      "metrics": [
+        "current",
+        "delta1d",
+        "delta5d",
+        "rankImprovement5d",
+        "best30d",
+        "worst30d",
+        "daysInTop3",
+        "daysInTop5"
+      ],
+      "direction": "lower-is-better",
+      "derived": {
+        "delta5d": "currentRank - rank5dAgo",
+        "rankImprovement5d": "-delta5d"
+      }
     },
     "regime": {
       "label": "Regime",
-      "states": ["LEADER-CONFIRMED","LEADER-WAIT","LEADER","STRONG-CANDIDATE","WATCH","THEME-ONLY"],
-      "metrics": ["current","daysInCurrent","transitions30d","confirmedDays30d","waitDays30d"]
+      "states": [
+        "LEADER-CONFIRMED",
+        "LEADER-WAIT",
+        "LEADER",
+        "STRONG-CANDIDATE",
+        "WATCH",
+        "THEME-ONLY"
+      ],
+      "metrics": [
+        "current",
+        "daysInCurrent",
+        "transitions30d",
+        "confirmedDays30d",
+        "waitDays30d"
+      ]
     }
   },
   "dashboard": {
@@ -33,38 +71,65 @@
       {
         "id": "momentum-strip",
         "title": "Leader Momentum 30D",
-        "cards": ["currentScore","scoreDelta5d","rank","rankDelta5d","currentRegime"]
+        "cards": [
+          "currentScore",
+          "scoreDelta5d",
+          "rank",
+          "rankDelta5d",
+          "currentRegime"
+        ]
       },
       {
         "id": "score-chart",
         "title": "Score",
         "visual": "30D line",
-        "overlays": ["80 Leader threshold","70 Strong Candidate threshold"]
+        "overlays": [
+          "80 Leader threshold",
+          "70 Strong Candidate threshold"
+        ]
       },
       {
         "id": "rank-chart",
         "title": "Rank",
         "visual": "30D step line",
         "axis": "1 at top",
-        "overlays": ["Top3 band","Top5 band"]
+        "overlays": [
+          "Top3 band",
+          "Top5 band"
+        ]
       },
       {
         "id": "regime-lane",
         "title": "Regime",
         "visual": "state timeline",
-        "eventLabels": ["WAIT→CONFIRMED","CONFIRMED→WAIT"]
+        "eventLabels": [
+          "WAIT→CONFIRMED",
+          "CONFIRMED→WAIT"
+        ]
       }
     ],
     "defaultTicker": "000660",
     "comparisonMax": 3,
     "mobile": {
-      "order": ["momentum-strip","regime-lane","score-chart","rank-chart"],
+      "order": [
+        "momentum-strip",
+        "regime-lane",
+        "score-chart",
+        "rank-chart"
+      ],
       "horizontalScroll": false
     }
   },
   "derivedLeaderMomentum": {
-    "formula": "0.5 * normalized(scoreDelta5d) + 0.3 * normalized(rankImprovement5d) + 0.2 * regimeBonus",
-    "regimeBonus": {"LEADER-CONFIRMED":1,"LEADER-WAIT":0.5,"LEADER":0.4,"STRONG-CANDIDATE":0.1,"WATCH":0,"THEME-ONLY":-0.5},
+    "formula": "0.5 * normalized(scoreDelta5d) + 0.3 * normalized(-rankDelta5d) + 0.2 * regimeBonus",
+    "regimeBonus": {
+      "LEADER-CONFIRMED": 1,
+      "LEADER-WAIT": 0.5,
+      "LEADER": 0.4,
+      "STRONG-CANDIDATE": 0.1,
+      "WATCH": 0,
+      "THEME-ONLY": -0.5
+    },
     "usage": "research-priority signal only; not a buy/sell signal"
   }
 }
