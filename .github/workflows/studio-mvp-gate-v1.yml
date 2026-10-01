@@ -14,7 +14,8 @@ on:
       - 'config/release-engine-v2.json'
       - '.github/workflows/release-engine-v2.yml'
       - 'config/series-02-release-v1.json'
-      - 'public/studio/releases/**'
+      - 'src/data/studio/releases/**'
+      - 'src/pages/studio/releases/**'
       - 'package.json'
       - '.github/workflows/studio-mvp-gate-v1.yml'
   workflow_dispatch:
