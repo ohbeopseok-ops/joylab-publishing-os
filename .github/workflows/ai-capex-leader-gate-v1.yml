@@ -1,0 +1,53 @@
+name: AI CAPEX Leader Gate V1
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/data/ai-capex-leader-*.json'
+      - 'src/data/ai-capex-regime-events-v1.json'
+      - 'src/pages/guides/ai-capex-map.astro'
+      - 'src/styles/ai-capex-map-v1.css'
+      - 'scripts/update-ai-capex-leader-v1.mjs'
+      - 'package.json'
+      - '.github/workflows/ai-capex-leader-*.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/ai-capex-leader-*.json'
+      - 'src/data/ai-capex-regime-events-v1.json'
+      - 'scripts/update-ai-capex-leader-v1.mjs'
+      - '.github/workflows/ai-capex-leader-*.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  leader-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: npm ci
+      - name: Leader runtime self-test
+        run: npm run ai-capex-leader:self-test
+      - name: Validate leader contracts
+        run: |
+          node - <<'NODE'
+          const fs=require('node:fs');
+          const leader=JSON.parse(fs.readFileSync('src/data/ai-capex-leader-v1.json','utf8'));
+          const history=JSON.parse(fs.readFileSync('src/data/ai-capex-leader-history-v1.json','utf8'));
+          const events=JSON.parse(fs.readFileSync('src/data/ai-capex-regime-events-v1.json','utf8'));
+          if(!Array.isArray(leader.leaders)||leader.leaders.length!==10) throw new Error('leader universe must be 10');
+          if(leader.leaders.some((x)=>!Number.isFinite(Number(x.score))||Number(x.score)<0||Number(x.score)>100)) throw new Error('leader score must be within 0..100');
+          if(!leader.skHynixGate) throw new Error('SK hynix hard gate missing');
+          if(!Array.isArray(history.snapshots)||!Array.isArray(events.events)) throw new Error('history contract invalid');
+          console.log('AI CAPEX Leader contracts PASS');
+          NODE
+      - name: Build
+        run: npm run build
