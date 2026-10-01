@@ -1,0 +1,81 @@
+name: UI Quality Gate V1
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/pages/**'
+      - 'src/components/**'
+      - 'src/layouts/**'
+      - 'src/styles/**'
+      - 'public/books/**'
+      - 'docs/JOYLAB_DESIGN_SYSTEM_V3.md'
+      - '.agents/skills/joylab-ui/SKILL.md'
+      - 'scripts/check-ui-quality.mjs'
+      - 'scripts/qa-books-visual.mjs'
+      - 'scripts/qa-weight-of-silence-reader.mjs'
+      - '.github/workflows/ui-quality-gate.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ui-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: UI contract
+        run: node scripts/check-ui-quality.mjs
+
+      - name: Build
+        run: npm run build
+
+      - name: Install browser QA
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start preview
+        shell: bash
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/ui-preview.log 2>&1 &
+          echo $! > /tmp/ui-preview.pid
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4321/books >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/ui-preview.log
+          exit 1
+
+      - name: Books visual QA
+        run: node scripts/qa-books-visual.mjs
+
+      - name: Reader interaction GOLD QA
+        run: node scripts/qa-weight-of-silence-reader.mjs
+
+      - name: Stop preview
+        if: always()
+        shell: bash
+        run: |
+          if [ -f /tmp/ui-preview.pid ]; then kill "$(cat /tmp/ui-preview.pid)" || true; fi
+
+      - name: Upload UI QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: ui-quality-gate
+          path: qa-artifacts
+          if-no-files-found: warn
+          retention-days: 30
