@@ -2284,5 +2284,24 @@
         "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
       }
     ]
+  },
+  "mcp-tool-permission-audit-agent-ready-2026": {
+    "hero": {
+      "src": "/images/research/mcp-tool-permission-audit-agent-ready-2026.svg",
+      "alt": "MCP Tool 앞에 Permission, Approval, Audit, Recovery Gate가 배치된 Agent Ready 보안 구조",
+      "caption": "MCP 연결 뒤 Permission · Approval · Audit · Recovery가 Production 운영 가능성을 결정합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "MCP Tool Permission Audit 핵심 위험 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "Tool 연결 이후 발생하는 Permission·Write·Retry 위험 신호를 점검합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "MCP Tool Permission Audit의 Fact Interpretation Scenario Action 구조를 설명한 JoyLab 프레임워크 이미지",
+        "caption": "연결보다 통제 설계를 우선하는 Agent Ready 프레임입니다."
+      }
+    ]
   }
 }
