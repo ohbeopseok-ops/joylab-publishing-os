@@ -120,7 +120,16 @@ const layers = [
       const item = byTicker.get(ticker);
       if (!item || !detail) return;
       rows.forEach((row) => row.classList.toggle('is-selected', row.getAttribute('data-company') === ticker));
-      detail.innerHTML = `<small>SELECTED · ${item.ticker}</small><h3>${item.company} · ${item.score}</h3><p>${item.note}</p><div>${item.path}</div>`;
+      detail.replaceChildren();
+      const meta = document.createElement('small');
+      meta.textContent = `SELECTED · ${item.ticker}`;
+      const title = document.createElement('h3');
+      title.textContent = `${item.company} · ${item.score}`;
+      const note = document.createElement('p');
+      note.textContent = item.note;
+      const path = document.createElement('div');
+      path.textContent = item.path;
+      detail.append(meta, title, note, path);
     }));
   </script>
 </BaseLayout>
