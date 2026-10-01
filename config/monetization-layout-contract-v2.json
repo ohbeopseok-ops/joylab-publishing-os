@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 2,
+  "name": "JoyLab Monetization Layout Contract V2",
+  "viewports": [
+    {
+      "name": "mobile-390",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "desktop-1280",
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "name": "desktop-1440",
+      "width": 1440,
+      "height": 1000
+    }
+  ],
+  "targets": [
+    {
+      "surface": "article",
+      "name": "article-end",
+      "path": "/articles/samsung-vs-sk-hynix-ai-memory",
+      "placement": "article-end",
+      "active": true
+    },
+    {
+      "surface": "guide",
+      "name": "guide-end",
+      "path": "/guides/ai-productivity",
+      "placement": "guide-end",
+      "active": true
+    },
+    {
+      "surface": "book",
+      "name": "book-end",
+      "path": "/books/ax-customer-center",
+      "placement": "book-end",
+      "active": true
+    },
+    {
+      "surface": "archive",
+      "name": "archive-in-feed",
+      "path": "/articles",
+      "placement": "archive-in-feed",
+      "active": false,
+      "activationRule": "Enable only after a real slot ID exists and the unit is inserted after at least six organic cards."
+    }
+  ],
+  "states": {
+    "filled": {
+      "syntheticHeightPx": 250,
+      "minOuterSpacingPx": 32,
+      "maxOuterSpacingPx": 48
+    },
+    "unfilled": {
+      "maxReservedOuterHeightPx": 48
+    }
+  },
+  "limits": {
+    "slotMaxWidthPx": 970,
+    "maxWidthOverrunPx": 0,
+    "horizontalOverflowPx": 0,
+    "clsMax": 0.1
+  },
+  "verticalDensityKpi": {
+    "enabled": true,
+    "metric": "filled_vs_unfilled_document_height",
+    "fields": [
+      "pageHeightFilledPx",
+      "pageHeightUnfilledPx",
+      "pageHeightDeltaPx",
+      "pageHeightDeltaPct"
+    ],
+    "blocking": false,
+    "recommendation": {
+      "minimumMeasurements": 15,
+      "minimumDeployments": 3,
+      "percentile": "p95",
+      "safetyMultiplier": 1.2,
+      "roundUpStepPct": 0.5,
+      "floorPct": 3,
+      "ceilingPct": 20,
+      "mode": "candidate_only_until_explicitly_promoted_to_hard_gate",
+      "minimumMeasurementsPerSurface": 5,
+      "minimumDeploymentsPerSurface": 3
+    }
+  },
+  "productionTargets": [
+    {
+      "surface": "article",
+      "name": "article-end-production",
+      "path": "/articles/samsung-vs-sk-hynix-ai-memory",
+      "placement": "article-end",
+      "viewportNames": [
+        "mobile-390",
+        "desktop-1280",
+        "desktop-1440"
+      ],
+      "selectors": {
+        "ad": "[data-ad-placement=\"article-end\"]"
+      }
+    },
+    {
+      "surface": "book",
+      "name": "book-end-production",
+      "path": "/books/ax-customer-center",
+      "placement": "book-end",
+      "viewportNames": [
+        "mobile-390",
+        "desktop-1280",
+        "desktop-1440"
+      ],
+      "selectors": {
+        "before": "#author",
+        "ad": "[data-ad-placement=\"book-end\"]",
+        "after": "section:has([data-research-map-v3])"
+      },
+      "distanceFields": {
+        "beforeToAd": "authorToAdPx",
+        "adToAfter": "adToGraphPx"
+      }
+    },
+    {
+      "surface": "guide",
+      "name": "guide-investing-production",
+      "path": "/guides/investing",
+      "placement": "guide-end",
+      "viewportNames": [
+        "mobile-390",
+        "desktop-1440"
+      ],
+      "selectors": {
+        "before": "body > main",
+        "ad": "[data-ad-placement=\"guide-end\"]",
+        "after": "#site-footer-v2"
+      },
+      "distanceFields": {
+        "beforeToAd": "contentToAdPx",
+        "adToAfter": "adToFooterPx"
+      }
+    },
+    {
+      "surface": "guide",
+      "name": "guide-ai-production",
+      "path": "/guides/ai-productivity",
+      "placement": "guide-end",
+      "viewportNames": [
+        "mobile-390",
+        "desktop-1440"
+      ],
+      "selectors": {
+        "before": "body > main",
+        "ad": "[data-ad-placement=\"guide-end\"]",
+        "after": "#site-footer-v2"
+      },
+      "distanceFields": {
+        "beforeToAd": "contentToAdPx",
+        "adToAfter": "adToFooterPx"
+      }
+    },
+    {
+      "surface": "guide",
+      "name": "guide-leadership-production",
+      "path": "/guides/growth-leadership",
+      "placement": "guide-end",
+      "viewportNames": [
+        "mobile-390",
+        "desktop-1440"
+      ],
+      "selectors": {
+        "before": "body > main",
+        "ad": "[data-ad-placement=\"guide-end\"]",
+        "after": "#site-footer-v2"
+      },
+      "distanceFields": {
+        "beforeToAd": "contentToAdPx",
+        "adToAfter": "adToFooterPx"
+      }
+    }
+  ],
+  "archiveActivationGate": {
+    "minOrganicCardsBeforeAd": 6,
+    "slotKey": "archiveInFeed",
+    "placement": "archive-in-feed",
+    "sourcePath": "src/pages/articles/index.astro",
+    "rule": "The in-feed ad may render only after six organic article cards. With an empty slot ID the shell may exist but no ad unit may render."
+  }
+}

@@ -4,6 +4,8 @@ import path from 'node:path';
 const DOMAIN = process.env.ADSENSE_SITE_DOMAIN || 'aijoylab.kr';
 const PAGE_PREFIX_RAW = process.env.ADSENSE_PAGE_PREFIX || '/articles/';
 const PAGE_PREFIX = `/${PAGE_PREFIX_RAW.replace(/^\/+|\/+$/g, '')}/`;
+const PAGE_EXACT_PATH_RAW = process.env.ADSENSE_PAGE_EXACT_PATH || '';
+const PAGE_EXACT_PATH = PAGE_EXACT_PATH_RAW ? `/${PAGE_EXACT_PATH_RAW.replace(/^\/+|\/+$/g, '')}` : '';
 const DAYS = Math.max(1, Math.min(30, Number(process.env.ADSENSE_REPORT_DAYS || 7)));
 const OUT = process.env.ADSENSE_METRICS_OUT || 'qa-artifacts/adsense-monetization-gate-v1/adsense.json';
 
@@ -74,7 +76,12 @@ async function fetchPeriod(periodStart, periodEnd){
   // This avoids the rejected OWNED_SITE_DOMAIN_NAME + PAGE_URL combination
   // while preventing similarly named hosts (for example preview-aijoylab.kr)
   // from contaminating the production aijoylab.kr article metrics.
-  params.append('filters',`PAGE_URL=@https://${DOMAIN}${PAGE_PREFIX}`);
+  params.append(
+    'filters',
+    PAGE_EXACT_PATH
+      ? `PAGE_URL==https://${DOMAIN}${PAGE_EXACT_PATH}`
+      : `PAGE_URL=@https://${DOMAIN}${PAGE_PREFIX}`
+  );
   params.set('currencyCode','KRW');
   params.set('startDate.year',String(periodStart.year));
   params.set('startDate.month',String(periodStart.month));
@@ -107,7 +114,8 @@ const sitePolicyIssues=(policyPayload.policyIssues||[]).filter(issue=>String(iss
 const payload={
   source:'adsense-management-api-v2',
   site:DOMAIN,
-  pagePrefix:PAGE_PREFIX,
+  pagePrefix:PAGE_EXACT_PATH || PAGE_PREFIX,
+  pageMatchMode:PAGE_EXACT_PATH?'exact':'prefix',
   accountResource:account,
   siteState:site?.state??null,
   autoAdsEnabled:site?.autoAdsEnabled??null,

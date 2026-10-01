@@ -548,6 +548,21 @@ jobs:
           QA_BASE_URL: https://aijoylab.kr
         run: node scripts/qa-responsive-visual-v2.mjs
 
+      - name: Monetization Layout Production GOLD V2
+        if: ${{ !cancelled() }}
+        id: monetization_layout_production
+        env:
+          QA_BASE_URL: https://aijoylab.kr
+          QA_OUTPUT_DIR: qa-artifacts/monetization-layout-production-v2
+        run: npm run monetization-layout:production
+
+      - name: Vertical Density Hard Gate Candidate
+        if: ${{ !cancelled() }}
+        env:
+          VERTICAL_DENSITY_INPUT_DIRS: qa-artifacts/monetization-layout-production-v2
+          VERTICAL_DENSITY_RECOMMENDATION_OUT: qa-artifacts/monetization-layout-production-v2/vertical-density-recommendation.json
+        run: npm run vertical-density:recommend
+
       - name: Research Guide Production Visual GOLD
         if: ${{ !cancelled() }}
         id: research_guide_production_visual_qa
@@ -595,6 +610,15 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+      - name: Upload Monetization Layout Production GOLD V2
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: monetization-layout-production-v2
+          path: qa-artifacts/monetization-layout-production-v2
+          if-no-files-found: error
+          retention-days: 90
+
       - name: Upload Research Guide Production Visual GOLD
         if: always()
         uses: actions/upload-artifact@v6
@@ -641,6 +665,7 @@ jobs:
           RELEASE_STUDIO_SMOKE_RESULT: ${{ steps.studio_production_smoke.outcome }}
           RELEASE_MOBILE_VISUAL_QA_RESULT: ${{ steps.production_mobile_visual_qa.outcome }}
           RELEASE_RESPONSIVE_VISUAL_QA_RESULT: ${{ steps.production_responsive_visual_qa.outcome }}
+          RELEASE_MONETIZATION_LAYOUT_RESULT: ${{ steps.monetization_layout_production.outcome }}
           RELEASE_RESEARCH_GUIDE_VISUAL_QA_RESULT: ${{ steps.research_guide_production_visual_qa.outcome }}
           RELEASE_SERIES02_INTERACTIVE_QA_RESULT: ${{ steps.production_series02_interactive_qa.outcome }}
           RELEASE_READER_QA_RESULT: ${{ steps.production_reader_qa.outcome }}

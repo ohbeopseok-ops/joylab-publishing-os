@@ -19,7 +19,8 @@ on:
         default: "ops/adsense/monetization-snapshot.json"
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   evaluate:
@@ -313,6 +314,156 @@ jobs:
             exit 1
           fi
           test "$DECISION" = "ADVANCE" -o "$DECISION" = "COLLECT"
+
+  archive-evaluate:
+    if: ${{ vars.ADSENSE_MONETIZATION_ENABLED == 'true' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'live')) }}
+    runs-on: ubuntu-latest
+    env:
+      OUT_DIR: qa-artifacts/adsense-monetization-gate-v1-archive
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Detect archive in-feed activation
+        id: activation
+        shell: bash
+        run: |
+          mkdir -p "$OUT_DIR"
+          node <<'NODE'
+          const fs=require('fs');
+          const src=fs.readFileSync('src/config/adPlacement.ts','utf8');
+          const match=src.match(/archiveInFeed:\s*\{[^}]*slotId:\s*'([^']*)'/s);
+          if(!match) throw new Error('archiveInFeed slotId not found');
+          const active=Boolean(match[1].trim());
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `active=${active}\n`);
+          fs.writeFileSync(process.env.OUT_DIR + '/activation.json', JSON.stringify({
+            stage:'archive-in-feed',
+            active,
+            slotConfigured:active,
+            minCardsBefore:6
+          },null,2)+'\n');
+          console.log(active ? 'Archive in-feed ACTIVE · safety gate enabled' : 'Archive in-feed INACTIVE · safety gate armed');
+          NODE
+
+      - name: Fetch AdSense archive metrics
+        if: steps.activation.outputs.active == 'true'
+        env:
+          ADSENSE_OAUTH_CLIENT_ID: ${{ secrets.ADSENSE_OAUTH_CLIENT_ID }}
+          ADSENSE_OAUTH_CLIENT_SECRET: ${{ secrets.ADSENSE_OAUTH_CLIENT_SECRET }}
+          ADSENSE_OAUTH_REFRESH_TOKEN: ${{ secrets.ADSENSE_OAUTH_REFRESH_TOKEN }}
+          ADSENSE_ACCOUNT_RESOURCE: ${{ vars.ADSENSE_ACCOUNT_RESOURCE }}
+          ADSENSE_SITE_DOMAIN: aijoylab.kr
+          ADSENSE_PAGE_EXACT_PATH: /articles
+          ADSENSE_REPORT_DAYS: "7"
+          ADSENSE_METRICS_OUT: qa-artifacts/adsense-monetization-gate-v1-archive/adsense.json
+        run: node scripts/fetch-adsense-metrics-v1.mjs
+
+      - name: Fetch Cloudflare archive UX
+        if: steps.activation.outputs.active == 'true'
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ANALYTICS_READ_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_READ_TOKEN }}
+          MONETIZATION_PAGE_SCOPE: archive
+          MONETIZATION_UX_DAYS: "7"
+          CLOUDFLARE_UX_OUT: qa-artifacts/adsense-monetization-gate-v1-archive/cloudflare-ux.json
+        run: node scripts/fetch-cloudflare-monetization-ux-v1.mjs
+
+      - name: Compose archive monetization snapshot
+        if: steps.activation.outputs.active == 'true'
+        env:
+          ADSENSE_MONETIZATION_STAGE: archive-in-feed
+          ADSENSE_METRICS_JSON: qa-artifacts/adsense-monetization-gate-v1-archive/adsense.json
+          CLOUDFLARE_UX_JSON: qa-artifacts/adsense-monetization-gate-v1-archive/cloudflare-ux.json
+          MONETIZATION_SNAPSHOT_OUT: qa-artifacts/adsense-monetization-gate-v1-archive/snapshot.json
+        run: node scripts/compose-adsense-monetization-snapshot-v1.mjs
+
+      - name: Evaluate archive Monetization Safety Gate
+        if: steps.activation.outputs.active == 'true'
+        id: archive_gate
+        continue-on-error: true
+        run: |
+          node scripts/evaluate-adsense-monetization-v1.mjs "$OUT_DIR/snapshot.json" | tee "$OUT_DIR/result.json"
+
+      - name: Publish archive safety decision
+        if: always()
+        shell: bash
+        run: |
+          if [ "${{ steps.activation.outputs.active }}" != "true" ]; then
+            echo "NOT_ACTIVE" > "$OUT_DIR/decision.txt"
+          else
+            node -e "const fs=require('fs');const j=JSON.parse(fs.readFileSync('$OUT_DIR/result.json','utf8'));fs.writeFileSync('$OUT_DIR/decision.txt',(j.decision||'UNKNOWN')+'\n')"
+          fi
+          DECISION="$(cat "$OUT_DIR/decision.txt")"
+          {
+            echo "# JoyLab Archive Monetization Safety Gate"
+            echo
+            echo "## $DECISION"
+            echo
+            echo "Stage: archive-in-feed"
+            echo "Monitors: CTR spike · reading-depth drop · CLS"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload archive safety evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: adsense-monetization-gate-v1-archive
+          path: qa-artifacts/adsense-monetization-gate-v1-archive
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Open archive kill-switch PR on rollback
+        if: always() && steps.activation.outputs.active == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          DECISION="$(cat "$OUT_DIR/decision.txt" 2>/dev/null || echo UNKNOWN)"
+          if [ "$DECISION" != "ROLLBACK" ]; then
+            echo "No kill-switch PR required: $DECISION"
+            exit 0
+          fi
+
+          BRANCH="kill-switch/archive-in-feed-${GITHUB_RUN_ID}"
+          git config user.name "JoyLab Monetization Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git switch -c "$BRANCH"
+
+          node <<'NODE'
+          const fs=require('fs');
+          const path='src/config/adPlacement.ts';
+          const src=fs.readFileSync(path,'utf8');
+          const next=src.replace(
+            /(archiveInFeed:\s*\{[^}]*slotId:\s*)'[^']*'/s,
+            "$1''"
+          );
+          if(next===src) throw new Error('archiveInFeed slotId replacement failed');
+          fs.writeFileSync(path,next);
+          NODE
+
+          git add src/config/adPlacement.ts
+          git commit -m "fix: disable archive in-feed after monetization rollback"
+          git push origin "$BRANCH"
+
+          gh pr create             --base main             --head "$BRANCH"             --title "Kill switch: disable archive in-feed monetization"             --body "Archive Monetization Safety Gate returned ROLLBACK. This PR disables archive-in-feed by clearing its AdSense slot ID. Evidence: workflow run ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}. Re-enable only after reviewing CTR, reading-depth and CLS causes and passing Production GOLD."
+
+      - name: Enforce archive rollback
+        if: always() && steps.activation.outputs.active == 'true'
+        shell: bash
+        run: |
+          DECISION="$(cat "$OUT_DIR/decision.txt" 2>/dev/null || echo UNKNOWN)"
+          if [ "$DECISION" = "ROLLBACK" ]; then
+            echo "Archive Monetization Safety Gate requested ROLLBACK."
+            exit 1
+          fi
+          test "$DECISION" = "ADVANCE" -o "$DECISION" = "COLLECT"
+
 
   dashboard-v2:
     needs:

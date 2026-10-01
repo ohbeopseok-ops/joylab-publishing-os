@@ -1,0 +1,61 @@
+name: Monetization Layout Contract V2
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/components/AdSlot.astro'
+      - 'src/pages/articles/**'
+      - 'src/config/adPlacement.ts'
+      - 'src/pages/books/**'
+      - 'src/layouts/BaseLayout.astro'
+      - 'src/styles/research-v2.css'
+      - 'src/styles/books.css'
+      - 'config/monetization-layout-contract-v2.json'
+      - 'scripts/check-monetization-layout-contract-v2.mjs'
+      - 'scripts/check-archive-in-feed-activation-v1.mjs'
+      - 'package.json'
+      - '.github/workflows/monetization-layout-contract-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  monetization-layout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.19.0'
+          cache: npm
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright@1.55.0
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: Start preview
+        shell: bash
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/monetization-layout-preview.log 2>&1 &
+          echo $! > /tmp/monetization-layout-preview.pid
+          for i in {1..40}; do
+            if curl -fsS http://127.0.0.1:4321/articles/samsung-vs-sk-hynix-ai-memory >/dev/null \
+              && curl -fsS http://127.0.0.1:4321/guides/ai-productivity >/dev/null \
+              && curl -fsS http://127.0.0.1:4321/books/ax-customer-center >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/monetization-layout-preview.log
+          exit 1
+      - name: Article / Guide / Books · 390 / 1280 / 1440 · filled / unfilled
+        run: npm run monetization-layout:gate
+      - name: Archive in-feed activation · after 6 organic cards
+        run: npm run archive-in-feed:activation-gate
+      - name: Stop preview
+        if: always()
+        shell: bash
+        run: |
+          if [ -f /tmp/monetization-layout-preview.pid ]; then kill "$(cat /tmp/monetization-layout-preview.pid)" || true; fi

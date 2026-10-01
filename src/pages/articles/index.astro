@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { AD_PLACEMENT } from '../../config/adPlacement';
 import { getCollection } from 'astro:content';
 import '../../styles/homepage-v2.css';
 import '../../styles/homepage-v2-fidelity.css';
@@ -7,6 +9,8 @@ import '../../styles/homepage-v2-fidelity.css';
 const articles = (await getCollection('articles'))
   .filter((item) => !item.data.draft)
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const archiveMinCards = AD_PLACEMENT.slots.archiveInFeed.minCardsBefore;
 
 const pillars = [
   {
@@ -69,8 +73,27 @@ const pillars = [
       </div>
 
       <div class="grid">
-        {articles.map((article, index) => (
+        {articles.slice(0, archiveMinCards).map((article, index) => (
           <a class={`card article-card ${index === 0 ? 'card-accent' : ''}`} href={`/articles/${article.id}`}>
+            <div class="card-top">
+              <div class="meta">{article.data.category}</div>
+              <span>{article.data.readingTime ?? '약 6분'}</span>
+            </div>
+            <h3>{article.data.cardTitle ?? article.data.title}</h3>
+            <p>{article.data.cardDescription ?? article.data.description}</p>
+            <div class="card-footer">
+              <span>{article.data.series ?? article.data.publishedAt.toLocaleDateString('ko-KR')}</span>
+              <b>→</b>
+            </div>
+          </a>
+        ))}
+
+        <div class="archive-in-feed-ad-shell" data-archive-in-feed-after={archiveMinCards}>
+          <AdSlot placement="archive-in-feed" />
+        </div>
+
+        {articles.slice(archiveMinCards).map((article) => (
+          <a class="card article-card" href={`/articles/${article.id}`}>
             <div class="card-top">
               <div class="meta">{article.data.category}</div>
               <span>{article.data.readingTime ?? '약 6분'}</span>
@@ -107,6 +130,7 @@ const pillars = [
 <style is:global>
   .research-map-entry{display:inline-flex;margin-top:18px;padding:10px 14px;border:1px solid #cbd8e8;border-radius:999px;color:#0d63ce;font-size:.82rem;font-weight:900;text-decoration:none;background:#fff}
   .research-map-entry:hover{border-color:#1677ff}
+  .archive-in-feed-ad-shell{grid-column:1/-1;width:100%;min-width:0}
   @media (max-width: 900px) {
     body.research-hub-page .home-archive .article-card {
       min-height: 0;
