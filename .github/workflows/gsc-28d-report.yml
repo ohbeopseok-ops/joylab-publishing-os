@@ -1,0 +1,79 @@
+name: GSC D7 D28 Article Report
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/report-gsc-28d.mjs'
+      - '.github/workflows/gsc-28d-report.yml'
+      - 'src/data/articles/**'
+  schedule:
+    - cron: '25 1 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/report-gsc-28d.mjs'
+      - '.github/workflows/gsc-28d-report.yml'
+      - 'src/data/articles/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  self-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Reporter self-test
+        run: node scripts/report-gsc-28d.mjs --self-test
+
+  live-report:
+    if: github.event_name != 'pull_request'
+    needs: self-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      GSC_SITE_URL: sc-domain:aijoylab.kr
+      PUBLIC_SITE_ORIGIN: https://aijoylab.kr
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Generate D7 D28 article report
+        run: node scripts/report-gsc-28d.mjs
+
+      - name: Publish job summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f qa-artifacts/gsc-28d/gsc-28d.md ]; then
+            cat qa-artifacts/gsc-28d/gsc-28d.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload GSC D7 D28 report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: gsc-d7-d28-article-report
+          path: qa-artifacts/gsc-28d
+          if-no-files-found: error
+          retention-days: 60
