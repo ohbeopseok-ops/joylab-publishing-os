@@ -32,8 +32,40 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
+      - name: Detect GSC credential
+        id: credential
+        shell: bash
+        run: |
+          if [ -n "${GSC_SERVICE_ACCOUNT_JSON:-}" ]; then
+            echo 'available=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'available=false' >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Generate rolling GSC report
+        if: steps.credential.outputs.available == 'true'
         run: node scripts/report-gsc-7d.mjs
+
+      - name: Record credential wait state
+        if: steps.credential.outputs.available != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p qa-artifacts/gsc-7d
+          cat > qa-artifacts/gsc-7d/gsc-7d.md <<'EOF'
+          # JoyLab GSC 7-Day Visibility
+
+          Status: **WAITING_FOR_CREDENTIAL**
+
+          The reporting workflow is installed and scheduled, but GitHub Actions does not currently have the `GSC_SERVICE_ACCOUNT_JSON` repository secret. Add a Search Console service-account JSON with read access to `sc-domain:aijoylab.kr`; the next scheduled or manual run will automatically produce the live rolling 7-day report.
+          EOF
+          cat > qa-artifacts/gsc-7d/gsc-7d.json <<'EOF'
+          {
+            "status": "WAITING_FOR_CREDENTIAL",
+            "siteUrl": "sc-domain:aijoylab.kr",
+            "requiredSecret": "GSC_SERVICE_ACCOUNT_JSON"
+          }
+          EOF
 
       - name: Publish job summary
         if: always()

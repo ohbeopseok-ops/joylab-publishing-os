@@ -1,0 +1,36 @@
+name: IndexNow Key Smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/1793952a193325da594f7015ca133737.txt'
+      - '.github/workflows/indexnow-key-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  key-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Verify public IndexNow key file
+        shell: bash
+        run: |
+          set -euo pipefail
+          url='https://aijoylab.kr/1793952a193325da594f7015ca133737.txt'
+          expected='1793952a193325da594f7015ca133737'
+          for i in {1..12}; do
+            code=$(curl -sS -o /tmp/indexnow-key -w '%{http_code}' --max-time 15 "$url" || true)
+            actual=$(tr -d '\r\n' < /tmp/indexnow-key 2>/dev/null || true)
+            echo "$code $url"
+            if [ "$code" = '200' ] && [ "$actual" = "$expected" ]; then
+              echo 'IndexNow public key smoke passed.'
+              exit 0
+            fi
+            sleep 5
+          done
+          echo 'IndexNow public key file did not match expected content.'
+          exit 1
