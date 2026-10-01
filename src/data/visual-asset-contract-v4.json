@@ -1,0 +1,36 @@
+{
+  "version": "4.0",
+  "roles": {
+    "hero": {
+      "hardMinWidth": 800,
+      "hardMinHeight": 450,
+      "recommendedWidth": 1600,
+      "recommendedHeight": 900,
+      "requireHighPriority": true
+    },
+    "supporting": {
+      "hardMinWidth": 800,
+      "hardMinHeight": 450,
+      "recommendedWidth": 1200,
+      "recommendedHeight": 675,
+      "requireLazy": true
+    },
+    "og": {
+      "hardMinWidth": 800,
+      "hardMinHeight": 450,
+      "recommendedWidth": 1200,
+      "recommendedHeight": 630
+    }
+  },
+  "rasterQuality": {
+    "severeBytesPerPixel": 0.008,
+    "blurLaplacianVariance": 18,
+    "blurEdgeDensity": 0.03,
+    "edgeThreshold": 12,
+    "analysisWidth": 320,
+    "analysisHeight": 180
+  },
+  "svg": {
+    "requireViewBox": true
+  }
+}
