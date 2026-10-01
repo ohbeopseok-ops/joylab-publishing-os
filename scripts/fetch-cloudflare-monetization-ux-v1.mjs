@@ -32,6 +32,15 @@ const scopeConfig={
     cta:'book_landing_cta_click',
     exit:'book_landing_exit',
     cls:'book_landing_cls_v2'
+  },
+  archive:{
+    scope:'archive',
+    view:'archive_view',
+    read50:'archive_read_50',
+    read90:'archive_read_90',
+    cta:'archive_cta_click',
+    exit:'archive_exit',
+    cls:'archive_cls_v2'
   }
 };
 const selected=scopeConfig[requestedScope] || scopeConfig.article;
@@ -160,7 +169,7 @@ const payload={
   metricDefinitions:{
     readingDepthPct:`Share of ${scope} views reaching at least 50% scroll depth.`,
     exitRatePct:`Share of ${scope} views ending before 25% scroll depth and before 30 visible seconds.`,
-    ctaConversionPct:scope==='guide'?'Guide internal CTA clicks divided by guide views.':scope==='book'?'Books landing CTA clicks divided by Books landing views.':'Article contact CTA clicks divided by article views.',
+    ctaConversionPct:scope==='guide'?'Guide internal CTA clicks divided by guide views.':scope==='book'?'Books landing CTA clicks divided by Books landing views.':scope==='archive'?'Archive card/internal CTA clicks divided by archive views.':'Article contact CTA clicks divided by article views.',
     clsP75:'Weighted p75 of Web Vitals session-window CLS v2 values.'
   },
   current,
