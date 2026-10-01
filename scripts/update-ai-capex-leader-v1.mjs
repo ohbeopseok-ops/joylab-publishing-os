@@ -33,11 +33,18 @@ function sanitizePlainText(value, fallback = '') {
   return String(value ?? fallback).replace(/[<>]/g, '').slice(0, 1000);
 }
 
-function normalizeFeedCompany(base, feed) {
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
+function normalizeFeedCompany(base, feed, priceConfirmationMax) {
   if (!feed) return base;
+  const rawPriceConfirmation = Number(feed.priceConfirmation);
   return {
     ...base,
-    priceConfirmation: Number.isFinite(Number(feed.priceConfirmation)) ? Number(feed.priceConfirmation) : base.priceConfirmation,
+    priceConfirmation: Number.isFinite(rawPriceConfirmation)
+      ? clamp(rawPriceConfirmation, 0, priceConfirmationMax)
+      : base.priceConfirmation,
     market: { ...(base.market || {}), ...(feed.market || {}) },
     note: sanitizePlainText(feed.note, base.note)
   };
@@ -55,7 +62,8 @@ async function fetchFeed() {
 
 function compose(input, feed) {
   const feedByTicker = new Map((feed?.companies || []).map((x) => [x.ticker, x]));
-  const companies = input.companies.map((base) => normalizeFeedCompany(base, feedByTicker.get(base.ticker)));
+  const priceConfirmationMax = Number(input.weights.priceConfirmation);
+  const companies = input.companies.map((base) => normalizeFeedCompany(base, feedByTicker.get(base.ticker), priceConfirmationMax));
   const rows = companies.map((company) => {
     const score = scoreCompany(company);
     const gate = company.ticker === '000660' ? evaluateSkHynixGate(company.market) : null;
@@ -67,7 +75,11 @@ function compose(input, feed) {
   const sk = rows.find((x) => x.ticker === '000660');
   return {
     version: '1.1',
-    asOf: feed?.asOf || input.asOf,
+    asOf: feed
+      ? (typeof feed.asOf === 'string' && /^\d{4}-\d{2}-\d{2}/.test(feed.asOf)
+          ? feed.asOf.slice(0, 10)
+          : new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(new Date()))
+      : input.asOf,
     sourceMode: feed ? 'connected-feed' : input.sourceMode,
     method: {
       weights: input.weights,
