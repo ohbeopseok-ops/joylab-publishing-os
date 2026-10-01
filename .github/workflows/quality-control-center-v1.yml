@@ -107,6 +107,10 @@ jobs:
           RUM_OUT: qa-artifacts/real-user-experience-gate-v1/rum.json
         run: node scripts/fetch-rum-web-vitals-v1.mjs
 
+      - name: Experience Debt Ranking V1
+        if: always()
+        run: node scripts/rank-experience-debt-v1.mjs
+
       - name: Generate Quality Control Center V1
         if: always()
         run: node scripts/generate-quality-control-center-v1.mjs
@@ -143,6 +147,7 @@ jobs:
             qa-artifacts/first-content-ranking-v1
             qa-artifacts/mobile-experience-contract-v1
             qa-artifacts/real-user-experience-gate-v1
+            qa-artifacts/experience-debt-ranking-v1
             qa-artifacts/quality-control-center-v1
           if-no-files-found: warn
           retention-days: 90
