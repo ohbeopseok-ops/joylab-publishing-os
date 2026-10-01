@@ -41,9 +41,10 @@ async function fetchInvestorRows({ token, appKey, appSecret, ticker }) {
   return Array.isArray(body.output) ? body.output : [];
 }
 
-export function normalizeFlowRows(rows) {
+export function normalizeFlowRows(rows, maxTradeDate = null) {
   const sorted = [...rows]
     .filter((x) => /^\d{8}$/.test(String(x.stck_bsop_date || '')))
+    .filter((x) => !maxTradeDate || String(x.stck_bsop_date) <= maxTradeDate)
     .sort((a,b) => String(b.stck_bsop_date).localeCompare(String(a.stck_bsop_date)))
     .slice(0, 5);
   if (!sorted.length) return null;
@@ -63,13 +64,13 @@ export function normalizeFlowRows(rows) {
   };
 }
 
-export async function fetchKisFlowSnapshot({ appKey, appSecret, tickers }) {
+export async function fetchKisFlowSnapshot({ appKey, appSecret, tickers, asOfTradeDate = null }) {
   if (!appKey || !appSecret) throw new Error('KIS_APP_KEY and KIS_APP_SECRET are required');
   const token = await issueToken(appKey, appSecret);
   const companies = {};
   for (const ticker of tickers) {
     const rows = await fetchInvestorRows({ token, appKey, appSecret, ticker });
-    companies[ticker] = normalizeFlowRows(rows);
+    companies[ticker] = normalizeFlowRows(rows, asOfTradeDate);
   }
   return { companies };
 }
