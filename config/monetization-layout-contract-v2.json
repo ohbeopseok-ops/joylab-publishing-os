@@ -2,9 +2,21 @@
   "schemaVersion": 2,
   "name": "JoyLab Monetization Layout Contract V2",
   "viewports": [
-    { "name": "mobile-390", "width": 390, "height": 844 },
-    { "name": "desktop-1280", "width": 1280, "height": 900 },
-    { "name": "desktop-1440", "width": 1440, "height": 1000 }
+    {
+      "name": "mobile-390",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "desktop-1280",
+      "width": 1280,
+      "height": 900
+    },
+    {
+      "name": "desktop-1440",
+      "width": 1440,
+      "height": 1000
+    }
   ],
   "targets": [
     {
@@ -53,12 +65,63 @@
     "horizontalOverflowPx": 0,
     "clsMax": 0.1
   },
-  "productionRegression": {
-    "path": "/books/ax-customer-center",
-    "selectors": {
-      "author": "#author",
-      "ad": "[data-ad-placement=\"book-end\"]",
-      "graph": "section:has([data-research-map-v3])"
+  "verticalDensityKpi": {
+    "enabled": true,
+    "metric": "filled_vs_unfilled_document_height",
+    "fields": [
+      "pageHeightFilledPx",
+      "pageHeightUnfilledPx",
+      "pageHeightDeltaPx",
+      "pageHeightDeltaPct"
+    ],
+    "blocking": false
+  },
+  "productionTargets": [
+    {
+      "surface": "book",
+      "name": "book-end-production",
+      "path": "/books/ax-customer-center",
+      "placement": "book-end",
+      "viewportNames": [
+        "mobile-390",
+        "desktop-1280",
+        "desktop-1440"
+      ],
+      "selectors": {
+        "before": "#author",
+        "ad": "[data-ad-placement=\"book-end\"]",
+        "after": "section:has([data-research-map-v3])"
+      },
+      "distanceFields": {
+        "beforeToAd": "authorToAdPx",
+        "adToAfter": "adToGraphPx"
+      }
+    },
+    {
+      "surface": "guide",
+      "name": "guide-end-production",
+      "path": "/guides/ai-productivity",
+      "placement": "guide-end",
+      "viewportNames": [
+        "mobile-390",
+        "desktop-1440"
+      ],
+      "selectors": {
+        "before": "body > main",
+        "ad": "[data-ad-placement=\"guide-end\"]",
+        "after": "#site-footer-v2"
+      },
+      "distanceFields": {
+        "beforeToAd": "contentToAdPx",
+        "adToAfter": "adToFooterPx"
+      }
     }
+  ],
+  "archiveActivationGate": {
+    "minOrganicCardsBeforeAd": 6,
+    "slotKey": "archiveInFeed",
+    "placement": "archive-in-feed",
+    "sourcePath": "src/pages/articles/index.astro",
+    "rule": "The in-feed ad may render only after six organic article cards. With an empty slot ID the shell may exist but no ad unit may render."
   }
 }
