@@ -52,8 +52,8 @@ for(const row of gsc.topPages||[]){
 }
 for(const row of ads.pages||[]){
   const item=ensure(row.path||row.pageUrl);
-  item.estimatedEarningsKrw=Number(row.estimatedEarningsKrw||0);
-  if(!item.pageViews) item.pageViews=Number(row.pageViews||0);
+  item.estimatedEarningsKrw+=Number(row.estimatedEarningsKrw||0);
+  item.pageViews+=Number(row.pageViews||0);
 }
 for(const row of views||[]){
   const item=ensure(row.path);
