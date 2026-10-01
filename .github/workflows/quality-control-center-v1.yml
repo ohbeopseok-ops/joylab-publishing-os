@@ -111,6 +111,42 @@ jobs:
         if: always()
         run: node scripts/rank-experience-debt-v1.mjs
 
+      - name: Fetch GSC business signals
+        continue-on-error: true
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: sc-domain:aijoylab.kr
+          GSC_PAGE_ROW_LIMIT: "1000"
+        run: node scripts/report-gsc-7d.mjs
+
+      - name: Fetch AdSense page-level business signals
+        continue-on-error: true
+        env:
+          ADSENSE_OAUTH_CLIENT_ID: ${{ secrets.ADSENSE_OAUTH_CLIENT_ID }}
+          ADSENSE_OAUTH_CLIENT_SECRET: ${{ secrets.ADSENSE_OAUTH_CLIENT_SECRET }}
+          ADSENSE_OAUTH_REFRESH_TOKEN: ${{ secrets.ADSENSE_OAUTH_REFRESH_TOKEN }}
+          ADSENSE_ACCOUNT_RESOURCE: ${{ vars.ADSENSE_ACCOUNT_RESOURCE }}
+          ADSENSE_SITE_DOMAIN: aijoylab.kr
+          ADSENSE_PAGE_PREFIX: /articles/
+          ADSENSE_REPORT_DAYS: "7"
+          ADSENSE_METRICS_OUT: qa-artifacts/business-impact-signals-v1/adsense.json
+        run: node scripts/fetch-adsense-metrics-v1.mjs
+
+      - name: Compose business impact signals
+        continue-on-error: true
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ANALYTICS_READ_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_READ_TOKEN }}
+          BUSINESS_SIGNAL_DAYS: "7"
+          BUSINESS_GSC_JSON: qa-artifacts/gsc-7d/gsc-7d.json
+          BUSINESS_ADSENSE_JSON: qa-artifacts/business-impact-signals-v1/adsense.json
+          BUSINESS_SIGNALS_OUT: qa-artifacts/business-impact-signals-v1/signals.json
+        run: node scripts/fetch-business-impact-signals-v1.mjs
+
+      - name: Business Impact Debt Ranking V1
+        if: always()
+        run: node scripts/rank-business-impact-debt-v1.mjs
+
       - name: Generate Quality Control Center V1
         if: always()
         run: node scripts/generate-quality-control-center-v1.mjs
@@ -148,6 +184,9 @@ jobs:
             qa-artifacts/mobile-experience-contract-v1
             qa-artifacts/real-user-experience-gate-v1
             qa-artifacts/experience-debt-ranking-v1
+            qa-artifacts/gsc-7d
+            qa-artifacts/business-impact-signals-v1
+            qa-artifacts/business-impact-debt-v1
             qa-artifacts/quality-control-center-v1
           if-no-files-found: warn
           retention-days: 90
