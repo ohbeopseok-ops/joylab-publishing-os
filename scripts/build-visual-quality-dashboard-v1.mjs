@@ -13,7 +13,17 @@ for (const record of report.records ?? []) {
   row.formats.add(record.format);
   bySlug.set(record.slug, row);
 }
-const rows = [...bySlug.values()].sort((a,b)=>a.slug.localeCompare(b.slug));
+const rows = [...bySlug.values()]
+  .sort((a,b)=>a.slug.localeCompare(b.slug))
+  .map((row)=>({
+    slug: row.slug,
+    hero: row.hero,
+    supporting: row.supporting,
+    og: row.og,
+    formats: [...row.formats].sort(),
+    status: 'PASS'
+  }));
+
 const lines = [
   '# JoyLab Visual Quality Dashboard V1',
   '',
@@ -33,9 +43,10 @@ const lines = [
   '| --- | ---: | ---: | ---: | --- | --- |'
 ];
 for (const row of rows) {
-  lines.push('| ' + row.slug + ' | ' + row.hero + ' | ' + row.supporting + ' | ' + row.og + ' | ' + [...row.formats].sort().join(', ') + ' | PASS |');
+  lines.push('| ' + row.slug + ' | ' + row.hero + ' | ' + row.supporting + ' | ' + row.og + ' | ' + row.formats.join(', ') + ' | ' + row.status + ' |');
 }
 lines.push('', 'Generated from Visual Asset Contract V4 report: ' + report.generatedAt);
+
 const outDir = path.join(root, 'qa-artifacts', 'visual-quality-dashboard-v1');
 fs.mkdirSync(outDir, { recursive: true });
 fs.writeFileSync(path.join(outDir, 'dashboard.md'), lines.join('\n'));
