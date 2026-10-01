@@ -91,7 +91,7 @@ jobs:
           BRANCH="bot/ai-capex-leader-runtime"
           git config user.name 'JoyLab AI CAPEX Bot'
           git config user.email 'actions@users.noreply.github.com'
-          git add src/data/ai-capex-market-snapshot-v1.json src/data/ai-capex-leader-v1.json src/data/ai-capex-leader-history-v1.json src/data/ai-capex-regime-events-v1.json
+          git add src/data/ai-capex-market-snapshot-v1.json src/data/ai-capex-fundamental-snapshot-v1.json src/data/ai-capex-leader-v1.json src/data/ai-capex-leader-history-v1.json src/data/ai-capex-regime-events-v1.json
           git commit -m 'data: refresh AI CAPEX leader scores and regime history'
           git push --force-with-lease origin "$BRANCH"
           PR_NUMBER="$(gh pr list --base main --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
