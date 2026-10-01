@@ -75,3 +75,48 @@ The production measurement uses a deterministic synthetic filled state while loa
 3. Cloudflare deploy GREEN.
 4. Production 390 / 1280 / 1440 measurement GREEN.
 5. No regression in max-width, overflow, spacing, or CLS gates.
+
+
+## Vertical Density KPI
+
+Production GOLD records page-height impact with the same deployed page rendered in deterministic unfilled and filled states.
+
+Required fields:
+
+- `pageHeightUnfilledPx`
+- `pageHeightFilledPx`
+- `pageHeightDeltaPx`
+- `pageHeightDeltaPct`
+
+This is initially an observational KPI, not a release blocker. The blocking gates remain spacing, overflow, width and CLS. A hard density threshold should be introduced only after enough production samples establish a stable baseline.
+
+## Guide production spacing
+
+`/guides/ai-productivity` is a dedicated production regression target at:
+
+- 390px
+- 1440px
+
+The report records:
+
+- `contentToAdPx`
+- `adToFooterPx`
+- `adMarginTopPx`
+- `adMarginBottomPx`
+- page height filled/unfilled KPI
+
+The same 32–48px ad margin contract applies.
+
+## Archive In-feed Activation Gate
+
+The Research archive is prewired for `archive-in-feed`, but the real ad remains inactive while the slot ID is empty.
+
+Activation rules:
+
+1. Exactly six organic article cards must precede the in-feed ad shell.
+2. The ad is inserted between `articles.slice(0, archiveMinCards)` and `articles.slice(archiveMinCards)`.
+3. `archiveMinCards` must come from `AD_PLACEMENT.slots.archiveInFeed.minCardsBefore`.
+4. With an empty slot ID, no actual ad unit may render.
+5. Once a real slot ID is configured, the unit must render only at that pre-approved position.
+
+CI enforces both the source contract and the runtime DOM order.
