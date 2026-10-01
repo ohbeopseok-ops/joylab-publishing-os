@@ -83,10 +83,26 @@
       "roundUpStepPct": 0.5,
       "floorPct": 3,
       "ceilingPct": 20,
-      "mode": "candidate_only_until_explicitly_promoted_to_hard_gate"
+      "mode": "candidate_only_until_explicitly_promoted_to_hard_gate",
+      "minimumMeasurementsPerSurface": 5,
+      "minimumDeploymentsPerSurface": 3
     }
   },
   "productionTargets": [
+    {
+      "surface": "article",
+      "name": "article-end-production",
+      "path": "/articles/samsung-vs-sk-hynix-ai-memory",
+      "placement": "article-end",
+      "viewportNames": [
+        "mobile-390",
+        "desktop-1280",
+        "desktop-1440"
+      ],
+      "selectors": {
+        "ad": "[data-ad-placement=\"article-end\"]"
+      }
+    },
     {
       "surface": "book",
       "name": "book-end-production",
