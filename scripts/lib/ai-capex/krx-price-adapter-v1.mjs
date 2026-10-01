@@ -74,6 +74,7 @@ export async function fetchKrxPriceSnapshot({ authKey, tickers, asOfDate, minimu
   if (!authKey) throw new Error('KRX_AUTH_KEY is required');
   const wanted = new Set(tickers.map(normalizeTicker));
   const sessions = [];
+  const failures = [];
   const start = parseKstDate(asOfDate);
 
   for (let offset = 0; offset < maxLookbackDays && sessions.length < minimumSessions; offset += 1) {
@@ -88,7 +89,8 @@ export async function fetchKrxPriceSnapshot({ authKey, tickers, asOfDate, minimu
         getJson('/sto/ksq_bydd_trd', authKey, basDd),
         getJson('/idx/kospi_dd_trd', authKey, basDd)
       ]);
-    } catch {
+    } catch (error) {
+      failures.push({ basDd, message: error instanceof Error ? error.message : String(error) });
       continue;
     }
 
@@ -96,7 +98,10 @@ export async function fetchKrxPriceSnapshot({ authKey, tickers, asOfDate, minimu
       indexRows.find((x) => /^(코스피|KOSPI)$/i.test(String(x.IDX_NM || '').trim())) ||
       indexRows.find((x) => /코스피|KOSPI/i.test(String(x.IDX_NM || '')));
     const benchmarkClose = num(indexRow?.CLSPRC_IDX);
-    if (!benchmarkClose) continue;
+    if (!benchmarkClose) {
+      failures.push({ basDd, message: 'KOSPI benchmark row/CLSPRC_IDX missing' });
+      continue;
+    }
 
     const stockMap = new Map();
     for (const row of [...kospiRows, ...kosdaqRows]) {
@@ -118,7 +123,11 @@ export async function fetchKrxPriceSnapshot({ authKey, tickers, asOfDate, minimu
 
   sessions.sort((a,b) => a.date.localeCompare(b.date));
   if (sessions.length < minimumSessions) {
-    throw new Error('KRX price history insufficient: ' + sessions.length + '/' + minimumSessions + ' sessions');
+    const sample = failures.slice(0, 5).map((x) => x.basDd + ' ' + x.message).join(' | ');
+    throw new Error(
+      'KRX price history insufficient: ' + sessions.length + '/' + minimumSessions +
+      ' sessions. Sample failures: ' + (sample || 'no API error captured')
+    );
   }
 
   const benchmarkCloses = sessions.map((x) => x.benchmarkClose);
