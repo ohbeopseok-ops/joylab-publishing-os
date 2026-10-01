@@ -70,7 +70,8 @@ const price = await fetchKrxPriceSnapshot({
 const flow = await fetchKisFlowSnapshot({
   appKey: kisAppKey,
   appSecret: kisAppSecret,
-  tickers
+  tickers,
+  asOfTradeDate: price.latestTradeDate
 });
 
 const companies = input.companies.map((company) => {
