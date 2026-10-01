@@ -101,3 +101,17 @@ body.focus-reading .research-v2-shell{max-width:820px}
   .research-rail>.research-guide-cta,.research-rail>.research-rail__card.related-card{display:none}
 }
 body.focus-reading .mobile-after-article-cta,body.focus-reading .mobile-after-article-related{display:none!important}
+
+@media(max-width:640px){
+  .first-content-priority .research-main{display:flex;flex-direction:column}
+  .first-content-priority .research-main>*{order:5}
+  .first-content-priority .research-brief{order:1}
+  .first-content-priority .research-takeaways{order:2}
+  .first-content-priority .reader-toolbar.research-reader{order:3}
+  .first-content-priority .research-v2-content{order:4}
+  .first-content-priority .research-brief{padding:14px 16px}
+  .first-content-priority .research-takeaways{padding:14px 16px}
+  .first-content-priority .research-takeaways .takeaway-grid{display:grid;grid-template-columns:repeat(3,minmax(220px,1fr));overflow-x:auto;gap:8px;scrollbar-width:none}
+  .first-content-priority .research-takeaways .takeaway-grid::-webkit-scrollbar{display:none}
+  .first-content-priority .research-takeaways .takeaway{min-height:0;padding:12px}
+}
