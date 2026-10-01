@@ -2227,5 +2227,62 @@
         "caption": "Google의 Intent, Meta의 Discovery, OpenAI의 대화형 Decision Layer를 구조적으로 비교합니다."
       }
     ]
+  },
+  "chatgpt-sites-mcp-plugin-personal-software-2026": {
+    "hero": {
+      "src": "/images/research/chatgpt-sites-mcp-plugin-personal-software-2026.svg",
+      "alt": "ChatGPT를 중심으로 Sites, MCP, Plugin, Extensions가 연결되어 Personal Software로 확장되는 구조",
+      "caption": "Sites → MCP → Plugin → Extensions가 Personal Software로 연결되는 구조입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "personal-software-saas-ai-backend-2026": {
+    "hero": {
+      "src": "/images/research/personal-software-saas-ai-backend-2026.svg",
+      "alt": "AI Agent가 사용자 인터페이스를 담당하고 여러 SaaS가 데이터와 실행 Backend로 연결되는 구조",
+      "caption": "Agent Frontend와 SaaS Backend of Record의 역할 분담입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "agent-ready-saas-readiness-score-2026": {
+    "hero": {
+      "src": "/images/research/agent-ready-saas-readiness-score-2026.svg",
+      "alt": "Data Permission Tool MCP Auditability Reliability 다섯 축으로 Agent Ready SaaS를 평가하는 JoyLab Scorecard",
+      "caption": "Agent Readiness Score V1의 다섯 평가 축입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "핵심 데이터와 변화 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Fact Interpretation Scenario Action 구조를 설명한 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
   }
 }
