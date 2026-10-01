@@ -26,6 +26,7 @@ const rows=await query(`
   FROM ${dataset}
   WHERE timestamp > NOW() - INTERVAL '${days}' DAY
     AND index1 = 'web_vital'
+    AND blob4 != '/__smoke'
     AND blob2 IN ('lcp','cls','inp')
   GROUP BY blob2, blob3
   ORDER BY blob2, blob3
@@ -39,6 +40,7 @@ const overall=await query(`
   FROM ${dataset}
   WHERE timestamp > NOW() - INTERVAL '${days}' DAY
     AND index1 = 'web_vital'
+    AND blob4 != '/__smoke'
     AND blob2 IN ('lcp','cls','inp')
   GROUP BY blob2
   ORDER BY blob2
@@ -53,6 +55,7 @@ const pathRows=await query(`
   FROM ${dataset}
   WHERE timestamp > NOW() - INTERVAL '${days}' DAY
     AND index1 = 'web_vital'
+    AND blob4 != '/__smoke'
     AND blob2 IN ('lcp','cls','inp')
   GROUP BY blob4, blob2
   ORDER BY blob4, blob2
