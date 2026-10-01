@@ -16,16 +16,16 @@ for (const viewport of rules.viewports) {
   const context = await browser.newContext({ viewport: { width: viewport.width, height: viewport.height }, deviceScaleFactor: 1 });
   for (const item of rules.pages) {
     const page = await context.newPage();
-    const response = await page.goto(baseURL + item.path, { waitUntil: 'networkidle', timeout: 30000 });
-    const metrics = await page.evaluate(async () => {
-      const started = performance.now();
-      await document.fonts.ready;
-      return {
-        fontReadyMs: Math.round(performance.now() - started),
-        fontsStatus: document.fonts.status,
-        bodyFont: getComputedStyle(document.body).fontFamily
-      };
-    });
+    const startedAt = Date.now();
+    const response = await page.goto(baseURL + item.path, { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await page.evaluate(async () => { await document.fonts.ready; });
+    const fontReadyMs = Date.now() - startedAt;
+    const metrics = await page.evaluate(() => ({
+      fontsStatus: document.fonts.status,
+      bodyFont: getComputedStyle(document.body).fontFamily
+    }));
+    metrics.fontReadyMs = fontReadyMs;
+
     const checks = {
       httpOk: Boolean(response && response.status() >= 200 && response.status() < 400),
       fontsLoaded: metrics.fontsStatus === 'loaded',
