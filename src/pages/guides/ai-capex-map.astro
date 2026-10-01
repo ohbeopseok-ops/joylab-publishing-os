@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/ai-capex-map-v1.css';
+import capex from '../../data/ai-capex-leader-v1.json';
+
+const leaders = capex.leaders;
+const gate = capex.skHynixGate;
+const layers = [
+  ['01','POLICY / BIG TECH','US AI ecosystem'],
+  ['02','CAPEX','GPU · ASIC · Data Center'],
+  ['03','BOTTLENECK','HBM · FCBGA · Grid'],
+  ['04','KOREA SUPPLY','Memory · PCB · Power'],
+  ['05','EARNINGS','Revenue · EPS · Backlog'],
+  ['06','MARKET','Flow · 20DMA · RS'],
+  ['07','LEADER','Score + Hard Gate']
+];
+---
+<BaseLayout
+  title="AI CAPEX Leader Map｜미국 AI CAPEX에서 한국 주도주까지 | JoyLab"
+  description="미국 AI CAPEX가 GPU·HBM·기판·전력망을 거쳐 한국 기업의 실적과 주가로 전달되는 경로를 JoyLab AI CAPEX Leader Engine V1.0으로 추적합니다."
+  bodyClass="ai-capex-map-v1"
+>
+  <section class="acm-hero">
+    <div class="acm-wrap">
+      <div class="acm-kicker">JOYLAB · AI CAPEX LEADER ENGINE V1.0</div>
+      <h1>미국 AI CAPEX가<br/><span>한국 주도주로 바뀌는 경로</span></h1>
+      <p>정책·빅테크 이름보다 <strong>CAPEX → Bottleneck → Supply Chain → EPS → Price</strong>의 전달 경로를 봅니다. 점수는 투자 추천이 아니라 같은 기준으로 리서치 우선순위를 비교하기 위한 프레임입니다.</p>
+      <div class="acm-meta"><span>As of <b>{capex.asOf}</b></span><span>Universe <b>10</b></span><span>Hard Gate <b>3</b></span></div>
+    </div>
+  </section>
+
+  <main class="acm-wrap acm-main">
+    <section class="acm-flow" aria-label="AI CAPEX evidence chain">
+      {layers.map(([no,title,desc]) => <div class="acm-flow-card"><em>{no}</em><b>{title}</b><span>{desc}</span></div>)}
+    </section>
+
+    <section class="acm-section">
+      <div class="acm-head"><div><small>LEADER BOARD</small><h2>AI CAPEX TOP10</h2></div><p>Exposure 30 + Bottleneck 25 + EPS Revision 25 + Price Confirmation 20</p></div>
+      <div class="acm-table-shell">
+        <table class="acm-table">
+          <thead><tr><th>#</th><th>기업</th><th>Layer</th><th>Score</th><th>Status</th><th>Evidence path</th></tr></thead>
+          <tbody>
+            {leaders.map((x) => (
+              <tr class={x.ticker === '000660' ? 'is-focus' : ''} data-company={x.ticker}>
+                <td>{x.rank}</td>
+                <td><button class="acm-company" type="button" data-target={x.ticker}><b>{x.company}</b><span>{x.ticker}</span></button></td>
+                <td>{x.layer}</td>
+                <td><strong class="acm-score">{x.score}</strong></td>
+                <td><span class:list={['acm-status', x.status.toLowerCase()]}>{x.status}</span></td>
+                <td>{x.path}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div id="acm-detail" class="acm-detail" aria-live="polite">
+        <small>SELECTED · {leaders[0].ticker}</small>
+        <h3>{leaders[0].company} · {leaders[0].score}</h3>
+        <p>{leaders[0].note}</p>
+        <div>{leaders[0].path}</div>
+      </div>
+    </section>
+
+    <section class="acm-section acm-gate">
+      <div class="acm-head"><div><small>ENTRY GATE</small><h2>SK하이닉스 · Leader-WAIT → Leader-CONFIRMED</h2></div><p>총점이 높아도 세 개의 Hard Gate가 모두 통과해야 Confirmed로 승격합니다.</p></div>
+      <div class="acm-gate-grid">
+        {gate.checks.map((x) => (
+          <article>
+            <div><b>{x.label}</b><span class:list={['gate-badge', x.status.toLowerCase()]}>{x.status}</span></div>
+            <p>{x.rule}</p><small>{x.evidence}</small>
+          </article>
+        ))}
+      </div>
+      <div class="acm-confirm-rule">
+        <b>CONFIRMED RULE</b>
+        <span>5D 외국인 Flow 양전환</span><i>+</i><span>20DMA 2일 연속 상회·기울기 ≥ 0</span><i>+</i><span>20D RS ≥ KOSPI +2.0%p</span><i>=</i><strong>LEADER-CONFIRMED</strong>
+      </div>
+    </section>
+
+    <section class="acm-section acm-method">
+      <div class="acm-head"><div><small>METHOD</small><h2>점수와 Gate를 분리합니다</h2></div></div>
+      <div class="acm-method-grid">
+        <article><em>30</em><b>AI CAPEX Exposure</b><p>빅테크 CAPEX가 해당 기업의 제품·매출로 얼마나 직접 연결되는지 봅니다.</p></article>
+        <article><em>25</em><b>Bottleneck</b><p>공급 희소성, 진입장벽, 공급부족 지속성을 평가합니다.</p></article>
+        <article><em>25</em><b>EPS Revision</b><p>실적 성장, 추정치 상향, 수주·LTA 가시성을 봅니다.</p></article>
+        <article><em>20</em><b>Price Confirmation</b><p>20일 상대강도, 추세, 외국인·기관 Flow, 거래 유동성을 봅니다.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <script define:vars={{ leaders }}>
+    const detail = document.getElementById('acm-detail');
+    const rows = document.querySelectorAll('[data-company]');
+    const buttons = document.querySelectorAll('[data-target]');
+    const byTicker = new Map(leaders.map((x) => [x.ticker, x]));
+    buttons.forEach((button) => button.addEventListener('click', () => {
+      const ticker = button.getAttribute('data-target');
+      const item = byTicker.get(ticker);
+      if (!item || !detail) return;
+      rows.forEach((row) => row.classList.toggle('is-selected', row.getAttribute('data-company') === ticker));
+      detail.innerHTML = `<small>SELECTED · ${item.ticker}</small><h3>${item.company} · ${item.score}</h3><p>${item.note}</p><div>${item.path}</div>`;
+    }));
+  </script>
+</BaseLayout>
