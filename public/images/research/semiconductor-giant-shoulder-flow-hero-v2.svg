@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">JoyLab Giant Shoulder semiconductor capital flow</title>
+<desc id="desc">Institutional and foreign capital flowing through semiconductor wafers, equipment and EPS revision signals.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#06172f"/><stop offset=".52" stop-color="#0b2b53"/><stop offset="1" stop-color="#071426"/>
+  </linearGradient>
+  <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#d8e5ef"/><stop offset=".45" stop-color="#7e9eb6"/><stop offset="1" stop-color="#203d58"/>
+  </linearGradient>
+  <radialGradient id="wafer" cx=".35" cy=".25" r=".8">
+    <stop offset="0" stop-color="#f4fbff"/><stop offset=".2" stop-color="#6fe7ff"/><stop offset=".46" stop-color="#9a8cff"/><stop offset=".68" stop-color="#4db6ff"/><stop offset="1" stop-color="#193c6a"/>
+  </radialGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#d8a84f"/><stop offset=".5" stop-color="#f4d77a"/><stop offset="1" stop-color="#c58a2e"/>
+  </linearGradient>
+  <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="14" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#fff" stroke-opacity=".06"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#grid)"/>
+<g opacity=".22">
+  <circle cx="220" cy="160" r="150" fill="#2c7cff"/><circle cx="1350" cy="720" r="220" fill="#04b9d8"/>
+</g>
+<g transform="translate(110 170)">
+  <path d="M0 520 C220 420 290 300 430 260 S720 250 850 145 S1120 85 1330 0" fill="none" stroke="url(#gold)" stroke-width="18" stroke-linecap="round" opacity=".9" filter="url(#glow)"/>
+  <g fill="#f5d978" stroke="#fff" stroke-opacity=".35" stroke-width="4">
+    <circle cx="78" cy="485" r="16"/><circle cx="436" cy="258" r="16"/><circle cx="844" cy="150" r="16"/><circle cx="1194" cy="54" r="16"/>
+  </g>
+</g>
+<g transform="translate(525 255)">
+  <ellipse cx="300" cy="300" rx="260" ry="55" fill="#02101f" opacity=".5"/>
+  <circle cx="300" cy="245" r="218" fill="url(#wafer)" stroke="#d9f7ff" stroke-width="8"/>
+  <g opacity=".38" stroke="#fff" stroke-width="2">
+    <path d="M120 120L470 470M90 180L410 500M170 80L500 410M85 300L300 515M285 40L515 270"/>
+    <path d="M83 220H517M92 300H508M118 380H482M165 455H435"/>
+  </g>
+  <circle cx="300" cy="245" r="218" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="28"/>
+</g>
+<g transform="translate(95 490)">
+  <rect x="0" y="0" width="330" height="210" rx="30" fill="#0b2441" stroke="#5f86a8" stroke-width="4"/>
+  <rect x="38" y="40" width="254" height="24" rx="12" fill="#6d8ba4" opacity=".55"/>
+  <rect x="38" y="86" width="185" height="18" rx="9" fill="#a2bdd0" opacity=".5"/>
+  <rect x="38" y="126" width="225" height="18" rx="9" fill="#a2bdd0" opacity=".35"/>
+  <g fill="#1f5d8d" stroke="#98dfff" stroke-width="2"><circle cx="70" cy="176" r="18"/><circle cx="120" cy="176" r="18"/><circle cx="170" cy="176" r="18"/></g>
+</g>
+<g transform="translate(1170 270)">
+  <rect x="0" y="0" width="300" height="390" rx="34" fill="url(#steel)" opacity=".95"/>
+  <rect x="38" y="48" width="224" height="116" rx="18" fill="#0a1d31" stroke="#9edfff" stroke-width="3"/>
+  <path d="M65 138 L100 112 L136 128 L175 82 L225 96" fill="none" stroke="#55d7ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#10283e"><rect x="45" y="205" width="210" height="28" rx="12"/><rect x="45" y="253" width="210" height="28" rx="12"/><rect x="45" y="301" width="210" height="28" rx="12"/></g>
+  <g fill="#8fdfff"><circle cx="68" cy="219" r="8"/><circle cx="68" cy="267" r="8"/><circle cx="68" cy="315" r="8"/></g>
+</g>
+<g transform="translate(1050 680)">
+  <g fill="#132c45" stroke="#78cfff" stroke-width="3">
+    <rect x="0" y="0" width="190" height="92" rx="18"/><rect x="220" y="0" width="190" height="92" rx="18"/>
+  </g>
+  <path d="M38 62L76 45L112 52L150 28" fill="none" stroke="#f3d66f" stroke-width="7" stroke-linecap="round"/>
+  <path d="M258 61L294 58L332 37L370 24" fill="none" stroke="#68e4ff" stroke-width="7" stroke-linecap="round"/>
+</g>
+<g opacity=".9">
+  <path d="M0 808 C320 760 500 840 810 790 S1240 730 1600 785 V900 H0Z" fill="#03101d"/>
+  <rect x="0" y="822" width="1600" height="3" fill="#1d5f90" opacity=".7"/>
+</g>
+</svg>
