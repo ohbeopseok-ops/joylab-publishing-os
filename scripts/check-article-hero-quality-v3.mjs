@@ -77,7 +77,11 @@ for (const file of markdownFiles(articleDir).sort()) {
   if (fm.draft) continue;
   const hero = overrides[articleId]?.hero ?? manifest[articleId]?.hero;
   const heroSrc = hero?.src ?? fm.heroImage;
-  if (!heroSrc || /^https?:\/\//i.test(heroSrc) || !isRaster(heroSrc)) continue;
+  if (!heroSrc || !isRaster(heroSrc)) continue;
+  if (/^https?:\/\//i.test(heroSrc)) {
+    failures.push(`${articleId}: remote raster Hero cannot be quality-verified locally; use a tracked local asset or vector Hero (${heroSrc})`);
+    continue;
+  }
   const filePath = localPath(heroSrc);
   if (!filePath || !fs.existsSync(filePath)) continue;
 
