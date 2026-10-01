@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: ai-capex-leader-runtime-v1
@@ -45,16 +46,21 @@ jobs:
         run: |
           node -e "for (const f of ['src/data/ai-capex-leader-v1.json','src/data/ai-capex-leader-history-v1.json','src/data/ai-capex-regime-events-v1.json']) JSON.parse(require('node:fs').readFileSync(f,'utf8')); console.log('AI CAPEX JSON PASS')"
 
-      - name: Commit updated leader data
+      - name: Open protected-main update PR
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           if git diff --quiet -- src/data/ai-capex-leader-v1.json src/data/ai-capex-leader-history-v1.json src/data/ai-capex-regime-events-v1.json; then
             echo 'No AI CAPEX leader changes.'
             exit 0
           fi
+          BRANCH="bot/ai-capex-leader-${GITHUB_RUN_ID}"
           git config user.name 'JoyLab AI CAPEX Bot'
           git config user.email 'actions@users.noreply.github.com'
+          git checkout -b "$BRANCH"
           git add src/data/ai-capex-leader-v1.json src/data/ai-capex-leader-history-v1.json src/data/ai-capex-regime-events-v1.json
           git commit -m 'data: refresh AI CAPEX leader scores and regime history'
-          git push origin HEAD:main
+          git push origin "$BRANCH"
+          gh pr create --base main --head "$BRANCH"             --title "data(ai-capex): refresh leader scores $(date -u +%Y-%m-%d)"             --body "Automated AI CAPEX Leader Runtime refresh. Protected main is preserved; merge only after required gates pass."
