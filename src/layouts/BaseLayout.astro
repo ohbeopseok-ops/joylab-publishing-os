@@ -39,7 +39,7 @@ const showTreasuryTodayReading = bodyClasses.includes('rates-hub-v2');
 const pathname = Astro.url.pathname;
 const showGuideEndAd = pathname.startsWith('/guides/');
 const navState = {
-  investing: pathname.startsWith('/guides/investing') || pathname.startsWith('/guides/financials-value-up') || pathname.startsWith('/guides/semiconductor') || pathname.startsWith('/guides/ai-component-infrastructure') || pathname.startsWith('/guides/ai-inference-memory') || pathname.startsWith('/guides/ai-power') || pathname.startsWith('/guides/shipbuilding') || pathname.startsWith('/guides/us-rates'),
+  investing: pathname.startsWith('/guides/investing') || pathname.startsWith('/guides/financials-value-up') || pathname.startsWith('/guides/semiconductor') || pathname.startsWith('/guides/ai-capex-map') || pathname.startsWith('/guides/ai-component-infrastructure') || pathname.startsWith('/guides/ai-inference-memory') || pathname.startsWith('/guides/ai-power') || pathname.startsWith('/guides/shipbuilding') || pathname.startsWith('/guides/us-rates'),
   ai: pathname.startsWith('/guides/ai-productivity') || pathname.startsWith('/guides/ai-economics') || pathname.startsWith('/guides/ai-infrastructure') || pathname.startsWith('/guides/ai-security') || pathname.startsWith('/guides/ai-standards'),
   growth: pathname.startsWith('/guides/growth-leadership'),
   research: pathname.startsWith('/articles') || pathname.startsWith('/research-map'),
