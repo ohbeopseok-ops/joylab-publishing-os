@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-12-01T00:00:00.000Z",
+  "window": {
+    "start": "2026-09-02",
+    "end": "2026-11-30"
+  },
+  "source": "joylab_gsc_only",
+  "excludeBrandedQueries": true,
+  "buckets": [
+    {
+      "id": "p4",
+      "positionMin": 4,
+      "positionMax": 4.99,
+      "clicks": 120,
+      "impressions": 2400,
+      "rows": 42,
+      "rawCtr": 0.05,
+      "parentCtr": 0.047,
+      "expectedCtr": 0.0499,
+      "confidence": "HIGH",
+      "status": "AVAILABLE"
+    }
+  ]
+}
