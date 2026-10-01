@@ -1,0 +1,95 @@
+name: Mobile Experience Contract V1
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/pages/**'
+      - 'src/components/**'
+      - 'src/layouts/**'
+      - 'src/styles/**'
+      - 'src/data/mobile-experience-contract-v1.json'
+      - 'scripts/check-first-content-entry-budget-v1.mjs'
+      - 'scripts/check-mobile-experience-contract-v1.mjs'
+      - '.github/workflows/mobile-experience-contract-v1.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/pages/**'
+      - 'src/components/**'
+      - 'src/layouts/**'
+      - 'src/styles/**'
+      - 'src/data/mobile-experience-contract-v1.json'
+      - 'scripts/check-first-content-entry-budget-v1.mjs'
+      - 'scripts/check-mobile-experience-contract-v1.mjs'
+      - '.github/workflows/mobile-experience-contract-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mobile-experience:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install Korean font
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start preview
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/mobile-experience-preview.log 2>&1 &
+          echo $! > /tmp/mobile-experience-preview.pid
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4321/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/mobile-experience-preview.log
+          exit 1
+
+      - name: First Content Entry Budget V1
+        run: node scripts/check-first-content-entry-budget-v1.mjs
+
+      - name: Mobile Experience Contract V1
+        run: node scripts/check-mobile-experience-contract-v1.mjs
+
+      - name: Stop preview
+        if: always()
+        shell: bash
+        run: |
+          if [ -f /tmp/mobile-experience-preview.pid ]; then kill "$(cat /tmp/mobile-experience-preview.pid)" || true; fi
+
+      - name: Upload mobile experience evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: mobile-experience-contract-v1
+          path: |
+            qa-artifacts/first-content-entry-budget-v1
+            qa-artifacts/mobile-experience-contract-v1
+          if-no-files-found: warn
+          retention-days: 30
