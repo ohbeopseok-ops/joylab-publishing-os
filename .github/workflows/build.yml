@@ -72,6 +72,7 @@ jobs:
           node --check scripts/report-gsc-7d.mjs
           node --check scripts/build-distribution-pack.mjs
           node --check scripts/check-asset-contract-v3.mjs
+          node --check scripts/check-visual-asset-contract-v4.mjs
           node --check scripts/check-legacy-asset-cleanup.mjs
           node --check scripts/write-release-gate-v1.mjs
           node --check scripts/release-engine-v2.mjs
@@ -168,6 +169,9 @@ jobs:
 
       - name: Asset Contract V3
         run: node scripts/check-asset-contract-v3.mjs
+
+      - name: Visual Asset Contract V4
+        run: node scripts/check-visual-asset-contract-v4.mjs
 
       - name: Reader Binary Immutable Asset Gate
         run: node scripts/check-reader-binary-immutability.mjs

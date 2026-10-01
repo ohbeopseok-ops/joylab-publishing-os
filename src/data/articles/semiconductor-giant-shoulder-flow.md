@@ -17,7 +17,7 @@ publishedAt: 2026-09-30
 author: "JoyLab"
 featured: false
 draft: false
-ogImage: "/images/research/generated/semiconductor-giant-shoulder-flow-hero.webp"
+ogImage: "/images/research/generated/semiconductor-giant-shoulder-flow-og-v2.webp"
 seoTitle: "한국 반도체 큰손 수급 분석｜한미반도체·DB하이텍·HPSP Giant Shoulder"
 series: "반도체 투자 가이드"
 seriesOrder: 4
