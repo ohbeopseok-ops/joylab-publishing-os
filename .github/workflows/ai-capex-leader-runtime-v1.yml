@@ -50,6 +50,9 @@ jobs:
       - name: Market adapter self-test
         run: npm run ai-capex-market:self-test
 
+      - name: Fundamental adapter self-test
+        run: npm run ai-capex-fundamental:self-test
+
       - name: Runtime self-test
         run: npm run ai-capex-leader:self-test
 
@@ -60,12 +63,20 @@ jobs:
           KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
         run: npm run ai-capex-market:update
 
+      - name: Refresh fundamental snapshot
+        env:
+          AI_CAPEX_EPS_CONSENSUS_URL: ${{ secrets.AI_CAPEX_EPS_CONSENSUS_URL }}
+          AI_CAPEX_EPS_CONSENSUS_TOKEN: ${{ secrets.AI_CAPEX_EPS_CONSENSUS_TOKEN }}
+          AI_CAPEX_IR_EVIDENCE_URL: ${{ secrets.AI_CAPEX_IR_EVIDENCE_URL }}
+          AI_CAPEX_IR_EVIDENCE_TOKEN: ${{ secrets.AI_CAPEX_IR_EVIDENCE_TOKEN }}
+        run: npm run ai-capex-fundamental:update
+
       - name: Refresh Leader Score and regime history
         run: npm run ai-capex-leader:update
 
       - name: Validate generated JSON
         run: |
-          node -e "for (const f of ['src/data/ai-capex-market-snapshot-v1.json','src/data/ai-capex-leader-v1.json','src/data/ai-capex-leader-history-v1.json','src/data/ai-capex-regime-events-v1.json']) JSON.parse(require('node:fs').readFileSync(f,'utf8')); console.log('AI CAPEX JSON PASS')"
+          node -e "for (const f of ['src/data/ai-capex-market-snapshot-v1.json','src/data/ai-capex-fundamental-snapshot-v1.json','src/data/ai-capex-leader-v1.json','src/data/ai-capex-leader-history-v1.json','src/data/ai-capex-regime-events-v1.json']) JSON.parse(require('node:fs').readFileSync(f,'utf8')); console.log('AI CAPEX JSON PASS')"
 
       - name: Open protected-main update PR
         shell: bash
@@ -73,7 +84,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          if git diff --quiet -- src/data/ai-capex-market-snapshot-v1.json src/data/ai-capex-leader-v1.json src/data/ai-capex-leader-history-v1.json src/data/ai-capex-regime-events-v1.json; then
+          if git diff --quiet -- src/data/ai-capex-market-snapshot-v1.json src/data/ai-capex-fundamental-snapshot-v1.json src/data/ai-capex-leader-v1.json src/data/ai-capex-leader-history-v1.json src/data/ai-capex-regime-events-v1.json; then
             echo 'No AI CAPEX leader changes.'
             exit 0
           fi
