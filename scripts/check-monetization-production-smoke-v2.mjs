@@ -15,28 +15,18 @@ async function measureState(target, viewport, state) {
   const page = await browser.newPage({ viewport: { width: viewport.width, height: viewport.height } });
 
   await page.route('https://pagead2.googlesyndication.com/**', (route) => route.abort());
-  await page.addInitScript(({ state, height }) => {
-    const apply = () => {
-      document.querySelectorAll('ins.adsbygoogle').forEach((el) => {
-        el.dataset.adStatus = state;
-        if (state === 'filled') {
-          el.style.height = `${height}px`;
-          el.style.minHeight = `${height}px`;
-        } else {
-          el.style.height = '0px';
-          el.style.minHeight = '0px';
-        }
-      });
-    };
-    new MutationObserver(apply).observe(document.documentElement, { childList: true, subtree: true });
-    document.addEventListener('DOMContentLoaded', apply, { once: true });
-  }, { state, height: contract.states.filled.syntheticHeightPx });
-
-  const response = await page.goto(baseURL + target.path, { waitUntil: 'networkidle' });
+    const response = await page.goto(baseURL + target.path, { waitUntil: 'networkidle' });
   if (!response || response.status() >= 400) {
     throw new Error(`${target.name}/${viewport.name}/${state}: production page failed`);
   }
-  await page.waitForTimeout(300);
+  await page.evaluate(({ state, height }) => {
+    document.querySelectorAll('ins.adsbygoogle').forEach((el) => {
+      el.dataset.adStatus = state;
+      el.style.height = state === 'filled' ? `${height}px` : '0px';
+      el.style.minHeight = state === 'filled' ? `${height}px` : '0px';
+    });
+  }, { state, height: contract.states.filled.syntheticHeightPx });
+  await page.waitForTimeout(50);
 
   const measurement = await page.evaluate(({ selectors, state }) => {
     const before = document.querySelector(selectors.before);
