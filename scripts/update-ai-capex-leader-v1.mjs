@@ -101,15 +101,15 @@ function compose(input, marketSnapshot) {
 }
 
 function appendHistory(history, output) {
-  const latest = history.snapshots.at(-1);
-  const sameDate = latest?.asOf === output.asOf;
   const snapshot = {
     asOf: output.asOf,
     leaders: output.leaders.map(({ticker,score,status}) => ({ticker,score,status}))
   };
-  if (sameDate) history.snapshots[history.snapshots.length - 1] = snapshot;
-  else history.snapshots.push(snapshot);
-  history.snapshots = history.snapshots.slice(-90);
+  const byDate = new Map((history.snapshots || []).map((item) => [item.asOf, item]));
+  byDate.set(snapshot.asOf, snapshot);
+  history.snapshots = [...byDate.values()]
+    .sort((a, b) => String(a.asOf).localeCompare(String(b.asOf)))
+    .slice(-90);
   return history;
 }
 
