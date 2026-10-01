@@ -10,8 +10,10 @@ const sequence = [
   { id: 'ai-productivity-roi', step: '03', role: 'MEASUREMENT', short: 'ROI', note: '사용량이 아니라 Task Completion·Quality·Cost·Rework로 AI 성과를 측정합니다.' },
   { id: 'ai-agent-governance', step: '04', role: 'GOVERNANCE', short: 'Governance', note: '권한·승인·로그·관측성·실패 복구를 실제 운영 통제로 묶습니다.' },
   { id: 'ai-agent-system-design-anthropic-2026', step: '05', role: 'SYSTEM DESIGN', short: 'System', note: 'Anthropic의 Orchestrator·Worker·Context·Containment 원칙을 실제 운영 가능한 Agent System 구조로 연결합니다.' },
-  { id: 'ai-productivity-operating-model', step: '06', role: 'OPERATING MODEL', short: 'Operating', note: '개인 AI 활용을 팀 표준·역할·측정·개선 루프를 갖춘 조직 운영모델로 확장합니다.' },
-  { id: 'ai-productivity-platforms-compare', step: '07', role: 'COMPARE HUB', short: 'Compare', note: 'ChatGPT·Claude·Gemini·Copilot을 기능 수가 아니라 업무 적합성·통제·측정 기준으로 비교합니다.' }
+  { id: 'agent-ready-saas-readiness-score-2026', step: '06', role: 'AGENT READINESS', short: 'Readiness', note: 'Data·Permission·Tool/MCP·Audit·Reliability로 시스템의 Agent 운영 준비도를 평가합니다.' },
+  { id: 'mcp-tool-permission-audit-agent-ready-2026', step: '07', role: 'MCP SECURITY', short: 'MCP Audit', note: 'MCP 연결 이후 반드시 필요한 Tool Permission·Approval·Audit·Retry Safety를 점검합니다.' },
+  { id: 'ai-productivity-operating-model', step: '08', role: 'OPERATING MODEL', short: 'Operating', note: '개인 AI 활용을 팀 표준·역할·측정·개선 루프를 갖춘 조직 운영모델로 확장합니다.' },
+  { id: 'ai-productivity-platforms-compare', step: '09', role: 'COMPARE HUB', short: 'Compare', note: 'ChatGPT·Claude·Gemini·Copilot을 기능 수가 아니라 업무 적합성·통제·측정 기준으로 비교합니다.' }
 ];
 
 const collection = (await getCollection('articles')).filter((item) => !item.data.draft);
@@ -44,7 +46,7 @@ const publishedCustomerCenterAx = customerCenterAxTrack.filter((entry) => entry.
           </div>
           <div class="sg-hero__meta" aria-label="가이드 정보">
             <span><strong>{published.length}</strong> Core Research</span>
-            <span><strong>8</strong> Decision Lenses</span>
+            <span><strong>9</strong> Decision Lenses</span>
             <span><strong>1</strong> Research Map</span>
           </div>
         </div>
@@ -239,8 +241,8 @@ const publishedCustomerCenterAx = customerCenterAxTrack.filter((entry) => entry.
         </section>
         <section class="sg-rail-card">
           <small>CORE RESEARCH</small>
-          <h3>7개 Gold Case 연결</h3>
-          <ol><li>AI 에이전트</li><li>AI 업무자동화 구조</li><li>AI 도입 ROI</li><li>Agent Governance</li><li>Agent System Design</li><li>Operating Model</li><li>플랫폼 Compare Hub</li></ol>
+          <h3>9개 Gold Case 연결</h3>
+          <ol><li>AI 에이전트</li><li>AI 업무자동화 구조</li><li>AI 도입 ROI</li><li>Agent Governance</li><li>Agent System Design</li><li>Agent Readiness</li><li>MCP Permission Audit</li><li>Operating Model</li><li>플랫폼 Compare Hub</li></ol>
         </section>
 
         <section class="sg-rail-card">
