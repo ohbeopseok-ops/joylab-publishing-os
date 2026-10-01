@@ -8,7 +8,7 @@ const ALLOWED_IR_TYPES = new Set(['company-ir','company-filing','official-press-
 
 const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
 const writeJson = (file, value) => fs.writeFileSync(file, JSON.stringify(value, null, 2) + '\n');
-const finite = (value) => Number.isFinite(Number(value));
+const finite = (value) => value !== null && value !== undefined && value !== '' && Number.isFinite(Number(value));
 const daysOld = (dateText) => {
   const t = Date.parse(dateText || '');
   return Number.isFinite(t) ? (Date.now() - t) / 86400000 : Infinity;
@@ -67,10 +67,8 @@ const epsToken = process.env.AI_CAPEX_EPS_CONSENSUS_TOKEN || '';
 const irUrl = process.env.AI_CAPEX_IR_EVIDENCE_URL || '';
 const irToken = process.env.AI_CAPEX_IR_EVIDENCE_TOKEN || '';
 
-if (!epsUrl && !irUrl) {
-  console.log('AI CAPEX Fundamental Adapter: NOT_CONNECTED (provider URLs not configured); preserving current snapshot.');
-  process.exit(0);
-}
+const previousSnapshot = fs.existsSync(OUTPUT) ? readJson(OUTPUT) : { companies: [] };
+const previousByTicker = new Map((previousSnapshot.companies || []).map((x) => [x.ticker, x]));
 
 const [epsPayload, irPayload] = await Promise.all([
   fetchProvider(epsUrl, epsToken, 'EPS consensus provider'),
@@ -82,10 +80,13 @@ const epsByTicker = new Map((epsPayload?.companies || []).map((x) => [x.ticker, 
 const irByTicker = new Map((irPayload?.companies || []).map((x) => [x.ticker, x]));
 
 const companies = input.companies.map((base) => {
-  const eps = epsByTicker.get(base.ticker) || null;
+  const previous = previousByTicker.get(base.ticker) || null;
+  const eps = epsPayload ? (epsByTicker.get(base.ticker) || null) : (previous?.eps || null);
   const epsFresh = Boolean(eps?.consensusProvider && daysOld(eps?.observedAt) <= MAX_EPS_AGE_DAYS);
   const epsRevisionScore = epsFresh ? revisionScore(eps) : null;
-  const evidence = (irByTicker.get(base.ticker)?.evidence || []).filter(validIrEvidence);
+  const evidence = irPayload
+    ? (irByTicker.get(base.ticker)?.evidence || []).filter(validIrEvidence)
+    : (previous?.irEvidence || []).filter(validIrEvidence);
   const irReady = evidence.length > 0;
   return {
     ticker: base.ticker,
