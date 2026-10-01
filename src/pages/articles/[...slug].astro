@@ -333,6 +333,18 @@ const scoreCriteria = [
           </div>
         </section>
 
+        <div class="reader-toolbar research-reader" aria-label="읽기 설정">
+          <span class="reader-toolbar__label">읽기 설정</span>
+          <button class="reader-control" type="button" data-reader-size="small" aria-pressed="false" title="글자 작게">A−</button>
+          <button class="reader-control" type="button" data-reader-size="default" aria-pressed="true" title="기본 글자 크기">A</button>
+          <button class="reader-control" type="button" data-reader-size="large" aria-pressed="false" title="글자 크게">A+</button>
+          <button id="focus-reading" class="reader-control reader-focus" type="button" aria-pressed="false">집중 읽기</button>
+        </div>
+
+        <div class="research-v2-content">
+          <div id="article-content" class="article-body"><Content /></div>
+        </div>
+
         {isCompareHub && (
           <section id="compare-scorecard" class="compare-scorecard" aria-labelledby="compare-scorecard-title">
             <div class="compare-scorecard__head">
@@ -364,18 +376,6 @@ const scoreCriteria = [
             <p class="score-note">이 점수는 수익률 전망이나 매수 추천이 아니라 JoyLab의 구조 비교 프레임에 사용자의 우선순위를 적용한 성향 도구입니다.</p>
           </section>
         )}
-
-        <div class="reader-toolbar research-reader" aria-label="읽기 설정">
-          <span class="reader-toolbar__label">읽기 설정</span>
-          <button class="reader-control" type="button" data-reader-size="small" aria-pressed="false" title="글자 작게">A−</button>
-          <button class="reader-control" type="button" data-reader-size="default" aria-pressed="true" title="기본 글자 크기">A</button>
-          <button class="reader-control" type="button" data-reader-size="large" aria-pressed="false" title="글자 크게">A+</button>
-          <button id="focus-reading" class="reader-control reader-focus" type="button" aria-pressed="false">집중 읽기</button>
-        </div>
-
-        <div class="research-v2-content">
-          <div id="article-content" class="article-body"><Content /></div>
-        </div>
 
         <AdSlot placement="article-end" enabled={showArticleEndAd} />
 
