@@ -191,6 +191,16 @@ jobs:
           echo "$analytics_code https://aijoylab.kr/__analytics/event"
           test "$analytics_code" = "204"
 
+          web_vital_code=$(curl -sS -o /tmp/web-vital-body -w '%{http_code}' --max-time 20 \
+            -X POST \
+            -H 'Content-Type: text/plain;charset=UTF-8' \
+            -H 'Origin: https://aijoylab.kr' \
+            -H 'Sec-Fetch-Site: same-origin' \
+            --data '{"event":"web_vital","target":"lcp","placement":"desktop","path":"/__smoke","value":123}' \
+            https://aijoylab.kr/__analytics/event)
+          echo "$web_vital_code https://aijoylab.kr/__analytics/event web_vital"
+          test "$web_vital_code" = "204"
+
           check_200 "https://aijoylab.kr/guides/ai-power-infrastructure?deploy=${GITHUB_SHA}"
           grep -Fq 'AI Power Infrastructure' /tmp/body
           grep -Fq 'JOYLAB RESEARCH GRAPH V3' /tmp/body
