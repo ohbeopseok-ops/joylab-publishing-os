@@ -13,6 +13,7 @@ on:
       - 'src/data/visual-asset-contract-v4.json'
       - 'public/images/**'
       - 'scripts/check-visual-asset-contract-v4.mjs'
+      - 'scripts/build-visual-quality-dashboard-v1.mjs'
       - 'scripts/apply-curated-research-images.mjs'
       - '.github/workflows/visual-asset-contract-v4.yml'
   pull_request:
@@ -27,6 +28,7 @@ on:
       - 'src/data/visual-asset-contract-v4.json'
       - 'public/images/**'
       - 'scripts/check-visual-asset-contract-v4.mjs'
+      - 'scripts/build-visual-quality-dashboard-v1.mjs'
       - 'scripts/apply-curated-research-images.mjs'
       - '.github/workflows/visual-asset-contract-v4.yml'
   workflow_dispatch:
