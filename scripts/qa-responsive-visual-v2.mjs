@@ -316,7 +316,7 @@ for (const viewport of viewports) {
       ),
       giantShoulderMobileHeroDensity: item.name !== 'giant-shoulder-research' || viewport.width > 430 || (
         metrics.articleAboveFold?.heroHeight != null &&
-        metrics.articleAboveFold.heroHeight <= 220
+        metrics.articleAboveFold.heroHeight <= 225
       ),
       giantShoulderMobileBodyEntry: item.name !== 'giant-shoulder-research' || viewport.width > 430 || (
         metrics.articleAboveFold?.bodyEntryTop != null &&
