@@ -29,13 +29,17 @@ function scoreCompany(company) {
     .reduce((sum, key) => sum + Number(company[key] || 0), 0);
 }
 
+function sanitizePlainText(value, fallback = '') {
+  return String(value ?? fallback).replace(/[<>]/g, '').slice(0, 1000);
+}
+
 function normalizeFeedCompany(base, feed) {
   if (!feed) return base;
   return {
     ...base,
     priceConfirmation: Number.isFinite(Number(feed.priceConfirmation)) ? Number(feed.priceConfirmation) : base.priceConfirmation,
     market: { ...(base.market || {}), ...(feed.market || {}) },
-    note: feed.note || base.note
+    note: sanitizePlainText(feed.note, base.note)
   };
 }
 
@@ -91,7 +95,7 @@ function compose(input, feed) {
         { id:'foreign-flow', label:'Foreign Flow', rule:'5D 외국인 누적 순매수 > 0 AND 최근 5일 중 3일 이상 순매수', status:sk?.gate?.foreignFlow || 'FAIL', evidence:`5D net ${sk?.market?.foreignNet5dBillionKrw ?? 'n/a'}bn KRW · buy days ${sk?.market?.foreignBuyDays5d ?? 'n/a'}/5` },
         { id:'ma20', label:'20DMA Trend', rule:'종가 > 20DMA 2일 연속 AND 20DMA 5일 기울기 >= 0', status:sk?.gate?.ma20Trend || 'WATCH', evidence:`close ${sk?.market?.close ?? 'n/a'} · MA20 ${sk?.market?.ma20 ?? 'n/a'} · above days ${sk?.market?.aboveMa20Days ?? 'n/a'} · slope ${sk?.market?.ma20Slope5dPct ?? 'n/a'}%` },
         { id:'rs20', label:'Relative Strength', rule:'20D 상대수익률(KOSPI) >= +2.0%p AND 5D 상대수익률 >= 0', status:sk?.gate?.relativeStrength || 'FAIL', evidence:`RS20 ${sk?.market?.rs20pp ?? 'n/a'}%p · RS5 ${sk?.market?.rs5pp ?? 'n/a'}%p` },
-        { id:'confirm', label:'Confirmation', rule:'Foreign Flow + 20DMA Trend + Relative Strength 모두 PASS', status:sk?.gate?.confirmed ? 'PASS' : 'FAIL', evidence:sk?.gate?.confirmed ? 'All hard gates passed' : 'At least one hard gate is not passed' }
+        { id:'confirm', label:'Confirmation', rule:'Foreign Flow + 20DMA Trend + Relative Strength 모두 PASS + Leader Score >= 80', status:(sk?.gate?.confirmed && Number(sk?.score) >= 80) ? 'PASS' : 'FAIL', evidence:(sk?.gate?.confirmed && Number(sk?.score) >= 80) ? 'All hard gates passed and Leader Score >= 80' : 'At least one hard gate or the score threshold is not passed' }
       ]
     }
   };
