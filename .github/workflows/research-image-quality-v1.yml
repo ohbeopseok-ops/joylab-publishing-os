@@ -1,0 +1,62 @@
+name: Research Image Quality Gate V1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/research-image-manifest.json'
+      - 'src/data/article-image-overrides.json'
+      - 'src/data/curated-research-images.json'
+      - 'src/data/curated-generated-heroes.json'
+      - 'public/images/research/**'
+      - 'scripts/apply-curated-research-images.mjs'
+      - 'scripts/check-research-image-quality-v1.mjs'
+      - 'src/data/research-image-quality-rules-v1.json'
+      - '.github/workflows/research-image-quality-v1.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/data/research-image-manifest.json'
+      - 'src/data/article-image-overrides.json'
+      - 'src/data/curated-research-images.json'
+      - 'src/data/curated-generated-heroes.json'
+      - 'public/images/research/**'
+      - 'scripts/apply-curated-research-images.mjs'
+      - 'scripts/check-research-image-quality-v1.mjs'
+      - 'src/data/research-image-quality-rules-v1.json'
+      - '.github/workflows/research-image-quality-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research-image-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Materialize curated research images
+        run: node scripts/apply-curated-research-images.mjs
+
+      - name: Validate supporting image quality
+        run: node scripts/check-research-image-quality-v1.mjs
+
+      - name: Upload quality report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: research-image-quality-v1
+          path: qa-artifacts/research-image-quality-v1/report.json
+          if-no-files-found: error
+          retention-days: 30
