@@ -1,8 +1,18 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 122,
+  "articleCount": 125,
   "records": [
+    {
+      "slug": "agent-ready-saas-readiness-score-2026",
+      "route": "/articles/agent-ready-saas-readiness-score-2026",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
     {
       "slug": "ai-agent-governance",
       "route": "/articles/ai-agent-governance",
@@ -459,6 +469,16 @@
     {
       "slug": "burnout-recovery-starts-with-pause",
       "route": "/articles/burnout-recovery-starts-with-pause",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "chatgpt-sites-mcp-plugin-personal-software-2026",
+      "route": "/articles/chatgpt-sites-mcp-plugin-personal-software-2026",
       "industries": [],
       "theses": [],
       "companies": [],
@@ -1141,6 +1161,16 @@
     {
       "slug": "performance-system-leading-indicators",
       "route": "/articles/performance-system-leading-indicators",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "personal-software-saas-ai-backend-2026",
+      "route": "/articles/personal-software-saas-ai-backend-2026",
       "industries": [],
       "theses": [],
       "companies": [],
