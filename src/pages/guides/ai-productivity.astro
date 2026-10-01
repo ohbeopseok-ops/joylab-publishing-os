@@ -160,6 +160,60 @@ const publishedCustomerCenterAx = customerCenterAxTrack.filter((entry) => entry.
           </div>
         </section>
 
+        <section class="agent-readiness-tool" id="agent-readiness-score" aria-labelledby="agent-readiness-title">
+          <div class="sg-section-head">
+            <div>
+              <div class="sg-eyebrow">INTERACTIVE SCORECARD · V1</div>
+              <h2 id="agent-readiness-title">Agent Readiness 100점 진단기</h2>
+            </div>
+            <p>AI 기능의 유무가 아니라 Data · Permission · Tool/MCP · Audit · Reliability 다섯 축을 직접 점검합니다. 각 항목은 20점이며 Hard Gate가 총점보다 우선합니다.</p>
+          </div>
+
+          <div class="agent-readiness-grid">
+            <form class="agent-readiness-form" id="agent-readiness-form">
+              <label>
+                <span><b>Data & Context</b><output data-score-output="data">14</output>/20</span>
+                <input type="range" min="0" max="20" value="14" name="data" />
+                <small>원본·최신성·객체 관계·검색 가능한 업무 맥락</small>
+              </label>
+              <label>
+                <span><b>Permission Design</b><output data-score-output="permission">14</output>/20</span>
+                <input type="range" min="0" max="20" value="14" name="permission" />
+                <small>사용자 권한 상속·Read/Write 분리·승인·Allowlist</small>
+              </label>
+              <label>
+                <span><b>Tool / MCP Surface</b><output data-score-output="tool">10</output>/20</span>
+                <input type="range" min="0" max="20" value="10" name="tool" />
+                <small>목적 중심 Tool·안정적 Schema·명확한 실패 상태</small>
+              </label>
+              <label>
+                <span><b>Auditability</b><output data-score-output="audit">14</output>/20</span>
+                <input type="range" min="0" max="20" value="14" name="audit" />
+                <small>Actor·Tool·변경 전후·시각·권한 Scope 추적</small>
+              </label>
+              <label>
+                <span><b>Reliability & Recovery</b><output data-score-output="reliability">14</output>/20</span>
+                <input type="range" min="0" max="20" value="14" name="reliability" />
+                <small>실패 처리·Schema 변화·Rollback·Kill/Disable·Recovery</small>
+              </label>
+            </form>
+
+            <aside class="agent-readiness-result" aria-live="polite">
+              <small>JOYLAB AGENT READINESS</small>
+              <strong><span id="agent-readiness-total">66</span><em>/100</em></strong>
+              <div class="agent-readiness-status" id="agent-readiness-status">PILOT</div>
+              <p id="agent-readiness-message">Production Write 전에 Tool Surface와 운영 통제를 보강하세요.</p>
+              <div class="agent-readiness-gates">
+                <span>Permission &lt; 12 → NO DEPLOY</span>
+                <span>Audit &lt; 12 → NO WRITE</span>
+                <span>Tool/MCP &lt; 10 → READ ONLY</span>
+                <span>Reliability &lt; 12 → PILOT ONLY</span>
+              </div>
+              <a class="sg-card__cta" href="/articles/agent-ready-saas-readiness-score-2026">평가 기준과 비교 사례 읽기 →</a>
+            </aside>
+          </div>
+        </section>
+
         <section class="sg-rule" aria-labelledby="ai-prod-rule-title">
           <div class="sg-eyebrow">JOYLAB METHOD</div>
           <h2 id="ai-prod-rule-title">Problem → Capability → Workflow Fit → Human Control → Measurement → Risk → Scenario → Action</h2>
@@ -211,3 +265,58 @@ const publishedCustomerCenterAx = customerCenterAxTrack.filter((entry) => entry.
     </div>
   </main>
 </BaseLayout>
+
+<style is:global>
+.agent-readiness-tool{margin:34px 0;padding:28px;border:1px solid #dbe6f2;border-radius:24px;background:linear-gradient(145deg,#f8fbff,#fff)}
+.agent-readiness-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);gap:24px;align-items:start}
+.agent-readiness-form{display:grid;gap:15px}
+.agent-readiness-form label{display:grid;gap:8px;padding:15px 16px;border:1px solid #e3eaf2;border-radius:16px;background:#fff}
+.agent-readiness-form label>span{display:flex;justify-content:space-between;gap:12px;font-size:.92rem}
+.agent-readiness-form output{font-weight:900;color:#0d63ce}
+.agent-readiness-form input[type="range"]{width:100%;accent-color:#1677ff}
+.agent-readiness-form small{color:#64748b;line-height:1.5}
+.agent-readiness-result{position:sticky;top:92px;padding:24px;border-radius:20px;background:#071938;color:#fff;box-shadow:0 18px 50px rgba(7,25,56,.16)}
+.agent-readiness-result>small{color:#8fc4ff;font-weight:900;letter-spacing:.08em}
+.agent-readiness-result>strong{display:block;margin:14px 0 8px;font-size:3.5rem;line-height:1}
+.agent-readiness-result>strong em{font-size:1rem;font-style:normal;color:#9fb1c9}
+.agent-readiness-status{display:inline-flex;padding:7px 10px;border-radius:999px;background:#1677ff;font-weight:900;font-size:.78rem}
+.agent-readiness-result p{color:#d7e4f4;line-height:1.65}
+.agent-readiness-gates{display:grid;gap:7px;margin:18px 0}
+.agent-readiness-gates span{font-size:.74rem;color:#b9cbe2}
+.agent-readiness-result .sg-card__cta{color:#fff}
+@media(max-width:900px){.agent-readiness-grid{grid-template-columns:1fr}.agent-readiness-result{position:static}.agent-readiness-tool{padding:20px}}
+</style>
+<script is:inline>
+(() => {
+  const form = document.getElementById('agent-readiness-form');
+  if (!form) return;
+  const totalEl = document.getElementById('agent-readiness-total');
+  const statusEl = document.getElementById('agent-readiness-status');
+  const messageEl = document.getElementById('agent-readiness-message');
+  const rank = { 'NO DEPLOY': 0, 'NO WRITE': 1, 'READ ONLY': 2, 'PILOT': 3, 'PRODUCTION CANDIDATE': 4 };
+  const evaluate = () => {
+    const values = Object.fromEntries([...form.querySelectorAll('input[type="range"]')].map((input) => [input.name, Number(input.value)]));
+    for (const [key, value] of Object.entries(values)) {
+      const out = form.querySelector('[data-score-output="' + key + '"]');
+      if (out) out.textContent = String(value);
+    }
+    const total = Object.values(values).reduce((a, b) => a + b, 0);
+    let status = total >= 85 ? 'PRODUCTION CANDIDATE' : 'PILOT';
+    let message = total >= 85 ? 'Hard Gate를 모두 통과하면 Production 후보입니다.' : 'Production Write 전에 부족한 축을 보강하세요.';
+    const candidates = [];
+    if (values.permission < 12) candidates.push(['NO DEPLOY','Permission이 배포 최소선 아래입니다.']);
+    if (values.audit < 12) candidates.push(['NO WRITE','감사 추적이 약해 Write Action을 허용하면 안 됩니다.']);
+    if (values.tool < 10) candidates.push(['READ ONLY','Tool/MCP Surface가 불충분해 조회 전용이 적합합니다.']);
+    if (values.reliability < 12) candidates.push(['PILOT','복구·중단 구조가 부족해 Pilot 범위가 적합합니다.']);
+    if (candidates.length) {
+      candidates.sort((a,b) => rank[a[0]] - rank[b[0]]);
+      [status, message] = candidates[0];
+    }
+    totalEl.textContent = String(total);
+    statusEl.textContent = status;
+    messageEl.textContent = message;
+  };
+  form.addEventListener('input', evaluate);
+  evaluate();
+})();
+</script>
