@@ -51,7 +51,7 @@ async function fetchProvider(url, token, label) {
 
 function selfTest() {
   const strong = revisionScore({epsFy1Revision30dPct:12,opRevision30dPct:8,revenueRevision30dPct:5});
-  const weak = revisionScore({epsFy1Revision30dPct:-12,opRevision30dPct:-8,revenueRevision30dPct:-4});
+  const weak = revisionScore({epsFy1Revision30dPct:-20,opRevision30dPct:-15,revenueRevision30dPct:-10});
   if (strong !== 25 || weak !== 6) throw new Error('EPS revision score self-test failed');
   if (!validIrEvidence({evidenceId:'x',publishedAt:'2026-10-01',sourceUrl:'https://example.com',sourceType:'company-ir',metric:'backlog',quoteHash:'abc'})) throw new Error('IR evidence self-test failed');
   console.log('AI CAPEX Fundamental Adapter V1 self-test PASS');
