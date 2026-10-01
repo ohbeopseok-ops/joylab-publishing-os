@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 125,
+  "articleCount": 126,
   "records": [
     {
       "slug": "agent-ready-saas-readiness-score-2026",
@@ -1100,6 +1100,16 @@
     {
       "slug": "mcp-security-tool-poisoning-2026",
       "route": "/articles/mcp-security-tool-poisoning-2026",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "mcp-tool-permission-audit-agent-ready-2026",
+      "route": "/articles/mcp-tool-permission-audit-agent-ready-2026",
       "industries": [],
       "theses": [],
       "companies": [],
