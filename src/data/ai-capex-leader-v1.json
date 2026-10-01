@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "asOf": "2026-10-01",
+  "method": {
+    "weights": {
+      "aiCapexExposure": 30,
+      "bottleneck": 25,
+      "epsRevision": 25,
+      "priceConfirmation": 20
+    },
+    "hardGate": {
+      "foreignFlow": "5D foreign net flow > 0 AND at least 3 net-buy sessions in last 5 sessions",
+      "trend": "Close > 20DMA for 2 consecutive sessions AND 20DMA 5D slope >= 0",
+      "relativeStrength": "20D stock return - benchmark 20D return >= +2.0%p AND 5D relative return >= 0",
+      "confirmed": "All three hard gates PASS and Leader Score >= 80"
+    }
+  },
+  "leaders": [
+    {"rank":1,"ticker":"000660","company":"SK하이닉스","layer":"HBM / AI Memory","score":94,"baseScore":78,"priceConfirmation":16,"status":"LEADER-WAIT","path":"Hyperscaler CAPEX → GPU → HBM → SK하이닉스","note":"20DMA·상대강도는 회복권. 외국인 Flow가 하드 게이트를 막고 있음."},
+    {"rank":2,"ticker":"353200","company":"대덕전자","layer":"AI PCB / FCBGA","score":84,"baseScore":69,"priceConfirmation":15,"status":"LEADER","path":"AI Accelerator / Network → FCBGA·MLB → 대덕전자","note":"AI 서버·고성능 메모리용 기판 실적과 최근 가격 모멘텀이 동시 확인."},
+    {"rank":3,"ticker":"009150","company":"삼성전기","layer":"FCBGA / MLCC","score":83,"baseScore":66,"priceConfirmation":17,"status":"LEADER","path":"AI Server / ASIC → FCBGA·MLCC → 삼성전기","note":"AI 가속기·서버 CPU용 FCBGA와 데이터센터 MLCC 확장이 실적으로 연결."},
+    {"rank":4,"ticker":"298040","company":"효성중공업","layer":"Transformer / Grid","score":82,"baseScore":70,"priceConfirmation":12,"status":"LEADER","path":"AI Data Center → Grid Connection → 초고압 변압기 → 효성중공업","note":"미국 빅테크 AI 데이터센터용 초고압 변압기 수주가 직접 연결."},
+    {"rank":5,"ticker":"222800","company":"심텍","layer":"Package PCB / Memory Module","score":82,"baseScore":65,"priceConfirmation":17,"status":"LEADER","path":"AI Memory / Server → Package PCB → 심텍","note":"패키지기판·메모리 모듈 PCB 실적 레버리지 확인."},
+    {"rank":6,"ticker":"103590","company":"일진전기","layer":"Transformer / Cable","score":81,"baseScore":67,"priceConfirmation":14,"status":"LEADER","path":"Data Center / Grid → Transformer·Cable → 일진전기","note":"북미 변압기 수요와 높은 해외 수주잔고가 실적 가시성을 높임."},
+    {"rank":7,"ticker":"010120","company":"LS ELECTRIC","layer":"Switchgear / Distribution","score":80,"baseScore":67,"priceConfirmation":13,"status":"LEADER","path":"Hyperscaler → Data Center MW → Switchgear·Distribution → LS ELECTRIC","note":"Grid Connection·배전 병목의 직접 수혜. 외국인과 기관 Flow는 혼조."},
+    {"rank":8,"ticker":"005930","company":"삼성전자","layer":"HBM / DRAM / Foundry","score":79,"baseScore":70,"priceConfirmation":9,"status":"STRONG-CANDIDATE","path":"AI Compute → HBM·DRAM·Foundry → 삼성전자","note":"AI 노출은 넓지만 사업 믹스와 최근 외국인 Flow가 순수도를 낮춤."},
+    {"rank":9,"ticker":"042700","company":"한미반도체","layer":"HBM Packaging Equipment","score":79,"baseScore":66,"priceConfirmation":13,"status":"STRONG-CANDIDATE","path":"HBM4 CAPEX → TC Bonder / 2.5D Packaging → 한미반도체","note":"HBM4 시설투자와 패키징 장비 수요 연결. 고객·수주 집중도는 체크 필요."},
+    {"rank":10,"ticker":"267260","company":"HD현대일렉트릭","layer":"Transformer / Power Equipment","score":78,"baseScore":71,"priceConfirmation":7,"status":"STRONG-CANDIDATE","path":"AI Data Center / Grid Upgrade → Transformer → HD현대일렉트릭","note":"수주잔고와 마진은 강하지만 최근 가격 상대강도는 약함."}
+  ],
+  "skHynixGate": {
+    "ticker":"000660",
+    "currentStatus":"LEADER-WAIT",
+    "score":94,
+    "checks":[
+      {"id":"foreign-flow","label":"Foreign Flow","rule":"5D 외국인 누적 순매수 > 0 AND 최근 5일 중 3일 이상 순매수","status":"FAIL","evidence":"2026-09-30 기준 외국인 6거래일 연속 순매도, 최근 5일 누적 대규모 순매도"},
+      {"id":"ma20","label":"20DMA Trend","rule":"종가 > 20DMA 2일 연속 AND 20DMA 5일 기울기 >= 0","status":"WATCH","evidence":"10/1 가격은 20DMA 부근 상단으로 회복했으나 2일 연속·기울기 확인 필요"},
+      {"id":"rs20","label":"Relative Strength","rule":"20D 상대수익률(KOSPI) >= +2.0%p AND 5D 상대수익률 >= 0","status":"PASS","evidence":"9/1~10/1 SK하이닉스 상승률이 같은 기간 KOSPI를 웃도는 구간"},
+      {"id":"confirm","label":"Confirmation","rule":"Foreign Flow + 20DMA Trend + Relative Strength 모두 PASS","status":"FAIL","evidence":"현재 병목은 외국인 Flow"}
+    ]
+  }
+}
