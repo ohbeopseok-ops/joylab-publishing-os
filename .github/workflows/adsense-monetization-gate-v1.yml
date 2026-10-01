@@ -19,7 +19,8 @@ on:
         default: "ops/adsense/monetization-snapshot.json"
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 jobs:
   evaluate:
@@ -416,6 +417,41 @@ jobs:
           path: qa-artifacts/adsense-monetization-gate-v1-archive
           if-no-files-found: error
           retention-days: 90
+
+      - name: Open archive kill-switch PR on rollback
+        if: always() && steps.activation.outputs.active == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          DECISION="$(cat "$OUT_DIR/decision.txt" 2>/dev/null || echo UNKNOWN)"
+          if [ "$DECISION" != "ROLLBACK" ]; then
+            echo "No kill-switch PR required: $DECISION"
+            exit 0
+          fi
+
+          BRANCH="kill-switch/archive-in-feed-${GITHUB_RUN_ID}"
+          git config user.name "JoyLab Monetization Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git switch -c "$BRANCH"
+
+          node <<'NODE'
+          const fs=require('fs');
+          const path='src/config/adPlacement.ts';
+          const src=fs.readFileSync(path,'utf8');
+          const next=src.replace(
+            /(archiveInFeed:\s*\{[^}]*slotId:\s*)'[^']*'/s,
+            "$1''"
+          );
+          if(next===src) throw new Error('archiveInFeed slotId replacement failed');
+          fs.writeFileSync(path,next);
+          NODE
+
+          git add src/config/adPlacement.ts
+          git commit -m "fix: disable archive in-feed after monetization rollback"
+          git push origin "$BRANCH"
+
+          gh pr create             --base main             --head "$BRANCH"             --title "Kill switch: disable archive in-feed monetization"             --body "Archive Monetization Safety Gate returned ROLLBACK. This PR disables archive-in-feed by clearing its AdSense slot ID. Evidence: workflow run ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}. Re-enable only after reviewing CTR, reading-depth and CLS causes and passing Production GOLD."
 
       - name: Enforce archive rollback
         if: always() && steps.activation.outputs.active == 'true'
