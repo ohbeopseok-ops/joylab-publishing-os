@@ -423,3 +423,84 @@
     }
   })();
 </script>
+
+<script is:inline>
+  (() => {
+    const endpoint='/__analytics/event';
+    const privacyOptOut=navigator.globalPrivacyControl===true||navigator.doNotTrack==='1';
+    const localPreview=location.hostname==='127.0.0.1'||location.hostname==='localhost'||location.hostname.endsWith('.localhost');
+    if(privacyOptOut||localPreview||!('PerformanceObserver' in window)) return;
+
+    const device=innerWidth<=640?'mobile':innerWidth<=1024?'tablet':'desktop';
+    let lcp=0;
+    let cls=0;
+    let clsSession=0;
+    let clsStart=0;
+    let clsLast=0;
+    const interactions=new Map();
+    const sent=new Set();
+
+    const post=(metric,value)=>{
+      if(sent.has(metric)||!Number.isFinite(value)) return;
+      sent.add(metric);
+      const payload=JSON.stringify({event:'web_vital',target:metric,placement:device,path:location.pathname,value});
+      try{
+        if(navigator.sendBeacon){
+          const ok=navigator.sendBeacon(endpoint,new Blob([payload],{type:'text/plain;charset=UTF-8'}));
+          if(ok) return;
+        }
+      }catch{}
+      fetch(endpoint,{method:'POST',body:payload,headers:{'Content-Type':'text/plain;charset=UTF-8'},keepalive:true,credentials:'same-origin'}).catch(()=>{});
+    };
+
+    try{
+      const observer=new PerformanceObserver((list)=>{
+        const entries=list.getEntries();
+        const last=entries[entries.length-1];
+        if(last) lcp=last.startTime;
+      });
+      observer.observe({type:'largest-contentful-paint',buffered:true});
+    }catch{}
+
+    try{
+      const observer=new PerformanceObserver((list)=>{
+        for(const entry of list.getEntries()){
+          if(entry.hadRecentInput) continue;
+          const within=clsSession>0&&entry.startTime-clsLast<1000&&entry.startTime-clsStart<5000;
+          if(within) clsSession+=entry.value||0;
+          else{clsSession=entry.value||0;clsStart=entry.startTime;}
+          clsLast=entry.startTime;
+          cls=Math.max(cls,clsSession);
+        }
+      });
+      observer.observe({type:'layout-shift',buffered:true});
+    }catch{}
+
+    try{
+      const observer=new PerformanceObserver((list)=>{
+        for(const entry of list.getEntries()){
+          const id=Number(entry.interactionId||0);
+          if(!id) continue;
+          interactions.set(id,Math.max(interactions.get(id)||0,Number(entry.duration||0)));
+        }
+      });
+      observer.observe({type:'event',buffered:true,durationThreshold:40});
+    }catch{}
+
+    const inpValue=()=>{
+      const values=[...interactions.values()].sort((a,b)=>b-a);
+      if(!values.length) return null;
+      const ignored=Math.floor(values.length/50);
+      return values[Math.min(ignored,values.length-1)];
+    };
+
+    const flush=()=>{
+      if(lcp>0) post('lcp',Math.round(lcp));
+      post('cls',Number(cls.toFixed(4)));
+      const inp=inpValue();
+      if(inp!==null) post('inp',Math.round(inp));
+    };
+    addEventListener('pagehide',flush,{once:true});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden) flush();},{passive:true});
+  })();
+</script>
