@@ -56,11 +56,16 @@ jobs:
       - name: Validate Hero + Supporting + OG contract
         run: node scripts/check-visual-asset-contract-v4.mjs
 
+      - name: Build Visual Quality Dashboard V1
+        run: node scripts/build-visual-quality-dashboard-v1.mjs
+
       - name: Upload V4 report
         if: always()
         uses: actions/upload-artifact@v6
         with:
           name: visual-asset-contract-v4
-          path: qa-artifacts/visual-asset-contract-v4/report.json
+          path: |
+            qa-artifacts/visual-asset-contract-v4/report.json
+            qa-artifacts/visual-quality-dashboard-v1
           if-no-files-found: error
           retention-days: 30
