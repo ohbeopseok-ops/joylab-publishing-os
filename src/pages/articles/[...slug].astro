@@ -239,10 +239,10 @@ const scoreCriteria = [
     </header>
 
     {heroImage && (
-      <figure style="margin:0;background:#fff;border:1px solid var(--research-line);border-top:0;overflow:hidden">
-        <img src={heroImage} alt={heroAlt} width="1600" height="900" loading="eager" fetchpriority="high" style="display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover" />
+      <figure class="research-hero-media" style="margin:0;background:#fff;border:1px solid var(--research-line);border-top:0;overflow:hidden">
+        <img class="research-hero-media__img" src={heroImage} alt={heroAlt} width="1600" height="900" loading="eager" fetchpriority="high" style="display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover" />
         {heroCaption && (
-          <figcaption style="padding:10px 16px;color:#6b7a90;font-size:.76rem;line-height:1.55;border-top:1px solid #edf1f6">{heroCaption}</figcaption>
+          <figcaption class="research-hero-media__caption" style="padding:10px 16px;color:#6b7a90;font-size:.76rem;line-height:1.55;border-top:1px solid #edf1f6">{heroCaption}</figcaption>
         )}
       </figure>
     )}
