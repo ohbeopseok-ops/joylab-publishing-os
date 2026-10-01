@@ -1,0 +1,25 @@
+name: Monthly Research Corpus Audit
+
+on:
+  schedule:
+    - cron: "10 0 1 * *"
+  workflow_dispatch:
+
+jobs:
+  corpus-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Audit full research corpus
+        env:
+          AUDIT_MODE: report
+          CHANGED_ARTICLES: ""
+        run: node scripts/audit-research-v2.mjs
+      - name: Upload monthly corpus report
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-corpus-monthly
+          path: artifacts/research-v2-audit.*

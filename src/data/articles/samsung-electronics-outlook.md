@@ -16,6 +16,24 @@ draft: false
 seoTitle: "삼성전자 AI 메모리 분석｜HBM4·DS 이익·메모리 사이클"
 series: "삼성전자 투자 가이드"
 readingTime: "약 12분"
+researchType: research
+evidenceMap:
+  - claim: "Samsung Electronics reported Q2 2026 consolidated revenue of KRW 171.5 trillion and operating profit of KRW 89.5 trillion; DS posted KRW 127.5 trillion revenue and KRW 89.2 trillion operating profit."
+    source: "https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results"
+    sourceType: primary
+    checkedAt: "2026-09-23"
+  - claim: "Samsung scaled HBM4 sales in Q2 2026, reported a record-high server revenue mix, and expected server DRAM, eSSD and HBM demand to accelerate in H2 2026."
+    source: "https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results"
+    sourceType: primary
+    checkedAt: "2026-09-23"
+  - claim: "Samsung began shipping 12-layer HBM4E samples to major global customers on May 29, 2026 after HBM4 mass production and commercial shipment earlier in the year."
+    source: "https://news.samsung.com/global/samsung-electronics-begins-shipment-of-industry-first-hbm4e-samples"
+    sourceType: primary
+    checkedAt: "2026-09-23"
+  - claim: "At FMS 2026 Samsung presented HBM4E, HBM5 and enterprise storage products as part of its next-generation AI memory roadmap."
+    source: "https://news.samsung.com/global/samsung-unveils-next-gen-3d-memory-vision-at-fms-2026-charting-the-future-of-ai-infrastructure"
+    sourceType: primary
+    checkedAt: "2026-09-23"
 ---
 
 삼성전자를 AI 메모리 수혜주로 볼 때 가장 중요한 질문은 **“AI 수요가 HBM 출하와 서버 메모리 믹스 개선을 거쳐 DS 이익 증가로 얼마나 오래 연결되는가”**입니다.
