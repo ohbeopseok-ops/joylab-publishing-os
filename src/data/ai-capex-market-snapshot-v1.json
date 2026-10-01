@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "asOf": null,
+  "generatedAt": null,
+  "sourceMode": "direct-adapters",
+  "ready": false,
+  "sourceHealth": {
+    "krx": "NOT_CONNECTED",
+    "price": "NOT_CONNECTED",
+    "flow": "NOT_CONNECTED",
+    "eps": "NOT_CONNECTED",
+    "ir": "NOT_CONNECTED"
+  },
+  "providers": {
+    "krx": "KRX Data Marketplace OPEN API",
+    "flow": "Korea Investment & Securities Open API"
+  },
+  "companies": []
+}

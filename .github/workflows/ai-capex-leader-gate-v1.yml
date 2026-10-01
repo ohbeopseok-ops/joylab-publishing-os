@@ -5,10 +5,13 @@ on:
     branches: [main]
     paths:
       - 'src/data/ai-capex-leader-*.json'
+      - 'src/data/ai-capex-market-snapshot-v1.json'
       - 'src/data/ai-capex-regime-events-v1.json'
       - 'src/pages/guides/ai-capex-map.astro'
       - 'src/styles/ai-capex-map-v1.css'
       - 'scripts/update-ai-capex-leader-v1.mjs'
+      - 'scripts/update-ai-capex-market-snapshot-v1.mjs'
+      - 'scripts/lib/ai-capex/**'
       - 'package.json'
       - '.github/workflows/ai-capex-leader-*.yml'
   push:
@@ -34,15 +37,19 @@ jobs:
           node-version: 24
           package-manager-cache: false
       - run: npm ci
+      - name: Market adapter self-test
+        run: npm run ai-capex-market:self-test
       - name: Leader runtime self-test
         run: npm run ai-capex-leader:self-test
       - name: Validate leader contracts
         run: |
           node - <<'NODE'
           const fs=require('node:fs');
+          const market=JSON.parse(fs.readFileSync('src/data/ai-capex-market-snapshot-v1.json','utf8'));
           const leader=JSON.parse(fs.readFileSync('src/data/ai-capex-leader-v1.json','utf8'));
           const history=JSON.parse(fs.readFileSync('src/data/ai-capex-leader-history-v1.json','utf8'));
           const events=JSON.parse(fs.readFileSync('src/data/ai-capex-regime-events-v1.json','utf8'));
+          if(market.sourceMode!=='direct-adapters') throw new Error('market snapshot must use direct-adapters mode');
           if(!Array.isArray(leader.leaders)||leader.leaders.length!==10) throw new Error('leader universe must be 10');
           if(leader.leaders.some((x)=>!Number.isFinite(Number(x.score))||Number(x.score)<0||Number(x.score)>100)) throw new Error('leader score must be within 0..100');
           if(!leader.skHynixGate) throw new Error('SK hynix hard gate missing');

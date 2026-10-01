@@ -91,7 +91,9 @@
     "research-graph:component:check": "node scripts/check-research-graph-component-v1.mjs",
     "ai-capex-master-map:check": "node scripts/check-ai-capex-master-map-v2.mjs",
     "ai-capex-leader:update": "node scripts/update-ai-capex-leader-v1.mjs",
-    "ai-capex-leader:self-test": "node scripts/update-ai-capex-leader-v1.mjs --self-test"
+    "ai-capex-leader:self-test": "node scripts/update-ai-capex-leader-v1.mjs --self-test",
+    "ai-capex-market:update": "node scripts/update-ai-capex-market-snapshot-v1.mjs",
+    "ai-capex-market:self-test": "node scripts/update-ai-capex-market-snapshot-v1.mjs --self-test"
   },
   "dependencies": {
     "astro": "^7.3.2"
