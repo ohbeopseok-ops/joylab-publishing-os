@@ -5,6 +5,7 @@ const OUTPUT = 'src/data/ai-capex-leader-v1.json';
 const HISTORY = 'src/data/ai-capex-leader-history-v1.json';
 const EVENTS = 'src/data/ai-capex-regime-events-v1.json';
 const MARKET = 'src/data/ai-capex-market-snapshot-v1.json';
+const FUNDAMENTAL = 'src/data/ai-capex-fundamental-snapshot-v1.json';
 const SELF_TEST = process.argv.includes('--self-test');
 const FORCE_SNAPSHOT = process.argv.includes('--force-snapshot');
 
@@ -51,10 +52,36 @@ function normalizeMarketCompany(base, live, priceConfirmationMax) {
   };
 }
 
-function compose(input, marketSnapshot) {
+function normalizeFundamentalCompany(base, live, epsRevisionMax) {
+  if (!live) return base;
+  const score = Number(live.epsRevisionScore);
+  let epsRevision = base.epsRevision;
+  if (live.epsReady && Number.isFinite(score)) {
+    const bounded = clamp(score, 0, epsRevisionMax);
+    if (bounded <= Number(base.epsRevision) || live.irReady === true) epsRevision = bounded;
+  }
+  return {
+    ...base,
+    epsRevision,
+    fundamental: {
+      epsReady: live.epsReady === true,
+      irReady: live.irReady === true,
+      epsRevisionScore: Number.isFinite(score) ? score : null,
+      eps: live.eps || null,
+      irEvidence: Array.isArray(live.irEvidence) ? live.irEvidence : []
+    }
+  };
+}
+
+function compose(input, marketSnapshot, fundamentalSnapshot) {
   const marketByTicker = new Map((marketSnapshot?.companies || []).map((x) => [x.ticker, x]));
+  const fundamentalByTicker = new Map((fundamentalSnapshot?.companies || []).map((x) => [x.ticker, x]));
   const priceConfirmationMax = Number(input.weights.priceConfirmation);
-  const companies = input.companies.map((base) => normalizeMarketCompany(base, marketByTicker.get(base.ticker), priceConfirmationMax));
+  const epsRevisionMax = Number(input.weights.epsRevision);
+  const companies = input.companies.map((base) => {
+    const marketNormalized = normalizeMarketCompany(base, marketByTicker.get(base.ticker), priceConfirmationMax);
+    return normalizeFundamentalCompany(marketNormalized, fundamentalByTicker.get(base.ticker), epsRevisionMax);
+  });
   const rows = companies.map((company) => {
     const score = scoreCompany(company);
     const gate = company.ticker === '000660' ? evaluateSkHynixGate(company.market) : null;
@@ -68,6 +95,7 @@ function compose(input, marketSnapshot) {
     version: '1.1',
     asOf: marketSnapshot?.asOf || input.asOf,
     sourceMode: marketSnapshot?.ready ? 'direct-adapters' : input.sourceMode,
+    fundamentalSourceMode: fundamentalSnapshot?.companies?.length ? 'provider-adapters' : 'seed-manual',
     method: {
       weights: input.weights,
       hardGate: {
@@ -77,13 +105,14 @@ function compose(input, marketSnapshot) {
         confirmed: 'All three hard gates PASS and Leader Score >= 80'
       }
     },
-    leaders: rows.map(({ gate, market, aiCapexExposure, bottleneck, epsRevision, priceConfirmation, ...row }) => ({
+    leaders: rows.map(({ gate, market, fundamental, aiCapexExposure, bottleneck, epsRevision, priceConfirmation, ...row }) => ({
       ...row,
       aiCapexExposure,
       bottleneck,
       epsRevision,
       priceConfirmation,
       market,
+      fundamental: fundamental || null,
       baseScore: aiCapexExposure + bottleneck + epsRevision
     })),
     skHynixGate: {
@@ -150,13 +179,14 @@ const previous = readJson(OUTPUT);
 const historyData = readJson(HISTORY);
 const eventData = readJson(EVENTS);
 const marketData = fs.existsSync(MARKET) ? readJson(MARKET) : null;
+const fundamentalData = fs.existsSync(FUNDAMENTAL) ? readJson(FUNDAMENTAL) : null;
 
 if ((!marketData || marketData.ready !== true) && !FORCE_SNAPSHOT) {
   console.log('AI CAPEX Leader Runtime: direct market snapshot NOT_READY; preserving current snapshot.');
   process.exit(0);
 }
 
-const output = compose(inputData, marketData);
+const output = compose(inputData, marketData, fundamentalData);
 appendHistory(historyData, output);
 appendRegimeEvents(eventData, previous, output);
 writeJson(OUTPUT, output);
