@@ -14,7 +14,7 @@ try {
         });
 
         await page.route('https://pagead2.googlesyndication.com/**', (route) => route.abort());
-        await page.addInitScript(({ state, filledHeight }) => {
+        await page.addInitScript(() => {
           window.__joylabCls = 0;
           try {
             new PerformanceObserver((list) => {
@@ -23,28 +23,6 @@ try {
               }
             }).observe({ type: 'layout-shift', buffered: true });
           } catch {}
-
-          const applyAdState = () => {
-            document.querySelectorAll('ins.adsbygoogle').forEach((el) => {
-              el.dataset.adStatus = state;
-              if (state === 'filled') {
-                el.style.height = `${filledHeight}px`;
-                el.style.minHeight = `${filledHeight}px`;
-              } else {
-                el.style.height = '0px';
-                el.style.minHeight = '0px';
-              }
-            });
-          };
-
-          new MutationObserver(applyAdState).observe(document.documentElement, {
-            childList: true,
-            subtree: true
-          });
-          document.addEventListener('DOMContentLoaded', applyAdState, { once: true });
-        }, {
-          state,
-          filledHeight: contract.states.filled.syntheticHeightPx
         });
 
         const response = await page.goto(baseURL + target.path, { waitUntil: 'networkidle' });
@@ -52,7 +30,14 @@ try {
           throw new Error(`${target.name}/${viewport.name}/${state}: page failed to load`);
         }
 
-        await page.waitForTimeout(250);
+        await page.evaluate(({ state, filledHeight }) => {
+          document.querySelectorAll('ins.adsbygoogle').forEach((el) => {
+            el.dataset.adStatus = state;
+            el.style.height = state === 'filled' ? `${filledHeight}px` : '0px';
+            el.style.minHeight = state === 'filled' ? `${filledHeight}px` : '0px';
+          });
+        }, { state, filledHeight: contract.states.filled.syntheticHeightPx });
+        await page.waitForTimeout(50);
 
         const result = await page.evaluate(({ placement }) => {
           const slot = document.querySelector(`[data-ad-placement="${placement}"]`);
