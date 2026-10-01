@@ -156,6 +156,7 @@ const report = {
   schemaVersion: 2,
   name: 'JoyLab Monetization Layout Production Smoke V2',
   baseURL,
+  deploymentKey: process.env.GITHUB_SHA || process.env.DEPLOYMENT_KEY || null,
   measuredAt: new Date().toISOString(),
   contract: {
     spacingPx: [contract.states.filled.minOuterSpacingPx, contract.states.filled.maxOuterSpacingPx],
