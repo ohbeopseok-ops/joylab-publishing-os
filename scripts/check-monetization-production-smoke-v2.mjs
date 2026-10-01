@@ -29,24 +29,24 @@ async function measureState(target, viewport, state) {
   await page.waitForTimeout(50);
 
   const measurement = await page.evaluate(({ selectors, state }) => {
-    const before = document.querySelector(selectors.before);
+    const before = selectors.before ? document.querySelector(selectors.before) : null;
     const ad = document.querySelector(selectors.ad);
-    const after = document.querySelector(selectors.after);
-    if (!before || !ad || !after) {
-      return { missing: true, found: { before: !!before, ad: !!ad, after: !!after } };
+    const after = selectors.after ? document.querySelector(selectors.after) : null;
+    if (!ad || (selectors.before && !before) || (selectors.after && !after)) {
+      return { missing: true, found: { before: selectors.before ? !!before : true, ad: !!ad, after: selectors.after ? !!after : true } };
     }
 
-    const br = before.getBoundingClientRect();
+    const br = before?.getBoundingClientRect() ?? null;
     const ar = ad.getBoundingClientRect();
-    const xr = after.getBoundingClientRect();
+    const xr = after?.getBoundingClientRect() ?? null;
     const style = getComputedStyle(ad);
 
     return {
       missing: false,
       state,
       pageHeightPx: document.documentElement.scrollHeight,
-      beforeToAdPx: ar.top - br.bottom,
-      adToAfterPx: xr.top - ar.bottom,
+      beforeToAdPx: br ? ar.top - br.bottom : null,
+      adToAfterPx: xr ? xr.top - ar.bottom : null,
       adMarginTopPx: Number.parseFloat(style.marginTop) || 0,
       adMarginBottomPx: Number.parseFloat(style.marginBottom) || 0,
       adWidthPx: ar.width,
