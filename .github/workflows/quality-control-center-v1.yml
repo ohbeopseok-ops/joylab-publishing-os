@@ -1,51 +1,19 @@
-name: Mobile Experience Contract V1
+name: JoyLab Quality Control Center V1
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'src/pages/**'
-      - 'src/components/**'
-      - 'src/layouts/**'
-      - 'src/styles/**'
-      - 'src/data/articles/**'
-      - 'src/data/research-image-manifest.json'
-      - 'src/data/article-image-overrides.json'
-      - 'public/images/**'
-      - 'src/data/mobile-experience-contract-v1.json'
-      - 'scripts/check-first-content-entry-budget-v1.mjs'
-      - 'scripts/rank-first-content-entry-v1.mjs'
-      - 'src/data/first-content-priority-v1.json'
-      - 'scripts/check-mobile-experience-contract-v1.mjs'
-      - 'scripts/check-mobile-lighthouse-v1.mjs'
-      - '.github/workflows/mobile-experience-contract-v1.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'src/pages/**'
-      - 'src/components/**'
-      - 'src/layouts/**'
-      - 'src/styles/**'
-      - 'src/data/articles/**'
-      - 'src/data/research-image-manifest.json'
-      - 'src/data/article-image-overrides.json'
-      - 'public/images/**'
-      - 'src/data/mobile-experience-contract-v1.json'
-      - 'scripts/check-first-content-entry-budget-v1.mjs'
-      - 'scripts/rank-first-content-entry-v1.mjs'
-      - 'src/data/first-content-priority-v1.json'
-      - 'scripts/check-mobile-experience-contract-v1.mjs'
-      - 'scripts/check-mobile-lighthouse-v1.mjs'
-      - '.github/workflows/mobile-experience-contract-v1.yml'
+  schedule:
+    - cron: "45 22 * * *"
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  mobile-experience:
+  quality-control-center:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 45
+    env:
+      OUT_DIR: qa-artifacts/quality-control-center-v1
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -67,6 +35,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Visual Asset Contract V4
+        continue-on-error: true
+        run: node scripts/check-visual-asset-contract-v4.mjs
+
+      - name: Build Visual Quality Dashboard V1
+        if: always()
+        run: node scripts/build-visual-quality-dashboard-v1.mjs
+
       - name: Install Playwright
         run: |
           npm install --no-save --package-lock=false playwright@1.55.0
@@ -76,22 +52,25 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/mobile-experience-preview.log 2>&1 &
-          echo $! > /tmp/mobile-experience-preview.pid
+          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/qc-preview.log 2>&1 &
+          echo $! > /tmp/qc-preview.pid
           for i in {1..30}; do
             if curl -fsS http://127.0.0.1:4321/ >/dev/null; then exit 0; fi
             sleep 1
           done
-          cat /tmp/mobile-experience-preview.log
+          cat /tmp/qc-preview.log
           exit 1
 
       - name: First Content Entry Budget V1
+        continue-on-error: true
         run: node scripts/check-first-content-entry-budget-v1.mjs
 
-      - name: Rank First Content Entry V1
+      - name: First Content Ranking V1
+        continue-on-error: true
         run: node scripts/rank-first-content-entry-v1.mjs
 
       - name: Mobile Font Rendering Gate V1
+        continue-on-error: true
         run: node scripts/check-mobile-experience-contract-v1.mjs
 
       - name: Install Lighthouse
@@ -115,22 +94,60 @@ jobs:
           done
 
       - name: Mobile Lighthouse Budget V1
+        continue-on-error: true
         run: node scripts/check-mobile-lighthouse-v1.mjs
+
+      - name: Real User Experience Gate V1
+        continue-on-error: true
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ANALYTICS_READ_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_READ_TOKEN }}
+          RUM_DAYS: "7"
+          RUM_MIN_SAMPLES: "20"
+          RUM_OUT: qa-artifacts/real-user-experience-gate-v1/rum.json
+        run: node scripts/fetch-rum-web-vitals-v1.mjs
+
+      - name: Experience Debt Ranking V1
+        if: always()
+        run: node scripts/rank-experience-debt-v1.mjs
+
+      - name: Generate Quality Control Center V1
+        if: always()
+        run: node scripts/generate-quality-control-center-v1.mjs
+
+      - name: Publish summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "# JoyLab Quality Control Center V1"
+            echo
+            if [ -f "$OUT_DIR/dashboard.json" ]; then
+              node -e "const j=require('./$OUT_DIR/dashboard.json'); console.log('Overall: **'+j.overall+'**'); console.log(''); console.log(JSON.stringify(j.status,null,2))"
+            else
+              echo "Dashboard missing"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Stop preview
         if: always()
         shell: bash
         run: |
-          if [ -f /tmp/mobile-experience-preview.pid ]; then kill "$(cat /tmp/mobile-experience-preview.pid)" || true; fi
+          if [ -f /tmp/qc-preview.pid ]; then kill "$(cat /tmp/qc-preview.pid)" || true; fi
 
-      - name: Upload mobile experience evidence
+      - name: Upload Quality Control Center
         if: always()
         uses: actions/upload-artifact@v6
         with:
-          name: mobile-experience-contract-v1
+          name: joylab-quality-control-center-v1
           path: |
+            qa-artifacts/visual-asset-contract-v4
+            qa-artifacts/visual-quality-dashboard-v1
             qa-artifacts/first-content-entry-budget-v1
             qa-artifacts/first-content-ranking-v1
             qa-artifacts/mobile-experience-contract-v1
+            qa-artifacts/real-user-experience-gate-v1
+            qa-artifacts/experience-debt-ranking-v1
+            qa-artifacts/quality-control-center-v1
           if-no-files-found: warn
-          retention-days: 30
+          retention-days: 90

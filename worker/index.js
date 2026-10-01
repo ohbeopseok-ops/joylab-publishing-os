@@ -57,7 +57,8 @@ const analyticsContracts = {
   book_interaction_choice: { targetPattern: /^[A-Za-z0-9가-힣_:-]{1,160}$/, placements: new Set(['interactive_book']) },
   book_interaction_action: { targetPattern: /^[A-Za-z0-9가-힣_:-]{1,160}$/, placements: new Set(['interactive_book']) },
   search_query: { targetPattern: /^[-A-Za-z0-9가-힣ㄱ-ㅎㅏ-ㅣ·._ ]{2,60}$/, placements: new Set(['search_page']) },
-  search_result_click: { targetPattern: /^\/(?:articles|guides)\/[A-Za-z0-9_-]{1,120}\/?$/, placements: new Set(['search_page']) }
+  search_result_click: { targetPattern: /^\/(?:articles|guides)\/[A-Za-z0-9_-]{1,120}\/?$/, placements: new Set(['search_page']) },
+  web_vital: { targets: new Set(['lcp','cls','inp']), placements: new Set(['mobile','tablet','desktop']) }
 };
 
 function withSecurityHeaders(response) {
@@ -112,11 +113,20 @@ async function collectAnalyticsEvent(request, env) {
   if (!matchesContract(contract, target, placement)) return analyticsResponse(400);
   if (!env.JOYLAB_ANALYTICS?.writeDataPoint) return analyticsResponse(503);
 
+  let numericValue=1;
+  if(event==='web_vital'){
+    numericValue=Number(payload?.value);
+    const valid=(target==='lcp'&&numericValue>=0&&numericValue<=120000)||
+      (target==='cls'&&numericValue>=0&&numericValue<=10)||
+      (target==='inp'&&numericValue>=0&&numericValue<=120000);
+    if(!valid) return analyticsResponse(400);
+  }
+
   try {
     env.JOYLAB_ANALYTICS.writeDataPoint({
       indexes: [event],
       blobs: [event, target, placement, normalizePath(payload?.path)],
-      doubles: [1]
+      doubles: [numericValue]
     });
   } catch {
     return analyticsResponse(503);

@@ -15,6 +15,7 @@ import '../../styles/research-v2.css';
 import '../../styles/visual-placement.css';
 import researchImageManifest from '../../data/research-image-manifest.json';
 import researchVisualPlacement from '../../data/research-visual-placement.json';
+import firstContentPriority from '../../data/first-content-priority-v1.json';
 import { getCollection, render } from 'astro:content';
 import { investmentTaxonomyOverlapScore } from '../../lib/investment-taxonomy-registry';
 
@@ -64,6 +65,8 @@ const supportingImages = (researchVisual?.supporting ?? []).map((image, index) =
 const articleImage = article.data.ogImage ?? heroImage;
 const articleImageUrl = articleImage ? new URL(articleImage, Astro.site ?? Astro.url.origin).toString() : undefined;
 const isCompareHub = article.id === 'samsung-vs-sk-hynix-ai-memory';
+const firstContentPriorityIds = new Set(firstContentPriority.top5.map((item) => item.slug));
+const isFirstContentPriority = firstContentPriorityIds.has(article.id);
 const isSamsung = article.id === 'samsung-electronics-outlook';
 const compactCompanyResearch = getCompanyCompactResearch(article.id);
 const codexSeries = [
@@ -217,7 +220,7 @@ const scoreCriteria = [
 <BaseLayout title={`${title} | JoyLab`} description={article.data.description} canonical={article.data.canonical} type="article" bodyClass="research-article-page" image={articleImage}>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
 
-  <article class="research-v2-shell article-shell" data-asset-contract-version="4" data-asset-contract-kind="article" data-asset-contract-hero={heroImage ?? ''} data-asset-contract-og={articleImage ?? ''} data-asset-contract-supporting={String(supportingImages.length)}>
+  <article class:list={["research-v2-shell","article-shell",{"first-content-priority":isFirstContentPriority}]} data-asset-contract-version="4" data-asset-contract-kind="article" data-asset-contract-hero={heroImage ?? ''} data-asset-contract-og={articleImage ?? ''} data-asset-contract-supporting={String(supportingImages.length)}>
     <header class="research-cover" style={heroImage ? 'grid-template-columns:1fr' : undefined}>
       <div class="research-cover__copy">
         <div class="research-kicker">JOYLAB RESEARCH · {article.data.category}</div>
@@ -263,7 +266,7 @@ const scoreCriteria = [
           </ul>
         </section>
 
-        <section class="research-panel" aria-labelledby="takeaways-title">
+        <section class="research-panel research-takeaways" aria-labelledby="takeaways-title">
           <h2 class="research-panel__title" id="takeaways-title">Key Takeaways</h2>
           <div class="takeaway-grid">
             {takeaways.map(([label, note], index) => (
@@ -289,7 +292,7 @@ const scoreCriteria = [
         )}
 
         {supportingImages.length > 0 && (
-          <section id="visual-research" class="research-panel" aria-labelledby="visual-research-title">
+          <section id="visual-research" class="research-panel research-visual-panel" aria-labelledby="visual-research-title">
             <h2 class="research-panel__title" id="visual-research-title">Visual Research</h2>
             <div style="display:grid;gap:20px">
               {supportingImages.map((image) => (
@@ -302,7 +305,7 @@ const scoreCriteria = [
           </section>
         )}
 
-        <section class="research-panel" aria-labelledby="framework-title">
+        <section class="research-panel research-framework" aria-labelledby="framework-title">
           <h2 class="research-panel__title" id="framework-title">{isCustomerCenterAxSeries ? 'JoyLab Customer Center AX 프레임워크' : isGrowthResearch ? 'JoyLab 성장·리더십 프레임워크' : 'JoyLab 투자 프레임워크'}</h2>
           <div class="framework-grid">
             {isCustomerCenterAxSeries ? (
@@ -329,6 +332,18 @@ const scoreCriteria = [
             )}
           </div>
         </section>
+
+        <div class="reader-toolbar research-reader" aria-label="읽기 설정">
+          <span class="reader-toolbar__label">읽기 설정</span>
+          <button class="reader-control" type="button" data-reader-size="small" aria-pressed="false" title="글자 작게">A−</button>
+          <button class="reader-control" type="button" data-reader-size="default" aria-pressed="true" title="기본 글자 크기">A</button>
+          <button class="reader-control" type="button" data-reader-size="large" aria-pressed="false" title="글자 크게">A+</button>
+          <button id="focus-reading" class="reader-control reader-focus" type="button" aria-pressed="false">집중 읽기</button>
+        </div>
+
+        <div class="research-v2-content">
+          <div id="article-content" class="article-body"><Content /></div>
+        </div>
 
         {isCompareHub && (
           <section id="compare-scorecard" class="compare-scorecard" aria-labelledby="compare-scorecard-title">
@@ -361,18 +376,6 @@ const scoreCriteria = [
             <p class="score-note">이 점수는 수익률 전망이나 매수 추천이 아니라 JoyLab의 구조 비교 프레임에 사용자의 우선순위를 적용한 성향 도구입니다.</p>
           </section>
         )}
-
-        <div class="reader-toolbar research-reader" aria-label="읽기 설정">
-          <span class="reader-toolbar__label">읽기 설정</span>
-          <button class="reader-control" type="button" data-reader-size="small" aria-pressed="false" title="글자 작게">A−</button>
-          <button class="reader-control" type="button" data-reader-size="default" aria-pressed="true" title="기본 글자 크기">A</button>
-          <button class="reader-control" type="button" data-reader-size="large" aria-pressed="false" title="글자 크게">A+</button>
-          <button id="focus-reading" class="reader-control reader-focus" type="button" aria-pressed="false">집중 읽기</button>
-        </div>
-
-        <div class="research-v2-content">
-          <div id="article-content" class="article-body"><Content /></div>
-        </div>
 
         <AdSlot placement="article-end" enabled={showArticleEndAd} />
 
