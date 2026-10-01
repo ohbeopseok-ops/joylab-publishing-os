@@ -44,6 +44,20 @@ const overall=await query(`
   ORDER BY blob2
 `);
 
+const pathRows=await query(`
+  SELECT
+    blob4 AS path,
+    blob2 AS metric,
+    quantileExactWeighted(0.75)(double1, _sample_interval) AS p75,
+    SUM(_sample_interval) AS samples
+  FROM ${dataset}
+  WHERE timestamp > NOW() - INTERVAL '${days}' DAY
+    AND index1 = 'web_vital'
+    AND blob2 IN ('lcp','cls','inp')
+  GROUP BY blob4, blob2
+  ORDER BY blob4, blob2
+`);
+
 const thresholds={lcp:2500,cls:0.1,inp:200};
 const metrics=Object.fromEntries(['lcp','cls','inp'].map((metric)=>{
   const row=overall.find((r)=>r.metric===metric);
@@ -64,7 +78,8 @@ const payload={
   insufficient,
   exceeded,
   metrics,
-  byDevice:rows.map((r)=>({metric:r.metric,device:r.device,p75:Number(r.p75),samples:Number(r.samples)}))
+  byDevice:rows.map((r)=>({metric:r.metric,device:r.device,p75:Number(r.p75),samples:Number(r.samples)})),
+  byPath:pathRows.map((r)=>({path:String(r.path||'/'),metric:r.metric,p75:Number(r.p75),samples:Number(r.samples)}))
 };
 fs.mkdirSync(path.dirname(out),{recursive:true});
 fs.writeFileSync(out,JSON.stringify(payload,null,2)+'\n');
