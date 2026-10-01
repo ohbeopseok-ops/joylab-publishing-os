@@ -28,11 +28,15 @@ function attr(tag, name) {
   return match?.[1] ?? '';
 }
 
+function isRemote(value) {
+  return /^https?:\/\//i.test(String(value ?? '').replace(/&amp;/g, '&'));
+}
+
 function normalize(value) {
   if (!value) return '';
-  const decoded = value.replace(/&amp;/g, '&');
+  const decoded = String(value).replace(/&amp;/g, '&');
   try {
-    if (/^https?:\/\//i.test(decoded)) return new URL(decoded).pathname;
+    if (isRemote(decoded)) return new URL(decoded).pathname;
   } catch {}
   return decoded.split('?')[0];
 }
@@ -116,28 +120,37 @@ async function validateAsset({ slug, role, src, tag = '', index = null }) {
     failures.push(`${slug}: ${role}${index === null ? '' : '[' + index + ']'} src missing`);
     return;
   }
-  if (/^https?:\/\//i.test(src)) {
+  if (isRemote(src)) {
     failures.push(`${slug}: ${role} must be tracked locally for deterministic validation (${src})`);
     return;
   }
-  const file = localPath(src);
+  const normalizedSrc = normalize(src);
+  const roleRules = rules.roles[role];
+  const file = localPath(normalizedSrc);
   if (!file || !fs.existsSync(file) || fs.statSync(file).size <= 0) {
-    failures.push(`${slug}: ${role} asset missing from dist (${src})`);
+    failures.push(`${slug}: ${role} asset missing from dist (${normalizedSrc})`);
     return;
   }
 
-  if (isSvg(src)) {
+  if (role === 'hero' && roleRules.requireHighPriority && tag && !/fetchpriority=["\']high["\']/i.test(tag)) {
+    failures.push(`${slug}: hero must use fetchpriority=high`);
+  }
+  if (role === 'supporting' && roleRules.requireLazy && tag && !/loading=["\']lazy["\']/i.test(tag)) {
+    failures.push(`${slug}: supporting image must use loading=lazy (${normalizedSrc})`);
+  }
+
+  if (isSvg(normalizedSrc)) {
     const svg = fs.readFileSync(file, 'utf8');
     const hasViewBox = /<svg\b[^>]*\bviewBox=["\'][^"\']+["\']/i.test(svg);
     if (rules.svg.requireViewBox && !hasViewBox) {
-      failures.push(`${slug}: ${role} SVG missing viewBox (${src})`);
+      failures.push(`${slug}: ${role} SVG missing viewBox (${normalizedSrc})`);
     }
-    records.push({ slug, role, index, src, format: 'svg', hasViewBox });
+    records.push({ slug, role, index, src: normalizedSrc, format: 'svg', hasViewBox });
     return;
   }
 
-  if (!isRaster(src)) {
-    failures.push(`${slug}: ${role} unsupported format (${src})`);
+  if (!isRaster(normalizedSrc)) {
+    failures.push(`${slug}: ${role} unsupported format (${normalizedSrc})`);
     return;
   }
 
@@ -156,14 +169,7 @@ async function validateAsset({ slug, role, src, tag = '', index = null }) {
     failures.push(`${slug}: ${role} probable blur/low-detail raster (lapVar=${metric.laplacianVariance.toFixed(1)}, edgeDensity=${metric.edgeDensity.toFixed(3)})`);
   }
 
-  if (role === 'hero' && roleRules.requireHighPriority && tag && !/fetchpriority=["\']high["\']/i.test(tag)) {
-    failures.push(`${slug}: hero must use fetchpriority=high`);
-  }
-  if (role === 'supporting' && roleRules.requireLazy && tag && !/loading=["\']lazy["\']/i.test(tag)) {
-    failures.push(`${slug}: supporting image must use loading=lazy (${src})`);
-  }
-
-  records.push({ slug, role, index, src, format: 'raster', ...metric });
+  records.push({ slug, role, index, src: normalizedSrc, format: 'raster', ...metric });
 }
 
 const pages = walk(articleRoot).filter((file) => path.basename(file) === 'index.html' && path.relative(articleRoot, file).split(path.sep).length === 2);
@@ -178,8 +184,10 @@ for (const file of pages) {
   }
 
   const declaredKind = attr(contract, 'data-asset-contract-kind');
-  const hero = normalize(attr(contract, 'data-asset-contract-hero'));
-  const og = normalize(attr(contract, 'data-asset-contract-og'));
+  const heroRaw = attr(contract, 'data-asset-contract-hero');
+  const ogRaw = attr(contract, 'data-asset-contract-og');
+  const hero = normalize(heroRaw);
+  const og = normalize(ogRaw);
   const declaredSupporting = Number(attr(contract, 'data-asset-contract-supporting') || '0');
   if (declaredKind !== 'article') failures.push(`${slug}: contract kind must be article`);
 
@@ -194,13 +202,14 @@ for (const file of pages) {
     if (!heroTag) failures.push(`${slug}: declared Hero not rendered (${hero})`);
     else {
       if (!attr(heroTag, 'alt').trim()) failures.push(`${slug}: Hero alt missing`);
-      await validateAsset({ slug, role: 'hero', src: hero, tag: heroTag });
+      await validateAsset({ slug, role: 'hero', src: heroRaw, tag: heroTag });
     }
   }
 
-  if (og) await validateAsset({ slug, role: 'og', src: og });
+  if (og) await validateAsset({ slug, role: 'og', src: ogRaw });
 
-  const expected = (manifest[slug]?.supporting ?? []).map((item) => normalize(item.src));
+  const expectedRaw = (manifest[slug]?.supporting ?? []).map((item) => item.src);
+  const expected = expectedRaw.map((src) => normalize(src));
   if (declaredSupporting !== expected.length) {
     failures.push(`${slug}: supporting count mismatch declared=${declaredSupporting} manifest=${expected.length}`);
   }
@@ -219,7 +228,7 @@ for (const file of pages) {
     }
     const tag = renderedSupportingTags[i] ?? '';
     if (!attr(tag, 'alt').trim()) failures.push(`${slug}: supporting[${i}] alt missing`);
-    await validateAsset({ slug, role: 'supporting', src: expected[i], tag, index: i });
+    await validateAsset({ slug, role: 'supporting', src: expectedRaw[i], tag, index: i });
   }
 }
 
