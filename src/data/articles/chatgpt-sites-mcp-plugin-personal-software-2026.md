@@ -303,10 +303,10 @@ ChatGPT Sites, MCP, Plugin, Extensions의 결합은 이 경쟁이 이미 시작�
 
 ## 함께 읽기
 
-- [AI·생산성 Research Map](/guides/ai-productivity)
-- [AI Agent란 무엇인가](/articles/what-is-ai-agent)
-- [AI Agent System 설계](/articles/ai-agent-system-design-anthropic-2026)
-- [후속 분석: SaaS는 사라지는가, AI의 Backend가 되는가](/articles/personal-software-saas-ai-backend-2026)
+- [AI·생산성 Research Map](https://aijoylab.kr/guides/ai-productivity)
+- [AI Agent란 무엇인가](https://aijoylab.kr/articles/what-is-ai-agent)
+- [AI Agent System 설계](https://aijoylab.kr/articles/ai-agent-system-design-anthropic-2026)
+- [후속 분석: SaaS는 사라지는가, AI의 Backend가 되는가](https://aijoylab.kr/articles/personal-software-saas-ai-backend-2026)
 
 ## Sources
 
