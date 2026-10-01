@@ -219,6 +219,24 @@ for (const viewport of viewports) {
       }));
       const docHeight = Math.max(doc.scrollHeight, body.scrollHeight);
 
+      let articleAboveFold = null;
+      if (itemName === 'giant-shoulder-research' && viewportWidth <= 430) {
+        const cover = document.querySelector('.research-cover');
+        const heroMedia = document.querySelector('.research-hero-media');
+        const quote = document.querySelector('.research-quote');
+        const layout = document.querySelector('.research-layout');
+        const coverRect = cover?.getBoundingClientRect();
+        const heroRect = heroMedia?.getBoundingClientRect();
+        const quoteRect = quote?.getBoundingClientRect();
+        const layoutRect = layout?.getBoundingClientRect();
+        articleAboveFold = {
+          coverHeight: coverRect ? Math.round(coverRect.height) : null,
+          heroHeight: heroRect ? Math.round(heroRect.height) : null,
+          quoteHeight: quoteRect ? Math.round(quoteRect.height) : null,
+          bodyEntryTop: layoutRect ? Math.round(layoutRect.top + window.scrollY) : null
+        };
+      }
+
       let homepageCompact = null;
       if (itemName === 'home' && viewportWidth >= 1280) {
         const guide = document.querySelector('.home-guide');
@@ -244,7 +262,8 @@ for (const viewport of viewports) {
         socialMinHeight: socialHeights.length ? Math.min(...socialHeights) : null,
         toggleVisible: visible(document.querySelector('.homepage-nav-toggle')),
         brokenImages: images.filter((img) => !img.complete || img.width === 0).map((img) => img.src),
-        homepageCompact
+        homepageCompact,
+        articleAboveFold
       };
     }, { selectors: item.selectors, height: viewport.height, touch: viewport.touch, itemName: item.name, viewportWidth: viewport.width });
 
@@ -290,6 +309,18 @@ for (const viewport of viewports) {
       homepageGuideHeight: !desktopHomepageCompact || (
         metrics.selectorMetrics['.home-guide']?.height != null &&
         metrics.selectorMetrics['.home-guide'].height <= 380
+      ),
+      giantShoulderMobileCoverDensity: item.name !== 'giant-shoulder-research' || viewport.width > 430 || (
+        metrics.articleAboveFold?.coverHeight != null &&
+        metrics.articleAboveFold.coverHeight <= 390
+      ),
+      giantShoulderMobileHeroDensity: item.name !== 'giant-shoulder-research' || viewport.width > 430 || (
+        metrics.articleAboveFold?.heroHeight != null &&
+        metrics.articleAboveFold.heroHeight <= 225
+      ),
+      giantShoulderMobileBodyEntry: item.name !== 'giant-shoulder-research' || viewport.width > 430 || (
+        metrics.articleAboveFold?.bodyEntryTop != null &&
+        metrics.articleAboveFold.bodyEntryTop <= 820
       )
     };
 
@@ -320,6 +351,7 @@ for (const r of results) {
     ' footer=' + r.metrics.footerHeight +
     ' failed=' + failed.join('|') +
     (r.metrics.homepageCompact ? ' compact=' + JSON.stringify(r.metrics.homepageCompact) : '') +
+    (r.metrics.articleAboveFold ? ' aboveFold=' + JSON.stringify(r.metrics.articleAboveFold) : '') +
     (r.metrics.tinyTargets.length ? ' tiny=' + JSON.stringify(r.metrics.tinyTargets) : '')
   );
 }

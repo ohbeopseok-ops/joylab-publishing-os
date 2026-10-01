@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "raster": {
+    "hardMinWidth": 800,
+    "hardMinHeight": 450,
+    "recommendedWidth": 1200,
+    "recommendedHeight": 675,
+    "severeBytesPerPixel": 0.008,
+    "blurLaplacianVariance": 18,
+    "blurEdgeDensity": 0.03,
+    "edgeThreshold": 12,
+    "analysisWidth": 320,
+    "analysisHeight": 180
+  },
+  "svg": {
+    "requireViewBox": true
+  }
+}
