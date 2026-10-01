@@ -120,3 +120,48 @@ Activation rules:
 5. Once a real slot ID is configured, the unit must render only at that pre-approved position.
 
 CI enforces both the source contract and the runtime DOM order.
+
+
+## Vertical Density Hard Gate Recommender
+
+The Production GOLD artifact is now eligible for an automatic Hard Gate candidate recommendation once enough samples accumulate.
+
+Readiness requirements:
+
+- at least **15 viewport measurements**
+- at least **3 distinct deployments**
+
+Candidate formula:
+
+- calculate production `p95(pageHeightDeltaPct)`
+- multiply by **1.20 safety factor**
+- round upward to the next **0.5 percentage point**
+- clamp to a **3% floor / 20% ceiling**
+
+The result remains `CANDIDATE_READY`; it is never promoted to a blocking Hard Gate automatically. Explicit promotion is required after reviewing the evidence.
+
+## Three-pillar Guide Production GOLD
+
+Representative Guide samples now cover all three JoyLab pillars:
+
+1. `/guides/investing` — 투자·경제
+2. `/guides/ai-productivity` — AI·생산성
+3. `/guides/growth-leadership` — 성장·리더십
+
+Each is measured at 390px and 1440px in deterministic filled/unfilled states and contributes to Vertical Density evidence.
+
+## Archive Monetization Safety Gate
+
+When `archiveInFeed.slotId` changes from empty to a real AdSense slot ID, the scheduled monetization workflow automatically switches the Archive gate from `NOT_ACTIVE` to live evaluation.
+
+The Archive safety gate monitors:
+
+- absolute CTR ceiling
+- CTR vs baseline spike
+- reading-depth deterioration
+- absolute CLS p75
+- CLS delta vs baseline
+
+The first live phase remains `COLLECT` until the normal minimum evidence requirement is reached, unless a safety or UX stop is triggered first.
+
+Archive UX telemetry uses dedicated `archive_view`, `archive_read_50`, `archive_read_90`, `archive_exit`, and `archive_cls_v2` events. AdSense metrics use the exact `/articles` archive page rather than the article-detail prefix.
