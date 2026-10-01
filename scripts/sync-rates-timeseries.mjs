@@ -8,6 +8,7 @@ const dashboardPath = path.join(root, 'src/data/rates-dashboard.json');
 const outputPath = path.join(root, 'src/data/rates-timeseries.json');
 const rules = JSON.parse(fs.readFileSync(rulesPath, 'utf8'));
 const dashboard = JSON.parse(fs.readFileSync(dashboardPath, 'utf8'));
+const existingTimeseries = fs.existsSync(outputPath) ? JSON.parse(fs.readFileSync(outputPath, 'utf8')) : null;
 const WINDOW = 30;
 const statusRank = { GREEN: 0, YELLOW: 1, RED: 2 };
 
@@ -50,15 +51,29 @@ async function fetchFred(seriesId, startDate) {
 
 async function fetchUsdKrw(startDate) {
   const url = `https://api.frankfurter.dev/v2/rates?base=USD&quotes=KRW&from=${startDate}`;
-  const response = await fetch(url, { headers: { 'user-agent': 'JoyLab-RatesSync/1.1' } });
-  if (!response.ok) throw new Error(`Frankfurter USD/KRW failed: ${response.status}`);
-  const rows = await response.json();
-  const points = rows
-    .filter((row) => row.quote === 'KRW' && Number.isFinite(Number(row.rate)) && row.date)
-    .map((row) => ({ date: row.date, value: Number(row.rate) }))
-    .sort((a, b) => a.date.localeCompare(b.date));
-  if (points.length < WINDOW) throw new Error(`Frankfurter USD/KRW returned only ${points.length} valid observations`);
-  return { points: points.slice(-WINDOW), url };
+  let lastError;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    try {
+      const response = await fetch(url, { headers: { 'user-agent': 'JoyLab-RatesSync/1.1' } });
+      if (!response.ok) throw new Error(`Frankfurter USD/KRW failed: ${response.status}`);
+      const rows = await response.json();
+      const points = rows
+        .filter((row) => row.quote === 'KRW' && Number.isFinite(Number(row.rate)) && row.date)
+        .map((row) => ({ date: row.date, value: Number(row.rate) }))
+        .sort((a, b) => a.date.localeCompare(b.date));
+      if (points.length < WINDOW) throw new Error(`Frankfurter USD/KRW returned only ${points.length} valid observations`);
+      return { points: points.slice(-WINDOW), url, fallback: false };
+    } catch (error) {
+      lastError = error;
+      if (attempt < 3) await new Promise((resolve) => setTimeout(resolve, attempt * 1000));
+    }
+  }
+  const cached = existingTimeseries?.series?.usdkrw?.points;
+  if (Array.isArray(cached) && cached.length >= WINDOW) {
+    console.warn(`Frankfurter unavailable; using last valid cached USD/KRW window: ${lastError?.message}`);
+    return { points: cached.slice(-WINDOW), url: existingTimeseries.series.usdkrw.sourceUrl || url, fallback: true };
+  }
+  throw lastError;
 }
 
 function buildSeries(key, points, source, sourceUrl) {
@@ -221,7 +236,7 @@ const [us10yRaw, us30yRaw, usdkrwRaw] = await Promise.all([
 const series = {
   us10y: buildSeries('us10y', us10yRaw.points, 'Federal Reserve Board via FRED · DGS10', us10yRaw.url),
   us30y: buildSeries('us30y', us30yRaw.points, 'Federal Reserve Board via FRED · DGS30', us30yRaw.url),
-  usdkrw: buildSeries('usdkrw', usdkrwRaw.points, 'Frankfurter · official-source blend', usdkrwRaw.url)
+  usdkrw: buildSeries('usdkrw', usdkrwRaw.points, usdkrwRaw.fallback ? 'Frankfurter · cached last-valid fallback' : 'Frankfurter · official-source blend', usdkrwRaw.url)
 };
 const marketRisk = computeMarketRisk(series);
 const treasuryRiskIndex = computeTreasuryRiskIndex(marketRisk);
@@ -234,7 +249,10 @@ const timeseries = {
   windowTradingDays: WINDOW,
   series,
   marketRisk,
-  treasuryRiskIndex
+  treasuryRiskIndex,
+  sourceHealth: {
+    usdkrw: usdkrwRaw.fallback ? 'CACHED_FALLBACK' : 'LIVE'
+  }
 };
 
 fs.writeFileSync(outputPath, `${JSON.stringify(timeseries, null, 2)}\n`, 'utf8');
