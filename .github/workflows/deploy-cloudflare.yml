@@ -556,6 +556,13 @@ jobs:
           QA_OUTPUT_DIR: qa-artifacts/monetization-layout-production-v2
         run: npm run monetization-layout:production
 
+      - name: Vertical Density Hard Gate Candidate
+        if: ${{ !cancelled() }}
+        env:
+          VERTICAL_DENSITY_INPUT_DIRS: qa-artifacts/monetization-layout-production-v2
+          VERTICAL_DENSITY_RECOMMENDATION_OUT: qa-artifacts/monetization-layout-production-v2/vertical-density-recommendation.json
+        run: npm run vertical-density:recommend
+
       - name: Research Guide Production Visual GOLD
         if: ${{ !cancelled() }}
         id: research_guide_production_visual_qa
