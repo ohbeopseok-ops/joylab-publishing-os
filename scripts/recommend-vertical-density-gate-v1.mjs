@@ -45,45 +45,55 @@ for(const file of measurementFiles){
   }catch{}
 }
 
-const sorted=samples.map(s=>s.deltaPct).sort((a,b)=>a-b);
 const percentile=(values,p)=>{
   if(!values.length) return null;
-  const rank=(values.length-1)*p;
+  const sorted=[...values].sort((a,b)=>a-b);
+  const rank=(sorted.length-1)*p;
   const lo=Math.floor(rank), hi=Math.ceil(rank);
-  if(lo===hi) return values[lo];
+  if(lo===hi) return sorted[lo];
   const weight=rank-lo;
-  return values[lo]*(1-weight)+values[hi]*weight;
+  return sorted[lo]*(1-weight)+sorted[hi]*weight;
 };
 const roundUp=(value,step)=>Math.ceil(value/step)*step;
 
-const p95=percentile(sorted,0.95);
-const enoughSamples=samples.length>=policy.minimumMeasurements;
-const enoughDeployments=deployments.size>=policy.minimumDeployments;
-let candidateHardGatePct=null;
-if(enoughSamples && enoughDeployments && Number.isFinite(p95)){
-  candidateHardGatePct=roundUp(p95*policy.safetyMultiplier,policy.roundUpStepPct);
-  candidateHardGatePct=Math.max(policy.floorPct,Math.min(policy.ceilingPct,candidateHardGatePct));
+function summarize(groupSamples,minMeasurements,minDeployments){
+  const values=groupSamples.map(s=>s.deltaPct).sort((a,b)=>a-b);
+  const deploymentCount=new Set(groupSamples.map(s=>s.deploymentKey)).size;
+  const p95=percentile(values,0.95);
+  let candidateHardGatePct=null;
+  if(values.length>=minMeasurements && deploymentCount>=minDeployments && Number.isFinite(p95)){
+    candidateHardGatePct=roundUp(p95*policy.safetyMultiplier,policy.roundUpStepPct);
+    candidateHardGatePct=Math.max(policy.floorPct,Math.min(policy.ceilingPct,candidateHardGatePct));
+  }
+  return {
+    status:candidateHardGatePct==null?'COLLECT':'CANDIDATE_READY',
+    evidence:{measurements:values.length,deployments:deploymentCount,minimumMeasurements:minMeasurements,minimumDeployments:minDeployments},
+    statistics:{minPct:values.length?values[0]:null,medianPct:percentile(values,0.5),p95Pct:p95,maxPct:values.length?values.at(-1):null},
+    candidateHardGatePct
+  };
 }
 
+const overall=summarize(samples,policy.minimumMeasurements,policy.minimumDeployments);
+const bySurface={};
+for(const surface of [...new Set(samples.map(s=>s.surface))].sort()){
+  bySurface[surface]=summarize(
+    samples.filter(s=>s.surface===surface),
+    policy.minimumMeasurementsPerSurface,
+    policy.minimumDeploymentsPerSurface
+  );
+}
+const status=overall.status==='CANDIDATE_READY'||Object.values(bySurface).some(v=>v.status==='CANDIDATE_READY')
+  ? 'CANDIDATE_READY'
+  : 'COLLECT';
+
 const result={
-  schemaVersion:1,
-  name:'JoyLab Vertical Density Hard Gate Recommender V1',
-  status:candidateHardGatePct==null?'COLLECT':'CANDIDATE_READY',
-  evidence:{
-    measurementFiles:measurementFiles.length,
-    measurements:samples.length,
-    deployments:deployments.size,
-    minimumMeasurements:policy.minimumMeasurements,
-    minimumDeployments:policy.minimumDeployments
-  },
-  statistics:{
-    minPct:sorted.length?sorted[0]:null,
-    medianPct:percentile(sorted,0.5),
-    p95Pct:p95,
-    maxPct:sorted.length?sorted.at(-1):null
-  },
-  recommendation:{
-    candidateHardGatePct,
+  schemaVersion:2,
+  name:'JoyLab Vertical Density Hard Gate Recommender V2',
+  status,
+  evidenceFiles:measurementFiles.length,
+  overall,
+  bySurface,
+  recommendationPolicy:{
     formula:'ceil_step(clamp(p95 * safetyMultiplier, floor, ceiling))',
     percentile:policy.percentile,
     safetyMultiplier:policy.safetyMultiplier,
