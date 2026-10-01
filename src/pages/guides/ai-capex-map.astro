@@ -2,9 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/ai-capex-map-v1.css';
 import capex from '../../data/ai-capex-leader-v1.json';
+import regime from '../../data/ai-capex-regime-events-v1.json';
+import history from '../../data/ai-capex-leader-history-v1.json';
 
 const leaders = capex.leaders;
 const gate = capex.skHynixGate;
+const events = regime.events;
+const latestHistory = history.snapshots.at(-1);
 const layers = [
   ['01','POLICY / BIG TECH','US AI ecosystem'],
   ['02','CAPEX','GPU · ASIC · Data Center'],
@@ -75,6 +79,24 @@ const layers = [
         <b>CONFIRMED RULE</b>
         <span>5D 외국인 Flow 양전환</span><i>+</i><span>20DMA 2일 연속 상회·기울기 ≥ 0</span><i>+</i><span>20D RS ≥ KOSPI +2.0%p</span><i>=</i><strong>LEADER-CONFIRMED</strong>
       </div>
+    </section>
+
+    <section class="acm-section acm-timeline">
+      <div class="acm-head"><div><small>REGIME CHANGE TIMELINE</small><h2>WAIT ↔ CONFIRMED가 바뀔 때만 기록합니다</h2></div><p>일별 점수는 History에 쌓고, Timeline에는 SK하이닉스의 상태 전환 이벤트만 남깁니다.</p></div>
+      <div class="acm-history-summary"><span>Latest snapshot <b>{latestHistory?.asOf ?? capex.asOf}</b></span><span>Stored snapshots <b>{history.snapshots.length}</b></span><span>Regime events <b>{events.length}</b></span></div>
+      {events.length ? (
+        <div class="acm-timeline-list">
+          {events.slice().reverse().map((event) => (
+            <article>
+              <time>{event.asOf}</time>
+              <div><b>{event.company}</b><span>{event.from}</span><i>→</i><strong>{event.to}</strong></div>
+              <em>Score {event.score}</em>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="acm-empty-event"><b>아직 Regime Change 없음</b><span>현재 기준선은 {gate.currentStatus}. 다음 WAIT ↔ CONFIRMED 전환부터 자동 기록됩니다.</span></div>
+      )}
     </section>
 
     <section class="acm-section acm-method">
