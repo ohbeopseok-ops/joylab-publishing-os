@@ -115,6 +115,25 @@ jobs:
             test -s /tmp/body
           }
 
+          check_follow_200_retry() {
+            url="$1"
+            for i in {1..12}; do
+              : > /tmp/body
+              if code=$(curl -LsS -o /tmp/body -w '%{http_code}' --max-time 10 "$url"); then
+                echo "$code $url (follow redirects, attempt $i/12)"
+                if [ "$code" = "200" ] && [ -s /tmp/body ]; then
+                  return 0
+                fi
+              else
+                curl_status=$?
+                echo "curl exit $curl_status $url (attempt $i/12)"
+              fi
+              sleep 5
+            done
+            echo "Timed out waiting for propagated route: $url"
+            return 1
+          }
+
           check_200 https://aijoylab.kr/
           grep -Fq 'JoyLab' /tmp/body
           grep -Fq 'https://aijoylab.kr/' /tmp/body
@@ -233,13 +252,13 @@ jobs:
           grep -Fq '/articles/growth-leadership-operating-system' /tmp/body
 
           # Cluster 04 + Global Research Map V1 GOLD smoke
-          check_follow_200 "https://aijoylab.kr/articles/ai-era-english-deep-inquiry?deploy=${GITHUB_SHA}"
+          check_follow_200_retry "https://aijoylab.kr/articles/ai-era-english-deep-inquiry?deploy=${GITHUB_SHA}"
           grep -Fq 'AI 시대 영어는 필요 없을까' /tmp/body
           grep -Fq 'Translation → Verification → Deep Inquiry' /tmp/body
           grep -Fq '/articles/ai-translation-information-gatekeeper' /tmp/body
           grep -Fq '/guides/ai-productivity' /tmp/body
 
-          check_follow_200 "https://aijoylab.kr/research-map?deploy=${GITHUB_SHA}"
+          check_follow_200_retry "https://aijoylab.kr/research-map?deploy=${GITHUB_SHA}"
           grep -Fq 'GLOBAL RESEARCH MAP V1' /tmp/body
           grep -Fq 'Investing · AI · Leadership' /tmp/body
           grep -Fq '/guides/investing' /tmp/body
