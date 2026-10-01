@@ -1,0 +1,60 @@
+name: AI CAPEX Leader Runtime V1
+
+on:
+  schedule:
+    - cron: '10 7 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-capex-leader-runtime-v1
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Runtime self-test
+        run: npm run ai-capex-leader:self-test
+
+      - name: Refresh Leader Score and regime history
+        env:
+          AI_CAPEX_LEADER_FEED_URL: ${{ secrets.AI_CAPEX_LEADER_FEED_URL }}
+          AI_CAPEX_LEADER_FEED_TOKEN: ${{ secrets.AI_CAPEX_LEADER_FEED_TOKEN }}
+        run: npm run ai-capex-leader:update
+
+      - name: Validate generated JSON
+        run: |
+          node -e "for (const f of ['src/data/ai-capex-leader-v1.json','src/data/ai-capex-leader-history-v1.json','src/data/ai-capex-regime-events-v1.json']) JSON.parse(require('node:fs').readFileSync(f,'utf8')); console.log('AI CAPEX JSON PASS')"
+
+      - name: Commit updated leader data
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- src/data/ai-capex-leader-v1.json src/data/ai-capex-leader-history-v1.json src/data/ai-capex-regime-events-v1.json; then
+            echo 'No AI CAPEX leader changes.'
+            exit 0
+          fi
+          git config user.name 'JoyLab AI CAPEX Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add src/data/ai-capex-leader-v1.json src/data/ai-capex-leader-history-v1.json src/data/ai-capex-regime-events-v1.json
+          git commit -m 'data: refresh AI CAPEX leader scores and regime history'
+          git push origin HEAD:main
