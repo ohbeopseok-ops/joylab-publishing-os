@@ -112,7 +112,7 @@ SaaS가 사라지는 것이 아니라 위치가 바뀝니다.
 
 Agent 시대에 “기능이 많다”는 의미도 바뀔 수 있습니다.
 
-화면에 메뉴가 100개 있다고 강한 제품이 아닙니다.
+화면에 메뉴가 많다고 강한 제품이 되는 것은 아닙니다.
 
 AI가 안전하게 사용할 수 있는 명확한 Capability가 중요합니다.
 
@@ -125,7 +125,7 @@ AI가 안전하게 사용할 수 있는 명확한 Capability가 중요합니다.
 - 결과가 구조화되어 있다
 - 변경 작업은 Audit이 남는다
 
-예를 들어 내부 API 30개를 그대로 AI에 공개하는 것보다 다음과 같이 사용자 목적 중심으로 Tool을 재설계하는 편이 낫습니다.
+예를 들어 내부 API를 그대로 AI에 공개하는 것보다 다음과 같이 사용자 목적 중심으로 Tool을 재설계하는 편이 낫습니다.
 
 ```text
 get_customer_status
@@ -339,10 +339,10 @@ Personal Software는 SaaS의 끝이라기보다 **SaaS 위에 새로운 개인�
 
 ## 함께 읽기
 
-- [ChatGPT Sites + MCP + Plugin: 개인용 소프트웨어 플랫폼의 시작](/articles/chatgpt-sites-mcp-plugin-personal-software-2026)
-- [AI Agent System 설계](/articles/ai-agent-system-design-anthropic-2026)
-- [AI Agent Governance](/articles/ai-agent-governance)
-- [AI·생산성 Research Map](/guides/ai-productivity)
+- [ChatGPT Sites + MCP + Plugin: 개인용 소프트웨어 플랫폼의 시작](https://aijoylab.kr/articles/chatgpt-sites-mcp-plugin-personal-software-2026)
+- [AI Agent System 설계](https://aijoylab.kr/articles/ai-agent-system-design-anthropic-2026)
+- [AI Agent Governance](https://aijoylab.kr/articles/ai-agent-governance)
+- [AI·생산성 Research Map](https://aijoylab.kr/guides/ai-productivity)
 
 ## Sources
 
