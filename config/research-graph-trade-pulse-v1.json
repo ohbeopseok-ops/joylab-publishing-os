@@ -1,0 +1,302 @@
+{
+  "contract": "JoyLab.ResearchGraph",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "investing",
+    "title": "Investing",
+    "url": "/guides/investing",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "investing",
+      "type": "pillar",
+      "label": "Investing",
+      "articleUrl": "/guides/investing",
+      "stage": "pillar"
+    },
+    {
+      "id": "korea-export-trade",
+      "type": "macro",
+      "label": "Korea Export & Trade",
+      "stage": "macro"
+    },
+    {
+      "id": "export-acceleration",
+      "type": "kpi",
+      "label": "Export YoY Acceleration",
+      "stage": "kpi"
+    },
+    {
+      "id": "foreign-flow",
+      "type": "macro",
+      "label": "Foreign Investor Flow",
+      "stage": "macro"
+    },
+    {
+      "id": "relative-strength",
+      "type": "kpi",
+      "label": "Relative Strength",
+      "stage": "kpi"
+    },
+    {
+      "id": "semiconductor-sector",
+      "type": "sector",
+      "label": "Semiconductor",
+      "stage": "sector"
+    },
+    {
+      "id": "automobile-sector",
+      "type": "sector",
+      "label": "Automobile",
+      "stage": "sector"
+    },
+    {
+      "id": "shipbuilding-sector",
+      "type": "sector",
+      "label": "Shipbuilding",
+      "stage": "sector"
+    },
+    {
+      "id": "samsung-electronics",
+      "type": "company",
+      "label": "Samsung Electronics",
+      "ticker": "005930",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "sk-hynix",
+      "type": "company",
+      "label": "SK hynix",
+      "ticker": "000660",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "hyundai-motor",
+      "type": "company",
+      "label": "Hyundai Motor",
+      "ticker": "005380",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "hanwha-ocean",
+      "type": "company",
+      "label": "Hanwha Ocean",
+      "ticker": "042660",
+      "market": "KRX",
+      "stage": "company"
+    },
+    {
+      "id": "article-trade-pulse-export-leading-signal",
+      "type": "article",
+      "label": "수출이 먼저 움직이고 주가는 따라오는가",
+      "articleUrl": "/articles/trade-pulse-export-leading-signal",
+      "stage": "macro"
+    },
+    {
+      "id": "article-semiconductor-export-603b",
+      "type": "article",
+      "label": "반도체 수출 603억달러와 삼성전자·SK하이닉스",
+      "articleUrl": "/articles/semiconductor-export-603b",
+      "stage": "sector"
+    },
+    {
+      "id": "article-ship-export-lag",
+      "type": "article",
+      "label": "조선 수출을 보면 왜 주도주를 놓치는가",
+      "articleUrl": "/articles/ship-export-lag",
+      "stage": "sector"
+    },
+    {
+      "id": "article-trade-pulse-methodology",
+      "type": "article",
+      "label": "매월 1일 Trade Pulse로 주도섹터 찾는 법",
+      "articleUrl": "/articles/trade-pulse-methodology",
+      "stage": "macro"
+    }
+  ],
+  "edges": [
+    {
+      "from": "korea-export-trade",
+      "to": "export-acceleration",
+      "type": "measured_by"
+    },
+    {
+      "from": "export-acceleration",
+      "to": "semiconductor-sector",
+      "type": "informs"
+    },
+    {
+      "from": "export-acceleration",
+      "to": "automobile-sector",
+      "type": "informs"
+    },
+    {
+      "from": "export-acceleration",
+      "to": "shipbuilding-sector",
+      "type": "informs"
+    },
+    {
+      "from": "semiconductor-sector",
+      "to": "samsung-electronics",
+      "type": "affects"
+    },
+    {
+      "from": "semiconductor-sector",
+      "to": "sk-hynix",
+      "type": "affects"
+    },
+    {
+      "from": "automobile-sector",
+      "to": "hyundai-motor",
+      "type": "affects"
+    },
+    {
+      "from": "shipbuilding-sector",
+      "to": "hanwha-ocean",
+      "type": "affects"
+    },
+    {
+      "from": "foreign-flow",
+      "to": "samsung-electronics",
+      "type": "affects"
+    },
+    {
+      "from": "foreign-flow",
+      "to": "sk-hynix",
+      "type": "affects"
+    },
+    {
+      "from": "relative-strength",
+      "to": "article-trade-pulse-export-leading-signal",
+      "type": "validates"
+    },
+    {
+      "from": "article-trade-pulse-export-leading-signal",
+      "to": "investing",
+      "type": "belongs_to"
+    },
+    {
+      "from": "article-trade-pulse-export-leading-signal",
+      "to": "korea-export-trade",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-trade-pulse-export-leading-signal",
+      "to": "export-acceleration",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-trade-pulse-export-leading-signal",
+      "to": "foreign-flow",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-trade-pulse-export-leading-signal",
+      "to": "relative-strength",
+      "type": "covered_by"
+    },
+    {
+      "from": "article-trade-pulse-export-leading-signal",
+      "to": "article-semiconductor-export-603b",
+      "type": "next"
+    },
+    {
+      "from": "article-semiconductor-export-603b",
+      "to": "article-trade-pulse-export-leading-signal",
+      "type": "previous"
+    },
+    {
+      "from": "article-semiconductor-export-603b",
+      "to": "article-ship-export-lag",
+      "type": "next"
+    },
+    {
+      "from": "article-ship-export-lag",
+      "to": "article-semiconductor-export-603b",
+      "type": "previous"
+    },
+    {
+      "from": "article-ship-export-lag",
+      "to": "article-trade-pulse-methodology",
+      "type": "next"
+    },
+    {
+      "from": "article-trade-pulse-methodology",
+      "to": "article-ship-export-lag",
+      "type": "previous"
+    }
+  ],
+  "articles": [
+    {
+      "id": "article-trade-pulse-export-leading-signal",
+      "title": "수출이 먼저 움직이고 주가는 따라오는가",
+      "url": "/articles/trade-pulse-export-leading-signal",
+      "order": 1,
+      "pillar": "investing",
+      "topics": [
+        "korea-export-trade",
+        "export-acceleration",
+        "foreign-flow",
+        "relative-strength"
+      ],
+      "stage": "macro",
+      "previous": null,
+      "next": "article-semiconductor-export-603b",
+      "status": "draft"
+    },
+    {
+      "id": "article-semiconductor-export-603b",
+      "title": "반도체 수출 603억달러와 삼성전자·SK하이닉스",
+      "url": "/articles/semiconductor-export-603b",
+      "order": 2,
+      "pillar": "investing",
+      "topics": [
+        "semiconductor-sector",
+        "samsung-electronics",
+        "sk-hynix",
+        "export-acceleration"
+      ],
+      "stage": "sector",
+      "previous": "article-trade-pulse-export-leading-signal",
+      "next": "article-ship-export-lag",
+      "status": "draft"
+    },
+    {
+      "id": "article-ship-export-lag",
+      "title": "조선 수출을 보면 왜 주도주를 놓치는가",
+      "url": "/articles/ship-export-lag",
+      "order": 3,
+      "pillar": "investing",
+      "topics": [
+        "shipbuilding-sector",
+        "hanwha-ocean",
+        "korea-export-trade"
+      ],
+      "stage": "sector",
+      "previous": "article-semiconductor-export-603b",
+      "next": "article-trade-pulse-methodology",
+      "status": "draft"
+    },
+    {
+      "id": "article-trade-pulse-methodology",
+      "title": "매월 1일 Trade Pulse로 주도섹터 찾는 법",
+      "url": "/articles/trade-pulse-methodology",
+      "order": 4,
+      "pillar": "investing",
+      "topics": [
+        "korea-export-trade",
+        "export-acceleration",
+        "relative-strength"
+      ],
+      "stage": "macro",
+      "previous": "article-ship-export-lag",
+      "next": null,
+      "status": "draft"
+    }
+  ]
+}
