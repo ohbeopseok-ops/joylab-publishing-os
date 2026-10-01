@@ -6,7 +6,8 @@
     "guide-end",
     "book-end",
     "article-mid65",
-    "article-mid30"
+    "article-mid30",
+    "archive-in-feed"
   ],
   "minimumEvidence": {
     "days": 7,
@@ -38,5 +39,19 @@
     "ADVANCE": "Current slot may stay on and the next placement can enter a separate integration + QA change.",
     "ROLLBACK": "Disable the newest placement and rerun Production GOLD QA.",
     "COLLECT": "Minimum evidence window has not been reached."
+  },
+  "archiveActivation": {
+    "automaticSafetyGate": true,
+    "stage": "archive-in-feed",
+    "pagePath": "/articles",
+    "exactPageMatch": true,
+    "firstDecision": "COLLECT until minimum evidence is reached unless a safety or UX stop fires",
+    "monitors": [
+      "ctrAbsolute",
+      "ctrVsBaseline",
+      "readingDepthDrop",
+      "clsAbsolute",
+      "clsDelta"
+    ]
   }
 }
