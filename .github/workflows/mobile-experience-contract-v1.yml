@@ -14,6 +14,8 @@ on:
       - 'public/images/**'
       - 'src/data/mobile-experience-contract-v1.json'
       - 'scripts/check-first-content-entry-budget-v1.mjs'
+      - 'scripts/rank-first-content-entry-v1.mjs'
+      - 'src/data/first-content-priority-v1.json'
       - 'scripts/check-mobile-experience-contract-v1.mjs'
       - 'scripts/check-mobile-lighthouse-v1.mjs'
       - '.github/workflows/mobile-experience-contract-v1.yml'
@@ -30,6 +32,8 @@ on:
       - 'public/images/**'
       - 'src/data/mobile-experience-contract-v1.json'
       - 'scripts/check-first-content-entry-budget-v1.mjs'
+      - 'scripts/rank-first-content-entry-v1.mjs'
+      - 'src/data/first-content-priority-v1.json'
       - 'scripts/check-mobile-experience-contract-v1.mjs'
       - 'scripts/check-mobile-lighthouse-v1.mjs'
       - '.github/workflows/mobile-experience-contract-v1.yml'
@@ -84,6 +88,9 @@ jobs:
       - name: First Content Entry Budget V1
         run: node scripts/check-first-content-entry-budget-v1.mjs
 
+      - name: Rank First Content Entry V1
+        run: node scripts/rank-first-content-entry-v1.mjs
+
       - name: Mobile Font Rendering Gate V1
         run: node scripts/check-mobile-experience-contract-v1.mjs
 
@@ -123,6 +130,7 @@ jobs:
           name: mobile-experience-contract-v1
           path: |
             qa-artifacts/first-content-entry-budget-v1
+            qa-artifacts/first-content-ranking-v1
             qa-artifacts/mobile-experience-contract-v1
           if-no-files-found: warn
           retention-days: 30
