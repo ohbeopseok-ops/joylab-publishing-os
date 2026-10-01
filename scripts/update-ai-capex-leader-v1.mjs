@@ -14,7 +14,7 @@ const bandFromScore = (score) => score >= 80 ? 'LEADER' : score >= 70 ? 'STRONG-
 
 export function evaluateSkHynixGate(market = {}) {
   const foreignPass = Number(market.foreignNet5dBillionKrw) > 0 && Number(market.foreignBuyDays5d) >= 3;
-  const trendPass = Number(market.close) > Number(market.ma20) && Number(market.ma20Slope5dPct) >= 0;
+  const trendPass = Number(market.close) > Number(market.ma20) && Number(market.aboveMa20Days) >= 2 && Number(market.ma20Slope5dPct) >= 0;
   const rsPass = Number(market.rs20pp) >= 2 && Number(market.rs5pp) >= 0;
   return {
     foreignFlow: foreignPass ? 'PASS' : 'FAIL',
@@ -69,7 +69,7 @@ function compose(input, feed) {
       weights: input.weights,
       hardGate: {
         foreignFlow: '5D foreign net flow > 0 AND at least 3 net-buy sessions in last 5 sessions',
-        trend: 'Close > 20DMA AND 20DMA 5D slope >= 0',
+        trend: 'Close > 20DMA for 2 consecutive sessions AND 20DMA 5D slope >= 0',
         relativeStrength: '20D stock return - benchmark 20D return >= +2.0%p AND 5D relative return >= 0',
         confirmed: 'All three hard gates PASS and Leader Score >= 80'
       }
@@ -88,10 +88,10 @@ function compose(input, feed) {
       currentStatus: sk?.status || 'UNKNOWN',
       score: sk?.score ?? null,
       checks: [
-        { id:'foreign-flow', label:'Foreign Flow', rule:'5D 외국인 누적 순매수 > 0 AND 최근 5일 중 3일 이상 순매수', status:sk?.gate?.foreignFlow || 'FAIL' },
-        { id:'ma20', label:'20DMA Trend', rule:'종가 > 20DMA AND 20DMA 5일 기울기 >= 0', status:sk?.gate?.ma20Trend || 'WATCH' },
-        { id:'rs20', label:'Relative Strength', rule:'20D 상대수익률(KOSPI) >= +2.0%p AND 5D 상대수익률 >= 0', status:sk?.gate?.relativeStrength || 'FAIL' },
-        { id:'confirm', label:'Confirmation', rule:'Foreign Flow + 20DMA Trend + Relative Strength 모두 PASS', status:sk?.gate?.confirmed ? 'PASS' : 'FAIL' }
+        { id:'foreign-flow', label:'Foreign Flow', rule:'5D 외국인 누적 순매수 > 0 AND 최근 5일 중 3일 이상 순매수', status:sk?.gate?.foreignFlow || 'FAIL', evidence:`5D net ${sk?.market?.foreignNet5dBillionKrw ?? 'n/a'}bn KRW · buy days ${sk?.market?.foreignBuyDays5d ?? 'n/a'}/5` },
+        { id:'ma20', label:'20DMA Trend', rule:'종가 > 20DMA 2일 연속 AND 20DMA 5일 기울기 >= 0', status:sk?.gate?.ma20Trend || 'WATCH', evidence:`close ${sk?.market?.close ?? 'n/a'} · MA20 ${sk?.market?.ma20 ?? 'n/a'} · above days ${sk?.market?.aboveMa20Days ?? 'n/a'} · slope ${sk?.market?.ma20Slope5dPct ?? 'n/a'}%` },
+        { id:'rs20', label:'Relative Strength', rule:'20D 상대수익률(KOSPI) >= +2.0%p AND 5D 상대수익률 >= 0', status:sk?.gate?.relativeStrength || 'FAIL', evidence:`RS20 ${sk?.market?.rs20pp ?? 'n/a'}%p · RS5 ${sk?.market?.rs5pp ?? 'n/a'}%p` },
+        { id:'confirm', label:'Confirmation', rule:'Foreign Flow + 20DMA Trend + Relative Strength 모두 PASS', status:sk?.gate?.confirmed ? 'PASS' : 'FAIL', evidence:sk?.gate?.confirmed ? 'All hard gates passed' : 'At least one hard gate is not passed' }
       ]
     }
   };
@@ -131,9 +131,9 @@ function appendRegimeEvents(events, previous, output) {
 }
 
 if (SELF_TEST) {
-  const wait = evaluateSkHynixGate({foreignNet5dBillionKrw:-1,foreignBuyDays5d:1,close:101,ma20:100,ma20Slope5dPct:0.2,rs20pp:3,rs5pp:1});
+  const wait = evaluateSkHynixGate({foreignNet5dBillionKrw:-1,foreignBuyDays5d:1,close:101,ma20:100,aboveMa20Days:2,ma20Slope5dPct:0.2,rs20pp:3,rs5pp:1});
   if (wait.confirmed) throw new Error('self-test WAIT case failed');
-  const yes = evaluateSkHynixGate({foreignNet5dBillionKrw:1,foreignBuyDays5d:3,close:101,ma20:100,ma20Slope5dPct:0.2,rs20pp:3,rs5pp:1});
+  const yes = evaluateSkHynixGate({foreignNet5dBillionKrw:1,foreignBuyDays5d:3,close:101,ma20:100,aboveMa20Days:2,ma20Slope5dPct:0.2,rs20pp:3,rs5pp:1});
   if (!yes.confirmed) throw new Error('self-test CONFIRMED case failed');
   console.log('AI CAPEX Leader Runtime V1 self-test PASS');
   process.exit(0);
