@@ -78,11 +78,17 @@ const companies = input.companies.map((company) => {
   const priceData = price.companies[company.ticker] || null;
   const flowData = flow.companies[company.ticker] || null;
   const market = { ...(priceData || {}), ...(flowData || {}) };
-  const ready = Boolean(priceData && flowData);
+  const sameTradeDate = Boolean(
+    priceData?.latestTradeDate &&
+    flowData?.latestTradeDate &&
+    priceData.latestTradeDate === flowData.latestTradeDate
+  );
+  const ready = Boolean(priceData && flowData && sameTradeDate);
   return {
     ticker: company.ticker,
     company: company.company,
     ready,
+    sameTradeDate,
     priceConfirmation: ready ? derivePriceConfirmation(market) : null,
     market
   };
