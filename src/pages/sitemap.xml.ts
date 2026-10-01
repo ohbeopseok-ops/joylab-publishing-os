@@ -42,6 +42,7 @@ export async function GET({ site }: { site: URL }) {
     '/guides/codex',
     '/guides/ai-economics',
     '/guides/ai-infrastructure',
+    '/guides/ai-capex-map',
     '/guides/ai-data-center-network',
     '/guides/how-internet-connects-the-world',
     '/guides/ai-security',
