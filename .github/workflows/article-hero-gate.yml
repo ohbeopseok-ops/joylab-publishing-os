@@ -10,6 +10,8 @@ on:
       - 'src/data/curated-generated-heroes.json'
       - 'public/images/**'
       - 'scripts/check-article-heroes.mjs'
+      - 'scripts/check-article-hero-quality-v3.mjs'
+      - 'src/data/article-hero-quality-rules-v3.json'
       - 'scripts/apply-curated-research-images.mjs'
       - 'scripts/materialize-ep03-demian-v5.mjs'
       - 'assets/ep03-demian-v5/**'
@@ -24,6 +26,8 @@ on:
       - 'src/data/curated-generated-heroes.json'
       - 'public/images/**'
       - 'scripts/check-article-heroes.mjs'
+      - 'scripts/check-article-hero-quality-v3.mjs'
+      - 'src/data/article-hero-quality-rules-v3.json'
       - 'scripts/apply-curated-research-images.mjs'
       - 'scripts/materialize-ep03-demian-v5.mjs'
       - 'assets/ep03-demian-v5/**'
@@ -47,8 +51,14 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Materialize curated Hero assets and overrides
         run: node scripts/apply-curated-research-images.mjs
 
       - name: Validate every published Article Hero
         run: node scripts/check-article-heroes.mjs
+
+      - name: Validate raster Hero quality V3
+        run: node scripts/check-article-hero-quality-v3.mjs
