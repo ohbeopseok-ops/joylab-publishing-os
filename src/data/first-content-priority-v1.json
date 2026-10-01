@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "source": "First Content Entry Budget V1 baseline 2026-10-01",
+  "targetPx": 3200,
+  "top5": [
+    { "slug": "kb-financial-shareholder-return", "baselineFirstH2Px": 4157 },
+    { "slug": "samsung-vs-sk-hynix-ai-memory", "baselineFirstH2Px": 3816 },
+    { "slug": "hd-hyundai-heavy-industries-shipbuilding", "baselineFirstH2Px": 3379 },
+    { "slug": "strong-retail-sales-nasdaq-rally-2026", "baselineFirstH2Px": 3332 },
+    { "slug": "semiconductor-giant-shoulder-flow", "baselineFirstH2Px": 3326 }
+  ]
+}
