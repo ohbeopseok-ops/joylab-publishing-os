@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "asOf": "2026-10-01",
+  "sourceMode": "manual-baseline",
+  "weights": {
+    "aiCapexExposure": 30,
+    "bottleneck": 25,
+    "epsRevision": 25,
+    "priceConfirmation": 20
+  },
+  "companies": [
+    {"ticker":"000660","company":"SK하이닉스","layer":"HBM / AI Memory","aiCapexExposure":30,"bottleneck":24,"epsRevision":24,"priceConfirmation":16,"path":"Hyperscaler CAPEX → GPU → HBM → SK하이닉스","note":"20DMA·상대강도는 회복권. 외국인 Flow가 하드 게이트를 막고 있음.","market":{"foreignNet5dBillionKrw":-5520,"foreignBuyDays5d":0,"close":1806000,"ma20":1764000,"ma20Slope5dPct":-0.4,"rs20pp":5.7,"rs5pp":0.8}},
+    {"ticker":"353200","company":"대덕전자","layer":"AI PCB / FCBGA","aiCapexExposure":24,"bottleneck":21,"epsRevision":24,"priceConfirmation":15,"path":"AI Accelerator / Network → FCBGA·MLB → 대덕전자","note":"AI 서버·고성능 메모리용 기판 실적과 최근 가격 모멘텀이 동시 확인."},
+    {"ticker":"009150","company":"삼성전기","layer":"FCBGA / MLCC","aiCapexExposure":23,"bottleneck":20,"epsRevision":23,"priceConfirmation":17,"path":"AI Server / ASIC → FCBGA·MLCC → 삼성전기","note":"AI 가속기·서버 CPU용 FCBGA와 데이터센터 MLCC 확장이 실적으로 연결."},
+    {"ticker":"298040","company":"효성중공업","layer":"Transformer / Grid","aiCapexExposure":23,"bottleneck":24,"epsRevision":23,"priceConfirmation":12,"path":"AI Data Center → Grid Connection → 초고압 변압기 → 효성중공업","note":"미국 빅테크 AI 데이터센터용 초고압 변압기 수주가 직접 연결."},
+    {"ticker":"222800","company":"심텍","layer":"Package PCB / Memory Module","aiCapexExposure":22,"bottleneck":20,"epsRevision":23,"priceConfirmation":17,"path":"AI Memory / Server → Package PCB → 심텍","note":"패키지기판·메모리 모듈 PCB 실적 레버리지 확인."},
+    {"ticker":"103590","company":"일진전기","layer":"Transformer / Cable","aiCapexExposure":21,"bottleneck":23,"epsRevision":23,"priceConfirmation":14,"path":"Data Center / Grid → Transformer·Cable → 일진전기","note":"북미 변압기 수요와 높은 해외 수주잔고가 실적 가시성을 높임."},
+    {"ticker":"010120","company":"LS ELECTRIC","layer":"Switchgear / Distribution","aiCapexExposure":22,"bottleneck":22,"epsRevision":23,"priceConfirmation":13,"path":"Hyperscaler → Data Center MW → Switchgear·Distribution → LS ELECTRIC","note":"Grid Connection·배전 병목의 직접 수혜. 외국인과 기관 Flow는 혼조."},
+    {"ticker":"005930","company":"삼성전자","layer":"HBM / DRAM / Foundry","aiCapexExposure":26,"bottleneck":21,"epsRevision":23,"priceConfirmation":9,"path":"AI Compute → HBM·DRAM·Foundry → 삼성전자","note":"AI 노출은 넓지만 사업 믹스와 최근 외국인 Flow가 순수도를 낮춤."},
+    {"ticker":"042700","company":"한미반도체","layer":"HBM Packaging Equipment","aiCapexExposure":24,"bottleneck":21,"epsRevision":21,"priceConfirmation":13,"path":"HBM4 CAPEX → TC Bonder / 2.5D Packaging → 한미반도체","note":"HBM4 시설투자와 패키징 장비 수요 연결. 고객·수주 집중도는 체크 필요."},
+    {"ticker":"267260","company":"HD현대일렉트릭","layer":"Transformer / Power Equipment","aiCapexExposure":23,"bottleneck":25,"epsRevision":23,"priceConfirmation":7,"path":"AI Data Center / Grid Upgrade → Transformer → HD현대일렉트릭","note":"수주잔고와 마진은 강하지만 최근 가격 상대강도는 약함."}
+  ]
+}
