@@ -36,5 +36,24 @@
         "caption": "Goal → Delegate → Verify → Govern → Execute → Recover 순서로 Agent System을 점검합니다."
       }
     ]
+  },
+  "semiconductor-giant-shoulder-flow": {
+    "hero": {
+      "src": "/images/research/semiconductor-giant-shoulder-flow-hero-v2.svg",
+      "alt": "한국 반도체 시장의 기관·외국인 자금 흐름, 웨이퍼와 반도체 장비를 선명한 벡터 그래픽으로 표현한 Giant Shoulder 투자 리서치 대표 이미지",
+      "caption": "ETF·기관·외국인 수급과 EPS Revision이 같은 방향으로 정렬되는 순간을 추적합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "ETF·기관·외국인 수급과 EPS Revision을 단계별로 확인하는 JoyLab 투자 신호 시각화",
+        "caption": "Giant Shoulder는 ETF 편입만이 아니라 기관·외국인 수급과 EPS Revision의 동시성을 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Giant Score에서 가격과 거래량 확인을 거쳐 30·30·40 분할 진입으로 연결하는 JoyLab 판단 프레임워크",
+        "caption": "Giant Score는 매수 신호가 아니라 가격·거래량·수급을 재확인하는 Pre-Gate입니다."
+      }
+    ]
   }
 }
