@@ -110,7 +110,6 @@ async function fetchPageBreakdown(periodStart, periodEnd){
   params.set('endDate.year',String(periodEnd.year));
   params.set('endDate.month',String(periodEnd.month));
   params.set('endDate.day',String(periodEnd.day));
-  params.set('limit','10000');
   const url=`https://adsense.googleapis.com/v2/${account}/reports:generate?${params.toString()}`;
   const result=await api(url,token);
   const headers=result.headers||[];
