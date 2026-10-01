@@ -4,6 +4,7 @@ const INPUT = 'src/data/ai-capex-leader-input-v1.json';
 const OUTPUT = 'src/data/ai-capex-leader-v1.json';
 const HISTORY = 'src/data/ai-capex-leader-history-v1.json';
 const EVENTS = 'src/data/ai-capex-regime-events-v1.json';
+const MARKET = 'src/data/ai-capex-market-snapshot-v1.json';
 const SELF_TEST = process.argv.includes('--self-test');
 const FORCE_SNAPSHOT = process.argv.includes('--force-snapshot');
 
@@ -37,33 +38,23 @@ function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
 }
 
-function normalizeFeedCompany(base, feed, priceConfirmationMax) {
-  if (!feed) return base;
-  const rawPriceConfirmation = Number(feed.priceConfirmation);
+function normalizeMarketCompany(base, live, priceConfirmationMax) {
+  if (!live || live.ready !== true) return base;
+  const rawPriceConfirmation = Number(live.priceConfirmation);
   return {
     ...base,
     priceConfirmation: Number.isFinite(rawPriceConfirmation)
       ? clamp(rawPriceConfirmation, 0, priceConfirmationMax)
       : base.priceConfirmation,
-    market: { ...(base.market || {}), ...(feed.market || {}) },
-    note: sanitizePlainText(feed.note, base.note)
+    market: { ...(base.market || {}), ...(live.market || {}) },
+    note: sanitizePlainText(live.note, base.note)
   };
 }
 
-async function fetchFeed() {
-  const url = process.env.AI_CAPEX_LEADER_FEED_URL;
-  if (!url) return null;
-  const headers = { accept: 'application/json' };
-  if (process.env.AI_CAPEX_LEADER_FEED_TOKEN) headers.authorization = 'Bearer ' + process.env.AI_CAPEX_LEADER_FEED_TOKEN;
-  const res = await fetch(url, { headers });
-  if (!res.ok) throw new Error('AI CAPEX feed ' + res.status + ' ' + res.statusText);
-  return res.json();
-}
-
-function compose(input, feed) {
-  const feedByTicker = new Map((feed?.companies || []).map((x) => [x.ticker, x]));
+function compose(input, marketSnapshot) {
+  const marketByTicker = new Map((marketSnapshot?.companies || []).map((x) => [x.ticker, x]));
   const priceConfirmationMax = Number(input.weights.priceConfirmation);
-  const companies = input.companies.map((base) => normalizeFeedCompany(base, feedByTicker.get(base.ticker), priceConfirmationMax));
+  const companies = input.companies.map((base) => normalizeMarketCompany(base, marketByTicker.get(base.ticker), priceConfirmationMax));
   const rows = companies.map((company) => {
     const score = scoreCompany(company);
     const gate = company.ticker === '000660' ? evaluateSkHynixGate(company.market) : null;
@@ -75,12 +66,8 @@ function compose(input, feed) {
   const sk = rows.find((x) => x.ticker === '000660');
   return {
     version: '1.1',
-    asOf: feed
-      ? (typeof feed.asOf === 'string' && /^\d{4}-\d{2}-\d{2}/.test(feed.asOf)
-          ? feed.asOf.slice(0, 10)
-          : new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(new Date()))
-      : input.asOf,
-    sourceMode: feed ? 'connected-feed' : input.sourceMode,
+    asOf: marketSnapshot?.asOf || input.asOf,
+    sourceMode: marketSnapshot?.ready ? 'direct-adapters' : input.sourceMode,
     method: {
       weights: input.weights,
       hardGate: {
@@ -159,20 +146,14 @@ const inputData = readJson(INPUT);
 const previous = readJson(OUTPUT);
 const historyData = readJson(HISTORY);
 const eventData = readJson(EVENTS);
-let feed = null;
-try {
-  feed = await fetchFeed();
-} catch (error) {
-  console.error('AI CAPEX feed fetch failed:', error.message);
-  process.exitCode = 2;
+const marketData = fs.existsSync(MARKET) ? readJson(MARKET) : null;
+
+if ((!marketData || marketData.ready !== true) && !FORCE_SNAPSHOT) {
+  console.log('AI CAPEX Leader Runtime: direct market snapshot NOT_READY; preserving current snapshot.');
+  process.exit(0);
 }
 
-if (!feed && !FORCE_SNAPSHOT) {
-  console.log('AI CAPEX Leader Runtime: feed NOT_CONNECTED; preserving current snapshot.');
-  process.exit(process.exitCode || 0);
-}
-
-const output = compose(inputData, feed);
+const output = compose(inputData, marketData);
 appendHistory(historyData, output);
 appendRegimeEvents(eventData, previous, output);
 writeJson(OUTPUT, output);
