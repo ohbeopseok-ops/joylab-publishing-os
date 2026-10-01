@@ -114,6 +114,9 @@ function appendHistory(history, output) {
 }
 
 function appendRegimeEvents(events, previous, output) {
+  if (previous?.asOf && output?.asOf && String(output.asOf) < String(previous.asOf)) {
+    return events;
+  }
   const before = new Map((previous?.leaders || []).map((x) => [x.ticker, x]));
   for (const row of output.leaders) {
     const prev = before.get(row.ticker);
