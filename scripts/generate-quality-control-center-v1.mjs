@@ -22,14 +22,16 @@ const status={
   rum:rum?.decision||'MISSING',
   lab:lab?(lab.failures?.length?'FAIL':'PASS'):'MISSING'
 };
-const overall=Object.values(status).includes('FAIL')?'FAIL':
-  Object.values(status).includes('MISSING')||Object.values(status).includes('COLLECT')?'COLLECT':
+const requiredMissing=Object.entries(status).filter(([,value])=>value==='MISSING').map(([key])=>key);
+const overall=Object.values(status).includes('FAIL')||requiredMissing.length?'FAIL':
+  Object.values(status).includes('COLLECT')?'COLLECT':
   Object.values(status).includes('WARN')?'WARN':'PASS';
 
 const payload={
   generatedAt:new Date().toISOString(),
   overall,
   status,
+  requiredMissing,
   visual:visual?{articles:visual.pages,assets:visual.assets,hero:visual.byRole?.hero,supporting:visual.byRole?.supporting,og:visual.byRole?.og,warnings:visual.warnings?.length||0,failures:visual.failures?.length||0}:null,
   firstContent:first?{aboveTarget:first.count,targetPx:first.targetPx,top5:first.top5}:null,
   priority:priority?{targetPx:priority.targetPx,failures:priority.failures}:null,
