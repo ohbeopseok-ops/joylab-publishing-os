@@ -1,0 +1,91 @@
+{
+  "contract": "JoyLab.AICapexMarketDataAdapter",
+  "version": "1.0.0",
+  "purpose": "Normalize market, flow, earnings-consensus and IR evidence into one deterministic snapshot for AI CAPEX Leader Engine.",
+  "universeSource": "src/data/ai-capex-leader-input-v1.json",
+  "clock": {
+    "timezone": "Asia/Seoul",
+    "dailyCutoff": "16:10",
+    "staleAfterHours": 30
+  },
+  "adapters": [
+    {
+      "id": "krx",
+      "label": "KRX",
+      "required": true,
+      "role": "trading-calendar and official market reference",
+      "inputs": ["tradeDate","ticker","market"],
+      "outputs": ["isTradingDay","officialCloseDate","marketCode"],
+      "preferredSource": "KRX official Open API",
+      "failurePolicy": "preserve-last-valid"
+    },
+    {
+      "id": "price",
+      "label": "Price",
+      "required": true,
+      "role": "price trend and relative-strength calculation",
+      "inputs": ["ticker","tradeDate"],
+      "outputs": ["close","volume","turnoverKrw","ma20","ma20Slope5dPct","aboveMa20Days","return5dPct","return20dPct","benchmarkReturn5dPct","benchmarkReturn20dPct","rs5pp","rs20pp"],
+      "derived": {
+        "rs5pp": "return5dPct - benchmarkReturn5dPct",
+        "rs20pp": "return20dPct - benchmarkReturn20dPct"
+      },
+      "failurePolicy": "mark-not-ready"
+    },
+    {
+      "id": "flow",
+      "label": "Flow",
+      "required": true,
+      "role": "foreign and institutional confirmation",
+      "inputs": ["ticker","tradeDate"],
+      "outputs": ["foreignNet1dBillionKrw","foreignNet5dBillionKrw","foreignBuyDays5d","institutionNet1dBillionKrw","institutionNet5dBillionKrw"],
+      "preferredSource": "KRX official investor trading data",
+      "failurePolicy": "mark-not-ready"
+    },
+    {
+      "id": "eps",
+      "label": "EPS",
+      "required": false,
+      "role": "consensus revision and earnings momentum",
+      "inputs": ["ticker","asOf"],
+      "outputs": ["epsFy1","epsFy1Revision30dPct","revenueRevision30dPct","opRevision30dPct","consensusProvider","observedAt"],
+      "quality": {
+        "minimumProviderClass": "authorized-consensus",
+        "maxAgeDays": 7
+      },
+      "failurePolicy": "retain-prior-score-and-flag-stale"
+    },
+    {
+      "id": "ir",
+      "label": "IR",
+      "required": true,
+      "role": "primary-source evidence for CAPEX exposure, backlog, product ramp and bottlenecks",
+      "inputs": ["ticker","asOf"],
+      "outputs": ["evidenceId","publishedAt","sourceUrl","sourceType","metric","value","unit","quoteHash"],
+      "allowedSourceTypes": ["company-ir","company-filing","official-press-release"],
+      "failurePolicy": "do-not-upgrade-fundamental-score"
+    }
+  ],
+  "normalizedSnapshot": {
+    "requiredFields": ["asOf","ticker","company","ready","sourceHealth","market","flow","eps","irEvidence"],
+    "sourceHealthValues": ["LIVE","STALE","NOT_CONNECTED","FALLBACK"],
+    "readyRule": "KRX + Price + Flow must be LIVE or valid FALLBACK; IR must have at least one non-stale primary-source item; EPS may be STALE without blocking price gates.",
+    "sample": {
+      "asOf": "2026-10-01T16:10:00+09:00",
+      "ticker": "000660",
+      "company": "SK하이닉스",
+      "ready": false,
+      "sourceHealth": {"krx":"LIVE","price":"LIVE","flow":"LIVE","eps":"STALE","ir":"LIVE"},
+      "market": {"close":1806000,"ma20":1764000,"ma20Slope5dPct":-0.4,"aboveMa20Days":1,"rs5pp":0.8,"rs20pp":5.7},
+      "flow": {"foreignNet5dBillionKrw":-5520,"foreignBuyDays5d":0},
+      "eps": {"epsFy1Revision30dPct":null,"observedAt":null},
+      "irEvidence": []
+    }
+  },
+  "governance": {
+    "noFabrication": true,
+    "primarySourceRequiredForFundamentalUpgrade": true,
+    "protectedMainPublishing": "bot-branch-pull-request",
+    "rawEvidenceRetentionDays": 180
+  }
+}
