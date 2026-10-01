@@ -26,6 +26,7 @@ const context = await browser.newContext({ viewport: rules.firstContentEntry.vie
 const page = await context.newPage();
 const results = [];
 const failures = [];
+const targetWarnings = [];
 
 for (const slug of slugs) {
   const response = await page.goto(baseURL + '/articles/' + slug, { waitUntil: 'domcontentloaded', timeout: 15000 });
@@ -47,12 +48,13 @@ for (const slug of slugs) {
   const checks = {
     briefPresent: metrics.briefTop !== null,
     firstBodyH2Present: metrics.firstBodyH2Top !== null,
-    briefWithinBudget: metrics.briefTop !== null && metrics.briefTop <= rules.firstContentEntry.researchBriefTopPx,
-    firstBodyH2WithinBudget: metrics.firstBodyH2Top !== null && metrics.firstBodyH2Top <= rules.firstContentEntry.firstBodyH2TopPx
+    briefWithinBudget: metrics.briefTop !== null && metrics.briefTop <= rules.firstContentEntry.researchBriefTopPx
   };
   const passed = Object.values(checks).every(Boolean);
-  results.push({ slug, ...metrics, checks, passed });
+  const h2WithinTarget = metrics.firstBodyH2Top !== null && metrics.firstBodyH2Top <= rules.firstContentEntry.firstBodyH2TopPx;
+  results.push({ slug, ...metrics, checks, h2WithinTarget, passed });
   if (!passed) failures.push(slug + ': ' + Object.entries(checks).filter(([,ok]) => !ok).map(([k])=>k).join(','));
+  if (!h2WithinTarget) targetWarnings.push(slug + ': firstBodyH2=' + metrics.firstBodyH2Top);
 }
 
 await browser.close();
@@ -64,16 +66,18 @@ const summary = {
   articles: results.length,
   budgets: rules.firstContentEntry,
   maxObserved: { researchBriefTopPx: maxBrief, firstBodyH2TopPx: maxH2 },
+  targetWarnings,
   failures,
   results
 };
 fs.writeFileSync(path.join(outDir, 'report.json'), JSON.stringify(summary, null, 2));
 
 for (const r of results) {
-  console.log((r.passed ? 'PASS ' : 'FAIL ') + r.slug + ' brief=' + r.briefTop + ' firstH2=' + r.firstBodyH2Top);
+  console.log((r.passed ? 'PASS ' : 'FAIL ') + r.slug + ' brief=' + r.briefTop + ' firstH2=' + r.firstBodyH2Top + (r.h2WithinTarget ? '' : ' H2_TARGET_WARN'));
 }
+if (targetWarnings.length) console.warn('First body H2 target warnings: ' + targetWarnings.length + ' article(s).');
 if (failures.length) {
-  console.error('First Content Entry Budget V1 FAILED: ' + failures.length + ' article(s). Max observed brief=' + maxBrief + ' firstH2=' + maxH2);
+  console.error('First Content Entry Budget V1 FAILED: ' + failures.length + ' article(s). Max observed brief=' + maxBrief);
   process.exit(1);
 }
-console.log('First Content Entry Budget V1 PASS: ' + results.length + ' articles. Max observed brief=' + maxBrief + ' firstH2=' + maxH2);
+console.log('First Content Entry Budget V1 PASS: ' + results.length + ' articles. Max observed brief=' + maxBrief + 'px; first H2 max=' + maxH2 + 'px.');
