@@ -74,7 +74,17 @@
       "pageHeightDeltaPx",
       "pageHeightDeltaPct"
     ],
-    "blocking": false
+    "blocking": false,
+    "recommendation": {
+      "minimumMeasurements": 15,
+      "minimumDeployments": 3,
+      "percentile": "p95",
+      "safetyMultiplier": 1.2,
+      "roundUpStepPct": 0.5,
+      "floorPct": 3,
+      "ceilingPct": 20,
+      "mode": "candidate_only_until_explicitly_promoted_to_hard_gate"
+    }
   },
   "productionTargets": [
     {
@@ -99,8 +109,46 @@
     },
     {
       "surface": "guide",
-      "name": "guide-end-production",
+      "name": "guide-investing-production",
+      "path": "/guides/investing",
+      "placement": "guide-end",
+      "viewportNames": [
+        "mobile-390",
+        "desktop-1440"
+      ],
+      "selectors": {
+        "before": "body > main",
+        "ad": "[data-ad-placement=\"guide-end\"]",
+        "after": "#site-footer-v2"
+      },
+      "distanceFields": {
+        "beforeToAd": "contentToAdPx",
+        "adToAfter": "adToFooterPx"
+      }
+    },
+    {
+      "surface": "guide",
+      "name": "guide-ai-production",
       "path": "/guides/ai-productivity",
+      "placement": "guide-end",
+      "viewportNames": [
+        "mobile-390",
+        "desktop-1440"
+      ],
+      "selectors": {
+        "before": "body > main",
+        "ad": "[data-ad-placement=\"guide-end\"]",
+        "after": "#site-footer-v2"
+      },
+      "distanceFields": {
+        "beforeToAd": "contentToAdPx",
+        "adToAfter": "adToFooterPx"
+      }
+    },
+    {
+      "surface": "guide",
+      "name": "guide-leadership-production",
+      "path": "/guides/growth-leadership",
       "placement": "guide-end",
       "viewportNames": [
         "mobile-390",
