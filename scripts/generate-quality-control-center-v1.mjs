@@ -19,7 +19,8 @@ const priority=read(paths.priority);
 const rum=read(paths.rum);
 const lab=read(paths.lab);
 const debt=read(paths.debt);
-const business=read(paths.business);\nconst effort=read(paths.effort);
+const business=read(paths.business);
+const effort=read(paths.effort);
 
 const status={
   visual:visual?(visual.failures?.length?'FAIL':visual.warnings?.length?'WARN':'PASS'):'MISSING',
@@ -59,7 +60,8 @@ const metric=(name,val,sub='')=>'<div class="card"><span>'+esc(name)+'</span><b>
 const topRows=(first?.top5||[]).map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(r.slug)+'</td><td>'+r.firstBodyH2TopPx+'px</td><td>+'+r.excessPx+'px</td></tr>').join('');
 const debtRows=(debt?.top10||[]).map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(r.priority)+'</td><td>'+esc(r.path)+'</td><td>'+esc((r.worstMetric||'-').toUpperCase())+'</td><td>'+esc(r.score)+'</td></tr>').join('');
 const businessRows=(business?.top10||[]).map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(r.tier)+'</td><td>'+esc(r.path)+'</td><td>'+esc(r.combinedScore)+'</td><td>'+esc(r.seoClicks)+'</td><td>'+esc(r.pageViews)+'</td><td>'+esc(Number(r.estimatedEarningsKrw||0).toFixed(0))+'</td></tr>').join('');
-const effortRows=(effort?.top10||[]).map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(r.executionTier)+'</td><td>'+esc(r.path)+'</td><td>'+esc(r.executionValue)+'</td><td>'+esc(r.effortScore)+'</td><td>'+esc(r.worstMetric||'-')+'</td></tr>').join('');\nconst rumRows=['lcp','cls','inp'].map((m)=>{
+const effortRows=(effort?.top10||[]).map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+esc(r.executionTier)+'</td><td>'+esc(r.path)+'</td><td>'+esc(r.executionValue)+'</td><td>'+esc(r.effortScore)+'</td><td>'+esc(r.worstMetric||'-')+'</td></tr>').join('');
+const rumRows=['lcp','cls','inp'].map((m)=>{
   const v=rum?.metrics?.[m];
   const samples=Number(v?.samples??0);
   const milestone=samples>=20?'READY':samples>=10?'10/20':samples>=5?'5/10':samples+'/5';

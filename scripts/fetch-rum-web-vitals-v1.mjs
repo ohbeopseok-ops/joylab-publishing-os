@@ -12,7 +12,14 @@ if(!accountId||!token) throw new Error('RUM adapter requires CLOUDFLARE_ACCOUNT_
 const endpoint=`https://api.cloudflare.com/client/v4/accounts/${accountId}/analytics_engine/sql`;
 async function query(sql){
   const res=await fetch(endpoint,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'text/plain'},body:`${sql}\nFORMAT JSON`});
-  if(!res.ok) throw new Error(`Cloudflare Analytics SQL ${res.status}: ${await res.text()}`);
+  if(!res.ok){
+    const body=await res.text();
+    if(res.status===422 && /unable to find type of column/i.test(body)){
+      console.warn('Cloudflare Analytics schema not ready for Web Vitals yet; treating as COLLECT.');
+      return [];
+    }
+    throw new Error(`Cloudflare Analytics SQL ${res.status}: ${body}`);
+  }
   const json=await res.json();
   return Array.isArray(json)?json:(json.data??json.result??[]);
 }
