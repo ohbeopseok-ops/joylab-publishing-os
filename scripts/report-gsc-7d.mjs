@@ -6,6 +6,7 @@ const root = process.cwd();
 const outputDir = path.join(root, 'qa-artifacts/gsc-7d');
 const rawServiceAccount = process.env.GSC_SERVICE_ACCOUNT_JSON;
 const siteUrl = process.env.GSC_SITE_URL || 'sc-domain:aijoylab.kr';
+const pageRowLimit = Math.max(20, Math.min(25000, Number(process.env.GSC_PAGE_ROW_LIMIT || 1000)));
 
 const fmt = (d) => d.toISOString().slice(0, 10);
 const sum = (rows = []) => rows.reduce((acc, row) => {
@@ -74,7 +75,7 @@ previousStart.setUTCDate(previousStart.getUTCDate() - 6);
 const [currentDaily, previousDaily, topPages] = await Promise.all([
   query({ startDate: fmt(start), endDate: fmt(end), dimensions: ['date'], rowLimit: 100 }),
   query({ startDate: fmt(previousStart), endDate: fmt(previousEnd), dimensions: ['date'], rowLimit: 100 }),
-  query({ startDate: fmt(start), endDate: fmt(end), dimensions: ['page'], rowLimit: 20 })
+  query({ startDate: fmt(start), endDate: fmt(end), dimensions: ['page'], rowLimit: pageRowLimit })
 ]);
 
 const current = finish(sum(currentDaily.rows));

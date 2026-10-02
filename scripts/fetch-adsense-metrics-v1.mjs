@@ -96,8 +96,41 @@ async function fetchPeriod(periodStart, periodEnd){
     ctrPct:num('PAGE_VIEWS_CTR')==null?null:num('PAGE_VIEWS_CTR')*100
   };
 }
+async function fetchPageBreakdown(periodStart, periodEnd){
+  const params=new URLSearchParams();
+  params.append('dimensions','PAGE_URL');
+  for(const metric of ['PAGE_VIEWS','ESTIMATED_EARNINGS']){
+    params.append('metrics',metric);
+  }
+  params.append('filters',`PAGE_URL=@https://${DOMAIN}${PAGE_PREFIX}`);
+  params.set('currencyCode','KRW');
+  params.set('startDate.year',String(periodStart.year));
+  params.set('startDate.month',String(periodStart.month));
+  params.set('startDate.day',String(periodStart.day));
+  params.set('endDate.year',String(periodEnd.year));
+  params.set('endDate.month',String(periodEnd.month));
+  params.set('endDate.day',String(periodEnd.day));
+  const url=`https://adsense.googleapis.com/v2/${account}/reports:generate?${params.toString()}`;
+  const result=await api(url,token);
+  const headers=result.headers||[];
+  const index=Object.fromEntries(headers.map((h,i)=>[h.name,i]));
+  return (result.rows||[]).map((row)=>{
+    const cell=(name)=>row.cells?.[index[name]]?.value??null;
+    const pageUrl=String(cell('PAGE_URL')||'');
+    let pathName='/';
+    try{pathName=new URL(pageUrl).pathname||'/';}catch{}
+    return {
+      pageUrl,
+      path:pathName,
+      pageViews:Number(cell('PAGE_VIEWS')||0),
+      estimatedEarningsKrw:Number(cell('ESTIMATED_EARNINGS')||0)
+    };
+  }).filter((row)=>row.pageUrl);
+}
+
 const metrics=await fetchPeriod(start,end);
 const baselineMetrics=await fetchPeriod(baselineStart,baselineEnd);
+const pages=await fetchPageBreakdown(start,end);
 
 const sitesPayload=await api(`https://adsense.googleapis.com/v2/${account}/sites?pageSize=100`,token);
 const site=(sitesPayload.sites||[]).find(s=>String(s.domain||'').toLowerCase()===DOMAIN.toLowerCase())||null;
@@ -122,7 +155,8 @@ const payload={
   period:{days:DAYS,startDate:iso(start),endDate:iso(end)},
   baselinePeriod:{days:DAYS,startDate:iso(baselineStart),endDate:iso(baselineEnd)},
   metrics,
-  baselineMetrics
+  baselineMetrics,
+  pages
 };
 fs.mkdirSync(path.dirname(OUT),{recursive:true});
 fs.writeFileSync(OUT,JSON.stringify(payload,null,2)+'\n');
