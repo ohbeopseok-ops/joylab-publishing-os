@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "asOf": null,
+  "generatedAt": null,
+  "sourceHealth": {
+    "eps": "NOT_CONNECTED",
+    "ir": "NOT_CONNECTED"
+  },
+  "governance": {
+    "maxEpsAgeDays": 7,
+    "primarySourceRequiredForUpgrade": true,
+    "allowedIrSourceTypes": [
+      "company-ir",
+      "company-filing",
+      "official-press-release"
+    ]
+  },
+  "companies": []
+}

@@ -6,11 +6,13 @@ on:
     paths:
       - 'src/data/ai-capex-leader-*.json'
       - 'src/data/ai-capex-market-snapshot-v1.json'
+      - 'src/data/ai-capex-fundamental-snapshot-v1.json'
       - 'src/data/ai-capex-regime-events-v1.json'
       - 'src/pages/guides/ai-capex-map.astro'
       - 'src/styles/ai-capex-map-v1.css'
       - 'scripts/update-ai-capex-leader-v1.mjs'
       - 'scripts/update-ai-capex-market-snapshot-v1.mjs'
+      - 'scripts/update-ai-capex-fundamental-snapshot-v1.mjs'
       - 'scripts/lib/ai-capex/**'
       - 'package.json'
       - '.github/workflows/ai-capex-leader-*.yml'
@@ -39,6 +41,8 @@ jobs:
       - run: npm ci
       - name: Market adapter self-test
         run: npm run ai-capex-market:self-test
+      - name: Fundamental adapter self-test
+        run: npm run ai-capex-fundamental:self-test
       - name: Leader runtime self-test
         run: npm run ai-capex-leader:self-test
       - name: Validate leader contracts
