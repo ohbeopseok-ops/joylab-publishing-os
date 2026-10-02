@@ -119,9 +119,11 @@ jobs:
 
       - name: Experience Debt Ranking V1
         if: always()
+        continue-on-error: true
         run: node scripts/rank-experience-debt-v1.mjs
 
       - name: Fetch GSC business signals
+        if: always()
         continue-on-error: true
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
@@ -130,6 +132,7 @@ jobs:
         run: node scripts/report-gsc-7d.mjs
 
       - name: Fetch AdSense page-level business signals
+        if: always()
         continue-on-error: true
         env:
           ADSENSE_OAUTH_CLIENT_ID: ${{ secrets.ADSENSE_OAUTH_CLIENT_ID }}
@@ -143,6 +146,7 @@ jobs:
         run: node scripts/fetch-adsense-metrics-v1.mjs
 
       - name: Compose business impact signals
+        if: always()
         continue-on-error: true
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -155,10 +159,12 @@ jobs:
 
       - name: Business Impact Debt Ranking V1
         if: always()
+        continue-on-error: true
         run: node scripts/rank-business-impact-debt-v1.mjs
 
       - name: Business Impact × Effort Ranking V2
         if: always()
+        continue-on-error: true
         run: node scripts/rank-business-impact-effort-v2.mjs
 
       - name: Generate Quality Control Center V1
