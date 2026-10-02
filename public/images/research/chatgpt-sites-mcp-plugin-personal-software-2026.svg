@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">ChatGPT Sites MCP Plugin Personal Software</title>
+<desc id="desc">ChatGPT를 중심으로 Sites, MCP, Plugin, Extensions가 연결되어 Personal Software로 확장되는 구조</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#07111f"/>
+    <stop offset="1" stop-color="#0b1f4d"/>
+  </linearGradient>
+  <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#1677ff"/>
+    <stop offset="1" stop-color="#45d7ff"/>
+  </linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="20" flood-opacity=".35"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<circle cx="1220" cy="170" r="260" fill="#1677ff" opacity=".08"/>
+<circle cx="1320" cy="720" r="320" fill="#45d7ff" opacity=".05"/>
+<g font-family="Arial,Helvetica,sans-serif" fill="#fff">
+  <text x="110" y="190" font-size="60" font-weight="700">ChatGPT가</text>
+  <text x="110" y="260" font-size="60" font-weight="700">소프트웨어 플랫폼이 된다</text>
+  <text x="114" y="320" font-size="26" fill="#9fc9ff">Sites → MCP → Plugin → Personal Software</text>
+</g>
+<g transform="translate(790 150)" filter="url(#shadow)">
+  <rect x="0" y="0" width="620" height="560" rx="32" fill="#0d1a2b" stroke="#24558f"/>
+  <rect x="48" y="54" width="240" height="86" rx="18" fill="#112942" stroke="#45d7ff"/>
+  <text x="168" y="106" text-anchor="middle" font-family="Arial" font-size="28" fill="#fff" font-weight="700">ChatGPT</text>
+  <path d="M288 97H380" stroke="url(#glow)" stroke-width="6" stroke-linecap="round"/>
+  <rect x="380" y="54" width="190" height="86" rx="18" fill="#112942" stroke="#1677ff"/>
+  <text x="475" y="106" text-anchor="middle" font-family="Arial" font-size="26" fill="#fff">Plugin</text>
+  <path d="M475 140V210" stroke="url(#glow)" stroke-width="6"/>
+  <rect x="350" y="210" width="250" height="86" rx="18" fill="#10253c" stroke="#45d7ff"/>
+  <text x="475" y="262" text-anchor="middle" font-family="Arial" font-size="26" fill="#fff">MCP</text>
+  <path d="M475 296V360M475 360H170M475 360H475M475 360H780" stroke="#2da9ff" stroke-width="4"/>
+  <g>
+    <rect x="65" y="390" width="210" height="86" rx="18" fill="#0f2236" stroke="#2a6ab4"/>
+    <text x="170" y="443" text-anchor="middle" font-family="Arial" font-size="24" fill="#fff">Sites</text>
+    <rect x="370" y="390" width="210" height="86" rx="18" fill="#0f2236" stroke="#2a6ab4"/>
+    <text x="475" y="443" text-anchor="middle" font-family="Arial" font-size="24" fill="#fff">Data</text>
+  </g>
+  <rect x="80" y="500" width="490" height="36" rx="18" fill="#0a1a2c" stroke="#183b63"/>
+  <text x="325" y="525" text-anchor="middle" font-family="Arial" font-size="18" fill="#9fc9ff">Extensions · Sidebar · Panel · Composer</text>
+</g>
+</svg>

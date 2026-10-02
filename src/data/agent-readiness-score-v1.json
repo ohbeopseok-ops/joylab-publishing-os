@@ -1,0 +1,88 @@
+{
+  "version": "1.0",
+  "asOf": "2026-10-02",
+  "methodology": {
+    "total": 100,
+    "dimensions": [
+      {
+        "id": "data",
+        "label": "Data & Context",
+        "weight": 20
+      },
+      {
+        "id": "permission",
+        "label": "Permission Design",
+        "weight": 20
+      },
+      {
+        "id": "tool",
+        "label": "Tool / MCP Surface",
+        "weight": 20
+      },
+      {
+        "id": "audit",
+        "label": "Auditability",
+        "weight": 20
+      },
+      {
+        "id": "reliability",
+        "label": "Reliability & Recovery",
+        "weight": 20
+      }
+    ],
+    "hardGates": {
+      "permissionBelow12": "NO_DEPLOY",
+      "auditBelow12": "NO_WRITE",
+      "toolBelow10": "READ_ONLY",
+      "reliabilityBelow12": "PILOT_ONLY"
+    }
+  },
+  "scores": [
+    {
+      "product": "Salesforce",
+      "data": 19,
+      "permission": 20,
+      "tool": 19,
+      "audit": 20,
+      "reliability": 18,
+      "total": 96
+    },
+    {
+      "product": "Slack",
+      "data": 19,
+      "permission": 18,
+      "tool": 19,
+      "audit": 18,
+      "reliability": 16,
+      "total": 90
+    },
+    {
+      "product": "Notion",
+      "data": 18,
+      "permission": 18,
+      "tool": 18,
+      "audit": 17,
+      "reliability": 15,
+      "total": 86
+    },
+    {
+      "product": "LeaderDesk Current",
+      "data": 17,
+      "permission": 14,
+      "tool": 8,
+      "audit": 17,
+      "reliability": 18,
+      "total": 74
+    },
+    {
+      "product": "LeaderDesk MCP Target",
+      "data": 17,
+      "permission": 18,
+      "tool": 18,
+      "audit": 18,
+      "reliability": 18,
+      "total": 89
+    }
+  ],
+  "note": "JoyLab analytical framework; public product documentation plus current LeaderDesk architecture. Scores are not vendor certifications."
+}

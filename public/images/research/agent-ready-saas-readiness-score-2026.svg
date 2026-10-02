@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Agent Ready SaaS Scorecard</title>
+<desc id="desc">Data Permission Tool MCP Auditability Reliability 다섯 축으로 Agent Ready SaaS를 평가하는 JoyLab Scorecard</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071321"/><stop offset="1" stop-color="#102b54"/></linearGradient>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1677ff"/><stop offset="1" stop-color="#67e8ff"/></linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<g font-family="Arial,Helvetica,sans-serif">
+  <text x="105" y="185" font-size="64" fill="#fff" font-weight="700">Agent Ready SaaS</text>
+  <text x="105" y="255" font-size="44" fill="#fff" font-weight="700">AI가 쓰기 좋은 소프트웨어의 5가지 조건</text>
+  <text x="108" y="315" font-size="24" fill="#a8d2ff">Data · Permission · Tool/MCP · Audit · Reliability</text>
+</g>
+<g transform="translate(850 150)">
+  <rect width="600" height="570" rx="34" fill="#0d1d30" stroke="#285887"/>
+  <text x="300" y="76" text-anchor="middle" font-family="Arial" font-size="26" fill="#fff" font-weight="700">AGENT READINESS · 100</text>
+  <g font-family="Arial" font-size="20" fill="#fff">
+    <text x="60" y="145">Data &amp; Context</text><rect x="60" y="165" width="480" height="22" rx="11" fill="#102e4d"/><rect x="60" y="165" width="445" height="22" rx="11" fill="url(#g)"/>
+    <text x="60" y="225">Permission Design</text><rect x="60" y="245" width="480" height="22" rx="11" fill="#102e4d"/><rect x="60" y="245" width="420" height="22" rx="11" fill="url(#g)"/>
+    <text x="60" y="305">Tool / MCP Surface</text><rect x="60" y="325" width="480" height="22" rx="11" fill="#102e4d"/><rect x="60" y="325" width="405" height="22" rx="11" fill="url(#g)"/>
+    <text x="60" y="385">Auditability</text><rect x="60" y="405" width="480" height="22" rx="11" fill="#102e4d"/><rect x="60" y="405" width="430" height="22" rx="11" fill="url(#g)"/>
+    <text x="60" y="465">Reliability &amp; Recovery</text><rect x="60" y="485" width="480" height="22" rx="11" fill="#102e4d"/><rect x="60" y="485" width="390" height="22" rx="11" fill="url(#g)"/>
+  </g>
+</g>
+</svg>
