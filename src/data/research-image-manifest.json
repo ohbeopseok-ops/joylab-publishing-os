@@ -2227,5 +2227,24 @@
         "caption": "Google의 Intent, Meta의 Discovery, OpenAI의 대화형 Decision Layer를 구조적으로 비교합니다."
       }
     ]
+  },
+  "compounder-roic-reinvestment-moat": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "주식회사의 역사에서 ROIC 재투자율 경제적 해자로 이어지는 복리기업 구조를 표현한 JoyLab 리서치 대표 이미지",
+      "caption": "복리기업의 핵심은 높은 ROIC 하나가 아니라 높은 수익률로 자본을 다시 투자할 수 있는 기간입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "ROIC 재투자율 경제적 해자 지속기간을 복리기업의 핵심 신호로 정리한 JoyLab Visual Research 이미지",
+        "caption": "복리기업은 ROIC × 재투자율 × 경제적 해자 × 지속기간을 함께 봐야 합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Efficiency Reinvestment Moat Duration의 네 단계로 복리기업을 분석하는 JoyLab 리서치 프레임워크 이미지",
+        "caption": "Efficiency → Reinvestment → Moat → Duration 순서로 장기 복리 가능성을 점검합니다."
+      }
+    ]
   }
 }
