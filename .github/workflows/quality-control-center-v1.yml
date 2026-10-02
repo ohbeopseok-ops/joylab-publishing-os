@@ -3,6 +3,16 @@ name: JoyLab Quality Control Center V1
 on:
   schedule:
     - cron: "45 22 * * *"
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/rank-business-impact-effort-v2.mjs'
+      - 'scripts/generate-quality-control-center-v1.mjs'
+      - 'scripts/fetch-business-impact-signals-v1.mjs'
+      - 'scripts/rank-business-impact-debt-v1.mjs'
+      - 'scripts/fetch-rum-web-vitals-v1.mjs'
+      - 'src/data/first-content-priority-v1.json'
+      - '.github/workflows/quality-control-center-v1.yml'
   workflow_dispatch:
 
 permissions:
@@ -147,6 +157,10 @@ jobs:
         if: always()
         run: node scripts/rank-business-impact-debt-v1.mjs
 
+      - name: Business Impact × Effort Ranking V2
+        if: always()
+        run: node scripts/rank-business-impact-effort-v2.mjs
+
       - name: Generate Quality Control Center V1
         if: always()
         run: node scripts/generate-quality-control-center-v1.mjs
@@ -187,6 +201,7 @@ jobs:
             qa-artifacts/gsc-7d
             qa-artifacts/business-impact-signals-v1
             qa-artifacts/business-impact-debt-v1
+            qa-artifacts/business-impact-effort-v2
             qa-artifacts/quality-control-center-v1
           if-no-files-found: warn
           retention-days: 90
