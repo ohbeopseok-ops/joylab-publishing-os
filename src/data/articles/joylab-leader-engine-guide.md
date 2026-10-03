@@ -28,6 +28,8 @@ faqs:
     answer: "실제 자금이 집중되고 있는지를 보여주는 대표적인 유동성 신호이기 때문입니다."
   - question: "실적이 나쁜데 강한 종목은 제외하나요?"
     answer: "테마와 선행 기대가 있을 수 있으므로 원인을 확인하되 근거 없는 강세는 위험도를 높게 봅니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -56,8 +58,15 @@ faqs:
 ## JoyLab 한 줄 답
 **Leader Engine의 목적은 ‘정답 종목’을 찾는 것이 아니라 검토해야 할 후보를 증거 기반으로 줄이는 것입니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/relative-strength-leadership-guide)
+- [같은 시리즈 다음·관련 글](/articles/stock-decision-gate-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://data.krx.co.kr/)
 - [공식 자료 2](https://kind.krx.co.kr/)
+
 
