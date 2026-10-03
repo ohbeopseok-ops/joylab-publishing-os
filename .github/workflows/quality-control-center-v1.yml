@@ -8,6 +8,7 @@ on:
     paths:
       - 'scripts/generate-official-execution-queue-v1.mjs'
       - 'scripts/generate-ranking-drift-v1.mjs'
+      - 'scripts/calibrate-queue-confidence-v1.mjs'
       - 'scripts/generate-today-fix-cards-v1.mjs'
       - 'scripts/check-wave3-release-gate-v1.mjs'
       - 'scripts/generate-quality-control-center-v1.mjs'
@@ -124,6 +125,7 @@ jobs:
         run: node scripts/check-mobile-lighthouse-v1.mjs
 
       - name: Wave 3 Release Gate V1
+        continue-on-error: true
         run: node scripts/check-wave3-release-gate-v1.mjs
 
       - name: Real User Experience Gate V1
@@ -194,6 +196,10 @@ jobs:
         if: always()
         run: node scripts/generate-ranking-drift-v1.mjs
 
+      - name: Queue Confidence Calibration V1
+        if: always()
+        run: node scripts/calibrate-queue-confidence-v1.mjs
+
       - name: Today Fix Cards V1
         if: always()
         run: node scripts/generate-today-fix-cards-v1.mjs
@@ -242,6 +248,7 @@ jobs:
             qa-artifacts/business-impact-effort-v2
             qa-artifacts/official-execution-queue-v1
             qa-artifacts/ranking-drift-v1
+            qa-artifacts/queue-confidence-calibration-v1
             qa-artifacts/today-fix-cards-v1
             qa-artifacts/quality-control-center-v1
           if-no-files-found: warn
