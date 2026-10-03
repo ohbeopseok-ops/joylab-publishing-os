@@ -68,3 +68,10 @@ HBM은 중요하지만 범용 DRAM·NAND와 전체 메모리 사이클도 함께
 
 - [산업통상자원부](https://www.motie.go.kr/)
 - [관세청](https://www.customs.go.kr/)
+
+## Related Research
+
+- [JoyLab 투자 리서치 클러스터](/guides/investing)
+- [ETF·Macro·Stocks 30부작](/guides/investing-foundations)
+- [이전/연결 리서치](/articles/macro-export-earnings-cycle)
+- [다음/연결 리서치](/articles/macro-macro-to-asset-allocation)
