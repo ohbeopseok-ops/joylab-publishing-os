@@ -16,7 +16,8 @@ export const investmentThesisIds = [
   'physical-ai',
   'defense-geopolitics',
   'korea-value-up',
-  'macro-liquidity'
+  'macro-liquidity',
+  'mega-project-capex'
 ] as const;
 
 export const investmentResearchTypes = [
