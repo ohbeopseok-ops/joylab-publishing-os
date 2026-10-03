@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-policy-rate"
 series: "JoyLab Macro 초보자 완전정복"
 seriesOrder: 2
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"기준금리를 내리면 주식은 무조건 오르나요?","answer":"아닙니다. 금리인하의 이유가 심각한 경기침체라면 기업이익 악화가 더 크게 작용할 수 있습니다."},{"question":"국채금리는 누가 정하나요?","answer":"시장에서 채권 가격이 거래되면서 수익률이 결정됩니다."},{"question":"장기금리가 기준금리보다 낮을 수도 있나요?","answer":"가능합니다. 미래 경기둔화와 금리인하 기대가 강하면 장기금리가 더 낮아질 수 있습니다."}]
 ---
 ## 3줄 요약
