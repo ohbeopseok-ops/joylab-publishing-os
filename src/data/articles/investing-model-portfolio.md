@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-model-portfolio"
 series: "JoyLab ETF 초보자 완전정복"
 seriesOrder: 10
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"60/40이 50대 투자자에게 항상 맞나요?","answer":"아닙니다. 나이만으로 비중을 결정하기 어렵습니다. 은퇴까지 남은 기간, 연금, 소득, 부채, 예상 인출 규모 등이 함께 고려되어야 합니다."},{"question":"ETF를 많이 담을수록 더 분산되나요?","answer":"아닙니다. 여러 ETF가 동일한 종목을 중복 보유하면 실제 분산효과가 작을 수 있습니다."},{"question":"한 번 만든 포트폴리오는 계속 유지하면 되나요?","answer":"투자목표나 현금흐름이 바뀌면 전략 자체를 재검토할 수 있습니다. 다만 시장 뉴스에 따라 자주 전략을 바꾸는 것과는 구분해야 합니다."}]
 ---
 ## 3줄 요약
