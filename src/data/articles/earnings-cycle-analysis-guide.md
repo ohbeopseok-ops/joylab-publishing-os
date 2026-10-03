@@ -28,6 +28,8 @@ faqs:
     answer: "수요 회복 전 과잉재고는 부담이지만 전략적 재고인지도 확인해야 합니다."
   - question: "실적 발표 뒤에 분석해도 되나요?"
     answer: "발표는 확인용이고 시장은 그 전의 추정치 변화를 먼저 반영할 수 있습니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -52,8 +54,15 @@ faqs:
 ## JoyLab 한 줄 답
 **사이클 주식에서는 이익의 절대값보다 이익 방향이 언제 꺾이는지가 더 중요할 때가 많습니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/sk-hynix-analysis-framework)
+- [같은 시리즈 다음·관련 글](/articles/eps-revision-analysis-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://dart.fss.or.kr/)
 - [공식 자료 2](https://data.krx.co.kr/)
+
 
