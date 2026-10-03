@@ -19,6 +19,8 @@ canonical: "https://aijoylab.kr/articles/macro-macro-dashboard"
 series: "Macro 투자 기초 10부작"
 seriesOrder: 10
 readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "macro macro dashboard — JoyLab Investing Foundations 대표 이미지"
 investmentIndustries: []
 investmentTheses:
   - macro-liquidity
