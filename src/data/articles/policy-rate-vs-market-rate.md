@@ -45,7 +45,6 @@ investmentResearchType: "macro"
 ## 시장금리는 왜 다르게 움직이나
 
 3년·10년 국채금리는 미래 기준금리, 물가, 성장률, 국채 수급, 위험선호를 함께 반영합니다. 예를 들어 기준금리가 아직 높은 상태라도 시장이 향후 인하를 강하게 예상하면 장기금리는 먼저 하락할 수 있습니다.
-
 [근거: 공식 자료](https://www.federalreserve.gov/monetarypolicy/openmarket.htm)
 
 ## 투자와의 연결
