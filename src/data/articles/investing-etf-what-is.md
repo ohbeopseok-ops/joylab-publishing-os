@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-etf-what-is"
 series: "JoyLab ETF 초보자 완전정복"
 seriesOrder: 1
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"ETF는 원금이 보장되나요?","answer":"아닙니다. ETF는 시장가격이 변동하는 투자상품입니다. 기초자산이 하락하면 손실이 발생할 수 있습니다."},{"question":"ETF 하나만 사도 분산투자인가요?","answer":"상품에 따라 다릅니다. 수백 종목을 담는 광범위 지수 ETF도 있지만 특정 산업이나 테마 몇 종목에 집중된 ETF도 있습니다."},{"question":"ETF를 고를 때 수익률이 가장 중요하지 않나요?","answer":"과거 수익률은 참고자료일 뿐입니다. 투자 목적, 기초지수, 비용, 변동성, 중복 노출을 함께 봐야 합니다."}]
 ---
 ## 3줄 요약
