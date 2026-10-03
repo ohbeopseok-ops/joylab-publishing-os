@@ -37,15 +37,14 @@ for(const file of files){
 for(const [series,count] of expectedSeries){
   if(seriesCounts.get(series)!==count) errors.push(`${series}: expected ${count}, got ${seriesCounts.get(series)}`);
 }
-const migratedSeries=new Set(['etf-beginner-10','macro-beginner-10','stocks-beginner-10']);
 const migratedNodes=(graph.nodes??[]).filter(n=>
-  migratedSeries.has(n.series) &&
   typeof n.slug==='string' &&
-  n.slug.startsWith('/articles/')
+  slugs.has(n.slug)
 );
 if(migratedNodes.length!==30) errors.push('expected 30 migrated article nodes, got '+migratedNodes.length);
-for(const node of migratedNodes){
-  if(!slugs.has(node.slug)) errors.push('graph article missing: '+node.id+' -> '+node.slug);
+const mappedSlugs=new Set(migratedNodes.map(n=>n.slug));
+for(const slug of slugs){
+  if(!mappedSlugs.has(slug)) errors.push('migrated article missing from graph: '+slug);
 }
 console.log(`Investing Knowledge V3: nodes=${graph.nodes.length} edges=${graph.edges.length} ETF=${seriesCounts.get('ETF 초보자 완전정복')} Macro=${seriesCounts.get('매크로 초보자 완전정복')} Stocks=${seriesCounts.get('주식 분석 초보자 완전정복')}`);
 if(errors.length){
