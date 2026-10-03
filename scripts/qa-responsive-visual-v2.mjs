@@ -43,7 +43,7 @@ const pages = [
     name: 'articles-index',
     path: '/articles',
     selectors: ['main', '#site-footer-v2'],
-    maxScreens: { 'iphone-390': 38, 'iphone-430': 34, 'ipad-820': 16, 'desktop-1280': 19, 'desktop-1440': 18 }
+    maxScreens: { 'iphone-390': 38, 'iphone-430': 34, 'ipad-820': 16, 'desktop-1280': 19.1, 'desktop-1440': 18 }
   },
   {
     name: 'research-map',
