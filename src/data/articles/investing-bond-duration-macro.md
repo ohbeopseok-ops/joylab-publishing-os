@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-bond-duration-macro"
 series: "JoyLab Macro 초보자 완전정복"
 seriesOrder: 6
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"듀레이션 10이면 금리가 1% 오를 때 정확히 10% 떨어지나요?","answer":"근사치로 이해할 수 있지만 실제 가격변화는 볼록성 등 다른 요인 때문에 정확히 일치하지 않습니다."},{"question":"단기채는 손실이 없나요?","answer":"아닙니다. 변동폭이 상대적으로 작을 뿐 가격과 신용위험이 존재할 수 있습니다."},{"question":"미국 10년 국채 ETF를 살 때 듀레이션만 보면 되나요?","answer":"환율과 상품 구조, 선물형인지 현물형인지도 확인해야 합니다."}]
 ---
 ## 3줄 요약
