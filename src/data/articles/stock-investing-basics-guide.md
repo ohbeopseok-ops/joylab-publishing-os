@@ -28,6 +28,8 @@ faqs:
     answer: "좋은 회사와 좋은 투자 가격은 같은 개념이 아닙니다."
   - question: "가장 먼저 볼 숫자는 무엇인가요?"
     answer: "한 숫자보다 이익의 방향과 변화율을 먼저 보는 편이 좋습니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -58,8 +60,15 @@ faqs:
 ## JoyLab 한 줄 답
 **개별주 투자는 종목 맞히기가 아니라 기업가치가 바뀌는 증거를 추적하는 일입니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/samsung-electronics-analysis-framework)
+- [같은 시리즈 다음·관련 글](/articles/sk-hynix-analysis-framework)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://dart.fss.or.kr/)
 - [공식 자료 2](https://data.krx.co.kr/)
+
 
