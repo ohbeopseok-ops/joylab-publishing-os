@@ -28,6 +28,8 @@ faqs:
     answer: "두 지수의 목적과 분산구조가 다릅니다. Nasdaq100은 더 집중된 성장 노출을 가질 수 있으므로 같은 역할로 보기는 어렵습니다."
   - question: "나스닥이 하락하면 적립식 투자를 중단해야 하나요?"
     answer: "시장 방향을 단정해 행동하기보다 미리 정한 자산배분·현금흐름·리밸런싱 규칙에 따라 판단하는 접근이 일관적입니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -59,6 +61,8 @@ faqs:
 - 총비용과 추적오차
 - 포트폴리오 전체에서 성장주 비중
 
+[근거: 공식 자료](https://www.sec.gov/investor/alerts/etfs.pdf)
+
 ## FAQ
 
 ### Nasdaq100은 장기 투자에 부적합한가요?
@@ -74,78 +78,15 @@ faqs:
 
 **Nasdaq100 ETF는 코어를 대체하는 만능 ETF가 아니라, 포트폴리오의 성장주 민감도를 높이는 도구입니다.**
 
-## Structured Data
+## 이어 읽기
 
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Nasdaq100 ETF",
-  "description": "Nasdaq100 ETF의 성장주 성격, S&P500과의 차이와 중복, 높은 변동성을 이해하는 초보자 가이드입니다.",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://aijoylab.kr/guides/investing/etf/nasdaq100/"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "isPartOf": {
-    "@type": "CreativeWorkSeries",
-    "name": "JoyLab ETF 초보자 완전정복 10부작"
-  }
-}
-~~~
-
-## FAQ Structured Data
-
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Nasdaq100은 장기 투자에 부적합한가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "그렇게 단정할 수 없습니다. 다만 성장주 집중과 높은 변동성을 이해하고 전체 포트폴리오에서 감당 가능한 비중인지 판단해야 합니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "S&P500 대신 Nasdaq100만 사면 되나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "두 지수의 목적과 분산구조가 다릅니다. Nasdaq100은 더 집중된 성장 노출을 가질 수 있으므로 같은 역할로 보기는 어렵습니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "나스닥이 하락하면 적립식 투자를 중단해야 하나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "시장 방향을 단정해 행동하기보다 미리 정한 자산배분·현금흐름·리밸런싱 규칙에 따라 판단하는 접근이 일관적입니다."
-      }
-    }
-  ]
-}
-~~~
-
-## Research Graph Links
-
-- **Parent:** Equity ETF
-- **Related:** S&P500 ETF · Dividend ETF
-- **Compare:** S&P500 ETF · Dividend ETF
-- **Next:** Dividend ETF
-- **Apply:** 실전 모델 포트폴리오
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/sp500-etf-core-guide)
+- [같은 시리즈 다음·관련 글](/articles/dividend-etf-income-guide)
 
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.sec.gov/investor/alerts/etfs.pdf)
 - [공식 자료 2](https://www.investor.gov/introduction-investing/investing-basics/glossary/index-fund)
+
 
