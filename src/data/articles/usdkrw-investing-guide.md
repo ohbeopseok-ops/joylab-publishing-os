@@ -28,6 +28,8 @@ faqs:
     answer: "환율 변동은 줄일 수 있지만 헤지 비용과 추적 차이가 생길 수 있습니다."
   - question: "원화 약세면 삼성전자 같은 수출주는 무조건 오르나요?"
     answer: "아닙니다. 반도체 가격, 수요, 재고, 밸류에이션, 외국인 수급 등 다른 변수가 함께 작용합니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "macro"
 ---
 
 ## 3줄 요약
@@ -63,8 +65,15 @@ faqs:
 
 **환율은 해외투자 수익률의 두 번째 엔진이자 한국 기업이익의 비용·매출 구조를 바꾸는 변수입니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/inflation-real-rate-guide)
+- [같은 시리즈 다음·관련 글](/articles/bond-duration-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.federalreserve.gov/releases/h10/)
 - [공식 자료 2](https://home.treasury.gov/policy-issues/international/exchange-rate-policies)
+
 
