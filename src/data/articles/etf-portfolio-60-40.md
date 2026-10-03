@@ -19,6 +19,8 @@ canonical: "https://aijoylab.kr/articles/etf-portfolio-60-40"
 series: "ETF·자산배분 기초 10부작"
 seriesOrder: 4
 readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "etf portfolio 60 40 — JoyLab Investing Foundations 대표 이미지"
 investmentIndustries: []
 investmentTheses:
   - macro-liquidity
