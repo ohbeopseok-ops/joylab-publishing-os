@@ -28,6 +28,8 @@ faqs:
     answer: "지급 빈도 자체가 경제적 수익을 자동으로 높이지는 않습니다. 기초자산, 비용, 분배정책이 더 중요합니다."
   - question: "은퇴자라면 배당 ETF만 보유하면 되나요?"
     answer: "은퇴 포트폴리오에는 변동성, 인출률, 채권, 현금, 세금 등 여러 요소가 함께 고려되어야 합니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -67,78 +69,15 @@ S&P500은 광범위한 미국 대형주 코어, Nasdaq100은 성장주 민감도
 
 **배당 ETF의 핵심은 ‘얼마나 자주 주느냐’가 아니라 ‘어떤 기업이 어떤 규칙으로 현금흐름을 만들어내느냐’입니다.**
 
-## Structured Data
+## 이어 읽기
 
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Dividend ETF",
-  "description": "배당 ETF의 수익구조, 배당수익률과 총수익률의 차이, 배당성장·고배당 전략을 설명합니다.",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://aijoylab.kr/guides/investing/etf/dividend/"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "isPartOf": {
-    "@type": "CreativeWorkSeries",
-    "name": "JoyLab ETF 초보자 완전정복 10부작"
-  }
-}
-~~~
-
-## FAQ Structured Data
-
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "배당률이 높을수록 좋은 ETF인가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "아닙니다. 주가가 급락해 배당률이 높아졌거나 지속 가능하지 않은 배당이 포함될 수 있습니다. 총수익률과 배당 지속성을 함께 봐야 합니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "월배당 ETF가 분기배당 ETF보다 유리한가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "지급 빈도 자체가 경제적 수익을 자동으로 높이지는 않습니다. 기초자산, 비용, 분배정책이 더 중요합니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "은퇴자라면 배당 ETF만 보유하면 되나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "은퇴 포트폴리오에는 변동성, 인출률, 채권, 현금, 세금 등 여러 요소가 함께 고려되어야 합니다."
-      }
-    }
-  ]
-}
-~~~
-
-## Research Graph Links
-
-- **Parent:** Equity ETF
-- **Related:** S&P500 ETF · Nasdaq100 ETF · Retirement
-- **Compare:** S&P500 ETF · Nasdaq100 ETF
-- **Next:** 채권 ETF 가이드
-- **Apply:** 실전 모델 포트폴리오
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/nasdaq100-etf-growth-guide)
+- [같은 시리즈 다음·관련 글](/articles/bond-etf-core-guide)
 
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.sec.gov/investor/alerts/etfs.pdf)
 - [공식 자료 2](https://www.investor.gov/introduction-investing/investing-basics/glossary/dividend)
+
 
