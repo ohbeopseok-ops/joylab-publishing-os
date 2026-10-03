@@ -1,0 +1,18 @@
+{
+  "contract": "JoyLab.InvestingFoundationsReleaseState",
+  "version": "1.0.0",
+  "phase": "FOUNDATIONS_ONLY",
+  "expansionAllowed": false,
+  "currentRelease": "investing-foundations-v3",
+  "unlockRequires": [
+    "Build",
+    "Cloudflare Deploy",
+    "Custom Domain",
+    "Production Smoke",
+    "Release Gate V1 GOLD"
+  ],
+  "forbiddenUntilUnlock": [
+    "Live Evidence Layer",
+    "Retirement 10-part series"
+  ]
+}
