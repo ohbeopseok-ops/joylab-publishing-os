@@ -70,3 +70,10 @@ TDF 내부에서는 운용사가 자산배분과 리밸런싱을 수행합니다
 
 - [U.S. Treasury — Treasury Securities](https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics)
 - [Federal Reserve — Monetary Policy](https://www.federalreserve.gov/monetarypolicy.htm)
+
+## Related Research
+
+- [JoyLab 투자 리서치 클러스터](/guides/investing)
+- [ETF·Macro·Stocks 30부작](/guides/investing-foundations)
+- [이전/연결 리서치](/articles/etf-bond-guide)
+- [다음/연결 리서치](/articles/etf-model-portfolio)
