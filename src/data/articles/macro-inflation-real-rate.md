@@ -61,3 +61,10 @@ investmentTheses:
 
 - [BLS — Consumer Price Index](https://www.bls.gov/cpi/)
 - [BEA — PCE Price Index](https://www.bea.gov/data/personal-consumption-expenditures-price-index)
+
+## Related Research
+
+- [JoyLab 투자 리서치 클러스터](/guides/investing)
+- [ETF·Macro·Stocks 30부작](/guides/investing-foundations)
+- [이전/연결 리서치](/articles/macro-yield-curve)
+- [다음/연결 리서치](/articles/macro-usdkrw)
