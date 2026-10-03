@@ -15,6 +15,8 @@ canonical: "https://aijoylab.kr/articles/investing-semiconductor-trade-pulse"
 series: "JoyLab Macro 초보자 완전정복"
 seriesOrder: 8
 readingTime: "약 7분"
+investmentIndustries: ["semiconductor"]
+investmentTheses: ["memory-supercycle", "macro-liquidity"]
 faqs: [{"question":"수출이 증가하면 삼성전자와 SK하이닉스가 똑같이 움직이나요?","answer":"아닙니다. 제품 믹스, HBM 경쟁력, 고객구조, 밸류에이션이 다릅니다."},{"question":"HBM만 보면 되나요?","answer":"HBM은 중요하지만 범용 DRAM·NAND와 전체 메모리 사이클도 함께 봐야 합니다."},{"question":"외국인 수급은 선행지표인가요?","answer":"상황에 따라 선행·동행할 수 있으며 단독 예측지표로 고정하기 어렵습니다."}]
 ---
 ## 3줄 요약
