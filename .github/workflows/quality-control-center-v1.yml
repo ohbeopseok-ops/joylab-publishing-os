@@ -1,8 +1,6 @@
 name: JoyLab Quality Control Center V1
 
 on:
-  schedule:
-    - cron: "45 22 * * *"
   pull_request:
     branches: [main]
     paths:
@@ -239,4 +237,4 @@ jobs:
             qa-artifacts/today-fix-cards-v1
             qa-artifacts/quality-control-center-v1
           if-no-files-found: warn
-          retention-days: 90
+          retention-days: 14
