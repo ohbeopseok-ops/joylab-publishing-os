@@ -68,3 +68,10 @@ investmentTheses:
 
 - [U.S. Treasury — Treasury Securities](https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics)
 - [Federal Reserve — Monetary Policy](https://www.federalreserve.gov/monetarypolicy.htm)
+
+## Related Research
+
+- [JoyLab 투자 리서치 클러스터](/guides/investing)
+- [ETF·Macro·Stocks 30부작](/guides/investing-foundations)
+- [이전/연결 리서치](/articles/etf-dividend-etf)
+- [다음/연결 리서치](/articles/etf-rebalancing)
