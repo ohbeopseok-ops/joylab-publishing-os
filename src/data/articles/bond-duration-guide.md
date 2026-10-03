@@ -45,7 +45,6 @@ investmentResearchType: "macro"
 ## 장기채가 더 크게 움직이는 이유
 
 오랫동안 고정된 현금흐름을 받는 장기채는 할인율 변화의 영향을 더 오래 받습니다. 같은 금리 변화라도 10년채가 3년채보다 크게 움직일 수 있는 이유입니다.
-
 [근거: 공식 자료](https://home.treasury.gov/resource-center/data-chart-center/interest-rates)
 
 ## ETF에서 확인할 것
