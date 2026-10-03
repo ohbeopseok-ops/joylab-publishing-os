@@ -1,6 +1,6 @@
 {
-  "version": "1.1",
-  "source": "First Content Entry Budget V1 baseline + Wave 1 optimized result 2026-10-01",
+  "version": "1.2",
+  "source": "First Content Entry Budget V1 · Wave 1/2 optimized + Official Execution Queue Wave 3 · 2026-10-03",
   "targetPx": 3200,
   "wave1": [
     {
@@ -96,6 +96,95 @@
     {
       "slug": "doosan-enerbility-ai-power",
       "baselineFirstH2Px": 3280
+    }
+  ],
+  "wave3": [
+    {
+      "slug": "hd-hyundai-electric-ai-power",
+      "baselineFirstH2Px": 3273
+    },
+    {
+      "slug": "samsung-hbm4-memory-outlook-2026-09-20",
+      "baselineFirstH2Px": 3260
+    },
+    {
+      "slug": "hyosung-heavy-industries-ai-power",
+      "baselineFirstH2Px": 3241
+    },
+    {
+      "slug": "hd-ksoe-shipbuilding",
+      "baselineFirstH2Px": 3236
+    },
+    {
+      "slug": "samsung-heavy-industries-shipbuilding",
+      "baselineFirstH2Px": 3218
+    }
+  ],
+  "top15": [
+    {
+      "slug": "kb-financial-shareholder-return",
+      "baselineFirstH2Px": 4157,
+      "optimizedFirstH2Px": 1993
+    },
+    {
+      "slug": "samsung-vs-sk-hynix-ai-memory",
+      "baselineFirstH2Px": 3816,
+      "optimizedFirstH2Px": 1585
+    },
+    {
+      "slug": "hd-hyundai-heavy-industries-shipbuilding",
+      "baselineFirstH2Px": 3379,
+      "optimizedFirstH2Px": 1757
+    },
+    {
+      "slug": "strong-retail-sales-nasdaq-rally-2026",
+      "baselineFirstH2Px": 3332,
+      "optimizedFirstH2Px": 2128
+    },
+    {
+      "slug": "semiconductor-giant-shoulder-flow",
+      "baselineFirstH2Px": 3326,
+      "optimizedFirstH2Px": 2123
+    },
+    {
+      "slug": "financials-value-up-investing-guide",
+      "baselineFirstH2Px": 3316
+    },
+    {
+      "slug": "samsung-daily-analysis-2026-09-28",
+      "baselineFirstH2Px": 3294
+    },
+    {
+      "slug": "samsung-market-close-2026-09-28",
+      "baselineFirstH2Px": 3294
+    },
+    {
+      "slug": "total-shareholder-return-buyback-cancellation-guide",
+      "baselineFirstH2Px": 3286
+    },
+    {
+      "slug": "doosan-enerbility-ai-power",
+      "baselineFirstH2Px": 3280
+    },
+    {
+      "slug": "hd-hyundai-electric-ai-power",
+      "baselineFirstH2Px": 3273
+    },
+    {
+      "slug": "samsung-hbm4-memory-outlook-2026-09-20",
+      "baselineFirstH2Px": 3260
+    },
+    {
+      "slug": "hyosung-heavy-industries-ai-power",
+      "baselineFirstH2Px": 3241
+    },
+    {
+      "slug": "hd-ksoe-shipbuilding",
+      "baselineFirstH2Px": 3236
+    },
+    {
+      "slug": "samsung-heavy-industries-shipbuilding",
+      "baselineFirstH2Px": 3218
     }
   ]
 }
