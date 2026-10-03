@@ -1,0 +1,34 @@
+name: Mega Project Investment Gate V1
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'src/pages/guides/investing.astro'
+      - 'docs/MEGA_PROJECT_INVESTMENT_CONTRACT_V1.md'
+      - 'scripts/check-mega-project-investment-v1.mjs'
+      - 'src/lib/investment-taxonomy.ts'
+      - 'config/investment-taxonomy-v1.json'
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'src/pages/guides/investing.astro'
+      - 'docs/MEGA_PROJECT_INVESTMENT_CONTRACT_V1.md'
+      - 'scripts/check-mega-project-investment-v1.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mega-project-investment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Validate Mega Project Investment contract
+        run: node scripts/check-mega-project-investment-v1.mjs

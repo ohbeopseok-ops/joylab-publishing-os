@@ -82,7 +82,8 @@ const theses = [
   { label: 'Defense & Geopolitics', count: thesisCoverage('defense-geopolitics'), note: '미·중 반도체 규제와 특수선·방산 수요를 함께 봅니다.' },
   { label: 'Macro & Liquidity', count: thesisCoverage('macro-liquidity'), note: '미 국채·Fed·수급이 밸류에이션에 미치는 영향을 봅니다.' },
   { label: 'Physical AI', count: thesisCoverage('physical-ai'), note: '자동차·로봇 Cluster와 함께 새로 구축할 Thesis입니다.' },
-  { label: 'Korea Value-up', count: thesisCoverage('korea-value-up'), note: '금융·주주환원 Cluster와 함께 새로 구축할 Thesis입니다.' }
+  { label: 'Korea Value-up', count: thesisCoverage('korea-value-up'), note: '금융·주주환원 Cluster와 함께 새로 구축할 Thesis입니다.' },
+  { label: 'Mega Project CAPEX', count: thesisCoverage('mega-project-capex'), note: '정책 Gate → 자산가치 → CAPEX → 지원비 → 개발가치로 대형 프로젝트를 추적합니다.' }
 ];
 ---
 <BaseLayout
@@ -96,13 +97,13 @@ const theses = [
         <div class="sg-hero__copy">
           <div class="sg-eyebrow">INVESTMENT RESEARCH · JOYLAB</div>
           <h1>산업과 Thesis를<br /><span>같이 읽습니다.</span></h1>
-          <p class="sg-hero__lead">뉴스와 종목을 흩어 보지 않습니다. <strong>6개 산업 Cluster × 7개 Investment Thesis</strong>로 연결해 자본이 어디로 이동하고, 어떤 기업의 실적으로 전환되는지 추적합니다.</p>
+          <p class="sg-hero__lead">뉴스와 종목을 흩어 보지 않습니다. <strong>6개 산업 Cluster × 8개 Investment Thesis</strong>로 연결해 자본이 어디로 이동하고, 어떤 기업의 실적으로 전환되는지 추적합니다.</p>
           <div class="sg-hero__chips" aria-label="투자 리서치 클러스터">
             <span>#반도체</span><span>#AI인프라</span><span>#조선방산</span><span>#PhysicalAI</span><span>#ValueUp</span><span>#에너지</span>
           </div>
           <div class="sg-hero__meta" aria-label="투자 리서치 구조">
             <span><strong>6</strong> Industry Clusters</span>
-            <span><strong>7</strong> Investment Theses</span>
+            <span><strong>8</strong> Investment Theses</span>
             <span><strong>1</strong> Decision System</span>
           </div>
         </div>
@@ -175,6 +176,29 @@ const theses = [
                 <p>{thesis.note}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section class="sg-insights" id="mega-projects" aria-labelledby="ih-mega-title">
+          <div class="sg-section-head sg-section-head--compact">
+            <div><div class="sg-eyebrow">MEGA PROJECT INVESTMENT LENS</div><h2 id="ih-mega-title">정책 Gate를 자산가치와 CAPEX로 연결합니다</h2></div>
+            <p>대형 국책·도시개발 프로젝트를 발표 자체가 아니라 토지가치, 사업비, 지원비, 발주와 실적 전환 순서로 추적합니다.</p>
+          </div>
+          <div class="sg-insights__grid">
+            <div><em>HARD RULE</em><b>정책 발표 ≠ 수혜주</b><p>MOU·후보지·기본구상만으로 상장사 수혜를 확정하지 않습니다.</p></div>
+            <div><em>EVIDENCE GATE</em><b>4개 숫자를 먼저 확인</b><p>Asset Value · CAPEX · Support Cost · Net Value를 현재 기준으로 검증합니다.</p></div>
+            <div><em>EARNINGS GATE</em><b>발주가 실적의 출발점</b><p>Policy → Budget → Procurement → Order → Revenue → Margin → EPS 순서로 봅니다.</p></div>
+          </div>
+          <div class="sg-rule" style="margin-top:24px">
+            <div class="sg-eyebrow">MEGA PROJECT EVIDENCE V1</div>
+            <h3>Asset Value → CAPEX → Support Cost → Net Value</h3>
+            <div class="sg-rule__grid">
+              <div class="sg-rule__step"><b>E1 · ASSET</b><span>현재 평가가액과 개발가능 면적</span></div>
+              <div class="sg-rule__step"><b>E2 · CAPEX</b><span>현재 기준 총사업비와 비용 상승률</span></div>
+              <div class="sg-rule__step"><b>E3 · SUPPORT</b><span>보상·지원·소음대책·기반시설 비용</span></div>
+              <div class="sg-rule__step"><b>E4 · NET VALUE</b><span>명목 가치가 아닌 실제 순개발가치</span></div>
+            </div>
+            <p><a href="/articles/suwon-airbase-redevelopment-investment-thesis">첫 적용 사례 · 수원 군공항 종전부지 투자 Thesis →</a></p>
           </div>
         </section>
 
