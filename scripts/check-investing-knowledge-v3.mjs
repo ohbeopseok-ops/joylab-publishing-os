@@ -37,7 +37,13 @@ for(const file of files){
 for(const [series,count] of expectedSeries){
   if(seriesCounts.get(series)!==count) errors.push(`${series}: expected ${count}, got ${seriesCounts.get(series)}`);
 }
-const migratedNodes=(graph.nodes??[]).filter(n=>typeof n.slug==='string'&&n.slug.startsWith('/articles/'));
+const migratedSeries=new Set(['etf-beginner-10','macro-beginner-10','stocks-beginner-10']);
+const migratedNodes=(graph.nodes??[]).filter(n=>
+  migratedSeries.has(n.series) &&
+  typeof n.slug==='string' &&
+  n.slug.startsWith('/articles/')
+);
+if(migratedNodes.length!==30) errors.push('expected 30 migrated article nodes, got '+migratedNodes.length);
 for(const node of migratedNodes){
   if(!slugs.has(node.slug)) errors.push('graph article missing: '+node.id+' -> '+node.slug);
 }
