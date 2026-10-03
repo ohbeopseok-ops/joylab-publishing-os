@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 122,
+  "articleCount": 123,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -616,6 +616,18 @@
       "route": "/articles/codex-skill-guide-2026",
       "industries": [],
       "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "compounder-roic-reinvestment-moat",
+      "route": "/articles/compounder-roic-reinvestment-moat",
+      "industries": [],
+      "theses": [
+        "korea-value-up"
+      ],
       "companies": [],
       "valueChains": [],
       "kpis": [],

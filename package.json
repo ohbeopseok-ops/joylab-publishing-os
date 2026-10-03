@@ -95,10 +95,8 @@
     "ai-capex-market:update": "node scripts/update-ai-capex-market-snapshot-v1.mjs",
     "ai-capex-market:self-test": "node scripts/update-ai-capex-market-snapshot-v1.mjs --self-test"
   },
-  "dependencies": {
-    "astro": "^7.3.2"
-  },
   "devDependencies": {
+    "astro": "^7.3.2",
     "sharp": "0.35.4",
     "wrangler": "^4.130.0"
   },
