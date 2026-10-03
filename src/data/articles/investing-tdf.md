@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-tdf"
 series: "JoyLab ETF 초보자 완전정복"
 seriesOrder: 3
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"TDF 2050이면 2050년에 반드시 매도해야 하나요?","answer":"그렇지 않습니다. 2050은 운용전략의 목표시점입니다. 실제 환매 시점은 투자자의 계획에 따라 달라질 수 있습니다."},{"question":"TDF 하나로 은퇴 준비가 끝나나요?","answer":"TDF는 자산배분을 단순화하지만 전체 은퇴계획에는 소득, 지출, 연금, 세금, 비상자금 등을 함께 고려해야 합니다."},{"question":"TDF와 60/40 중 무엇이 더 좋은가요?","answer":"목적이 다릅니다. 60/40은 고정된 목표비중 전략이고 TDF는 시간이 지나면서 비중이 변하는 전략입니다."}]
 ---
 ## 3줄 요약
