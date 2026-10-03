@@ -19,6 +19,8 @@ canonical: "https://aijoylab.kr/articles/stocks-stock-investing-basics"
 series: "Stocks 분석 기초 10부작"
 seriesOrder: 1
 readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "stocks stock investing basics — JoyLab Investing Foundations 대표 이미지"
 investmentIndustries:
   - semiconductor
 investmentTheses:
