@@ -91,7 +91,7 @@ Immediate DELETE is intentionally zero. Deletion is allowed only after a MERGE r
 ## Consolidation plan
 
 ### Wave A — Content contracts
-Merge article-hero, content-date, content-identity, home-content-slot, internal-link, investment-taxonomy, topic-cluster, research-image-quality and related lightweight checks into one path-filtered content gate. One checkout/setup per PR.
+**IMPLEMENTED IN SHADOW MODE:** `.github/workflows/content-contract-suite-v1.yml` now combines article-hero, content-date, content-identity, home-content-slot, internal-link, investment-taxonomy, topic-cluster, and research-image-quality checks into one path-filtered runner with one checkout/setup/install. Legacy workflows remain active until equivalence is proven.
 
 ### Wave B — Visual/mobile
 Merge mobile monetization order, mobile experience, mobile visual regression, responsive visual, Books visual QA, and Research Graph responsive GOLD onto one reusable preview/browser harness. Routine execution becomes manual or narrowly path-triggered.
