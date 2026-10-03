@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 122,
+  "articleCount": 123,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -1416,6 +1416,26 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "suwon-airbase-redevelopment-investment-thesis",
+      "route": "/articles/suwon-airbase-redevelopment-investment-thesis",
+      "industries": [],
+      "theses": [
+        "mega-project-capex"
+      ],
+      "companies": [],
+      "valueChains": [
+        "Policy Gate → Land Value → Airport CAPEX → Support Cost → Development Optionality"
+      ],
+      "kpis": [
+        "종전부지 현재 평가가액",
+        "개발가능 면적",
+        "신 군공항 총사업비",
+        "이전지역 지원사업비",
+        "예상 순개발가치"
+      ],
+      "researchType": "scenario"
     },
     {
       "slug": "total-shareholder-return-buyback-cancellation-guide",
