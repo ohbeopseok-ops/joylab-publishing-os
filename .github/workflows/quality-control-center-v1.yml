@@ -17,6 +17,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'scripts/check-wave3-release-gate-v1.mjs'
       - 'scripts/rank-business-impact-effort-v2.mjs'
       - 'scripts/generate-official-execution-queue-v1.mjs'
       - 'scripts/generate-ranking-drift-v1.mjs'
