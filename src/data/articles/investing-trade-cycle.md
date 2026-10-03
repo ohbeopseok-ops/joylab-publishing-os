@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-trade-cycle"
 series: "JoyLab Macro 초보자 완전정복"
 seriesOrder: 7
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"수출 증가율이 오르면 해당 업종 주가도 바로 오르나요?","answer":"아닙니다. 기대가 이미 가격에 반영됐는지 확인해야 합니다."},{"question":"전년동월비만 보면 되나요?","answer":"기저효과가 있으므로 전월 흐름, 누적, 일평균, 단가와 물량을 함께 보는 것이 좋습니다."},{"question":"수출 데이터는 어디에 가장 유용한가요?","answer":"업황 확인, 실적 추정 방향, 섹터 상대강도 검증에 유용합니다."}]
 ---
 ## 3줄 요약
