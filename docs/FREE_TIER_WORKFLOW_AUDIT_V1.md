@@ -93,11 +93,11 @@ Immediate DELETE is intentionally zero. Deletion is allowed only after a MERGE r
 ### Wave A — Content contracts
 **IMPLEMENTED IN SHADOW MODE:** `.github/workflows/content-contract-suite-v1.yml` now combines article-hero, content-date, content-identity, home-content-slot, internal-link, investment-taxonomy, topic-cluster, and research-image-quality checks into one path-filtered runner with one checkout/setup/install. Legacy workflows remain active until equivalence is proven.
 
-### Wave B — Visual/mobile
-Merge mobile monetization order, mobile experience, mobile visual regression, responsive visual, Books visual QA, and Research Graph responsive GOLD onto one reusable preview/browser harness. Routine execution becomes manual or narrowly path-triggered.
+### Wave B — Research Graph
+**IMPLEMENTED IN SHADOW MODE:** `.github/workflows/research-graph-suite-v1.yml` now consolidates compact/component/core/platform checks plus one production build. Responsive GOLD is available only via manual dispatch and reuses the same job/build before Playwright preview.
 
-### Wave C — Research Graph
-Merge compact/component/gate/platform validation into one PR workflow. Keep the browser GOLD portion as a manual job inside the same workflow.
+### Wave C — Visual/mobile
+Merge mobile monetization order, mobile experience, mobile visual regression, responsive visual, and Books visual QA onto one reusable preview/browser harness. Routine execution becomes manual or narrowly path-triggered.
 
 ### Wave D — Books and Studio
 One Books CI and one Studio quality workflow, each sharing a single dependency install/build per run.
