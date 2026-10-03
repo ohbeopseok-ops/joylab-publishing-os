@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-relative-strength"
 series: "JoyLab Stocks 초보자 완전정복"
 seriesOrder: 8
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"많이 오른 종목이 주도주인가요?","answer":"아닙니다. 거래대금과 지속성, 실적 근거가 필요합니다."},{"question":"상대강도만으로 매수하나요?","answer":"후보 선별 신호로 쓰고 밸류에이션과 리스크를 추가 확인합니다."},{"question":"시장이 하락할 때도 주도주가 있나요?","answer":"상대적으로 덜 하락하거나 독립적인 상승을 보이는 종목이 나타날 수 있습니다."}]
 ---
 ## 3줄 요약
