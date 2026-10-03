@@ -246,6 +246,28 @@ jobs:
           grep -Fq '/guides/ai-productivity' /tmp/body
           grep -Fq '/guides/growth-leadership' /tmp/body
 
+          # Investing Knowledge V3 production smoke
+          check_follow_200 "https://aijoylab.kr/guides/investing-foundations?deploy=${GITHUB_SHA}"
+          grep -Fq 'RESEARCH PATH V3' /tmp/body
+          grep -Fq 'ETF 10편' /tmp/body
+          grep -Fq 'Macro 10편' /tmp/body
+          grep -Fq 'Stocks 10편' /tmp/body
+          grep -Fq '/articles/sp500-etf-core-guide' /tmp/body
+          grep -Fq '/articles/yield-curve-guide' /tmp/body
+          grep -Fq '/articles/joylab-leader-engine-guide' /tmp/body
+
+          check_follow_200 "https://aijoylab.kr/articles/sp500-etf-core-guide?deploy=${GITHUB_SHA}"
+          grep -Fq 'S&P500 ETF' /tmp/body
+          grep -Fq 'ETF 초보자 완전정복' /tmp/body
+
+          check_follow_200 "https://aijoylab.kr/articles/yield-curve-guide?deploy=${GITHUB_SHA}"
+          grep -Fq '수익률곡선과 장단기금리' /tmp/body
+          grep -Fq '매크로 초보자 완전정복' /tmp/body
+
+          check_follow_200 "https://aijoylab.kr/articles/joylab-leader-engine-guide?deploy=${GITHUB_SHA}"
+          grep -Fq 'JoyLab Leader Engine' /tmp/body
+          grep -Fq '주식 분석 초보자 완전정복' /tmp/body
+
           check_200 "https://aijoylab.kr/guides/growth-leadership/literature?deploy=${GITHUB_SHA}"
           grep -Fq '문학에서 배우는 리더십' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/old-man-and-the-sea' /tmp/body
