@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-usdkrw-fx"
 series: "JoyLab Macro 초보자 완전정복"
 seriesOrder: 5
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"환율이 높으면 미국 ETF를 사면 안 되나요?","answer":"환율 수준 하나만으로 장기 투자를 결정하기 어렵습니다. 투자기간과 분할매수, 환헤지 여부를 함께 봐야 합니다."},{"question":"환헤지 ETF가 항상 더 안전한가요?","answer":"환율 변동은 줄일 수 있지만 헤지 비용과 추적 차이가 생길 수 있습니다."},{"question":"원화 약세면 삼성전자 같은 수출주는 무조건 오르나요?","answer":"아닙니다. 반도체 가격, 수요, 재고, 밸류에이션, 외국인 수급 등 다른 변수가 함께 작용합니다."}]
 ---
 ## 3줄 요약
