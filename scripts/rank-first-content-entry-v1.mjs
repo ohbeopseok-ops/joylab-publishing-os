@@ -8,8 +8,8 @@ if(!fs.existsSync(reportPath)) throw new Error('First Content Entry report missi
 const report=JSON.parse(fs.readFileSync(reportPath,'utf8'));
 const target=Number(report?.budgets?.firstBodyH2TopPx || 3200);
 const priorityPath=path.join(root,'src/data/first-content-priority-v1.json');
-const priority=fs.existsSync(priorityPath)?JSON.parse(fs.readFileSync(priorityPath,'utf8')):{top10:[],top5:[]};
-const priorityItems=priority.top10??priority.top5??[];
+const priority=fs.existsSync(priorityPath)?JSON.parse(fs.readFileSync(priorityPath,'utf8')):{top15:[],top10:[],top5:[]};
+const priorityItems=priority.top15??priority.top10??priority.top5??[];
 const ranked=(report.results||[])
   .filter((r)=>Number.isFinite(Number(r.firstBodyH2Top)) && Number(r.firstBodyH2Top)>target)
   .map((r)=>({slug:r.slug,firstBodyH2TopPx:Number(r.firstBodyH2Top),excessPx:Number(r.firstBodyH2Top)-target,briefTopPx:Number(r.briefTop||0)}))
