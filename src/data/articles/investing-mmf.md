@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-mmf"
 series: "JoyLab ETF 초보자 완전정복"
 seriesOrder: 2
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"MMF는 파킹통장과 같은가요?","answer":"아닙니다. 파킹통장은 은행 예금이고 MMF는 투자신탁입니다. 수익 발생 구조와 원금보장 여부가 다릅니다."},{"question":"MMF도 손실이 날 수 있나요?","answer":"가능합니다. 변동성이 낮은 편이지만 투자상품이므로 원금이 보장되지 않습니다."},{"question":"장기 투자금을 MMF에 계속 두면 되나요?","answer":"현금 보유 목적에는 유용하지만 장기 성장자산을 대신하는 상품은 아닙니다. 현금 비중이 지나치게 높으면 인플레이션과 기회비용이 문제가 될 수 있습니다."}]
 ---
 ## 3줄 요약
