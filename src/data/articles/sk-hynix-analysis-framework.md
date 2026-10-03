@@ -28,6 +28,9 @@ faqs:
     answer: "수요가 뒷받침되면 성장투자지만 과잉투자가 되면 다음 다운사이클의 부담이 될 수 있습니다."
   - question: "실적 최고점이 주가 최고점인가요?"
     answer: "일치하지 않을 수 있습니다. 주가는 미래 실적 기대를 선반영합니다."
+investmentIndustries: ["semiconductor"]
+investmentTheses: ["memory-supercycle"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -52,8 +55,15 @@ faqs:
 ## JoyLab 한 줄 답
 **SK하이닉스 분석의 핵심은 HBM 이야기 자체가 아니라 그 성장이 EPS와 현금흐름으로 얼마나 전환되는가입니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/samsung-electronics-analysis-framework)
+- [같은 시리즈 다음·관련 글](/articles/earnings-cycle-analysis-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.skhynix.com/ir/irMain.do)
 - [공식 자료 2](https://dart.fss.or.kr/)
+
 
