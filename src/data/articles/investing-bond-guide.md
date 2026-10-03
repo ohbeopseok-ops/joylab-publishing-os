@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-bond-guide"
 series: "JoyLab ETF 초보자 완전정복"
 seriesOrder: 8
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"기준금리가 내리면 모든 채권 ETF가 오르나요?","answer":"그렇게 단순하지 않습니다. 시장금리는 이미 기대를 선반영할 수 있고 만기, 신용스프레드, 환율에 따라 결과가 달라집니다."},{"question":"장기채가 단기채보다 항상 수익률이 높은가요?","answer":"아닙니다. 장기채는 금리 위험이 더 크며 시장 상황에 따라 단기채보다 낮은 성과를 보일 수 있습니다."},{"question":"종합채권 ETF 하나면 충분한가요?","answer":"단순화를 원한다면 유용할 수 있지만 지수 구성과 듀레이션·신용등급을 확인해 자신의 역할 정의와 맞는지 판단해야 합니다."}]
 ---
 ## 3줄 요약
