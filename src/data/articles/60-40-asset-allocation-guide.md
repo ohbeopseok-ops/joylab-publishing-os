@@ -28,6 +28,8 @@ faqs:
     answer: "강한 주식 상승장에서는 그럴 수 있습니다. 대신 포트폴리오의 변동성과 손실폭을 조절하는 목적이 있습니다."
   - question: "주식과 채권이 동시에 떨어지면 의미가 없나요?"
     answer: "아닙니다. 상관관계는 고정되어 있지 않습니다. 자산배분은 모든 시점의 손실을 막는 장치가 아니라 장기간 위험을 여러 원천으로 분산하는 방법입니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -35,6 +37,8 @@ faqs:
 - 60/40은 투자자산의 60%를 주식, 40%를 채권에 배분하는 대표적인 균형형 전략입니다.
 - 목표는 최고 수익률이 아니라 **성장자산과 방어자산의 역할을 분리해 포트폴리오 변동성을 관리하는 것**입니다.
 - 60과 40이라는 숫자는 정답이 아니라 투자기간·현금흐름·손실 감내 수준을 생각하게 만드는 기준점입니다.
+
+[근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 ## 왜 주식과 채권을 함께 보유할까
 
@@ -46,15 +50,23 @@ faqs:
 
 가장 단순하게는 주식 ETF 600만원, 채권 ETF 400만원입니다. 주식 부분을 S&P500 같은 광범위 지수로 구성하고 채권 부분을 국채 또는 종합채권 ETF로 구성할 수 있습니다.
 
+[근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
+
 ## 채권 40%도 다시 분산할 수 있다
 
 채권에는 만기와 발행주체가 있습니다. 미국 10년 국채는 듀레이션과 달러 노출이 크고 한국 국고채 3년은 원화 기반 중단기 안정자산 역할을 할 수 있습니다. 종합채권 ETF는 국채·금융채·회사채 등을 폭넓게 담을 수 있습니다.
 
+[근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
+
 예시적으로 채권 40%를 미국 10년 10%, 국고채 3년 10%, 종합채권 20%처럼 역할별로 나누는 방식도 생각할 수 있습니다. 실제 비중은 투자자의 목적에 따라 달라집니다.
+
+[근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 ## 60/40의 진짜 핵심은 리밸런싱
 
 주식이 크게 오르면 60%였던 주식 비중이 70%가 될 수 있습니다. 그대로 두면 처음 선택한 위험 수준보다 공격적인 포트폴리오가 됩니다. 목표 비중으로 되돌리는 리밸런싱이 필요한 이유입니다.
+
+[근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 ## FAQ
 
@@ -71,78 +83,15 @@ faqs:
 
 **60/40의 핵심은 60과 40이라는 숫자가 아니라 ‘성장과 방어의 역할을 분리하고 그 비중을 지키는 규칙’입니다.**
 
-## Structured Data
+## 이어 읽기
 
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "60/40 자산배분",
-  "description": "주식 60%와 채권 40%를 조합하는 자산배분 전략의 목적, 장점, 한계와 리밸런싱 원리를 설명합니다.",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://aijoylab.kr/guides/investing/asset-allocation/60-40/"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "isPartOf": {
-    "@type": "CreativeWorkSeries",
-    "name": "JoyLab ETF 초보자 완전정복 10부작"
-  }
-}
-~~~
-
-## FAQ Structured Data
-
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "60/40은 모든 연령에 적합한가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "아닙니다. 투자기간, 소득 안정성, 은퇴시점, 손실 감내 수준에 따라 비중은 달라질 수 있습니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "채권 40%는 수익률을 낮추는 것 아닌가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "강한 주식 상승장에서는 그럴 수 있습니다. 대신 포트폴리오의 변동성과 손실폭을 조절하는 목적이 있습니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "주식과 채권이 동시에 떨어지면 의미가 없나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "아닙니다. 상관관계는 고정되어 있지 않습니다. 자산배분은 모든 시점의 손실을 막는 장치가 아니라 장기간 위험을 여러 원천으로 분산하는 방법입니다."
-      }
-    }
-  ]
-}
-~~~
-
-## Research Graph Links
-
-- **Parent:** Asset Allocation
-- **Related:** S&P500 ETF · 채권 ETF · 리밸런싱
-- **Compare:** TDF
-- **Next:** S&P500 ETF
-- **Apply:** 실전 모델 포트폴리오
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/tdf-target-date-fund-guide)
+- [같은 시리즈 다음·관련 글](/articles/sp500-etf-core-guide)
 
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 - [공식 자료 2](https://www.sec.gov/investor/pubs/assetallocation.htm)
+
 
