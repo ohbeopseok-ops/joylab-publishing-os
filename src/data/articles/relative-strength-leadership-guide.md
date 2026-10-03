@@ -28,6 +28,8 @@ faqs:
     answer: "후보 선별 신호로 쓰고 밸류에이션과 리스크를 추가 확인합니다."
   - question: "시장이 하락할 때도 주도주가 있나요?"
     answer: "상대적으로 덜 하락하거나 독립적인 상승을 보이는 종목이 나타날 수 있습니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -57,8 +59,15 @@ faqs:
 ## JoyLab 한 줄 답
 **주도주는 가장 많이 오른 종목이 아니라 시장의 자금과 관심이 지속적으로 집중되는 종목입니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/foreign-flow-analysis-guide)
+- [같은 시리즈 다음·관련 글](/articles/joylab-leader-engine-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://data.krx.co.kr/)
 - [공식 자료 2](https://kind.krx.co.kr/)
+
 
