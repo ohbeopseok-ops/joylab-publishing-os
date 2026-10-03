@@ -1,0 +1,150 @@
+---
+title: "리밸런싱"
+description: "포트폴리오 목표비중을 복원하는 리밸런싱의 원리와 정기·밴드 방식, 신규자금으로 조정하는 방법을 설명합니다."
+category: "투자·경제"
+tags:
+  - 투자기초
+  - ETF
+  - JoyLab
+publishedAt: 2026-10-03
+updatedAt: 2026-10-03
+author: "JoyLab"
+featured: false
+homeFeatured: false
+excludeFromLatest: true
+draft: false
+seoTitle: "리밸런싱"
+series: "ETF 초보자 완전정복"
+seriesOrder: 9
+readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "리밸런싱 JoyLab 투자 리서치 가이드 대표 이미지"
+ogImage: "/images/research/joylab-research-default-hero.svg"
+canonical: "https://aijoylab.kr/articles/portfolio-rebalancing-guide"
+faqs:
+  - question: "매달 리밸런싱하면 더 좋은가요?"
+    answer: "반드시 그렇지 않습니다. 거래비용과 세금, 작은 비중 변화까지 고려하면 지나치게 잦은 조정은 비효율적일 수 있습니다."
+  - question: "상승하는 자산을 줄이는 게 손해 아닌가요?"
+    answer: "상승 추세가 계속될 경우 단기적으로 기회비용이 생길 수 있습니다. 대신 목적은 수익 극대화가 아니라 사전에 선택한 위험 수준 유지입니다."
+  - question: "TDF도 리밸런싱이 필요한가요?"
+    answer: "TDF 내부에서는 운용사가 자산배분과 리밸런싱을 수행합니다. 다만 투자자의 전체 자산에서 TDF가 차지하는 비중은 별도로 관리할 수 있습니다."
+---
+
+## 3줄 요약
+
+- 리밸런싱은 오른 자산을 무조건 파는 행위가 아니라 **처음 정한 위험 수준으로 포트폴리오를 되돌리는 과정**입니다.
+- 대표 방법은 일정 주기로 점검하는 정기 방식과 목표비중에서 일정 폭 벗어났을 때 조정하는 밴드 방식입니다.
+- 세금·거래비용을 줄이기 위해 신규 투자금과 분배금을 부족한 자산에 우선 배치할 수도 있습니다.
+
+## 왜 리밸런싱이 필요한가
+
+주식 60%, 채권 40%로 시작해도 시장은 계속 움직입니다. 주식이 크게 오르면 70/30 또는 75/25가 될 수 있습니다. 투자자가 아무 행동을 하지 않아도 포트폴리오는 더 공격적으로 바뀝니다. 반대로 주식이 급락하면 주식 비중이 낮아져 회복장에서 성장자산 참여도가 줄어들 수 있습니다.
+
+리밸런싱은 이런 변화가 투자자의 의도 없이 누적되는 것을 막습니다.
+
+## 정기 리밸런싱
+
+6개월이나 1년처럼 정해진 주기에 비중을 점검합니다. 규칙이 단순하고 행동하기 쉽다는 장점이 있습니다. 다만 목표비중이 거의 변하지 않았는데도 불필요한 거래가 생길 수 있습니다.
+
+## 밴드 리밸런싱
+
+예를 들어 목표 60%인 주식이 65%를 넘거나 55% 아래로 내려갈 때만 조정하는 방식입니다. 시장 변화를 반영하면서 거래 빈도를 줄일 수 있지만 기준을 미리 정해두지 않으면 감정적 판단이 개입될 수 있습니다.
+
+## 꼭 매도해야 하나
+
+아닙니다. 월 적립금이나 분배금이 계속 들어온다면 비중이 부족한 자산에 신규자금을 우선 투입해 점진적으로 목표비중에 접근할 수 있습니다. 과세계좌에서는 불필요한 매도로 세금과 비용이 발생할 수 있어 이런 방식이 유용할 수 있습니다.
+
+## 리밸런싱과 시장예측의 차이
+
+리밸런싱은 ‘다음 달 주가가 떨어질 것 같으니 주식을 판다’는 예측과 다릅니다. 사전에 정한 위험관리 규칙에 따라 행동합니다.
+
+## FAQ
+
+### 매달 리밸런싱하면 더 좋은가요?
+반드시 그렇지 않습니다. 거래비용과 세금, 작은 비중 변화까지 고려하면 지나치게 잦은 조정은 비효율적일 수 있습니다.
+
+### 상승하는 자산을 줄이는 게 손해 아닌가요?
+상승 추세가 계속될 경우 단기적으로 기회비용이 생길 수 있습니다. 대신 목적은 수익 극대화가 아니라 사전에 선택한 위험 수준 유지입니다.
+
+### TDF도 리밸런싱이 필요한가요?
+TDF 내부에서는 운용사가 자산배분과 리밸런싱을 수행합니다. 다만 투자자의 전체 자산에서 TDF가 차지하는 비중은 별도로 관리할 수 있습니다.
+
+## JoyLab 한 줄 답
+
+**리밸런싱은 시장을 맞히는 기술이 아니라, 내가 선택한 위험 수준을 계속 지키는 운영 규칙입니다.**
+
+## Structured Data
+
+~~~json
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "리밸런싱",
+  "description": "포트폴리오 목표비중을 복원하는 리밸런싱의 원리와 정기·밴드 방식, 신규자금으로 조정하는 방법을 설명합니다.",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://aijoylab.kr/guides/investing/asset-allocation/rebalancing/"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "JoyLab"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "JoyLab"
+  },
+  "isPartOf": {
+    "@type": "CreativeWorkSeries",
+    "name": "JoyLab ETF 초보자 완전정복 10부작"
+  }
+}
+~~~
+
+## FAQ Structured Data
+
+~~~json
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "매달 리밸런싱하면 더 좋은가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "반드시 그렇지 않습니다. 거래비용과 세금, 작은 비중 변화까지 고려하면 지나치게 잦은 조정은 비효율적일 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "상승하는 자산을 줄이는 게 손해 아닌가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "상승 추세가 계속될 경우 단기적으로 기회비용이 생길 수 있습니다. 대신 목적은 수익 극대화가 아니라 사전에 선택한 위험 수준 유지입니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "TDF도 리밸런싱이 필요한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "TDF 내부에서는 운용사가 자산배분과 리밸런싱을 수행합니다. 다만 투자자의 전체 자산에서 TDF가 차지하는 비중은 별도로 관리할 수 있습니다."
+      }
+    }
+  ]
+}
+~~~
+
+## Research Graph Links
+
+- **Parent:** Asset Allocation
+- **Related:** 60/40 · 실전 모델 포트폴리오
+- **Compare:** -
+- **Next:** 실전 모델 포트폴리오
+- **Apply:** 실전 모델 포트폴리오
+
+## 검증용 1차 자료
+
+- [공식 자료 1](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
+- [공식 자료 2](https://www.sec.gov/investor/pubs/assetallocation.htm)
+
