@@ -52,11 +52,9 @@ investmentResearchType: "explainer"
 - 미국 10년 국채 역할: 10%
 - 한국 국고채 3년 역할: 10%
 - 종합채권 역할: 20%
-
 [근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 합계는 주식 60%, 채권 40%입니다. 여기서 가장 중요한 것은 특정 상품명이 아니라 역할입니다. 같은 역할을 수행하는 ETF가 여러 개 있을 수 있으므로 실제 선택 단계에서는 지수, 비용, 추적오차, 환헤지, 거래량을 비교합니다.
-
 [근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 ## 현금은 어디에 들어가나
@@ -70,7 +68,6 @@ investmentResearchType: "explainer"
 ## 운영 규칙까지 있어야 포트폴리오다
 
 좋은 포트폴리오는 매수 비중만 적혀 있지 않습니다. 언제 추가투자할지, 언제 리밸런싱할지, 어떤 경우에도 하지 않을 행동은 무엇인지까지 규칙으로 정합니다. 예를 들어 연 1회 점검, 목표비중 ±5%포인트 이탈 시 재조정 같은 규칙을 사용할 수 있습니다.
-
 [근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 ## 마지막 체크리스트
