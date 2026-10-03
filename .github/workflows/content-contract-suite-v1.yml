@@ -1,0 +1,168 @@
+name: Content Contract Suite V1
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'src/data/books/**'
+      - 'src/pages/guides/**'
+      - 'src/pages/index.astro'
+      - 'src/content.config.ts'
+      - 'src/lib/investment-taxonomy.ts'
+      - 'src/lib/investment-taxonomy-registry.ts'
+      - 'src/lib/investment-research-graph-v2.ts'
+      - 'config/investment-taxonomy-v1.json'
+      - 'config/investment-research-graph-v2.json'
+      - 'config/topic-clusters-v2.json'
+      - 'src/data/investment-taxonomy-registry-v1.json'
+      - 'src/data/research-image-manifest.json'
+      - 'src/data/article-image-overrides.json'
+      - 'src/data/curated-research-images.json'
+      - 'src/data/curated-generated-heroes.json'
+      - 'src/data/article-hero-quality-rules-v3.json'
+      - 'src/data/research-image-quality-rules-v1.json'
+      - 'src/data/generated-hero-parts/**'
+      - 'src/data/supporting-visual-sprint.json'
+      - 'public/images/**'
+      - 'assets/ep03-demian-v5/**'
+      - 'scripts/check-article-heroes.mjs'
+      - 'scripts/check-article-hero-quality-v3.mjs'
+      - 'scripts/apply-curated-research-images.mjs'
+      - 'scripts/materialize-ep03-demian-v5.mjs'
+      - 'scripts/assemble-generated-hero-assets.mjs'
+      - 'scripts/check-research-image-quality-v1.mjs'
+      - 'scripts/generate-curated-research-visuals.mjs'
+      - 'scripts/generate-supporting-visual-sprint.mjs'
+      - 'scripts/check-internal-links-v1.mjs'
+      - 'scripts/check-investment-taxonomy-v1.mjs'
+      - 'scripts/generate-investment-taxonomy-registry-v1.mjs'
+      - 'scripts/check-investment-research-graph-v2.mjs'
+      - 'scripts/check-topic-clusters-v2.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/content-contract-suite-v1.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/data/articles/**'
+      - 'src/data/books/**'
+      - 'src/pages/guides/**'
+      - 'src/pages/index.astro'
+      - 'src/content.config.ts'
+      - 'src/lib/investment-taxonomy.ts'
+      - 'src/lib/investment-taxonomy-registry.ts'
+      - 'src/lib/investment-research-graph-v2.ts'
+      - 'config/investment-taxonomy-v1.json'
+      - 'config/investment-research-graph-v2.json'
+      - 'config/topic-clusters-v2.json'
+      - 'src/data/investment-taxonomy-registry-v1.json'
+      - 'src/data/research-image-manifest.json'
+      - 'src/data/article-image-overrides.json'
+      - 'src/data/curated-research-images.json'
+      - 'src/data/curated-generated-heroes.json'
+      - 'src/data/article-hero-quality-rules-v3.json'
+      - 'src/data/research-image-quality-rules-v1.json'
+      - 'src/data/generated-hero-parts/**'
+      - 'src/data/supporting-visual-sprint.json'
+      - 'public/images/**'
+      - 'assets/ep03-demian-v5/**'
+      - 'scripts/check-article-heroes.mjs'
+      - 'scripts/check-article-hero-quality-v3.mjs'
+      - 'scripts/apply-curated-research-images.mjs'
+      - 'scripts/materialize-ep03-demian-v5.mjs'
+      - 'scripts/assemble-generated-hero-assets.mjs'
+      - 'scripts/check-research-image-quality-v1.mjs'
+      - 'scripts/generate-curated-research-visuals.mjs'
+      - 'scripts/generate-supporting-visual-sprint.mjs'
+      - 'scripts/check-internal-links-v1.mjs'
+      - 'scripts/check-investment-taxonomy-v1.mjs'
+      - 'scripts/generate-investment-taxonomy-registry-v1.mjs'
+      - 'scripts/check-investment-research-graph-v2.mjs'
+      - 'scripts/check-topic-clusters-v2.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/content-contract-suite-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: content-contract-suite-v1-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  content-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout once
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node once
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install dependencies once
+        run: npm ci
+
+      - name: Materialize curated research images once
+        run: node scripts/apply-curated-research-images.mjs
+
+      - name: Article Hero contract
+        run: |
+          node scripts/check-article-heroes.mjs
+          node scripts/check-article-hero-quality-v3.mjs
+
+      - name: Research image quality contract
+        run: node scripts/check-research-image-quality-v1.mjs
+
+      - name: Content date contract
+        env:
+          DATE_CONTRACT_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: npm run content-date:audit
+
+      - name: Content identity contract
+        env:
+          IDENTITY_CONTRACT_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: npm run content-identity:audit
+
+      - name: Home content slot contract
+        run: npm run home-slot:audit
+
+      - name: Internal link contract
+        env:
+          INTERNAL_LINK_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: node scripts/check-internal-links-v1.mjs
+
+      - name: Investment taxonomy contract
+        env:
+          INVESTMENT_TAXONOMY_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          node scripts/check-investment-taxonomy-v1.mjs
+          node scripts/generate-investment-taxonomy-registry-v1.mjs --check
+          node scripts/check-investment-research-graph-v2.mjs
+
+      - name: Topic cluster contract
+        env:
+          TOPIC_CLUSTER_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: node scripts/check-topic-clusters-v2.mjs
+
+      - name: Upload consolidated contract evidence
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: content-contract-suite-v1
+          path: |
+            qa-artifacts/content-date-contract-v1/report.json
+            qa-artifacts/content-identity-contract-v1/report.json
+            qa-artifacts/home-content-slot-contract-v1/report.json
+            qa-artifacts/research-image-quality-v1/report.json
+          if-no-files-found: warn
+          retention-days: 14
