@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-macro-to-asset-allocation"
 series: "JoyLab Macro 초보자 완전정복"
 seriesOrder: 9
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"매크로 신호에 따라 매달 비중을 바꿔야 하나요?","answer":"그럴 필요는 없습니다. 전략적 자산배분을 우선하고 큰 환경 변화는 점검 신호로 활용할 수 있습니다."},{"question":"60/40도 매크로에 따라 바꿔야 하나요?","answer":"60/40은 기준점입니다. 투자목적과 위험감내 수준이 바뀌지 않았다면 단기 전망만으로 자주 변경할 이유는 적습니다."},{"question":"가장 중요한 지표 하나를 고르면 무엇인가요?","answer":"하나만 고르기 어렵습니다. 금리·물가·환율은 서로 연결되어 있습니다."}]
 ---
 ## 3줄 요약
