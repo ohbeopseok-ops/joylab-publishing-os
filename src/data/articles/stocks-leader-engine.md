@@ -19,6 +19,8 @@ canonical: "https://aijoylab.kr/articles/stocks-leader-engine"
 series: "Stocks 분석 기초 10부작"
 seriesOrder: 9
 readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "stocks leader engine — JoyLab Investing Foundations 대표 이미지"
 investmentIndustries:
   - semiconductor
 investmentTheses:
