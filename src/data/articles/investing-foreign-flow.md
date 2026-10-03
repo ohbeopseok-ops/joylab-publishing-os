@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-foreign-flow"
 series: "JoyLab Stocks 초보자 완전정복"
 seriesOrder: 7
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"외국인이 사면 주가가 오르나요?","answer":"항상 그렇지 않습니다. 매수 규모와 다른 주체의 매도, 유동성에 따라 다릅니다."},{"question":"하루 수급은 의미 없나요?","answer":"이벤트성 변화는 의미가 있지만 추세 판단에는 누적 흐름이 더 중요합니다."},{"question":"환율이 왜 중요한가요?","answer":"해외 투자자의 원화자산 수익률에 환율이 함께 작용하기 때문입니다."}]
 ---
 ## 3줄 요약
