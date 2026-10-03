@@ -37,7 +37,6 @@ investmentResearchType: "explainer"
 - S&P500 ETF는 미국 대형주 시장을 폭넓게 추종하는 대표적인 코어 주식 ETF 유형입니다.
 - 500개 안팎의 기업을 담지만 시가총액가중 방식 때문에 대형 기업의 영향력이 커질 수 있습니다.
 - 장기 투자에서는 최근 수익률보다 **비용, 추적오차, 환율, 다른 ETF와의 중복**을 함께 봐야 합니다.
-
 [근거: 공식 자료](https://www.spglobal.com/spdji/en/indices/equity/sp-500/)
 
 ## 왜 S&P500이 코어로 자주 언급될까
