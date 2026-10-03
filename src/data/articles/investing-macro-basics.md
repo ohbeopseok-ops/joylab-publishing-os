@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-macro-basics"
 series: "JoyLab Macro 초보자 완전정복"
 seriesOrder: 1
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"매크로 지표를 많이 볼수록 좋은가요?","answer":"아닙니다. 핵심 지표 몇 개를 일관된 기준으로 보는 편이 낫습니다."},{"question":"경제가 나쁜데 주가는 왜 오르나요?","answer":"시장은 현재보다 미래 기대를 반영하기 때문입니다. 금리인하나 실적 회복 기대가 먼저 가격에 들어갈 수 있습니다."},{"question":"매크로만으로 매수·매도해도 되나요?","answer":"매크로는 배경 신호입니다. 기업 실적, 가격, 수급, 포트폴리오 규칙과 함께 보는 편이 안전합니다."}]
 ---
 ## 3줄 요약
