@@ -41,7 +41,6 @@ investmentResearchType: "explainer"
 ## 왜 리밸런싱이 필요한가
 
 주식 60%, 채권 40%로 시작해도 시장은 계속 움직입니다. 주식이 크게 오르면 70/30 또는 75/25가 될 수 있습니다. 투자자가 아무 행동을 하지 않아도 포트폴리오는 더 공격적으로 바뀝니다. 반대로 주식이 급락하면 주식 비중이 낮아져 회복장에서 성장자산 참여도가 줄어들 수 있습니다.
-
 [근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 리밸런싱은 이런 변화가 투자자의 의도 없이 누적되는 것을 막습니다.
@@ -49,13 +48,11 @@ investmentResearchType: "explainer"
 ## 정기 리밸런싱
 
 6개월이나 1년처럼 정해진 주기에 비중을 점검합니다. 규칙이 단순하고 행동하기 쉽다는 장점이 있습니다. 다만 목표비중이 거의 변하지 않았는데도 불필요한 거래가 생길 수 있습니다.
-
 [근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 ## 밴드 리밸런싱
 
 예를 들어 목표 60%인 주식이 65%를 넘거나 55% 아래로 내려갈 때만 조정하는 방식입니다. 시장 변화를 반영하면서 거래 빈도를 줄일 수 있지만 기준을 미리 정해두지 않으면 감정적 판단이 개입될 수 있습니다.
-
 [근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 ## 꼭 매도해야 하나
