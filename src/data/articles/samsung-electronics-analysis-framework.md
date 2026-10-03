@@ -28,6 +28,9 @@ faqs:
     answer: "주가는 실적 발표 전에 기대를 반영할 수 있어 추정치 변화가 중요합니다."
   - question: "삼성전자와 SK하이닉스는 같은 반도체주인가요?"
     answer: "공통점이 있지만 사업구조와 제품 믹스가 달라 같은 프레임으로만 보면 안 됩니다."
+investmentIndustries: ["semiconductor"]
+investmentTheses: ["memory-supercycle"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -58,8 +61,15 @@ faqs:
 ## JoyLab 한 줄 답
 **삼성전자는 ‘반도체 한 종목’이 아니라 여러 이익 엔진을 합산해 보는 복합기업입니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/stock-investing-basics-guide)
+- [같은 시리즈 다음·관련 글](/articles/sk-hynix-analysis-framework)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.samsung.com/global/ir/financial-information/earnings-release/)
 - [공식 자료 2](https://dart.fss.or.kr/)
+
 
