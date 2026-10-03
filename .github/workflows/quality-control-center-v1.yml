@@ -8,6 +8,8 @@ on:
     paths:
       - 'scripts/rank-business-impact-effort-v2.mjs'
       - 'scripts/generate-official-execution-queue-v1.mjs'
+      - 'scripts/generate-ranking-drift-v1.mjs'
+      - 'scripts/generate-today-fix-cards-v1.mjs'
       - 'scripts/generate-quality-control-center-v1.mjs'
       - 'scripts/fetch-business-impact-signals-v1.mjs'
       - 'scripts/rank-business-impact-debt-v1.mjs'
@@ -172,6 +174,14 @@ jobs:
         if: always()
         run: node scripts/generate-official-execution-queue-v1.mjs
 
+      - name: Ranking Drift Report V1
+        if: always()
+        run: node scripts/generate-ranking-drift-v1.mjs
+
+      - name: Today Fix Cards V1
+        if: always()
+        run: node scripts/generate-today-fix-cards-v1.mjs
+
       - name: Generate Quality Control Center V1
         if: always()
         run: node scripts/generate-quality-control-center-v1.mjs
@@ -214,6 +224,8 @@ jobs:
             qa-artifacts/business-impact-debt-v1
             qa-artifacts/business-impact-effort-v2
             qa-artifacts/official-execution-queue-v1
+            qa-artifacts/ranking-drift-v1
+            qa-artifacts/today-fix-cards-v1
             qa-artifacts/quality-control-center-v1
           if-no-files-found: warn
           retention-days: 90
