@@ -41,9 +41,11 @@ for(const record of visual.records||[]){
   if(record.format==='raster'&&record.src) item.rasterSources.add(record.src);
   visualByPath.set(pathName,item);
 }
+const firstByPath=new Map((first.ranked||[]).map((r)=>['/articles/'+r.slug,r]));
 const effortFor=(pathName,worstMetric)=>{
   const v=visualByPath.get(pathName)||{supporting:0,rasterSources:new Set()};
   let effort=1;
+  if(firstByPath.has(pathName)) effort+=1;
   if(Number(v.supporting||0)>=2) effort+=1;
   if(Number(v.rasterSources?.size||0)>=2) effort+=1;
   const factor=worstMetric==='inp'?1.5:worstMetric==='cls'?1.2:1.0;
@@ -98,12 +100,14 @@ const shifts=union.map((pathName)=>({
 const overlap=bootTop.filter((r)=>rumTop.some((x)=>x.path===r.path)).length;
 const comparable=shifts.filter((r)=>r.shift!==null);
 const avgAbsShift=comparable.length?comparable.reduce((s,r)=>s+Math.abs(r.shift),0)/comparable.length:null;
-const state=milestone===20?'GOLD':milestone>=5?'PROVISIONAL':'COLLECT';
+const eligiblePageCount=rumRank.length;
+const state=milestone===20&&eligiblePageCount>0?'GOLD':milestone>=5&&eligiblePageCount>0?'PROVISIONAL':'COLLECT';
 
 const payload={
   generatedAt:new Date().toISOString(),
   state,
   milestone,
+  eligiblePageCount,
   overallSamples:Object.fromEntries(Object.entries(rum.metrics||{}).map(([k,v])=>[k,Number(v.samples||0)])),
   bootstrapTop10:bootTop,
   rumTop10:rumTop,
