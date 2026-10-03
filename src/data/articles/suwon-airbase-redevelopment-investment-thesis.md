@@ -25,6 +25,8 @@ investmentKpis:
   - "신 군공항 총사업비"
   - "이전지역 지원사업비"
   - "예상 순개발가치"
+investmentTheses:
+  - mega-project-capex
 investmentResearchType: "scenario"
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "수원 군공항 종전부지와 신공항 건설비, 개발가치, 정책 게이트를 연결한 메가 프로젝트 투자 분석"
