@@ -60,7 +60,6 @@ investmentResearchType: "explainer"
 - 환노출/환헤지 여부
 - 총비용과 추적오차
 - 포트폴리오 전체에서 성장주 비중
-
 [근거: 공식 자료](https://www.sec.gov/investor/alerts/etfs.pdf)
 
 ## FAQ
