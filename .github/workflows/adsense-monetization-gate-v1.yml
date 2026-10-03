@@ -2,7 +2,7 @@ name: AdSense Monetization Gate V1
 
 on:
   schedule:
-    - cron: "30 0 * * *"
+    - cron: "30 0 * * 1"
   workflow_dispatch:
     inputs:
       mode:
@@ -111,7 +111,7 @@ jobs:
           name: adsense-monetization-gate-v1
           path: qa-artifacts/adsense-monetization-gate-v1
           if-no-files-found: error
-          retention-days: 90
+          retention-days: 14
 
       - name: Enforce rollback decision
         if: always()
@@ -206,7 +206,7 @@ jobs:
           name: adsense-monetization-gate-v1-guide
           path: qa-artifacts/adsense-monetization-gate-v1-guide
           if-no-files-found: error
-          retention-days: 90
+          retention-days: 14
 
       - name: Enforce guide rollback decision
         if: always()
@@ -301,7 +301,7 @@ jobs:
           name: adsense-monetization-gate-v1-book
           path: qa-artifacts/adsense-monetization-gate-v1-book
           if-no-files-found: error
-          retention-days: 90
+          retention-days: 14
 
       - name: Enforce Books landing rollback decision
         if: always()
@@ -371,4 +371,4 @@ jobs:
           name: adsense-monetization-dashboard-v2
           path: qa-artifacts/adsense-monetization-dashboard-v2
           if-no-files-found: error
-          retention-days: 90
+          retention-days: 14

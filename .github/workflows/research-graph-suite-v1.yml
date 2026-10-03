@@ -1,0 +1,148 @@
+name: Research Graph Suite V1
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'config/research-graph-*.json'
+      - 'config/research-graph-*.schema.json'
+      - 'src/lib/research-graph-contract.ts'
+      - 'src/components/ResearchGraphMap.astro'
+      - 'src/components/AiPowerResearchMap.astro'
+      - 'src/components/AiPowerResearchNav.astro'
+      - 'src/pages/guides/ai-power-infrastructure.astro'
+      - 'src/pages/guides/semiconductor-investing.astro'
+      - 'src/pages/guides/ai-component-infrastructure.astro'
+      - 'src/pages/guides/financials-value-up.astro'
+      - 'src/pages/guides/shipbuilding.astro'
+      - 'src/pages/guides/growth-leadership.astro'
+      - 'src/pages/articles/**'
+      - 'src/data/articles/**'
+      - 'src/styles/research-graph-map-v3.css'
+      - 'scripts/check-research-graph-compact-v1.mjs'
+      - 'scripts/check-research-graph-component-v1.mjs'
+      - 'scripts/check-research-graph-v1.mjs'
+      - 'scripts/check-research-graph-platform-v1.mjs'
+      - 'scripts/check-research-graph-responsive-v1.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/research-graph-suite-v1.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'config/research-graph-*.json'
+      - 'config/research-graph-*.schema.json'
+      - 'src/lib/research-graph-contract.ts'
+      - 'src/components/ResearchGraphMap.astro'
+      - 'src/components/AiPowerResearchMap.astro'
+      - 'src/components/AiPowerResearchNav.astro'
+      - 'src/pages/guides/ai-power-infrastructure.astro'
+      - 'src/pages/guides/semiconductor-investing.astro'
+      - 'src/pages/guides/ai-component-infrastructure.astro'
+      - 'src/pages/guides/financials-value-up.astro'
+      - 'src/pages/guides/shipbuilding.astro'
+      - 'src/pages/guides/growth-leadership.astro'
+      - 'src/pages/articles/**'
+      - 'src/data/articles/**'
+      - 'src/styles/research-graph-map-v3.css'
+      - 'scripts/check-research-graph-compact-v1.mjs'
+      - 'scripts/check-research-graph-component-v1.mjs'
+      - 'scripts/check-research-graph-v1.mjs'
+      - 'scripts/check-research-graph-platform-v1.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/research-graph-suite-v1.yml'
+  workflow_dispatch:
+    inputs:
+      run_responsive_gold:
+        description: 'Run Playwright Responsive GOLD after static contracts and build'
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: research-graph-suite-v1-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  research-graph-suite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout once
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node once
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install dependencies once
+        run: npm ci
+
+      - name: Compact mode contract
+        run: npm run research-graph:compact:check
+
+      - name: AI component graph contract
+        run: npm run research-graph:component:check
+
+      - name: Core Research Graph contract
+        run: npm run research-graph:check
+
+      - name: Platform registry contract
+        run: npm run research-graph:platform:check
+
+      - name: Build production site once
+        run: npm run build
+
+      - name: Install Playwright for manual Responsive GOLD only
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_responsive_gold }}
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start preview for manual Responsive GOLD only
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_responsive_gold }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4321 > /tmp/research-graph-preview.log 2>&1 &
+          echo $! > /tmp/research-graph-preview.pid
+          for i in {1..40}; do
+            if curl -fsS http://127.0.0.1:4321/guides/growth-leadership >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/research-graph-preview.log
+          exit 1
+
+      - name: Responsive GOLD
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.run_responsive_gold }}
+        env:
+          QA_BASE_URL: http://127.0.0.1:4321
+        run: npm run research-graph:responsive:gold
+
+      - name: Stop preview
+        if: ${{ always() && github.event_name == 'workflow_dispatch' && inputs.run_responsive_gold }}
+        shell: bash
+        run: |
+          if [ -f /tmp/research-graph-preview.pid ]; then
+            kill "$(cat /tmp/research-graph-preview.pid)" || true
+          fi
+
+      - name: Upload Responsive GOLD evidence
+        if: ${{ always() && github.event_name == 'workflow_dispatch' && inputs.run_responsive_gold }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: research-graph-responsive-gold
+          path: qa-artifacts/research-graph-responsive-gold
+          if-no-files-found: warn
+          retention-days: 14
