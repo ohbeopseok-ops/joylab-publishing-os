@@ -28,6 +28,8 @@ faqs:
     answer: "성장과 기업이익이 함께 둔화되는지 여부에 따라 달라집니다."
   - question: "금과 실질금리는 어떤 관계인가요?"
     answer: "실질금리가 낮을수록 이자가 없는 금의 기회비용이 낮아지는 경향이 있지만 관계는 고정적이지 않습니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "macro"
 ---
 
 ## 3줄 요약
@@ -39,6 +41,8 @@ faqs:
 ## 왜 실질금리를 봐야 하나
 
 금리가 4%라도 물가가 5%라면 실질 구매력 기준 수익은 낮습니다. 반대로 물가가 빠르게 안정되는데 명목금리가 높은 수준에 머물면 실질금리는 상승할 수 있습니다.
+
+[근거: 공식 자료](https://www.bls.gov/cpi/)
 
 ## 주식과의 연결
 
@@ -63,8 +67,15 @@ faqs:
 
 **명목금리가 표면이라면 실질금리는 자산이 실제로 느끼는 금리 압력에 더 가깝습니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/yield-curve-guide)
+- [같은 시리즈 다음·관련 글](/articles/usdkrw-investing-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.bls.gov/cpi/)
 - [공식 자료 2](https://home.treasury.gov/resource-center/data-chart-center/interest-rates)
+
 
