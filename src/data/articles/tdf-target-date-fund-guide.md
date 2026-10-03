@@ -28,6 +28,8 @@ faqs:
     answer: "TDF는 자산배분을 단순화하지만 전체 은퇴계획에는 소득, 지출, 연금, 세금, 비상자금 등을 함께 고려해야 합니다."
   - question: "TDF와 60/40 중 무엇이 더 좋은가요?"
     answer: "목적이 다릅니다. 60/40은 고정된 목표비중 전략이고 TDF는 시간이 지나면서 비중이 변하는 전략입니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -39,6 +41,8 @@ faqs:
 ## TDF 2045, 2050의 숫자는 무엇인가
 
 상품명 뒤 숫자는 대체로 투자자가 은퇴하거나 자금을 본격적으로 사용할 목표시점을 나타냅니다. 예를 들어 TDF 2050은 2050년 전후를 목표시점으로 둔 전략입니다. 다만 같은 연도의 TDF라도 운용사마다 주식 비중, 채권 비중, 환헤지, 대체자산 활용 방식이 다릅니다.
+
+[근거: 공식 자료](https://www.sec.gov/investor/alerts/tdf.htm)
 
 ## 글라이드패스가 핵심이다
 
@@ -74,78 +78,15 @@ TDF는 자산배분을 단순화하지만 전체 은퇴계획에는 소득, 지�
 
 **TDF의 본질은 펀드 이름이 아니라 ‘시간이 지나면 위험을 자동으로 낮추는 자산배분 규칙’입니다.**
 
-## Structured Data
+## 이어 읽기
 
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "TDF",
-  "description": "TDF의 목표시점, 글라이드패스, 주식·채권 자동 자산배분 원리와 직접 ETF 포트폴리오와의 차이를 설명합니다.",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://aijoylab.kr/guides/investing/etf/tdf/"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "isPartOf": {
-    "@type": "CreativeWorkSeries",
-    "name": "JoyLab ETF 초보자 완전정복 10부작"
-  }
-}
-~~~
-
-## FAQ Structured Data
-
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "TDF 2050이면 2050년에 반드시 매도해야 하나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "그렇지 않습니다. 2050은 운용전략의 목표시점입니다. 실제 환매 시점은 투자자의 계획에 따라 달라질 수 있습니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "TDF 하나로 은퇴 준비가 끝나나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "TDF는 자산배분을 단순화하지만 전체 은퇴계획에는 소득, 지출, 연금, 세금, 비상자금 등을 함께 고려해야 합니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "TDF와 60/40 중 무엇이 더 좋은가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "목적이 다릅니다. 60/40은 고정된 목표비중 전략이고 TDF는 시간이 지나면서 비중이 변하는 전략입니다."
-      }
-    }
-  ]
-}
-~~~
-
-## Research Graph Links
-
-- **Parent:** ETF Basics
-- **Related:** MMF · Retirement · Asset Allocation
-- **Compare:** 60/40 자산배분
-- **Next:** 60/40 자산배분
-- **Apply:** 실전 모델 포트폴리오
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/mmf-cash-management-guide)
+- [같은 시리즈 다음·관련 글](/articles/60-40-asset-allocation-guide)
 
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.sec.gov/investor/alerts/tdf.htm)
 - [공식 자료 2](https://www.investor.gov/introduction-investing/investing-basics/glossary/target-date-fund)
+
 
