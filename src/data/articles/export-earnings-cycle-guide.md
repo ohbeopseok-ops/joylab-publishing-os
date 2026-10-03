@@ -28,6 +28,8 @@ faqs:
     answer: "기저효과가 있으므로 전월 흐름, 누적, 일평균, 단가와 물량을 함께 보는 것이 좋습니다."
   - question: "수출 데이터는 어디에 가장 유용한가요?"
     answer: "업황 확인, 실적 추정 방향, 섹터 상대강도 검증에 유용합니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "macro"
 ---
 
 ## 3줄 요약
@@ -63,8 +65,15 @@ faqs:
 
 **수출은 매수버튼이 아니라 기업이익 사이클이 실제로 따라오는지 확인하는 증거입니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/bond-duration-guide)
+- [같은 시리즈 다음·관련 글](/articles/semiconductor-trade-pulse-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.motie.go.kr/kor/article/ATCL3f49a5a8c/)
 - [공식 자료 2](https://www.data.go.kr/)
+
 
