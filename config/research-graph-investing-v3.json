@@ -1,0 +1,1740 @@
+{
+  "version": "3.0.0-publishing-os",
+  "generatedFor": "JoyLab Publishing OS / aijoylab.kr Investing Knowledge V3",
+  "architecture": "Stocks → Macro → ETF → Asset Allocation → Retirement",
+  "nodes": [
+    {
+      "id": "investing",
+      "title": "Investing",
+      "pillar": "Investing",
+      "cluster": "Root",
+      "subcluster": null,
+      "type": "hub",
+      "slug": "/guides/investing",
+      "status": "published",
+      "summary": "JoyLab 투자 리서치의 루트 허브",
+      "keywords": [
+        "투자",
+        "포트폴리오"
+      ]
+    },
+    {
+      "id": "etf",
+      "title": "ETF",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": null,
+      "type": "hub",
+      "slug": "/guides/investing-foundations#etf",
+      "status": "planned",
+      "summary": "ETF 기초부터 자산배분까지 연결하는 허브",
+      "keywords": [
+        "ETF",
+        "상장지수펀드"
+      ]
+    },
+    {
+      "id": "etf-basics",
+      "title": "ETF Basics",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": "ETF Basics",
+      "type": "hub",
+      "slug": "/guides/investing-foundations#etf",
+      "status": "planned",
+      "summary": "ETF 구조와 기초 개념",
+      "keywords": [
+        "ETF 기초"
+      ]
+    },
+    {
+      "id": "equity-etf",
+      "title": "Equity ETF",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": "Equity ETF",
+      "type": "hub",
+      "slug": "/guides/investing-foundations#etf",
+      "status": "planned",
+      "summary": "주식형 ETF 허브",
+      "keywords": [
+        "주식 ETF"
+      ]
+    },
+    {
+      "id": "bond-etf",
+      "title": "Bond ETF",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": "Bond ETF",
+      "type": "hub",
+      "slug": "/guides/investing-foundations#etf",
+      "status": "planned",
+      "summary": "채권형 ETF 허브",
+      "keywords": [
+        "채권 ETF"
+      ]
+    },
+    {
+      "id": "asset-allocation",
+      "title": "Asset Allocation",
+      "pillar": "Investing",
+      "cluster": "Asset Allocation",
+      "subcluster": null,
+      "type": "hub",
+      "slug": "/guides/investing-foundations#etf",
+      "status": "planned",
+      "summary": "자산 역할을 먼저 정하고 ETF를 배치하는 전략 허브",
+      "keywords": [
+        "자산배분",
+        "포트폴리오"
+      ]
+    },
+    {
+      "id": "etf-what-is",
+      "title": "ETF란 무엇인가",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": "ETF Basics",
+      "type": "guide",
+      "slug": "/articles/etf-basics-guide",
+      "status": "planned",
+      "summary": "ETF의 구조와 장단점",
+      "keywords": [
+        "ETF란",
+        "ETF 초보"
+      ],
+      "internalLinks": {
+        "parent": "etf-basics",
+        "related": [
+          "mmf",
+          "tdf"
+        ],
+        "compare": [],
+        "next": "mmf",
+        "apply": [
+          "asset-allocation"
+        ]
+      },
+      "series": "etf-beginner-10",
+      "order": 1,
+      "seo": {
+        "primaryKeyword": "ETF란 무엇인가",
+        "searchIntent": "informational",
+        "canonical": "https://aijoylab.kr/guides/investing/etf/what-is-etf/"
+      }
+    },
+    {
+      "id": "mmf",
+      "title": "MMF",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": "ETF Basics",
+      "type": "concept",
+      "slug": "/articles/mmf-cash-management-guide",
+      "status": "planned",
+      "summary": "투자 대기자금과 현금성 자산 관리",
+      "keywords": [
+        "MMF",
+        "현금성 자산"
+      ],
+      "internalLinks": {
+        "parent": "etf-basics",
+        "related": [
+          "tdf",
+          "portfolio-60-40"
+        ],
+        "compare": [
+          "tdf"
+        ],
+        "next": "tdf",
+        "apply": [
+          "model-portfolio"
+        ]
+      },
+      "series": "etf-beginner-10",
+      "order": 2,
+      "seo": {
+        "primaryKeyword": "MMF",
+        "searchIntent": "informational",
+        "canonical": "https://aijoylab.kr/guides/investing/etf/mmf/"
+      }
+    },
+    {
+      "id": "tdf",
+      "title": "TDF",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": "ETF Basics",
+      "type": "concept",
+      "slug": "/articles/tdf-target-date-fund-guide",
+      "status": "planned",
+      "summary": "은퇴 시점 기반 자동 자산배분",
+      "keywords": [
+        "TDF",
+        "타깃데이트펀드",
+        "연금"
+      ],
+      "internalLinks": {
+        "parent": "etf-basics",
+        "related": [
+          "mmf",
+          "retirement",
+          "asset-allocation"
+        ],
+        "compare": [
+          "portfolio-60-40"
+        ],
+        "next": "portfolio-60-40",
+        "apply": [
+          "model-portfolio"
+        ]
+      },
+      "series": "etf-beginner-10",
+      "order": 3,
+      "seo": {
+        "primaryKeyword": "TDF",
+        "searchIntent": "informational",
+        "canonical": "https://aijoylab.kr/guides/investing/etf/tdf/"
+      }
+    },
+    {
+      "id": "portfolio-60-40",
+      "title": "60/40 자산배분",
+      "pillar": "Investing",
+      "cluster": "Asset Allocation",
+      "subcluster": "Core Strategy",
+      "type": "strategy",
+      "slug": "/articles/60-40-asset-allocation-guide",
+      "status": "planned",
+      "summary": "주식 60 채권 40의 기본 자산배분 전략",
+      "keywords": [
+        "60/40",
+        "자산배분"
+      ],
+      "internalLinks": {
+        "parent": "asset-allocation",
+        "related": [
+          "sp500",
+          "bond-guide",
+          "rebalancing"
+        ],
+        "compare": [
+          "tdf"
+        ],
+        "next": "sp500",
+        "apply": [
+          "model-portfolio"
+        ]
+      },
+      "series": "etf-beginner-10",
+      "order": 4,
+      "seo": {
+        "primaryKeyword": "60/40 포트폴리오",
+        "searchIntent": "informational",
+        "canonical": "https://aijoylab.kr/guides/investing/asset-allocation/60-40/"
+      }
+    },
+    {
+      "id": "sp500",
+      "title": "S&P500 ETF",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": "Equity ETF",
+      "type": "concept",
+      "slug": "/articles/sp500-etf-core-guide",
+      "status": "planned",
+      "summary": "미국 대형주 코어 ETF",
+      "keywords": [
+        "S&P500 ETF"
+      ],
+      "internalLinks": {
+        "parent": "equity-etf",
+        "related": [
+          "nasdaq100",
+          "dividend-etf",
+          "portfolio-60-40"
+        ],
+        "compare": [
+          "nasdaq100",
+          "dividend-etf"
+        ],
+        "next": "nasdaq100",
+        "apply": [
+          "portfolio-60-40",
+          "model-portfolio"
+        ]
+      },
+      "series": "etf-beginner-10",
+      "order": 5,
+      "seo": {
+        "primaryKeyword": "S&P500 ETF",
+        "searchIntent": "informational",
+        "canonical": "https://aijoylab.kr/guides/investing/etf/sp500/"
+      }
+    },
+    {
+      "id": "nasdaq100",
+      "title": "Nasdaq100 ETF",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": "Equity ETF",
+      "type": "concept",
+      "slug": "/articles/nasdaq100-etf-growth-guide",
+      "status": "planned",
+      "summary": "미국 성장주 중심 ETF",
+      "keywords": [
+        "나스닥100 ETF"
+      ],
+      "internalLinks": {
+        "parent": "equity-etf",
+        "related": [
+          "sp500",
+          "dividend-etf"
+        ],
+        "compare": [
+          "sp500",
+          "dividend-etf"
+        ],
+        "next": "dividend-etf",
+        "apply": [
+          "model-portfolio"
+        ]
+      },
+      "series": "etf-beginner-10",
+      "order": 6,
+      "seo": {
+        "primaryKeyword": "나스닥100 ETF",
+        "searchIntent": "informational",
+        "canonical": "https://aijoylab.kr/guides/investing/etf/nasdaq100/"
+      }
+    },
+    {
+      "id": "dividend-etf",
+      "title": "Dividend ETF",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": "Equity ETF",
+      "type": "concept",
+      "slug": "/articles/dividend-etf-income-guide",
+      "status": "planned",
+      "summary": "배당과 현금흐름 중심 ETF",
+      "keywords": [
+        "배당 ETF"
+      ],
+      "internalLinks": {
+        "parent": "equity-etf",
+        "related": [
+          "sp500",
+          "nasdaq100",
+          "retirement"
+        ],
+        "compare": [
+          "sp500",
+          "nasdaq100"
+        ],
+        "next": "bond-guide",
+        "apply": [
+          "model-portfolio"
+        ]
+      },
+      "series": "etf-beginner-10",
+      "order": 7,
+      "seo": {
+        "primaryKeyword": "배당 ETF",
+        "searchIntent": "informational",
+        "canonical": "https://aijoylab.kr/guides/investing/etf/dividend/"
+      }
+    },
+    {
+      "id": "bond-guide",
+      "title": "미국10년·국고채3년·종합채권 ETF",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": "Bond ETF",
+      "type": "guide",
+      "slug": "/articles/bond-etf-core-guide",
+      "status": "planned",
+      "summary": "채권 ETF 3종의 역할 비교",
+      "keywords": [
+        "미국10년국채",
+        "국고채3년",
+        "종합채권ETF"
+      ],
+      "internalLinks": {
+        "parent": "bond-etf",
+        "related": [
+          "us10y",
+          "kr3y",
+          "aggregate-bond",
+          "portfolio-60-40"
+        ],
+        "compare": [
+          "us10y",
+          "kr3y",
+          "aggregate-bond"
+        ],
+        "next": "rebalancing",
+        "apply": [
+          "portfolio-60-40",
+          "model-portfolio"
+        ]
+      },
+      "series": "etf-beginner-10",
+      "order": 8,
+      "seo": {
+        "primaryKeyword": "채권 ETF",
+        "searchIntent": "informational",
+        "canonical": "https://aijoylab.kr/guides/investing/etf/bonds/core-bond-guide/"
+      }
+    },
+    {
+      "id": "us10y",
+      "title": "미국 국채 10년",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": "Bond ETF",
+      "type": "concept",
+      "slug": "/guides/investing/etf/bonds/us-10y-treasury/",
+      "status": "planned",
+      "summary": "글로벌 장기금리와 듀레이션 노출",
+      "keywords": [
+        "미국 10년 국채"
+      ]
+    },
+    {
+      "id": "kr3y",
+      "title": "국고채 3년",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": "Bond ETF",
+      "type": "concept",
+      "slug": "/guides/investing/etf/bonds/korea-3y-treasury/",
+      "status": "planned",
+      "summary": "원화 기반 중단기 안정자산",
+      "keywords": [
+        "국고채 3년"
+      ]
+    },
+    {
+      "id": "aggregate-bond",
+      "title": "종합채권 ETF",
+      "pillar": "Investing",
+      "cluster": "ETF",
+      "subcluster": "Bond ETF",
+      "type": "concept",
+      "slug": "/guides/investing/etf/bonds/aggregate-bond/",
+      "status": "planned",
+      "summary": "국채·금융채·회사채 등 분산 채권 코어",
+      "keywords": [
+        "종합채권 ETF"
+      ]
+    },
+    {
+      "id": "rebalancing",
+      "title": "리밸런싱",
+      "pillar": "Investing",
+      "cluster": "Asset Allocation",
+      "subcluster": "Portfolio Management",
+      "type": "strategy",
+      "slug": "/articles/portfolio-rebalancing-guide",
+      "status": "planned",
+      "summary": "목표 자산비중을 복원하는 규칙",
+      "keywords": [
+        "리밸런싱"
+      ],
+      "internalLinks": {
+        "parent": "asset-allocation",
+        "related": [
+          "portfolio-60-40",
+          "model-portfolio"
+        ],
+        "compare": [],
+        "next": "model-portfolio",
+        "apply": [
+          "model-portfolio"
+        ]
+      },
+      "series": "etf-beginner-10",
+      "order": 9,
+      "seo": {
+        "primaryKeyword": "리밸런싱",
+        "searchIntent": "informational",
+        "canonical": "https://aijoylab.kr/guides/investing/asset-allocation/rebalancing/"
+      }
+    },
+    {
+      "id": "model-portfolio",
+      "title": "실전 모델 포트폴리오",
+      "pillar": "Investing",
+      "cluster": "Asset Allocation",
+      "subcluster": "Portfolio Construction",
+      "type": "portfolio",
+      "slug": "/articles/etf-model-portfolio-guide",
+      "status": "planned",
+      "summary": "ETF를 역할별로 배치한 실전 포트폴리오",
+      "keywords": [
+        "ETF 포트폴리오",
+        "모델 포트폴리오"
+      ],
+      "internalLinks": {
+        "parent": "asset-allocation",
+        "related": [
+          "portfolio-60-40",
+          "sp500",
+          "bond-guide",
+          "rebalancing"
+        ],
+        "compare": [],
+        "next": null,
+        "apply": []
+      },
+      "series": "etf-beginner-10",
+      "order": 10,
+      "seo": {
+        "primaryKeyword": "ETF 포트폴리오",
+        "searchIntent": "informational",
+        "canonical": "https://aijoylab.kr/guides/investing/asset-allocation/model-portfolio/"
+      }
+    },
+    {
+      "id": "stocks",
+      "title": "Stocks",
+      "pillar": "Investing",
+      "cluster": "Stocks",
+      "subcluster": null,
+      "type": "hub",
+      "slug": "/guides/investing-foundations#stocks",
+      "status": "planned",
+      "summary": "개별주 분석 허브",
+      "keywords": [
+        "주식"
+      ]
+    },
+    {
+      "id": "macro",
+      "title": "Macro",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": null,
+      "type": "hub",
+      "slug": "/guides/investing-foundations#macro",
+      "status": "planned",
+      "summary": "금리·환율·물가·경기 리서치 허브",
+      "keywords": [
+        "매크로",
+        "금리",
+        "환율"
+      ]
+    },
+    {
+      "id": "retirement",
+      "title": "Retirement",
+      "pillar": "Investing",
+      "cluster": "Retirement",
+      "subcluster": null,
+      "type": "hub",
+      "slug": "/guides/investing-foundations",
+      "status": "planned",
+      "summary": "연금저축·IRP·은퇴자산 허브",
+      "keywords": [
+        "연금",
+        "은퇴"
+      ]
+    },
+    {
+      "id": "rates",
+      "title": "Rates & Yield Curve",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Rates",
+      "type": "hub",
+      "slug": "/guides/investing/macro/rates/",
+      "status": "planned",
+      "summary": "금리·수익률곡선·채권가격 연결 허브",
+      "keywords": [
+        "금리",
+        "수익률곡선"
+      ]
+    },
+    {
+      "id": "trade-pulse",
+      "title": "Trade Pulse",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Trade",
+      "type": "hub",
+      "slug": "/guides/investing/macro/trade-pulse/",
+      "status": "planned",
+      "summary": "수출입 데이터를 업황·섹터·수급 검증 센서로 연결",
+      "keywords": [
+        "수출입동향",
+        "Trade Pulse"
+      ]
+    },
+    {
+      "id": "exports-as-stock-leading-signal",
+      "title": "수출이 먼저 움직이고 주가는 따라오는가",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Trade",
+      "type": "guide",
+      "slug": "/articles/exports-as-stock-leading-signal/",
+      "status": "planned",
+      "summary": "수출 데이터를 주가 선행 신호로 검증하는 리서치",
+      "keywords": [
+        "수출",
+        "주가",
+        "선행지표"
+      ]
+    },
+    {
+      "id": "semiconductor-export-603b",
+      "title": "반도체 수출과 삼성전자·SK하이닉스",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Trade",
+      "type": "guide",
+      "slug": "/articles/semiconductor-export-stock-cycle/",
+      "status": "planned",
+      "summary": "반도체 수출과 주가·업황 연결",
+      "keywords": [
+        "반도체 수출",
+        "삼성전자",
+        "SK하이닉스"
+      ]
+    },
+    {
+      "id": "ship-export-lag",
+      "title": "조선 수출을 보면 왜 주도주를 놓치는가",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Trade",
+      "type": "guide",
+      "slug": "/articles/ship-export-lag/",
+      "status": "planned",
+      "summary": "조선 수출의 후행성과 주도주 판단",
+      "keywords": [
+        "조선 수출",
+        "주도주"
+      ]
+    },
+    {
+      "id": "trade-pulse-methodology",
+      "title": "Trade Pulse로 주도섹터 찾는 법",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Trade",
+      "type": "guide",
+      "slug": "/guides/investing/macro/trade-pulse-methodology/",
+      "status": "planned",
+      "summary": "월간 무역 데이터를 섹터 판단에 적용",
+      "keywords": [
+        "Trade Pulse",
+        "주도섹터"
+      ]
+    },
+    {
+      "id": "stock-analysis",
+      "title": "Stock Analysis",
+      "pillar": "Investing",
+      "cluster": "Stocks",
+      "subcluster": null,
+      "type": "hub",
+      "slug": "/guides/investing-foundations#stocks",
+      "status": "planned",
+      "summary": "개별 기업의 펀더멘털·수급·밸류에이션 분석",
+      "keywords": [
+        "기업분석",
+        "주식분석"
+      ]
+    },
+    {
+      "id": "semiconductor-investing",
+      "title": "Semiconductor Investing",
+      "pillar": "Investing",
+      "cluster": "Stocks",
+      "subcluster": "Semiconductor",
+      "type": "guide",
+      "slug": "/guides/semiconductor-investing/",
+      "status": "planned",
+      "summary": "반도체 업황·수급·EPS Revision을 연결하는 투자 가이드",
+      "keywords": [
+        "반도체 투자",
+        "EPS Revision"
+      ]
+    },
+    {
+      "id": "pension-savings",
+      "title": "연금저축",
+      "pillar": "Investing",
+      "cluster": "Retirement",
+      "subcluster": "Accounts",
+      "type": "guide",
+      "slug": "/guides/investing/retirement/pension-savings/",
+      "status": "planned",
+      "summary": "연금저축 계좌의 역할과 ETF 활용",
+      "keywords": [
+        "연금저축",
+        "ETF"
+      ]
+    },
+    {
+      "id": "irp",
+      "title": "IRP",
+      "pillar": "Investing",
+      "cluster": "Retirement",
+      "subcluster": "Accounts",
+      "type": "guide",
+      "slug": "/guides/investing/retirement/irp/",
+      "status": "planned",
+      "summary": "IRP 계좌와 자산배분",
+      "keywords": [
+        "IRP",
+        "퇴직연금"
+      ]
+    },
+    {
+      "id": "retirement-allocation",
+      "title": "은퇴 자산배분",
+      "pillar": "Investing",
+      "cluster": "Retirement",
+      "subcluster": "Portfolio",
+      "type": "strategy",
+      "slug": "/guides/investing/retirement/asset-allocation/",
+      "status": "planned",
+      "summary": "은퇴 시점과 위험수용도에 따른 자산배분",
+      "keywords": [
+        "은퇴 자산배분",
+        "TDF"
+      ]
+    },
+    {
+      "id": "macro-basics",
+      "title": "매크로를 왜 투자에 쓰는가",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Macro Basics",
+      "type": "guide",
+      "slug": "/articles/macro-investing-basics",
+      "status": "planned",
+      "summary": "금리·물가·환율·수출을 투자 의사결정의 배경 신호로 읽는 법",
+      "keywords": [
+        "매크로 투자",
+        "경제지표"
+      ]
+    },
+    {
+      "id": "policy-rate",
+      "title": "기준금리와 시장금리",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Rates",
+      "type": "concept",
+      "slug": "/articles/policy-rate-vs-market-rate",
+      "status": "planned",
+      "summary": "정책금리와 국채금리가 다르게 움직이는 이유",
+      "keywords": [
+        "기준금리",
+        "시장금리"
+      ]
+    },
+    {
+      "id": "yield-curve",
+      "title": "수익률곡선과 장단기금리",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Rates",
+      "type": "concept",
+      "slug": "/articles/yield-curve-guide",
+      "status": "planned",
+      "summary": "2년·10년 등 만기별 금리 구조와 경기 기대를 읽는 법",
+      "keywords": [
+        "수익률곡선",
+        "장단기금리"
+      ]
+    },
+    {
+      "id": "inflation-real-rate",
+      "title": "인플레이션과 실질금리",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Rates",
+      "type": "concept",
+      "slug": "/articles/inflation-real-rate-guide",
+      "status": "planned",
+      "summary": "명목금리에서 인플레이션을 분리해 자산가격 압력을 이해",
+      "keywords": [
+        "인플레이션",
+        "실질금리"
+      ]
+    },
+    {
+      "id": "usdkrw-fx",
+      "title": "원달러 환율과 한국 자산",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "FX",
+      "type": "concept",
+      "slug": "/articles/usdkrw-investing-guide",
+      "status": "planned",
+      "summary": "원달러 환율이 외국인 수급·수입물가·해외ETF 성과에 미치는 영향",
+      "keywords": [
+        "원달러 환율",
+        "환율 투자"
+      ]
+    },
+    {
+      "id": "bond-duration-macro",
+      "title": "듀레이션과 채권 가격",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Rates",
+      "type": "concept",
+      "slug": "/articles/bond-duration-guide",
+      "status": "planned",
+      "summary": "금리 변화가 단기·장기채 가격에 다르게 작용하는 이유",
+      "keywords": [
+        "듀레이션",
+        "채권 가격"
+      ]
+    },
+    {
+      "id": "trade-cycle",
+      "title": "수출과 기업이익 사이클",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Trade Pulse",
+      "type": "concept",
+      "slug": "/articles/export-earnings-cycle-guide",
+      "status": "planned",
+      "summary": "수출 데이터와 기업 실적·업종 사이클의 연결",
+      "keywords": [
+        "수출",
+        "기업이익"
+      ]
+    },
+    {
+      "id": "semiconductor-trade-pulse",
+      "title": "반도체 수출과 주가 신호",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Trade Pulse",
+      "type": "guide",
+      "slug": "/articles/semiconductor-trade-pulse-guide",
+      "status": "planned",
+      "summary": "반도체 수출·가격·수급을 결합해 업황을 확인하는 방법",
+      "keywords": [
+        "반도체 수출",
+        "주가"
+      ]
+    },
+    {
+      "id": "macro-to-asset-allocation",
+      "title": "매크로를 자산배분에 연결하기",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Asset Allocation Link",
+      "type": "strategy",
+      "slug": "/articles/macro-to-asset-allocation-guide",
+      "status": "planned",
+      "summary": "금리·물가·환율 신호를 예측이 아니라 비중 점검에 활용",
+      "keywords": [
+        "매크로 자산배분"
+      ]
+    },
+    {
+      "id": "macro-dashboard",
+      "title": "JoyLab Macro Dashboard",
+      "pillar": "Investing",
+      "cluster": "Macro",
+      "subcluster": "Operating System",
+      "type": "guide",
+      "slug": "/articles/joylab-macro-dashboard-guide",
+      "status": "planned",
+      "summary": "Rates·FX·Trade Pulse를 정기 점검하는 운영 대시보드",
+      "keywords": [
+        "매크로 대시보드",
+        "Trade Pulse"
+      ]
+    },
+    {
+      "id": "stocks-basics",
+      "title": "개별주 투자의 출발점",
+      "pillar": "Investing",
+      "cluster": "Stocks",
+      "subcluster": "Stock Basics",
+      "type": "guide",
+      "slug": "/articles/stock-investing-basics-guide",
+      "status": "planned",
+      "summary": "주가가 아니라 기업·이익·밸류에이션·수급을 하나의 프레임으로 보는 법",
+      "keywords": [
+        "개별주 투자",
+        "주식 분석"
+      ]
+    },
+    {
+      "id": "samsung-electronics-case",
+      "title": "삼성전자 분석 프레임",
+      "pillar": "Investing",
+      "cluster": "Stocks",
+      "subcluster": "Semiconductor",
+      "type": "guide",
+      "slug": "/articles/samsung-electronics-analysis-framework",
+      "status": "planned",
+      "summary": "메모리·파운드리·모바일·밸류에이션을 분리해 삼성전자를 분석하는 구조",
+      "keywords": [
+        "삼성전자",
+        "반도체 투자"
+      ]
+    },
+    {
+      "id": "sk-hynix-case",
+      "title": "SK하이닉스 분석 프레임",
+      "pillar": "Investing",
+      "cluster": "Stocks",
+      "subcluster": "Semiconductor",
+      "type": "guide",
+      "slug": "/articles/sk-hynix-analysis-framework",
+      "status": "planned",
+      "summary": "메모리 사이클과 HBM·수익성·CAPEX를 중심으로 SK하이닉스를 분석하는 구조",
+      "keywords": [
+        "SK하이닉스",
+        "HBM"
+      ]
+    },
+    {
+      "id": "earnings-cycle",
+      "title": "실적 사이클 읽기",
+      "pillar": "Investing",
+      "cluster": "Stocks",
+      "subcluster": "Fundamentals",
+      "type": "concept",
+      "slug": "/articles/earnings-cycle-analysis-guide",
+      "status": "planned",
+      "summary": "매출·마진·재고·CAPEX가 EPS로 연결되는 과정을 이해",
+      "keywords": [
+        "실적 사이클",
+        "EPS"
+      ]
+    },
+    {
+      "id": "eps-revision",
+      "title": "EPS Revision",
+      "pillar": "Investing",
+      "cluster": "Stocks",
+      "subcluster": "Fundamentals",
+      "type": "concept",
+      "slug": "/articles/eps-revision-analysis-guide",
+      "status": "planned",
+      "summary": "이익 추정치의 방향과 변화율을 주가 신호와 연결하는 법",
+      "keywords": [
+        "EPS Revision",
+        "실적 추정"
+      ]
+    },
+    {
+      "id": "valuation-4v",
+      "title": "Valuation 4V",
+      "pillar": "Investing",
+      "cluster": "Stocks",
+      "subcluster": "Valuation",
+      "type": "strategy",
+      "slug": "/articles/valuation-4v-guide",
+      "status": "planned",
+      "summary": "멀티플·성장·현금흐름·사이클을 분리해 적정가치 범위를 판단하는 프레임",
+      "keywords": [
+        "밸류에이션",
+        "적정주가"
+      ]
+    },
+    {
+      "id": "foreign-flow",
+      "title": "외국인 Flow와 수급",
+      "pillar": "Investing",
+      "cluster": "Stocks",
+      "subcluster": "Flow",
+      "type": "concept",
+      "slug": "/articles/foreign-flow-analysis-guide",
+      "status": "planned",
+      "summary": "외국인·기관·개인 수급을 가격·환율과 함께 읽는 방법",
+      "keywords": [
+        "외국인 수급",
+        "기관 수급"
+      ]
+    },
+    {
+      "id": "relative-strength",
+      "title": "상대강도와 주도주",
+      "pillar": "Investing",
+      "cluster": "Stocks",
+      "subcluster": "Leadership",
+      "type": "concept",
+      "slug": "/articles/relative-strength-leadership-guide",
+      "status": "planned",
+      "summary": "시장·섹터 대비 상대수익률과 거래대금으로 리더십을 판단",
+      "keywords": [
+        "상대강도",
+        "주도주"
+      ]
+    },
+    {
+      "id": "leader-engine",
+      "title": "JoyLab Leader Engine",
+      "pillar": "Investing",
+      "cluster": "Stocks",
+      "subcluster": "Leadership",
+      "type": "strategy",
+      "slug": "/articles/joylab-leader-engine-guide",
+      "status": "planned",
+      "summary": "섹터·거래대금·추세·수급을 결합해 후보를 운영하는 규칙 기반 엔진",
+      "keywords": [
+        "Leader Engine",
+        "주도주"
+      ]
+    },
+    {
+      "id": "stock-decision-gate",
+      "title": "Stock Decision Gate",
+      "pillar": "Investing",
+      "cluster": "Stocks",
+      "subcluster": "Decision System",
+      "type": "strategy",
+      "slug": "/articles/stock-decision-gate-guide",
+      "status": "planned",
+      "summary": "Thesis·Confirm·Winner Add·Risk Gate를 연결하는 최종 투자 의사결정 구조",
+      "keywords": [
+        "투자 의사결정",
+        "Risk Gate"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "investing",
+      "target": "etf",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "investing",
+      "target": "asset-allocation",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "investing",
+      "target": "stocks",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "investing",
+      "target": "macro",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "investing",
+      "target": "retirement",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "etf",
+      "target": "etf-basics",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "etf",
+      "target": "equity-etf",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "etf",
+      "target": "bond-etf",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "etf-basics",
+      "target": "etf-what-is",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "etf-basics",
+      "target": "mmf",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "etf-basics",
+      "target": "tdf",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "equity-etf",
+      "target": "sp500",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "equity-etf",
+      "target": "nasdaq100",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "equity-etf",
+      "target": "dividend-etf",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "bond-etf",
+      "target": "bond-guide",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "bond-etf",
+      "target": "us10y",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "bond-etf",
+      "target": "kr3y",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "bond-etf",
+      "target": "aggregate-bond",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "asset-allocation",
+      "target": "portfolio-60-40",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "asset-allocation",
+      "target": "rebalancing",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "asset-allocation",
+      "target": "model-portfolio",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "tdf",
+      "target": "asset-allocation",
+      "relation": "explains",
+      "weight": 0.9
+    },
+    {
+      "source": "portfolio-60-40",
+      "target": "sp500",
+      "relation": "used_in",
+      "weight": 0.8
+    },
+    {
+      "source": "portfolio-60-40",
+      "target": "bond-guide",
+      "relation": "used_in",
+      "weight": 0.9
+    },
+    {
+      "source": "sp500",
+      "target": "nasdaq100",
+      "relation": "compare_with",
+      "weight": 0.8
+    },
+    {
+      "source": "sp500",
+      "target": "dividend-etf",
+      "relation": "compare_with",
+      "weight": 0.8
+    },
+    {
+      "source": "nasdaq100",
+      "target": "dividend-etf",
+      "relation": "compare_with",
+      "weight": 0.7
+    },
+    {
+      "source": "bond-guide",
+      "target": "us10y",
+      "relation": "explains",
+      "weight": 1
+    },
+    {
+      "source": "bond-guide",
+      "target": "kr3y",
+      "relation": "explains",
+      "weight": 1
+    },
+    {
+      "source": "bond-guide",
+      "target": "aggregate-bond",
+      "relation": "explains",
+      "weight": 1
+    },
+    {
+      "source": "us10y",
+      "target": "macro",
+      "relation": "related_to",
+      "weight": 0.9
+    },
+    {
+      "source": "kr3y",
+      "target": "macro",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source": "tdf",
+      "target": "retirement",
+      "relation": "related_to",
+      "weight": 0.95
+    },
+    {
+      "source": "dividend-etf",
+      "target": "retirement",
+      "relation": "related_to",
+      "weight": 0.7
+    },
+    {
+      "source": "rebalancing",
+      "target": "model-portfolio",
+      "relation": "implemented_in",
+      "weight": 1
+    },
+    {
+      "source": "portfolio-60-40",
+      "target": "model-portfolio",
+      "relation": "implemented_in",
+      "weight": 1
+    },
+    {
+      "source": "macro",
+      "target": "rates",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "macro",
+      "target": "trade-pulse",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "trade-pulse",
+      "target": "exports-as-stock-leading-signal",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "exports-as-stock-leading-signal",
+      "target": "semiconductor-export-603b",
+      "relation": "next",
+      "weight": 0.9
+    },
+    {
+      "source": "exports-as-stock-leading-signal",
+      "target": "ship-export-lag",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source": "exports-as-stock-leading-signal",
+      "target": "trade-pulse-methodology",
+      "relation": "related_to",
+      "weight": 0.9
+    },
+    {
+      "source": "trade-pulse",
+      "target": "semiconductor-investing",
+      "relation": "influences",
+      "weight": 0.8
+    },
+    {
+      "source": "semiconductor-export-603b",
+      "target": "semiconductor-investing",
+      "relation": "related_to",
+      "weight": 0.95
+    },
+    {
+      "source": "stocks",
+      "target": "stock-analysis",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "stocks",
+      "target": "semiconductor-investing",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "retirement",
+      "target": "pension-savings",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "retirement",
+      "target": "irp",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "retirement",
+      "target": "retirement-allocation",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "tdf",
+      "target": "retirement-allocation",
+      "relation": "applies_to",
+      "weight": 1
+    },
+    {
+      "source": "tdf",
+      "target": "pension-savings",
+      "relation": "related_to",
+      "weight": 0.9
+    },
+    {
+      "source": "tdf",
+      "target": "irp",
+      "relation": "related_to",
+      "weight": 0.9
+    },
+    {
+      "source": "asset-allocation",
+      "target": "retirement-allocation",
+      "relation": "influences",
+      "weight": 0.9
+    },
+    {
+      "source": "us10y",
+      "target": "rates",
+      "relation": "related_to",
+      "weight": 1
+    },
+    {
+      "source": "kr3y",
+      "target": "rates",
+      "relation": "related_to",
+      "weight": 1
+    },
+    {
+      "source": "portfolio-60-40",
+      "target": "rates",
+      "relation": "depends_on",
+      "weight": 0.6
+    },
+    {
+      "source": "sp500",
+      "target": "stock-analysis",
+      "relation": "related_to",
+      "weight": 0.6
+    },
+    {
+      "source": "nasdaq100",
+      "target": "stock-analysis",
+      "relation": "related_to",
+      "weight": 0.6
+    },
+    {
+      "source": "dividend-etf",
+      "target": "retirement-allocation",
+      "relation": "applies_to",
+      "weight": 0.7
+    },
+    {
+      "source": "macro",
+      "target": "macro-basics",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "macro",
+      "target": "policy-rate",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "macro",
+      "target": "yield-curve",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "macro",
+      "target": "inflation-real-rate",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "macro",
+      "target": "usdkrw-fx",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "macro",
+      "target": "bond-duration-macro",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "macro",
+      "target": "trade-cycle",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "macro",
+      "target": "semiconductor-trade-pulse",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "macro",
+      "target": "macro-to-asset-allocation",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "macro",
+      "target": "macro-dashboard",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "macro-basics",
+      "target": "policy-rate",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "policy-rate",
+      "target": "yield-curve",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "yield-curve",
+      "target": "inflation-real-rate",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "inflation-real-rate",
+      "target": "usdkrw-fx",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "usdkrw-fx",
+      "target": "bond-duration-macro",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "bond-duration-macro",
+      "target": "trade-cycle",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "trade-cycle",
+      "target": "semiconductor-trade-pulse",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "semiconductor-trade-pulse",
+      "target": "macro-to-asset-allocation",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "macro-to-asset-allocation",
+      "target": "macro-dashboard",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "policy-rate",
+      "target": "rates",
+      "relation": "related_to",
+      "weight": 1
+    },
+    {
+      "source": "yield-curve",
+      "target": "rates",
+      "relation": "related_to",
+      "weight": 1
+    },
+    {
+      "source": "yield-curve",
+      "target": "us10y",
+      "relation": "explains",
+      "weight": 0.9
+    },
+    {
+      "source": "usdkrw-fx",
+      "target": "sp500",
+      "relation": "influences",
+      "weight": 0.7
+    },
+    {
+      "source": "usdkrw-fx",
+      "target": "nasdaq100",
+      "relation": "influences",
+      "weight": 0.7
+    },
+    {
+      "source": "bond-duration-macro",
+      "target": "bond-guide",
+      "relation": "explains",
+      "weight": 1
+    },
+    {
+      "source": "trade-cycle",
+      "target": "trade-pulse",
+      "relation": "related_to",
+      "weight": 1
+    },
+    {
+      "source": "semiconductor-trade-pulse",
+      "target": "trade-pulse",
+      "relation": "related_to",
+      "weight": 1
+    },
+    {
+      "source": "semiconductor-trade-pulse",
+      "target": "semiconductor-export-603b",
+      "relation": "related_to",
+      "weight": 1
+    },
+    {
+      "source": "macro-to-asset-allocation",
+      "target": "asset-allocation",
+      "relation": "applies_to",
+      "weight": 1
+    },
+    {
+      "source": "macro-to-asset-allocation",
+      "target": "portfolio-60-40",
+      "relation": "applies_to",
+      "weight": 0.9
+    },
+    {
+      "source": "macro-dashboard",
+      "target": "trade-pulse-methodology",
+      "relation": "related_to",
+      "weight": 0.9
+    },
+    {
+      "source": "stocks",
+      "target": "stocks-basics",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "stocks",
+      "target": "samsung-electronics-case",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "stocks",
+      "target": "sk-hynix-case",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "stocks",
+      "target": "earnings-cycle",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "stocks",
+      "target": "eps-revision",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "stocks",
+      "target": "valuation-4v",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "stocks",
+      "target": "foreign-flow",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "stocks",
+      "target": "relative-strength",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "stocks",
+      "target": "leader-engine",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "stocks",
+      "target": "stock-decision-gate",
+      "relation": "parent_of",
+      "weight": 1
+    },
+    {
+      "source": "stocks-basics",
+      "target": "samsung-electronics-case",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "samsung-electronics-case",
+      "target": "sk-hynix-case",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "sk-hynix-case",
+      "target": "earnings-cycle",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "earnings-cycle",
+      "target": "eps-revision",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "eps-revision",
+      "target": "valuation-4v",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "valuation-4v",
+      "target": "foreign-flow",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "foreign-flow",
+      "target": "relative-strength",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "relative-strength",
+      "target": "leader-engine",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "leader-engine",
+      "target": "stock-decision-gate",
+      "relation": "next",
+      "weight": 1
+    },
+    {
+      "source": "samsung-electronics-case",
+      "target": "semiconductor-investing",
+      "relation": "related_to",
+      "weight": 1
+    },
+    {
+      "source": "sk-hynix-case",
+      "target": "semiconductor-investing",
+      "relation": "related_to",
+      "weight": 1
+    },
+    {
+      "source": "earnings-cycle",
+      "target": "semiconductor-trade-pulse",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source": "eps-revision",
+      "target": "samsung-electronics-case",
+      "relation": "applies_to",
+      "weight": 0.9
+    },
+    {
+      "source": "eps-revision",
+      "target": "sk-hynix-case",
+      "relation": "applies_to",
+      "weight": 0.9
+    },
+    {
+      "source": "valuation-4v",
+      "target": "eps-revision",
+      "relation": "depends_on",
+      "weight": 0.8
+    },
+    {
+      "source": "foreign-flow",
+      "target": "usdkrw-fx",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source": "relative-strength",
+      "target": "trade-pulse",
+      "relation": "related_to",
+      "weight": 0.7
+    },
+    {
+      "source": "leader-engine",
+      "target": "relative-strength",
+      "relation": "depends_on",
+      "weight": 1
+    },
+    {
+      "source": "leader-engine",
+      "target": "trade-pulse-methodology",
+      "relation": "related_to",
+      "weight": 0.8
+    },
+    {
+      "source": "stock-decision-gate",
+      "target": "leader-engine",
+      "relation": "depends_on",
+      "weight": 1
+    },
+    {
+      "source": "stock-decision-gate",
+      "target": "asset-allocation",
+      "relation": "related_to",
+      "weight": 0.7
+    }
+  ]
+}
