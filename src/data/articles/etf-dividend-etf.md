@@ -1,0 +1,75 @@
+---
+title: "Dividend ETF"
+description: "배당 ETF의 수익구조, 배당수익률과 총수익률의 차이, 배당성장·고배당 전략을 설명합니다."
+cardTitle: "Dividend ETF"
+cardDescription: "배당 ETF의 수익구조, 배당수익률과 총수익률의 차이, 배당성장·고배당 전략을 설명합니다."
+category: "투자·경제"
+tags:
+  - ETF
+  - 자산배분
+  - 투자기초
+publishedAt: 2026-10-03
+author: "JoyLab"
+featured: false
+homeFeatured: false
+excludeFromLatest: true
+draft: false
+seoTitle: "Dividend ETF"
+canonical: "https://aijoylab.kr/articles/etf-dividend-etf"
+series: "ETF·자산배분 기초 10부작"
+seriesOrder: 7
+readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "etf dividend etf — JoyLab Investing Foundations 대표 이미지"
+investmentIndustries: []
+investmentTheses:
+  - macro-liquidity
+---
+## 3줄 요약
+
+- 배당 ETF는 배당을 지급하는 기업을 일정한 규칙으로 선별해 묶은 ETF입니다.
+- 높은 배당수익률이 곧 높은 총수익률을 의미하지는 않습니다. **주가 변화 + 분배금**을 함께 봐야 합니다.
+- 고배당, 배당성장, 퀄리티 배당은 서로 다른 전략이므로 지수 선정 규칙을 확인해야 합니다.
+
+## 배당 ETF의 역할
+
+배당 ETF는 현금흐름을 중시하는 투자자가 많이 찾습니다. 정기적으로 분배금이 들어오면 투자 지속성이 높아질 수 있고, 성숙한 기업이나 현금흐름이 안정적인 기업의 비중이 높아 성장주 중심 포트폴리오와 성격을 달리할 수 있습니다.
+
+하지만 분배금은 공짜 수익이 아닙니다. 기업 가치의 일부가 주주에게 현금으로 이전되는 것이며 분배락과 세금의 영향을 받습니다. 따라서 월배당이라는 지급 주기만 보고 상품을 선택하면 안 됩니다.
+
+## 고배당과 배당성장은 다르다
+
+고배당 전략은 현재 배당수익률이 높은 종목을 중시합니다. 반면 배당성장 전략은 오랜 기간 배당을 늘려온 기업이나 배당 지속 가능성을 중시할 수 있습니다. 어떤 지수는 수익성, 부채, 현금흐름 등 퀄리티 지표를 함께 적용하기도 합니다.
+
+같은 배당 ETF라도 결과는 매우 달라질 수 있으므로 지수 방법론을 확인하는 것이 중요합니다.
+
+## S&P500·Nasdaq100과 함께 둘 때
+
+S&P500은 광범위한 미국 대형주 코어, Nasdaq100은 성장주 민감도가 높은 축으로 볼 수 있습니다. 배당 ETF는 가치·퀄리티·현금흐름 성격을 보완하는 역할을 할 수 있습니다. 다만 중복 종목이 존재할 수 있으므로 실제 보유종목을 확인해야 합니다.
+
+## FAQ
+
+### 배당률이 높을수록 좋은 ETF인가요?
+아닙니다. 주가가 급락해 배당률이 높아졌거나 지속 가능하지 않은 배당이 포함될 수 있습니다. 총수익률과 배당 지속성을 함께 봐야 합니다.
+
+### 월배당 ETF가 분기배당 ETF보다 유리한가요?
+지급 빈도 자체가 경제적 수익을 자동으로 높이지는 않습니다. 기초자산, 비용, 분배정책이 더 중요합니다.
+
+### 은퇴자라면 배당 ETF만 보유하면 되나요?
+은퇴 포트폴리오에는 변동성, 인출률, 채권, 현금, 세금 등 여러 요소가 함께 고려되어야 합니다.
+
+## JoyLab 한 줄 답
+
+**배당 ETF의 핵심은 ‘얼마나 자주 주느냐’가 아니라 ‘어떤 기업이 어떤 규칙으로 현금흐름을 만들어내느냐’입니다.**
+
+## Primary Sources
+
+- [U.S. SEC — Exchange-Traded Funds](https://www.sec.gov/investor/alerts/etfs.pdf)
+- [S&P Global — Index Education](https://www.spglobal.com/spdji/en/education/)
+
+## Related Research
+
+- [JoyLab 투자 리서치 클러스터](/guides/investing)
+- [ETF·Macro·Stocks 30부작](/guides/investing-foundations)
+- [이전/연결 리서치](/articles/etf-nasdaq100)
+- [다음/연결 리서치](/articles/etf-bond-guide)
