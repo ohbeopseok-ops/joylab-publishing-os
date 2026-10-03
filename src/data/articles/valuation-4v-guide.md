@@ -28,6 +28,8 @@ faqs:
     answer: "가정에 따라 가치 범위를 두는 방식이 더 현실적입니다."
   - question: "성장주는 높은 PER도 괜찮나요?"
     answer: "성장이 그 밸류에이션을 정당화할 만큼 지속되는지가 핵심입니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -56,8 +58,15 @@ EPS와 매출 성장 속도가 빨라지는지 둔화하는지 확인합니다.
 ## JoyLab 한 줄 답
 **밸류에이션은 숫자 하나를 찾는 작업이 아니라 가격에 어떤 미래가 이미 들어가 있는지 해체하는 작업입니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/eps-revision-analysis-guide)
+- [같은 시리즈 다음·관련 글](/articles/foreign-flow-analysis-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://dart.fss.or.kr/)
 - [공식 자료 2](https://data.krx.co.kr/)
+
 
