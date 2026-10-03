@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-nasdaq100"
 series: "JoyLab ETF 초보자 완전정복"
 seriesOrder: 6
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"Nasdaq100은 장기 투자에 부적합한가요?","answer":"그렇게 단정할 수 없습니다. 다만 성장주 집중과 높은 변동성을 이해하고 전체 포트폴리오에서 감당 가능한 비중인지 판단해야 합니다."},{"question":"S&P500 대신 Nasdaq100만 사면 되나요?","answer":"두 지수의 목적과 분산구조가 다릅니다. Nasdaq100은 더 집중된 성장 노출을 가질 수 있으므로 같은 역할로 보기는 어렵습니다."},{"question":"나스닥이 하락하면 적립식 투자를 중단해야 하나요?","answer":"시장 방향을 단정해 행동하기보다 미리 정한 자산배분·현금흐름·리밸런싱 규칙에 따라 판단하는 접근이 일관적입니다."}]
 ---
 ## 3줄 요약
