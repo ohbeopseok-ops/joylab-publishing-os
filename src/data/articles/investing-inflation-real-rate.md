@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-inflation-real-rate"
 series: "JoyLab Macro 초보자 완전정복"
 seriesOrder: 4
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"실질금리는 직접 어디서 보나요?","answer":"시장에서는 물가연동국채와 일반국채 수익률 차이 등을 참고해 기대인플레이션을 추정합니다."},{"question":"물가가 내려가면 무조건 주식에 좋은가요?","answer":"성장과 기업이익이 함께 둔화되는지 여부에 따라 달라집니다."},{"question":"금과 실질금리는 어떤 관계인가요?","answer":"실질금리가 낮을수록 이자가 없는 금의 기회비용이 낮아지는 경향이 있지만 관계는 고정적이지 않습니다."}]
 ---
 ## 3줄 요약
