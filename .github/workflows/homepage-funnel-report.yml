@@ -8,7 +8,7 @@ on:
       - 'scripts/report-homepage-funnel.mjs'
       - 'scripts/report-books-funnel.mjs'
   schedule:
-    - cron: '45 0 * * *'
+    - cron: '45 0 * * 1'
   workflow_dispatch:
 
 permissions:
@@ -59,7 +59,7 @@ jobs:
           name: homepage-funnel-7d
           path: qa-artifacts/homepage-funnel
           if-no-files-found: error
-          retention-days: 30
+          retention-days: 14
 
       - name: Upload Books Funnel dashboard
         uses: actions/upload-artifact@v6
@@ -67,4 +67,4 @@ jobs:
           name: books-funnel-7d
           path: qa-artifacts/books-funnel
           if-no-files-found: error
-          retention-days: 30
+          retention-days: 14
