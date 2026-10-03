@@ -72,6 +72,6 @@ HBM은 중요하지만 범용 DRAM·NAND와 전체 메모리 사이클도 함께
 
 ## 검증용 1차 자료
 
-- [공식 자료 1](https://www.korea.kr/briefing/pressReleaseList.do)
+- [공식 자료 1](https://www.motie.go.kr/kor/article/ATCL3f49a5a8c/)
 - [공식 자료 2](https://dart.fss.or.kr/)
 
