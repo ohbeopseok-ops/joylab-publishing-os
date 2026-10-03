@@ -64,3 +64,10 @@ S&P500은 광범위한 미국 대형주 코어, Nasdaq100은 성장주 민감도
 
 - [U.S. SEC — Exchange-Traded Funds](https://www.sec.gov/investor/alerts/etfs.pdf)
 - [S&P Global — Index Education](https://www.spglobal.com/spdji/en/education/)
+
+## Related Research
+
+- [JoyLab 투자 리서치 클러스터](/guides/investing)
+- [ETF·Macro·Stocks 30부작](/guides/investing-foundations)
+- [이전/연결 리서치](/articles/etf-nasdaq100)
+- [다음/연결 리서치](/articles/etf-bond-guide)
