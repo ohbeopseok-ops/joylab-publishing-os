@@ -71,3 +71,10 @@ TDF는 자산배분을 단순화하지만 전체 은퇴계획에는 소득, 지�
 
 - [U.S. SEC — Exchange-Traded Funds](https://www.sec.gov/investor/alerts/etfs.pdf)
 - [S&P Global — Index Education](https://www.spglobal.com/spdji/en/education/)
+
+## Related Research
+
+- [JoyLab 투자 리서치 클러스터](/guides/investing)
+- [ETF·Macro·Stocks 30부작](/guides/investing-foundations)
+- [이전/연결 리서치](/articles/etf-mmf)
+- [다음/연결 리서치](/articles/etf-portfolio-60-40)
