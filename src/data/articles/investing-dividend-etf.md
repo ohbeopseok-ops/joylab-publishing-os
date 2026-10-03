@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-dividend-etf"
 series: "JoyLab ETF 초보자 완전정복"
 seriesOrder: 7
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"배당률이 높을수록 좋은 ETF인가요?","answer":"아닙니다. 주가가 급락해 배당률이 높아졌거나 지속 가능하지 않은 배당이 포함될 수 있습니다. 총수익률과 배당 지속성을 함께 봐야 합니다."},{"question":"월배당 ETF가 분기배당 ETF보다 유리한가요?","answer":"지급 빈도 자체가 경제적 수익을 자동으로 높이지는 않습니다. 기초자산, 비용, 분배정책이 더 중요합니다."},{"question":"은퇴자라면 배당 ETF만 보유하면 되나요?","answer":"은퇴 포트폴리오에는 변동성, 인출률, 채권, 현금, 세금 등 여러 요소가 함께 고려되어야 합니다."}]
 ---
 ## 3줄 요약
