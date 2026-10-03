@@ -30,9 +30,12 @@ for(const file of files){
   const text=fs.readFileSync(path.join(articleDir,file),'utf8');
   const fm=text.match(/^---\n([\s\S]*?)\n---/)?.[1]??'';
   const series=fm.match(/^series:\s*["']?(.+?)["']?\s*$/m)?.[1]?.replace(/^["']|["']$/g,'');
-  if(seriesCounts.has(series)) seriesCounts.set(series,(seriesCounts.get(series)??0)+1);
+  const isMigratedSeries=seriesCounts.has(series);
+  if(isMigratedSeries) seriesCounts.set(series,(seriesCounts.get(series)??0)+1);
   const canonical=fm.match(/^canonical:\s*["']?(.+?)["']?\s*$/m)?.[1]?.replace(/^["']|["']$/g,'');
-  if(canonical?.startsWith('https://aijoylab.kr/articles/')) slugs.add(canonical.replace('https://aijoylab.kr',''));
+  if(isMigratedSeries && canonical?.startsWith('https://aijoylab.kr/articles/')) {
+    slugs.add(canonical.replace('https://aijoylab.kr',''));
+  }
 }
 for(const [series,count] of expectedSeries){
   if(seriesCounts.get(series)!==count) errors.push(`${series}: expected ${count}, got ${seriesCounts.get(series)}`);
