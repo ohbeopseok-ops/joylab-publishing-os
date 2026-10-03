@@ -19,6 +19,8 @@ canonical: "https://aijoylab.kr/articles/etf-tdf"
 series: "ETF·자산배분 기초 10부작"
 seriesOrder: 3
 readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "etf tdf — JoyLab Investing Foundations 대표 이미지"
 investmentIndustries: []
 investmentTheses:
   - macro-liquidity
