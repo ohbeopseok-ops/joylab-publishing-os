@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-stock-decision-gate"
 series: "JoyLab Stocks 초보자 완전정복"
 seriesOrder: 10
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"손절가는 반드시 가격으로 정해야 하나요?","answer":"가격 기준과 함께 실적·Thesis 훼손 기준을 둘 수 있습니다."},{"question":"추가매수는 하락할 때 하나요?","answer":"가격 하락 자체가 이유가 아니라 근거가 유지되거나 강화되는지가 중요합니다."},{"question":"Decision Gate가 매매를 느리게 만들지 않나요?","answer":"의도적으로 충동매매를 줄이고 반복 가능한 의사결정을 만드는 목적입니다."}]
 ---
 ## 3줄 요약
