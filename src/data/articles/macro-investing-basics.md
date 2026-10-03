@@ -28,6 +28,8 @@ faqs:
     answer: "시장은 현재보다 미래 기대를 반영하기 때문입니다. 금리인하나 실적 회복 기대가 먼저 가격에 들어갈 수 있습니다."
   - question: "매크로만으로 매수·매도해도 되나요?"
     answer: "매크로는 배경 신호입니다. 기업 실적, 가격, 수급, 포트폴리오 규칙과 함께 보는 편이 안전합니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "macro"
 ---
 
 ## 3줄 요약
@@ -73,8 +75,15 @@ faqs:
 
 **매크로는 정답지가 아니라, 시장이 어떤 바람을 맞고 있는지 알려주는 기상도입니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/policy-rate-vs-market-rate)
+- [같은 시리즈 다음·관련 글](/articles/yield-curve-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)
 - [공식 자료 2](https://www.bls.gov/cpi/)
+
 
