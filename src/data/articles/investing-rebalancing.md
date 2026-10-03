@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-rebalancing"
 series: "JoyLab ETF 초보자 완전정복"
 seriesOrder: 9
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"매달 리밸런싱하면 더 좋은가요?","answer":"반드시 그렇지 않습니다. 거래비용과 세금, 작은 비중 변화까지 고려하면 지나치게 잦은 조정은 비효율적일 수 있습니다."},{"question":"상승하는 자산을 줄이는 게 손해 아닌가요?","answer":"상승 추세가 계속될 경우 단기적으로 기회비용이 생길 수 있습니다. 대신 목적은 수익 극대화가 아니라 사전에 선택한 위험 수준 유지입니다."},{"question":"TDF도 리밸런싱이 필요한가요?","answer":"TDF 내부에서는 운용사가 자산배분과 리밸런싱을 수행합니다. 다만 투자자의 전체 자산에서 TDF가 차지하는 비중은 별도로 관리할 수 있습니다."}]
 ---
 ## 3줄 요약
