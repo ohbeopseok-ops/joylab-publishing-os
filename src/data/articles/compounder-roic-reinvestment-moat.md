@@ -18,7 +18,7 @@ publishedAt: 2026-10-02
 author: "JoyLab"
 featured: false
 draft: false
-seoTitle: "복리기업은 어떻게 만들어지는가｜ROIC·재투자율·경제적 해자 | JoyLab"
+seoTitle: "복리기업은 어떻게 만들어지는가｜ROIC·재투자율·경제적 해자"
 canonical: "https://aijoylab.kr/articles/compounder-roic-reinvestment-moat"
 series: "투자 원리"
 readingTime: "약 11분"
