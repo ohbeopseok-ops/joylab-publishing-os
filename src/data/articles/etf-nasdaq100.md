@@ -19,6 +19,8 @@ canonical: "https://aijoylab.kr/articles/etf-nasdaq100"
 series: "ETF·자산배분 기초 10부작"
 seriesOrder: 6
 readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "etf nasdaq100 — JoyLab Investing Foundations 대표 이미지"
 investmentIndustries: []
 investmentTheses:
   - macro-liquidity
