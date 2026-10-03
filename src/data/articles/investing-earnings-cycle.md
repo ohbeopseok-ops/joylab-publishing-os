@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-earnings-cycle"
 series: "JoyLab Stocks 초보자 완전정복"
 seriesOrder: 4
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"매출이 늘면 EPS도 늘나요?","answer":"원가와 마진이 악화되면 그렇지 않을 수 있습니다."},{"question":"재고가 많으면 항상 나쁜가요?","answer":"수요 회복 전 과잉재고는 부담이지만 전략적 재고인지도 확인해야 합니다."},{"question":"실적 발표 뒤에 분석해도 되나요?","answer":"발표는 확인용이고 시장은 그 전의 추정치 변화를 먼저 반영할 수 있습니다."}]
 ---
 ## 3줄 요약
