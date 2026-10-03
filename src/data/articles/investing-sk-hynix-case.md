@@ -15,6 +15,8 @@ canonical: "https://aijoylab.kr/articles/investing-sk-hynix-case"
 series: "JoyLab Stocks 초보자 완전정복"
 seriesOrder: 3
 readingTime: "약 7분"
+investmentIndustries: ["semiconductor"]
+investmentTheses: ["memory-supercycle"]
 faqs: [{"question":"HBM 성장만 확인하면 되나요?","answer":"아닙니다. 범용 메모리 사이클과 투자비 부담도 같이 봐야 합니다."},{"question":"CAPEX 증가는 좋은 신호인가요?","answer":"수요가 뒷받침되면 성장투자지만 과잉투자가 되면 다음 다운사이클의 부담이 될 수 있습니다."},{"question":"실적 최고점이 주가 최고점인가요?","answer":"일치하지 않을 수 있습니다. 주가는 미래 실적 기대를 선반영합니다."}]
 ---
 ## 3줄 요약
