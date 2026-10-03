@@ -19,6 +19,8 @@ canonical: "https://aijoylab.kr/articles/macro-yield-curve"
 series: "Macro 투자 기초 10부작"
 seriesOrder: 3
 readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "macro yield curve — JoyLab Investing Foundations 대표 이미지"
 investmentIndustries: []
 investmentTheses:
   - macro-liquidity
