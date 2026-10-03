@@ -28,6 +28,8 @@ faqs:
     answer: "아닙니다. 행동 Gate가 없는 데이터 관찰은 불필요한 매매를 늘릴 수 있습니다."
   - question: "Macro Dashboard의 최종 목적은 무엇인가요?"
     answer: "예측 정확도 경쟁보다 위험 노출을 일관되게 점검하는 것입니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "macro"
 ---
 
 ## 3줄 요약
@@ -40,9 +42,13 @@ faqs:
 
 정책금리, 2년·10년 국채금리, 실질금리를 확인합니다. 전일 숫자보다 방향성과 최근 변화폭을 봅니다.
 
+[근거: 공식 자료](https://www.federalreserve.gov/releases/h15/)
+
 ## 2. Yield Curve
 
 2년-10년 또는 주요 만기 스프레드를 확인해 시장의 성장·정책 기대가 어떻게 바뀌는지 봅니다.
+
+[근거: 공식 자료](https://www.federalreserve.gov/releases/h15/)
 
 ## 3. FX
 
@@ -63,6 +69,8 @@ faqs:
 - Portfolio Risk: 성장주 중복 비중 재확인
 - Action: 예측매매 없음, 다음 리밸런싱 Gate까지 관찰
 
+[근거: 공식 자료](https://www.federalreserve.gov/releases/h15/)
+
 ## FAQ
 
 ### 대시보드는 매일 봐야 하나요?
@@ -78,8 +86,15 @@ faqs:
 
 **좋은 매크로 대시보드는 많은 숫자를 보여주는 화면이 아니라 ‘변화 → 위험 → 행동 Gate’를 연결하는 운영체계입니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/semiconductor-trade-pulse-guide)
+- [같은 시리즈 다음·관련 글](/articles/macro-to-asset-allocation-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.federalreserve.gov/releases/h15/)
 - [공식 자료 2](https://www.bls.gov/cpi/)
+
 
