@@ -28,6 +28,8 @@ faqs:
     answer: "이벤트성 변화는 의미가 있지만 추세 판단에는 누적 흐름이 더 중요합니다."
   - question: "환율이 왜 중요한가요?"
     answer: "해외 투자자의 원화자산 수익률에 환율이 함께 작용하기 때문입니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -53,8 +55,15 @@ faqs:
 ## JoyLab 한 줄 답
 **수급은 ‘누가 샀다’보다 그 자금이 얼마나 지속되고 가격을 실제로 밀어주는지가 중요합니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/valuation-4v-guide)
+- [같은 시리즈 다음·관련 글](/articles/relative-strength-leadership-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://data.krx.co.kr/)
 - [공식 자료 2](https://kind.krx.co.kr/)
+
 
