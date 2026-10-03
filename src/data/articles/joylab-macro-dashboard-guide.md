@@ -41,13 +41,11 @@ investmentResearchType: "macro"
 ## 1. Rates
 
 정책금리, 2년·10년 국채금리, 실질금리를 확인합니다. 전일 숫자보다 방향성과 최근 변화폭을 봅니다.
-
 [근거: 공식 자료](https://www.federalreserve.gov/releases/h15/)
 
 ## 2. Yield Curve
 
 2년-10년 또는 주요 만기 스프레드를 확인해 시장의 성장·정책 기대가 어떻게 바뀌는지 봅니다.
-
 [근거: 공식 자료](https://www.federalreserve.gov/releases/h15/)
 
 ## 3. FX
@@ -68,7 +66,6 @@ investmentResearchType: "macro"
 - Evidence: 3개 지표 중 2개 확인
 - Portfolio Risk: 성장주 중복 비중 재확인
 - Action: 예측매매 없음, 다음 리밸런싱 Gate까지 관찰
-
 [근거: 공식 자료](https://www.federalreserve.gov/releases/h15/)
 
 ## FAQ
