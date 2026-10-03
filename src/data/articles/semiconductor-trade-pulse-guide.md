@@ -28,6 +28,9 @@ faqs:
     answer: "HBM은 중요하지만 범용 DRAM·NAND와 전체 메모리 사이클도 함께 봐야 합니다."
   - question: "외국인 수급은 선행지표인가요?"
     answer: "상황에 따라 선행·동행할 수 있으며 단독 예측지표로 고정하기 어렵습니다."
+investmentIndustries: ["semiconductor"]
+investmentTheses: ["memory-supercycle"]
+investmentResearchType: "macro"
 ---
 
 ## 3줄 요약
@@ -70,8 +73,15 @@ HBM은 중요하지만 범용 DRAM·NAND와 전체 메모리 사이클도 함께
 
 **반도체 업황은 한 숫자가 아니라 수출·가격·수요·수급이 같은 방향으로 움직일 때 신뢰도가 높아집니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/export-earnings-cycle-guide)
+- [같은 시리즈 다음·관련 글](/articles/macro-to-asset-allocation-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.motie.go.kr/kor/article/ATCL3f49a5a8c/)
 - [공식 자료 2](https://dart.fss.or.kr/)
+
 
