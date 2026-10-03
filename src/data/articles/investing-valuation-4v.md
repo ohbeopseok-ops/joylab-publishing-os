@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-valuation-4v"
 series: "JoyLab Stocks 초보자 완전정복"
 seriesOrder: 6
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"PER이 낮으면 저평가인가요?","answer":"이익이 급감하는 구간이라면 낮은 PER이 함정일 수 있습니다."},{"question":"목표주가는 하나로 계산해야 하나요?","answer":"가정에 따라 가치 범위를 두는 방식이 더 현실적입니다."},{"question":"성장주는 높은 PER도 괜찮나요?","answer":"성장이 그 밸류에이션을 정당화할 만큼 지속되는지가 핵심입니다."}]
 ---
 ## 3줄 요약
