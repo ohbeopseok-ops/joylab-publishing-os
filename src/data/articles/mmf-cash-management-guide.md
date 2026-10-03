@@ -28,6 +28,8 @@ faqs:
     answer: "가능합니다. 변동성이 낮은 편이지만 투자상품이므로 원금이 보장되지 않습니다."
   - question: "장기 투자금을 MMF에 계속 두면 되나요?"
     answer: "현금 보유 목적에는 유용하지만 장기 성장자산을 대신하는 상품은 아닙니다. 현금 비중이 지나치게 높으면 인플레이션과 기회비용이 문제가 될 수 있습니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -76,78 +78,15 @@ MMF는 펀드의 한 종류이고 ETF는 거래소에 상장되어 주식처럼 
 
 **MMF는 수익을 크게 만드는 엔진이 아니라, 다음 투자를 기다리는 현금을 관리하는 대기실입니다.**
 
-## Structured Data
+## 이어 읽기
 
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "MMF",
-  "description": "MMF의 역할과 구조, 투자 대기자금 관리에서의 활용법과 ETF와의 차이를 설명합니다.",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://aijoylab.kr/guides/investing/etf/mmf/"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "isPartOf": {
-    "@type": "CreativeWorkSeries",
-    "name": "JoyLab ETF 초보자 완전정복 10부작"
-  }
-}
-~~~
-
-## FAQ Structured Data
-
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "MMF는 파킹통장과 같은가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "아닙니다. 파킹통장은 은행 예금이고 MMF는 투자신탁입니다. 수익 발생 구조와 원금보장 여부가 다릅니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "MMF도 손실이 날 수 있나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "가능합니다. 변동성이 낮은 편이지만 투자상품이므로 원금이 보장되지 않습니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "장기 투자금을 MMF에 계속 두면 되나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "현금 보유 목적에는 유용하지만 장기 성장자산을 대신하는 상품은 아닙니다. 현금 비중이 지나치게 높으면 인플레이션과 기회비용이 문제가 될 수 있습니다."
-      }
-    }
-  ]
-}
-~~~
-
-## Research Graph Links
-
-- **Parent:** ETF Basics
-- **Related:** TDF · 60/40 자산배분
-- **Compare:** TDF
-- **Next:** TDF
-- **Apply:** 실전 모델 포트폴리오
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/etf-basics-guide)
+- [같은 시리즈 다음·관련 글](/articles/tdf-target-date-fund-guide)
 
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.sec.gov/investor/pubs/money-market-funds.pdf)
 - [공식 자료 2](https://www.investor.gov/introduction-investing/investing-basics/glossary/money-market-fund)
+
 
