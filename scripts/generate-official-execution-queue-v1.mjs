@@ -15,29 +15,23 @@ const first=read(firstPath);
 const signals=read(signalsPath);
 const visual=read(visualPath);
 const rum=read(rumPath);
-
 if(!first) throw new Error('First Content ranking is required.');
 if(!signals) throw new Error('Business impact signals are required.');
 if(!visual) throw new Error('Visual Asset report is required.');
 
-const rumReady=rum?.decision==='PASS' && (effort?.ranked?.length||0)>0;
-let mode=rumReady?'RUM_GOLD':'BOOTSTRAP_FIRST_CONTENT';
+const rumSamples=rum?.metrics?Object.fromEntries(Object.entries(rum.metrics).map(([k,v])=>[k,Number(v.samples||0)])):{};
+const sampleValues=Object.values(rumSamples);
+const minRumSamples=sampleValues.length?Math.min(...sampleValues):0;
+const rumMature=minRumSamples>=20 && (effort?.ranked?.length||0)>0;
+const mode=rumMature?'RUM_LED':'BOOTSTRAP_FIRST_CONTENT';
 let ranked=[];
 
-if(rumReady){
+if(rumMature){
   ranked=(effort.ranked||[]).map((r)=>({
-    path:r.path,
-    source:'RUM',
-    tier:r.executionTier,
-    executionValue:Number(r.executionValue||0),
-    debtScore:Number(r.debtScore||0),
-    businessImpact:Number(r.businessImpact||0),
-    effortScore:Number(r.effortScore||1),
-    worstMetric:r.worstMetric||null,
-    seoClicks:Number(r.seoClicks||0),
-    pageViews:Number(r.pageViews||0),
-    estimatedEarningsKrw:Number(r.estimatedEarningsKrw||0),
-    action:r.action||''
+    path:r.path,source:'RUM',tier:r.executionTier,executionValue:Number(r.executionValue||0),
+    debtScore:Number(r.debtScore||0),businessImpact:Number(r.businessImpact||0),effortScore:Number(r.effortScore||1),
+    worstMetric:r.worstMetric||null,seoClicks:Number(r.seoClicks||0),pageViews:Number(r.pageViews||0),
+    estimatedEarningsKrw:Number(r.estimatedEarningsKrw||0),action:r.action||''
   }));
 }else{
   const sig=new Map((signals.rows||[]).map((r)=>[r.path,r]));
@@ -47,7 +41,6 @@ if(rumReady){
     estimatedEarningsKrw:Math.max(1,...(signals.rows||[]).map((r)=>Number(r.estimatedEarningsKrw||0)))
   };
   const norm=(value,maxValue)=>Math.log1p(Math.max(0,Number(value||0)))/Math.log1p(maxValue);
-
   const visualByPath=new Map();
   for(const record of visual.records||[]){
     if(!record.slug) continue;
@@ -57,68 +50,46 @@ if(rumReady){
     if(record.format==='raster'&&record.src) item.rasterSources.add(record.src);
     visualByPath.set(p,item);
   }
-
   ranked=(first.ranked||[]).map((r)=>{
     const pathName='/articles/'+r.slug;
-    const s=sig.get(pathName)||{seoClicks:0,seoImpressions:0,pageViews:0,estimatedEarningsKrw:0};
-    const seo=norm(s.seoClicks,max.seoClicks);
-    const traffic=norm(s.pageViews,max.pageViews);
-    const revenue=norm(s.estimatedEarningsKrw,max.estimatedEarningsKrw);
-    const businessImpact=0.35*seo+0.35*traffic+0.30*revenue;
+    const s=sig.get(pathName)||{seoClicks:0,pageViews:0,estimatedEarningsKrw:0};
+    const businessImpact=0.35*norm(s.seoClicks,max.seoClicks)+0.35*norm(s.pageViews,max.pageViews)+0.30*norm(s.estimatedEarningsKrw,max.estimatedEarningsKrw);
     const debtScore=Number(r.firstBodyH2TopPx||0)/Math.max(1,Number(first.targetPx||3200));
-    const combined=debtScore*(1+businessImpact);
     const v=visualByPath.get(pathName)||{supporting:0,rasterSources:new Set()};
     let effortScore=1;
     if(Number(v.supporting||0)>=2) effortScore+=1;
     if(Number(v.rasterSources?.size||0)>=2) effortScore+=1;
     effortScore=Math.min(5,Math.max(1,effortScore));
-    const executionValue=combined/effortScore;
+    const executionValue=(debtScore*(1+businessImpact))/effortScore;
     const tier=executionValue>=1.2?'X0':executionValue>=0.8?'X1':executionValue>=0.45?'X2':'MONITOR';
     return {
-      path:pathName,
-      source:'FIRST_CONTENT_BOOTSTRAP',
-      tier,
-      executionValue:Number(executionValue.toFixed(3)),
-      debtScore:Number(debtScore.toFixed(3)),
-      businessImpact:Number(businessImpact.toFixed(3)),
-      effortScore,
-      worstMetric:'first-content',
-      firstBodyH2TopPx:Number(r.firstBodyH2TopPx||0),
-      excessPx:Number(r.excessPx||0),
-      seoClicks:Number(s.seoClicks||0),
-      pageViews:Number(s.pageViews||0),
-      estimatedEarningsKrw:Number(s.estimatedEarningsKrw||0),
+      path:pathName,source:'FIRST_CONTENT_BOOTSTRAP',tier,executionValue:Number(executionValue.toFixed(3)),
+      debtScore:Number(debtScore.toFixed(3)),businessImpact:Number(businessImpact.toFixed(3)),effortScore,
+      worstMetric:'first-content',firstBodyH2TopPx:Number(r.firstBodyH2TopPx||0),excessPx:Number(r.excessPx||0),
+      seoClicks:Number(s.seoClicks||0),pageViews:Number(s.pageViews||0),estimatedEarningsKrw:Number(s.estimatedEarningsKrw||0),
       action:'모바일 첫 본문 진입을 3,200px 이하로 압축'
     };
   }).sort((a,b)=>b.executionValue-a.executionValue||b.pageViews-a.pageViews||a.path.localeCompare(b.path));
 }
 
-const queue=ranked.slice(0,10).map((r,index)=>({...r,rank:index+1,status:'READY'}));
+const queueStatus=rumMature?'READY':minRumSamples>=10?'PROVISIONAL':'COLLECT';
+const queue=ranked.slice(0,10).map((r,index)=>({...r,rank:index+1,status:queueStatus}));
 const payload={
-  generatedAt:new Date().toISOString(),
-  mode,
-  gold:rumReady,
-  note:rumReady
-    ? 'RUM p75 + Business Impact + Effort 기반 GOLD 실행 큐.'
-    : 'RUM 표본이 READY가 될 때까지 First Content Debt + Business Impact + Effort로 운영하는 Bootstrap 실행 큐.',
-  rumDecision:rum?.decision||'MISSING',
-  rumSamples:rum?.metrics?Object.fromEntries(Object.entries(rum.metrics).map(([k,v])=>[k,Number(v.samples||0)])):{},
-  slots:10,
-  filled:queue.length,
+  generatedAt:new Date().toISOString(),mode,gold:rumMature,rumDecision:rum?.decision||'MISSING',
+  rumSamples,minRumSamples,slots:10,filled:queue.length,
+  note:rumMature
+    ? 'RUM 표본 20+에서 PASS/FAIL과 무관하게 실제 관측 부채를 실행 큐에 반영.'
+    : 'RUM 표본이 성숙하기 전까지 Bootstrap 순위를 유지하며 READY로 승격하지 않음.',
   queue
 };
 fs.mkdirSync(outDir,{recursive:true});
 fs.writeFileSync(path.join(outDir,'queue.json'),JSON.stringify(payload,null,2)+'\n');
-
-const lines=[
-  '# JoyLab Official Execution Queue V1','',
-  'Mode: **'+mode+'**  ',
-  'RUM: **'+(rum?.decision||'MISSING')+'**  ',
-  'Filled: **'+queue.length+'/10**','',
-  '| Rank | Tier | Page | Value | Debt | Impact | Effort | PV | SEO | Action |',
-  '| ---: | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |',
-  ...queue.map((r)=>`| ${r.rank} | ${r.tier} | ${r.path} | ${r.executionValue} | ${r.debtScore} | ${r.businessImpact} | ${r.effortScore} | ${r.pageViews} | ${r.seoClicks} | ${r.action} |`)
+const lines=['# JoyLab Official Execution Queue V1','',
+  'Mode: **'+mode+'**  ','RUM: **'+(rum?.decision||'MISSING')+'**  ','Min RUM samples: **'+minRumSamples+'**  ',
+  'Status: **'+queueStatus+'**  ','Filled: **'+queue.length+'/10**','',
+  '| Rank | Status | Tier | Page | Value | Debt | Impact | Effort | PV | SEO | Action |',
+  '| ---: | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |',
+  ...queue.map((r)=>`| ${r.rank} | ${r.status} | ${r.tier} | ${r.path} | ${r.executionValue} | ${r.debtScore} | ${r.businessImpact} | ${r.effortScore} | ${r.pageViews} | ${r.seoClicks} | ${r.action} |`)
 ];
 fs.writeFileSync(path.join(outDir,'queue.md'),lines.join('\n')+'\n');
-console.log('Official Execution Queue V1: mode='+mode+' filled='+queue.length+'/10 rum='+(rum?.decision||'MISSING'));
-console.log(queue.map((r)=>r.rank+'. '+r.path+' '+r.tier+' value='+r.executionValue).join('\n'));
+console.log('Official Execution Queue V1: mode='+mode+' status='+queueStatus+' filled='+queue.length+'/10 rum='+(rum?.decision||'MISSING')+' samples='+minRumSamples);
