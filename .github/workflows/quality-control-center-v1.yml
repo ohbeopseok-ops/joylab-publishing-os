@@ -12,7 +12,7 @@ on:
       - 'scripts/generate-quality-control-center-v1.mjs'
       - 'scripts/rank-first-content-entry-v1.mjs'
       - 'src/data/first-content-priority-v1.json'
-      - 'src/pages/articles/[...slug].astro'
+      - 'src/pages/articles/**'
       - '.github/workflows/quality-control-center-v1.yml'
   push:
     branches: [main]
