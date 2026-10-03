@@ -19,6 +19,8 @@ canonical: "https://aijoylab.kr/articles/stocks-valuation-4v"
 series: "Stocks 분석 기초 10부작"
 seriesOrder: 6
 readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "stocks valuation 4v — JoyLab Investing Foundations 대표 이미지"
 investmentIndustries:
   - semiconductor
 investmentTheses:
