@@ -66,5 +66,5 @@ faqs:
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.federalreserve.gov/releases/h10/)
-- [공식 자료 2](https://ecos.bok.or.kr/)
+- [공식 자료 2](https://home.treasury.gov/policy-issues/international/exchange-rate-policies)
 
