@@ -19,6 +19,8 @@ canonical: "https://aijoylab.kr/articles/stocks-foreign-flow"
 series: "Stocks 분석 기초 10부작"
 seriesOrder: 7
 readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "stocks foreign flow — JoyLab Investing Foundations 대표 이미지"
 investmentIndustries:
   - semiconductor
 investmentTheses:
