@@ -8,6 +8,14 @@ const articles = (await getCollection('articles'))
   .filter((item) => !item.data.draft)
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 
+const investingLearningSeries = new Set([
+  'ETF 초보자 완전정복',
+  '매크로 초보자 완전정복',
+  '주식 분석 초보자 완전정복'
+]);
+const investingLearningArticles = articles.filter((item) => investingLearningSeries.has(item.data.series ?? ''));
+const archiveArticles = articles.filter((item) => !investingLearningSeries.has(item.data.series ?? ''));
+
 const pillars = [
   {
     href: '/guides/investing',
@@ -58,18 +66,29 @@ const pillars = [
       </div>
     </section>
 
+    <section class="investing-learning-entry" aria-label="Investing Knowledge V3 학습 시리즈">
+      <a href="/guides/investing-foundations">
+        <div>
+          <small>INVESTING KNOWLEDGE V3</small>
+          <strong>ETF · Macro · Stocks 30편 학습 경로</strong>
+          <p>30편을 최신 글 목록으로 흩어놓지 않고, 자산의 역할 → 시장 환경 → 기업 이익 → 가격 → 행동 Gate 순서로 연결했습니다.</p>
+        </div>
+        <span>{investingLearningArticles.length} Guides →</span>
+      </a>
+    </section>
+
     <section class="home-archive" id="all-research">
       <div class="home-section-head">
         <div class="home-section-title">
           <div>
             <h2>전체 리서치</h2>
-            <p>최신순으로 {articles.length}개의 공개 리서치를 제공합니다.</p>
+            <p>일반 리서치는 최신순으로 탐색하고, 연결형 학습 시리즈는 전용 Research Path에서 제공합니다.</p>
           </div>
         </div>
       </div>
 
       <div class="grid">
-        {articles.map((article, index) => (
+        {archiveArticles.map((article, index) => (
           <a class={`card article-card ${index === 0 ? 'card-accent' : ''}`} href={`/articles/${article.id}`}>
             <div class="card-top">
               <div class="meta">{article.data.category}</div>
@@ -96,7 +115,7 @@ const pillars = [
     description: 'JoyLab의 투자·경제, AI·생산성, 성장·리더십 전체 리서치 아카이브',
     inLanguage: 'ko-KR',
     isPartOf: { '@id': 'https://aijoylab.kr/#website' },
-    hasPart: articles.slice(0, 30).map((article) => ({
+    hasPart: archiveArticles.slice(0, 30).map((article) => ({
       '@type': 'Article',
       '@id': `https://aijoylab.kr/articles/${article.id}#article`,
       url: `https://aijoylab.kr/articles/${article.id}`,
@@ -105,7 +124,7 @@ const pillars = [
   })}></script>
 
 <style is:global>
-  .research-map-entry{display:inline-flex;margin-top:18px;padding:10px 14px;border:1px solid #cbd8e8;border-radius:999px;color:#0d63ce;font-size:.82rem;font-weight:900;text-decoration:none;background:#fff}
+  .investing-learning-entry{max-width:1180px;margin:0 auto 8px;padding:0 24px}\n  .investing-learning-entry>a{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 22px;border:1px solid #d7e6ff;border-radius:18px;background:#f5f9ff;text-decoration:none;color:#10213c}\n  .investing-learning-entry small{display:block;color:#1677ff;font-size:.72rem;font-weight:900;letter-spacing:.1em;margin-bottom:6px}\n  .investing-learning-entry strong{display:block;font-size:1.15rem;letter-spacing:-.02em}\n  .investing-learning-entry p{margin:6px 0 0;color:#64748b;font-size:.88rem;line-height:1.55;max-width:720px}\n  .investing-learning-entry span{flex:0 0 auto;color:#1677ff;font-weight:900;font-size:.88rem}\n  @media(max-width:640px){.investing-learning-entry{padding:0 18px}.investing-learning-entry>a{align-items:flex-start;flex-direction:column;gap:10px;padding:16px}.investing-learning-entry p{display:none}}\n  .research-map-entry{display:inline-flex;margin-top:18px;padding:10px 14px;border:1px solid #cbd8e8;border-radius:999px;color:#0d63ce;font-size:.82rem;font-weight:900;text-decoration:none;background:#fff}
   .research-map-entry:hover{border-color:#1677ff}
   @media (max-width: 900px) {
     body.research-hub-page .home-archive .article-card {
