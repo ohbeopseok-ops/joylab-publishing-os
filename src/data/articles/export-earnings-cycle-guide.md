@@ -65,6 +65,6 @@ faqs:
 
 ## 검증용 1차 자료
 
-- [공식 자료 1](https://www.korea.kr/briefing/pressReleaseList.do)
+- [공식 자료 1](https://www.motie.go.kr/kor/article/ATCL3f49a5a8c/)
 - [공식 자료 2](https://ecos.bok.or.kr/)
 
