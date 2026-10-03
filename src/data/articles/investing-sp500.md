@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-sp500"
 series: "JoyLab ETF 초보자 완전정복"
 seriesOrder: 5
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"S&P500 ETF 하나면 전 세계에 분산된 건가요?","answer":"아닙니다. 미국 대형주 중심 노출입니다. 미국 기업들이 글로벌 매출을 올리더라도 투자자산의 지역 분류는 미국 주식입니다."},{"question":"S&P500은 장기적으로 무조건 오르나요?","answer":"보장되지 않습니다. 장기간 성장해온 역사적 기록이 있지만 앞으로의 수익률과 손실폭은 확정할 수 없습니다."},{"question":"국내 상장과 미국 상장 ETF 중 무엇이 더 좋은가요?","answer":"계좌 유형, 세금, 거래 편의, 환전, 비용 등에 따라 판단이 달라집니다. 단순 수익률만으로 정하기 어렵습니다."}]
 ---
 ## 3줄 요약
