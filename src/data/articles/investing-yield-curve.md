@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-yield-curve"
 series: "JoyLab Macro 초보자 완전정복"
 seriesOrder: 3
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"수익률곡선 역전이면 반드시 침체가 오나요?","answer":"반드시 그렇다고 볼 수 없습니다. 역사적으로 중요한 신호였지만 시차와 정책환경이 매번 다릅니다."},{"question":"곡선이 다시 정상화되면 좋은 신호인가요?","answer":"정상화 이유가 중요합니다. 장기금리 상승 때문인지 단기금리 급락 때문인지에 따라 해석이 다릅니다."},{"question":"채권 ETF 투자에도 수익률곡선이 중요하나요?","answer":"중요합니다. ETF가 어느 만기 구간에 노출되는지에 따라 금리 변화의 영향을 다르게 받습니다."}]
 ---
 ## 3줄 요약
