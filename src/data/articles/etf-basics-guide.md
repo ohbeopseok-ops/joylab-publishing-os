@@ -28,6 +28,8 @@ faqs:
     answer: "상품에 따라 다릅니다. 수백 종목을 담는 광범위 지수 ETF도 있지만 특정 산업이나 테마 몇 종목에 집중된 ETF도 있습니다."
   - question: "ETF를 고를 때 수익률이 가장 중요하지 않나요?"
     answer: "과거 수익률은 참고자료일 뿐입니다. 투자 목적, 기초지수, 비용, 변동성, 중복 노출을 함께 봐야 합니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -78,78 +80,15 @@ ETF의 시장가격은 순자산가치와 차이가 날 수 있습니다. 거래
 
 **ETF 투자의 첫 질문은 “무엇을 살까?”가 아니라 “이 ETF가 내 포트폴리오에서 무슨 일을 할까?”입니다.**
 
-## Structured Data
+## 이어 읽기
 
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "ETF란 무엇인가",
-  "description": "ETF의 구조와 장단점을 이해하고 지수·비용·추적오차·유동성을 기준으로 ETF를 읽는 법을 설명합니다.",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://aijoylab.kr/guides/investing/etf/what-is-etf/"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "isPartOf": {
-    "@type": "CreativeWorkSeries",
-    "name": "JoyLab ETF 초보자 완전정복 10부작"
-  }
-}
-~~~
-
-## FAQ Structured Data
-
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "ETF는 원금이 보장되나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "아닙니다. ETF는 시장가격이 변동하는 투자상품입니다. 기초자산이 하락하면 손실이 발생할 수 있습니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "ETF 하나만 사도 분산투자인가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "상품에 따라 다릅니다. 수백 종목을 담는 광범위 지수 ETF도 있지만 특정 산업이나 테마 몇 종목에 집중된 ETF도 있습니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "ETF를 고를 때 수익률이 가장 중요하지 않나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "과거 수익률은 참고자료일 뿐입니다. 투자 목적, 기초지수, 비용, 변동성, 중복 노출을 함께 봐야 합니다."
-      }
-    }
-  ]
-}
-~~~
-
-## Research Graph Links
-
-- **Parent:** ETF Basics
-- **Related:** MMF · TDF
-- **Compare:** -
-- **Next:** MMF
-- **Apply:** Asset Allocation
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/mmf-cash-management-guide)
+- [같은 시리즈 다음·관련 글](/articles/tdf-target-date-fund-guide)
 
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.investor.gov/introduction-investing/investing-basics/glossary/exchange-traded-fund-etf)
 - [공식 자료 2](https://www.sec.gov/investor/alerts/etfs.pdf)
+
 
