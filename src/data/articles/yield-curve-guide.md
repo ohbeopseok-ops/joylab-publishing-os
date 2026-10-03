@@ -49,7 +49,6 @@ investmentResearchType: "macro"
 ## 2년과 10년이 자주 언급되는 이유
 
 2년물은 통화정책 기대에 민감하고 10년물은 장기 성장·물가 기대를 더 많이 반영합니다. 두 금리의 차이는 시장의 시간축별 기대를 비교하는 간단한 지표입니다.
-
 [근거: 공식 자료](https://home.treasury.gov/resource-center/data-chart-center/interest-rates)
 
 ## FAQ
