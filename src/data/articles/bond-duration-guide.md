@@ -28,6 +28,8 @@ faqs:
     answer: "아닙니다. 변동폭이 상대적으로 작을 뿐 가격과 신용위험이 존재할 수 있습니다."
   - question: "미국 10년 국채 ETF를 살 때 듀레이션만 보면 되나요?"
     answer: "환율과 상품 구조, 선물형인지 현물형인지도 확인해야 합니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "macro"
 ---
 
 ## 3줄 요약
@@ -43,6 +45,8 @@ faqs:
 ## 장기채가 더 크게 움직이는 이유
 
 오랫동안 고정된 현금흐름을 받는 장기채는 할인율 변화의 영향을 더 오래 받습니다. 같은 금리 변화라도 10년채가 3년채보다 크게 움직일 수 있는 이유입니다.
+
+[근거: 공식 자료](https://home.treasury.gov/resource-center/data-chart-center/interest-rates)
 
 ## ETF에서 확인할 것
 
@@ -63,8 +67,15 @@ faqs:
 
 **채권의 위험은 ‘채권인가 아닌가’가 아니라 금리 변화에 얼마나 오래 노출되는가에서 시작합니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/usdkrw-investing-guide)
+- [같은 시리즈 다음·관련 글](/articles/export-earnings-cycle-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://home.treasury.gov/resource-center/data-chart-center/interest-rates)
 - [공식 자료 2](https://www.sec.gov/files/ib_interestraterisk.pdf)
+
 
