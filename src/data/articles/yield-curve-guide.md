@@ -28,6 +28,8 @@ faqs:
     answer: "정상화 이유가 중요합니다. 장기금리 상승 때문인지 단기금리 급락 때문인지에 따라 해석이 다릅니다."
   - question: "채권 ETF 투자에도 수익률곡선이 중요하나요?"
     answer: "중요합니다. ETF가 어느 만기 구간에 노출되는지에 따라 금리 변화의 영향을 다르게 받습니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "macro"
 ---
 
 ## 3줄 요약
@@ -48,6 +50,8 @@ faqs:
 
 2년물은 통화정책 기대에 민감하고 10년물은 장기 성장·물가 기대를 더 많이 반영합니다. 두 금리의 차이는 시장의 시간축별 기대를 비교하는 간단한 지표입니다.
 
+[근거: 공식 자료](https://home.treasury.gov/resource-center/data-chart-center/interest-rates)
+
 ## FAQ
 
 ### 수익률곡선 역전이면 반드시 침체가 오나요?
@@ -63,8 +67,15 @@ faqs:
 
 **수익률곡선은 금리 하나가 아니라 ‘시간별 시장 기대’를 보여주는 지도입니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/policy-rate-vs-market-rate)
+- [같은 시리즈 다음·관련 글](/articles/inflation-real-rate-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://home.treasury.gov/resource-center/data-chart-center/interest-rates)
 - [공식 자료 2](https://www.federalreserve.gov/releases/h15/)
+
 
