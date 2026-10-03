@@ -4,8 +4,6 @@ on:
   workflow_run:
     workflows: ["Deploy to Cloudflare Workers"]
     types: [completed]
-  schedule:
-    - cron: '15 2 * * *'
   workflow_dispatch:
 
 permissions:
@@ -57,4 +55,4 @@ jobs:
           name: production-freshness-v1
           path: qa-artifacts/production-freshness-v1
           if-no-files-found: error
-          retention-days: 90
+          retention-days: 14
