@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-eps-revision"
 series: "JoyLab Stocks 초보자 완전정복"
 seriesOrder: 5
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"EPS가 상향되면 무조건 사나요?","answer":"아닙니다. 가격과 밸류에이션이 이미 더 큰 기대를 반영했을 수 있습니다."},{"question":"컨센서스가 늦게 움직일 수도 있나요?","answer":"가능합니다. 업황 데이터와 기업 가이던스가 먼저 변할 수 있습니다."},{"question":"EPS 하향이면 바로 매도인가요?","answer":"하향의 크기와 원인, 현재 가격에 반영된 정도를 함께 봐야 합니다."}]
 ---
 ## 3줄 요약
