@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-stocks-basics"
 series: "JoyLab Stocks 초보자 완전정복"
 seriesOrder: 1
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"차트만 보고 투자하면 안 되나요?","answer":"가격정보는 중요하지만 기업가치와 실적 근거 없이 사용하면 신호가 쉽게 뒤집힐 수 있습니다."},{"question":"좋은 회사면 언제 사도 되나요?","answer":"좋은 회사와 좋은 투자 가격은 같은 개념이 아닙니다."},{"question":"가장 먼저 볼 숫자는 무엇인가요?","answer":"한 숫자보다 이익의 방향과 변화율을 먼저 보는 편이 좋습니다."}]
 ---
 ## 3줄 요약
