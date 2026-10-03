@@ -9,7 +9,7 @@ on:
       - 'scripts/generate-official-execution-queue-v1.mjs'
       - 'scripts/generate-ranking-drift-v1.mjs'
       - 'scripts/generate-today-fix-cards-v1.mjs'
-      - 'scripts/generate-quality-control-center-v1.mjs'
+      - 'scripts/check-wave3-release-gate-v1.mjs'\n      - 'scripts/generate-quality-control-center-v1.mjs'
       - 'scripts/rank-first-content-entry-v1.mjs'
       - 'src/data/first-content-priority-v1.json'
       - 'src/pages/articles/**'
@@ -105,7 +105,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p qa-artifacts/mobile-experience-contract-v1
-          for spec in "home|/" "articles|/articles" "giant-shoulder|/articles/semiconductor-giant-shoulder-flow" "investing-guide|/guides/investing"; do
+          for spec in "home|/" "articles|/articles" "giant-shoulder|/articles/semiconductor-giant-shoulder-flow" "investing-guide|/guides/investing" "wave3-hd-hyundai-electric-ai-power|/articles/hd-hyundai-electric-ai-power" "wave3-samsung-hbm4-memory-outlook-2026-09-20|/articles/samsung-hbm4-memory-outlook-2026-09-20" "wave3-hyosung-heavy-industries-ai-power|/articles/hyosung-heavy-industries-ai-power" "wave3-hd-ksoe-shipbuilding|/articles/hd-ksoe-shipbuilding" "wave3-samsung-heavy-industries-shipbuilding|/articles/samsung-heavy-industries-shipbuilding"; do
             name="${spec%%|*}"
             route="${spec#*|}"
             for viewport in "iphone-390|390|844" "iphone-430|430|932"; do
@@ -120,6 +120,9 @@ jobs:
       - name: Mobile Lighthouse Budget V1
         continue-on-error: true
         run: node scripts/check-mobile-lighthouse-v1.mjs
+
+      - name: Wave 3 Release Gate V1
+        run: node scripts/check-wave3-release-gate-v1.mjs
 
       - name: Real User Experience Gate V1
         continue-on-error: true
@@ -228,6 +231,7 @@ jobs:
             qa-artifacts/first-content-entry-budget-v1
             qa-artifacts/first-content-ranking-v1
             qa-artifacts/mobile-experience-contract-v1
+            qa-artifacts/wave3-release-gate-v1
             qa-artifacts/real-user-experience-gate-v1
             qa-artifacts/experience-debt-ranking-v1
             qa-artifacts/gsc-7d
