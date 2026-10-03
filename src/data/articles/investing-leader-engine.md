@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-leader-engine"
 series: "JoyLab Stocks 초보자 완전정복"
 seriesOrder: 9
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"Leader Score 1위면 바로 매수하나요?","answer":"아닙니다. Entry Gate와 리스크 검증이 별도로 필요합니다."},{"question":"거래대금이 왜 중요한가요?","answer":"실제 자금이 집중되고 있는지를 보여주는 대표적인 유동성 신호이기 때문입니다."},{"question":"실적이 나쁜데 강한 종목은 제외하나요?","answer":"테마와 선행 기대가 있을 수 있으므로 원인을 확인하되 근거 없는 강세는 위험도를 높게 봅니다."}]
 ---
 ## 3줄 요약
