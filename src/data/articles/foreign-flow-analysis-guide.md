@@ -56,5 +56,5 @@ faqs:
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://data.krx.co.kr/)
-- [공식 자료 2](https://ecos.bok.or.kr/)
+- [공식 자료 2](https://kind.krx.co.kr/)
 
