@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-portfolio-60-40"
 series: "JoyLab ETF 초보자 완전정복"
 seriesOrder: 4
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"60/40은 모든 연령에 적합한가요?","answer":"아닙니다. 투자기간, 소득 안정성, 은퇴시점, 손실 감내 수준에 따라 비중은 달라질 수 있습니다."},{"question":"채권 40%는 수익률을 낮추는 것 아닌가요?","answer":"강한 주식 상승장에서는 그럴 수 있습니다. 대신 포트폴리오의 변동성과 손실폭을 조절하는 목적이 있습니다."},{"question":"주식과 채권이 동시에 떨어지면 의미가 없나요?","answer":"아닙니다. 상관관계는 고정되어 있지 않습니다. 자산배분은 모든 시점의 손실을 막는 장치가 아니라 장기간 위험을 여러 원천으로 분산하는 방법입니다."}]
 ---
 ## 3줄 요약
