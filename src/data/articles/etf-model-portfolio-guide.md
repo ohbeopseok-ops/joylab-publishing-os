@@ -28,6 +28,8 @@ faqs:
     answer: "아닙니다. 여러 ETF가 동일한 종목을 중복 보유하면 실제 분산효과가 작을 수 있습니다."
   - question: "한 번 만든 포트폴리오는 계속 유지하면 되나요?"
     answer: "투자목표나 현금흐름이 바뀌면 전략 자체를 재검토할 수 있습니다. 다만 시장 뉴스에 따라 자주 전략을 바꾸는 것과는 구분해야 합니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -51,7 +53,11 @@ faqs:
 - 한국 국고채 3년 역할: 10%
 - 종합채권 역할: 20%
 
+[근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
+
 합계는 주식 60%, 채권 40%입니다. 여기서 가장 중요한 것은 특정 상품명이 아니라 역할입니다. 같은 역할을 수행하는 ETF가 여러 개 있을 수 있으므로 실제 선택 단계에서는 지수, 비용, 추적오차, 환헤지, 거래량을 비교합니다.
+
+[근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 ## 현금은 어디에 들어가나
 
@@ -64,6 +70,8 @@ faqs:
 ## 운영 규칙까지 있어야 포트폴리오다
 
 좋은 포트폴리오는 매수 비중만 적혀 있지 않습니다. 언제 추가투자할지, 언제 리밸런싱할지, 어떤 경우에도 하지 않을 행동은 무엇인지까지 규칙으로 정합니다. 예를 들어 연 1회 점검, 목표비중 ±5%포인트 이탈 시 재조정 같은 규칙을 사용할 수 있습니다.
+
+[근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 ## 마지막 체크리스트
 
@@ -89,78 +97,15 @@ faqs:
 
 **모델 포트폴리오는 ETF 목록이 아니라 ‘현금 → 성장 → 방어 → 리밸런싱’을 하나의 규칙으로 묶은 운영체계입니다.**
 
-## Structured Data
+## 이어 읽기
 
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "실전 모델 포트폴리오",
-  "description": "MMF·TDF·주식 ETF·채권 ETF·리밸런싱을 하나의 역할 기반 모델 포트폴리오로 연결하는 실전 가이드입니다.",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://aijoylab.kr/guides/investing/asset-allocation/model-portfolio/"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "isPartOf": {
-    "@type": "CreativeWorkSeries",
-    "name": "JoyLab ETF 초보자 완전정복 10부작"
-  }
-}
-~~~
-
-## FAQ Structured Data
-
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "60/40이 50대 투자자에게 항상 맞나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "아닙니다. 나이만으로 비중을 결정하기 어렵습니다. 은퇴까지 남은 기간, 연금, 소득, 부채, 예상 인출 규모 등이 함께 고려되어야 합니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "ETF를 많이 담을수록 더 분산되나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "아닙니다. 여러 ETF가 동일한 종목을 중복 보유하면 실제 분산효과가 작을 수 있습니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "한 번 만든 포트폴리오는 계속 유지하면 되나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "투자목표나 현금흐름이 바뀌면 전략 자체를 재검토할 수 있습니다. 다만 시장 뉴스에 따라 자주 전략을 바꾸는 것과는 구분해야 합니다."
-      }
-    }
-  ]
-}
-~~~
-
-## Research Graph Links
-
-- **Parent:** Asset Allocation
-- **Related:** 60/40 · S&P500 ETF · 채권 ETF · 리밸런싱
-- **Compare:** -
-- **Next:** -
-- **Apply:** -
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/bond-etf-core-guide)
+- [같은 시리즈 다음·관련 글](/articles/portfolio-rebalancing-guide)
 
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 - [공식 자료 2](https://www.sec.gov/investor/pubs/assetallocation.htm)
+
 
