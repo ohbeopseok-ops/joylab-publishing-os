@@ -28,6 +28,8 @@ faqs:
     answer: "60/40은 기준점입니다. 투자목적과 위험감내 수준이 바뀌지 않았다면 단기 전망만으로 자주 변경할 이유는 적습니다."
   - question: "가장 중요한 지표 하나를 고르면 무엇인가요?"
     answer: "하나만 고르기 어렵습니다. 금리·물가·환율은 서로 연결되어 있습니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "macro"
 ---
 
 ## 3줄 요약
@@ -67,8 +69,15 @@ faqs:
 
 **매크로는 포트폴리오를 예언하는 도구가 아니라, 내가 어떤 위험을 얼마나 들고 있는지 점검하는 렌즈입니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/semiconductor-trade-pulse-guide)
+- [같은 시리즈 다음·관련 글](/articles/joylab-macro-dashboard-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)
 - [공식 자료 2](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
+
 
