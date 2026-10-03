@@ -28,6 +28,8 @@ faqs:
     answer: "시장에서 채권 가격이 거래되면서 수익률이 결정됩니다."
   - question: "장기금리가 기준금리보다 낮을 수도 있나요?"
     answer: "가능합니다. 미래 경기둔화와 금리인하 기대가 강하면 장기금리가 더 낮아질 수 있습니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "macro"
 ---
 
 ## 3줄 요약
@@ -43,6 +45,8 @@ faqs:
 ## 시장금리는 왜 다르게 움직이나
 
 3년·10년 국채금리는 미래 기준금리, 물가, 성장률, 국채 수급, 위험선호를 함께 반영합니다. 예를 들어 기준금리가 아직 높은 상태라도 시장이 향후 인하를 강하게 예상하면 장기금리는 먼저 하락할 수 있습니다.
+
+[근거: 공식 자료](https://www.federalreserve.gov/monetarypolicy/openmarket.htm)
 
 ## 투자와의 연결
 
@@ -63,8 +67,15 @@ faqs:
 
 **기준금리는 중앙은행의 현재 결정이고, 시장금리는 투자자들이 가격에 넣은 미래 기대입니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/macro-investing-basics)
+- [같은 시리즈 다음·관련 글](/articles/yield-curve-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.federalreserve.gov/monetarypolicy/openmarket.htm)
 - [공식 자료 2](https://www.federalreserve.gov/releases/h15/)
+
 
