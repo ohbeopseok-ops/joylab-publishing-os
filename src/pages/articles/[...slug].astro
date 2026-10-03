@@ -65,7 +65,7 @@ const supportingImages = (researchVisual?.supporting ?? []).map((image, index) =
 const articleImage = article.data.ogImage ?? heroImage;
 const articleImageUrl = articleImage ? new URL(articleImage, Astro.site ?? Astro.url.origin).toString() : undefined;
 const isCompareHub = article.id === 'samsung-vs-sk-hynix-ai-memory';
-const firstContentPriorityItems = firstContentPriority.top10 ?? firstContentPriority.top5 ?? [];
+const firstContentPriorityItems = firstContentPriority.top15 ?? firstContentPriority.top10 ?? firstContentPriority.top5 ?? [];
 const firstContentPriorityIds = new Set(firstContentPriorityItems.map((item) => item.slug));
 const isFirstContentPriority = firstContentPriorityIds.has(article.id);
 const isSamsung = article.id === 'samsung-electronics-outlook';
