@@ -15,6 +15,8 @@ canonical: "https://aijoylab.kr/articles/investing-samsung-electronics-case"
 series: "JoyLab Stocks 초보자 완전정복"
 seriesOrder: 2
 readingTime: "약 7분"
+investmentIndustries: ["semiconductor"]
+investmentTheses: ["memory-supercycle"]
 faqs: [{"question":"메모리 가격만 보면 되나요?","answer":"아닙니다. 여러 사업이 동시에 실적에 영향을 줍니다."},{"question":"실적이 좋아진 뒤 사면 늦나요?","answer":"주가는 실적 발표 전에 기대를 반영할 수 있어 추정치 변화가 중요합니다."},{"question":"삼성전자와 SK하이닉스는 같은 반도체주인가요?","answer":"공통점이 있지만 사업구조와 제품 믹스가 달라 같은 프레임으로만 보면 안 됩니다."}]
 ---
 ## 3줄 요약
