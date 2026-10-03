@@ -28,6 +28,8 @@ faqs:
     answer: "보장되지 않습니다. 장기간 성장해온 역사적 기록이 있지만 앞으로의 수익률과 손실폭은 확정할 수 없습니다."
   - question: "국내 상장과 미국 상장 ETF 중 무엇이 더 좋은가요?"
     answer: "계좌 유형, 세금, 거래 편의, 환전, 비용 등에 따라 판단이 달라집니다. 단순 수익률만으로 정하기 어렵습니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -35,6 +37,8 @@ faqs:
 - S&P500 ETF는 미국 대형주 시장을 폭넓게 추종하는 대표적인 코어 주식 ETF 유형입니다.
 - 500개 안팎의 기업을 담지만 시가총액가중 방식 때문에 대형 기업의 영향력이 커질 수 있습니다.
 - 장기 투자에서는 최근 수익률보다 **비용, 추적오차, 환율, 다른 ETF와의 중복**을 함께 봐야 합니다.
+
+[근거: 공식 자료](https://www.spglobal.com/spdji/en/indices/equity/sp-500/)
 
 ## 왜 S&P500이 코어로 자주 언급될까
 
@@ -69,78 +73,15 @@ S&P500은 미국의 주요 대형 상장기업으로 구성되는 대표 지수�
 
 **S&P500 ETF는 ‘미국 주식 전체’가 아니라, 포트폴리오에서 미국 대형주 코어 역할을 맡기는 도구입니다.**
 
-## Structured Data
+## 이어 읽기
 
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "S&P500 ETF",
-  "description": "S&P500 ETF가 왜 코어 주식자산으로 활용되는지, 지수 구조와 집중 위험, 비용과 환율을 중심으로 설명합니다.",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://aijoylab.kr/guides/investing/etf/sp500/"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "JoyLab"
-  },
-  "isPartOf": {
-    "@type": "CreativeWorkSeries",
-    "name": "JoyLab ETF 초보자 완전정복 10부작"
-  }
-}
-~~~
-
-## FAQ Structured Data
-
-~~~json
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "S&P500 ETF 하나면 전 세계에 분산된 건가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "아닙니다. 미국 대형주 중심 노출입니다. 미국 기업들이 글로벌 매출을 올리더라도 투자자산의 지역 분류는 미국 주식입니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "S&P500은 장기적으로 무조건 오르나요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "보장되지 않습니다. 장기간 성장해온 역사적 기록이 있지만 앞으로의 수익률과 손실폭은 확정할 수 없습니다."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "국내 상장과 미국 상장 ETF 중 무엇이 더 좋은가요?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "계좌 유형, 세금, 거래 편의, 환전, 비용 등에 따라 판단이 달라집니다. 단순 수익률만으로 정하기 어렵습니다."
-      }
-    }
-  ]
-}
-~~~
-
-## Research Graph Links
-
-- **Parent:** Equity ETF
-- **Related:** Nasdaq100 ETF · Dividend ETF · 60/40 자산배분
-- **Compare:** Nasdaq100 ETF · Dividend ETF
-- **Next:** Nasdaq100 ETF
-- **Apply:** 60/40 자산배분 · 실전 모델 포트폴리오
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/60-40-asset-allocation-guide)
+- [같은 시리즈 다음·관련 글](/articles/nasdaq100-etf-growth-guide)
 
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://www.spglobal.com/spdji/en/indices/equity/sp-500/)
 - [공식 자료 2](https://www.investor.gov/introduction-investing/investing-basics/glossary/index-fund)
+
 
