@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ResearchGraphMap from '../../components/ResearchGraphMap.astro';
+import graph from '../../../config/research-graph-investing-foundations-v1.json';
+import { getCollection } from 'astro:content';
+import '../../styles/investing-foundations-v1.css';
+
+const all = (await getCollection('articles')).filter((item) => !item.data.draft);
+const byId = new Map(all.map((item) => [item.id, item]));
+const ordered = graph.articles.map((item) => byId.get(item.url.replace('/articles/',''))).filter(Boolean);
+const groups = [
+  { label:'MACRO 10', note:'금리·물가·환율·수출을 투자 환경으로 읽습니다.', items: ordered.slice(0,10) },
+  { label:'STOCKS 10', note:'기업·실적·EPS Revision·밸류에이션·수급을 연결합니다.', items: ordered.slice(10,20) },
+  { label:'ETF & ALLOCATION 10', note:'ETF 구조에서 60/40·리밸런싱·모델 포트폴리오까지 연결합니다.', items: ordered.slice(20,30) }
+];
+const canonical='https://aijoylab.kr/guides/investing-foundations';
+---
+<BaseLayout
+ title="투자 기초 완전정복｜Macro·Stocks·ETF·Asset Allocation | JoyLab"
+ description="JoyLab Investing Foundations는 Macro, Stocks, ETF, Asset Allocation, Retirement를 하나의 Research Graph로 연결하는 30편 투자 기초 커리큘럼입니다."
+ canonical={canonical}
+ bodyClass="investing-foundations-v1"
+>
+ <header class="ifv-hero"><div class="ifv-wrap">
+  <div class="ifv-kicker">JOYLAB INVESTING · FOUNDATIONS V1</div>
+  <h1>상품보다 먼저,<br/>투자의 구조를 배웁니다.</h1>
+  <p>Macro가 환경을 설명하고, Stocks가 기업을 분석하고, ETF가 자산을 묶고, Asset Allocation이 비중을 결정하며, Retirement가 장기 목적에 연결됩니다.</p>
+  <div class="ifv-meta"><span><b>30</b> Articles</span><span><b>5</b> Lanes</span><span><b>1</b> Research Graph</span></div>
+ </div></header>
+
+ <main class="ifv-main"><div class="ifv-wrap">
+  <ResearchGraphMap
+    graph={graph}
+    eyebrow="JOYLAB RESEARCH GRAPH · INVESTING FOUNDATIONS"
+    title="Stocks → Macro → ETF → Asset Allocation → Retirement"
+    description="개념을 종목 목록이 아니라 역할과 관계로 연결합니다."
+    hubHref="/guides/investing"
+    hubLabel="Investment Hub →"
+    primaryFlow={['stocks-analysis','macro-environment','etf-core','asset-allocation','retirement-planning']}
+  />
+
+  {groups.map((group) => (
+    <section class="ifv-section">
+      <div class="ifv-section-head"><div><div class="ifv-kicker">{group.label}</div><h2>{group.label.replace(' 10','')} Learning Path</h2></div><p>{group.note}</p></div>
+      <div class="ifv-grid">
+        {group.items.map((article:any,index:number) => (
+          <article class="ifv-card">
+            <small>{String(index+1).padStart(2,'0')}</small>
+            <h3><a href={`/articles/${article.id}`}>{article.data.cardTitle ?? article.data.title}</a></h3>
+            <p>{article.data.cardDescription ?? article.data.description}</p>
+            <footer><span>{article.data.readingTime ?? '약 7분'}</span><a href={`/articles/${article.id}`}>읽기 →</a></footer>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <section class="ifv-section ifv-rule">
+    <div class="ifv-kicker">RELEASE FLOW</div>
+    <h2>Foundations GOLD 전에는 확장하지 않습니다.</h2>
+    <p><code>FOUNDATIONS → BUILD → CLOUDFLARE → PRODUCTION SMOKE → RELEASE GATE GOLD → LIVE EVIDENCE / RETIREMENT</code></p>
+  </section>
+ </div></main>
+</BaseLayout>

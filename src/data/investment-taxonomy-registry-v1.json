@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 123,
+  "articleCount": 153,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -953,6 +953,377 @@
       "companies": [
         "Hyosung Heavy Industries"
       ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-bond-duration-macro",
+      "route": "/articles/investing-bond-duration-macro",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-bond-guide",
+      "route": "/articles/investing-bond-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-dividend-etf",
+      "route": "/articles/investing-dividend-etf",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-earnings-cycle",
+      "route": "/articles/investing-earnings-cycle",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-eps-revision",
+      "route": "/articles/investing-eps-revision",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-etf-what-is",
+      "route": "/articles/investing-etf-what-is",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-foreign-flow",
+      "route": "/articles/investing-foreign-flow",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-inflation-real-rate",
+      "route": "/articles/investing-inflation-real-rate",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-leader-engine",
+      "route": "/articles/investing-leader-engine",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-macro-basics",
+      "route": "/articles/investing-macro-basics",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-macro-dashboard",
+      "route": "/articles/investing-macro-dashboard",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-macro-to-asset-allocation",
+      "route": "/articles/investing-macro-to-asset-allocation",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-mmf",
+      "route": "/articles/investing-mmf",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-model-portfolio",
+      "route": "/articles/investing-model-portfolio",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-nasdaq100",
+      "route": "/articles/investing-nasdaq100",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-policy-rate",
+      "route": "/articles/investing-policy-rate",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-portfolio-60-40",
+      "route": "/articles/investing-portfolio-60-40",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-rebalancing",
+      "route": "/articles/investing-rebalancing",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-relative-strength",
+      "route": "/articles/investing-relative-strength",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-samsung-electronics-case",
+      "route": "/articles/investing-samsung-electronics-case",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "memory-supercycle"
+      ],
+      "companies": [
+        "Samsung Electronics"
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-semiconductor-trade-pulse",
+      "route": "/articles/investing-semiconductor-trade-pulse",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "memory-supercycle",
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-sk-hynix-case",
+      "route": "/articles/investing-sk-hynix-case",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "memory-supercycle"
+      ],
+      "companies": [
+        "SK hynix"
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-sp500",
+      "route": "/articles/investing-sp500",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-stock-decision-gate",
+      "route": "/articles/investing-stock-decision-gate",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-stocks-basics",
+      "route": "/articles/investing-stocks-basics",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-tdf",
+      "route": "/articles/investing-tdf",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-trade-cycle",
+      "route": "/articles/investing-trade-cycle",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-usdkrw-fx",
+      "route": "/articles/investing-usdkrw-fx",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-valuation-4v",
+      "route": "/articles/investing-valuation-4v",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "investing-yield-curve",
+      "route": "/articles/investing-yield-curve",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
       "valueChains": [],
       "kpis": [],
       "researchType": null
