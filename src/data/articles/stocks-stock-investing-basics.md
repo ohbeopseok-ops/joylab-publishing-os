@@ -19,8 +19,10 @@ canonical: "https://aijoylab.kr/articles/stocks-stock-investing-basics"
 series: "Stocks 분석 기초 10부작"
 seriesOrder: 1
 readingTime: "약 7분"
-investmentIndustries: []
-investmentTheses: []
+investmentIndustries:
+  - semiconductor
+investmentTheses:
+  - memory-supercycle
 ---
 
 ## 3줄 요약
@@ -55,3 +57,11 @@ investmentTheses: []
 
 - [DART 전자공시시스템](https://dart.fss.or.kr/)
 - [KRX 정보데이터시스템](https://data.krx.co.kr/)
+
+## Related Research
+
+- [JoyLab 투자 리서치 클러스터](/guides/investing)
+- [반도체 투자 가이드](/guides/semiconductor-investing)
+- [ETF·Macro·Stocks 30부작](/guides/investing-foundations)
+- [이전/연결 리서치](/articles/stocks-samsung-electronics)
+- [다음/연결 리서치](/articles/stocks-sk-hynix)
