@@ -15,6 +15,7 @@ canonical: "https://aijoylab.kr/articles/investing-macro-dashboard"
 series: "JoyLab Macro 초보자 완전정복"
 seriesOrder: 10
 readingTime: "약 7분"
+investmentTheses: ["macro-liquidity"]
 faqs: [{"question":"대시보드는 매일 봐야 하나요?","answer":"단기 매매가 아니라면 모든 지표를 매일 볼 필요는 없습니다. 지표 발표 주기와 투자전략에 맞춰 정기적으로 점검하면 됩니다."},{"question":"숫자가 바뀔 때마다 행동해야 하나요?","answer":"아닙니다. 행동 Gate가 없는 데이터 관찰은 불필요한 매매를 늘릴 수 있습니다."},{"question":"Macro Dashboard의 최종 목적은 무엇인가요?","answer":"예측 정확도 경쟁보다 위험 노출을 일관되게 점검하는 것입니다."}]
 ---
 ## 3줄 요약
