@@ -28,6 +28,8 @@ faqs:
     answer: "가능합니다. 업황 데이터와 기업 가이던스가 먼저 변할 수 있습니다."
   - question: "EPS 하향이면 바로 매도인가요?"
     answer: "하향의 크기와 원인, 현재 가격에 반영된 정도를 함께 봐야 합니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -56,8 +58,15 @@ faqs:
 ## JoyLab 한 줄 답
 **EPS Revision은 ‘얼마 버는가’보다 ‘시장이 생각하던 미래 이익이 어느 방향으로 수정되는가’를 추적합니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/earnings-cycle-analysis-guide)
+- [같은 시리즈 다음·관련 글](/articles/valuation-4v-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://dart.fss.or.kr/)
 - [공식 자료 2](https://data.krx.co.kr/)
+
 
