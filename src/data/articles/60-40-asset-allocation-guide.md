@@ -37,7 +37,6 @@ investmentResearchType: "explainer"
 - 60/40은 투자자산의 60%를 주식, 40%를 채권에 배분하는 대표적인 균형형 전략입니다.
 - 목표는 최고 수익률이 아니라 **성장자산과 방어자산의 역할을 분리해 포트폴리오 변동성을 관리하는 것**입니다.
 - 60과 40이라는 숫자는 정답이 아니라 투자기간·현금흐름·손실 감내 수준을 생각하게 만드는 기준점입니다.
-
 [근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 ## 왜 주식과 채권을 함께 보유할까
@@ -49,23 +48,19 @@ investmentResearchType: "explainer"
 ## 1,000만원을 60/40으로 나누면
 
 가장 단순하게는 주식 ETF 600만원, 채권 ETF 400만원입니다. 주식 부분을 S&P500 같은 광범위 지수로 구성하고 채권 부분을 국채 또는 종합채권 ETF로 구성할 수 있습니다.
-
 [근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 ## 채권 40%도 다시 분산할 수 있다
 
 채권에는 만기와 발행주체가 있습니다. 미국 10년 국채는 듀레이션과 달러 노출이 크고 한국 국고채 3년은 원화 기반 중단기 안정자산 역할을 할 수 있습니다. 종합채권 ETF는 국채·금융채·회사채 등을 폭넓게 담을 수 있습니다.
-
 [근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 예시적으로 채권 40%를 미국 10년 10%, 국고채 3년 10%, 종합채권 20%처럼 역할별로 나누는 방식도 생각할 수 있습니다. 실제 비중은 투자자의 목적에 따라 달라집니다.
-
 [근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 ## 60/40의 진짜 핵심은 리밸런싱
 
 주식이 크게 오르면 60%였던 주식 비중이 70%가 될 수 있습니다. 그대로 두면 처음 선택한 위험 수준보다 공격적인 포트폴리오가 됩니다. 목표 비중으로 되돌리는 리밸런싱이 필요한 이유입니다.
-
 [근거: 공식 자료](https://www.investor.gov/introduction-investing/getting-started/asset-allocation)
 
 ## FAQ
