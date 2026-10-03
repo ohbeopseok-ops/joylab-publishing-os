@@ -28,6 +28,8 @@ faqs:
     answer: "가격 하락 자체가 이유가 아니라 근거가 유지되거나 강화되는지가 중요합니다."
   - question: "Decision Gate가 매매를 느리게 만들지 않나요?"
     answer: "의도적으로 충동매매를 줄이고 반복 가능한 의사결정을 만드는 목적입니다."
+investmentTheses: ["macro-liquidity"]
+investmentResearchType: "explainer"
 ---
 
 ## 3줄 요약
@@ -58,8 +60,15 @@ EPS Revision, 수급, 업황 데이터가 Thesis를 확인하는지 봅니다.
 ## JoyLab 한 줄 답
 **투자 시스템의 완성은 종목선정이 아니라 ‘언제 행동하고 언제 행동하지 않을지’를 미리 정하는 데 있습니다.**
 
+## 이어 읽기
+
+- [JoyLab 투자 리서치 메인](/guides/investing)
+- [같은 시리즈 이전·관련 글](/articles/relative-strength-leadership-guide)
+- [같은 시리즈 다음·관련 글](/articles/joylab-leader-engine-guide)
+
 ## 검증용 1차 자료
 
 - [공식 자료 1](https://dart.fss.or.kr/)
 - [공식 자료 2](https://data.krx.co.kr/)
+
 
