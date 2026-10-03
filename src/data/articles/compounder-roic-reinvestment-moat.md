@@ -212,8 +212,9 @@ Damodaran 역시 더 많은 재투자가 자본비용보다 높은 수익률을 
 - 연 10% 성장, 10년 → 약 259
 - 연 15% 성장, 10년 → 약 405
 - 연 20% 성장, 10년 → 약 619
+- 계산 기준: [Investor.gov의 Compound Interest 설명](https://www.investor.gov/additional-resources/information/youth/teachers-classroom-resources/what-compound-interest)
 
-이는 복리식으로 계산한 단순 예시이며, 복리의 기본 구조는 [Investor.gov의 Compound Interest 설명](https://www.investor.gov/additional-resources/information/youth/teachers-classroom-resources/what-compound-interest)에서도 확인할 수 있습니다.
+이는 복리식으로 계산한 단순 예시입니다.
 
 초기 몇 년에는 차이가 크지 않아 보입니다.
 
