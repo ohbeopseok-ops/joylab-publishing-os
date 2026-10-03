@@ -2,7 +2,7 @@ name: GSC 7-Day Visibility
 
 on:
   schedule:
-    - cron: '5 1 * * *'
+    - cron: '5 1 * * 1'
   push:
     branches: [main]
     paths:
@@ -50,4 +50,4 @@ jobs:
           name: gsc-7d-visibility
           path: qa-artifacts/gsc-7d
           if-no-files-found: error
-          retention-days: 30
+          retention-days: 14
