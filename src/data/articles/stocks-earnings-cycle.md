@@ -19,6 +19,8 @@ canonical: "https://aijoylab.kr/articles/stocks-earnings-cycle"
 series: "Stocks 분석 기초 10부작"
 seriesOrder: 4
 readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "stocks earnings cycle — JoyLab Investing Foundations 대표 이미지"
 investmentIndustries:
   - semiconductor
 investmentTheses:
