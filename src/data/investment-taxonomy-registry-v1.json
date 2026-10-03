@@ -1,8 +1,20 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 123,
+  "articleCount": 153,
   "records": [
+    {
+      "slug": "60-40-asset-allocation-guide",
+      "route": "/articles/60-40-asset-allocation-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
+    },
     {
       "slug": "ai-agent-governance",
       "route": "/articles/ai-agent-governance",
@@ -457,6 +469,30 @@
       "researchType": null
     },
     {
+      "slug": "bond-duration-guide",
+      "route": "/articles/bond-duration-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "macro"
+    },
+    {
+      "slug": "bond-etf-core-guide",
+      "route": "/articles/bond-etf-core-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
+    },
+    {
       "slug": "burnout-recovery-starts-with-pause",
       "route": "/articles/burnout-recovery-starts-with-pause",
       "industries": [],
@@ -720,6 +756,20 @@
       "researchType": null
     },
     {
+      "slug": "dividend-etf-income-guide",
+      "route": "/articles/dividend-etf-income-guide",
+      "industries": [
+        "financials-value-up"
+      ],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
+    },
+    {
       "slug": "doosan-enerbility-ai-power",
       "route": "/articles/doosan-enerbility-ai-power",
       "industries": [
@@ -736,6 +786,66 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "earnings-cycle-analysis-guide",
+      "route": "/articles/earnings-cycle-analysis-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
+    },
+    {
+      "slug": "eps-revision-analysis-guide",
+      "route": "/articles/eps-revision-analysis-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
+    },
+    {
+      "slug": "etf-basics-guide",
+      "route": "/articles/etf-basics-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
+    },
+    {
+      "slug": "etf-model-portfolio-guide",
+      "route": "/articles/etf-model-portfolio-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
+    },
+    {
+      "slug": "export-earnings-cycle-guide",
+      "route": "/articles/export-earnings-cycle-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "macro"
     },
     {
       "slug": "fairness-system-explainable-standards",
@@ -783,6 +893,18 @@
         "PBR"
       ],
       "researchType": "pillar"
+    },
+    {
+      "slug": "foreign-flow-analysis-guide",
+      "route": "/articles/foreign-flow-analysis-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
     },
     {
       "slug": "foreign-investor-flow",
@@ -958,6 +1080,42 @@
       "researchType": null
     },
     {
+      "slug": "inflation-real-rate-guide",
+      "route": "/articles/inflation-real-rate-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "macro"
+    },
+    {
+      "slug": "joylab-leader-engine-guide",
+      "route": "/articles/joylab-leader-engine-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
+    },
+    {
+      "slug": "joylab-macro-dashboard-guide",
+      "route": "/articles/joylab-macro-dashboard-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "macro"
+    },
+    {
       "slug": "kb-financial-shareholder-return",
       "route": "/articles/kb-financial-shareholder-return",
       "industries": [
@@ -1090,6 +1248,30 @@
       "researchType": "compare"
     },
     {
+      "slug": "macro-investing-basics",
+      "route": "/articles/macro-investing-basics",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "macro"
+    },
+    {
+      "slug": "macro-to-asset-allocation-guide",
+      "route": "/articles/macro-to-asset-allocation-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "macro"
+    },
+    {
       "slug": "mcp-security-tool-poisoning-2026",
       "route": "/articles/mcp-security-tool-poisoning-2026",
       "industries": [],
@@ -1098,6 +1280,18 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "mmf-cash-management-guide",
+      "route": "/articles/mmf-cash-management-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
     },
     {
       "slug": "money-basics-7-economic-terms",
@@ -1110,6 +1304,18 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "nasdaq100-etf-growth-guide",
+      "route": "/articles/nasdaq100-etf-growth-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
     },
     {
       "slug": "openai-anthropic-ipo-cash-burn-2026",
@@ -1161,6 +1367,30 @@
       "researchType": null
     },
     {
+      "slug": "policy-rate-vs-market-rate",
+      "route": "/articles/policy-rate-vs-market-rate",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "macro"
+    },
+    {
+      "slug": "portfolio-rebalancing-guide",
+      "route": "/articles/portfolio-rebalancing-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
+    },
+    {
       "slug": "recognition-system-fair-performance",
       "route": "/articles/recognition-system-fair-performance",
       "industries": [],
@@ -1169,6 +1399,18 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "relative-strength-leadership-guide",
+      "route": "/articles/relative-strength-leadership-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
     },
     {
       "slug": "samsung-daily-analysis-2026-09-28",
@@ -1186,6 +1428,22 @@
       "valueChains": [],
       "kpis": [],
       "researchType": "company"
+    },
+    {
+      "slug": "samsung-electronics-analysis-framework",
+      "route": "/articles/samsung-electronics-analysis-framework",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "memory-supercycle"
+      ],
+      "companies": [
+        "Samsung Electronics"
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
     },
     {
       "slug": "samsung-electronics-outlook",
@@ -1345,6 +1603,20 @@
       "researchType": "explainer"
     },
     {
+      "slug": "semiconductor-trade-pulse-guide",
+      "route": "/articles/semiconductor-trade-pulse-guide",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "memory-supercycle"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "macro"
+    },
+    {
       "slug": "silicon-photonics-ai-network",
       "route": "/articles/silicon-photonics-ai-network",
       "industries": [
@@ -1357,6 +1629,22 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "sk-hynix-analysis-framework",
+      "route": "/articles/sk-hynix-analysis-framework",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "memory-supercycle"
+      ],
+      "companies": [
+        "SK hynix"
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
     },
     {
       "slug": "sk-hynix-outlook",
@@ -1374,6 +1662,42 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "sp500-etf-core-guide",
+      "route": "/articles/sp500-etf-core-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
+    },
+    {
+      "slug": "stock-decision-gate-guide",
+      "route": "/articles/stock-decision-gate-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
+    },
+    {
+      "slug": "stock-investing-basics-guide",
+      "route": "/articles/stock-investing-basics-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
     },
     {
       "slug": "strong-retail-sales-nasdaq-rally-2026",
@@ -1428,6 +1752,18 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "tdf-target-date-fund-guide",
+      "route": "/articles/tdf-target-date-fund-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
     },
     {
       "slug": "total-shareholder-return-buyback-cancellation-guide",
@@ -1609,6 +1945,30 @@
       "researchType": null
     },
     {
+      "slug": "usdkrw-investing-guide",
+      "route": "/articles/usdkrw-investing-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "macro"
+    },
+    {
+      "slug": "valuation-4v-guide",
+      "route": "/articles/valuation-4v-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "explainer"
+    },
+    {
       "slug": "what-is-ai-agent",
       "route": "/articles/what-is-ai-agent",
       "industries": [],
@@ -1669,6 +2029,18 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "yield-curve-guide",
+      "route": "/articles/yield-curve-guide",
+      "industries": [],
+      "theses": [
+        "macro-liquidity"
+      ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "macro"
     },
     {
       "slug": "ymtc-nand-vs-samsung-sk-hynix",
