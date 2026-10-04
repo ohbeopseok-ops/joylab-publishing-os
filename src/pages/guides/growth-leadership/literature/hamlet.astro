@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  [
+    "신중함과 결정 지연은 어떻게 구분하나요?",
+    "추가 정보가 실제 선택을 바꿀 가능성이 있는지, 기다리는 동안 발생하는 비용이 무엇인지 확인하면 구분하기 쉽습니다."
+  ],
+  [
+    "정보가 부족한데도 결정해야 하나요?",
+    "모든 정보가 아니라 핵심 가설과 위험을 판단할 만큼의 최소 정보가 있으면 가역적 결정부터 실행할 수 있습니다."
+  ],
+  [
+    "결정 실패를 줄이는 방법은 무엇인가요?",
+    "결정 시점, 가정, 기대 결과, 재검토 조건을 기록해 사후에 판단 품질을 학습하는 것이 효과적입니다."
+  ]
+];
+const takeaways = [
+  [
+    "01",
+    "완벽한 정보는 의사결정 조건이 아니다",
+    "핵심 가설과 위험을 판단할 최소 정보가 더 중요합니다."
+  ],
+  [
+    "02",
+    "기다림에도 비용이 있다",
+    "결정하지 않는 것도 하나의 선택이며 기회비용을 만듭니다."
+  ],
+  [
+    "03",
+    "가역성과 비가역성을 구분한다",
+    "되돌릴 수 있는 결정은 더 빠르게 실험할 수 있습니다."
+  ],
+  [
+    "04",
+    "결정 기준을 사전에 정한다",
+    "무엇이 확인되면 행동할지 미리 정의하면 무한 분석을 줄일 수 있습니다."
+  ],
+  [
+    "05",
+    "결정은 기록될 때 학습 자산이 된다",
+    "당시의 가정과 정보 수준을 남겨야 결과와 판단 품질을 분리할 수 있습니다."
+  ]
+];
+const coachingQuestions = [
+  "지금 이미 알고 있는 사실은 무엇인가요?",
+  "추가 정보가 실제 선택을 바꿀 가능성이 있나요?",
+  "정보를 기다리는 동안 잃는 것은 무엇인가요?",
+  "이 결정은 되돌릴 수 있나요?",
+  "최악의 경우 손실 규모는 어느 정도인가요?",
+  "지금 작은 실험으로 확인할 수 있나요?",
+  "결정 권한이 명확한가요?",
+  "누구의 승인을 기다리고 있나요?",
+  "결정 시점을 정해두었나요?",
+  "결정 후 재검토 조건이 있나요?",
+  "실패했을 때 무엇을 배우게 되나요?",
+  "나는 지금 분석하고 있는가, 결정을 피하고 있는가?"
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: "충분한 정보가 없을 때 언제 결정해야 하는가",
+  alternativeHeadline: "『햄릿』에서 배우는 의사결정과 지연의 리더십",
+  description: "셰익스피어 『햄릿』을 불확실성, 분석 지연, 의사결정 기준 관점에서 분석한 JoyLab Literature & Leadership Research.",
+  mainEntityOfPage: "https://aijoylab.kr/guides/growth-leadership/literature/hamlet",
+  author: { '@type':'Organization', name:'JoyLab', url:'https://aijoylab.kr' },
+  publisher: { '@type':'Organization', name:'JoyLab', url:'https://aijoylab.kr' },
+  about: ["Leadership","Decision Making","Uncertainty","Delay","Hamlet"]
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(([q,a]) => ({
+    '@type':'Question', name:q,
+    acceptedAnswer:{ '@type':'Answer', text:a }
+  }))
+};
+
+const breadcrumbSchema = {
+  '@context':'https://schema.org',
+  '@type':'BreadcrumbList',
+  itemListElement:[
+    { '@type':'ListItem', position:1, name:'JoyLab', item:'https://aijoylab.kr/' },
+    { '@type':'ListItem', position:2, name:'성장·리더십', item:'https://aijoylab.kr/guides/growth-leadership' },
+    { '@type':'ListItem', position:3, name:'문학에서 배우는 리더십', item:'https://aijoylab.kr/guides/growth-leadership/literature' },
+    { '@type':'ListItem', position:4, name:"햄릿", item:"https://aijoylab.kr/guides/growth-leadership/literature/hamlet" }
+  ]
+};
+---
+
+<BaseLayout
+  title="햄릿 리더십｜충분한 정보가 없을 때 언제 결정해야 하는가 | JoyLab"
+  description="셰익스피어 『햄릿』을 통해 분석과 지연, 불확실성 속 의사결정, 결정 기준을 리더십 관점에서 살펴봅니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/hamlet"
+  type="article"
+  bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP RESEARCH · EP11</div>
+      <h1>충분한 정보가 없을 때<br /><span>언제 결정해야 하는가</span></h1>
+      <p class="le-subtitle">『햄릿』에서 배우는 의사결정과 지연</p>
+      <p class="le-intro">좋은 리더는 성급하지 않아야 합니다. 그러나 더 많은 정보를 기다리는 일이 언제부터 결정 회피가 되는지도 알아야 합니다. 『햄릿』은 판단의 정확성과 행동의 타이밍 사이의 긴장을 보여줍니다.</p>
+      <div class="le-meta"><span>Decision</span><span>Uncertainty</span><span>Timing</span><span>Action</span></div>
+    </header>
+
+    <section class="le-visual le-visual--ep11" aria-label="햄릿 의사결정과 지연 비주얼">
+      <div><span>EP11</span><b>DECISION × TIMING</b></div>
+      <i aria-hidden="true"></i>
+    </section>
+
+    <article class="le-body">
+      <section class="le-research-brief">
+        <div class="sg-eyebrow">RESEARCH BRIEF</div>
+        <h2>완벽한 정보는 거의 오지 않는다. 문제는 무엇을 더 알아야 하고 무엇은 모른 채 결정할지를 구분하는 것이다.</h2>
+        <p>햄릿은 끊임없이 관찰하고 의심하며 확인합니다. 신중함 자체는 약점이 아닙니다. 그러나 행동 기준이 명확하지 않으면 추가 정보는 판단을 돕기보다 결정을 연기하는 재료가 될 수 있습니다.</p>
+        <p>조직에서도 자료 추가, 회의 추가, 승인 추가가 정확성을 높이는지 아니면 책임을 늦추는지 구분해야 합니다.</p>
+        <blockquote>좋은 의사결정은 모든 정보를 가진 뒤 하는 결정이 아니라<br />충분한 기준을 가진 뒤 책임지는 결정이다.</blockquote>
+        <div class="le-diagnosis">
+          <article><b>KNOWN</b><span>이미 아는 것은 무엇인가</span></article>
+          <article><b>UNKNOWN</b><span>무엇이 정말 더 필요한가</span></article>
+          <article><b>COST</b><span>기다림의 비용은 얼마인가</span></article>
+          <article><b>TRIGGER</b><span>언제 결정할 것인가</span></article>
+        </div>
+      </section>
+
+      <section class="le-key-takeaways">
+        <div class="sg-eyebrow">KEY TAKEAWAYS</div>
+        <h2>『햄릿』이 리더에게 남기는 5가지 원칙</h2>
+        <div class="le-takeaway-list">
+          {takeaways.map(([no,title,body]) => (
+            <article><div class="le-takeaway-list__no">{no}</div><div><h3>{title}</h3><p>{body}</p></div></article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · ANALYSIS</div>
+        <h2>정보를 더 모으는 것이 항상 신중함은 아니다</h2>
+        <p>결정을 바꿀 가능성이 낮은 정보까지 계속 수집하면 분석은 품질 향상이 아니라 책임 지연이 될 수 있습니다. 필요한 것은 정보량보다 결정에 영향을 주는 정보의 구분입니다.</p>
+        <div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>리더의 판단력은 많이 아는 능력보다 무엇을 모르더라도 결정할 수 있는 기준을 만드는 능력에 가깝다.</p></div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · ACTION</div>
+        <h2>가역적 결정은 빠르게, 비가역적 결정은 깊게 본다</h2>
+        <p>되돌리기 쉬운 결정과 되돌리기 어려운 결정을 같은 속도로 처리하면 조직은 느려지거나 무모해집니다. 결정의 가역성에 따라 검토 깊이를 달리해야 합니다.</p>
+        <div class="le-control">
+          <article><small>CHECK FIRST</small><h3>결정 전에</h3><p>핵심 정보, 손실 범위, 가역성, 결정 시점을 정합니다.</p></article>
+          <article><small>CHECK NEXT</small><h3>결정 후</h3><p>가정, 결과, 수정 조건과 다음 재검토 날짜를 기록합니다.</p></article>
+        </div>
+        <blockquote class="is-dark">결정하지 않는 것도 결정이다.<br />다만 그 비용은 종종 기록되지 않는다.</blockquote>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">COACHING QUESTIONS</div>
+        <h2>결정 지연을 줄이는 12개 리더 질문</h2>
+        <p>정보 → 비용 → 가역성 → 결정 시점 순으로 사용합니다.</p>
+        <ol class="le-question-list">
+          {coachingQuestions.map((q)=><li>{q}</li>)}
+        </ol>
+        <div class="le-gold-question">
+          <small>GOLD QUESTION</small>
+          <p>충분한 정보가 없을 때 언제 결정해야 하는가?</p>
+        </div>
+      </section>
+
+      <section class="le-action">
+        <div class="sg-eyebrow">LEADERSHIP ACTION</div>
+        <h2>이번 주 미결정 안건 하나에 Decision Deadline을 설정한다.</h2>
+        <div class="le-action-grid">
+          <article><b>01 · FACT</b><p>현재 확인된 사실을 적습니다.</p></article>
+          <article><b>02 · GAP</b><p>결정을 바꿀 정보만 남깁니다.</p></article>
+          <article><b>03 · DEADLINE</b><p>최종 결정 시점을 정합니다.</p></article>
+          <article><b>04 · REVIEW</b><p>결정 후 검토 조건을 함께 기록합니다.</p></article>
+        </div>
+        <a href="/guides/growth-leadership/literature/framework">Leadership Framework V2 →</a>
+      </section>
+
+      <section class="le-conclusion">
+        <div class="sg-eyebrow">JOYLAB CONCLUSION</div>
+        <p>신중함은 리더의 중요한 능력입니다.</p>
+        <h2>하지만 판단은<br />행동으로 이어질 때만 조직의 자산이 된다.</h2>
+        <p>완벽한 확신보다 충분한 기준과 책임지는 태도가 필요합니다.</p>
+      </section>
+    </article>
+
+    <section class="le-faq">
+      <div class="sg-eyebrow">FAQ</div>
+      <h2>『햄릿』과 의사결정과 지연</h2>
+      {faq.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <section class="le-next">
+      <div>
+        <small>NEXT · EP12</small>
+        <h2>『안티고네』 — 규정과 양심이 충돌할 때 무엇을 기준으로 판단하는가</h2>
+        <p>다음 Research에서는 공식 규칙과 개인의 원칙이 충돌하는 상황에서 리더가 무엇을 기준으로 판단해야 하는지 살펴봅니다.</p>
+      </div>
+      <a href="/guides/growth-leadership/literature/antigone">EP12 읽기 →</a>
+    </section>
+
+    <footer class="le-back">
+      <a href="/guides/growth-leadership/literature/crime-and-punishment">← EP10 죄와 벌</a>
+      <a href="/guides/growth-leadership/literature">전체 시리즈 →</a>
+    </footer>
+  </main>
+</BaseLayout>

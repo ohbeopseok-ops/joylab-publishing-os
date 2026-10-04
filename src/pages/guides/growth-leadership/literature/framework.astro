@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const nodes = [
+  { ep:'EP01', title:'노인과 바다', domain:'SELF', theme:'성과', concern:'performance', href:'/guides/growth-leadership/literature/old-man-and-the-sea', live:true },
+  { ep:'EP02', title:'어린 왕자', domain:'PEOPLE', theme:'관계', concern:'relationship', href:'/guides/growth-leadership/literature/little-prince', live:true },
+  { ep:'EP03', title:'데미안', domain:'SELF', theme:'성장', concern:'growth', href:'/guides/growth-leadership/literature/demian', live:true },
+  { ep:'EP04', title:'변신', domain:'PEOPLE', theme:'존엄', concern:'fairness', href:'/guides/growth-leadership/literature/metamorphosis', live:true },
+  { ep:'EP05', title:'동물농장', domain:'ORGANIZATION', theme:'권력', concern:'power', href:'/guides/growth-leadership/literature/animal-farm', live:true },
+  { ep:'EP06', title:'1984', domain:'ORGANIZATION', theme:'심리적 안전', concern:'safety', href:'/guides/growth-leadership/literature/1984', live:true },
+  { ep:'EP07', title:'이방인', domain:'SELF', theme:'판단', concern:'judgment', href:'/guides/growth-leadership/literature/the-stranger', live:true },
+  { ep:'EP08', title:'레미제라블', domain:'PEOPLE', theme:'공정성', concern:'fairness', href:'/guides/growth-leadership/literature/les-miserables', live:true },
+  { ep:'EP09', title:'파리대왕', domain:'ORGANIZATION', theme:'시스템', concern:'system', href:'/guides/growth-leadership/literature/lord-of-the-flies', live:true },
+  { ep:'EP10', title:'죄와 벌', domain:'ORGANIZATION', theme:'책임', concern:'accountability', href:'/guides/growth-leadership/literature/crime-and-punishment', live:true },
+  { ep:'EP11', title:'햄릿', domain:'LEADERSHIP', theme:'의사결정', concern:'decision', href:'/guides/growth-leadership/literature/hamlet', live:true },
+  { ep:'EP12', title:'안티고네', domain:'LEADERSHIP', theme:'갈등', concern:'conflict', href:'/guides/growth-leadership/literature/antigone', live:true },
+  { ep:'EP13', title:'오셀로', domain:'PEOPLE', theme:'신뢰', concern:'trust', href:'/guides/growth-leadership/literature/othello', live:true },
+  { ep:'EP14', title:'갈매기의 꿈', domain:'LEADERSHIP', theme:'변화', concern:'change', href:'/guides/growth-leadership/literature/jonathan-livingston-seagull', live:true },
+  { ep:'EP15', title:'우리들의 일그러진 영웅', domain:'ORGANIZATION', theme:'권위', concern:'power', live:false },
+  { ep:'EP16', title:'모비 딕', domain:'LEADERSHIP', theme:'몰입', concern:'focus', live:false },
+  { ep:'EP17', title:'카라마조프가의 형제들', domain:'LEADERSHIP', theme:'윤리', concern:'ethics', live:false },
+  { ep:'EP18', title:'페스트', domain:'LEADERSHIP', theme:'위기', concern:'crisis', live:false },
+  { ep:'EP19', title:'인간의 조건', domain:'SELF', theme:'의미', concern:'meaning', live:false },
+  { ep:'EP20', title:'리어 왕', domain:'LEADERSHIP', theme:'승계', concern:'succession', live:false }
+];
+
+const domains = [
+  ['ALL','전체'],
+  ['SELF','SELF · 나의 판단'],
+  ['PEOPLE','PEOPLE · 관계'],
+  ['ORGANIZATION','ORGANIZATION · 조직'],
+  ['LEADERSHIP','LEADERSHIP · 리더의 선택']
+];
+
+const diagnostics = [
+  ['performance','성과가 떨어진 사람을 어떻게 봐야 할까?'],
+  ['fairness','공정하게 평가하고 있는지 확신이 없다'],
+  ['power','권위와 규칙이 왜곡되는 것이 걱정된다'],
+  ['safety','팀이 불편한 사실을 말하지 않는다'],
+  ['decision','결정을 계속 미루고 있다'],
+  ['conflict','규정과 원칙이 충돌한다'],
+  ['trust','소문과 사실을 구분하기 어렵다'],
+  ['change','변화에 대한 저항이 크다'],
+  ['system','몇 명의 헌신에 운영이 의존한다'],
+  ['accountability','실패 이후 책임과 학습을 설계하고 싶다']
+];
+
+const collectionSchema = {
+  '@context':'https://schema.org',
+  '@type':'CollectionPage',
+  name:'JoyLab Literature Leadership Framework V2',
+  description:'20개의 문학 작품을 SELF, PEOPLE, ORGANIZATION, LEADERSHIP 네 영역으로 연결한 JoyLab 진단형 리더십 맵.',
+  url:'https://aijoylab.kr/guides/growth-leadership/literature/framework'
+};
+---
+
+<BaseLayout
+  title="Literature Leadership Framework V2｜20개의 문학으로 보는 리더십 지도 | JoyLab"
+  description="현재 고민을 선택하면 관련 문학 리더십 Research로 연결되는 JoyLab 진단형 Leadership Map입니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/framework"
+  bodyClass="growth-leadership-guide-v2 literature-framework-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+
+  <main class="lf-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="lf-hero">
+      <div class="sg-eyebrow">LITERATURE LEADERSHIP FRAMEWORK · V2</div>
+      <h1>지금 당신의 문제는<br /><span>어디에서 시작되는가</span></h1>
+      <p>20개의 작품을 순서대로 읽는 대신, 현재 리더십 고민에서 시작해 필요한 Research로 이동할 수 있습니다.</p>
+      <div class="lf-status"><b>LIVE 14</b><span>EP01–EP14</span><b>PLANNED 6</b><span>EP15–EP20</span></div>
+    </header>
+
+    <section class="lf-diagnostic" aria-labelledby="diagnostic-title">
+      <div class="sg-eyebrow">QUICK DIAGNOSIS</div>
+      <h2 id="diagnostic-title">지금 가장 가까운 고민을 선택하세요.</h2>
+      <div class="lf-diagnostic__grid">
+        {diagnostics.map(([key,label]) => (
+          <button type="button" class="lf-diagnostic__button" data-concern-filter={key}>{label}</button>
+        ))}
+      </div>
+      <button type="button" class="lf-reset" data-reset>전체 지도 보기</button>
+    </section>
+
+    <section class="lf-map" aria-labelledby="framework-title">
+      <div class="lf-map__head">
+        <div>
+          <div class="sg-eyebrow">20 EPISODES · 4 DOMAINS</div>
+          <h2 id="framework-title">Leadership Map</h2>
+        </div>
+        <div class="lf-domain-tabs" role="group" aria-label="리더십 영역 필터">
+          {domains.map(([key,label]) => <button type="button" data-domain-filter={key}>{label}</button>)}
+        </div>
+      </div>
+
+      <p class="lf-result" aria-live="polite">전체 20개 Episode를 표시합니다.</p>
+
+      <div class="lf-grid">
+        {nodes.map((node) => node.live ? (
+          <a
+            class="lf-node"
+            data-node
+            data-domain={node.domain}
+            data-concern={node.concern}
+            href={node.href}
+          >
+            <div><span>{node.ep}</span><small>{node.domain}</small></div>
+            <h3>{node.title}</h3>
+            <p>{node.theme}</p>
+            <b>READ →</b>
+          </a>
+        ) : (
+          <article
+            class="lf-node is-planned"
+            data-node
+            data-domain={node.domain}
+            data-concern={node.concern}
+            aria-disabled="true"
+          >
+            <div><span>{node.ep}</span><small>{node.domain}</small></div>
+            <h3>{node.title}</h3>
+            <p>{node.theme}</p>
+            <b>PLANNED</b>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="lf-principle">
+      <div class="sg-eyebrow">JOYLAB LEADERSHIP OS</div>
+      <h2>문학을 읽는 목적은 정답을 찾는 것이 아니라 판단 기준을 축적하는 것입니다.</h2>
+      <div class="lf-principle__grid">
+        <article><b>SELF</b><p>성과 · 성장 · 판단 · 의미</p></article>
+        <article><b>PEOPLE</b><p>관계 · 존엄 · 공정성 · 신뢰</p></article>
+        <article><b>ORGANIZATION</b><p>권력 · 심리적 안전 · 시스템 · 책임 · 권위</p></article>
+        <article><b>LEADERSHIP</b><p>의사결정 · 갈등 · 변화 · 몰입 · 윤리 · 위기 · 승계</p></article>
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    (() => {
+      const nodes = Array.from(document.querySelectorAll('[data-node]'));
+      const result = document.querySelector('.lf-result');
+      const domainButtons = Array.from(document.querySelectorAll('[data-domain-filter]'));
+      const concernButtons = Array.from(document.querySelectorAll('[data-concern-filter]'));
+      const reset = document.querySelector('[data-reset]');
+
+      const apply = ({ domain = 'ALL', concern = '' } = {}) => {
+        let visible = 0;
+        nodes.forEach((node) => {
+          const domainOk = domain === 'ALL' || node.dataset.domain === domain;
+          const concernOk = !concern || node.dataset.concern === concern;
+          const show = domainOk && concernOk;
+          node.hidden = !show;
+          if (show) visible += 1;
+        });
+        domainButtons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.domainFilter === domain)));
+        concernButtons.forEach((button) => button.setAttribute('aria-pressed', String(Boolean(concern) && button.dataset.concernFilter === concern)));
+        if (result) result.textContent = concern
+          ? `현재 고민과 연결된 ${visible}개 Episode입니다.`
+          : domain === 'ALL'
+            ? '전체 20개 Episode를 표시합니다.'
+            : `${domain} 영역의 ${visible}개 Episode입니다.`;
+      };
+
+      domainButtons.forEach((button) => button.addEventListener('click', () => apply({ domain: button.dataset.domainFilter })));
+      concernButtons.forEach((button) => button.addEventListener('click', () => apply({ concern: button.dataset.concernFilter })));
+      reset?.addEventListener('click', () => apply());
+      apply();
+    })();
+  </script>
+
+  <style>
+    .lf-wrap{max-width:1180px;margin:0 auto;padding:28px 24px 88px}
+    .lf-hero{padding:76px 0 48px}
+    .lf-hero h1{font-size:clamp(2.6rem,7vw,5.6rem);line-height:.98;letter-spacing:-.055em;margin:18px 0 24px}
+    .lf-hero h1 span{color:#1677ff}
+    .lf-hero>p{max-width:760px;font-size:1.15rem;line-height:1.8;color:#49576a}
+    .lf-status{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:28px}
+    .lf-status b{padding:8px 10px;background:#0b1f4d;color:#fff;border-radius:8px}
+    .lf-status span{color:#69768a;margin-right:12px}
+    .lf-diagnostic{padding:34px;border:1px solid #dfe6ef;border-radius:24px;background:#f8fafc}
+    .lf-diagnostic h2,.lf-map h2,.lf-principle h2{font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-.04em}
+    .lf-diagnostic__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px}
+    .lf-diagnostic__button,.lf-domain-tabs button,.lf-reset{border:1px solid #ced8e5;background:#fff;border-radius:12px;padding:13px 15px;font-weight:750;text-align:left;cursor:pointer}
+    .lf-diagnostic__button[aria-pressed="true"],.lf-domain-tabs button[aria-pressed="true"]{border-color:#1677ff;background:#eef6ff;color:#0b5dcc}
+    .lf-reset{margin-top:12px;color:#1677ff}
+    .lf-map{padding:72px 0}
+    .lf-map__head{display:flex;justify-content:space-between;gap:24px;align-items:flex-end}
+    .lf-domain-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .lf-result{margin:20px 0;color:#68768a;font-weight:700}
+    .lf-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .lf-node{display:block;min-height:210px;padding:22px;border:1px solid #dfe6ef;border-radius:18px;color:inherit;text-decoration:none;background:#fff;transition:transform .15s ease,border-color .15s ease}
+    a.lf-node:hover{transform:translateY(-3px);border-color:#1677ff}
+    .lf-node>div{display:flex;justify-content:space-between;gap:8px}
+    .lf-node span{font-weight:900;color:#1677ff}
+    .lf-node small{font-size:.7rem;letter-spacing:.08em;color:#77859a}
+    .lf-node h3{font-size:1.3rem;margin:26px 0 8px;letter-spacing:-.03em}
+    .lf-node p{color:#536175}
+    .lf-node b{display:block;margin-top:22px;font-size:.82rem}
+    .lf-node.is-planned{background:#f4f6f9;color:#7b8797}
+    .lf-principle{padding:42px;background:#0b1f4d;color:#fff;border-radius:26px}
+    .lf-principle .sg-eyebrow{color:#8ec3ff}
+    .lf-principle__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:28px}
+    .lf-principle__grid article{padding:18px;border:1px solid rgba(255,255,255,.18);border-radius:14px}
+    .lf-principle__grid p{color:#cbd7e7;line-height:1.6}
+    [hidden]{display:none!important}
+    @media(max-width:820px){
+      .lf-wrap{padding:18px 16px 64px}
+      .lf-hero{padding:46px 0 34px}
+      .lf-diagnostic{padding:22px}
+      .lf-diagnostic__grid{grid-template-columns:1fr}
+      .lf-map__head{display:block}
+      .lf-domain-tabs{justify-content:flex-start;margin-top:18px}
+      .lf-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .lf-principle__grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:430px){
+      .lf-grid{grid-template-columns:1fr}
+      .lf-node{min-height:0}
+      .lf-principle__grid{grid-template-columns:1fr}
+    }
+  </style>
+</BaseLayout>

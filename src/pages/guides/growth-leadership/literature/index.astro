@@ -13,7 +13,17 @@ const episodes = [
   { ep: 'EP07', title: '이방인', theme: '판단 · 편견', question: '우리는 행동보다 사람을 판단한다', href: '/guides/growth-leadership/literature/the-stranger', live: true },
   { ep: 'EP08', title: '레미제라블', theme: '공정성 · 기회', question: '똑같이 대하는 것이 공정할까', href: '/guides/growth-leadership/literature/les-miserables', live: true },
   { ep: 'EP09', title: '파리대왕', theme: '집단행동 · 규칙', question: '좋은 조직은 선의만으로 유지되지 않는다', href: '/guides/growth-leadership/literature/lord-of-the-flies', live: true },
-  { ep: 'EP10', title: '죄와 벌', theme: '책임 · 회복', question: '책임은 어디에서 끝나는가', href: '/guides/growth-leadership/literature/crime-and-punishment', live: true }
+  { ep: 'EP10', title: '죄와 벌', theme: '책임 · 회복', question: '책임은 어디에서 끝나는가', href: '/guides/growth-leadership/literature/crime-and-punishment', live: true },
+  { ep: 'EP11', title: '햄릿', theme: '의사결정 · 지연', question: '언제 결정해야 하는가', href: '/guides/growth-leadership/literature/hamlet', live: true },
+  { ep: 'EP12', title: '안티고네', theme: '갈등 · 원칙', question: '규정과 양심이 충돌할 때', href: '/guides/growth-leadership/literature/antigone', live: true },
+  { ep: 'EP13', title: '오셀로', theme: '신뢰 · 정보오염', question: '사실과 소문을 어떻게 구분할까', href: '/guides/growth-leadership/literature/othello', live: true },
+  { ep: 'EP14', title: '갈매기의 꿈', theme: '변화 · 성장', question: '익숙함을 떠나는 비용', href: '/guides/growth-leadership/literature/jonathan-livingston-seagull', live: true },
+  { ep: 'EP15', title: '우리들의 일그러진 영웅', theme: '권위 · 복종', question: '권위는 언제 지배로 변하는가', live: false },
+  { ep: 'EP16', title: '모비 딕', theme: '몰입 · 집착', question: '목표 집중은 언제 집착이 되는가', live: false },
+  { ep: 'EP17', title: '카라마조프가의 형제들', theme: '윤리 · 책임', question: '자유가 커질수록 책임은 어떻게 달라지는가', live: false },
+  { ep: 'EP18', title: '페스트', theme: '불확실성 · 위기', question: '답이 없는 위기에서 무엇을 제공할까', live: false },
+  { ep: 'EP19', title: '인간의 조건', theme: '회복탄력성 · 의미', question: '버티게 하는 힘은 무엇인가', live: false },
+  { ep: 'EP20', title: '리어 왕', theme: '권력승계 · 판단', question: '권한을 내려놓을 때 무엇을 남길까', live: false }
 ];
 ---
 
@@ -30,6 +40,7 @@ const episodes = [
       <p class="ll-hero__lead">성과, 관계, 권력, 책임, 성장. 좋은 문학은 결국 사람을 이해하는 이야기입니다. JoyLab은 작품 속 인간 행동을 조직의 문제와 실제 리더의 행동으로 번역합니다.</p>
       <div class="ll-hero__actions">
         <a class="ll-btn ll-btn--primary" href="/guides/growth-leadership/literature/old-man-and-the-sea">EP01 읽기 →</a>
+        <a class="ll-btn" href="/guides/growth-leadership/literature/framework">Leadership Map V2 →</a>
         <a class="ll-btn" href="/guides/growth-leadership/playbook/performance-coaching">Leader Playbook →</a>
       </div>
     </div>
@@ -80,8 +91,9 @@ const episodes = [
     </section>
 
     <section class="ll-series sg-wrap" id="series-map">
-      <div class="sg-eyebrow">10 EPISODES</div>
+      <div class="sg-eyebrow">20 EPISODES · SEASON 1 + 2</div>
       <h2>문학에서 배우는 리더십</h2>
+      <p><a href="/guides/growth-leadership/literature/framework">현재 고민으로 찾는 Leadership Framework V2 →</a></p>
       <div class="ll-series__grid">
         {episodes.map((item) => item.live ? (
           <a class="ll-episode" id={item.ep.toLowerCase()} href={item.href}>
