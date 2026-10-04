@@ -1,0 +1,34 @@
+name: Content Trust Gate V1
+
+on:
+  pull_request:
+    paths:
+      - "src/data/articles/**"
+      - "src/content.config.ts"
+      - "src/components/ContentDisclosure.astro"
+      - "src/components/ArticleSeoSchema.astro"
+      - "src/pages/articles/[...slug].astro"
+      - "scripts/check-content-trust-v1.mjs"
+      - ".github/workflows/content-trust-gate-v1.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  trust-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.19.0"
+      - name: Audit changed articles on PR
+        if: github.event_name == 'pull_request'
+        run: node scripts/check-content-trust-v1.mjs --changed
+      - name: Full corpus migration report
+        if: github.event_name == 'workflow_dispatch'
+        run: node scripts/check-content-trust-v1.mjs --report

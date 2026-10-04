@@ -41,13 +41,55 @@ const articles = defineCollection({
     faqs: z.array(z.object({
       question: z.string().min(3),
       answer: z.string().min(3)
-    })).max(12).optional()
+    })).max(12).optional(),
+    reviewer: z.string().min(2).optional(),
+    aiUsed: z.boolean().optional(),
+    aiUsage: z.array(z.enum([
+      'research_assist',
+      'outline',
+      'draft',
+      'editing',
+      'translation',
+      'data_analysis',
+      'image_assist'
+    ])).optional(),
+    humanVerified: z.array(z.enum([
+      'facts',
+      'numbers',
+      'sources',
+      'quotes',
+      'final_conclusion',
+      'legal_claims',
+      'medical_claims'
+    ])).optional(),
+    primarySources: z.array(z.object({
+      name: z.string().min(2),
+      url: z.string().url().optional()
+    })).optional(),
+    contentPurpose: z.string().min(5).optional(),
+    lastReviewed: z.coerce.date().optional(),
+    contentHow: z.string().min(10).optional(),
+    contentWhy: z.string().min(10).optional()
   }).superRefine((data, ctx) => {
     if (data.homePriority !== undefined && !data.homeFeatured) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         path: ['homePriority'],
         message: 'homePriority requires homeFeatured: true'
+      });
+    }
+    if (data.aiUsed === true && (!data.aiUsage || data.aiUsage.length === 0)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['aiUsage'],
+        message: 'aiUsed: true requires aiUsage'
+      });
+    }
+    if (data.aiUsed === true && (!data.humanVerified || data.humanVerified.length === 0)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['humanVerified'],
+        message: 'aiUsed: true requires humanVerified'
       });
     }
   })

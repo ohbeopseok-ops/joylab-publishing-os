@@ -4,6 +4,7 @@ import ArticleGrowthPath from '../../components/ArticleGrowthPath.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import { AD_PLACEMENT } from '../../config/adPlacement';
 import ArticleSeoSchema from '../../components/ArticleSeoSchema.astro';
+import ContentDisclosure from '../../components/ContentDisclosure.astro';
 import AiPowerResearchNav from '../../components/AiPowerResearchNav.astro';
 import ResearchGraphNav from '../../components/ResearchGraphNav.astro';
 import ResearchGraphMap from '../../components/ResearchGraphMap.astro';
@@ -345,6 +346,19 @@ const scoreCriteria = [
         <div class="research-v2-content">
           <div id="article-content" class="article-body"><Content /></div>
         </div>
+
+        <ContentDisclosure
+          author={article.data.author}
+          reviewer={article.data.reviewer}
+          aiUsed={article.data.aiUsed}
+          aiUsage={article.data.aiUsage}
+          humanVerified={article.data.humanVerified}
+          primarySources={article.data.primarySources}
+          contentPurpose={article.data.contentPurpose}
+          lastReviewed={article.data.lastReviewed}
+          how={article.data.contentHow}
+          why={article.data.contentWhy}
+        />
 
         {isCompareHub && (
           <section id="compare-scorecard" class="compare-scorecard" aria-labelledby="compare-scorecard-title">
