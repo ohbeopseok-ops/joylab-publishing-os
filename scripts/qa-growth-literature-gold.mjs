@@ -87,6 +87,21 @@ const targets = [
     required: ['.le-hero', '.le-visual--ep14', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
   },
   {
+    name: 'ep15',
+    route: '/guides/growth-leadership/literature/our-twisted-hero',
+    required: ['.le-hero', '.le-visual--ep15', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep16',
+    route: '/guides/growth-leadership/literature/moby-dick',
+    required: ['.le-hero', '.le-visual--ep16', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep17',
+    route: '/guides/growth-leadership/literature/brothers-karamazov',
+    required: ['.le-hero', '.le-visual--ep17', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
     name: 'framework-v2',
     route: '/guides/growth-leadership/literature/framework',
     required: ['.lf-hero', '.lf-diagnostic', '.lf-map', '.lf-grid', '.lf-principle'],
