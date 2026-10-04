@@ -1,0 +1,80 @@
+---
+interface Source {
+  name: string;
+  url?: string;
+}
+interface Props {
+  author: string;
+  reviewer?: string;
+  aiUsed?: boolean;
+  aiUsage?: string[];
+  humanVerified?: string[];
+  primarySources?: Source[];
+  contentPurpose?: string;
+  lastReviewed?: Date;
+  how?: string;
+  why?: string;
+}
+const {
+  author, reviewer, aiUsed, aiUsage = [], humanVerified = [],
+  primarySources = [], contentPurpose, lastReviewed, how, why
+} = Astro.props;
+const ready =
+  Boolean(contentPurpose) &&
+  Boolean(lastReviewed) &&
+  humanVerified.length > 0 &&
+  primarySources.length > 0;
+const howText = how ?? [
+  primarySources.length > 0
+    ? `공식·1차 자료(${primarySources.map((source) => source.name).join(', ')})를 우선 확인했습니다.`
+    : '',
+  aiUsed === true
+    ? `AI는 ${aiUsage.length > 0 ? aiUsage.join(', ') : '조사·구조화·초안 작성'} 과정에 활용했습니다.`
+    : aiUsed === false ? 'AI 생성 도구를 핵심 작성 과정에 사용하지 않았습니다.' : '',
+  humanVerified.length > 0
+    ? `사람이 ${humanVerified.join(', ')} 항목을 최종 검증했습니다.`
+    : ''
+].filter(Boolean).join(' ');
+const whyText = why ??
+  (contentPurpose
+    ? `검색 노출 자체보다 독자가 ${contentPurpose}에 활용할 수 있도록 정보와 맥락을 제공하는 것을 목적으로 합니다.`
+    : '');
+---
+{ready && (
+  <aside class="content-disclosure research-panel" aria-labelledby="content-disclosure-title">
+    <div class="content-disclosure__head">
+      <small>JOYLAB CONTENT TRUST</small>
+      <h2 id="content-disclosure-title">이 콘텐츠는 이렇게 만들었습니다</h2>
+    </div>
+    <dl class="content-disclosure__grid">
+      <div><dt>WHO</dt><dd><strong>{author}</strong>{reviewer && <span> · 최종 검토: {reviewer}</span>}</dd></div>
+      <div><dt>HOW</dt><dd>{howText}</dd></div>
+      <div><dt>WHY</dt><dd>{whyText}</dd></div>
+      <div>
+        <dt>EVIDENCE</dt>
+        <dd><ul>{primarySources.map((source) => (
+          <li>{source.url ? <a href={source.url} target="_blank" rel="noreferrer noopener">{source.name}</a> : source.name}</li>
+        ))}</ul></dd>
+      </div>
+      <div><dt>UPDATED</dt><dd><time datetime={lastReviewed!.toISOString()}>{lastReviewed!.toLocaleDateString('ko-KR')}</time></dd></div>
+    </dl>
+    {aiUsed === true && (
+      <p class="content-disclosure__ai-note">
+        AI 활용 안내: JoyLab은 조사·구조화·초안 작성 과정에서 AI를 활용할 수 있습니다.
+        핵심 주장, 주요 수치, 출처, 최종 판단과 발행 책임은 사람이 검토합니다.
+      </p>
+    )}
+  </aside>
+)}
+<style>
+.content-disclosure{margin-top:28px}
+.content-disclosure__head small{display:block;margin-bottom:6px;font-size:.72rem;font-weight:800;letter-spacing:.1em;color:#64748b}
+.content-disclosure__head h2{margin:0}
+.content-disclosure__grid{display:grid;gap:0;margin:18px 0 0}
+.content-disclosure__grid>div{display:grid;grid-template-columns:100px 1fr;gap:16px;padding:14px 0;border-top:1px solid var(--research-line)}
+.content-disclosure__grid dt{font-size:.78rem;font-weight:900;letter-spacing:.08em;color:#334155}
+.content-disclosure__grid dd{margin:0;color:#475569;line-height:1.75}
+.content-disclosure__grid ul{margin:0;padding-left:18px}
+.content-disclosure__ai-note{margin:14px 0 0;padding:14px 16px;border-radius:12px;background:#f8fafc;color:#475569;font-size:.9rem;line-height:1.7}
+@media(max-width:640px){.content-disclosure__grid>div{grid-template-columns:1fr;gap:4px}}
+</style>
