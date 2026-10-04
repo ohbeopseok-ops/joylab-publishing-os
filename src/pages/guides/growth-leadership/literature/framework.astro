@@ -21,9 +21,9 @@ const nodes = [
   { ep:'EP15', title:'우리들의 일그러진 영웅', domain:'ORGANIZATION', theme:'권위', concern:'power', href:'/guides/growth-leadership/literature/our-twisted-hero', live:true },
   { ep:'EP16', title:'모비 딕', domain:'LEADERSHIP', theme:'몰입', concern:'focus', href:'/guides/growth-leadership/literature/moby-dick', live:true },
   { ep:'EP17', title:'카라마조프가의 형제들', domain:'LEADERSHIP', theme:'윤리', concern:'ethics', href:'/guides/growth-leadership/literature/brothers-karamazov', live:true },
-  { ep:'EP18', title:'페스트', domain:'LEADERSHIP', theme:'위기', concern:'crisis', live:false },
-  { ep:'EP19', title:'인간의 조건', domain:'SELF', theme:'의미', concern:'meaning', live:false },
-  { ep:'EP20', title:'리어 왕', domain:'LEADERSHIP', theme:'승계', concern:'succession', live:false }
+  { ep:'EP18', title:'페스트', domain:'LEADERSHIP', theme:'위기', concern:'crisis', href:'/guides/growth-leadership/literature/the-plague', live:true },
+  { ep:'EP19', title:'인간의 조건', domain:'SELF', theme:'의미', concern:'meaning', href:'/guides/growth-leadership/literature/human-condition', live:true },
+  { ep:'EP20', title:'리어 왕', domain:'LEADERSHIP', theme:'승계', concern:'succession', href:'/guides/growth-leadership/literature/king-lear', live:true }
 ];
 
 const domains = [
@@ -75,7 +75,7 @@ const collectionSchema = {
       <div class="sg-eyebrow">LITERATURE LEADERSHIP FRAMEWORK · V2</div>
       <h1>지금 당신의 문제는<br /><span>어디에서 시작되는가</span></h1>
       <p>20개의 작품을 순서대로 읽는 대신, 현재 리더십 고민에서 시작해 필요한 Research로 이동할 수 있습니다.</p>
-      <div class="lf-status"><b>LIVE 17</b><span>EP01–EP17</span><b>PLANNED 3</b><span>EP18–EP20</span></div>
+      <div class="lf-status"><b>LIVE 20</b><span>EP01–EP20</span><b>COMPLETE</b><span>SEASON 1 + 2</span></div>
     </header>
 
 
@@ -131,6 +131,11 @@ const collectionSchema = {
       <div class="lf-assessment__result" data-assessment-result hidden aria-live="polite">
         <small>YOUR RECOMMENDED RESEARCH</small>
         <h3>지금은 이 3편부터 읽어보세요.</h3>
+        <div class="lf-profile" data-profile hidden>
+          <span data-profile-kicker></span>
+          <h4 data-profile-title></h4>
+          <p data-profile-body></p>
+        </div>
         <div class="lf-assessment__cards" data-assessment-cards></div>
         <button type="button" class="lf-reset" data-assessment-reset>다시 진단하기</button>
       </div>
@@ -242,6 +247,10 @@ const collectionSchema = {
       const form = document.querySelector('[data-assessment]');
       const result = document.querySelector('[data-assessment-result]');
       const cards = document.querySelector('[data-assessment-cards]');
+      const profileBox = document.querySelector('[data-profile]');
+      const profileKicker = document.querySelector('[data-profile-kicker]');
+      const profileTitle = document.querySelector('[data-profile-title]');
+      const profileBody = document.querySelector('[data-profile-body]');
       const reset = document.querySelector('[data-assessment-reset]');
       if (!form || !result || !cards) return;
 
@@ -264,6 +273,20 @@ const collectionSchema = {
 
       const fallback = ['decision','fairness','system'];
 
+      const profiles = {
+        performance:{label:'성과형',title:'성과를 정확히 보고 성장으로 연결하는 리더',body:'성과 기준, 성장 가능성, 피드백과 회복을 함께 설계하는 경향이 강합니다.'},
+        relationship:{label:'관계형',title:'신뢰와 공정성을 통해 사람을 움직이는 리더',body:'관계, 심리적 안전, 공정성, 신뢰의 질을 우선 점검하는 경향이 강합니다.'},
+        organization:{label:'조직형',title:'규칙과 시스템으로 반복 가능성을 만드는 리더',body:'권력, 시스템, 책임, 운영 구조와 재발 방지에 초점을 두는 경향이 강합니다.'},
+        judgment:{label:'판단형',title:'불확실성 속에서 기준을 만들고 결정하는 리더',body:'의사결정, 갈등, 정보 검증, 변화와 윤리적 판단에 강한 관심을 보입니다.'}
+      };
+
+      const profileWeights = {
+        performance:'performance', growth:'performance', change:'performance',
+        fairness:'relationship', safety:'relationship', trust:'relationship',
+        power:'organization', system:'organization', accountability:'organization',
+        decision:'judgment', conflict:'judgment', judgment:'judgment', focus:'judgment', ethics:'judgment'
+      };
+
       form.addEventListener('submit', (event) => {
         event.preventDefault();
         const values = Array.from(new FormData(form).values());
@@ -272,6 +295,20 @@ const collectionSchema = {
         const ordered = Object.keys(scores).sort((a,b) => scores[b] - scores[a]);
         fallback.forEach((key) => { if (!ordered.includes(key)) ordered.push(key); });
         const picks = ordered.filter((key) => catalog[key]).slice(0,3);
+
+        const profileScores = {};
+        values.forEach((key) => {
+          const group = profileWeights[key] || 'judgment';
+          profileScores[group] = (profileScores[group] || 0) + 1;
+        });
+        const profileKey = Object.keys(profileScores).sort((a,b) => profileScores[b] - profileScores[a])[0] || 'judgment';
+        const profile = profiles[profileKey];
+        if (profileBox && profileKicker && profileTitle && profileBody) {
+          profileKicker.textContent = `LEADERSHIP PROFILE · ${profile.label}`;
+          profileTitle.textContent = profile.title;
+          profileBody.textContent = profile.body;
+          profileBox.hidden = false;
+        }
 
         cards.innerHTML = picks.map((key, index) => {
           const item = catalog[key];
@@ -291,6 +328,7 @@ const collectionSchema = {
         form.reset();
         cards.innerHTML = '';
         result.hidden = true;
+        if (profileBox) profileBox.hidden = true;
         form.scrollIntoView({behavior:'smooth',block:'start'});
       });
     })();
@@ -316,6 +354,10 @@ const collectionSchema = {
     .lf-assessment__result{margin-top:28px;padding:24px;border-radius:18px;background:#eef6ff}
     .lf-assessment__result>small{color:#1677ff;font-weight:900;letter-spacing:.08em}
     .lf-assessment__result h3{font-size:1.5rem;margin:8px 0 18px}
+    .lf-profile{margin:0 0 18px;padding:18px;border-radius:14px;background:#0b1f4d;color:#fff}
+    .lf-profile span{font-size:.75rem;font-weight:900;letter-spacing:.08em;color:#8ec3ff}
+    .lf-profile h4{font-size:1.25rem;margin:8px 0}
+    .lf-profile p{margin:0;color:#d8e3f1;line-height:1.6}
     .lf-assessment__cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
     .lf-assessment__card{display:block;padding:18px;border-radius:14px;background:#fff;border:1px solid #d8e5f5;color:inherit;text-decoration:none}
     .lf-assessment__card span{font-size:.78rem;font-weight:900;color:#1677ff}
