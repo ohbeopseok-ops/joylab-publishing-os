@@ -37,6 +37,36 @@ const targets = [
     required: ['.le-hero', '.le-visual--ep04', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
   },
   {
+    name: 'ep05',
+    route: '/guides/growth-leadership/literature/animal-farm',
+    required: ['.le-hero', '.le-visual--ep05', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep06',
+    route: '/guides/growth-leadership/literature/1984',
+    required: ['.le-hero', '.le-visual--ep06', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep07',
+    route: '/guides/growth-leadership/literature/the-stranger',
+    required: ['.le-hero', '.le-visual--ep07', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep08',
+    route: '/guides/growth-leadership/literature/les-miserables',
+    required: ['.le-hero', '.le-visual--ep08', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep09',
+    route: '/guides/growth-leadership/literature/lord-of-the-flies',
+    required: ['.le-hero', '.le-visual--ep09', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep10',
+    route: '/guides/growth-leadership/literature/crime-and-punishment',
+    required: ['.le-hero', '.le-visual--ep10', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
     name: 'playbook',
     route: '/guides/growth-leadership/playbook/performance-coaching',
     required: ['.lp-hero', '.lp-principle', '.lp-questions', '.lp-gold'],
@@ -45,6 +75,8 @@ const targets = [
 
 const viewports = [
   { name: 'mobile-390', width: 390, height: 844, mobile: true },
+  { name: 'mobile-430', width: 430, height: 932, mobile: true },
+  { name: 'desktop-1280', width: 1280, height: 800, mobile: false },
   { name: 'desktop-1440', width: 1440, height: 900, mobile: false },
 ];
 
