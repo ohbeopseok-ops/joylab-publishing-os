@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  [
+    "권위가 강하면 항상 나쁜 조직인가요?",
+    "아닙니다. 명확한 책임과 권한은 필요합니다. 문제는 권위가 검증과 반대 의견을 차단할 때입니다."
+  ],
+  [
+    "침묵이 동의인지 두려움인지 어떻게 구분하나요?",
+    "익명 의견, 일대일 대화, 결정 전 반론 요청 등 여러 채널에서 같은 패턴이 반복되는지 확인할 수 있습니다."
+  ],
+  [
+    "리더가 권위를 건강하게 유지하려면 무엇이 필요한가요?",
+    "권한의 범위, 예외 기준, 반대 의견 절차, 결정 수정 가능성을 명확히 해야 합니다."
+  ]
+];
+const takeaways = [
+  [
+    "01",
+    "권위와 지배를 구분한다",
+    "권위는 책임을 동반하지만 지배는 검증을 피하려 합니다."
+  ],
+  [
+    "02",
+    "침묵은 동의가 아닐 수 있다",
+    "말하지 않는 이유가 납득이 아니라 두려움인지 확인해야 합니다."
+  ],
+  [
+    "03",
+    "예외 독점은 권력 집중의 신호다",
+    "특정 인물만 기준을 바꿀 수 있으면 조직은 사람 중심으로 변합니다."
+  ],
+  [
+    "04",
+    "반대 의견 절차를 만든다",
+    "용기 있는 개인에게만 의존하지 말고 이견 제출 방식을 구조화해야 합니다."
+  ],
+  [
+    "05",
+    "권위는 수정 가능성에서 신뢰를 얻는다",
+    "리더가 틀렸을 때 결정을 바꿀 수 있어야 구성원도 판단 과정을 신뢰합니다."
+  ]
+];
+const coachingQuestions = [
+  "우리 팀에서 리더에게 반대하기 쉬운가요?",
+  "침묵이 동의라는 전제를 하고 있지 않나요?",
+  "예외 승인 권한이 한 사람에게 몰려 있나요?",
+  "고성과자의 규칙 위반이 묵인되고 있지 않나요?",
+  "회의에서 반론 역할을 맡는 사람이 있나요?",
+  "리더의 결정이 수정된 사례가 최근 있었나요?",
+  "반대 의견을 낸 사람의 이후 평가가 달라지지 않았나요?",
+  "권한과 책임의 범위가 명확한가요?",
+  "공식 규칙보다 비공식 서열이 더 강하지 않나요?",
+  "침묵하는 구성원과 별도 대화를 하고 있나요?",
+  "문제 제기를 안전하게 할 채널이 있나요?",
+  "내 권위는 책임에서 오는가, 두려움에서 오는가?"
+];
+
+const articleSchema = {
+  '@context':'https://schema.org',
+  '@type':'Article',
+  headline:"권위는 언제 질서에서 지배로 변하는가",
+  alternativeHeadline:"『우리들의 일그러진 영웅』에서 배우는 권위와 복종의 리더십",
+  description:"『우리들의 일그러진 영웅』을 권위, 복종, 침묵, 집단 순응과 조직문화 관점에서 분석한 JoyLab Literature & Leadership Research.",
+  mainEntityOfPage:"https://aijoylab.kr/guides/growth-leadership/literature/our-twisted-hero",
+  author:{'@type':'Organization',name:'JoyLab',url:'https://aijoylab.kr'},
+  publisher:{'@type':'Organization',name:'JoyLab',url:'https://aijoylab.kr'},
+  about:["Leadership","Authority","Obedience","Silence","Organizational Culture"]
+};
+
+const faqSchema = {
+  '@context':'https://schema.org',
+  '@type':'FAQPage',
+  mainEntity: faq.map(([q,a])=>({
+    '@type':'Question',
+    name:q,
+    acceptedAnswer:{'@type':'Answer',text:a}
+  }))
+};
+
+const breadcrumbSchema = {
+  '@context':'https://schema.org',
+  '@type':'BreadcrumbList',
+  itemListElement:[
+    {'@type':'ListItem',position:1,name:'JoyLab',item:'https://aijoylab.kr/'},
+    {'@type':'ListItem',position:2,name:'성장·리더십',item:'https://aijoylab.kr/guides/growth-leadership'},
+    {'@type':'ListItem',position:3,name:'문학에서 배우는 리더십',item:'https://aijoylab.kr/guides/growth-leadership/literature'},
+    {'@type':'ListItem',position:4,name:"우리들의 일그러진 영웅",item:"https://aijoylab.kr/guides/growth-leadership/literature/our-twisted-hero"}
+  ]
+};
+---
+
+<BaseLayout
+  title="우리들의 일그러진 영웅 리더십｜권위는 언제 질서에서 지배로 변하는가 | JoyLab"
+  description="이문열 『우리들의 일그러진 영웅』을 통해 권위, 복종, 침묵, 집단 순응과 조직문화의 위험을 리더십 관점에서 살펴봅니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/our-twisted-hero"
+  type="article"
+  bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP RESEARCH · EP15</div>
+      <h1>권위는 언제 질서에서<br /><span>지배로 변하는가</span></h1>
+      <p class="le-subtitle">『우리들의 일그러진 영웅』에서 배우는 권위와 복종</p>
+      <p class="le-intro">조직에는 질서가 필요합니다. 그러나 질서를 만드는 권위가 질문을 막고 예외를 독점하며 침묵을 보상하기 시작하면 권위는 지배로 바뀝니다.</p>
+      <div class="le-meta"><span>Authority</span><span>Obedience</span><span>Silence</span><span>Culture</span></div>
+    </header>
+
+    <section class="le-visual le-visual--ep15" aria-label="우리들의 일그러진 영웅 권위와 복종 비주얼">
+      <div><span>EP15</span><b>AUTHORITY × OBEDIENCE</b></div>
+      <i aria-hidden="true"></i>
+    </section>
+
+    <article class="le-body">
+      <section class="le-research-brief">
+        <div class="sg-eyebrow">RESEARCH BRIEF</div>
+        <h2>권위는 명령의 강도보다 반대 의견이 허용되는 방식에서 드러난다.</h2>
+        <p>『우리들의 일그러진 영웅』은 한 집단 안에서 권력이 어떻게 일상화되고 구성원이 그 질서에 적응하는지를 보여줍니다. 중요한 것은 한 사람의 강압만이 아니라 주변의 침묵과 순응이 구조를 유지한다는 점입니다.</p>
+        <p>조직에서도 성과와 효율을 이유로 질문이 줄고 특정 인물의 판단이 사실상 절대 기준이 되면 빠른 운영 뒤에 큰 리스크가 쌓일 수 있습니다.</p>
+        <blockquote>권위가 건강한지 보려면<br />사람들이 리더에게 반대할 수 있는지를 보라.</blockquote>
+        <div class="le-diagnosis">
+          <article><b>VOICE</b><span>반대할 수 있는가</span></article>
+          <article><b>RULE</b><span>기준이 사람마다 다른가</span></article>
+          <article><b>POWER</b><span>예외를 누가 독점하는가</span></article>
+          <article><b>FEAR</b><span>침묵의 이유가 두려움인가</span></article>
+        </div>
+      </section>
+
+      <section class="le-key-takeaways">
+        <div class="sg-eyebrow">KEY TAKEAWAYS</div>
+        <h2>『우리들의 일그러진 영웅』이 리더에게 남기는 5가지 원칙</h2>
+        <div class="le-takeaway-list">
+          {takeaways.map(([no,title,body])=>(
+            <article><div class="le-takeaway-list__no">{no}</div><div><h3>{title}</h3><p>{body}</p></div></article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · AUTHORITY</div>
+        <h2>빠른 의사결정이 건강한 권위를 의미하지는 않는다</h2>
+        <p>한 사람의 판단으로 모든 일이 빠르게 끝나는 조직은 효율적으로 보일 수 있습니다. 그러나 그 판단을 검증하거나 반박할 방법이 없다면 오류가 누적될 때 더 큰 비용을 치릅니다.</p>
+        <div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>건강한 권위는 질문을 줄이는 힘이 아니라 질문이 있어도 결정을 실행할 수 있는 정당성에서 나온다.</p></div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · SILENCE</div>
+        <h2>침묵을 조직문화 데이터로 본다</h2>
+        <p>회의에서 반론이 없거나 문제 제기가 사라졌다면 구성원이 모두 동의하는지보다 발언 비용이 높아졌는지 먼저 확인해야 합니다.</p>
+        <div class="le-control">
+          <article><small>CHECK FIRST</small><h3>권한을 사용할 때</h3><p>근거, 범위, 예외 기준과 반대 의견 절차를 함께 공개합니다.</p></article>
+          <article><small>CHECK NEXT</small><h3>결정 이후</h3><p>실제 결과, 수정 필요성, 반론 처리와 학습을 검토합니다.</p></article>
+        </div>
+        <blockquote class="is-dark">질서를 유지하는 권위는 필요하다.<br />하지만 질문을 없애는 권위는 결국 조직을 약하게 만든다.</blockquote>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">COACHING QUESTIONS</div>
+        <h2>권위와 복종을 점검하는 12개 리더 질문</h2>
+        <p>권한 → 반론 → 예외 → 수정 가능성 순으로 사용합니다.</p>
+        <ol class="le-question-list">
+          {coachingQuestions.map((q)=><li>{q}</li>)}
+        </ol>
+        <div class="le-gold-question">
+          <small>GOLD QUESTION</small>
+          <p>권위는 언제 질서에서 지배로 변하는가?</p>
+        </div>
+      </section>
+
+      <section class="le-action">
+        <div class="sg-eyebrow">LEADERSHIP ACTION</div>
+        <h2>다음 주요 결정에서 공식적인 반론 역할을 한 명 지정한다.</h2>
+        <div class="le-action-grid">
+          <article><b>01 · SCOPE</b><p>리더 권한의 범위를 명확히 합니다.</p></article>
+          <article><b>02 · DISSENT</b><p>의도적으로 반대 의견을 요청합니다.</p></article>
+          <article><b>03 · RECORD</b><p>예외와 근거를 기록합니다.</p></article>
+          <article><b>04 · REVISE</b><p>결정 수정 조건을 사전에 둡니다.</p></article>
+        </div>
+        <a href="/guides/growth-leadership/literature/framework">Leadership Framework V2 →</a>
+      </section>
+
+      <section class="le-conclusion">
+        <div class="sg-eyebrow">JOYLAB CONCLUSION</div>
+        <p>조직에는 권위가 필요합니다.</p>
+        <h2>그러나 좋은 권위는<br />복종이 아니라 신뢰를 남긴다.</h2>
+        <p>질서를 만드는 힘과 질문을 허용하는 힘이 함께 있어야 합니다.</p>
+      </section>
+    </article>
+
+    <section class="le-faq">
+      <div class="sg-eyebrow">FAQ</div>
+      <h2>『우리들의 일그러진 영웅』과 권위와 복종</h2>
+      {faq.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <section class="le-next">
+      <div>
+        <small>NEXT · EP16</small>
+        <h2>『모비 딕』 — 목표 집중은 언제 조직적 집착이 되는가</h2>
+        <p>다음 Research에서는 목표와 몰입이 어떻게 집착으로 변하고 다른 신호를 지우는지 살펴봅니다.</p>
+      </div>
+      <a href="/guides/growth-leadership/literature/moby-dick">EP16 읽기 →</a>
+    </section>
+
+    <footer class="le-back">
+      <a href="/guides/growth-leadership/literature/jonathan-livingston-seagull">← EP14 갈매기의 꿈</a>
+      <a href="/guides/growth-leadership/literature">전체 시리즈 →</a>
+    </footer>
+  </main>
+</BaseLayout>
