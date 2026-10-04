@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  [
+    "공정성과 평등은 같은가요?",
+    "관련되어 있지만 동일하지는 않습니다. 동일한 기준과 필요한 지원을 구분해서 설계할 수 있습니다."
+  ],
+  [
+    "차등 지원이 특혜가 되지 않으려면 어떻게 해야 하나요?",
+    "지원 목적과 대상 선정 기준을 사전에 설명할 수 있어야 하며 특정 개인에게 임의적으로 적용돼서는 안 됩니다."
+  ],
+  [
+    "두 번째 기회는 몇 번까지 줘야 하나요?",
+    "횟수 자체보다 실패 원인, 이전 지원, 행동 변화, 재도전의 비용과 기준을 명확히 정하는 것이 중요합니다."
+  ]
+];
+const takeaways = [
+  [
+    "01",
+    "동일 대우와 공정성은 같지 않다",
+    "출발 조건과 역할 단계가 다르면 필요한 지원도 달라질 수 있습니다."
+  ],
+  [
+    "02",
+    "핵심 기준은 일관되게 유지한다",
+    "공정성은 기준을 없애는 것이 아니라 기준의 예측 가능성을 높이는 것입니다."
+  ],
+  [
+    "03",
+    "지원은 원인에 맞게 차등화한다",
+    "신입, 저성과자, 고성과자에게 필요한 자원이 다릅니다."
+  ],
+  [
+    "04",
+    "두 번째 기회에도 기준이 필요하다",
+    "재도전 조건과 종료 조건이 명확해야 공정성이 유지됩니다."
+  ],
+  [
+    "05",
+    "설명 가능성이 공정성의 핵심이다",
+    "누가 왜 어떤 지원을 받는지 설명할 수 있어야 합니다."
+  ]
+];
+const coachingQuestions = [
+  "우리 팀의 핵심 평가 기준은 누구에게나 같은가요?",
+  "신입과 숙련자에게 동일 지원을 주고 있지 않나요?",
+  "지원 차이가 성과 원인과 연결돼 있나요?",
+  "특정 사람에게만 반복적으로 추가 기회를 주고 있지 않나요?",
+  "두 번째 기회의 조건을 사전에 말했나요?",
+  "지원 종료 기준이 있나요?",
+  "고성과자에게 더 많은 실수를 허용하지 않나요?",
+  "저성과자에게 학습 시간이 충분했나요?",
+  "업무 난이도가 역할 단계와 맞나요?",
+  "같은 지원이 누군가에게 구조적으로 불리하지 않나요?",
+  "결과뿐 아니라 개선 속도도 보고 있나요?",
+  "지금 지원 차이를 모든 팀원에게 설명할 수 있나요?"
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: "두 번째 기회는 어디까지 공정한가",
+  alternativeHeadline: "『레미제라블』에서 배우는 공정성과 기회의 리더십",
+  description: "빅토르 위고 『레미제라블』을 공정성, 기회, 기준과 지원의 차이 관점에서 분석한 JoyLab Literature & Leadership Research.",
+  mainEntityOfPage: "https://aijoylab.kr/guides/growth-leadership/literature/les-miserables",
+  author: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  publisher: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  about: ["Leadership","Fairness","Equity","Opportunity","Les Miserables"]
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(([q,a]) => ({
+    '@type':'Question', name:q,
+    acceptedAnswer:{ '@type':'Answer', text:a }
+  }))
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'JoyLab', item: 'https://aijoylab.kr/' },
+    { '@type': 'ListItem', position: 2, name: '성장·리더십', item: 'https://aijoylab.kr/guides/growth-leadership' },
+    { '@type': 'ListItem', position: 3, name: '문학에서 배우는 리더십', item: 'https://aijoylab.kr/guides/growth-leadership/literature' },
+    { '@type': 'ListItem', position: 4, name: "레미제라블", item: "https://aijoylab.kr/guides/growth-leadership/literature/les-miserables" }
+  ]
+};
+---
+
+<BaseLayout
+  title="레미제라블 리더십｜두 번째 기회는 어디까지 공정한가 | JoyLab"
+  description="빅토르 위고 『레미제라블』을 통해 동일한 기준, 차등 지원, 두 번째 기회와 조직 공정성을 살펴봅니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/les-miserables"
+  type="article"
+  bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP RESEARCH · EP08</div>
+      <h1>두 번째 기회는<br /><span>어디까지 공정한가</span></h1>
+      <p class="le-subtitle">『레미제라블』에서 배우는 공정성과 기회</p>
+      <p class="le-intro">모두를 똑같이 대하는 것이 항상 공정한 것은 아닙니다. 평가 기준의 일관성과 성장 지원의 차등을 분리할 때 조직은 공정성과 성장을 함께 설계할 수 있습니다.</p>
+      <div class="le-meta"><span>Fairness</span><span>Equity</span><span>Opportunity</span><span>Support</span></div>
+    </header>
+
+    <section class="le-visual le-visual--ep08" aria-label="레미제라블 공정성과 기회 리더십 비주얼">
+      <div><span>EP08</span><b>FAIRNESS × OPPORTUNITY</b></div>
+      <i aria-hidden="true"></i>
+    </section>
+
+    <article class="le-body">
+      <section class="le-research-brief">
+        <div class="sg-eyebrow">RESEARCH BRIEF</div>
+        <h2>기준은 같게, 지원은 필요에 따라 다르게 설계할 수 있다.</h2>
+        <p>『레미제라블』은 규칙을 지키는 것과 정의로운 판단이 항상 일치하는지 묻습니다. 장발장과 자베르의 대비는 동일한 규칙만으로 사람의 상황과 변화 가능성을 충분히 볼 수 있는지 생각하게 합니다.</p>
+        <p>조직에서도 신입과 숙련자에게 같은 성과 기준을 둘 수 있지만 필요한 교육, 코칭, 자율성, 과제 난이도는 다를 수 있습니다.</p>
+        <blockquote>공정성은 모두에게 같은 것을 주는 것이 아니라<br />같은 원칙 아래 필요한 기회를 제공하는 것이다.</blockquote>
+        <div class="le-diagnosis">
+          <article><b>STANDARD</b><span>핵심 기준은 같은가</span></article>
+          <article><b>START</b><span>출발 조건은 어떤가</span></article>
+          <article><b>SUPPORT</b><span>필요한 지원은 무엇인가</span></article>
+          <article><b>CHANCE</b><span>재도전 기준은 명확한가</span></article>
+        </div>
+      </section>
+
+      <section class="le-key-takeaways">
+        <div class="sg-eyebrow">KEY TAKEAWAYS</div>
+        <h2>『레미제라블』이 리더에게 남기는 5가지 원칙</h2>
+        <div class="le-takeaway-list">
+          {takeaways.map(([no,title,body]) => (
+            <article><div class="le-takeaway-list__no">{no}</div><div><h3>{title}</h3><p>{body}</p></div></article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · EQUITY</div>
+        <h2>같은 기준과 같은 지원을 혼동하지 않는다</h2>
+        <p>평가의 기준을 사람마다 임의로 바꾸면 공정성이 무너지지만, 모든 사람에게 같은 지원만 주면 성장 기회의 불균형이 커질 수 있습니다.</p>
+        <div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>공정한 조직은 기준을 흔들지 않으면서도 성장에 필요한 자원을 동일하게 배분하지 않는다.</p></div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · SECOND CHANCE</div>
+        <h2>재도전도 운영 규칙이 있어야 공정하다</h2>
+        <p>두 번째 기회는 관대함의 문제가 아니라 학습 가능성, 지원 이력, 실패 비용과 변화 증거를 바탕으로 판단해야 합니다.</p>
+        <div class="le-control">
+          <article><small>CHECK FIRST</small><h3>기회를 주기 전</h3><p>실패 원인, 이전 지원, 개선 의지, 필요한 자원을 확인합니다.</p></article>
+          <article><small>CHECK NEXT</small><h3>기회를 준 후</h3><p>기간, 행동 기준, 중간 점검과 종료 조건을 명확히 둡니다.</p></article>
+        </div>
+        <blockquote class="is-dark">공정성은 모두에게 똑같이 주는 것이 아니라<br />다른 지원을 같은 원칙으로 설명할 수 있는 능력이다.</blockquote>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">COACHING QUESTIONS</div>
+        <h2>공정성과 기회를 설계하는 12개 리더 질문</h2>
+        <p>기준 → 출발 조건 → 지원 → 재도전 순으로 확인합니다.</p>
+        <ol class="le-question-list">
+          {coachingQuestions.map((q)=><li>{q}</li>)}
+        </ol>
+        <div class="le-gold-question">
+          <small>GOLD QUESTION</small>
+          <p>우리 조직의 동일한 기준이 누군가에게 구조적으로 불리하게 작동하고 있지는 않은가?</p>
+        </div>
+      </section>
+
+      <section class="le-action">
+        <div class="sg-eyebrow">LEADERSHIP ACTION</div>
+        <h2>평가 기준은 유지하고 성장 지원을 단계별로 다시 설계한다.</h2>
+        <div class="le-action-grid">
+          <article><b>01 · STANDARD</b><p>공통 성과 기준을 명확히 합니다.</p></article>
+          <article><b>02 · SEGMENT</b><p>학습·안정·성장 단계로 지원 필요를 나눕니다.</p></article>
+          <article><b>03 · SUPPORT</b><p>각 단계에 필요한 시간과 코칭을 배정합니다.</p></article>
+          <article><b>04 · EXPLAIN</b><p>차등 지원의 원칙을 투명하게 설명합니다.</p></article>
+        </div>
+        <a href="/guides/growth-leadership">성장·리더십 전체 가이드 →</a>
+      </section>
+
+      <section class="le-conclusion">
+        <div class="sg-eyebrow">JOYLAB CONCLUSION</div>
+        <p>공정성은 동일성보다 설명 가능성에 가깝습니다.</p>
+        <h2>같은 기준 아래<br />다른 지원을 설계할 수 있어야 한다.</h2>
+        <p>두 번째 기회도 기준이 있을 때 특혜가 아니라 성장 시스템이 됩니다.</p>
+      </section>
+    </article>
+
+    <section class="le-faq">
+      <div class="sg-eyebrow">FAQ</div>
+      <h2>『레미제라블』과 공정성과 기회</h2>
+      {faq.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <section class="le-next" aria-labelledby="ep09-next-title">
+      <div>
+        <small>NEXT · EP09</small>
+        <h2 id="ep09-next-title">『파리대왕』 — 규칙이 무너지면 조직은 무엇으로 움직이는가</h2>
+        <p>다음 Research에서는 사람의 선의가 아니라 구조와 시스템으로 조직을 운영하는 방법을 살펴봅니다.</p>
+      </div>
+      <a href="/guides/growth-leadership/literature/lord-of-the-flies">EP09 읽기 →</a>
+    </section>
+
+    <footer class="le-back">
+      <a href="/guides/growth-leadership/literature/the-stranger">← EP07 이방인</a>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십 전체 보기 →</a>
+    </footer>
+  </main>
+</BaseLayout>
