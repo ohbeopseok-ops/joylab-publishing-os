@@ -34,8 +34,9 @@ investmentKpis:
   - "US 10Y Yield"
   - "Earnings Breadth"
 investmentResearchType: "pillar"
-heroImage: "/images/research/joylab-research-default-hero.svg"
-heroAlt: "S&P500 PEG 0.70과 과거 밸류에이션 구간을 비교한 JoyLab 미국 증시 리서치"
+heroImage: "/images/research/sp500-peg-history-selected-2026.svg"
+heroAlt: "S&P500 PEG의 2000·2007·2020·2022·2026 주요 참고 지점을 비교한 JoyLab 밸류에이션 차트"
+ogImage: "/images/research/sp500-peg-history-selected-2026.svg"
 faqs:
   - question: "PEG가 1보다 낮으면 무조건 저평가인가요?"
     answer: "아닙니다. PEG는 P/E를 예상 이익성장률로 나누기 때문에 낮은 가격뿐 아니라 높은 성장 기대 때문에도 낮아질 수 있습니다."
@@ -92,6 +93,10 @@ Yardeni는 S&P500 PEG를 Forward P/E를 5년 Forward Consensus Expected Annual E
 
 현재는 과거 고평가 구간과 방향이 정반대입니다.
 
+![2000·2007·2020·2022·2026 S&P500 PEG 주요 참고 지점 비교. 2026년 약 0.70은 공개 차트 기반 SILVER 근사값이며 연속 원시 시계열이 아니다.](/images/research/sp500-peg-history-selected-2026.svg)
+
+*Chart 01. 공개 Yardeni PEG 차트에서 확인한 선택 지점 비교. 연속 시계열이나 GOLD 원시 데이터로 해석하지 않습니다.*
+
 그렇다고 위험이 사라졌다는 뜻은 아닙니다. **위험의 위치가 가격에서 성장 기대의 실현 여부로 이동했다**고 보는 편이 정확합니다.
 
 ---
@@ -118,6 +123,10 @@ PEG는 두 가지 이유로 낮아질 수 있습니다.
 주가가 그대로여도 성장률 전망이 27%에서 18%로 낮아지면 PEG는 0.71에서 1.07로 올라갑니다.
 
 > **낮은 PEG가 유지되려면 낮은 가격보다 높은 성장 기대가 실제 이익으로 확인되는 것이 중요합니다.**
+
+![Forward P/E 19.2배를 고정했을 때 예상 EPS 성장률이 낮아질수록 PEG가 상승하는 민감도 차트](/images/research/sp500-peg-sensitivity-2026.svg)
+
+*Chart 02. Forward P/E 19.2배 고정. PEG = Forward P/E ÷ 예상 성장률의 결정론적 계산입니다.*
 
 ---
 
@@ -216,6 +225,10 @@ JoyLab은 PEG 하나로 시장을 판정하지 않습니다.
 PEG와 EPS는 긍정적이지만 10년물 5%대는 무시할 수 없습니다.
 
 따라서 현재는 PEG 0.70 하나만 보고 STRONG BUY로 올리는 것보다, **EPS Revision 유지 + 금리 안정**이 동시에 확인되는지를 보는 편이 더 합리적입니다.
+
+![PEG, Forward P/E, EPS Revision, 미국 10년물, Earnings Breadth를 함께 보는 JoyLab S&P500 밸류에이션 모니터](/images/research/sp500-valuation-monitor-2026.svg)
+
+*Chart 03. 현재 정성 판정은 BUY CANDIDATE / RATE RISK ACTIVE입니다. 필수 입력이 빠진 경우 점수나 STRONG BUY로 승격하지 않습니다.*
 
 ---
 
