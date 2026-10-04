@@ -17,6 +17,17 @@ const graph = [
       '@type': article.data.author === 'JoyLab' ? 'Organization' : 'Person',
       name: article.data.author
     },
+    ...(article.data.reviewer ? {
+      reviewedBy: {
+        '@type': 'Person',
+        name: article.data.reviewer
+      }
+    } : {}),
+    ...(article.data.primarySources?.length ? {
+      citation: article.data.primarySources
+        .filter((source) => source.url)
+        .map((source) => source.url)
+    } : {}),
     publisher: { '@id': 'https://aijoylab.kr/#organization' },
     isPartOf: { '@id': 'https://aijoylab.kr/#website' }
   },
