@@ -67,6 +67,31 @@ const targets = [
     required: ['.le-hero', '.le-visual--ep10', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
   },
   {
+    name: 'ep11',
+    route: '/guides/growth-leadership/literature/hamlet',
+    required: ['.le-hero', '.le-visual--ep11', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep12',
+    route: '/guides/growth-leadership/literature/antigone',
+    required: ['.le-hero', '.le-visual--ep12', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep13',
+    route: '/guides/growth-leadership/literature/othello',
+    required: ['.le-hero', '.le-visual--ep13', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep14',
+    route: '/guides/growth-leadership/literature/jonathan-livingston-seagull',
+    required: ['.le-hero', '.le-visual--ep14', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'framework-v2',
+    route: '/guides/growth-leadership/literature/framework',
+    required: ['.lf-hero', '.lf-diagnostic', '.lf-map', '.lf-grid', '.lf-principle'],
+  },
+  {
     name: 'playbook',
     route: '/guides/growth-leadership/playbook/performance-coaching',
     required: ['.lp-hero', '.lp-principle', '.lp-questions', '.lp-gold'],
