@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  [
+    "자율성과 방임은 어떻게 다른가요?",
+    "자율성에는 명확한 목적, 권한 범위, 금지선, 결과 책임이 있지만 방임은 이 기준이 불분명합니다."
+  ],
+  [
+    "책임을 강조하면 자율성이 줄어들지 않나요?",
+    "반대로 책임 기준이 명확할수록 리더가 모든 결정을 직접 승인할 필요가 줄어 자율성이 커질 수 있습니다."
+  ],
+  [
+    "윤리 기준은 어떻게 실무에 적용하나요?",
+    "금지 행동, 고객 영향, 이해상충, 기록 의무처럼 관찰 가능한 기준으로 구체화해야 합니다."
+  ]
+];
+const takeaways = [
+  [
+    "01",
+    "권한과 책임을 함께 준다",
+    "선택권만 주고 책임을 모호하게 두면 방임이 됩니다."
+  ],
+  [
+    "02",
+    "금지선은 명확하게 한다",
+    "자율성 안에서도 법, 윤리, 고객 보호의 최소 기준은 분명해야 합니다."
+  ],
+  [
+    "03",
+    "판단 근거를 남긴다",
+    "결정 과정을 설명할 수 있어야 학습과 감사가 가능합니다."
+  ],
+  [
+    "04",
+    "결과뿐 아니라 과정도 본다",
+    "좋은 결과가 잘못된 절차를 정당화하지 않도록 해야 합니다."
+  ],
+  [
+    "05",
+    "자율성은 성숙도와 함께 확장한다",
+    "역량과 판단 경험에 따라 권한 범위를 단계적으로 넓힐 수 있습니다."
+  ]
+];
+const coachingQuestions = [
+  "구성원이 스스로 결정할 수 있는 범위가 명확한가요?",
+  "넘지 말아야 할 윤리적 금지선이 있나요?",
+  "고객에게 불리한 선택을 막는 기준이 있나요?",
+  "이해상충 상황의 처리 원칙이 있나요?",
+  "결정 근거를 기록하나요?",
+  "결과가 좋으면 절차 위반을 넘기고 있지 않나요?",
+  "책임 소재가 모호한 공동 결정이 많지 않나요?",
+  "자율성 수준이 역량과 맞나요?",
+  "실수했을 때 지원과 책임의 경계가 명확한가요?",
+  "리더 승인 없이 가능한 결정이 너무 적지 않나요?",
+  "권한을 넓힐 조건이 정의돼 있나요?",
+  "우리는 자유를 주는가, 책임 없는 공간을 만드는가?"
+];
+
+const articleSchema = {
+  '@context':'https://schema.org',
+  '@type':'Article',
+  headline:"자유가 커질수록 책임은 어떻게 달라지는가",
+  alternativeHeadline:"『카라마조프가의 형제들』에서 배우는 윤리와 책임의 리더십",
+  description:"도스토옙스키 『카라마조프가의 형제들』을 자율성, 윤리, 선택과 책임의 경계 관점에서 분석한 JoyLab Literature & Leadership Research.",
+  mainEntityOfPage:"https://aijoylab.kr/guides/growth-leadership/literature/brothers-karamazov",
+  author:{'@type':'Organization',name:'JoyLab',url:'https://aijoylab.kr'},
+  publisher:{'@type':'Organization',name:'JoyLab',url:'https://aijoylab.kr'},
+  about:["Leadership","Ethics","Autonomy","Responsibility","Brothers Karamazov"]
+};
+
+const faqSchema = {
+  '@context':'https://schema.org',
+  '@type':'FAQPage',
+  mainEntity: faq.map(([q,a])=>({
+    '@type':'Question',
+    name:q,
+    acceptedAnswer:{'@type':'Answer',text:a}
+  }))
+};
+
+const breadcrumbSchema = {
+  '@context':'https://schema.org',
+  '@type':'BreadcrumbList',
+  itemListElement:[
+    {'@type':'ListItem',position:1,name:'JoyLab',item:'https://aijoylab.kr/'},
+    {'@type':'ListItem',position:2,name:'성장·리더십',item:'https://aijoylab.kr/guides/growth-leadership'},
+    {'@type':'ListItem',position:3,name:'문학에서 배우는 리더십',item:'https://aijoylab.kr/guides/growth-leadership/literature'},
+    {'@type':'ListItem',position:4,name:"카라마조프가의 형제들",item:"https://aijoylab.kr/guides/growth-leadership/literature/brothers-karamazov"}
+  ]
+};
+---
+
+<BaseLayout
+  title="카라마조프가의 형제들 리더십｜자유가 커질수록 책임은 어떻게 달라지는가 | JoyLab"
+  description="도스토옙스키 『카라마조프가의 형제들』을 통해 자율성, 윤리, 선택과 책임의 경계를 조직 리더십 관점에서 살펴봅니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/brothers-karamazov"
+  type="article"
+  bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP RESEARCH · EP17</div>
+      <h1>자유가 커질수록<br /><span>책임은 어떻게 달라지는가</span></h1>
+      <p class="le-subtitle">『카라마조프가의 형제들』에서 배우는 윤리와 책임</p>
+      <p class="le-intro">자율성을 높이면 사람은 더 빠르고 창의적으로 움직일 수 있습니다. 그러나 선택권만 넓히고 책임 기준을 अस्पष्ट하게 두면 조직은 자유와 방임을 혼동하게 됩니다.</p>
+      <div class="le-meta"><span>Ethics</span><span>Autonomy</span><span>Responsibility</span><span>Choice</span></div>
+    </header>
+
+    <section class="le-visual le-visual--ep17" aria-label="카라마조프가의 형제들 윤리와 책임 비주얼">
+      <div><span>EP17</span><b>AUTONOMY × RESPONSIBILITY</b></div>
+      <i aria-hidden="true"></i>
+    </section>
+
+    <article class="le-body">
+      <section class="le-research-brief">
+        <div class="sg-eyebrow">RESEARCH BRIEF</div>
+        <h2>자율성은 통제의 부재가 아니라 선택권과 책임 기준이 함께 존재하는 상태다.</h2>
+        <p>『카라마조프가의 형제들』은 인간의 자유, 선택과 책임을 집요하게 묻습니다. 자유로운 선택은 가능성을 넓히지만 동시에 결과를 외부 탓으로 돌리기 어렵게 만듭니다.</p>
+        <p>조직에서 자율성을 부여할 때도 권한 범위, 금지선, 결과 책임과 지원 체계를 함께 설계해야 합니다.</p>
+        <blockquote>자율성은 하고 싶은 대로 하는 자유가 아니라<br />선택의 결과를 설명하고 책임질 수 있는 자유다.</blockquote>
+        <div class="le-diagnosis">
+          <article><b>SCOPE</b><span>무엇을 스스로 결정하는가</span></article>
+          <article><b>BOUNDARY</b><span>넘지 말아야 할 선은 무엇인가</span></article>
+          <article><b>EVIDENCE</b><span>결정을 어떻게 설명하는가</span></article>
+          <article><b>ACCOUNT</b><span>결과를 누가 책임지는가</span></article>
+        </div>
+      </section>
+
+      <section class="le-key-takeaways">
+        <div class="sg-eyebrow">KEY TAKEAWAYS</div>
+        <h2>『카라마조프가의 형제들』이 리더에게 남기는 5가지 원칙</h2>
+        <div class="le-takeaway-list">
+          {takeaways.map(([no,title,body])=>(
+            <article><div class="le-takeaway-list__no">{no}</div><div><h3>{title}</h3><p>{body}</p></div></article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · AUTONOMY</div>
+        <h2>자율성은 승인 절차를 없애는 것만이 아니다</h2>
+        <p>승인을 줄이는 것은 시작일 뿐입니다. 구성원이 목적과 범위를 이해하고 스스로 판단한 이유를 설명할 수 있어야 진짜 자율성이 작동합니다.</p>
+        <div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>자율성의 핵심은 리더가 손을 떼는 것이 아니라 구성원이 판단을 소유하게 만드는 것이다.</p></div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · ETHICS</div>
+        <h2>좋은 결과가 잘못된 과정을 정당화하지 않게 한다</h2>
+        <p>성과가 높더라도 고객 보호, 공정성, 법적 기준을 위반했다면 성공으로 평가할 수 없습니다. 윤리는 결과를 제한하는 최소 경계입니다.</p>
+        <div class="le-control">
+          <article><small>CHECK FIRST</small><h3>권한을 줄 때</h3><p>목적, 범위, 금지선, 기록 의무와 에스컬레이션 조건을 명확히 합니다.</p></article>
+          <article><small>CHECK NEXT</small><h3>결과를 평가할 때</h3><p>성과뿐 아니라 판단 과정, 기준 준수, 영향과 후속 책임을 함께 봅니다.</p></article>
+        </div>
+        <blockquote class="is-dark">자율성은 통제의 반대가 아니다.<br />좋은 자율성은 책임의 밀도를 높인다.</blockquote>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">COACHING QUESTIONS</div>
+        <h2>자율성과 책임을 설계하는 12개 리더 질문</h2>
+        <p>권한 → 경계 → 근거 → 책임 순으로 사용합니다.</p>
+        <ol class="le-question-list">
+          {coachingQuestions.map((q)=><li>{q}</li>)}
+        </ol>
+        <div class="le-gold-question">
+          <small>GOLD QUESTION</small>
+          <p>자유가 커질수록 책임은 어떻게 달라지는가?</p>
+        </div>
+      </section>
+
+      <section class="le-action">
+        <div class="sg-eyebrow">LEADERSHIP ACTION</div>
+        <h2>핵심 역할 하나에 Decision Rights와 Ethical Boundary를 한 장으로 정리한다.</h2>
+        <div class="le-action-grid">
+          <article><b>01 · SCOPE</b><p>스스로 결정할 범위를 명시합니다.</p></article>
+          <article><b>02 · BOUNDARY</b><p>절대 넘지 말아야 할 기준을 적습니다.</p></article>
+          <article><b>03 · RECORD</b><p>판단 근거와 결과 기록을 요구합니다.</p></article>
+          <article><b>04 · EXPAND</b><p>역량에 따라 권한을 단계적으로 넓힙니다.</p></article>
+        </div>
+        <a href="/guides/growth-leadership/literature/framework">Leadership Framework V2 →</a>
+      </section>
+
+      <section class="le-conclusion">
+        <div class="sg-eyebrow">JOYLAB CONCLUSION</div>
+        <p>자율성은 신뢰의 표현입니다.</p>
+        <h2>그래서 자율성이 커질수록<br />설명 가능성과 책임도 함께 커져야 한다.</h2>
+        <p>좋은 조직은 모든 결정을 통제하지 않고 판단의 기준을 공유합니다.</p>
+      </section>
+    </article>
+
+    <section class="le-faq">
+      <div class="sg-eyebrow">FAQ</div>
+      <h2>『카라마조프가의 형제들』과 윤리와 책임</h2>
+      {faq.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <section class="le-next">
+      <div>
+        <small>NEXT · EP18</small>
+        <h2>『페스트』 — 답이 없는 위기에서 리더는 무엇을 제공해야 하는가</h2>
+        <p>다음 Wave에서는 불확실성, 위기, 의미와 승계로 Season 2를 마무리합니다.</p>
+      </div>
+      <a href="/guides/growth-leadership/literature#ep18">EP18 미리 보기 →</a>
+    </section>
+
+    <footer class="le-back">
+      <a href="/guides/growth-leadership/literature/moby-dick">← EP16 모비 딕</a>
+      <a href="/guides/growth-leadership/literature">전체 시리즈 →</a>
+    </footer>
+  </main>
+</BaseLayout>
