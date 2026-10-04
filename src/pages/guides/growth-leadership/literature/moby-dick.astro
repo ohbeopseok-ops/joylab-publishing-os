@@ -1,0 +1,223 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  [
+    "끈기와 집착은 어떻게 구분하나요?",
+    "새로운 정보에 따라 방법이나 목표를 수정할 수 있는지가 중요한 차이입니다."
+  ],
+  [
+    "이미 많은 자원을 투입했다면 계속해야 하지 않나요?",
+    "과거 투자비용보다 앞으로의 기대 가치와 추가 비용을 기준으로 판단해야 합니다."
+  ],
+  [
+    "중단 기준은 언제 정해야 하나요?",
+    "가능하면 시작 전에 성과 임계값, 기간, 위험 한도를 정하는 것이 좋습니다."
+  ]
+];
+const takeaways = [
+  [
+    "01",
+    "목표와 정체성을 분리한다",
+    "프로젝트 실패가 리더 개인의 실패로 느껴지면 수정이 어려워집니다."
+  ],
+  [
+    "02",
+    "매몰비용을 미래 판단에서 분리한다",
+    "이미 쓴 비용보다 앞으로 얻을 가치와 위험을 봅니다."
+  ],
+  [
+    "03",
+    "반대 신호를 의도적으로 찾는다",
+    "좋은 뉴스만 올라오면 집착 가능성이 커집니다."
+  ],
+  [
+    "04",
+    "중단 기준을 사전에 둔다",
+    "중간에 기준을 바꾸면 계속 밀어붙이는 쪽으로 편향되기 쉽습니다."
+  ],
+  [
+    "05",
+    "몰입은 유연성과 함께 가야 한다",
+    "목표는 유지하되 방법을 바꿀 수 있어야 합니다."
+  ]
+];
+const coachingQuestions = [
+  "이 목표는 지금도 처음만큼 중요한가요?",
+  "환경이 바뀌었는데 목표는 그대로인가요?",
+  "반대 데이터는 무엇을 말하나요?",
+  "이미 투자한 비용 때문에 계속하고 있지 않나요?",
+  "중단하면 체면이나 평가가 더 걱정되나요?",
+  "프로젝트와 내 정체성을 동일시하고 있지 않나요?",
+  "방법을 바꾸는 것을 실패로 보고 있나요?",
+  "중단 기준을 시작 전에 정했나요?",
+  "독립적인 사람이 재검토했나요?",
+  "추가 투자 대비 기대 가치가 남아 있나요?",
+  "다른 기회를 희생하고 있지 않나요?",
+  "나는 목표에 몰입한 것인가, 목표에 붙잡힌 것인가?"
+];
+
+const articleSchema = {
+  '@context':'https://schema.org',
+  '@type':'Article',
+  headline:"목표 집중은 언제 조직적 집착이 되는가",
+  alternativeHeadline:"『모비 딕』에서 배우는 몰입과 집착의 리더십",
+  description:"허먼 멜빌 『모비 딕』을 목표 몰입, 집착, 손실 회피, 경고 신호 무시 관점에서 분석한 JoyLab Literature & Leadership Research.",
+  mainEntityOfPage:"https://aijoylab.kr/guides/growth-leadership/literature/moby-dick",
+  author:{'@type':'Organization',name:'JoyLab',url:'https://aijoylab.kr'},
+  publisher:{'@type':'Organization',name:'JoyLab',url:'https://aijoylab.kr'},
+  about:["Leadership","Focus","Obsession","Escalation of Commitment","Moby-Dick"]
+};
+
+const faqSchema = {
+  '@context':'https://schema.org',
+  '@type':'FAQPage',
+  mainEntity: faq.map(([q,a])=>({
+    '@type':'Question',
+    name:q,
+    acceptedAnswer:{'@type':'Answer',text:a}
+  }))
+};
+
+const breadcrumbSchema = {
+  '@context':'https://schema.org',
+  '@type':'BreadcrumbList',
+  itemListElement:[
+    {'@type':'ListItem',position:1,name:'JoyLab',item:'https://aijoylab.kr/'},
+    {'@type':'ListItem',position:2,name:'성장·리더십',item:'https://aijoylab.kr/guides/growth-leadership'},
+    {'@type':'ListItem',position:3,name:'문학에서 배우는 리더십',item:'https://aijoylab.kr/guides/growth-leadership/literature'},
+    {'@type':'ListItem',position:4,name:"모비 딕",item:"https://aijoylab.kr/guides/growth-leadership/literature/moby-dick"}
+  ]
+};
+---
+
+<BaseLayout
+  title="모비 딕 리더십｜목표 집중은 언제 조직적 집착이 되는가 | JoyLab"
+  description="허먼 멜빌 『모비 딕』을 통해 목표 몰입, 집착, 손실 회피, 경고 신호 무시와 리더십 리스크를 살펴봅니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/moby-dick"
+  type="article"
+  bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP RESEARCH · EP16</div>
+      <h1>목표 집중은 언제<br /><span>조직적 집착이 되는가</span></h1>
+      <p class="le-subtitle">『모비 딕』에서 배우는 몰입과 집착</p>
+      <p class="le-intro">집중은 성과를 만듭니다. 하지만 목표가 다른 정보를 지우고, 이미 투자했다는 이유로 계속 밀어붙이며, 반대 신호를 무시하게 만들면 몰입은 집착으로 변합니다.</p>
+      <div class="le-meta"><span>Focus</span><span>Obsession</span><span>Loss</span><span>Signal</span></div>
+    </header>
+
+    <section class="le-visual le-visual--ep16" aria-label="모비 딕 몰입과 집착 비주얼">
+      <div><span>EP16</span><b>FOCUS × OBSESSION</b></div>
+      <i aria-hidden="true"></i>
+    </section>
+
+    <article class="le-body">
+      <section class="le-research-brief">
+        <div class="sg-eyebrow">RESEARCH BRIEF</div>
+        <h2>몰입은 목표를 선명하게 만들지만 집착은 현실을 흐리게 만든다.</h2>
+        <p>『모비 딕』의 에이해브는 하나의 목표에 자신의 판단과 조직의 자원을 결속합니다. 목표는 단순한 과제가 아니라 모든 선택을 설명하는 중심이 됩니다.</p>
+        <p>조직에서도 큰 프로젝트, KPI, 전략이 정체성과 결합하면 중단이나 수정이 실패 인정처럼 느껴져 경고 신호를 무시할 수 있습니다.</p>
+        <blockquote>목표를 포기하지 않는 끈기와<br />틀린 목표를 포기하지 못하는 집착은 다르다.</blockquote>
+        <div class="le-diagnosis">
+          <article><b>GOAL</b><span>목표가 여전히 유효한가</span></article>
+          <article><b>SIGNAL</b><span>반대 신호를 보고 있는가</span></article>
+          <article><b>SUNK</b><span>매몰비용에 묶였는가</span></article>
+          <article><b>EXIT</b><span>중단 기준이 있는가</span></article>
+        </div>
+      </section>
+
+      <section class="le-key-takeaways">
+        <div class="sg-eyebrow">KEY TAKEAWAYS</div>
+        <h2>『모비 딕』이 리더에게 남기는 5가지 원칙</h2>
+        <div class="le-takeaway-list">
+          {takeaways.map(([no,title,body])=>(
+            <article><div class="le-takeaway-list__no">{no}</div><div><h3>{title}</h3><p>{body}</p></div></article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · ESCALATION</div>
+        <h2>매몰비용은 미래 가치를 높이지 않는다</h2>
+        <p>이미 투자한 시간과 돈은 되돌릴 수 없습니다. 그러나 조직은 그 비용이 클수록 중단을 실패로 느끼고 더 많은 자원을 투입하는 경향이 있습니다.</p>
+        <div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>강한 몰입은 자산이지만, 새로운 정보가 와도 목표를 수정하지 못하면 그 몰입은 리스크가 된다.</p></div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · EXIT RULE</div>
+        <h2>중단 기준은 실패가 아니라 통제 장치다</h2>
+        <p>프로젝트 시작 전에 기간, 성과 임계값, 추가 비용 한도와 재검토 조건을 정하면 감정적으로 밀어붙이는 위험을 줄일 수 있습니다.</p>
+        <div class="le-control">
+          <article><small>CHECK FIRST</small><h3>시작 전에</h3><p>성공 기준, 중단 기준, 최대 손실과 재검토 날짜를 정합니다.</p></article>
+          <article><small>CHECK NEXT</small><h3>진행 중에</h3><p>반대 데이터, 기회비용, 추가 투자 대비 기대 가치를 확인합니다.</p></article>
+        </div>
+        <blockquote class="is-dark">끝까지 하는 것이 항상 용기는 아니다.<br />틀렸을 때 멈추는 것도 리더의 책임이다.</blockquote>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">COACHING QUESTIONS</div>
+        <h2>몰입과 집착을 구분하는 12개 리더 질문</h2>
+        <p>목표 → 신호 → 매몰비용 → 중단 기준 순으로 사용합니다.</p>
+        <ol class="le-question-list">
+          {coachingQuestions.map((q)=><li>{q}</li>)}
+        </ol>
+        <div class="le-gold-question">
+          <small>GOLD QUESTION</small>
+          <p>목표 집중은 언제 조직적 집착이 되는가?</p>
+        </div>
+      </section>
+
+      <section class="le-action">
+        <div class="sg-eyebrow">LEADERSHIP ACTION</div>
+        <h2>진행 중인 핵심 프로젝트 하나에 명시적 Stop Rule을 추가한다.</h2>
+        <div class="le-action-grid">
+          <article><b>01 · VALIDATE</b><p>목표의 현재 유효성을 재검토합니다.</p></article>
+          <article><b>02 · COUNTER</b><p>반대 데이터를 수집합니다.</p></article>
+          <article><b>03 · LIMIT</b><p>추가 투자 한도를 정합니다.</p></article>
+          <article><b>04 · STOP</b><p>중단 또는 전환 조건을 문서화합니다.</p></article>
+        </div>
+        <a href="/guides/growth-leadership/literature/framework">Leadership Framework V2 →</a>
+      </section>
+
+      <section class="le-conclusion">
+        <div class="sg-eyebrow">JOYLAB CONCLUSION</div>
+        <p>집중력은 조직의 강점입니다.</p>
+        <h2>하지만 강한 리더십은<br />밀어붙이는 힘뿐 아니라 멈추는 힘도 포함한다.</h2>
+        <p>목표가 현실보다 강해지는 순간 리더는 가장 먼저 경고 신호를 잃습니다.</p>
+      </section>
+    </article>
+
+    <section class="le-faq">
+      <div class="sg-eyebrow">FAQ</div>
+      <h2>『모비 딕』과 몰입과 집착</h2>
+      {faq.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <section class="le-next">
+      <div>
+        <small>NEXT · EP17</small>
+        <h2>『카라마조프가의 형제들』 — 자유가 커질수록 책임은 어떻게 달라지는가</h2>
+        <p>다음 Research에서는 자율성, 윤리와 책임의 경계를 살펴봅니다.</p>
+      </div>
+      <a href="/guides/growth-leadership/literature/brothers-karamazov">EP17 읽기 →</a>
+    </section>
+
+    <footer class="le-back">
+      <a href="/guides/growth-leadership/literature/our-twisted-hero">← EP15 우리들의 일그러진 영웅</a>
+      <a href="/guides/growth-leadership/literature">전체 시리즈 →</a>
+    </footer>
+  </main>
+</BaseLayout>
