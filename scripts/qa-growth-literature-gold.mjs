@@ -102,6 +102,21 @@ const targets = [
     required: ['.le-hero', '.le-visual--ep17', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
   },
   {
+    name: 'ep18',
+    route: '/guides/growth-leadership/literature/the-plague',
+    required: ['.le-hero', '.le-visual--ep18', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep19',
+    route: '/guides/growth-leadership/literature/human-condition',
+    required: ['.le-hero', '.le-visual--ep19', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep20',
+    route: '/guides/growth-leadership/literature/king-lear',
+    required: ['.le-hero', '.le-visual--ep20', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
     name: 'framework-v2',
     route: '/guides/growth-leadership/literature/framework',
     required: ['.lf-hero', '.lf-diagnostic', '.lf-map', '.lf-grid', '.lf-principle'],
