@@ -1,0 +1,513 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-10-04",
+  "policy": {
+    "reviewer": "JoyLab Editorial",
+    "aiUsed": "VERIFY",
+    "note": "과거 제작 과정의 AI 사용 여부는 추정하지 말고 확인 후 boolean으로 확정",
+    "humanVerified": [
+      "facts",
+      "numbers",
+      "sources",
+      "final_conclusion"
+    ]
+  },
+  "articles": [
+    {
+      "slug": "samsung-market-close-2026-09-28",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "당일 시장·수급·기업 실적 판단 지원",
+      "primarySources": [
+        {
+          "name": "KRX 정보데이터시스템",
+          "url": "https://data.krx.co.kr/"
+        },
+        {
+          "name": "Samsung Electronics IR",
+          "url": "https://www.samsung.com/global/ir/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "samsung-daily-analysis-2026-09-28",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "삼성전자 급락의 수급·금리·실적 요인 분리 판단",
+      "primarySources": [
+        {
+          "name": "KRX 정보데이터시스템",
+          "url": "https://data.krx.co.kr/"
+        },
+        {
+          "name": "Samsung Electronics IR",
+          "url": "https://www.samsung.com/global/ir/"
+        },
+        {
+          "name": "U.S. Treasury Rates",
+          "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "samsung-electronics-outlook",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "삼성전자 AI 메모리와 실적 구조 판단",
+      "primarySources": [
+        {
+          "name": "Samsung Electronics IR",
+          "url": "https://www.samsung.com/global/ir/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "sk-hynix-outlook",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "SK hynix AI 메모리와 실적 구조 판단",
+      "primarySources": [
+        {
+          "name": "SK hynix IR",
+          "url": "https://www.skhynix.com/ir"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "samsung-hbm4-memory-outlook-2026-09-20",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "HBM4 수요·출하·실적 연결 판단",
+      "primarySources": [
+        {
+          "name": "Samsung Electronics IR",
+          "url": "https://www.samsung.com/global/ir/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "strong-retail-sales-nasdaq-rally-2026",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "미국 소비지표와 금리·나스닥 반응 판단",
+      "primarySources": [
+        {
+          "name": "U.S. Census Retail Sales",
+          "url": "https://www.census.gov/retail/"
+        },
+        {
+          "name": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "us-august-retail-sales-fed-nasdaq-2026",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "미국 소매판매가 Fed와 나스닥에 미치는 영향 판단",
+      "primarySources": [
+        {
+          "name": "U.S. Census Retail Sales",
+          "url": "https://www.census.gov/retail/"
+        },
+        {
+          "name": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "us-cpi-fed-nasdaq-guide",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "CPI와 Fed·나스닥 연결 구조 이해",
+      "primarySources": [
+        {
+          "name": "U.S. Bureau of Labor Statistics CPI",
+          "url": "https://www.bls.gov/cpi/"
+        },
+        {
+          "name": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "us-pce-fed-nasdaq-guide",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "PCE와 Fed·나스닥 연결 구조 이해",
+      "primarySources": [
+        {
+          "name": "U.S. BEA Personal Income and Outlays",
+          "url": "https://www.bea.gov/data/income-saving/personal-income"
+        },
+        {
+          "name": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "us-ppi-fed-margin-guide",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "PPI와 금리·기업 마진 연결 구조 이해",
+      "primarySources": [
+        {
+          "name": "U.S. Bureau of Labor Statistics PPI",
+          "url": "https://www.bls.gov/ppi/"
+        },
+        {
+          "name": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "us-jobs-report-fed-nasdaq-guide",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "고용보고서와 Fed·나스닥 연결 구조 이해",
+      "primarySources": [
+        {
+          "name": "U.S. Bureau of Labor Statistics Employment Situation",
+          "url": "https://www.bls.gov/news.release/empsit.toc.htm"
+        },
+        {
+          "name": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "us-30y-treasury-5-percent-risk-2026",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "미국 30년물 5% 환경의 시장·포트폴리오 위험 판단",
+      "primarySources": [
+        {
+          "name": "U.S. Treasury Rates",
+          "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates"
+        },
+        {
+          "name": "TreasuryDirect Auctions",
+          "url": "https://www.treasurydirect.gov/auctions/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "treasury-5-percent-sp500-nasdaq-dividend",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "미국채 5%와 주식·배당 자산의 상대 매력 판단",
+      "primarySources": [
+        {
+          "name": "U.S. Treasury Rates",
+          "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates"
+        },
+        {
+          "name": "Federal Reserve",
+          "url": "https://www.federalreserve.gov/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "treasury-5-percent-utilities-2026",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "미국채 5%와 유틸리티 밸류에이션 판단",
+      "primarySources": [
+        {
+          "name": "U.S. Treasury Rates",
+          "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates"
+        },
+        {
+          "name": "SEC EDGAR",
+          "url": "https://www.sec.gov/edgar/search/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "who-buys-us-treasuries-2026",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "미국채 수요 주체와 금리 구조 이해",
+      "primarySources": [
+        {
+          "name": "U.S. Treasury TIC",
+          "url": "https://home.treasury.gov/data/treasury-international-capital-tic-system"
+        },
+        {
+          "name": "TreasuryDirect Auctions",
+          "url": "https://www.treasurydirect.gov/auctions/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "china-us-treasury-holdings-2026",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "중국의 미국채 보유 변화와 시장 영향 판단",
+      "primarySources": [
+        {
+          "name": "U.S. Treasury TIC",
+          "url": "https://home.treasury.gov/data/treasury-international-capital-tic-system"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "kb-financial-shareholder-return",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "KB금융 자본·ROE·주주환원 판단",
+      "primarySources": [
+        {
+          "name": "KB Financial Group IR",
+          "url": "https://www.kbfg.com/Eng/ir/"
+        },
+        {
+          "name": "DART",
+          "url": "https://dart.fss.or.kr/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "korea-financial-holdings-compare",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "국내 금융지주 ROE·CET1·주주환원 비교 판단",
+      "primarySources": [
+        {
+          "name": "DART",
+          "url": "https://dart.fss.or.kr/"
+        },
+        {
+          "name": "KB Financial Group IR",
+          "url": "https://www.kbfg.com/Eng/ir/"
+        },
+        {
+          "name": "Shinhan Financial Group IR",
+          "url": "https://www.shinhangroup.com/en/ir/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "us-rates-korea-semiconductor-transmission-2026",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "미국 장기금리가 한국 반도체 밸류에이션에 전달되는 경로 판단",
+      "primarySources": [
+        {
+          "name": "U.S. Treasury Rates",
+          "url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates"
+        },
+        {
+          "name": "KRX 정보데이터시스템",
+          "url": "https://data.krx.co.kr/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    },
+    {
+      "slug": "china-semiconductor-risk-indicators",
+      "priority": "P0",
+      "wave": 1,
+      "reviewer": "JoyLab Editorial",
+      "aiUsed": "VERIFY",
+      "humanVerified": [
+        "facts",
+        "numbers",
+        "sources",
+        "final_conclusion"
+      ],
+      "contentPurpose": "중국 반도체 자립 리스크를 지표별로 재점검",
+      "primarySources": [
+        {
+          "name": "U.S. BIS",
+          "url": "https://www.bis.gov/"
+        },
+        {
+          "name": "CXMT",
+          "url": "https://www.cxmt.com/en/"
+        },
+        {
+          "name": "YMTC",
+          "url": "https://www.ymtc.com/en/"
+        }
+      ],
+      "lastReviewed": "SET_ON_HUMAN_REVIEW"
+    }
+  ]
+}
