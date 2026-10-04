@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  [
+    "책임자를 찾지 않아도 된다는 뜻인가요?",
+    "아닙니다. 개인 책임과 시스템 책임을 함께 봐야 합니다. 누가 무엇을 했는지와 어떤 조건이 문제를 가능하게 했는지를 분리해야 합니다."
+  ],
+  [
+    "실패를 학습으로 바꾸려면 무엇이 필요한가요?",
+    "사실, 영향, 원인, 재발 방지를 구분해 리뷰하고 실제 프로세스 변경을 남겨야 합니다."
+  ],
+  [
+    "실패를 용인하면 기준이 약해지지 않나요?",
+    "무조건 용인하는 것과 학습 기회로 활용하는 것은 다릅니다. 반복되는 동일 실패에는 명확한 관리가 필요합니다."
+  ]
+];
+const takeaways = [
+  [
+    "01",
+    "책임과 비난을 구분한다",
+    "책임은 결과를 회복하고 다음 행동을 바꾸는 과정입니다."
+  ],
+  [
+    "02",
+    "사실과 원인을 분리한다",
+    "무슨 일이 있었는지와 왜 가능했는지를 각각 확인해야 합니다."
+  ],
+  [
+    "03",
+    "개인과 시스템을 함께 본다",
+    "개인 행동만 보거나 시스템만 탓하는 두 극단을 피합니다."
+  ],
+  [
+    "04",
+    "실패 리뷰에는 변경사항이 남아야 한다",
+    "다음에 무엇이 달라지는지가 없다면 학습은 완료되지 않았습니다."
+  ],
+  [
+    "05",
+    "신뢰는 약속보다 반복된 후속 행동으로 회복된다",
+    "한 번의 사과보다 수정과 재발 방지의 실행이 중요합니다."
+  ]
+];
+const coachingQuestions = [
+  "무슨 일이 있었는지 사실로 설명할 수 있나요?",
+  "누가 어떤 영향을 받았나요?",
+  "개인의 선택과 시스템 조건을 구분했나요?",
+  "실패를 숨기게 만든 인센티브는 없었나요?",
+  "이전에 같은 문제가 있었나요?",
+  "이전 조치는 왜 재발을 막지 못했나요?",
+  "리더 자신의 결정이 원인에 포함되나요?",
+  "책임자가 해야 할 회복 행동은 무엇인가요?",
+  "프로세스에서 바꿔야 할 것은 무엇인가요?",
+  "변경사항의 Owner와 기한이 있나요?",
+  "재발 여부를 언제 다시 확인하나요?",
+  "이번 실패 이후 실제로 무엇이 달라졌나요?"
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: "신뢰는 어떻게 다시 만들어지는가",
+  alternativeHeadline: "『죄와 벌』에서 배우는 책임과 회복의 리더십",
+  description: "도스토옙스키 『죄와 벌』을 책임, 회복, 실패 리뷰와 재발 방지 관점에서 분석한 JoyLab Literature & Leadership Research.",
+  mainEntityOfPage: "https://aijoylab.kr/guides/growth-leadership/literature/crime-and-punishment",
+  author: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  publisher: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  about: ["Leadership","Accountability","Recovery","Learning","Crime and Punishment"]
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(([q,a]) => ({
+    '@type':'Question', name:q,
+    acceptedAnswer:{ '@type':'Answer', text:a }
+  }))
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'JoyLab', item: 'https://aijoylab.kr/' },
+    { '@type': 'ListItem', position: 2, name: '성장·리더십', item: 'https://aijoylab.kr/guides/growth-leadership' },
+    { '@type': 'ListItem', position: 3, name: '문학에서 배우는 리더십', item: 'https://aijoylab.kr/guides/growth-leadership/literature' },
+    { '@type': 'ListItem', position: 4, name: "죄와 벌", item: "https://aijoylab.kr/guides/growth-leadership/literature/crime-and-punishment" }
+  ]
+};
+---
+
+<BaseLayout
+  title="죄와 벌 리더십｜신뢰는 어떻게 다시 만들어지는가 | JoyLab"
+  description="도스토옙스키 『죄와 벌』을 통해 책임, 실패 리뷰, 회복과 재발 방지 중심의 조직학습을 살펴봅니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/crime-and-punishment"
+  type="article"
+  bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP RESEARCH · EP10</div>
+      <h1>신뢰는 어떻게<br /><span>다시 만들어지는가</span></h1>
+      <p class="le-subtitle">『죄와 벌』에서 배우는 책임과 회복</p>
+      <p class="le-intro">문제가 생기면 “누가 잘못했는가”를 묻게 됩니다. 하지만 책임자를 찾는 것만으로는 같은 문제가 반복되는 것을 막을 수 없습니다. 책임의 완성은 처벌보다 변화에 있습니다.</p>
+      <div class="le-meta"><span>Accountability</span><span>Recovery</span><span>Learning</span><span>Prevention</span></div>
+    </header>
+
+    <section class="le-visual le-visual--ep10" aria-label="죄와 벌 책임과 회복 리더십 비주얼">
+      <div><span>EP10</span><b>ACCOUNTABILITY × RECOVERY</b></div>
+      <i aria-hidden="true"></i>
+    </section>
+
+    <article class="le-body">
+      <section class="le-research-brief">
+        <div class="sg-eyebrow">RESEARCH BRIEF</div>
+        <h2>책임은 잘못한 사람을 찾는 것으로 끝나지 않는다. 다음에 무엇이 달라지는지가 남아야 한다.</h2>
+        <p>『죄와 벌』은 행동 이후 인간이 자신의 결과를 어떻게 받아들이고 책임과 회복의 과정으로 들어가는지를 보여줍니다.</p>
+        <p>조직에서도 실패를 처벌로만 다루면 사람들은 숨기기 시작하고, 반대로 모든 실패를 “괜찮다”로 처리하면 같은 문제가 반복됩니다. 필요한 것은 학습 가능한 책임 구조입니다.</p>
+        <blockquote>책임의 완성은 처벌이 아니라<br />같은 문제가 반복되지 않는 변화다.</blockquote>
+        <div class="le-diagnosis">
+          <article><b>FACT</b><span>무슨 일이 있었는가</span></article>
+          <article><b>IMPACT</b><span>누가 어떤 영향을 받았는가</span></article>
+          <article><b>CAUSE</b><span>왜 가능했는가</span></article>
+          <article><b>CHANGE</b><span>다음에 무엇이 달라지는가</span></article>
+        </div>
+      </section>
+
+      <section class="le-key-takeaways">
+        <div class="sg-eyebrow">KEY TAKEAWAYS</div>
+        <h2>『죄와 벌』이 리더에게 남기는 5가지 원칙</h2>
+        <div class="le-takeaway-list">
+          {takeaways.map(([no,title,body]) => (
+            <article><div class="le-takeaway-list__no">{no}</div><div><h3>{title}</h3><p>{body}</p></div></article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · ACCOUNTABILITY</div>
+        <h2>“누가 잘못했는가?”만으로는 충분하지 않다</h2>
+        <p>개인의 책임을 분명히 하되 그 행동이 가능했던 조건과 반복을 막지 못한 시스템까지 함께 보지 않으면 원인은 남습니다.</p>
+        <div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>책임은 사람을 공격하는 방식이 아니라 사실, 영향, 수정과 재발 방지를 연결하는 운영 방식이어야 한다.</p></div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · RECOVERY</div>
+        <h2>신뢰는 설명이 아니라 후속 행동으로 회복된다</h2>
+        <p>실수 이후의 투명한 공유, 영향 회복, 프로세스 변경과 재점검이 반복될 때 구성원은 다시 시스템을 신뢰할 수 있습니다.</p>
+        <div class="le-control">
+          <article><small>CHECK FIRST</small><h3>실패 직후</h3><p>사실, 영향, 긴급 회복 조치를 먼저 정리합니다.</p></article>
+          <article><small>CHECK NEXT</small><h3>리뷰 이후</h3><p>원인별 변경사항, Owner, 기한과 재점검 일정을 남깁니다.</p></article>
+        </div>
+        <blockquote class="is-dark">실패 리뷰의 마지막 질문은 “누가 잘못했나”가 아니라<br />“다음부터 무엇이 달라지는가”여야 한다.</blockquote>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">COACHING QUESTIONS</div>
+        <h2>책임과 회복을 설계하는 12개 리더 질문</h2>
+        <p>사실 → 영향 → 원인 → 변경 → 재점검 순서로 사용합니다.</p>
+        <ol class="le-question-list">
+          {coachingQuestions.map((q)=><li>{q}</li>)}
+        </ol>
+        <div class="le-gold-question">
+          <small>GOLD QUESTION</small>
+          <p>우리 조직은 실패를 숨기게 만드는가, 학습하게 만드는가?</p>
+        </div>
+      </section>
+
+      <section class="le-action">
+        <div class="sg-eyebrow">LEADERSHIP ACTION</div>
+        <h2>실패 리뷰를 사실·영향·원인·재발방지 4단계로 고정한다.</h2>
+        <div class="le-action-grid">
+          <article><b>01 · FACT</b><p>평가 전에 사실과 타임라인을 정리합니다.</p></article>
+          <article><b>02 · IMPACT</b><p>고객·팀·성과에 미친 영향을 확인합니다.</p></article>
+          <article><b>03 · CAUSE</b><p>개인 행동과 시스템 조건을 함께 분석합니다.</p></article>
+          <article><b>04 · CHANGE</b><p>Owner와 기한이 있는 변경사항을 남깁니다.</p></article>
+        </div>
+        <a href="/guides/growth-leadership">성장·리더십 전체 가이드 →</a>
+      </section>
+
+      <section class="le-conclusion">
+        <div class="sg-eyebrow">JOYLAB CONCLUSION</div>
+        <p>책임은 엄격함과 관대함 중 하나를 고르는 문제가 아닙니다.</p>
+        <h2>실패를 숨기지 않게 하면서도<br />같은 실패를 반복하지 않게 해야 한다.</h2>
+        <p>그때 처벌은 사건의 끝이 될 수 있지만 변화는 조직의 다음 시작이 됩니다.</p>
+      </section>
+    </article>
+
+    <section class="le-faq">
+      <div class="sg-eyebrow">FAQ</div>
+      <h2>『죄와 벌』과 책임과 회복</h2>
+      {faq.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <section class="le-next" aria-labelledby="series-next-title">
+      <div>
+        <small>SERIES MAP</small>
+        <h2 id="series-next-title">문학에서 배우는 리더십 — 10개의 고전으로 보는 사람과 조직</h2>
+        <p>EP01부터 EP10까지 성과, 관계, 성장, 존엄, 권력, 심리적 안전, 판단, 공정성, 시스템, 책임의 흐름을 한 번에 다시 봅니다.</p>
+      </div>
+      <a href="/guides/growth-leadership/literature#series-map">전체 시리즈 다시 보기 →</a>
+    </section>
+
+    <footer class="le-back">
+      <a href="/guides/growth-leadership/literature/lord-of-the-flies">← EP09 파리대왕</a>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십 전체 보기 →</a>
+    </footer>
+  </main>
+</BaseLayout>

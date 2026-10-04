@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  [
+    "태도도 평가해야 하지 않나요?",
+    "태도도 중요하지만 먼저 관찰 가능한 행동을 근거로 설명해야 평가의 공정성과 개선 가능성이 높아집니다."
+  ],
+  [
+    "피드백에서 피해야 할 표현은 무엇인가요?",
+    "사람의 성격이나 동기를 단정하는 표현입니다. “무책임하다”보다 “약속한 후속 조치가 기한 내 실행되지 않았다”가 더 정확합니다."
+  ],
+  [
+    "효과적인 피드백 구조는 무엇인가요?",
+    "관찰한 행동, 그 행동의 영향, 다음에 기대하는 행동 순서가 실무에서 사용하기 좋습니다."
+  ]
+];
+const takeaways = [
+  [
+    "01",
+    "관찰과 해석을 분리한다",
+    "무엇을 봤는지와 그것을 어떻게 해석했는지를 구분해야 합니다."
+  ],
+  [
+    "02",
+    "사람보다 행동을 평가한다",
+    "바꿀 수 있는 행동을 특정해야 피드백이 개선으로 이어집니다."
+  ],
+  [
+    "03",
+    "성격 단정은 방어를 만든다",
+    "동기와 인성에 대한 추정은 논쟁을 키우기 쉽습니다."
+  ],
+  [
+    "04",
+    "영향을 연결해야 의미가 생긴다",
+    "행동이 고객, 팀, 성과에 어떤 영향을 줬는지 설명합니다."
+  ],
+  [
+    "05",
+    "다음 행동까지 합의한다",
+    "좋은 피드백은 과거 판정이 아니라 다음 행동 설계로 끝납니다."
+  ]
+];
+const coachingQuestions = [
+  "내가 직접 관찰한 사실은 무엇인가요?",
+  "그 사실에 내가 덧붙인 해석은 무엇인가요?",
+  "성격을 단정하는 단어를 쓰고 있지 않나요?",
+  "다른 사람이 같은 행동을 해도 동일하게 평가하나요?",
+  "고성과자에게 더 긍정적인 동기를 추정하지 않나요?",
+  "최근 한 번의 실수를 사람 전체로 확대하지 않았나요?",
+  "행동의 빈도와 지속 기간을 확인했나요?",
+  "고객이나 팀에 발생한 구체적 영향을 설명할 수 있나요?",
+  "상대가 반박할 수 있는 사실 자료가 있나요?",
+  "다음 행동을 관찰 가능하게 정의했나요?",
+  "개선 여부를 확인할 시점을 정했나요?",
+  "나는 지금 행동을 평가하는가, 사람 전체를 평가하는가?"
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: "우리는 사실을 보는가, 사람의 이미지를 보는가",
+  alternativeHeadline: "『이방인』에서 배우는 판단과 편견의 리더십",
+  description: "알베르 카뮈 『이방인』을 관찰과 해석, 판단 편향과 공정한 피드백 관점에서 분석한 JoyLab Literature & Leadership Research.",
+  mainEntityOfPage: "https://aijoylab.kr/guides/growth-leadership/literature/the-stranger",
+  author: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  publisher: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  about: ["Leadership","Judgment","Bias","Feedback","The Stranger"]
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(([q,a]) => ({
+    '@type':'Question', name:q,
+    acceptedAnswer:{ '@type':'Answer', text:a }
+  }))
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'JoyLab', item: 'https://aijoylab.kr/' },
+    { '@type': 'ListItem', position: 2, name: '성장·리더십', item: 'https://aijoylab.kr/guides/growth-leadership' },
+    { '@type': 'ListItem', position: 3, name: '문학에서 배우는 리더십', item: 'https://aijoylab.kr/guides/growth-leadership/literature' },
+    { '@type': 'ListItem', position: 4, name: "이방인", item: "https://aijoylab.kr/guides/growth-leadership/literature/the-stranger" }
+  ]
+};
+---
+
+<BaseLayout
+  title="이방인 리더십｜우리는 사실을 보는가, 사람의 이미지를 보는가 | JoyLab"
+  description="알베르 카뮈 『이방인』을 통해 관찰과 해석, 행동과 사람을 분리하는 공정한 평가와 피드백을 살펴봅니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/the-stranger"
+  type="article"
+  bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP RESEARCH · EP07</div>
+      <h1>우리는 사실을 보는가,<br /><span>사람의 이미지를 보는가</span></h1>
+      <p class="le-subtitle">『이방인』에서 배우는 판단과 편견</p>
+      <p class="le-intro">“소극적이다”, “책임감이 없다”는 평가는 사실처럼 들리지만 대부분 해석입니다. 관찰 가능한 행동과 사람에 대한 판단을 분리할 때 피드백은 낙인이 아니라 개선 도구가 됩니다.</p>
+      <div class="le-meta"><span>Judgment</span><span>Bias</span><span>Feedback</span><span>Observation</span></div>
+    </header>
+
+    <section class="le-visual le-visual--ep07" aria-label="이방인 판단과 편견 리더십 비주얼">
+      <div><span>EP07</span><b>FACT × JUDGMENT</b></div>
+      <i aria-hidden="true"></i>
+    </section>
+
+    <article class="le-body">
+      <section class="le-research-brief">
+        <div class="sg-eyebrow">RESEARCH BRIEF</div>
+        <h2>피드백이 행동을 설명하다가 사람 전체를 규정하는 순간, 코칭은 판결이 된다.</h2>
+        <p>『이방인』의 뫼르소는 자신의 행동뿐 아니라 사회가 기대한 감정과 태도까지 함께 판단받습니다. 우리는 실제 사실보다 “그 사람답다”는 이미지에 얼마나 쉽게 기대는지 돌아보게 됩니다.</p>
+        <p>조직에서도 태도, 열정, 책임감 같은 단어가 구체적 행동 없이 사용되면 평가자는 편해지지만 피평가자는 무엇을 바꿔야 할지 알기 어렵습니다.</p>
+        <blockquote>사람에 대한 판단은 방어를 만들고,<br />행동에 대한 관찰은 개선을 만든다.</blockquote>
+        <div class="le-diagnosis">
+          <article><b>FACT</b><span>실제로 무엇을 봤는가</span></article>
+          <article><b>INTERPRET</b><span>무엇을 추정했는가</span></article>
+          <article><b>IMPACT</b><span>어떤 결과가 있었는가</span></article>
+          <article><b>NEXT</b><span>무엇을 바꿀 것인가</span></article>
+        </div>
+      </section>
+
+      <section class="le-key-takeaways">
+        <div class="sg-eyebrow">KEY TAKEAWAYS</div>
+        <h2>『이방인』이 리더에게 남기는 5가지 원칙</h2>
+        <div class="le-takeaway-list">
+          {takeaways.map(([no,title,body]) => (
+            <article><div class="le-takeaway-list__no">{no}</div><div><h3>{title}</h3><p>{body}</p></div></article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · JUDGMENT</div>
+        <h2>“책임감이 없다”는 말은 왜 위험한가</h2>
+        <p>내면의 동기를 단정하면 평가자는 설명을 끝낼 수 있지만 구성원은 무엇을 수정해야 할지 알 수 없습니다. 코칭은 성격 분석보다 행동 데이터에 가까워야 합니다.</p>
+        <div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>좋은 평가는 사람을 정의하지 않는다. 바꿀 수 있는 행동을 정확하게 보여준다.</p></div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · FEEDBACK</div>
+        <h2>관찰 → 영향 → 다음 행동의 세 단계로 바꾼다</h2>
+        <p>“확인 질문이 두 차례 누락됐다 → 고객이 같은 내용을 다시 물었다 → 다음 상담에서는 안내 후 확인 질문을 한 번 넣자”처럼 구성하면 판단보다 개선에 집중할 수 있습니다.</p>
+        <div class="le-control">
+          <article><small>CHECK FIRST</small><h3>피드백 전</h3><p>사실, 빈도, 맥락과 영향을 정리합니다.</p></article>
+          <article><small>CHECK NEXT</small><h3>피드백 후</h3><p>합의한 행동과 재확인 시점을 기록합니다.</p></article>
+        </div>
+        <blockquote class="is-dark">평가의 언어가 사람 전체를 향하는 순간<br />공정성은 약해지고 방어는 강해진다.</blockquote>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">COACHING QUESTIONS</div>
+        <h2>판단 편향을 줄이는 12개 리더 질문</h2>
+        <p>관찰 → 해석 → 영향 → 다음 행동 순으로 사용합니다.</p>
+        <ol class="le-question-list">
+          {coachingQuestions.map((q)=><li>{q}</li>)}
+        </ol>
+        <div class="le-gold-question">
+          <small>GOLD QUESTION</small>
+          <p>내가 지금 평가하고 있는 것은 행동인가, 사람인가?</p>
+        </div>
+      </section>
+
+      <section class="le-action">
+        <div class="sg-eyebrow">LEADERSHIP ACTION</div>
+        <h2>이번 주 피드백에서 성격 단정 표현을 행동 언어로 바꾼다.</h2>
+        <div class="le-action-grid">
+          <article><b>01 · OBSERVE</b><p>관찰 가능한 행동만 적습니다.</p></article>
+          <article><b>02 · IMPACT</b><p>그 행동이 만든 영향을 연결합니다.</p></article>
+          <article><b>03 · REQUEST</b><p>다음에 기대하는 행동을 구체화합니다.</p></article>
+          <article><b>04 · REVIEW</b><p>재확인 날짜와 기준을 정합니다.</p></article>
+        </div>
+        <a href="/guides/growth-leadership">성장·리더십 전체 가이드 →</a>
+      </section>
+
+      <section class="le-conclusion">
+        <div class="sg-eyebrow">JOYLAB CONCLUSION</div>
+        <p>공정한 평가는 차갑지 않습니다.</p>
+        <h2>사람을 규정하지 않고<br />행동을 정확하게 말하는 것이 더 공정하다.</h2>
+        <p>평가의 목적이 개선이라면 언어부터 개선 가능하게 설계해야 합니다.</p>
+      </section>
+    </article>
+
+    <section class="le-faq">
+      <div class="sg-eyebrow">FAQ</div>
+      <h2>『이방인』과 판단과 편견</h2>
+      {faq.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <section class="le-next" aria-labelledby="ep08-next-title">
+      <div>
+        <small>NEXT · EP08</small>
+        <h2 id="ep08-next-title">『레미제라블』 — 두 번째 기회는 어디까지 공정한가</h2>
+        <p>다음 Research에서는 동일한 기준과 필요한 지원 사이에서 조직의 공정성을 어떻게 설계할지 살펴봅니다.</p>
+      </div>
+      <a href="/guides/growth-leadership/literature/les-miserables">EP08 읽기 →</a>
+    </section>
+
+    <footer class="le-back">
+      <a href="/guides/growth-leadership/literature/1984">← EP06 1984</a>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십 전체 보기 →</a>
+    </footer>
+  </main>
+</BaseLayout>

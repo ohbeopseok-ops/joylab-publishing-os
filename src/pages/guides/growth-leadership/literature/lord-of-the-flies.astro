@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  [
+    "모든 업무를 SOP로 만들어야 하나요?",
+    "아닙니다. 반복 빈도가 높고 실패 비용이 큰 업무부터 표준화하는 것이 효율적입니다."
+  ],
+  [
+    "시스템이 많으면 관료화되지 않나요?",
+    "가능합니다. 시스템은 통제 자체가 아니라 반복 오류와 특정 개인 의존성을 줄이는 데 목적을 둬야 합니다."
+  ],
+  [
+    "어떤 업무부터 시스템화해야 하나요?",
+    "특정 사람이 없으면 멈추는 업무, 자주 누락되는 업무, 실패 비용이 큰 업무가 우선순위입니다."
+  ]
+];
+const takeaways = [
+  [
+    "01",
+    "선의만으로 조직은 유지되지 않는다",
+    "사람이 좋아도 역할과 기준이 없으면 결과의 편차가 커집니다."
+  ],
+  [
+    "02",
+    "반복 업무에는 소유자가 필요하다",
+    "누가 최종 책임자인지 불명확하면 모두의 일이 아무의 일도 아닐 수 있습니다."
+  ],
+  [
+    "03",
+    "시작 조건과 기한을 분명히 한다",
+    "언제 시작하고 언제 끝나는지를 정의해야 누락을 줄일 수 있습니다."
+  ],
+  [
+    "04",
+    "검증 없는 완료는 완료가 아니다",
+    "작업 종료와 결과 확인을 분리해야 품질이 유지됩니다."
+  ],
+  [
+    "05",
+    "시스템은 개인 의존도를 낮춘다",
+    "숙련자의 기억을 구조로 옮기면 휴가와 이동에도 운영이 지속됩니다."
+  ]
+];
+const coachingQuestions = [
+  "특정 사람이 없으면 멈추는 업무는 무엇인가요?",
+  "반복 업무마다 최종 Owner가 한 명인가요?",
+  "업무가 시작되는 Trigger를 설명할 수 있나요?",
+  "완료 기준이 명확한가요?",
+  "마감 시간이 실제로 정의돼 있나요?",
+  "완료 후 누가 검증하나요?",
+  "업무 변경 이력이 남나요?",
+  "예외 상황의 처리 원칙이 있나요?",
+  "신입도 문서만 보고 기본 수행이 가능한가요?",
+  "같은 오류가 반복되는데 개인에게만 책임을 묻고 있지 않나요?",
+  "자동화보다 먼저 표준화가 필요한 업무는 무엇인가요?",
+  "우리 팀이 잘 돌아가는 이유는 시스템인가, 몇 명의 헌신인가?"
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: "규칙이 무너지면 조직은 무엇으로 움직이는가",
+  alternativeHeadline: "『파리대왕』에서 배우는 집단행동과 시스템의 리더십",
+  description: "윌리엄 골딩 『파리대왕』을 집단행동, 규칙, 역할과 시스템 관점에서 분석한 JoyLab Literature & Leadership Research.",
+  mainEntityOfPage: "https://aijoylab.kr/guides/growth-leadership/literature/lord-of-the-flies",
+  author: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  publisher: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  about: ["Leadership","System","Group Behavior","Rules","Lord of the Flies"]
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(([q,a]) => ({
+    '@type':'Question', name:q,
+    acceptedAnswer:{ '@type':'Answer', text:a }
+  }))
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'JoyLab', item: 'https://aijoylab.kr/' },
+    { '@type': 'ListItem', position: 2, name: '성장·리더십', item: 'https://aijoylab.kr/guides/growth-leadership' },
+    { '@type': 'ListItem', position: 3, name: '문학에서 배우는 리더십', item: 'https://aijoylab.kr/guides/growth-leadership/literature' },
+    { '@type': 'ListItem', position: 4, name: "파리대왕", item: "https://aijoylab.kr/guides/growth-leadership/literature/lord-of-the-flies" }
+  ]
+};
+---
+
+<BaseLayout
+  title="파리대왕 리더십｜규칙이 무너지면 조직은 무엇으로 움직이는가 | JoyLab"
+  description="윌리엄 골딩 『파리대왕』을 통해 집단행동, 규칙, 역할과 반복 업무 시스템이 필요한 이유를 살펴봅니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/lord-of-the-flies"
+  type="article"
+  bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP RESEARCH · EP09</div>
+      <h1>규칙이 무너지면<br /><span>조직은 무엇으로 움직이는가</span></h1>
+      <p class="le-subtitle">『파리대왕』에서 배우는 집단행동과 규칙</p>
+      <p class="le-intro">좋은 사람만 모으면 좋은 조직이 만들어질까요? 반복 업무가 몇 명의 기억과 헌신에 의존한다면 조직은 시스템이 아니라 개인의 선의로 움직이고 있을 수 있습니다.</p>
+      <div class="le-meta"><span>System</span><span>Rules</span><span>Ownership</span><span>Verification</span></div>
+    </header>
+
+    <section class="le-visual le-visual--ep09" aria-label="파리대왕 집단행동과 규칙 리더십 비주얼">
+      <div><span>EP09</span><b>RULES × SYSTEM</b></div>
+      <i aria-hidden="true"></i>
+    </section>
+
+    <article class="le-body">
+      <section class="le-research-brief">
+        <div class="sg-eyebrow">RESEARCH BRIEF</div>
+        <h2>좋은 조직은 좋은 의지에만 의존하지 않는다. 좋은 행동이 반복되는 구조를 만든다.</h2>
+        <p>『파리대왕』에서 공동의 규칙과 역할이 약해질수록 집단의 행동은 두려움과 힘의 논리에 더 크게 흔들립니다. 사람의 성품만으로 질서가 유지되지 않는다는 점을 보여줍니다.</p>
+        <p>조직에서도 담당자, 시작 조건, 기한, 검증 방식이 불명확하면 결과는 몇 명의 숙련자와 책임감에 의존하게 됩니다.</p>
+        <blockquote>좋은 시스템은 사람을 통제하는 장치가 아니라<br />좋은 판단을 반복 가능하게 만드는 장치다.</blockquote>
+        <div class="le-diagnosis">
+          <article><b>OWNER</b><span>누가 책임지는가</span></article>
+          <article><b>TRIGGER</b><span>언제 시작하는가</span></article>
+          <article><b>ACTION</b><span>무엇을 하는가</span></article>
+          <article><b>VERIFY</b><span>어떻게 확인하는가</span></article>
+        </div>
+      </section>
+
+      <section class="le-key-takeaways">
+        <div class="sg-eyebrow">KEY TAKEAWAYS</div>
+        <h2>『파리대왕』이 리더에게 남기는 5가지 원칙</h2>
+        <div class="le-takeaway-list">
+          {takeaways.map(([no,title,body]) => (
+            <article><div class="le-takeaway-list__no">{no}</div><div><h3>{title}</h3><p>{body}</p></div></article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · SYSTEM</div>
+        <h2>“그 사람이 알아서 한다”는 운영 방식의 위험</h2>
+        <p>숙련자에게 의존하는 방식은 평상시에는 효율적으로 보이지만 휴가, 이동, 퇴사, 급격한 업무 증가 시 취약성이 드러납니다.</p>
+        <div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>개인의 숙련을 존중하되 조직의 핵심 반복 업무는 개인의 머릿속에서 시스템으로 옮겨야 한다.</p></div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · OPERATING RULE</div>
+        <h2>Owner · Trigger · Action · Deadline · Verification</h2>
+        <p>반복 업무를 다섯 요소로 정의하면 업무 인수인계와 재현성이 높아집니다. 복잡한 SOP보다 한 문장의 운영 계약부터 시작할 수 있습니다.</p>
+        <div class="le-control">
+          <article><small>CHECK FIRST</small><h3>업무 시작 전에</h3><p>Owner, Trigger, 기대 결과와 기한을 정합니다.</p></article>
+          <article><small>CHECK NEXT</small><h3>업무 종료 후</h3><p>검증자, 증거, 예외와 재작업 여부를 확인합니다.</p></article>
+        </div>
+        <blockquote class="is-dark">좋은 사람이 계속 좋은 판단을 하길 기대하지 말고<br />좋은 판단이 반복되는 구조를 만든다.</blockquote>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">COACHING QUESTIONS</div>
+        <h2>개인 의존도를 줄이는 12개 운영 질문</h2>
+        <p>Owner → Trigger → Action → Deadline → Verification 순서로 사용합니다.</p>
+        <ol class="le-question-list">
+          {coachingQuestions.map((q)=><li>{q}</li>)}
+        </ol>
+        <div class="le-gold-question">
+          <small>GOLD QUESTION</small>
+          <p>지금 우리 팀이 잘 돌아가는 이유는 시스템 때문인가, 몇 명의 헌신 때문인가?</p>
+        </div>
+      </section>
+
+      <section class="le-action">
+        <div class="sg-eyebrow">LEADERSHIP ACTION</div>
+        <h2>반복 업무 하나를 5요소 운영 계약으로 바꾼다.</h2>
+        <div class="le-action-grid">
+          <article><b>01 · OWNER</b><p>최종 책임자를 한 명 지정합니다.</p></article>
+          <article><b>02 · TRIGGER</b><p>업무 시작 조건을 명확히 합니다.</p></article>
+          <article><b>03 · DEADLINE</b><p>완료 시점과 산출물을 정합니다.</p></article>
+          <article><b>04 · VERIFY</b><p>결과를 확인할 증거와 사람을 정합니다.</p></article>
+        </div>
+        <a href="/guides/growth-leadership">성장·리더십 전체 가이드 →</a>
+      </section>
+
+      <section class="le-conclusion">
+        <div class="sg-eyebrow">JOYLAB CONCLUSION</div>
+        <p>사람은 시스템보다 중요합니다.</p>
+        <h2>그래서 더더욱<br />사람의 헌신을 시스템으로 보호해야 한다.</h2>
+        <p>좋은 운영은 뛰어난 개인을 대체하지 않고 그 개인에게 과도하게 의존하지 않게 합니다.</p>
+      </section>
+    </article>
+
+    <section class="le-faq">
+      <div class="sg-eyebrow">FAQ</div>
+      <h2>『파리대왕』과 집단행동과 규칙</h2>
+      {faq.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <section class="le-next" aria-labelledby="ep10-next-title">
+      <div>
+        <small>NEXT · EP10</small>
+        <h2 id="ep10-next-title">『죄와 벌』 — 신뢰는 어떻게 다시 만들어지는가</h2>
+        <p>마지막 Research에서는 잘못 이후의 책임, 회복과 재발 방지를 조직학습의 관점에서 살펴봅니다.</p>
+      </div>
+      <a href="/guides/growth-leadership/literature/crime-and-punishment">EP10 읽기 →</a>
+    </section>
+
+    <footer class="le-back">
+      <a href="/guides/growth-leadership/literature/les-miserables">← EP08 레미제라블</a>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십 전체 보기 →</a>
+    </footer>
+  </main>
+</BaseLayout>

@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  [
+    "심리적 안전은 편안한 분위기와 같은가요?",
+    "아닙니다. 핵심은 질문, 실수, 반대 의견과 불편한 사실을 말했을 때 과도한 불이익을 걱정하지 않아도 되는 상태입니다."
+  ],
+  [
+    "나쁜 소식을 빨리 받으려면 무엇을 바꿔야 하나요?",
+    "보고 채널보다 리더의 반응이 먼저입니다. 문제를 가져온 사람을 공격하지 않고 사실과 원인을 분리해서 다루는 행동이 반복돼야 합니다."
+  ],
+  [
+    "회의에서 이견이 거의 없으면 좋은 신호 아닌가요?",
+    "항상 그렇지는 않습니다. 실제 합의일 수도 있지만 반대 의견을 내기 어렵다는 신호일 수도 있어 검증 질문이 필요합니다."
+  ]
+];
+const takeaways = [
+  [
+    "01",
+    "정보는 사라지기보다 왜곡된다",
+    "구성원은 안전하다고 느끼는 방식으로 사실을 포장할 수 있습니다."
+  ],
+  [
+    "02",
+    "심리적 안전은 불편한 말을 할 수 있는 상태다",
+    "친밀감보다 반대 의견과 실패를 말할 수 있는지가 핵심입니다."
+  ],
+  [
+    "03",
+    "리더의 첫 반응이 보고 문화를 만든다",
+    "문제를 가져온 사람을 혼내면 다음 문제는 더 늦게 올라옵니다."
+  ],
+  [
+    "04",
+    "좋은 뉴스보다 나쁜 뉴스의 속도를 관리한다",
+    "위험 정보가 늦어질수록 수정 비용은 커집니다."
+  ],
+  [
+    "05",
+    "반대 의견은 사람보다 가설을 공격하게 한다",
+    "토론의 초점을 개인이 아니라 가정과 증거에 두면 발언 부담이 낮아집니다."
+  ]
+];
+const coachingQuestions = [
+  "우리 팀에서 가장 말하기 어려운 사실은 무엇인가요?",
+  "실패를 먼저 보고한 사람에게 나는 어떤 표정을 짓나요?",
+  "회의에서 마지막 반대 의견이 나온 때는 언제인가요?",
+  "리더의 가설을 반박해도 불이익이 없다고 느끼나요?",
+  "좋지 않은 수치를 숨기거나 완화하는 관행은 없나요?",
+  "현장과 보고서의 온도차를 어떻게 확인하나요?",
+  "익명 채널 없이도 문제 제기가 가능한가요?",
+  "문제를 제기한 사람과 문제를 만든 사람을 구분하나요?",
+  "실패 보고 후 실제 개선이 일어났나요?",
+  "반대 의견을 먼저 요청하는 회의 구조가 있나요?",
+  "좋은 뉴스와 나쁜 뉴스 중 무엇이 더 빨리 올라오나요?",
+  "지금 우리가 틀렸다고 가정하면 무엇부터 확인해야 하나요?"
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: "구성원이 진실을 말하지 않는 조직은 어떻게 되는가",
+  alternativeHeadline: "『1984』에서 배우는 심리적 안전과 정보의 리더십",
+  description: "조지 오웰 『1984』를 심리적 안전과 정보 왜곡, 조직의 진실 전달 구조 관점에서 분석한 JoyLab Literature & Leadership Research.",
+  mainEntityOfPage: "https://aijoylab.kr/guides/growth-leadership/literature/1984",
+  author: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  publisher: { '@type': 'Organization', name: 'JoyLab', url: 'https://aijoylab.kr' },
+  about: ["Leadership","Psychological Safety","Information","Truth","1984"]
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(([q,a]) => ({
+    '@type':'Question', name:q,
+    acceptedAnswer:{ '@type':'Answer', text:a }
+  }))
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'JoyLab', item: 'https://aijoylab.kr/' },
+    { '@type': 'ListItem', position: 2, name: '성장·리더십', item: 'https://aijoylab.kr/guides/growth-leadership' },
+    { '@type': 'ListItem', position: 3, name: '문학에서 배우는 리더십', item: 'https://aijoylab.kr/guides/growth-leadership/literature' },
+    { '@type': 'ListItem', position: 4, name: "1984", item: "https://aijoylab.kr/guides/growth-leadership/literature/1984" }
+  ]
+};
+---
+
+<BaseLayout
+  title="1984 리더십｜구성원이 진실을 말하지 않는 조직은 어떻게 되는가 | JoyLab"
+  description="조지 오웰 『1984』를 심리적 안전, 정보 왜곡, 나쁜 소식의 전달 속도라는 조직 리더십 관점에서 분석합니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/1984"
+  type="article"
+  bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP RESEARCH · EP06</div>
+      <h1>구성원이 진실을 말하지 않는<br /><span>조직은 어떻게 되는가</span></h1>
+      <p class="le-subtitle">『1984』에서 배우는 심리적 안전과 정보</p>
+      <p class="le-intro">조직에서 가장 위험한 순간은 문제가 생겼을 때가 아니라 문제가 리더에게 전달되지 않을 때입니다. 좋은 정보보다 나쁜 정보가 얼마나 빨리 올라오는지가 조직의 안전성을 결정합니다.</p>
+      <div class="le-meta"><span>Safety</span><span>Information</span><span>Truth</span><span>Speak Up</span></div>
+    </header>
+
+    <section class="le-visual le-visual--ep06" aria-label="1984 심리적 안전과 정보 리더십 비주얼">
+      <div><span>EP06</span><b>SAFETY × INFORMATION</b></div>
+      <i aria-hidden="true"></i>
+    </section>
+
+    <article class="le-body">
+      <section class="le-research-brief">
+        <div class="sg-eyebrow">RESEARCH BRIEF</div>
+        <h2>좋은 조직은 문제가 없는 조직이 아니라, 문제가 빨리 드러나는 조직이다.</h2>
+        <p>『1984』에서 권력은 감시뿐 아니라 무엇이 사실인지 정의하는 능력으로 작동합니다. 조직에서도 불편한 사실이 사라지는 대신 보고 가능한 형태로 왜곡될 수 있습니다.</p>
+        <p>회의에서 이견이 없고 보고서가 지나치게 긍정적이라면 정말 문제가 없는 것인지, 아니면 말하기 어려운 구조인지 구분해야 합니다.</p>
+        <blockquote>대시보드가 초록색이라고<br />조직까지 건강한 것은 아니다.</blockquote>
+        <div class="le-diagnosis">
+          <article><b>VOICE</b><span>말할 수 있는가</span></article>
+          <article><b>RISK</b><span>말했을 때 손해가 있는가</span></article>
+          <article><b>SPEED</b><span>나쁜 소식이 빨리 올라오는가</span></article>
+          <article><b>RESPONSE</b><span>리더는 어떻게 반응하는가</span></article>
+        </div>
+      </section>
+
+      <section class="le-key-takeaways">
+        <div class="sg-eyebrow">KEY TAKEAWAYS</div>
+        <h2>『1984』이 리더에게 남기는 5가지 원칙</h2>
+        <div class="le-takeaway-list">
+          {takeaways.map(([no,title,body]) => (
+            <article><div class="le-takeaway-list__no">{no}</div><div><h3>{title}</h3><p>{body}</p></div></article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · INFORMATION</div>
+        <h2>사람들은 진실보다 안전한 정보를 보고하기 시작한다</h2>
+        <p>리더가 듣고 싶은 답이 명확할수록 구성원은 사실 자체보다 통과 가능한 보고를 만들 가능성이 커집니다. 문제는 보고서 품질이 아니라 의사결정 품질입니다.</p>
+        <div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>심리적 안전의 실전 지표는 편안함이 아니라 불편한 정보가 위로 이동하는 속도다.</p></div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · SPEAK UP</div>
+        <h2>“다른 의견?”보다 더 좋은 질문을 설계한다</h2>
+        <p>광범위한 질문은 침묵으로 끝나기 쉽습니다. “우리가 틀렸다고 가정하면 무엇부터 확인해야 합니까?”처럼 반대 의견의 역할을 명확히 하면 발언 비용을 낮출 수 있습니다.</p>
+        <div class="le-control">
+          <article><small>CHECK FIRST</small><h3>회의 전에</h3><p>반대 의견이 필요한 의사결정과 검증 가설을 명시합니다.</p></article>
+          <article><small>CHECK NEXT</small><h3>회의 후에</h3><p>제기된 위험이 실제로 추적되고 수정되었는지 확인합니다.</p></article>
+        </div>
+        <blockquote class="is-dark">좋은 리더는 많은 보고를 받는 사람이 아니라<br />나쁜 소식을 일찍 받는 사람이다.</blockquote>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">COACHING QUESTIONS</div>
+        <h2>심리적 안전과 정보 흐름을 점검하는 12개 질문</h2>
+        <p>발언 가능성 → 리더 반응 → 정보 속도 → 후속 조치 순서로 사용합니다.</p>
+        <ol class="le-question-list">
+          {coachingQuestions.map((q)=><li>{q}</li>)}
+        </ol>
+        <div class="le-gold-question">
+          <small>GOLD QUESTION</small>
+          <p>우리 조직에서 지금 가장 말하기 어려운 사실은 무엇인가?</p>
+        </div>
+      </section>
+
+      <section class="le-action">
+        <div class="sg-eyebrow">LEADERSHIP ACTION</div>
+        <h2>다음 회의의 마지막 질문 하나를 바꾼다.</h2>
+        <div class="le-action-grid">
+          <article><b>01 · ASSUME</b><p>우리가 틀렸다고 가정합니다.</p></article>
+          <article><b>02 · ASK</b><p>가장 먼저 확인할 위험을 묻습니다.</p></article>
+          <article><b>03 · PROTECT</b><p>반대 의견을 낸 사람과 논점을 분리합니다.</p></article>
+          <article><b>04 · TRACK</b><p>제기된 위험의 후속 결과를 다음 회의에서 확인합니다.</p></article>
+        </div>
+        <a href="/guides/growth-leadership">성장·리더십 전체 가이드 →</a>
+      </section>
+
+      <section class="le-conclusion">
+        <div class="sg-eyebrow">JOYLAB CONCLUSION</div>
+        <p>진실은 보고 체계만으로 올라오지 않습니다.</p>
+        <h2>리더의 반응이<br />정보의 속도와 품질을 결정한다.</h2>
+        <p>불편한 사실을 말할 수 있어야 조직은 현실을 수정할 수 있습니다.</p>
+      </section>
+    </article>
+
+    <section class="le-faq">
+      <div class="sg-eyebrow">FAQ</div>
+      <h2>『1984』과 심리적 안전과 정보</h2>
+      {faq.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <section class="le-next" aria-labelledby="ep07-next-title">
+      <div>
+        <small>NEXT · EP07</small>
+        <h2 id="ep07-next-title">『이방인』 — 우리는 사실을 보는가, 사람의 이미지를 보는가</h2>
+        <p>다음 Research에서는 관찰과 해석을 분리해 공정한 평가와 피드백을 만드는 방법을 살펴봅니다.</p>
+      </div>
+      <a href="/guides/growth-leadership/literature/the-stranger">EP07 읽기 →</a>
+    </section>
+
+    <footer class="le-back">
+      <a href="/guides/growth-leadership/literature/animal-farm">← EP05 동물농장</a>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십 전체 보기 →</a>
+    </footer>
+  </main>
+</BaseLayout>
