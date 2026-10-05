@@ -1,0 +1,46 @@
+name: Repository Policy Checker V1
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'config/repository-registry.json'
+      - 'scripts/check-repository-policy-v1.mjs'
+      - '.github/workflows/**'
+      - 'AGENTS.md'
+      - 'docs/operations/repository-tier-policy-v1.md'
+      - 'docs/operations/joylab-release-rule-v1.md'
+  push:
+    branches: [main]
+    paths:
+      - 'config/repository-registry.json'
+      - 'scripts/check-repository-policy-v1.mjs'
+      - '.github/workflows/**'
+      - 'AGENTS.md'
+      - 'docs/operations/repository-tier-policy-v1.md'
+      - 'docs/operations/joylab-release-rule-v1.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: repository-policy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  policy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Enforce repository policy
+        run: npm run repository-policy:check
