@@ -195,3 +195,25 @@ Do not declare PASS merely because:
 For production/release work, completion follows the applicable contract and release gate.
 
 Use PASS / BLOCKED where practical.
+
+## 8. Release and CI governance
+
+Before changing workflows, release behavior, or repository automation, read:
+- `docs/operations/joylab-release-rule-v1.md`
+- `docs/operations/repository-tier-policy-v1.md`
+- `config/repository-registry.json`
+
+Hard rules:
+1. Do not merge to `main` before the repository's required checks are GREEN.
+2. Tier B repositories must require at least one PR Build/Test check before merge.
+3. Keep automatic PR fan-out at **3 workflows or fewer** unless an explicit exception is documented.
+4. Tier B and Tier C repositories have **0 recurring cron workflows by default**.
+5. Heavy browser/Lighthouse/Playwright workflows have **0 recurring cron runs by default**.
+6. Hourly cron is prohibited unless a documented production SLA explicitly requires it.
+7. Tier A production-health style monitoring may run at most **4 times per day** by default.
+8. Prefer path filters and `concurrency.cancel-in-progress` for read-only PR checks.
+9. Do not add a new scheduled workflow without updating `config/repository-registry.json` and the tier policy.
+10. Treat `config/repository-registry.json` as the SSOT for repository tier, required checks, and CI limits.
+
+Merge sequence:
+feature branch → targeted local checks → Draft PR → required checks GREEN → Ready → merge with verified head SHA → main/post-deploy verification.
