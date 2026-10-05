@@ -1,0 +1,54 @@
+{
+  "version": "5.0",
+  "extends": "Visual Asset Contract V4",
+  "palette": {
+    "deepNavy": "#041A3E",
+    "electricBlue": "#2563FF",
+    "cyan": "#00D1FF",
+    "ivory": "#F8FAFC",
+    "slate": "#94A3B8",
+    "dark": "#090F16"
+  },
+  "microLanguage": "SIGNAL / EVIDENCE / DECISION",
+  "pillars": ["INVESTING", "AI", "LEADERSHIP"],
+  "surfaces": [
+    {
+      "name": "homepage",
+      "source": "src/pages/index.astro",
+      "bodyClass": "homepage-v2",
+      "requiredSource": [
+        "JOYLAB RESEARCH · SIGNAL / EVIDENCE / DECISION",
+        "INVESTING",
+        "LEADERSHIP",
+        "brand-system-v1-1.css"
+      ]
+    },
+    {
+      "name": "about",
+      "source": "src/pages/about.astro",
+      "bodyClass": "about-v2",
+      "requiredSource": [
+        "Fact → Interpretation → Scenario → Action",
+        "brand-surfaces-v1-1.css"
+      ]
+    },
+    {
+      "name": "research",
+      "source": "src/pages/articles/index.astro",
+      "bodyClass": "research-hub-page",
+      "requiredSource": [
+        "사실 → 해석 → 시나리오 → 실행",
+        "brand-surfaces-v1-1.css"
+      ]
+    },
+    {
+      "name": "books",
+      "source": "src/pages/books/index.astro",
+      "bodyClass": "books-hub-v2",
+      "requiredSource": [
+        "JOYLAB BOOKS",
+        "brand-surfaces-v1-1.css"
+      ]
+    }
+  ]
+}
