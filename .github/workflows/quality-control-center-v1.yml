@@ -1,8 +1,6 @@
 name: JoyLab Quality Control Center V1
 
 on:
-  schedule:
-    - cron: "45 22 * * *"
   pull_request:
     branches: [main]
     paths:
