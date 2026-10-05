@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import data from '../../../data/motion-studio/cases/ai-infrastructure-bottleneck-gold-001.json';
+
+const isGold = data.status === 'GOLD' && ['GREEN','SHOWCASE_GOLD'].includes(data.creativeGate.verdict);
+const robots = isGold ? 'index,follow' : 'noindex,follow';
+const scores = Object.entries(data.creativeGate.scores);
+---
+<BaseLayout
+  title={data.title + ' | JoyLab Motion Studio'}
+  description={data.thesis.statement}
+  robots={robots}
+  bodyClass="motion-case-page"
+>
+  <section class="case-hero">
+    <div class="shell">
+      <p class="eyebrow">JOYLAB MOTION CASE STUDY · GOLD #001</p>
+      <h1>{data.title}</h1>
+      <p class="angle">“{data.thesis.editorialAngle}”</p>
+      <div class="meta">
+        <span>{data.status}</span>
+        <span>Confidence {data.thesis.confidence}</span>
+        <span>{data.finalVideo.duration}s · {data.finalVideo.aspectRatio}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell block">
+    <p class="eyebrow">01 · RESEARCH SOURCE</p>
+    <div class="split">
+      <div>
+        <h2>영상은 리서치에서 시작한다</h2>
+        <p>{data.thesis.statement}</p>
+      </div>
+      <div class="source-card">
+        <b>Evidence IDs</b>
+        {data.source.evidenceIds.map((id) => <span>{id}</span>)}
+        <a href={data.source.href}>원본 리서치 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="shell block">
+    <p class="eyebrow">02 · STORYBOARD</p>
+    <h2>60초를 6개의 판단 단위로</h2>
+    <div class="timeline">
+      {data.storyboard.map((shot) => (
+        <article>
+          <span>{shot.time}</span>
+          <b>{shot.beat}</b>
+          <p>{shot.visual}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="shell block">
+    <p class="eyebrow">03 · STYLEFRAMES</p>
+    <h2>움직이기 전에 화면이 먼저 살아야 한다</h2>
+    <div class="frames">
+      {data.styleframes.map((frame) => (
+        <article>
+          <div class="frame">
+            {frame.image ? <img src={frame.image} alt={frame.role} /> : <span>PENDING FRAME</span>}
+          </div>
+          <small>{frame.id} · {frame.time}s</small>
+          <strong>{frame.role}</strong>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="shell block">
+    <p class="eyebrow">04 · MOTION RECIPE</p>
+    <div class="styles">{data.motionStyles.map((style) => <span>{style}</span>)}</div>
+  </section>
+
+  <section class="shell block">
+    <p class="eyebrow">05 · FINAL VIDEO</p>
+    {data.finalVideo.src ? (
+      <video controls playsinline poster={data.finalVideo.poster ?? undefined}>
+        <source src={data.finalVideo.src} type="video/mp4" />
+      </video>
+    ) : (
+      <div class="video-pending">
+        <strong>Final render pending</strong>
+        <p>Creative Gate 통과 후 최종 영상이 연결됩니다.</p>
+      </div>
+    )}
+  </section>
+
+  <section class="shell block">
+    <p class="eyebrow">06 · CREATIVE GATE SCORE</p>
+    <div class="score-grid">
+      {scores.map(([name, value]) => (
+        <div><span>{name}</span><strong>{value ?? '—'}</strong></div>
+      ))}
+    </div>
+    <div class:list={['verdict', data.creativeGate.verdict.toLowerCase()]}>
+      Verdict · {data.creativeGate.verdict}
+    </div>
+  </section>
+
+  <section class="shell block">
+    <p class="eyebrow">07 · WHAT CHANGED AFTER REVIEW</p>
+    {data.reviewChanges.length ? (
+      <ol>{data.reviewChanges.map((item) => <li>{item}</li>)}</ol>
+    ) : (
+      <p class="muted">첫 독립 리뷰와 수정 로그가 아직 없습니다.</p>
+    )}
+  </section>
+
+  <style>
+    :global(body.motion-case-page){background:#06132f;color:#fff}
+    .shell{width:min(1120px,calc(100% - 40px));margin:auto}
+    .case-hero{padding:104px 0 72px;background:radial-gradient(circle at 80% 15%,rgba(57,160,255,.2),transparent 32%)}
+    .eyebrow{color:#39a0ff;font-size:12px;font-weight:900;letter-spacing:.17em}
+    h1{font-size:clamp(46px,7vw,92px);line-height:.95;letter-spacing:-.055em;max-width:980px;margin:14px 0 24px}
+    h2{font-size:clamp(34px,5vw,58px);line-height:1.05;letter-spacing:-.045em;margin:10px 0 24px}
+    .angle{font-size:24px;font-weight:800;color:#dce9fa}.meta,.styles{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+    .meta span,.styles span{padding:9px 12px;border:1px solid rgba(255,255,255,.14);border-radius:999px;color:#b8c9df;font-size:12px;font-weight:800}
+    .block{padding:70px 0;border-top:1px solid rgba(255,255,255,.08)}
+    .split{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}.split p,.muted{color:#a9b8d4;line-height:1.75}
+    .source-card{padding:22px;border-radius:18px;background:#0b1f4d}.source-card b,.source-card span{display:block}.source-card span{margin-top:8px;color:#a9b8d4}.source-card a{display:inline-block;margin-top:20px;color:#39a0ff;text-decoration:none;font-weight:900}
+    .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.timeline article{padding:20px;border-radius:16px;background:#0b1f4d;min-height:160px}.timeline span{color:#39a0ff;font-size:12px;font-weight:900}.timeline b{display:block;margin-top:22px;font-size:20px}.timeline p{color:#a9b8d4;line-height:1.5}
+    .frames{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.frame{aspect-ratio:9/16;border-radius:16px;background:#0b1f4d;border:1px solid rgba(255,255,255,.1);display:grid;place-items:center;overflow:hidden}.frame img{width:100%;height:100%;object-fit:cover}.frame span{font-size:10px;color:#6f86a7}.frames small,.frames strong{display:block}.frames small{margin-top:10px;color:#39a0ff}.frames strong{margin-top:4px;font-size:13px}
+    video{width:100%;border-radius:22px;background:#000}.video-pending{min-height:420px;border-radius:22px;background:#0b1f4d;display:grid;place-content:center;text-align:center}.video-pending p{color:#a9b8d4}
+    .score-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.score-grid div{padding:18px;border-radius:14px;background:#0b1f4d}.score-grid span{display:block;color:#91a6c1;font-size:11px}.score-grid strong{display:block;margin-top:12px;font-size:32px}.verdict{margin-top:16px;padding:18px;border-radius:14px;background:#101f3f;font-weight:900}
+    ol{color:#c4d2e4;line-height:1.8}
+    @media(max-width:800px){.split{grid-template-columns:1fr}.timeline{grid-template-columns:1fr 1fr}.frames{grid-template-columns:repeat(2,1fr)}.score-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:520px){.shell{width:calc(100% - 28px)}.timeline,.score-grid{grid-template-columns:1fr}.block{padding:50px 0}}
+  </style>
+</BaseLayout>

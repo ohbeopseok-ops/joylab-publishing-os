@@ -1,0 +1,34 @@
+name: Motion Studio Release Gate
+
+on:
+  pull_request:
+    paths:
+      - 'src/data/motion-studio/**'
+      - 'src/pages/motion-studio/**'
+      - 'config/contracts/motion-case-study-v1.schema.json'
+      - 'scripts/check-motion-case-study-v1.mjs'
+      - 'scripts/check-motion-studio-showcase-v1.mjs'
+      - 'scripts/check-motion-studio-release-v1.mjs'
+      - 'src/layouts/BaseLayout.astro'
+      - '.github/workflows/motion-studio-release-gate-v1.yml'
+  workflow_dispatch:
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Motion Case Study contract
+        run: npm run motion-studio:case:check
+
+      - name: Showcase contract
+        run: npm run motion-studio:showcase:check
+
+      - name: Release gate
+        run: npm run motion-studio:release:check

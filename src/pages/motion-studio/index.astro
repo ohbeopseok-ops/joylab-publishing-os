@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import showcase from '../../data/motion-studio/showcase-v1.json';
+
+const isPublic = showcase.studio.public === true;
+const robots = isPublic ? 'index,follow' : 'noindex,follow';
+const heroProject = showcase.projects[0];
+---
+<BaseLayout
+  title="JoyLab Motion Studio | Research to Motion"
+  description="JoyLab 리서치를 코드 기반 모션디자인으로 확장하는 Motion Studio 포트폴리오."
+  robots={robots}
+  bodyClass="motion-studio-page"
+>
+  <section class="ms-hero">
+    <div class="ms-shell">
+      <p class="eyebrow">JOYLAB MOTION STUDIO</p>
+      <h1>Research becomes<br /><span>motion.</span></h1>
+      <p class="lede">리서치의 핵심 주장과 근거를, 재현 가능하고 검증 가능한 모션디자인으로 바꿉니다.</p>
+      <div class="hero-meta">
+        <span>Code-native</span>
+        <span>Deterministic</span>
+        <span>Evidence-linked</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="ms-shell section">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">FEATURED PROJECT</p>
+        <h2>{heroProject.title}</h2>
+      </div>
+      <span class:list={['status', heroProject.status === 'GOLD' ? 'gold' : 'candidate']}>{heroProject.status}</span>
+    </div>
+
+    <article class="feature-card">
+      <div class="visual">
+        {heroProject.videoSrc ? (
+          <video controls playsinline poster={heroProject.heroImage}>
+            <source src={heroProject.videoSrc} type="video/mp4" />
+          </video>
+        ) : (
+          <div class="poster">
+            <img src={heroProject.heroImage} alt="" loading="eager" />
+            <div class="poster-overlay">
+              <span>GOLD #001</span>
+              <strong>AI Infrastructure<br />Bottleneck Shift</strong>
+              <small>GPU → HBM → COMPONENTS → POWER</small>
+            </div>
+          </div>
+        )}
+      </div>
+      <div class="project-copy">
+        <p class="angle">“{heroProject.editorialAngle}”</p>
+        <p>{heroProject.thesis}</p>
+        <div class="styles">
+          {heroProject.styles.map((style) => <span>{style}</span>)}
+        </div>
+        <div class="project-links">
+          <a class="source-link" href={heroProject.caseStudyHref}>Case Study 보기 →</a>
+          <a class="source-link secondary" href={heroProject.sourceHref}>원본 리서치 보기 →</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="ms-shell section">
+    <p class="eyebrow">PRODUCTION SYSTEM</p>
+    <h2>한 편의 리서치를 여러 개의 영상 자산으로</h2>
+    <div class="outputs">
+      {heroProject.outputs.map((output, index) => (
+        <div class="output-card">
+          <span>{String(index + 1).padStart(2, '0')}</span>
+          <strong>{output}</strong>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="ms-shell section philosophy">
+    <p class="eyebrow">STUDIO PRINCIPLE</p>
+    <blockquote>JoyLab 로고를 빼도 전문 모션디자인처럼 보여야 한다.</blockquote>
+    <p>기술적으로 렌더됐다는 이유만으로 공개하지 않습니다. Concept, Styleframe, Motion, Sound, Technical Gate를 모두 통과한 작업만 포트폴리오에 올라옵니다.</p>
+  </section>
+
+  {!isPublic && (
+    <section class="ms-shell pending">
+      <strong>Showcase 준비 중</strong>
+      <p>첫 GOLD 작품이 Creative Gate를 통과하면 이 페이지가 공개 모드로 전환됩니다.</p>
+    </section>
+  )}
+
+  <style>
+    :global(body.motion-studio-page){background:#06132f;color:#fff}
+    .ms-shell{width:min(1180px,calc(100% - 40px));margin:0 auto}
+    .ms-hero{padding:112px 0 88px;background:
+      radial-gradient(circle at 78% 12%,rgba(57,160,255,.25),transparent 30%),
+      linear-gradient(180deg,#06132f,#081936 75%,#06132f)}
+    .eyebrow{margin:0 0 16px;color:#39a0ff;font-size:12px;font-weight:900;letter-spacing:.18em}
+    h1{margin:0;font-size:clamp(64px,10vw,132px);line-height:.88;letter-spacing:-.065em;max-width:920px}
+    h1 span{color:#39a0ff}
+    .lede{max-width:690px;margin:34px 0 0;color:#a9b8d4;font-size:20px;line-height:1.7}
+    .hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+    .hero-meta span,.styles span{border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:9px 13px;color:#c3d2e8;font-size:12px;font-weight:800;background:rgba(255,255,255,.03)}
+    .section{padding:76px 0;border-top:1px solid rgba(255,255,255,.08)}
+    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+    h2{margin:0;font-size:clamp(34px,5vw,58px);line-height:1.05;letter-spacing:-.045em;max-width:860px}
+    .status{white-space:nowrap;border-radius:999px;padding:9px 12px;font-size:11px;font-weight:900;letter-spacing:.08em}
+    .status.candidate{background:#122b5f;color:#8fc7ff}.status.gold{background:#d4a72c;color:#071324}
+    .feature-card{display:grid;grid-template-columns:1.35fr .65fr;gap:28px;margin-top:32px}
+    .visual{min-width:0}.poster{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:24px;background:#0b1f4d;border:1px solid rgba(255,255,255,.1)}
+    .poster img{width:100%;height:100%;object-fit:cover;opacity:.25;filter:saturate(.7)}
+    .poster-overlay{position:absolute;inset:0;padding:42px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(180deg,transparent 10%,rgba(6,19,47,.72))}
+    .poster-overlay span{color:#39a0ff;font-size:12px;font-weight:900;letter-spacing:.16em}
+    .poster-overlay strong{margin-top:12px;font-size:clamp(36px,5vw,64px);line-height:.95;letter-spacing:-.05em}
+    .poster-overlay small{margin-top:18px;color:#a9b8d4;font-size:13px;font-weight:800;letter-spacing:.08em}
+    video{width:100%;border-radius:24px;background:#000}
+    .project-copy{padding:18px 0 0}
+    .project-copy p{color:#a9b8d4;line-height:1.75}
+    .project-copy .angle{color:#fff;font-size:24px;line-height:1.45;font-weight:800}
+    .styles{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0}
+    .project-links{display:flex;gap:18px;flex-wrap:wrap}.source-link{display:inline-block;color:#39a0ff;text-decoration:none;font-weight:900}.source-link.secondary{color:#a9b8d4}
+    .outputs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+    .output-card{min-height:138px;padding:22px;border-radius:18px;background:#0b1f4d;border:1px solid rgba(255,255,255,.08)}
+    .output-card span{display:block;color:#39a0ff;font-size:12px;font-weight:900}
+    .output-card strong{display:block;margin-top:28px;font-size:18px;line-height:1.4}
+    .philosophy blockquote{margin:12px 0 24px;font-size:clamp(36px,5vw,58px);line-height:1.12;letter-spacing:-.045em;font-weight:900;max-width:940px}
+    .philosophy>p:last-child{max-width:720px;color:#a9b8d4;font-size:18px;line-height:1.75}
+    .pending{margin-bottom:72px;padding:24px 26px;border-radius:16px;border:1px dashed rgba(57,160,255,.45);background:rgba(57,160,255,.05)}
+    .pending strong{font-size:18px}.pending p{margin:8px 0 0;color:#a9b8d4}
+    @media(max-width:800px){
+      .ms-hero{padding:82px 0 62px}
+      .feature-card{grid-template-columns:1fr}
+      .section-head{display:block}.status{display:inline-block;margin-top:16px}
+      .outputs{grid-template-columns:1fr 1fr}
+      .poster-overlay{padding:24px}
+    }
+    @media(max-width:520px){
+      .ms-shell{width:min(100% - 28px,1180px)}
+      .outputs{grid-template-columns:1fr}
+      .section{padding:52px 0}
+      .lede{font-size:17px}
+    }
+  </style>
+</BaseLayout>

@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aijoylab.kr/contracts/motion-case-study-v1.schema.json",
+  "title": "JoyLab Motion Case Study Contract V1",
+  "type": "object",
+  "required": ["schemaVersion", "id", "slug", "title", "status", "source", "thesis", "storyboard", "styleframes", "finalVideo", "creativeGate"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "id": { "type": "string", "minLength": 1 },
+    "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["DRAFT", "GOLD_CANDIDATE", "GOLD"] },
+    "source": {
+      "type": "object",
+      "required": ["articleId", "href", "evidenceIds"],
+      "properties": {
+        "articleId": { "type": "string" },
+        "href": { "type": "string" },
+        "evidenceIds": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "thesis": {
+      "type": "object",
+      "required": ["statement", "confidence", "editorialAngle"],
+      "properties": {
+        "statement": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "editorialAngle": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "storyboard": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["time", "beat", "visual"],
+        "properties": {
+          "time": { "type": "string" },
+          "beat": { "type": "string" },
+          "visual": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "styleframes": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["id", "time", "role", "image"],
+        "properties": {
+          "id": { "type": "string" },
+          "time": { "type": "number", "minimum": 0 },
+          "role": { "type": "string" },
+          "image": { "type": ["string", "null"] }
+        },
+        "additionalProperties": true
+      }
+    },
+    "finalVideo": {
+      "type": "object",
+      "required": ["duration", "aspectRatio", "src"],
+      "properties": {
+        "duration": { "type": "number", "exclusiveMinimum": 0 },
+        "aspectRatio": { "type": "string" },
+        "src": { "type": ["string", "null"] },
+        "poster": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    },
+    "creativeGate": {
+      "type": "object",
+      "required": ["scores", "verdict", "criticalIssues"],
+      "properties": {
+        "scores": { "type": "object" },
+        "verdict": { "enum": ["PENDING", "BLOCKED", "GREEN", "SHOWCASE_GOLD"] },
+        "criticalIssues": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
