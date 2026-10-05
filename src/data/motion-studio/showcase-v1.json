@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "studio": {
+    "name": "JoyLab Motion Studio",
+    "tagline": "Research → Motion → Evidence",
+    "public": false,
+    "status": "COMING_SOON"
+  },
+  "projects": [
+    {
+      "id": "JOYLAB-MOTION-GOLD-001",
+      "slug": "ai-infrastructure-bottleneck-gold-001",
+      "title": "AI 인프라 투자, HBM 다음은 MLCC·전력망인가",
+      "status": "GOLD_CANDIDATE",
+      "sourceArticleId": "ai-infrastructure-hbm-mlcc-power-grid-2026",
+      "sourceHref": "/articles/ai-infrastructure-hbm-mlcc-power-grid-2026",
+      "thesis": "AI 인프라의 병목은 GPU·HBM에서 서버 부품과 전력망으로 확장되며, 병목의 이동이 수익 풀의 이동을 만든다.",
+      "editorialAngle": "다음 종목이 아니라 다음 병목을 찾는다.",
+      "styles": ["ISOMETRIC_RESEARCH", "NETWORK_FLOW", "DATA_HUD"],
+      "outputs": [
+        "60s Research Explainer · 16:9",
+        "60s Research Short · 9:16",
+        "15s Hook · 9:16",
+        "10s Motion Card A",
+        "10s Motion Card B",
+        "10s Motion Card C"
+      ],
+      "heroImage": "/images/research/joylab-research-default-hero.svg",
+      "videoSrc": null,
+      "publishedAt": null
+    }
+  ]
+}
