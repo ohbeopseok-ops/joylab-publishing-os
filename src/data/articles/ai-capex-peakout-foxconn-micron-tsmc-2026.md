@@ -100,7 +100,7 @@ AI 인프라 공급망의 서로 다른 단계에서 같은 방향의 수요 신
 AI CAPEX의 절대 규모는 계속 확대될 가능성이 있지만 성장률은 점차 둔화할 수 있습니다. 앞으로는 투자 규모보다 AI 수익화와 전력 공급 능력이 더 중요한 변수가 됩니다.
 
 **ACTION**  
-TSMC 9월 매출과 3분기 실적, 하이퍼스케일러 CAPEX 가이던스, HBM 장기계약, 데이터센터 전력 프로젝트를 순서대로 재점검합니다.
+TSMC 9월 매출과 3분기 실적, 하이퍼스케일러 CAPEX 가이던스, HBM 장기계약, 데이터센터 전력 프로젝트를 순서대로 재점검합니다. [TSMC Financial Calendar](https://investor.tsmc.com/english/financial-calendar)
 
 ## 1. 먼저 구분해야 한다｜AI 버블과 AI CAPEX 피크아웃은 같은 말이 아니다
 
@@ -120,11 +120,11 @@ AI 시장을 볼 때 가장 먼저 구분해야 하는 것이 있습니다.
 
 ## 2. Foxconn｜AI 서버가 실제 매출로 전환되고 있다
 
-폭스콘의 2026년 3분기 매출은 약 **3조300억 대만달러**였습니다. 전년 동기 대비 약 **47% 증가**했고 시장 예상치도 웃돌았습니다.
+폭스콘의 2026년 3분기 매출은 약 **3조300억 대만달러**였습니다. 전년 동기 대비 약 **47% 증가**했고 시장 예상치도 웃돌았습니다. [Reuters](https://www.reuters.com/world/china/foxconn-third-quarter-revenue-jumps-47-yy-beats-market-forecast-2026-10-05/)
 
-9월 한 달 매출은 약 **1조1,586억 대만달러**로 전년 동기 대비 약 **38.4% 증가**했습니다. 회사는 AI 관련 클라우드·네트워크 제품의 강한 수요를 주요 성장 요인으로 설명하고 있습니다.
+9월 한 달 매출은 약 **1조1,586억 대만달러**로 전년 동기 대비 약 **38.4% 증가**했습니다. 회사는 AI 관련 클라우드·네트워크 제품의 강한 수요를 주요 성장 요인으로 설명하고 있습니다. [Hon Hai Monthly Revenue](https://www.honhai.com/en-us/investor-relations/monthly-revenues)
 
-**Evidence E1 — Foxconn 2026 Q3 / September Revenue**
+### Evidence E1 — Foxconn 2026 Q3 / September Revenue
 
 이 숫자가 중요한 이유는 폭스콘이 AI 공급망의 상대적으로 아래쪽에 있기 때문입니다.
 
@@ -142,15 +142,15 @@ GPU 주문만 발생한다고 폭스콘 매출이 늘어나는 것은 아닙니�
 
 AI 서버가 늘어나면 GPU만 필요한 것이 아닙니다. GPU와 가속기가 처리해야 할 모델이 커지고 추론량이 증가할수록 HBM과 서버 DRAM의 중요성도 함께 커집니다.
 
-마이크론의 2026 회계연도 4분기 매출은 **542억3,000만달러**였습니다. 직전 분기 414억6,000만달러에서 증가했고, 전년 동기 113억2,000만달러와 비교하면 네 배 이상 커졌습니다.
+마이크론의 2026 회계연도 4분기 매출은 **542억3,000만달러**였습니다. 직전 분기 414억6,000만달러에서 증가했고, 전년 동기 113억2,000만달러와 비교하면 네 배 이상 커졌습니다. [Micron FY2026 Q4 Results](https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/)
 
-**Evidence E2 — Micron FY2026 Q4 Results**
+### Evidence E2 — Micron FY2026 Q4 Results
 
 더 중요한 것은 미래 주문입니다.
 
-마이크론 고객들의 장기공급계약 관련 재무적 약정은 **220억달러에서 320억달러로 증가**했습니다.
+마이크론 고객들의 장기공급계약 관련 재무적 약정은 **220억달러에서 320억달러로 증가**했습니다. [Reuters](https://www.reuters.com/business/micron-forecasts-quarterly-revenue-above-estimates-2026-09-30/)
 
-**Evidence E3 — Micron Long-Term Customer Commitments**
+### Evidence E3 — Micron Long-Term Customer Commitments
 
 초기 생성형 AI 투자 사이클에서는 GPU 자체가 가장 부족했습니다. 하지만 시스템 규모가 커지면서 병목은 점차 여러 영역으로 확산됩니다.
 
@@ -168,21 +168,21 @@ AI 에이전트와 반복 추론이 HBM 수요를 증가시키는 구조는 [AI 
 
 AI CAPEX 피크아웃을 판단할 때 가장 중요한 기업 가운데 하나가 TSMC입니다. NVIDIA GPU뿐 아니라 다양한 AI 가속기와 CPU가 첨단공정 생산라인을 통과하기 때문입니다.
 
-TSMC의 2026년 8월 매출은 약 **5,148억 대만달러**로 전년 동월 대비 **53.3% 증가**했습니다. 2026년 1월부터 8월까지 누적 매출 역시 전년 같은 기간보다 **39.3% 증가**했습니다.
+TSMC의 2026년 8월 매출은 약 **5,148억 대만달러**로 전년 동월 대비 **53.3% 증가**했습니다. 2026년 1월부터 8월까지 누적 매출 역시 전년 같은 기간보다 **39.3% 증가**했습니다. [TSMC Monthly Revenue](https://investor.tsmc.com/english/monthly-revenue/2026)
 
-**Evidence E4 — TSMC August 2026 Monthly Revenue**
+### Evidence E4 — TSMC August 2026 Monthly Revenue
 
-TSMC의 2026년 2분기 매출은 **402억달러**였고 회사는 3분기 매출 가이던스를 **446억~458억달러**로 제시했습니다.
+TSMC의 2026년 2분기 매출은 **402억달러**였고 회사는 3분기 매출 가이던스를 **446억~458억달러**로 제시했습니다. [TSMC 2Q26 Results](https://investor.tsmc.com/english/quarterly-results/2026/q2)
 
 무엇보다 중요한 것은 설비투자입니다.
 
-TSMC는 2026년 연간 CAPEX 계획을 **600억~640억달러**로 제시했습니다. 2026년 투자예산 가운데 약 70~80%는 첨단공정에, 10~20%는 첨단 패키징·테스트·마스크 등 후공정 영역에 투입할 계획입니다.
+TSMC는 2026년 연간 CAPEX 계획을 **600억~640억달러**로 제시했습니다. 2026년 투자예산 가운데 약 70~80%는 첨단공정에, 10~20%는 첨단 패키징·테스트·마스크 등 후공정 영역에 투입할 계획입니다. [TSMC 2Q26 Results](https://investor.tsmc.com/english/quarterly-results/2026/q2)
 
-**Evidence E5 — TSMC 2Q26 Earnings Transcript / CAPEX Guidance**
+### Evidence E5 — TSMC 2Q26 Earnings Transcript / CAPEX Guidance
 
 반도체 공장은 단기간 주문만 보고 투자할 수 없습니다. 첨단공정과 패키징 생산능력을 늘리기 위해서는 수년의 시간이 필요합니다.
 
-따라서 TSMC의 CAPEX 상향은 단순히 현재 주문이 좋다는 것보다 **2027년 이후 고객 수요에 대한 가시성이 여전히 높다는 경영진의 판단**으로 보는 것이 더 적절합니다.
+따라서 TSMC의 CAPEX 상향은 단순히 현재 주문이 좋다는 것보다 **2027년 이후 고객 수요에 대한 가시성이 여전히 높다는 경영진의 판단**으로 보는 것이 더 적절합니다. [TSMC 2Q26 Results](https://investor.tsmc.com/english/quarterly-results/2026/q2)
 
 ### JoyLab 판단
 
@@ -206,9 +206,9 @@ TSMC는 2026년 연간 CAPEX 계획을 **600억~640억달러**로 제시했습�
 
 AI 데이터센터는 막대한 초기 자본이 필요합니다. 투자 규모가 커지면서 회사채, 프로젝트 파이낸싱, 사모신용 등 외부 자금까지 적극적으로 사용되고 있습니다.
 
-2026년 미국 AI 관련 레버리지 금융 발행 규모는 약 **880억달러** 수준까지 증가했고, 고금리가 지속되면서 투자자들은 더 높은 수익률과 더 강한 보호조건을 요구하고 있습니다.
+2026년 미국 AI 관련 레버리지 금융 발행 규모는 약 **880억달러** 수준까지 증가했고, 고금리가 지속되면서 투자자들은 더 높은 수익률과 더 강한 보호조건을 요구하고 있습니다. [Reuters](https://www.reuters.com/legal/transactional/ai-borrowers-face-tough-sell-risky-corners-us-credit-market-2026-09-30/)
 
-**Evidence E6 — AI Infrastructure Credit Market**
+### Evidence E6 — AI Infrastructure Credit Market
 
 이제 AI CAPEX에서는 두 가지 질문을 분리해야 합니다.
 
@@ -290,21 +290,21 @@ AI CAPEX Expansion이 지속된다면 국내 시장에서는 우선 HBM과 메�
 
 ## 12. 다음 검증일｜10월 8일과 10월 15일
 
-TSMC는 **10월 8일 9월 월간 매출**, **10월 15일 2026년 3분기 실적**을 발표할 예정입니다.
+TSMC는 **10월 8일 9월 월간 매출**, **10월 15일 2026년 3분기 실적**을 발표할 예정입니다. [TSMC Financial Calendar](https://investor.tsmc.com/english/financial-calendar)
 
-**Evidence E7 — TSMC Financial Calendar**
+### Evidence E7 — TSMC Financial Calendar
 
 JoyLab이 확인할 것은 세 가지입니다.
 
 1. 3분기 매출이 기존 가이던스 범위에서 어디에 위치하는가
 2. AI·HPC 수요에 대한 경영진의 표현이 유지되는가
-3. 연간 CAPEX 600억~640억달러 계획이 유지되는가
+3. 연간 CAPEX 600억~640억달러 계획이 유지되는가 — [TSMC 2Q26 Results](https://investor.tsmc.com/english/quarterly-results/2026/q2)
 
 이 세 가지가 유지된다면 현재 **Expansion 4/5** 판정은 유지하거나 강화할 수 있습니다.
 
 ## 결론｜AI CAPEX는 아직 끝나지 않았다. 그러나 질문이 바뀌고 있다
 
-폭스콘에서는 AI 서버가 실제 매출로 전환되고 있습니다. 마이크론에서는 AI 메모리 수요와 장기 고객 약정이 강합니다. TSMC는 매출이 빠르게 성장하는 가운데 600억~640억달러 규모의 CAPEX를 계획하고 있습니다.
+폭스콘에서는 AI 서버가 실제 매출로 전환되고 있습니다. 마이크론에서는 AI 메모리 수요와 장기 고객 약정이 강합니다. TSMC는 매출이 빠르게 성장하는 가운데 600억~640억달러 규모의 CAPEX를 계획하고 있습니다. [TSMC 2Q26 Results](https://investor.tsmc.com/english/quarterly-results/2026/q2)
 
 세 공급망을 함께 보면 **AI 물리 인프라의 피크아웃을 확인하기에는 아직 이릅니다.**
 
@@ -316,45 +316,19 @@ JoyLab이 확인할 것은 세 가지입니다.
 
 ## Evidence Register
 
-### E1. Foxconn — September / Q3 2026 Revenue
-- 기준일: 2026-10-05
-- 핵심 확인: 3분기 매출 약 NT$3.03조, 전년 대비 약 +47%
-- 보조 확인: 9월 매출 NT$1.159조, 전년 대비 +38.42%
-- Evidence Grade: **A-**
-
-### E2. Micron — FY2026 Q4 Financial Results
-- 기준일: 2026-09-30
-- 핵심 확인: 분기 매출 $54.23B
-- Evidence Grade: **A**
-
-### E3. Micron — Long-Term Customer Commitments
-- 기준일: 2026-09-30
-- 핵심 확인: 장기 고객 재무 약정 $22B → $32B
-- Evidence Grade: **A-**
-
-### E4. TSMC — August 2026 Monthly Revenue
-- 기준일: 2026-09-10
-- 핵심 확인: 8월 매출 +53.3% YoY, 1~8월 누적 +39.3%
-- Evidence Grade: **A**
-
-### E5. TSMC — 2Q26 Earnings Transcript
-- 기준일: 2026-07-16
-- 핵심 확인: 2026 CAPEX $60B~$64B
-- Evidence Grade: **A**
-
-### E6. AI Infrastructure Credit Market
-- 기준일: 2026-09-30
-- 핵심 확인: AI 관련 레버리지 금융 확대와 높은 자본비용
-- Evidence Grade: **B+**
-
-### E7. TSMC — Financial Calendar
-- 2026-10-08: September Monthly Revenue
-- 2026-10-15: Q3 2026 Earnings
-- Evidence Grade: **A**
+| ID | 기준일 | 핵심 확인 | Grade | Source |
+|---|---|---|---|---|
+| E1 Foxconn Q3 / September Revenue | 2026-10-05 | Q3 매출 약 NT$3.03조, YoY 약 +47%; 9월 매출 NT$1.159조, YoY +38.42% | A- | https://www.honhai.com/en-us/investor-relations/monthly-revenues |
+| E2 Micron FY2026 Q4 | 2026-09-30 | 분기 매출 $54.23B | A | https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/ |
+| E3 Micron Customer Commitments | 2026-09-30 | 장기 고객 재무 약정 $22B → $32B | A- | https://www.reuters.com/business/micron-forecasts-quarterly-revenue-above-estimates-2026-09-30/ |
+| E4 TSMC Monthly Revenue | 2026-09-10 | 8월 매출 +53.3% YoY, 1~8월 누적 +39.3% | A | https://investor.tsmc.com/english/monthly-revenue/2026 |
+| E5 TSMC CAPEX | 2026-07-16 | 2026 CAPEX $60B~$64B | A | https://investor.tsmc.com/english/quarterly-results/2026/q2 |
+| E6 AI Infrastructure Credit | 2026-09-30 | AI 관련 레버리지 금융 확대와 높은 자본비용 | B+ | https://www.reuters.com/legal/transactional/ai-borrowers-face-tough-sell-risky-corners-us-credit-market-2026-09-30/ |
+| E7 TSMC Financial Calendar | 2026-10 | 10월 8일 9월 매출, 10월 15일 3Q26 실적 예정 | A | https://investor.tsmc.com/english/financial-calendar |
 
 ## 관련 리서치
 
-- [반도체 사이클 보는 법｜D램 가격·재고·CAPEX·HBM 7개 지표](/articles/semiconductor-cycle)
+- [반도체 사이클 보는 법](/articles/semiconductor-cycle)
 - [HBM이란? 뜻부터 HBM3E·HBM4, 삼성전자·SK하이닉스 투자 포인트까지](/articles/what-is-hbm)
 - [AI 에이전트가 HBM 수요를 늘리는 이유｜추론·KV Cache·메모리 병목](/articles/ai-agent-hbm-demand)
 - [GPU 다음 병목은 발전소다｜AI 데이터센터 전력 수요가 바꾸는 투자 지도](/articles/ai-power-next-bottleneck)
