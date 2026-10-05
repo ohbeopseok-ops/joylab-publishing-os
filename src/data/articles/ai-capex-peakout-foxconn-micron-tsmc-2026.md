@@ -59,6 +59,10 @@ investmentKpis:
   - Data center power capacity
 investmentResearchType: "scenario"
 readingTime: "약 11분"
+heroImage: "/images/research/ai-capex-peakout-foxconn-micron-tsmc-2026-hero.svg"
+heroAlt: "TSMC 첨단공정, Micron HBM, Foxconn AI 서버를 연결해 AI CAPEX 확장 사이클을 보여주는 JoyLab 리서치 이미지"
+heroCaption: "AI CAPEX의 실제 강도는 Foundry → Memory → Server/Rack의 실물 공급망 데이터로 확인합니다."
+ogImage: "/images/research/ai-capex-peakout-foxconn-micron-tsmc-2026-hero.svg"
 faqs:
   - question: "AI CAPEX는 이미 피크를 찍었나요?"
     answer: "2026년 10월 현재 폭스콘 AI 서버 매출, 마이크론 메모리 수요, TSMC 매출과 설비투자를 함께 보면 물리적 AI 인프라 투자가 이미 수축 국면에 들어갔다고 판단할 근거는 부족합니다."
