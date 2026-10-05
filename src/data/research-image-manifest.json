@@ -2246,5 +2246,24 @@
         "caption": "Efficiency → Reinvestment → Moat → Duration 순서로 장기 복리 가능성을 점검합니다."
       }
     ]
+  },
+  "ai-capex-peakout-foxconn-micron-tsmc-2026": {
+    "hero": {
+      "src": "/images/research/ai-capex-peakout-foxconn-micron-tsmc-2026-hero.svg",
+      "alt": "TSMC 첨단공정, Micron HBM, Foxconn AI 서버를 연결해 AI CAPEX 확장 사이클을 보여주는 JoyLab 리서치 이미지",
+      "caption": "AI CAPEX의 실제 강도는 Foundry → Memory → Server/Rack의 실물 공급망 데이터로 확인합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "폭스콘 AI 서버, 마이크론 HBM, TSMC CAPEX의 핵심 수요 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "AI CAPEX는 서버 출하·메모리 계약·파운드리 투자 신호를 함께 볼 때 방향성이 선명해집니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI CAPEX 사이클을 Fact Interpretation Scenario Action 순서로 판정하는 JoyLab 리서치 프레임워크 이미지",
+        "caption": "단일 뉴스보다 Fact → Interpretation → Scenario → Action 순서로 Expansion과 Peak 신호를 구분합니다."
+      }
+    ]
   }
 }
