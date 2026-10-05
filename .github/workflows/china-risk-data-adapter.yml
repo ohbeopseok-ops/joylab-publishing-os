@@ -15,7 +15,7 @@ on:
       - 'package.json'
       - '.github/workflows/china-risk-data-adapter.yml'
   schedule:
-    - cron: '17 0,11 * * *'
+    - cron: '17 0 * * *'
   workflow_dispatch:
 
 permissions:
