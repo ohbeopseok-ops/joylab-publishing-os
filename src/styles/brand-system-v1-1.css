@@ -127,7 +127,7 @@ body.homepage-v2 .home-quote-card:after{
     width:min(65%,760px);
     right:-58px;
     bottom:-30px;
-    opacity:.82;
+    opacity:.67;
     filter:saturate(1.08) contrast(1.04);
   }
 }
