@@ -1,1 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc"><title id="title">JoyLab Research System Signature Visual</title><desc id="desc">Fact Interpretation Scenario Action 흐름과 투자·경제, AI·생산성, 성장·리더십 세 축을 연결한 시그니처 비주얼</desc><defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#061632"/><stop offset=".58" stop-color="#0B1F4D"/><stop offset="1" stop-color="#123F85"/></linearGradient><radialGradient id="glow"><stop offset="0" stop-color="#1677FF" stop-opacity=".78"/><stop offset="1" stop-color="#1677FF" stop-opacity="0"/></radialGradient></defs><rect width="1600" height="900" fill="url(#bg)"/><circle cx="1230" cy="380" r="310" fill="url(#glow)"/><g fill="none" stroke="#6AA8FF" stroke-opacity=".34"><circle cx="1220" cy="390" r="230"/><circle cx="1220" cy="390" r="150"/><path d="M950 390h540M1220 120v540"/></g><g font-family="Arial, sans-serif"><text x="120" y="150" fill="#6AA8FF" font-size="26" font-weight="700" letter-spacing="5">JOYLAB RESEARCH SYSTEM</text><text x="120" y="255" fill="#FFFFFF" font-size="68" font-weight="800">복잡한 정보를</text><text x="120" y="335" fill="#FFFFFF" font-size="68" font-weight="800">판단 가능한 구조로</text><g transform="translate(120 470)"><rect x="0" y="0" width="260" height="90" rx="18" fill="#FFFFFF" fill-opacity=".07" stroke="#FFFFFF" stroke-opacity=".14"/><text x="28" y="38" fill="#FFD83D" font-size="18" font-weight="700">01 FACT</text><text x="28" y="67" fill="#E6EEF8" font-size="20">무엇이 사실인가</text><path d="M276 45h72" stroke="#6AA8FF" stroke-width="3"/><rect x="365" y="0" width="260" height="90" rx="18" fill="#FFFFFF" fill-opacity=".07" stroke="#FFFFFF" stroke-opacity=".14"/><text x="393" y="38" fill="#64A4FF" font-size="18" font-weight="700">02 INTERPRETATION</text><text x="393" y="67" fill="#E6EEF8" font-size="20">무엇을 의미하나</text><path d="M641 45h72" stroke="#6AA8FF" stroke-width="3"/><rect x="730" y="0" width="260" height="90" rx="18" fill="#FFFFFF" fill-opacity=".07" stroke="#FFFFFF" stroke-opacity=".14"/><text x="758" y="38" fill="#64A4FF" font-size="18" font-weight="700">03 SCENARIO</text><text x="758" y="67" fill="#E6EEF8" font-size="20">어떤 가능성이 있나</text><path d="M1006 45h72" stroke="#6AA8FF" stroke-width="3"/><rect x="1095" y="0" width="260" height="90" rx="18" fill="#FFD83D"/><text x="1123" y="38" fill="#0B1F4D" font-size="18" font-weight="800">04 ACTION</text><text x="1123" y="67" fill="#0B1F4D" font-size="20" font-weight="700">무엇을 실행할까</text></g><g transform="translate(120 690)"><text x="0" y="0" fill="#9EB5D4" font-size="19">INVESTMENT &amp; ECONOMY</text><text x="0" y="42" fill="#FFFFFF" font-size="30" font-weight="700">투자·경제</text><text x="430" y="0" fill="#9EB5D4" font-size="19">AI &amp; PRODUCTIVITY</text><text x="430" y="42" fill="#FFFFFF" font-size="30" font-weight="700">AI·생산성</text><text x="820" y="0" fill="#9EB5D4" font-size="19">GROWTH &amp; LEADERSHIP</text><text x="820" y="42" fill="#FFFFFF" font-size="30" font-weight="700">성장·리더십</text></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">JoyLab Research Signature Landscape</title>
+<desc id="desc">산맥, 데이터 그리드, 시장 신호와 도시 실루엣을 결합한 JoyLab 리서치 시그니처 비주얼</desc>
+<defs>
+  <linearGradient id="ridge" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#173b78"/><stop offset=".55" stop-color="#0c2b5d"/><stop offset="1" stop-color="#061834"/>
+  </linearGradient>
+  <linearGradient id="ridge2" x1="0" x2="1"><stop offset="0" stop-color="#2863ba"/><stop offset="1" stop-color="#0a244d"/></linearGradient>
+  <linearGradient id="city" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#1b4f9e"/><stop offset="1" stop-color="#071a39"/></linearGradient>
+  <radialGradient id="glow"><stop offset="0" stop-color="#00d1ff" stop-opacity=".6"/><stop offset="1" stop-color="#2563ff" stop-opacity="0"/></radialGradient>
+  <filter id="blur"><feGaussianBlur stdDeviation="22"/></filter>
+</defs>
+<g opacity=".95">
+  <circle cx="1210" cy="270" r="260" fill="url(#glow)" filter="url(#blur)"/>
+  <g fill="none" stroke="#6aa8ff" stroke-opacity=".22">
+    <circle cx="1210" cy="290" r="250"/><circle cx="1210" cy="290" r="165"/>
+    <path d="M930 290h560M1210 30v520"/>
+  </g>
+  <g stroke="#78aefc" stroke-opacity=".12">
+    <path d="M780 80v620M860 80v620M940 80v620M1020 80v620M1100 80v620M1180 80v620M1260 80v620M1340 80v620M1420 80v620"/>
+    <path d="M760 140h730M760 220h730M760 300h730M760 380h730M760 460h730M760 540h730M760 620h730"/>
+  </g>
+  <g opacity=".48" fill="url(#city)">
+    <path d="M780 590h38v-96h26v96h34v-154h42v154h30v-118h28v118h40v-186h52v186h34v-136h40v136h46v-204h56v204h34v-152h36v152h32v-108h30v108h38v-174h48v174h50v112H780z"/>
+  </g>
+  <path d="M610 760L870 520l78 85 158-238 94 126 88-84 270 351z" fill="url(#ridge2)" opacity=".72"/>
+  <path d="M530 805L820 585l100 96 176-292 119 146 95-98 215 368z" fill="url(#ridge)"/>
+  <path d="M820 585l100 96 176-292 119 146" fill="none" stroke="#75b5ff" stroke-width="5" stroke-opacity=".38"/>
+  <path d="M760 478c66-38 124-30 182-1s110 21 162-34 104-50 153-12 101 26 162-32" fill="none" stroke="#00d1ff" stroke-width="5" stroke-linecap="round" opacity=".88"/>
+  <g fill="#00d1ff">
+    <circle cx="760" cy="478" r="7"/><circle cx="942" cy="477" r="7"/><circle cx="1104" cy="443" r="7"/><circle cx="1257" cy="431" r="7"/><circle cx="1419" cy="399" r="7"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-weight="700" letter-spacing="3">
+    <text x="1120" y="120" fill="#89b9ff" font-size="22">SIGNAL</text>
+    <text x="1120" y="154" fill="#89b9ff" font-size="22">EVIDENCE</text>
+    <text x="1120" y="188" fill="#00d1ff" font-size="22">DECISION</text>
+  </g>
+</g>
+</svg>

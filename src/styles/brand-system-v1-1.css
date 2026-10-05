@@ -1,0 +1,168 @@
+/* JoyLab Brand System V1.1 — homepage scoped refinement
+   Direction: Research Terminal x AI Operating System
+   Contract: preserve homepage vertical budgets and mobile density gates. */
+
+body.homepage-v2{
+  --brand-navy:#041a3e;
+  --brand-navy-2:#082553;
+  --brand-blue:#2563ff;
+  --brand-cyan:#00d1ff;
+  --brand-ivory:#f8fafc;
+  --brand-slate:#94a3b8;
+  --brand-dark:#090f16;
+  --brand-signal:#facc15;
+}
+
+body.homepage-v2 .home-hero{
+  position:relative;
+  background:
+    linear-gradient(90deg,rgba(4,26,62,.98) 0%,rgba(4,26,62,.94) 48%,rgba(6,30,70,.76) 72%,rgba(4,20,47,.94) 100%),
+    linear-gradient(135deg,var(--brand-navy),var(--brand-navy-2));
+  border-color:rgba(70,135,255,.38);
+  box-shadow:0 26px 70px rgba(3,18,44,.14);
+}
+body.homepage-v2 .home-hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.17;
+  background-image:
+    linear-gradient(rgba(115,164,255,.14) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(115,164,255,.14) 1px,transparent 1px);
+  background-size:40px 40px;
+  mask-image:linear-gradient(90deg,transparent 0%,#000 48%,#000 100%);
+}
+body.homepage-v2 .home-hero__lead{
+  padding-top:46px;
+  padding-bottom:40px;
+}
+body.homepage-v2 .home-eyebrow{
+  color:var(--brand-cyan);
+  font-size:.68rem;
+  letter-spacing:.18em;
+}
+body.homepage-v2 .home-hero h1{
+  max-width:680px;
+  margin-top:13px;
+  margin-bottom:16px;
+  font-size:clamp(3rem,4.65vw,4.55rem);
+}
+body.homepage-v2 .home-hero h1 span{color:#4a8cff}
+body.homepage-v2 .home-hero__desc{
+  max-width:620px;
+  color:#dbe7f6;
+}
+body.homepage-v2 .home-hero__pillars{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:14px;
+  color:#c5d5eb;
+  font-size:.66rem;
+  font-weight:800;
+  letter-spacing:.13em;
+}
+body.homepage-v2 .home-hero__pillars i{
+  color:#56769f;
+  font-style:normal;
+}
+body.homepage-v2 .home-hero__cta{
+  margin-top:20px;
+  background:var(--brand-blue);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 10px 26px rgba(37,99,255,.25);
+}
+body.homepage-v2 .home-hero__cta:hover{background:#3471ff}
+body.homepage-v2 .home-stat strong{color:#fff}
+body.homepage-v2 .home-stat span{color:#9fb4d0}
+
+body.homepage-v2 .home-hero__today{
+  background:linear-gradient(180deg,rgba(3,16,38,.88),rgba(4,24,57,.93));
+}
+body.homepage-v2 .home-today-head span{color:var(--brand-cyan)}
+body.homepage-v2 .home-today-no{
+  background:linear-gradient(135deg,var(--brand-blue),#168fe9);
+  border:1px solid rgba(255,255,255,.12);
+}
+
+body.homepage-v2 .home-section-title:before{
+  width:3px;
+  background:linear-gradient(180deg,var(--brand-cyan),var(--brand-blue));
+}
+body.homepage-v2 .home-section-title h2{color:#0a2348}
+body.homepage-v2 .home-section-link{color:var(--brand-blue)}
+
+body.homepage-v2 .home-pillar{
+  border-color:#173b72;
+  background:linear-gradient(145deg,#061733,#0a2b5b);
+}
+body.homepage-v2 .home-pillar__copy small{color:var(--brand-cyan)}
+body.homepage-v2 .home-pillar__copy p{color:#c9d7e9}
+
+body.homepage-v2 .home-research-card:first-child{border-top-color:var(--brand-blue)}
+body.homepage-v2 .home-research-copy small{color:var(--brand-blue)}
+
+body.homepage-v2 .home-guide{
+  background:
+    linear-gradient(135deg,rgba(4,26,62,.98),rgba(8,43,91,.97)),
+    var(--brand-navy);
+  border-color:#1b4a89;
+}
+body.homepage-v2 .home-guide-step.is-start{border-color:var(--brand-cyan)}
+body.homepage-v2 .home-guide-step.is-start em{color:var(--brand-cyan)}
+
+body.homepage-v2 .home-quote-card{
+  background-color:var(--brand-navy);
+  border-color:#1a4a8d;
+}
+body.homepage-v2 .home-quote-card:after{
+  color:#a7dfff;
+  content:"JOYLAB · SIGNAL / EVIDENCE / DECISION";
+}
+
+@media(min-width:1100px){
+  body.homepage-v2 .home-hero__signature{
+    width:min(65%,760px);
+    right:-58px;
+    bottom:-30px;
+    opacity:.67;
+    filter:saturate(1.08) contrast(1.04);
+  }
+}
+
+@media(max-width:640px){
+  body.homepage-v2 .home-hero__lead{
+    min-height:318px;
+    padding:23px 18px 19px;
+  }
+  body.homepage-v2 .home-eyebrow{
+    max-width:270px;
+    font-size:.57rem;
+    line-height:1.5;
+  }
+  body.homepage-v2 .home-hero h1{
+    font-size:2rem;
+    margin:8px 0 13px;
+  }
+  body.homepage-v2 .home-hero__desc{
+    max-width:310px;
+    font-size:.84rem;
+  }
+  body.homepage-v2 .home-hero__pillars{
+    gap:7px;
+    margin-top:11px;
+    font-size:.57rem;
+    letter-spacing:.08em;
+  }
+  body.homepage-v2 .home-hero__cta{
+    margin-top:15px;
+  }
+  body.homepage-v2 .home-hero__signature{
+    width:104%;
+    right:-230px;
+    bottom:-18px;
+    opacity:.32;
+  }
+}
