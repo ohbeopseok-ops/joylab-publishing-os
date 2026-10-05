@@ -75,7 +75,7 @@ contains(deploy, 'x-frame-options: DENY', 'X-Frame-Options is verified in produc
 contains(deploy, 'referrer-policy: strict-origin-when-cross-origin', 'Referrer-Policy is verified in production');
 contains(deploy, 'permissions-policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()', 'Permissions-Policy is verified in production');
 
-contains(healthWorkflow, "cron: '17 * * * *'", 'Production Health runs hourly at minute 17');
+contains(healthWorkflow, "cron: '17 0,6,12,18 * * *'", 'Production Health runs four times daily');
 contains(healthWorkflow, 'workflow_dispatch:', 'Production Health supports manual dispatch');
 contains(healthWorkflow, 'permissions:\n  contents: read', 'Production Health keeps read-only repository permissions');
 contains(healthWorkflow, 'node-version: 24', 'Production Health uses Node 24');
@@ -97,7 +97,7 @@ contains(healthScript, "'x-content-type-options'", 'Production Health checks X-C
 contains(healthScript, "expectedStatus: 301", 'Production Health checks permanent www redirect');
 contains(healthScript, 'SOFT_LATENCY_MS = 1_500', 'Production Health records soft latency threshold');
 
-contains(driftWorkflow, "cron: '37 2 * * *'", 'Configuration Drift runs daily at 02:37 UTC');
+contains(driftWorkflow, "cron: '37 2 * * 1'", 'Configuration Drift runs weekly on Monday at 02:37 UTC');
 contains(driftWorkflow, 'workflow_dispatch:', 'Configuration Drift supports manual dispatch');
 contains(driftWorkflow, 'permissions:\n  contents: read', 'Configuration Drift keeps read-only repository permissions');
 contains(driftWorkflow, 'node-version: 24', 'Configuration Drift uses Node 24');
