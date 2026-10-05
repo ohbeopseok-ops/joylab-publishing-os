@@ -37,6 +37,12 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "PEG 1 이하 진입 이후 S&P500의 미래 수익률을 검증하는 JoyLab 백테스트 연구"
 ---
 
+→ [투자·경제 Research Guide](/guides/investing)
+
+→ [미국 국채금리 5% 시대](/articles/treasury-5-percent-sp500-nasdaq-dividend)
+
+[Evidence source](https://archive.yardeni.com/pub/stockmktperatio.pdf)
+
 ## Research Status
 
 **Evidence Level: SILVER / Draft**
@@ -44,6 +50,8 @@ heroAlt: "PEG 1 이하 진입 이후 S&P500의 미래 수익률을 검증하는 
 이 글은 공개 가능한 Yardeni PEG 차트와 데이터 정의를 바탕으로 백테스트 규칙을 먼저 고정한 연구 초안입니다.
 
 PEG 원시 시계열은 I/B/E/S by Refinitiv 기반이므로, 공개 차트에서 읽은 좌표만으로 정밀한 30년 수익률 통계를 확정하지 않습니다.
+
+[Evidence source](https://archive.yardeni.com/pub/stockmktperatio.pdf)
 
 > **차트에서 좋아 보이는 패턴과 재현 가능한 백테스트는 다릅니다.**
 
@@ -59,6 +67,8 @@ GOLD 버전은 동일한 PEG 원시 시계열 또는 재현 가능한 숫자 데
 4. PEG 단독 Model A와 EPS Revision을 추가한 Model B, 금리까지 추가한 Model C를 비교해야 한다.
 5. 현재 공개 차트만으로는 후보 구간을 식별할 수 있지만 통계적 확정은 GOLD 데이터 전까지 보류한다.
 
+[Evidence source](https://archive.yardeni.com/morning-briefing-2026/)
+
 ---
 
 ## 1. 먼저 PEG 데이터가 무엇인지부터 확인해야 한다
@@ -69,7 +79,11 @@ Yardeni의 S&P500 PEG는 다음과 같이 정의됩니다.
 
 여기서 LTEG는 5년 Forward Consensus Expected Annual Earnings Growth입니다.
 
+[Evidence source](https://archive.yardeni.com/pub/stockmktperatio.pdf)
+
 Yardeni는 이 시계열이 2005년까지 월간, 이후 주간이며 I/B/E/S by Refinitiv를 원자료로 사용한다고 명시합니다.
+
+[Evidence source](https://archive.yardeni.com/pub/stockmktperatio.pdf)
 
 이 사실이 중요한 이유는 단순 trailing P/E와 과거 EPS 성장률로 같은 PEG를 재구성하면 **다른 지표를 백테스트하게 되기 때문**입니다.
 
@@ -81,11 +95,15 @@ PEG가 0.9인 상태로 20주 동안 유지됐다고 가정해봅시다.
 
 매주를 독립 신호로 세면 한 번의 저PEG regime이 20개의 성공 사례처럼 보일 수 있습니다.
 
+[Evidence source](https://archive.yardeni.com/pub/stockmktperatio.pdf)
+
 그래서 JoyLab은 이벤트를 다음처럼 정의합니다.
 
 **직전 관측치 PEG >= 1.0 AND 현재 PEG < 1.0**
 
 그리고 같은 regime의 중복을 막기 위해 **12개월 cooldown**을 둡니다.
+
+[Evidence source](https://archive.yardeni.com/pub/stockmktperatio.pdf)
 
 이 규칙은 표본 수를 줄이지만 결과의 독립성을 높입니다.
 
@@ -107,6 +125,8 @@ PEG가 0.9인 상태로 20주 동안 유지됐다고 가정해봅시다.
 | Sample N | 통계적 신뢰도 |
 
 수익률이 높더라도 중간에 -25%가 발생했다면 같은 전략으로 볼 수 없습니다.
+
+[Evidence source](https://archive.yardeni.com/pub/stockmktperatio.pdf)
 
 따라서 **Return과 MDD를 반드시 함께 봅니다.**
 
@@ -137,6 +157,8 @@ PEG가 0.9인 상태로 20주 동안 유지됐다고 가정해봅시다.
 
 대표적으로 글로벌 금융위기 이후, 2011년 조정기, 2018년 조정기, 최근 구간 등이 후보로 보입니다.
 
+[Evidence source](https://archive.yardeni.com/pub/stockmktperatio.pdf)
+
 하지만 이 단계에서는 정확한 진입 주차와 PEG 값 자체를 확정하지 않습니다.
 
 차트 픽셀을 날짜와 값으로 변환한 데이터는 **SILVER Evidence**로만 취급하고, 최종 통계는 원시 숫자 시계열에서 다시 계산해야 합니다.
@@ -163,17 +185,25 @@ PEG가 0.9인 상태로 20주 동안 유지됐다고 가정해봅시다.
 
 현재처럼 10년물이 5%를 넘는 시장에서는 같은 PEG라도 의미가 달라질 수 있기 때문에 할인율을 추가합니다.
 
+[Evidence source](https://archive.yardeni.com/pub/stockmktperatio.pdf)
+
 ---
 
 ## 7. 왜 현재 시장에서는 Model B와 C가 중요해졌나
 
 2026년 8월 Yardeni의 S&P500 NERI는 8.3%로 57개월 고점이었고 13개월 연속 플러스였습니다.
 
+[Evidence source](https://archive.yardeni.com/morning-briefing-2026/)
+
 또한 11개 섹터의 NERI가 모두 플러스였습니다.
+
+[Evidence source](https://www.reuters.com/legal/transactional/investors-wary-slowdown-us-corporate-profit-boom-2026-10-01/)
 
 즉 현재 이익 Revision은 PEG의 낮은 수준을 일정 부분 확인해주고 있습니다.
 
 반면 FRED DGS10 기준 미국 10년물은 2026년 10월 1일 5.24%였습니다.
+
+[Evidence source](https://fred.stlouisfed.org/series/DGS10)
 
 따라서 현재 시장은 다음 조합입니다.
 
@@ -197,6 +227,8 @@ PEG가 0.9인 상태로 20주 동안 유지됐다고 가정해봅시다.
 8. PEG bucket별 결과를 공개한다.
 9. 데이터가 없는 구간은 보간해 만들지 않는다.
 10. raw → signal → result 과정이 다시 실행 가능하다.
+
+[Evidence source](https://archive.yardeni.com/pub/stockmktperatio.pdf)
 
 ---
 
@@ -232,7 +264,11 @@ PEG가 0.9인 상태로 20주 동안 유지됐다고 가정해봅시다.
 
 → S&P500 EPS 전망이 꺾이면 어떻게 될까｜2026 AI 이익 사이클 분석
 
+[Evidence source](https://archive.yardeni.com/pub/stockmktperatio.pdf)
+
 → [Pillar｜S&P500 PEG 0.70, 정말 저평가일까](/articles/sp500-peg-valuation-2026)
+
+[Evidence source](https://archive.yardeni.com/pub/stockmktperatio.pdf)
 
 ---
 
