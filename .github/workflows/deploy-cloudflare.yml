@@ -300,7 +300,7 @@ jobs:
           grep -Fq 'KEY TAKEAWAYS' /tmp/body
           grep -Fq 'LEADERSHIP ACTION' /tmp/body
           grep -Fq 'NEXT · EP05' /tmp/body
-          grep -Fq '/guides/growth-leadership/literature#ep05' /tmp/body
+          grep -Fq '/guides/growth-leadership/literature/animal-farm' /tmp/body
 
           check_200 "https://aijoylab.kr/guides/growth-leadership/playbook/performance-coaching?deploy=${GITHUB_SHA}"
           grep -Fq '성과부진 상담사' /tmp/body
