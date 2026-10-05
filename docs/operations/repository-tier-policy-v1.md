@@ -25,6 +25,9 @@ Current example:
 ## Tier B — Development CI
 Use for actively developed applications where automated tests materially reduce release risk.
 
+Required:
+- at least one PR Build/Test status check before merge
+
 Allowed:
 - PR test/lint/build
 - release packaging
@@ -73,3 +76,19 @@ At the time this policy was established, the following audited private repositor
 - joylab-ai-voice-benchmark
 - JoyLab-Book-Mining
 - JoyLab_Vibe_Coding_OS_v1.0
+
+
+## Numeric CI limits
+
+These defaults apply unless a stricter repository-specific value is declared in `config/repository-registry.json`.
+
+| Control | Default limit |
+|---|---:|
+| Automatic PR workflow fan-out | 3 or fewer |
+| Tier A production-health schedule | 4 runs/day or fewer |
+| Tier B recurring cron workflows | 0 |
+| Tier C recurring cron workflows | 0 |
+| Heavy browser / Lighthouse / Playwright cron | 0 |
+| Hourly cron | prohibited without documented production SLA |
+
+A repository-specific exception must be documented in the registry with a reason.
