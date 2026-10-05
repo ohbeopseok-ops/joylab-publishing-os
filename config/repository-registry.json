@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "policyVersion": "JoyLab Repository Tier Policy V1",
+  "defaults": {
+    "maxAutomaticPrFanout": 3,
+    "tierAProductionHealthRunsPerDayMax": 4,
+    "recurringCronAllowed": {
+      "A": true,
+      "B": false,
+      "C": false
+    },
+    "heavyBrowserCronAllowed": false,
+    "hourlyCronAllowed": false,
+    "tierBRequiredChecksMin": 1,
+    "mergeRequiresGreen": true
+  },
+  "repositories": [
+    {
+      "name": "joylab-publishing-os",
+      "tier": "A",
+      "visibility": "public",
+      "requiredChecks": [
+        "build"
+      ],
+      "scheduledWorkflowsAllowed": true,
+      "notes": "Production publishing/deploy/monitoring repository."
+    },
+    {
+      "name": "leaderdesk",
+      "tier": "B",
+      "visibility": "private",
+      "requiredChecks": [
+        "build-or-test"
+      ],
+      "scheduledWorkflowsAllowed": false,
+      "notes": "Windows/local-first product; CI only for PR/release risk reduction."
+    },
+    {
+      "name": "joyclip",
+      "tier": "B",
+      "visibility": "private",
+      "requiredChecks": [
+        "build-or-test"
+      ],
+      "scheduledWorkflowsAllowed": false,
+      "notes": "Application development repository; no recurring cron by default."
+    },
+    {
+      "name": "joylab-ai-company-os",
+      "tier": "B",
+      "visibility": "private",
+      "requiredChecks": [
+        "test"
+      ],
+      "scheduledWorkflowsAllowed": false,
+      "notes": "Agent safety and benchmark gates; manual/release automation preferred."
+    },
+    {
+      "name": "joylab-video-factory",
+      "tier": "B",
+      "visibility": "private",
+      "requiredChecks": [
+        "test-or-render-smoke"
+      ],
+      "scheduledWorkflowsAllowed": false,
+      "notes": "Render GOLD tests should be manual or release-driven."
+    },
+    {
+      "name": "joylab-command-center",
+      "tier": "C",
+      "visibility": "private",
+      "requiredChecks": [],
+      "scheduledWorkflowsAllowed": false
+    },
+    {
+      "name": "joylab-content-os",
+      "tier": "C",
+      "visibility": "private",
+      "requiredChecks": [],
+      "scheduledWorkflowsAllowed": false
+    },
+    {
+      "name": "joylab-core8-engine",
+      "tier": "C",
+      "visibility": "private",
+      "requiredChecks": [],
+      "scheduledWorkflowsAllowed": false
+    },
+    {
+      "name": "joylab-shortform-engine",
+      "tier": "C",
+      "visibility": "private",
+      "requiredChecks": [],
+      "scheduledWorkflowsAllowed": false
+    },
+    {
+      "name": "joylab-ai-voice-benchmark",
+      "tier": "C",
+      "visibility": "private",
+      "requiredChecks": [],
+      "scheduledWorkflowsAllowed": false
+    },
+    {
+      "name": "JoyLab-Book-Mining",
+      "tier": "C",
+      "visibility": "private",
+      "requiredChecks": [],
+      "scheduledWorkflowsAllowed": false
+    },
+    {
+      "name": "JoyLab_Vibe_Coding_OS_v1.0",
+      "tier": "C",
+      "visibility": "private",
+      "requiredChecks": [],
+      "scheduledWorkflowsAllowed": false
+    }
+  ]
+}
