@@ -87,6 +87,36 @@ const targets = [
     required: ['.le-hero', '.le-visual--ep14', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
   },
   {
+    name: 'ep15',
+    route: '/guides/growth-leadership/literature/our-twisted-hero',
+    required: ['.le-hero', '.le-visual--ep15', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep16',
+    route: '/guides/growth-leadership/literature/moby-dick',
+    required: ['.le-hero', '.le-visual--ep16', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep17',
+    route: '/guides/growth-leadership/literature/brothers-karamazov',
+    required: ['.le-hero', '.le-visual--ep17', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep18',
+    route: '/guides/growth-leadership/literature/the-plague',
+    required: ['.le-hero', '.le-visual--ep18', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep19',
+    route: '/guides/growth-leadership/literature/human-condition',
+    required: ['.le-hero', '.le-visual--ep19', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
+    name: 'ep20',
+    route: '/guides/growth-leadership/literature/king-lear',
+    required: ['.le-hero', '.le-visual--ep20', '.le-research-brief', '.le-key-takeaways', '.le-action', '.le-faq', '.le-next'],
+  },
+  {
     name: 'framework-v2',
     route: '/guides/growth-leadership/literature/framework',
     required: ['.lf-hero', '.lf-diagnostic', '.lf-map', '.lf-grid', '.lf-principle'],
@@ -160,6 +190,50 @@ for (const target of targets) {
       };
     }, target.required);
 
+    let frameworkInteraction = {
+      submitted: true,
+      threeRecommendations: true,
+      recommendationLinksValid: true,
+      profileVisible: true,
+      resetWorks: true,
+    };
+
+    if (target.name === 'framework-v2') {
+      await page.check('input[name="q1"][value="performance"]');
+      await page.check('input[name="q2"][value="safety"]');
+      await page.check('input[name="q3"][value="judgment"]');
+      await page.check('input[name="q4"][value="accountability"]');
+      await page.check('input[name="q5"][value="growth"]');
+      await page.click('.lf-assessment__submit');
+      await page.waitForFunction(() => {
+        const result = document.querySelector('[data-assessment-result]');
+        return result && !result.hidden;
+      });
+
+      frameworkInteraction = await page.evaluate(() => {
+        const result = document.querySelector('[data-assessment-result]');
+        const cards = Array.from(document.querySelectorAll('[data-assessment-cards] a'));
+        const profile = document.querySelector('[data-profile]');
+        return {
+          submitted: Boolean(result && !result.hidden),
+          threeRecommendations: cards.length === 3,
+          recommendationLinksValid: cards.every((card) => {
+            const href = card.getAttribute('href') || '';
+            return href.startsWith('/guides/growth-leadership/literature/');
+          }),
+          profileVisible: Boolean(profile && !profile.hidden),
+          resetWorks: false,
+        };
+      });
+
+      await page.click('[data-assessment-reset]');
+      frameworkInteraction.resetWorks = await page.evaluate(() => {
+        const result = document.querySelector('[data-assessment-result]');
+        const checked = document.querySelectorAll('[data-assessment] input:checked');
+        return Boolean(result?.hidden) && checked.length === 0;
+      });
+    }
+
     const checks = {
       httpOk: status >= 200 && status < 400,
       noHorizontalOverflow: metrics.overflow <= 1,
@@ -170,13 +244,16 @@ for (const target of targets) {
         target.name === 'ep02' ? metrics.hero02BackgroundConnected === true :
         target.name === 'ep03' ? metrics.hero03BackgroundConnected === true : true,
       titlePresent: Boolean(metrics.title),
+      frameworkInteraction:
+        target.name !== 'framework-v2' ||
+        Object.values(frameworkInteraction).every(Boolean),
     };
 
     const screenshot = path.join(outputDir, `${target.name}-${viewport.name}.png`);
     await page.screenshot({ path: screenshot, fullPage: true });
 
     const passed = Object.values(checks).every(Boolean);
-    report.push({ target, viewport, status, metrics, pageErrors, checks, passed, screenshot });
+    report.push({ target, viewport, status, metrics, frameworkInteraction, pageErrors, checks, passed, screenshot });
     if (!passed) failures.push(`${target.name}-${viewport.name}`);
 
     console.log(

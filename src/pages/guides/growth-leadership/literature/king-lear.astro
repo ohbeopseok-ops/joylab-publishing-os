@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  [
+    "승계는 후임자를 정하면 끝나는 것 아닌가요?",
+    "아닙니다. 권한, 책임, 핵심 관계, 판단 기준, 진행 중 위험과 의사결정 기록까지 이전해야 운영 공백이 줄어듭니다."
+  ],
+  [
+    "기존 리더는 언제 완전히 물러나야 하나요?",
+    "후임자의 결정권을 침해하지 않도록 지원 기간과 개입 조건을 명확히 정하는 것이 좋습니다."
+  ],
+  [
+    "승계에서 가장 중요한 문서는 무엇인가요?",
+    "업무 목록보다 반복되는 판단 기준, 핵심 이해관계자, 위험, 진행 중 결정과 재검토 시점을 담은 인수인계가 중요합니다."
+  ]
+];
+const takeaways = [
+  [
+    "01",
+    "직책보다 판단 기준을 넘긴다",
+    "무엇을 왜 그렇게 결정하는지 전달해야 합니다."
+  ],
+  [
+    "02",
+    "듣고 싶은 말과 사실을 구분한다",
+    "승계 과정에서도 반대 의견이 살아 있어야 합니다."
+  ],
+  [
+    "03",
+    "권한과 책임을 함께 이전한다",
+    "책임만 주고 권한을 남겨두면 후임자는 독립할 수 없습니다."
+  ],
+  [
+    "04",
+    "암묵지를 문서로 바꾼다",
+    "핵심 관계와 예외, 위험을 개인 기억에서 꺼내야 합니다."
+  ],
+  [
+    "05",
+    "좋은 퇴장은 조직의 자립을 만든다",
+    "전임 리더가 없어도 의사결정이 이어져야 승계가 완료됩니다."
+  ]
+];
+const coachingQuestions = [
+  "후임자가 스스로 결정할 수 있는 권한은 무엇인가요?",
+  "아직 전임 리더에게 남아 있는 권한은 무엇인가요?",
+  "핵심 판단 기준이 문서화돼 있나요?",
+  "중요한 예외와 리스크가 기록돼 있나요?",
+  "핵심 이해관계자를 소개했나요?",
+  "듣기 좋은 보고만 남고 있지 않나요?",
+  "후임자의 다른 판단을 허용할 수 있나요?",
+  "지원 기간과 개입 조건이 명확한가요?",
+  "팀이 전임자에게 계속 우회 보고하지 않나요?",
+  "승계 후 실패를 학습할 공간이 있나요?",
+  "전임자가 없어도 운영 루틴이 돌아가나요?",
+  "내가 떠난 뒤 조직은 무엇으로 판단할 것인가?"
+];
+
+const articleSchema = {
+  '@context':'https://schema.org',
+  '@type':'Article',
+  headline:"권한을 내려놓을 때 무엇을 남겨야 하는가",
+  alternativeHeadline:"『리어 왕』에서 배우는 권력승계와 판단의 리더십",
+  description:"셰익스피어 『리어 왕』을 권한 위임, 승계, 판단, 리더의 퇴장 관점에서 분석한 JoyLab Literature & Leadership Research.",
+  mainEntityOfPage:"https://aijoylab.kr/guides/growth-leadership/literature/king-lear",
+  author:{'@type':'Organization',name:'JoyLab',url:'https://aijoylab.kr'},
+  publisher:{'@type':'Organization',name:'JoyLab',url:'https://aijoylab.kr'},
+  about:["Leadership","Succession","Delegation","Judgment","King Lear"]
+};
+
+const faqSchema = {
+  '@context':'https://schema.org',
+  '@type':'FAQPage',
+  mainEntity: faq.map(([q,a])=>({
+    '@type':'Question',name:q,
+    acceptedAnswer:{'@type':'Answer',text:a}
+  }))
+};
+
+const breadcrumbSchema = {
+  '@context':'https://schema.org',
+  '@type':'BreadcrumbList',
+  itemListElement:[
+    {'@type':'ListItem',position:1,name:'JoyLab',item:'https://aijoylab.kr/'},
+    {'@type':'ListItem',position:2,name:'성장·리더십',item:'https://aijoylab.kr/guides/growth-leadership'},
+    {'@type':'ListItem',position:3,name:'문학에서 배우는 리더십',item:'https://aijoylab.kr/guides/growth-leadership/literature'},
+    {'@type':'ListItem',position:4,name:"리어 왕",item:"https://aijoylab.kr/guides/growth-leadership/literature/king-lear"}
+  ]
+};
+---
+
+<BaseLayout
+  title="리어 왕 리더십｜권한을 내려놓을 때 무엇을 남겨야 하는가 | JoyLab"
+  description="셰익스피어 『리어 왕』을 통해 권한 위임, 승계, 듣고 싶은 말과 사실의 구분, 리더의 퇴장 이후 남는 조직을 살펴봅니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/king-lear"
+  type="article"
+  bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP RESEARCH · EP20</div>
+      <h1>권한을 내려놓을 때<br /><span>무엇을 남겨야 하는가</span></h1>
+      <p class="le-subtitle">『리어 왕』에서 배우는 권력승계와 판단</p>
+      <p class="le-intro">리더십의 마지막 시험은 권한을 갖는 순간이 아니라 내려놓는 순간일 수 있습니다. 좋은 승계는 직책을 넘기는 일이 아니라 판단 기준, 책임 구조, 관계와 신뢰를 다음 사람에게 이전하는 일입니다.</p>
+      <div class="le-meta"><span>Succession</span><span>Delegation</span><span>Judgment</span><span>Legacy</span></div>
+    </header>
+
+    <section class="le-visual le-visual--ep20" aria-label="리어 왕 권력승계와 판단 비주얼">
+      <div><span>EP20</span><b>SUCCESSION × LEGACY</b></div>
+      <i aria-hidden="true"></i>
+    </section>
+
+    <article class="le-body">
+      <section class="le-research-brief">
+        <div class="sg-eyebrow">RESEARCH BRIEF</div>
+        <h2>권한을 넘기는 것과 리더십을 승계하는 것은 다르다.</h2>
+        <p>『리어 왕』은 권력을 나누는 과정에서 판단과 관계가 어떻게 흔들리는지를 보여줍니다. 특히 듣고 싶은 말을 하는 사람과 불편한 진실을 말하는 사람을 구분하지 못하는 위험이 드러납니다.</p>
+        <p>조직에서도 승계가 직책 변경에 그치면 새 리더는 암묵지, 판단 기준, 이해관계와 책임 구조를 처음부터 다시 배워야 합니다.</p>
+        <blockquote>좋은 리더의 마지막 성과는<br />자신이 없어도 조직이 판단할 수 있게 만드는 것이다.</blockquote>
+        <div class="le-diagnosis">
+          <article><b>ROLE</b><span>무엇을 넘길 것인가</span></article>
+          <article><b>CRITERIA</b><span>판단 기준이 문서화됐는가</span></article>
+          <article><b>VOICE</b><span>불편한 진실이 남아 있는가</span></article>
+          <article><b>EXIT</b><span>리더 없이도 작동하는가</span></article>
+        </div>
+      </section>
+
+      <section class="le-key-takeaways">
+        <div class="sg-eyebrow">KEY TAKEAWAYS</div>
+        <h2>『리어 왕』이 리더에게 남기는 5가지 원칙</h2>
+        <div class="le-takeaway-list">
+          {takeaways.map(([no,title,body])=>(
+            <article><div class="le-takeaway-list__no">{no}</div><div><h3>{title}</h3><p>{body}</p></div></article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · SUCCESSION</div>
+        <h2>승계는 사람을 바꾸는 프로젝트가 아니라 시스템을 이전하는 프로젝트다</h2>
+        <p>후임자에게 업무 목록만 전달하면 중요한 판단은 여전히 전임자의 머릿속에 남습니다. 반복되는 기준과 위험, 예외 처리 방식까지 이전해야 합니다.</p>
+        <div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>좋은 승계는 후임자가 전임자처럼 행동하게 만드는 것이 아니라 전임자 없이도 책임 있게 판단할 수 있게 만드는 것이다.</p></div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · LEGACY</div>
+        <h2>리더의 유산은 통제력이 아니라 자립성이다</h2>
+        <p>전임자가 계속 모든 중요한 결정을 승인하면 조직은 승계된 것처럼 보여도 실제로는 의존이 유지됩니다.</p>
+        <div class="le-control">
+          <article><small>CHECK FIRST</small><h3>승계 전에</h3><p>권한, 판단 기준, 이해관계자, 위험과 진행 중 결정을 정리합니다.</p></article>
+          <article><small>CHECK NEXT</small><h3>승계 이후</h3><p>후임자의 독립 결정, 우회 보고, 전임자 개입 빈도와 운영 지속성을 점검합니다.</p></article>
+        </div>
+        <blockquote class="is-dark">리더십의 완성은 오래 남는 것이 아니라<br />떠난 뒤에도 좋은 판단이 남는 것이다.</blockquote>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">COACHING QUESTIONS</div>
+        <h2>승계와 퇴장을 준비하는 12개 리더 질문</h2>
+        <p>권한 → 기준 → 관계 → 독립성 순으로 사용합니다.</p>
+        <ol class="le-question-list">
+          {coachingQuestions.map((q)=><li>{q}</li>)}
+        </ol>
+        <div class="le-gold-question">
+          <small>GOLD QUESTION</small>
+          <p>리더가 권한을 내려놓을 때 무엇을 남겨야 하는가?</p>
+        </div>
+      </section>
+
+      <section class="le-action">
+        <div class="sg-eyebrow">LEADERSHIP ACTION</div>
+        <h2>인수인계 문서를 “업무 목록”에서 “판단 기준과 위험” 중심으로 다시 쓴다.</h2>
+        <div class="le-action-grid">
+          <article><b>01 · RIGHTS</b><p>후임자의 결정권을 명시합니다.</p></article>
+          <article><b>02 · CRITERIA</b><p>반복 판단의 기준을 기록합니다.</p></article>
+          <article><b>03 · RISK</b><p>예외와 위험, 진행 중 결정을 전달합니다.</p></article>
+          <article><b>04 · EXIT</b><p>전임자의 개입 종료 조건을 정합니다.</p></article>
+        </div>
+        <a href="/guides/growth-leadership/literature/framework">Leadership Framework V2 →</a>
+      </section>
+
+      <section class="le-conclusion">
+        <div class="sg-eyebrow">JOYLAB CONCLUSION</div>
+        <p>모든 리더십에는 끝이 있습니다.</p>
+        <h2>가장 좋은 퇴장은<br />리더가 사라져도 판단 기준이 남는 퇴장이다.</h2>
+        <p>Season 2는 권력을 얻는 법이 아니라 책임 있게 사용하고 내려놓는 법에서 끝납니다.</p>
+      </section>
+    </article>
+
+    <section class="le-faq">
+      <div class="sg-eyebrow">FAQ</div>
+      <h2>『리어 왕』과 권력승계와 판단</h2>
+      {faq.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <section class="le-next">
+      <div>
+        <small>FRAMEWORK · EP01–EP20</small>
+        <h2>Literature Leadership Framework V2 — 20개의 작품으로 보는 리더십 지도</h2>
+        <p>성과에서 승계까지 20개 Episode를 현재 고민과 4개 Leadership Domain으로 다시 탐색합니다.</p>
+      </div>
+      <a href="/guides/growth-leadership/literature/framework">Framework V2 열기 →</a>
+    </section>
+
+    <footer class="le-back">
+      <a href="/guides/growth-leadership/literature/human-condition">← EP19 인간의 조건</a>
+      <a href="/guides/growth-leadership/literature">전체 시리즈 →</a>
+    </footer>
+  </main>
+</BaseLayout>

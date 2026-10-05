@@ -1,0 +1,222 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  [
+    "위기에서 정보가 불완전하면 발표를 늦춰야 하나요?",
+    "핵심 사실과 불확실성을 구분해 알리고 다음 업데이트 시점을 명시하는 편이 신뢰 유지에 도움이 됩니다."
+  ],
+  [
+    "리더는 불안을 줄이기 위해 확신 있게 말해야 하지 않나요?",
+    "근거 없는 확신보다 무엇을 알고 모르는지 투명하게 말하고 실행 계획을 제시하는 것이 더 지속적인 신뢰를 만듭니다."
+  ],
+  [
+    "위기 대응에서 가장 먼저 정할 것은 무엇인가요?",
+    "고객과 구성원 안전, 핵심 서비스 유지 등 보호할 우선순위와 의사결정 권한을 먼저 정하는 것이 좋습니다."
+  ]
+];
+const takeaways = [
+  [
+    "01",
+    "사실과 불확실성을 분리한다",
+    "모르는 것을 숨기지 않고 현재 확인된 범위를 명확히 합니다."
+  ],
+  [
+    "02",
+    "우선순위를 좁힌다",
+    "위기에서는 모든 목표를 동시에 지키려 하지 않습니다."
+  ],
+  [
+    "03",
+    "업데이트 주기를 약속한다",
+    "새 정보가 없어도 정해진 시점에 상황을 공유하면 불확실성이 줄어듭니다."
+  ],
+  [
+    "04",
+    "현장 역할을 단순화한다",
+    "누가 무엇을 결정하고 누구에게 보고하는지 명확히 합니다."
+  ],
+  [
+    "05",
+    "사후 학습까지 위기의 일부다",
+    "정상화 이후 반드시 시스템 변경을 남겨야 합니다."
+  ]
+];
+const coachingQuestions = [
+  "지금 확실히 아는 사실은 무엇인가요?",
+  "아직 확인되지 않은 것은 무엇인가요?",
+  "가장 먼저 보호해야 할 대상은 누구인가요?",
+  "중단 가능한 업무는 무엇인가요?",
+  "현재 의사결정권자는 누구인가요?",
+  "현장은 어디까지 자율적으로 대응할 수 있나요?",
+  "다음 업데이트 시점이 정해져 있나요?",
+  "같은 메시지가 모든 채널에서 전달되고 있나요?",
+  "리더가 근거 없는 확신을 말하고 있지 않나요?",
+  "복구 기준은 무엇인가요?",
+  "정상화 후 반드시 바꿀 시스템은 무엇인가요?",
+  "나는 미래를 맞히려 하는가, 현재 행동을 명확히 하는가?"
+];
+
+const articleSchema = {
+  '@context':'https://schema.org',
+  '@type':'Article',
+  headline:"답이 없는 위기에서 리더는 무엇을 제공해야 하는가",
+  alternativeHeadline:"『페스트』에서 배우는 불확실성과 위기의 리더십",
+  description:"알베르 카뮈 『페스트』를 불확실성, 위기, 정보와 반복 행동의 관점에서 분석한 JoyLab Literature & Leadership Research.",
+  mainEntityOfPage:"https://aijoylab.kr/guides/growth-leadership/literature/the-plague",
+  author:{'@type':'Organization',name:'JoyLab',url:'https://aijoylab.kr'},
+  publisher:{'@type':'Organization',name:'JoyLab',url:'https://aijoylab.kr'},
+  about:["Leadership","Crisis","Uncertainty","Communication","The Plague"]
+};
+
+const faqSchema = {
+  '@context':'https://schema.org',
+  '@type':'FAQPage',
+  mainEntity: faq.map(([q,a])=>({
+    '@type':'Question',name:q,
+    acceptedAnswer:{'@type':'Answer',text:a}
+  }))
+};
+
+const breadcrumbSchema = {
+  '@context':'https://schema.org',
+  '@type':'BreadcrumbList',
+  itemListElement:[
+    {'@type':'ListItem',position:1,name:'JoyLab',item:'https://aijoylab.kr/'},
+    {'@type':'ListItem',position:2,name:'성장·리더십',item:'https://aijoylab.kr/guides/growth-leadership'},
+    {'@type':'ListItem',position:3,name:'문학에서 배우는 리더십',item:'https://aijoylab.kr/guides/growth-leadership/literature'},
+    {'@type':'ListItem',position:4,name:"페스트",item:"https://aijoylab.kr/guides/growth-leadership/literature/the-plague"}
+  ]
+};
+---
+
+<BaseLayout
+  title="페스트 리더십｜답이 없는 위기에서 리더는 무엇을 제공해야 하는가 | JoyLab"
+  description="알베르 카뮈 『페스트』를 통해 불확실한 위기에서 정보, 우선순위, 반복 행동과 리더의 책임을 살펴봅니다."
+  canonical="https://aijoylab.kr/guides/growth-leadership/literature/the-plague"
+  type="article"
+  bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb">
+      <a href="/">JoyLab</a><span>›</span>
+      <a href="/guides/growth-leadership">성장·리더십</a><span>›</span>
+      <a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a>
+    </nav>
+
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP RESEARCH · EP18</div>
+      <h1>답이 없는 위기에서<br /><span>리더는 무엇을 제공해야 하는가</span></h1>
+      <p class="le-subtitle">『페스트』에서 배우는 불확실성과 위기</p>
+      <p class="le-intro">위기에서는 정답보다 불확실성이 먼저 옵니다. 모든 것을 알 수 없는 상황에서 리더가 해야 할 일은 확신을 연기하는 것이 아니라, 현재 아는 것과 모르는 것, 지금 해야 할 행동을 분명히 만드는 것입니다.</p>
+      <div class="le-meta"><span>Crisis</span><span>Uncertainty</span><span>Communication</span><span>Priority</span></div>
+    </header>
+
+    <section class="le-visual le-visual--ep18" aria-label="페스트 불확실성과 위기 비주얼">
+      <div><span>EP18</span><b>CRISIS × CLARITY</b></div>
+      <i aria-hidden="true"></i>
+    </section>
+
+    <article class="le-body">
+      <section class="le-research-brief">
+        <div class="sg-eyebrow">RESEARCH BRIEF</div>
+        <h2>위기에서 리더의 역할은 미래를 맞히는 것이 아니라 현재의 행동을 명확하게 만드는 것이다.</h2>
+        <p>『페스트』의 인물들은 불확실한 재난 속에서 거대한 해답보다 매일 해야 할 일을 선택합니다. 위기는 영웅적 한 번의 판단보다 꾸준한 역할 수행의 중요성을 드러냅니다.</p>
+        <p>조직의 장애, 고객 이슈, 급격한 정책 변화도 마찬가지입니다. 불완전한 정보를 숨기기보다 업데이트 주기와 우선순위를 정해야 혼란이 줄어듭니다.</p>
+        <blockquote>위기에서 사람들은 완벽한 답보다<br />다음 한 걸음을 믿을 수 있어야 한다.</blockquote>
+        <div class="le-diagnosis">
+          <article><b>FACT</b><span>지금 확인된 사실은 무엇인가</span></article>
+          <article><b>UNKNOWN</b><span>무엇을 아직 모르는가</span></article>
+          <article><b>PRIORITY</b><span>무엇부터 보호할 것인가</span></article>
+          <article><b>CADENCE</b><span>언제 다시 업데이트할 것인가</span></article>
+        </div>
+      </section>
+
+      <section class="le-key-takeaways">
+        <div class="sg-eyebrow">KEY TAKEAWAYS</div>
+        <h2>『페스트』이 리더에게 남기는 5가지 원칙</h2>
+        <div class="le-takeaway-list">
+          {takeaways.map(([no,title,body])=>(
+            <article><div class="le-takeaway-list__no">{no}</div><div><h3>{title}</h3><p>{body}</p></div></article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · UNCERTAINTY</div>
+        <h2>“모른다”를 말하는 것이 신뢰를 깨는 것은 아니다</h2>
+        <p>불확실성을 숨겼다가 사실이 바뀌면 신뢰가 더 크게 훼손됩니다. 확인된 사실, 가설, 미확인 정보를 구분해서 말하면 구성원은 정보의 상태를 이해할 수 있습니다.</p>
+        <div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>위기 커뮤니케이션의 핵심은 확신의 크기가 아니라 정보 상태를 정확히 구분하는 능력이다.</p></div>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">DEEP DIVE · CADENCE</div>
+        <h2>위기에서는 메시지보다 업데이트 주기가 시스템이 된다</h2>
+        <p>새로운 내용이 없어도 정해진 시간에 상황을 공유하면 구성원은 소문 대신 공식 채널을 기다리게 됩니다.</p>
+        <div class="le-control">
+          <article><small>CHECK FIRST</small><h3>초기 대응</h3><p>사실, 미확인 정보, 우선순위, 권한과 다음 업데이트 시간을 명시합니다.</p></article>
+          <article><small>CHECK NEXT</small><h3>안정화 이후</h3><p>복구 기준, 고객 영향, 재발 방지와 제도 변경을 검토합니다.</p></article>
+        </div>
+        <blockquote class="is-dark">위기에서 침묵은 공백이 아니다.<br />그 공백은 소문과 불안이 채운다.</blockquote>
+      </section>
+
+      <section>
+        <div class="sg-eyebrow">COACHING QUESTIONS</div>
+        <h2>위기를 운영하는 12개 리더 질문</h2>
+        <p>사실 → 우선순위 → 역할 → 업데이트 → 학습 순으로 사용합니다.</p>
+        <ol class="le-question-list">
+          {coachingQuestions.map((q)=><li>{q}</li>)}
+        </ol>
+        <div class="le-gold-question">
+          <small>GOLD QUESTION</small>
+          <p>답이 없는 위기에서 리더는 무엇을 제공해야 하는가?</p>
+        </div>
+      </section>
+
+      <section class="le-action">
+        <div class="sg-eyebrow">LEADERSHIP ACTION</div>
+        <h2>위기 공지를 “사실·미확인·지금 할 일·다음 업데이트” 4칸으로 표준화한다.</h2>
+        <div class="le-action-grid">
+          <article><b>01 · FACT</b><p>확인된 사실만 분리합니다.</p></article>
+          <article><b>02 · PRIORITY</b><p>보호할 우선순위를 정합니다.</p></article>
+          <article><b>03 · ACTION</b><p>현장 행동과 권한을 명확히 합니다.</p></article>
+          <article><b>04 · UPDATE</b><p>다음 공유 시각을 약속합니다.</p></article>
+        </div>
+        <a href="/guides/growth-leadership/literature/framework">Leadership Framework V2 →</a>
+      </section>
+
+      <section class="le-conclusion">
+        <div class="sg-eyebrow">JOYLAB CONCLUSION</div>
+        <p>위기는 리더의 예측력을 시험하는 순간이 아닙니다.</p>
+        <h2>불확실성 속에서도<br />다음 행동을 믿을 수 있게 만드는 순간이다.</h2>
+        <p>명확함과 반복이 위기 속 신뢰를 지킵니다.</p>
+      </section>
+    </article>
+
+    <section class="le-faq">
+      <div class="sg-eyebrow">FAQ</div>
+      <h2>『페스트』과 불확실성과 위기</h2>
+      {faq.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}
+    </section>
+
+    <section class="le-next">
+      <div>
+        <small>NEXT · EP19</small>
+        <h2>『인간의 조건』 — 버티게 하는 힘은 의지인가, 의미인가</h2>
+        <p>다음 Research에서는 어려움을 견디는 힘과 의미의 역할을 살펴봅니다.</p>
+      </div>
+      <a href="/guides/growth-leadership/literature/human-condition">EP19 읽기 →</a>
+    </section>
+
+    <footer class="le-back">
+      <a href="/guides/growth-leadership/literature/brothers-karamazov">← EP17 카라마조프가의 형제들</a>
+      <a href="/guides/growth-leadership/literature">전체 시리즈 →</a>
+    </footer>
+  </main>
+</BaseLayout>

@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import '../../../../styles/semiconductor-guide-v2.css';
+import '../../../../styles/growth-leadership-guide-v2.css';
+
+const faq = [
+  ['『인간의 조건』을 리더십 관점에서 읽는 핵심은 무엇인가요?', '불확실한 환경에서 개인의 행동, 연대, 선택이 어떤 의미를 만드는지 보는 것입니다.'],
+  ['회복탄력성을 개인 의지로만 보면 왜 위험한가요?', '환경과 지원, 선택권을 무시한 채 버티기만 요구하면 부담을 개인에게 전가할 수 있기 때문입니다.'],
+  ['리더가 의미를 어떻게 만들 수 있나요?', '업무가 고객과 팀에 미치는 영향을 연결하고, 불필요한 일을 줄이며, 구성원이 통제할 수 있는 선택 영역을 명확히 할 수 있습니다.']
+];
+
+const takeaways = [
+  ['01','의미는 행동 속에서 만들어진다','거창한 구호보다 지금 선택하는 행동이 의미를 만듭니다.'],
+  ['02','연대는 버티는 힘을 키운다','어려움 속에서 혼자 감당하게 하지 않는 구조가 필요합니다.'],
+  ['03','통제 가능한 영역을 되찾게 한다','작은 선택권이 무력감을 줄입니다.'],
+  ['04','과부하를 미화하지 않는다','의미 있는 일도 지속 불가능한 부담은 줄여야 합니다.'],
+  ['05','회복을 운영 계획에 넣는다','집중 뒤 회복과 재정비를 일정에 포함해야 합니다.']
+];
+
+const coachingQuestions = [
+  '이 일이 왜 중요한지 구성원은 알고 있나요?',
+  '고객이나 팀에 미치는 영향을 연결해 설명했나요?',
+  '지금 통제할 수 있는 영역은 무엇인가요?',
+  '불필요한 업무를 줄였나요?',
+  '업무량이 지속 가능한 수준인가요?',
+  '구성원에게 선택권이 있나요?',
+  '실패 후 회복 시간이 주어지나요?',
+  '리더가 희생을 미화하고 있지 않나요?',
+  '도움을 요청할 채널이 있나요?',
+  '성과뿐 아니라 회복 신호도 보고 있나요?',
+  '장기적으로 버티기 위해 무엇을 중단해야 하나요?',
+  '나는 의지를 요구하는가, 의미와 조건을 만드는가?'
+];
+
+const articleSchema = {
+  '@context':'https://schema.org','@type':'Article',
+  headline:'버티게 하는 힘은 의지인가, 의미인가',
+  alternativeHeadline:'『인간의 조건』에서 배우는 회복탄력성과 의미의 리더십',
+  description:'앙드레 말로 『인간의 조건』을 통해 행동, 의미, 연대와 회복탄력성을 조직 리더십 관점에서 분석합니다.',
+  mainEntityOfPage:'https://aijoylab.kr/guides/growth-leadership/literature/human-condition',
+  author:{'@type':'Organization',name:'JoyLab',url:'https://aijoylab.kr'},
+  publisher:{'@type':'Organization',name:'JoyLab',url:'https://aijoylab.kr'},
+  about:['Leadership','Resilience','Meaning','Solidarity','Human Condition']
+};
+const faqSchema = {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faq.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))};
+const breadcrumbSchema = {'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[
+  {'@type':'ListItem',position:1,name:'JoyLab',item:'https://aijoylab.kr/'},
+  {'@type':'ListItem',position:2,name:'성장·리더십',item:'https://aijoylab.kr/guides/growth-leadership'},
+  {'@type':'ListItem',position:3,name:'문학에서 배우는 리더십',item:'https://aijoylab.kr/guides/growth-leadership/literature'},
+  {'@type':'ListItem',position:4,name:'인간의 조건',item:'https://aijoylab.kr/guides/growth-leadership/literature/human-condition'}
+]};
+---
+<BaseLayout title="인간의 조건 리더십｜버티게 하는 힘은 의지인가, 의미인가 | JoyLab" description="앙드레 말로 『인간의 조건』을 통해 행동, 의미, 연대와 회복탄력성을 조직 리더십 관점에서 살펴봅니다." canonical="https://aijoylab.kr/guides/growth-leadership/literature/human-condition" type="article" bodyClass="growth-leadership-guide-v2 literature-essay-page literature-research-page">
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <main class="le-wrap">
+    <nav class="le-breadcrumb" aria-label="Breadcrumb"><a href="/">JoyLab</a><span>›</span><a href="/guides/growth-leadership">성장·리더십</a><span>›</span><a href="/guides/growth-leadership/literature">문학에서 배우는 리더십</a></nav>
+    <header class="le-hero">
+      <div class="sg-eyebrow">LITERATURE & LEADERSHIP RESEARCH · EP19</div>
+      <h1>버티게 하는 힘은<br /><span>의지인가, 의미인가</span></h1>
+      <p class="le-subtitle">『인간의 조건』에서 배우는 회복탄력성과 의미</p>
+      <p class="le-intro">사람에게 버티라고 말하는 것은 쉽습니다. 하지만 지속 가능한 회복은 의지를 강요하는 데서보다, 왜 이 행동을 선택하는지 이해하고 서로 연결되어 있다고 느끼며 통제 가능한 영역을 되찾을 때 만들어집니다.</p>
+      <div class="le-meta"><span>Resilience</span><span>Meaning</span><span>Solidarity</span><span>Agency</span></div>
+    </header>
+    <section class="le-visual le-visual--ep19" aria-label="인간의 조건 회복탄력성과 의미 비주얼"><div><span>EP19</span><b>MEANING × RESILIENCE</b></div><i aria-hidden="true"></i></section>
+    <article class="le-body">
+      <section class="le-research-brief">
+        <div class="sg-eyebrow">RESEARCH BRIEF</div>
+        <h2>회복탄력성은 혼자 버티는 능력이 아니라 의미와 연대, 선택권을 다시 만드는 과정이다.</h2>
+        <p>『인간의 조건』은 혼란한 현실 속에서 인간이 행동하고 선택하며 타인과 연결되는 방식을 보여줍니다. 의미는 추상적 구호가 아니라 무엇을 위해 움직이는지에 대한 감각에서 만들어집니다.</p>
+        <p>조직에서도 장기 변화와 과부하 속에서 “조금만 더 버텨라”보다 우선순위, 선택권, 지원과 회복 조건을 함께 설계해야 합니다.</p>
+        <blockquote>사람에게 버티라고 말하기 전에<br />왜 버텨야 하고 무엇을 선택할 수 있는지 보여줘야 한다.</blockquote>
+        <div class="le-diagnosis"><article><b>MEANING</b><span>왜 이 일을 하는가</span></article><article><b>AGENCY</b><span>무엇을 선택할 수 있는가</span></article><article><b>SOLIDARITY</b><span>누가 함께하는가</span></article><article><b>RECOVERY</b><span>어떻게 회복할 것인가</span></article></div>
+      </section>
+      <section class="le-key-takeaways"><div class="sg-eyebrow">KEY TAKEAWAYS</div><h2>『인간의 조건』이 리더에게 남기는 5가지 원칙</h2><div class="le-takeaway-list">{takeaways.map(([no,title,body])=><article><div class="le-takeaway-list__no">{no}</div><div><h3>{title}</h3><p>{body}</p></div></article>)}</div></section>
+      <section><div class="sg-eyebrow">DEEP DIVE · MEANING</div><h2>의미는 슬로건이 아니라 행동과 영향의 연결이다</h2><p>구성원은 자신이 하는 일이 누구에게 어떤 변화를 만드는지 이해할 때 더 명확하게 우선순위를 잡을 수 있습니다.</p><div class="le-callout"><b>JOYLAB INTERPRETATION</b><p>의미는 더 많이 견디게 만드는 도구가 아니라 무엇을 위해 에너지를 써야 하는지 선택하게 만드는 기준이다.</p></div></section>
+      <section><div class="sg-eyebrow">DEEP DIVE · AGENCY</div><h2>작은 선택권이 무력감을 줄인다</h2><p>모든 상황을 통제할 수 없어도 일정, 순서, 방식, 도움 요청처럼 일부 선택권을 돌려주면 구성원은 수동적 버티기에서 능동적 대응으로 이동할 수 있습니다.</p><div class="le-control"><article><small>CHECK FIRST</small><h3>부담이 커질 때</h3><p>우선순위, 중단 업무, 선택 가능한 영역과 지원을 명확히 합니다.</p></article><article><small>CHECK NEXT</small><h3>집중 기간 후</h3><p>회복 시간, 업무량 정상화, 학습과 재정비를 계획합니다.</p></article></div><blockquote class="is-dark">회복탄력성은 무한히 버티는 힘이 아니다.<br />무엇을 위해 버티고 언제 회복할지를 아는 힘이다.</blockquote></section>
+      <section><div class="sg-eyebrow">COACHING QUESTIONS</div><h2>의미와 회복을 설계하는 12개 리더 질문</h2><p>의미 → 선택권 → 연대 → 회복 순으로 사용합니다.</p><ol class="le-question-list">{coachingQuestions.map((q)=><li>{q}</li>)}</ol><div class="le-gold-question"><small>GOLD QUESTION</small><p>버티게 하는 힘은 의지인가, 의미인가?</p></div></section>
+      <section class="le-action"><div class="sg-eyebrow">LEADERSHIP ACTION</div><h2>이번 주 팀 업무를 유지·중단·위임 세 칸으로 다시 나눈다.</h2><div class="le-action-grid"><article><b>01 · MEANING</b><p>핵심 업무가 중요한 이유를 연결합니다.</p></article><article><b>02 · CONTROL</b><p>구성원이 선택할 수 있는 영역을 넓힙니다.</p></article><article><b>03 · REDUCE</b><p>불필요한 부담을 제거합니다.</p></article><article><b>04 · RECOVER</b><p>회복 시간을 일정에 포함합니다.</p></article></div><a href="/guides/growth-leadership/literature/framework">Leadership Framework V2 →</a></section>
+      <section class="le-conclusion"><div class="sg-eyebrow">JOYLAB CONCLUSION</div><p>사람은 무한한 자원이 아닙니다.</p><h2>좋은 리더는 버티라고만 말하지 않고<br />버틸 이유와 회복할 조건을 함께 만든다.</h2><p>의미와 연대, 선택권이 지속 가능한 에너지를 만듭니다.</p></section>
+    </article>
+    <section class="le-faq"><div class="sg-eyebrow">FAQ</div><h2>『인간의 조건』과 회복탄력성·의미</h2>{faq.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}</section>
+    <section class="le-next"><div><small>NEXT · EP20</small><h2>『리어 왕』 — 권한을 내려놓을 때 무엇을 남겨야 하는가</h2><p>Season 2 마지막 Research에서는 권력 승계와 리더의 퇴장 이후 남는 구조를 살펴봅니다.</p></div><a href="/guides/growth-leadership/literature/king-lear">EP20 읽기 →</a></section>
+    <footer class="le-back"><a href="/guides/growth-leadership/literature/the-plague">← EP18 페스트</a><a href="/guides/growth-leadership/literature">전체 시리즈 →</a></footer>
+  </main>
+</BaseLayout>
