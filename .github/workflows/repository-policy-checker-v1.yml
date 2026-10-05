@@ -43,4 +43,4 @@ jobs:
           package-manager-cache: false
 
       - name: Enforce repository policy
-        run: npm run repository-policy:check
+        run: node scripts/check-repository-policy-v1.mjs
