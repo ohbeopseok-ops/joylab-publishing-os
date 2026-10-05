@@ -1,8 +1,6 @@
 name: JoyLab Quality Control Center V1
 
 on:
-  schedule:
-    - cron: "45 22 * * *"
   pull_request:
     branches: [main]
     paths:
@@ -13,7 +11,6 @@ on:
       - 'scripts/rank-first-content-entry-v1.mjs'
       - 'src/data/first-content-priority-v1.json'
       - 'src/pages/articles/**'
-      - '.github/workflows/quality-control-center-v1.yml'
   push:
     branches: [main]
     paths:

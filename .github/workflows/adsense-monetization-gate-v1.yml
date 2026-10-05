@@ -2,7 +2,7 @@ name: AdSense Monetization Gate V1
 
 on:
   schedule:
-    - cron: "30 0 * * *"
+    - cron: "30 0 * * 1"
   workflow_dispatch:
     inputs:
       mode:

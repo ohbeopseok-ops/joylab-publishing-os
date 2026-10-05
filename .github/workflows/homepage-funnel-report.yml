@@ -8,7 +8,7 @@ on:
       - 'scripts/report-homepage-funnel.mjs'
       - 'scripts/report-books-funnel.mjs'
   schedule:
-    - cron: '45 0 * * *'
+    - cron: '45 0 * * 1'
   workflow_dispatch:
 
 permissions:
