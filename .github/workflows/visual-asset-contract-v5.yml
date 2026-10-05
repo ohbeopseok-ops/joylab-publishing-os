@@ -1,0 +1,94 @@
+name: Visual Asset Contract V5
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/pages/index.astro'
+      - 'src/pages/about.astro'
+      - 'src/pages/articles/**'
+      - 'src/pages/books/**'
+      - 'src/styles/brand-system-v1-1.css'
+      - 'src/styles/brand-surfaces-v1-1.css'
+      - 'src/data/articles/**'
+      - 'src/data/research-image-manifest.json'
+      - 'src/data/article-image-overrides.json'
+      - 'src/data/curated-research-images.json'
+      - 'src/data/curated-generated-heroes.json'
+      - 'src/data/visual-asset-contract-v4.json'
+      - 'src/data/visual-asset-contract-v5.json'
+      - 'public/images/**'
+      - 'scripts/check-visual-asset-contract-v4.mjs'
+      - 'scripts/check-visual-asset-contract-v5.mjs'
+      - 'scripts/build-visual-quality-dashboard-v1.mjs'
+      - 'scripts/apply-curated-research-images.mjs'
+      - 'docs/VISUAL_ASSET_CONTRACT_V5.md'
+      - '.github/workflows/visual-asset-contract-v5.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/pages/index.astro'
+      - 'src/pages/about.astro'
+      - 'src/pages/articles/**'
+      - 'src/pages/books/**'
+      - 'src/styles/brand-system-v1-1.css'
+      - 'src/styles/brand-surfaces-v1-1.css'
+      - 'src/data/articles/**'
+      - 'src/data/research-image-manifest.json'
+      - 'src/data/article-image-overrides.json'
+      - 'src/data/curated-research-images.json'
+      - 'src/data/curated-generated-heroes.json'
+      - 'src/data/visual-asset-contract-v4.json'
+      - 'src/data/visual-asset-contract-v5.json'
+      - 'public/images/**'
+      - 'scripts/check-visual-asset-contract-v4.mjs'
+      - 'scripts/check-visual-asset-contract-v5.mjs'
+      - 'scripts/build-visual-quality-dashboard-v1.mjs'
+      - 'scripts/apply-curated-research-images.mjs'
+      - 'docs/VISUAL_ASSET_CONTRACT_V5.md'
+      - '.github/workflows/visual-asset-contract-v5.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: visual-asset-contract-v5-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  visual-asset-contract-v5:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site with materialized research assets
+        run: npm run build
+
+      - name: Validate Visual Asset Contract V5
+        run: node scripts/check-visual-asset-contract-v5.mjs
+
+      - name: Build Visual Quality Dashboard V1
+        run: node scripts/build-visual-quality-dashboard-v1.mjs
+
+      - name: Upload V5 report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: visual-asset-contract-v5
+          path: |
+            qa-artifacts/visual-asset-contract-v4/report.json
+            qa-artifacts/visual-asset-contract-v5/report.json
+            qa-artifacts/visual-quality-dashboard-v1
+          if-no-files-found: error
+          retention-days: 30
