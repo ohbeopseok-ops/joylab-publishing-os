@@ -1,0 +1,179 @@
+/* JoyLab Brand Surfaces V1.1
+   Shared visual language for About / Research / Books.
+   Scope is body-class constrained to avoid cross-surface regressions. */
+
+:root{
+  --joylab-brand-navy:#041a3e;
+  --joylab-brand-blue:#2563ff;
+  --joylab-brand-cyan:#00d1ff;
+  --joylab-brand-ivory:#f8fafc;
+  --joylab-brand-slate:#94a3b8;
+  --joylab-brand-dark:#090f16;
+}
+
+/* ABOUT — editorial research identity */
+body.about-v2{
+  background:
+    linear-gradient(rgba(37,99,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(37,99,255,.035) 1px,transparent 1px),
+    linear-gradient(180deg,#f7faff 0,#fff 440px);
+  background-size:40px 40px,40px 40px,auto;
+}
+body.about-v2 .about-v2-kicker,
+body.about-v2 .about-v2-eyebrow{color:var(--joylab-brand-blue)}
+body.about-v2 .about-v2-hero h1 span{color:var(--joylab-brand-blue)}
+body.about-v2 .about-v2-summary{
+  border-color:#cfdced;
+  box-shadow:0 22px 60px rgba(4,26,62,.08);
+}
+body.about-v2 .about-v2-summary:before{
+  content:"SIGNAL / EVIDENCE / DECISION";
+  display:block;
+  padding-bottom:13px;
+  border-bottom:1px solid #e1e8f2;
+  color:var(--joylab-brand-cyan);
+  font-size:.62rem;
+  font-weight:900;
+  letter-spacing:.15em;
+}
+body.about-v2 .about-v2-step{
+  border-radius:14px;
+  border-color:#d8e3f0;
+}
+body.about-v2 .about-v2-step b{color:var(--joylab-brand-blue)}
+body.about-v2 .about-v2-step:last-child{
+  border-color:#a8cdfd;
+  background:linear-gradient(180deg,#f7fbff,#fff);
+}
+body.about-v2 .about-v2-founder-card,
+body.about-v2 .about-v2-cta{
+  background:linear-gradient(135deg,var(--joylab-brand-navy),#0a3470);
+}
+body.about-v2 .about-v2-cta-primary{
+  background:var(--joylab-brand-blue);
+  color:#fff;
+}
+
+/* RESEARCH ARCHIVE — terminal/editorial hybrid */
+body.research-hub-page .home-v2{
+  padding-top:18px;
+}
+body.research-hub-page .home-v2 > .home-section:first-child{
+  position:relative;
+  overflow:hidden;
+  padding:48px 42px 40px!important;
+  border:1px solid #173f79;
+  background:
+    linear-gradient(rgba(98,151,232,.10) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(98,151,232,.10) 1px,transparent 1px),
+    linear-gradient(135deg,var(--joylab-brand-navy),#0a2f65);
+  background-size:40px 40px,40px 40px,auto;
+  box-shadow:0 24px 60px rgba(4,26,62,.10);
+}
+body.research-hub-page .home-v2 > .home-section:first-child:after{
+  content:"SIGNAL  ·  EVIDENCE  ·  DECISION";
+  position:absolute;
+  right:34px;
+  top:28px;
+  color:rgba(155,213,255,.75);
+  font-size:.58rem;
+  font-weight:900;
+  letter-spacing:.16em;
+}
+body.research-hub-page .home-v2 > .home-section:first-child .home-section-title:before{background:var(--joylab-brand-cyan)}
+body.research-hub-page .home-v2 > .home-section:first-child .home-eyebrow{color:var(--joylab-brand-cyan)}
+body.research-hub-page .home-v2 > .home-section:first-child h1{color:#fff}
+body.research-hub-page .home-v2 > .home-section:first-child .home-section-title p{color:#c9d8eb}
+body.research-hub-page .research-map-entry{
+  border-color:rgba(255,255,255,.2);
+  color:#fff;
+  background:rgba(255,255,255,.06);
+}
+body.research-hub-page .research-map-entry:hover{
+  border-color:var(--joylab-brand-cyan);
+  background:rgba(0,209,255,.08);
+}
+body.research-hub-page .home-v2 > .home-section:first-child .home-pillars{margin-top:26px}
+body.research-hub-page .home-v2 > .home-section:first-child .home-pillar{
+  min-height:160px;
+  border-color:rgba(121,169,238,.28);
+  background:rgba(255,255,255,.055);
+  box-shadow:none;
+}
+body.research-hub-page .home-v2 > .home-section:first-child .home-pillar small{color:var(--joylab-brand-cyan)}
+body.research-hub-page .home-v2 > .home-section:first-child .home-pillar strong{color:#fff}
+body.research-hub-page .home-v2 > .home-section:first-child .home-pillar p{color:#c8d7e9}
+body.research-hub-page .home-archive .article-card{
+  border-radius:14px;
+  border-color:#dce5f0;
+}
+body.research-hub-page .home-archive .article-card:first-child{border-top:3px solid var(--joylab-brand-blue)}
+
+/* BOOKS — retain warm editorial tone, inherit JoyLab signal language subtly */
+body.books-hub-v2 .books-v2-launch-hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(4,26,62,.98),rgba(7,37,79,.91) 56%,rgba(12,48,92,.84)),
+    #041a3e;
+}
+body.books-hub-v2 .books-v2-launch-hero:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.16;
+  background-image:
+    linear-gradient(rgba(108,160,235,.16) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(108,160,235,.16) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+body.books-hub-v2 .books-v2-launch-hero__grid{position:relative;z-index:1}
+body.books-hub-v2 .books-v2-kicker{color:var(--joylab-brand-cyan)}
+body.books-hub-v2 .books-v2-label{color:#6d8fb9}
+body.books-hub-v2 .books-v2-launch-hero .books-v2-label{color:#9fc3f3}
+body.books-hub-v2 .books-v2-launch-hero__copy h1{color:#fff}
+body.books-hub-v2 .books-v2-launch-subtitle,
+body.books-hub-v2 .books-v2-launch-description{color:#d8e4f2}
+body.books-hub-v2 .books-v2-launch-hero__copy blockquote{color:#cfeeff}
+body.books-hub-v2 .books-v2-primary{
+  background:var(--joylab-brand-blue);
+  border-color:var(--joylab-brand-blue);
+  color:#fff;
+}
+body.books-hub-v2 .books-v2-secondary{
+  border-color:rgba(255,255,255,.28);
+}
+body.books-hub-v2 .books-v2-philosophy{
+  border-top:3px solid var(--joylab-brand-blue);
+}
+body.books-hub-v2 .books-v2-category-grid article small{color:var(--joylab-brand-blue)}
+
+@media(max-width:900px){
+  body.research-hub-page .home-v2 > .home-section:first-child{
+    padding:34px 24px 28px!important;
+  }
+  body.research-hub-page .home-v2 > .home-section:first-child:after{display:none}
+}
+
+@media(max-width:640px){
+  body.about-v2{background-size:32px 32px,32px 32px,auto}
+  body.about-v2 .about-v2-summary:before{font-size:.56rem}
+  body.research-hub-page .home-v2{width:min(calc(100% - 24px),1180px)}
+  body.research-hub-page .home-v2 > .home-section:first-child{
+    padding:28px 18px 22px!important;
+  }
+  body.research-hub-page .home-v2 > .home-section:first-child h1{
+    font-size:2.15rem!important;
+  }
+  body.research-hub-page .home-v2 > .home-section:first-child .home-pillars{
+    gap:8px;
+    margin-top:20px;
+  }
+  body.research-hub-page .home-v2 > .home-section:first-child .home-pillar{
+    min-height:112px;
+    padding:0;
+  }
+  body.research-hub-page .home-v2 > .home-section:first-child .home-pillar__copy{padding:16px}
+  body.books-hub-v2 .books-v2-launch-hero:before{background-size:36px 36px}
+}
