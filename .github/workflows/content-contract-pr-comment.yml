@@ -4,6 +4,13 @@ on:
   pull_request:
     branches: [main]
     types: [opened, synchronize, reopened]
+    paths:
+      - 'src/data/articles/**'
+      - 'src/data/books/**'
+      - 'scripts/check-content-date-contract-v1.mjs'
+      - 'scripts/check-content-identity-contract-v1.mjs'
+      - 'scripts/check-home-content-slot-contract-v1.mjs'
+      - '.github/workflows/content-contract-pr-comment.yml'
 
 permissions:
   contents: read
