@@ -290,9 +290,19 @@ const collectionSchema = {
       form.addEventListener('submit', (event) => {
         event.preventDefault();
         const values = Array.from(new FormData(form).values());
+        const questionWeights = [5, 4, 4, 5, 4];
+        const tiePriority = {
+          decision: 14, conflict: 13, trust: 12, change: 11, power: 10,
+          system: 9, accountability: 8, fairness: 7, safety: 6, judgment: 5,
+          focus: 4, ethics: 3, performance: 2, growth: 1
+        };
         const scores = {};
-        values.forEach((key) => { scores[key] = (scores[key] || 0) + 1; });
-        const ordered = Object.keys(scores).sort((a,b) => scores[b] - scores[a]);
+        values.forEach((key, index) => {
+          scores[key] = (scores[key] || 0) + questionWeights[index];
+        });
+        const ordered = Object.keys(scores).sort((a,b) =>
+          (scores[b] - scores[a]) || ((tiePriority[b] || 0) - (tiePriority[a] || 0))
+        );
         fallback.forEach((key) => { if (!ordered.includes(key)) ordered.push(key); });
         const picks = ordered.filter((key) => catalog[key]).slice(0,3);
 
