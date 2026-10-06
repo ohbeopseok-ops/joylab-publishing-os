@@ -5,6 +5,20 @@ category: "AI·생산성"
 tags: ["AI보안","개인정보","PII","환각","SOP"]
 publishedAt: 2026-09-30
 author: "JoyLab"
+updatedAt: 2026-10-06
+authorBio: "JoyLab Founder & Operator · 고객센터 AX와 AI 보안 운영 연구"
+researchMethod: "PII·SOP·환각·승인·기록을 실제 상담 업무 흐름의 통제 지점으로 분해하고 운영 체크리스트로 재구성했습니다."
+sourceList:
+  - label: "NIST AI Risk Management Framework"
+    url: "https://www.nist.gov/itl/ai-risk-management-framework"
+  - label: "개인정보보호위원회"
+    url: "https://www.pipc.go.kr/"
+riskFactors:
+  - "조직별 개인정보·보안 규정이 다르므로 그대로 복사해 적용하면 안 됩니다."
+  - "AI 출력은 승인 절차 없이 고객 응답에 사용하면 안 됩니다."
+counterScenarios:
+  - "통제가 과도해 상담 생산성 개선보다 승인 지연이 커지는 경우"
+  - "마스킹 누락이나 로그 보존 설정 오류가 남는 경우"
 featured: false
 draft: false
 seoTitle: "고객센터 AI 보안 가이드｜PII SOP 환각 5단계 통제"
