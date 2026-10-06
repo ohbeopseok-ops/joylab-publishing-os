@@ -10,6 +10,20 @@ tags:
   - AI전력
 publishedAt: 2026-09-27
 author: "JoyLab"
+updatedAt: 2026-10-06
+authorBio: "JoyLab Founder & Operator · AI 전력 인프라·기업 비교 리서치"
+researchMethod: "기업 공시와 IR 자료를 기준으로 주문·수주잔고·마진·EPS·FCF를 같은 비교 프레임에 놓고 차이를 확인했습니다."
+sourceList:
+  - label: "LS ELECTRIC IR"
+    url: "https://www.ls-electric.com/ko/ir"
+  - label: "Eaton Investor Relations"
+    url: "https://www.eaton.com/us/en-us/company/investor-relations.html"
+riskFactors:
+  - "기업별 회계 기준·사업 믹스·통화가 달라 단순 배수 비교에 한계가 있습니다."
+  - "AI 전력 수요가 실제 주문과 현금흐름으로 전환된다는 보장은 없습니다."
+counterScenarios:
+  - "데이터센터 투자가 지연되어 주문잔고 증가가 매출로 이어지지 않는 경우"
+  - "금리와 원자재 비용 상승으로 마진과 FCF가 악화되는 경우"
 featured: false
 draft: false
 seoTitle: "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova 비교"
