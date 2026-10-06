@@ -21,7 +21,7 @@ const getReaderCta = (book) => book.data.readerCta ?? '작가의 말과 1장 읽
   {launchBook && (
     <section class="books-v2-launch-hero">
       <div class="books-v2-shell books-v2-launch-hero__grid">
-        <a class="books-v2-launch-hero__cover" href={`/books/${launchBook.id}`}>
+        <a class="books-v2-launch-hero__cover" href={`/books/${launchBook.id}`} aria-label={`${launchBook.data.title} 책 소개 보기`}>
           {launchBook.data.coverImage ? (
             <img src={launchBook.data.coverImage} alt={`${launchBook.data.title} 표지`} width="640" height="960" loading="eager" decoding="async" />
           ) : (
@@ -87,7 +87,7 @@ const getReaderCta = (book) => book.data.readerCta ?? '작가의 말과 1장 읽
     <div class="books-v2-library-grid">
       {books.map((book) => (
         <article class="books-v2-book">
-          <a class="books-v2-book__cover" href={`/books/${book.id}`}>
+          <a class="books-v2-book__cover" href={`/books/${book.id}`} aria-label={`${book.data.title} 책 소개 보기`}>
             {book.data.coverImage ? (
               <img src={book.data.coverImage} alt={`${book.data.title} 표지`} width="640" height="960" loading="lazy" decoding="async" />
             ) : (

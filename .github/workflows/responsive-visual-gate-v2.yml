@@ -11,7 +11,9 @@ on:
       - 'src/data/**'
       - 'scripts/qa-responsive-visual-v2.mjs'
       - 'scripts/qa-homepage-visual-evidence-v1.mjs'
+      - 'scripts/qa-visual-quality-score-v1.mjs'
       - 'docs/ANTI_AI_SLOP_CONTRACT_V1.md'
+      - 'docs/VISUAL_QUALITY_SCORE_V1.md'
       - '.github/workflows/responsive-visual-gate-v2.yml'
   push:
     branches: [main]
@@ -23,7 +25,9 @@ on:
       - 'src/data/**'
       - 'scripts/qa-responsive-visual-v2.mjs'
       - 'scripts/qa-homepage-visual-evidence-v1.mjs'
+      - 'scripts/qa-visual-quality-score-v1.mjs'
       - 'docs/ANTI_AI_SLOP_CONTRACT_V1.md'
+      - 'docs/VISUAL_QUALITY_SCORE_V1.md'
       - '.github/workflows/responsive-visual-gate-v2.yml'
   workflow_dispatch:
 
@@ -90,6 +94,16 @@ jobs:
             cat qa-artifacts/homepage-visual-evidence-v1/summary.md >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      - name: Visual Quality Score V1
+        run: node scripts/qa-visual-quality-score-v1.mjs
+
+      - name: Add visual quality score summary
+        if: always()
+        run: |
+          if [ -f qa-artifacts/visual-quality-score-v1/summary.md ]; then
+            cat qa-artifacts/visual-quality-score-v1/summary.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Stop preview
         if: always()
         shell: bash
@@ -104,5 +118,6 @@ jobs:
           path: |
             qa-artifacts/responsive-visual-gate-v2
             qa-artifacts/homepage-visual-evidence-v1
+            qa-artifacts/visual-quality-score-v1
           if-no-files-found: error
           retention-days: 30

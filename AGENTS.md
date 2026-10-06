@@ -76,6 +76,24 @@ Use for:
 - official contact
 - YouTube / Instagram / Threads / Naver / Blogger / GitHub identity
 
+### Cross-family visual quality
+Read:
+- `docs/ANTI_AI_SLOP_CONTRACT_V1.md`
+- `docs/VISUAL_QUALITY_SCORE_V1.md`
+
+Use for:
+- Research Article visual changes
+- Guide visual changes
+- Books visual changes
+- cross-family UI audits
+- visual quality scoring
+
+Hard rule:
+- Representative Homepage / Article / Guide / Books routes must remain >= 80/100.
+- Any Critical visual/accessibility finding is BLOCK regardless of score.
+- Do not lower scoring thresholds to make CI green.
+- Page-family-specific GOLD gates remain authoritative.
+
 ### Mobile UI
 Read:
 - `docs/MOBILE_UI_CONTRACT_V1.md`
