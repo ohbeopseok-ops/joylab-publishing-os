@@ -144,6 +144,19 @@ jobs:
           node scripts/generate-adsense-monetization-dashboard-v1.mjs
           test "$(tr -d '\r\n' < qa-artifacts/adsense-monetization-gate-v1-contract/dashboard/decision.txt)" = "COLLECT"
 
+      - name: Content Architecture V1 audit
+        run: npm run content-architecture:audit
+
+      - name: Upload Content Architecture V1 audit
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: content-architecture-audit-v1
+          path: |
+            artifacts/content-architecture-audit.json
+            artifacts/content-architecture-audit.md
+          if-no-files-found: error
+
       - name: Build Astro site
         run: npm run build
 

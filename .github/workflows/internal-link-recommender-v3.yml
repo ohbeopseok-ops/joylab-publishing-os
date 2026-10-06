@@ -1,12 +1,6 @@
 name: Internal Link Recommender V3
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'src/data/articles/**'
-      - 'config/internal-link-recommender-v3.json'
-      - 'scripts/recommend-internal-links-v3.mjs'
   workflow_dispatch:
 
 permissions:

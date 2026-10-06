@@ -7,12 +7,6 @@ on:
         description: "Article markdown path, e.g. src/data/articles/what-is-ai-agent.md"
         required: true
         type: string
-  pull_request:
-    paths:
-      - "scripts/build-shortform-handoff.mjs"
-      - ".github/workflows/shortform-handoff-v1.yml"
-      - "docs/shortform-engine-v0.1.md"
-      - "package.json"
   push:
     branches:
       - main

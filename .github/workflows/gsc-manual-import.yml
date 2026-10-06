@@ -7,16 +7,6 @@ on:
     paths:
       - 'data/gsc/inbox/*.csv'
       - 'data/gsc/inbox/import.json'
-  pull_request:
-    branches: [main]
-    paths:
-      - 'scripts/gsc-manual-import.mjs'
-      - 'scripts/research-corpus-evidence-audit.mjs'
-      - 'scripts/gsc-import-latest.ps1'
-      - 'data/gsc/**'
-      - '.github/workflows/gsc-manual-import.yml'
-
-permissions:
   contents: write
 
 concurrency:

@@ -1,16 +1,6 @@
 name: Distribution Execution GOLD
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'distribution/**'
-      - 'scripts/build-distribution-pack.mjs'
-      - 'scripts/build-distribution-review-html.mjs'
-      - 'scripts/build-distribution-mobile-pages.mjs'
-      - 'scripts/distribution-*.mjs'
-      - '.github/workflows/distribution-*.yml'
-      - 'package.json'
   push:
     branches: [main]
     paths:

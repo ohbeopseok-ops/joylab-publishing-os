@@ -1,19 +1,6 @@
 name: Research Graph Gate V1
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'config/research-graph-ai-power-v1.json'
-      - 'config/research-graph-ai-power-v1.schema.json'
-      - 'src/lib/research-graph-contract.ts'
-      - 'src/components/AiPowerResearchMap.astro'
-      - 'src/components/AiPowerResearchNav.astro'
-      - 'src/pages/guides/ai-power-infrastructure.astro'
-      - 'src/pages/articles/**'
-      - 'src/data/articles/**'
-      - 'scripts/check-research-graph-v1.mjs'
-      - '.github/workflows/research-graph-gate-v1.yml'
   push:
     branches: [main]
     paths:

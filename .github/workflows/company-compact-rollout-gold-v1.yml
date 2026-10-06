@@ -1,22 +1,6 @@
 name: Company Compact Rollout Preview QA V1
 
 on:
-  pull_request:
-    paths:
-      - 'src/data/articles/**'
-      - 'config/company-compact-specs/**'
-      - 'src/pages/articles/**'
-      - 'src/components/ResearchGraphMap.astro'
-      - 'src/config/companyCompactResearch.ts'
-      - 'src/styles/research-graph-map-v3.css'
-      - 'config/research-graph-*-compact-v1.json'
-      - 'config/research-graph-display-modes-v1.json'
-      - 'config/company-compact-targets-v1.json'
-      - 'scripts/check-company-compact-rollout-v1.mjs'
-      - 'scripts/create-company-compact-scaffold-v1.mjs'
-      - 'scripts/check-company-compact-contract-v1.mjs'
-      - 'package.json'
-      - '.github/workflows/company-compact-rollout-gold-v1.yml'
   workflow_dispatch:
 
 jobs:

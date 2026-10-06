@@ -1,13 +1,6 @@
 name: Browser Agent Promotion Gate
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'config/browser-agent-benchmark-policy.json'
-      - 'src/data/browser-agent-benchmark-scorecard.json'
-      - 'scripts/evaluate-browser-agent-benchmark.mjs'
-      - '.github/workflows/browser-agent-promotion-gate.yml'
   workflow_dispatch:
 
 permissions:

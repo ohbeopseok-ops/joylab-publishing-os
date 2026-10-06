@@ -11,6 +11,13 @@ const articles = defineCollection({
     cardTitle: z.string().optional(),
     cardDescription: z.string().optional(),
     category: z.string(),
+    contentType: z.enum([
+      'investment-analysis',
+      'concept-explainer',
+      'comparison',
+      'industry-trend',
+      'practical-playbook'
+    ]).optional(),
     tags: z.array(z.string()).default([]),
     publishedAt: z.coerce.date(),
     updatedAt: z.coerce.date().optional(),
@@ -34,6 +41,16 @@ const articles = defineCollection({
     investmentKpis: z.array(z.string().min(1)).default([]),
     investmentResearchType: z.enum(investmentResearchTypes).optional(),
     readingTime: z.string().optional(),
+    trust: z.object({
+      researchedAt: z.coerce.date().optional(),
+      methodology: z.array(z.string().min(1)).default([]),
+      primarySources: z.array(z.string().url()).default([]),
+      originalValue: z.array(z.string().min(1)).default([]),
+      hasCounterEvidence: z.boolean().default(false),
+      hasConclusion: z.boolean().default(false),
+      hasUpdateLog: z.boolean().default(false)
+    }).optional(),
+    migrationAction: z.enum(['KEEP', 'ENHANCE', 'REWRITE', 'MERGE', 'ARCHIVE']).optional(),
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),
     heroCaption: z.string().optional(),

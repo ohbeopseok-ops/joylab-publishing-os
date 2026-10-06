@@ -1,22 +1,6 @@
 name: Investment Taxonomy V1
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'src/data/articles/**'
-      - 'src/content.config.ts'
-      - 'src/lib/investment-taxonomy.ts'
-      - 'config/investment-taxonomy-v1.json'
-      - 'scripts/check-investment-taxonomy-v1.mjs'
-      - 'scripts/generate-investment-taxonomy-registry-v1.mjs'
-      - 'src/data/investment-taxonomy-registry-v1.json'
-      - 'src/lib/investment-taxonomy-registry.ts'
-      - 'config/investment-research-graph-v2.json'
-      - 'src/lib/investment-research-graph-v2.ts'
-      - 'scripts/check-investment-research-graph-v2.mjs'
-      - 'src/pages/guides/investing.astro'
-      - 'src/styles/investment-hub-v2.css'
   push:
     branches: [main]
     paths:
