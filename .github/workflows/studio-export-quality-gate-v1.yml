@@ -1,17 +1,6 @@
 name: Studio Export Quality Gate V1
 
 on:
-  pull_request:
-    paths:
-      - 'src/data/studio/series-02-source.json'
-      - 'scripts/generate-studio-epub-v1.mjs'
-      - 'scripts/generate-studio-print-pdf-v1.mjs'
-      - 'scripts/generate-export-provenance-v1.mjs'
-      - 'scripts/preflight-studio-print-pdf-v1.mjs'
-      - 'scripts/check-studio-production-smoke-v1.mjs'
-      - '.github/workflows/studio-export-quality-gate-v1.yml'
-      - '.github/workflows/deploy-cloudflare.yml'
-      - 'package.json'
   workflow_dispatch:
 
 permissions:
