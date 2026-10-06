@@ -1,21 +1,6 @@
 name: Research Graph Responsive GOLD
 
 on:
-  pull_request:
-    paths:
-      - 'src/components/ResearchGraphMap.astro'
-      - 'src/components/AiPowerResearchMap.astro'
-      - 'src/styles/research-graph-map-v3.css'
-      - 'src/pages/guides/growth-leadership.astro'
-      - 'src/pages/guides/ai-power-infrastructure.astro'
-      - 'src/pages/guides/semiconductor-investing.astro'
-      - 'src/pages/guides/financials-value-up.astro'
-      - 'src/pages/guides/shipbuilding.astro'
-      - 'config/research-graph-*.json'
-      - 'config/research-graph-responsive-contract-v1.json'
-      - 'scripts/check-research-graph-responsive-v1.mjs'
-      - '.github/workflows/research-graph-responsive-gold.yml'
-      - 'package.json'
   workflow_dispatch:
 
 jobs:
