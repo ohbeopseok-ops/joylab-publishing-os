@@ -1,14 +1,6 @@
 name: Research Graph Component V1
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'config/research-graph-ai-component-infrastructure-v1.json'
-      - 'src/pages/guides/ai-component-infrastructure.astro'
-      - 'scripts/check-research-graph-component-v1.mjs'
-      - 'package.json'
-      - '.github/workflows/research-graph-component-v1.yml'
   push:
     branches: [main]
     paths:
