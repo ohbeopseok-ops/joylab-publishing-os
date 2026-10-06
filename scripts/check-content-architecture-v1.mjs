@@ -77,15 +77,15 @@ function analyze(file) {
     updateLog: yes(trust,'hasUpdateLog')
   };
   const slug = path.basename(file,'.md');
-  const signal = (slug + ' ' + title + ' ' + parts.body.slice(0,2500)).toLowerCase();
+  const signal = (slug + ' ' + title).toLowerCase();
   const sourceUrlCount = new Set(parts.body.match(/https?:\/\/[^\s)>\]]+/g) || []).size;
   const bodyChars = parts.body.replace(/\s+/g,' ').trim().length;
   let inferredType = type;
   if (!inferredType) {
-    if (/compare|vs-|vs |비교/.test(signal)) inferredType = 'comparison';
-    else if (/guide|what-is|how-to|basics|가이드|용어|보는 법|란 무엇/.test(signal)) inferredType = 'concept-explainer';
-    else if (/workflow|operating-model|automation|leadership|coaching|productivity|system/.test(signal)) inferredType = 'practical-playbook';
-    else if (/outlook|valuation|eps|roe|roic|shareholder|daily-analysis|market-close|investing|수혜주|주가/.test(signal)) inferredType = 'investment-analysis';
+    if (/compare|vs-| vs |비교/.test(signal)) inferredType = 'comparison';
+    else if (/what-is|how-to|how-submarine|guide|basics|history|보는 법|란 무엇|읽는 법|총정리|용어|어떻게/.test(signal)) inferredType = 'concept-explainer';
+    else if (/workflow|operating-model|automation|leadership|coaching|productivity|system|fairness|feedback|learning-system|performance-system|recognition-system|growth-leadership|guardrails/.test(signal)) inferredType = 'practical-playbook';
+    else if (/outlook|valuation|eps|roe|roic|shareholder|daily-analysis|market-close|beneficiaries|foreign-investor|수혜|투자/.test(signal)) inferredType = 'investment-analysis';
     else inferredType = 'industry-trend';
   }
   let recommendedAction = action;
