@@ -1,16 +1,6 @@
 name: Responsive Visual Gate V2
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'src/pages/**'
-      - 'src/components/**'
-      - 'src/layouts/**'
-      - 'src/styles/**'
-      - 'src/data/**'
-      - 'scripts/qa-responsive-visual-v2.mjs'
-      - '.github/workflows/responsive-visual-gate-v2.yml'
   push:
     branches: [main]
     paths:
