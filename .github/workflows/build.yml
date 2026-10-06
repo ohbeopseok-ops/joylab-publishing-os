@@ -26,9 +26,8 @@ jobs:
           package-manager-cache: false
 
       - name: Install Korean font for book artwork
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y fonts-noto-cjk
+        timeout-minutes: 4
+        run: bash scripts/install-pinned-korean-fonts.sh
 
       - name: Install locked dependencies
         run: npm ci
