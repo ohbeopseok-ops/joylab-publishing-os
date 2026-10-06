@@ -300,7 +300,7 @@ jobs:
           grep -Fq 'KEY TAKEAWAYS' /tmp/body
           grep -Fq 'LEADERSHIP ACTION' /tmp/body
           grep -Fq 'NEXT · EP05' /tmp/body
-          grep -Fq '/guides/growth-leadership/literature#ep05' /tmp/body
+          grep -Fq '/guides/growth-leadership/literature/animal-farm' /tmp/body
 
           check_200 "https://aijoylab.kr/guides/growth-leadership/playbook/performance-coaching?deploy=${GITHUB_SHA}"
           grep -Fq '성과부진 상담사' /tmp/body
@@ -349,16 +349,27 @@ jobs:
 
           check_200 "https://aijoylab.kr/articles/why-we-cannot-stand-silence?deploy=${GITHUB_SHA}"
           grep -Fq '침묵의 기술' /tmp/body
-          grep -Fq 'JoyLab 성장·리더십 프레임워크' /tmp/body
+          grep -Fq 'data-article-architecture="1.1"' /tmp/body
+          grep -Fq 'id="article-content"' /tmp/body
           grep -Fq '/guides/growth-leadership' /tmp/body
 
           check_200 "https://aijoylab.kr/articles/bach-counterpoint-order-in-chaos?deploy=${GITHUB_SHA}"
           grep -Fq '침묵의 기술' /tmp/body
-          grep -Fq 'JoyLab 성장·리더십 프레임워크' /tmp/body
+          grep -Fq 'data-article-architecture="1.1"' /tmp/body
+          grep -Fq 'id="article-content"' /tmp/body
 
           check_200 "https://aijoylab.kr/articles/burnout-recovery-starts-with-pause?deploy=${GITHUB_SHA}"
           grep -Fq '침묵의 기술' /tmp/body
-          grep -Fq 'JoyLab 성장·리더십 프레임워크' /tmp/body
+          grep -Fq 'data-article-architecture="1.1"' /tmp/body
+          grep -Fq 'id="article-content"' /tmp/body
+
+          check_200 "https://aijoylab.kr/articles/fairness-system-explainable-standards?deploy=${GITHUB_SHA}"
+          grep -Fq 'data-content-type="practical-playbook"' /tmp/body
+          grep -Fq 'id="article-trust"' /tmp/body
+          grep -Fq 'https://www.acas.org.uk/performance-management' /tmp/body
+          grep -Fq '업데이트 기록' /tmp/body
+          grep -Fq '같은 20건도 기회가 다르면 다르게 읽힌다' /tmp/body
+          ! grep -Fq 'id="research-brief"' /tmp/body
 
           check_200 "https://aijoylab.kr/images/books/weight-of-silence-cover.svg?deploy=${GITHUB_SHA}"
           check_200 "https://aijoylab.kr/images/books/weight-of-silence-og.svg?deploy=${GITHUB_SHA}"
@@ -668,4 +679,3 @@ jobs:
           path: qa-artifacts/release-gate/release-gate.json
           if-no-files-found: error
           retention-days: 90
-
