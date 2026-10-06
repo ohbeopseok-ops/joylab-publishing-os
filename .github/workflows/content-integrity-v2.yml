@@ -1,0 +1,35 @@
+name: Content Integrity Gate V2
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/data/articles/**"
+      - "src/content.config.ts"
+      - "scripts/check-frontmatter-integrity-v1.mjs"
+      - "scripts/lib/frontmatter-upsert-v1.mjs"
+      - "scripts/test-frontmatter-upsert-v1.mjs"
+      - ".github/workflows/content-integrity-v2.yml"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  content-integrity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm ci
+      - name: Frontmatter duplicate and structure check
+        run: node scripts/check-frontmatter-integrity-v1.mjs
+      - name: Metadata UPSERT Contract V1 self-test
+        run: node scripts/test-frontmatter-upsert-v1.mjs
+      - name: Astro schema and URL validation
+        run: npm run build
