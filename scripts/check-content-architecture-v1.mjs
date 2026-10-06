@@ -42,19 +42,25 @@ function section(fm,key) {
   return out.join('\n');
 }
 
-function hasItems(block,key) {
+function listItems(block,key) {
   const lines = block.split('\n');
   const i = lines.findIndex((x) => x.trim().startsWith(key + ':'));
-  if (i < 0) return false;
-  if (/\[[^\]]+\]/.test(lines[i])) return true;
+  if (i < 0) return [];
+  const fieldIndent = lines[i].match(/^\s*/)[0].length;
+  const inline = lines[i].match(/:\s*\[(.*)\]\s*$/);
+  if (inline && inline[1].trim()) return inline[1].split(',').map((x)=>x.trim()).filter(Boolean);
+  const out = [];
   for (let n=i+1;n<lines.length;n++) {
+    if (!lines[n].trim()) continue;
+    const indent = lines[n].match(/^\s*/)[0].length;
+    if (indent <= fieldIndent) break;
     const t = lines[n].trim();
-    if (!t) continue;
-    if (t.startsWith('- ')) return true;
-    if (!/^\s/.test(lines[n])) break;
+    if (t.startsWith('- ')) out.push(t.slice(2).trim());
   }
-  return false;
+  return out;
 }
+
+function hasItems(block,key) { return listItems(block,key).length > 0; }
 
 function yes(block,key) { return block.split('\n').some((x) => x.trim() === key + ': true'); }
 
@@ -78,7 +84,9 @@ function analyze(file) {
   };
   const slug = path.basename(file,'.md');
   const signal = (slug + ' ' + title).toLowerCase();
-  const sourceUrlCount = new Set(parts.body.match(/https?:\/\/[^\s)>\]]+/g) || []).size;
+  const bodyUrls = parts.body.match(/https?:\/\/[^\s)>\]]+/g) || [];
+  const trustUrls = listItems(trust,'primarySources').filter((x)=>/^https?:\/\//.test(x));
+  const sourceUrlCount = new Set([...bodyUrls,...trustUrls]).size;
   const bodyChars = parts.body.replace(/\s+/g,' ').trim().length;
   let inferredType = type;
   if (!inferredType) {
