@@ -252,6 +252,17 @@ jobs:
           grep -Fq '/guides/growth-leadership/literature/little-prince' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/demian' /tmp/body
           grep -Fq '/guides/growth-leadership/literature/metamorphosis' /tmp/body
+          grep -Fq '/guides/growth-leadership/literature/king-lear' /tmp/body
+          grep -Fq '/guides/growth-leadership/literature/framework' /tmp/body
+
+          check_200 "https://aijoylab.kr/guides/growth-leadership/literature/king-lear?deploy=${GITHUB_SHA}"
+          grep -Fq '권한을 내려놓을 때' /tmp/body
+          grep -Fq '/guides/growth-leadership/literature/framework' /tmp/body
+
+          check_200 "https://aijoylab.kr/guides/growth-leadership/literature/framework?deploy=${GITHUB_SHA}"
+          grep -Fq 'LITERATURE LEADERSHIP FRAMEWORK' /tmp/body
+          grep -Fq '5-QUESTION LEADERSHIP DIAGNOSIS' /tmp/body
+          grep -Fq 'LIVE 20' /tmp/body
 
           check_200 "https://aijoylab.kr/guides/growth-leadership/literature/old-man-and-the-sea?deploy=${GITHUB_SHA}"
           grep -Fq '성과가 무너졌을 때' /tmp/body
