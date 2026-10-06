@@ -18,7 +18,17 @@ if (!base && process.env.GITHUB_EVENT_PATH) {
 const arg = process.argv.indexOf('--base-ref');
 if (arg >= 0) base = process.argv[arg + 1];
 let baseFiles;
-if (base) baseFiles = new Set(execFileSync('git', ['ls-tree', '-r', '--name-only', base, '--', dir], { encoding: 'utf8' }).trim().split('\n'));
+if (base) {
+  try {
+    execFileSync('git', ['cat-file', '-e', `${base}^{commit}`], { stdio: 'ignore' });
+  } catch {
+    // actions/checkout defaults to a shallow checkout. Fetch the immutable PR
+    // base instead of skipping the new-article gate when its tree is absent.
+    if (!/^[a-f0-9]{40}$/i.test(base)) throw new Error('Missing architecture base must be a full commit SHA');
+    execFileSync('git', ['fetch', '--no-tags', '--depth=1', 'origin', base], { stdio: 'inherit' });
+  }
+  baseFiles = new Set(execFileSync('git', ['ls-tree', '-r', '--name-only', base, '--', dir], { encoding: 'utf8' }).trim().split('\n'));
+}
 const records = [], failures = [];
 for (const file of files) {
   const filePath = `${dir}/${file}`;
