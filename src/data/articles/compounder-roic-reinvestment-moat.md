@@ -16,6 +16,20 @@ investmentTheses:
   - "korea-value-up"
 publishedAt: 2026-10-02
 author: "JoyLab"
+updatedAt: 2026-10-06
+authorBio: "JoyLab Founder & Operator · 투자·경제·AI 업무 시스템을 연구"
+researchMethod: "VOC·SEC·Hansard·Damodaran·Investor.gov 자료를 대조하고 ROIC·재투자율·해자 관계를 계산 예시로 검증했습니다."
+sourceList:
+  - label: "SEC Investor.gov 주식 안내"
+    url: "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+  - label: "NYU Stern Damodaran 재무 지표"
+    url: "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/definitions.html"
+riskFactors:
+  - "과거 ROIC가 미래 추가 투자수익률을 보장하지 않습니다."
+  - "예시 계산은 실제 기업의 세금·자본비용·산업 변동성을 반영하지 않습니다."
+counterScenarios:
+  - "경쟁 심화로 해자가 약해지고 재투자수익률이 자본비용 아래로 떨어지는 경우"
+  - "성장은 유지되지만 증자와 낮은 수익성으로 주당가치가 늘지 않는 경우"
 featured: false
 draft: false
 seoTitle: "복리기업은 어떻게 만들어지는가｜ROIC·재투자율·경제적 해자"
