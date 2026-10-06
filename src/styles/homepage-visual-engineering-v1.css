@@ -16,6 +16,27 @@ body.homepage-v2 .home-hero__lead:after{
 body.homepage-v2 .home-hero h1 span{
   color:#78adff;
 }
+body.homepage-v2 .home-hero__stats{display:none}
+body.homepage-v2 .home-hero__method{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px 10px;
+  margin-top:30px;
+  padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.16);
+  color:#a9bdd8;
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.08em;
+}
+body.homepage-v2 .home-hero__method i{
+  color:#4e8fe7;
+  font-style:normal;
+}
+body.homepage-v2 .home-hero__method span:last-child{
+  color:#ffd83d;
+}
 
 /* 2) Pillars are taxonomy/navigation: render as an editorial index, not 3 feature cards. */
 body.homepage-v2 .home-pillars{
@@ -147,6 +168,13 @@ body.homepage-v2 .home-archive .article-card:hover{
 }
 
 @media(max-width:640px){
+  body.homepage-v2 .home-hero__method{
+    gap:6px 7px;
+    margin-top:20px;
+    padding-top:12px;
+    font-size:.56rem;
+    letter-spacing:.05em;
+  }
   body.homepage-v2 .home-pillars{
     gap:0!important;
   }
