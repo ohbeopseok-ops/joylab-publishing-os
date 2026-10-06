@@ -76,11 +76,38 @@ function analyze(file) {
     conclusion: yes(trust,'hasConclusion'),
     updateLog: yes(trust,'hasUpdateLog')
   };
+  const slug = path.basename(file,'.md');
+  const signal = (slug + ' ' + title + ' ' + parts.body.slice(0,2500)).toLowerCase();
+  const sourceUrlCount = new Set(parts.body.match(/https?:\/\/[^\s)>\]]+/g) || []).size;
+  const bodyChars = parts.body.replace(/\s+/g,' ').trim().length;
+  let inferredType = type;
+  if (!inferredType) {
+    if (/compare|vs-|vs |비교/.test(signal)) inferredType = 'comparison';
+    else if (/guide|what-is|how-to|basics|가이드|용어|보는 법|란 무엇/.test(signal)) inferredType = 'concept-explainer';
+    else if (/workflow|operating-model|automation|leadership|coaching|productivity|system/.test(signal)) inferredType = 'practical-playbook';
+    else if (/outlook|valuation|eps|roe|roic|shareholder|daily-analysis|market-close|investing|수혜주|주가/.test(signal)) inferredType = 'investment-analysis';
+    else inferredType = 'industry-trend';
+  }
+  let recommendedAction = action;
+  if (!recommendedAction) {
+    if (bodyChars < 3500 && sourceUrlCount === 0) recommendedAction = 'REWRITE';
+    else if (bodyChars < 6500 || sourceUrlCount < 2) recommendedAction = 'ENHANCE';
+    else recommendedAction = 'KEEP';
+  }
+  const reviewReasons = [];
+  if (recommendedAction === 'REWRITE') reviewReasons.push('thin-or-unsourced');
+  if (inferredType === 'investment-analysis' && sourceUrlCount < 2) reviewReasons.push('investment-source-depth');
   return {
     file:path.relative(root,file).split(path.sep).join('/'),
-    title,
+    slug,title,
     contentType:type || null,
+    inferredContentType:inferredType,
     migrationAction:action || null,
+    recommendedAction,
+    sourceUrlCount,
+    bodyChars,
+    reviewRequired:reviewReasons.length > 0,
+    reviewReasons,
     validContentType:!type || allowedTypes.has(type),
     validMigrationAction:!action || allowedActions.has(action),
     trustScore:Object.values(checks).filter(Boolean).length,
@@ -98,6 +125,20 @@ function makeReport(items) {
     map.get(k).push(row);
   }
   const duplicates = [...map.entries()].filter(([,v]) => v.length > 1).map(([normalizedTitle,v]) => ({normalizedTitle,articles:v.map((x)=>({file:x.file,title:x.title}))}));
+  const sameDateSamsung = items.filter((x)=>/samsung-(daily-analysis|market-close)-2026-09-28/.test(x.slug));
+  if (sameDateSamsung.length === 2) {
+    for (const row of sameDateSamsung) {
+      row.recommendedAction = 'MERGE';
+      row.reviewRequired = true;
+      row.reviewReasons = [...new Set([...row.reviewReasons,'same-company-same-date-overlap'])];
+    }
+  }
+  const actionCounts = {};
+  const typeCounts = {};
+  for (const row of items) {
+    actionCounts[row.recommendedAction] = (actionCounts[row.recommendedAction] || 0) + 1;
+    typeCounts[row.inferredContentType] = (typeCounts[row.inferredContentType] || 0) + 1;
+  }
   return {
     contract:'JoyLab Article Architecture Contract V1',
     mode:'REPORT_ONLY',
@@ -110,8 +151,11 @@ function makeReport(items) {
       invalidContentType:items.filter((x)=>!x.validContentType).length,
       invalidMigrationAction:items.filter((x)=>!x.validMigrationAction).length,
       trustScore7Plus:items.filter((x)=>x.trustScore>=7).length,
-      exactTitleDuplicateGroups:duplicates.length
+      exactTitleDuplicateGroups:duplicates.length,
+      reviewRequired:items.filter((x)=>x.reviewRequired).length
     },
+    actionCounts,
+    typeCounts,
     duplicates,
     articles:items
   };
@@ -143,5 +187,5 @@ for (const group of report.duplicates) {
 }
 lines.push('## Policy','','- V1 is report-only for the legacy corpus.','- Missing new metadata must not break the current production build.','- Archive, delete, redirect, and canonical merge require human approval.','');
 fs.writeFileSync(path.join(outDir,'content-architecture-audit.md'),lines.join('\n'));
-console.log(JSON.stringify({mode:report.mode,totals:report.totals,duplicateGroups:report.duplicates},null,2));
+console.log(JSON.stringify({mode:report.mode,totals:report.totals,actionCounts:report.actionCounts,typeCounts:report.typeCounts,duplicateGroups:report.duplicates},null,2));
 if (process.argv.includes('--enforce') && (report.totals.invalidContentType || report.totals.invalidMigrationAction)) process.exit(2);
