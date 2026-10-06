@@ -10,6 +10,8 @@ on:
       - 'src/styles/**'
       - 'src/data/**'
       - 'scripts/qa-responsive-visual-v2.mjs'
+      - 'scripts/qa-homepage-visual-evidence-v1.mjs'
+      - 'docs/ANTI_AI_SLOP_CONTRACT_V1.md'
       - '.github/workflows/responsive-visual-gate-v2.yml'
   push:
     branches: [main]
@@ -20,6 +22,8 @@ on:
       - 'src/styles/**'
       - 'src/data/**'
       - 'scripts/qa-responsive-visual-v2.mjs'
+      - 'scripts/qa-homepage-visual-evidence-v1.mjs'
+      - 'docs/ANTI_AI_SLOP_CONTRACT_V1.md'
       - '.github/workflows/responsive-visual-gate-v2.yml'
   workflow_dispatch:
 
@@ -73,6 +77,19 @@ jobs:
       - name: Responsive Visual Gate V2
         run: node scripts/qa-responsive-visual-v2.mjs
 
+      - name: Homepage before/after visual evidence
+        env:
+          EVIDENCE_BEFORE_URL: https://aijoylab.kr
+          EVIDENCE_AFTER_URL: http://127.0.0.1:4321
+        run: node scripts/qa-homepage-visual-evidence-v1.mjs
+
+      - name: Add homepage visual evidence summary
+        if: always()
+        run: |
+          if [ -f qa-artifacts/homepage-visual-evidence-v1/summary.md ]; then
+            cat qa-artifacts/homepage-visual-evidence-v1/summary.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Stop preview
         if: always()
         shell: bash
@@ -84,6 +101,8 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: responsive-visual-gate-v2
-          path: qa-artifacts/responsive-visual-gate-v2
+          path: |
+            qa-artifacts/responsive-visual-gate-v2
+            qa-artifacts/homepage-visual-evidence-v1
           if-no-files-found: error
           retention-days: 30
