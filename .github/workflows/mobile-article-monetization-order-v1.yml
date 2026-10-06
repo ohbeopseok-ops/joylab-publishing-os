@@ -1,14 +1,6 @@
 name: Mobile Article Monetization Order V1
 
 on:
-  pull_request:
-    paths:
-      - 'src/pages/articles/**'
-      - 'src/styles/research-v2.css'
-      - 'src/components/AdSlot.astro'
-      - 'scripts/check-mobile-article-monetization-order-v1.mjs'
-      - 'package.json'
-      - '.github/workflows/mobile-article-monetization-order-v1.yml'
   workflow_dispatch:
 
 jobs:
