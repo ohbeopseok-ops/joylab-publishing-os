@@ -4,6 +4,7 @@ description: "2026년 9월 28일 삼성전자 주가가 27만원으로 5.43% 급
 cardTitle: "삼성전자 27만원 급락｜수급 충격인가 펀더멘털 훼손인가"
 cardDescription: "9월 28일 삼성전자 -5.43% 급락을 외국인 매도, 코스피·환율, HBM·서버 메모리 실적 변수로 분해합니다."
 category: "투자·경제"
+contentType: "investment-analysis"
 tags:
   - 삼성전자
   - 반도체
@@ -19,6 +20,7 @@ updatedAt: 2026-09-28
 author: "JoyLab"
 featured: true
 draft: false
+canonical: "https://aijoylab.kr/articles/samsung-market-close-2026-09-28"
 seoTitle: "삼성전자 27만원 급락 이유｜외국인 매도·반도체 업황·3분기 실적 분석"
 series: "삼성전자 데일리 리서치"
 investmentIndustries:
@@ -30,6 +32,19 @@ investmentCompanies:
   - "Samsung Electronics"
 investmentResearchType: company
 readingTime: "약 7분"
+migrationAction: "KEEP"
+trust:
+  researchedAt: 2026-09-28
+  methodology:
+    - "가격·수급·환율·실적 컨센서스를 분리한 뒤 Bull/Base/Bear 조건으로 재결합"
+  primarySources:
+    - "https://data.krx.co.kr/contents/MDC/MAIN/main/index.cmd"
+    - "https://www.samsung.com/sec/ir/reports-disclosures/notices/"
+  originalValue:
+    - "Fundamental → Flow → FX/Rate → Price 순서로 급락 원인을 분해"
+  hasCounterEvidence: true
+  hasConclusion: true
+  hasUpdateLog: true
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "삼성전자 27만원 급락과 외국인 수급, 반도체 업황을 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
@@ -212,3 +227,7 @@ JoyLab 관점에서는 27만원이라는 가격 하나보다 **조건의 변화*
 복잡한 정보를 실행 가능한 판단으로.
 
 **JoyLab**
+
+
+## Update Log
+- **2026-10-06**: 동일 날짜의 중복 분석 글을 이 문서로 통합하기로 결정하고 canonical 대표 문서로 지정했습니다. 기존 `/articles/samsung-daily-analysis-2026-09-28` 유입은 이 글로 영구 이동하도록 구성합니다.
