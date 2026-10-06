@@ -1,0 +1,80 @@
+{
+  "contract": "US Market Valuation Visual Assets",
+  "version": "1.0",
+  "status": "active",
+  "series": "US Market Valuation",
+  "articleIds": [
+    "sp500-peg-valuation-2026",
+    "sp500-peg-under-1-backtest-2026"
+  ],
+  "globalRules": {
+    "heroAspectRatio": "16:9",
+    "heroTargetSize": "1600x900",
+    "chartAspectRatio": "16:9",
+    "chartTargetSize": "1600x900",
+    "mobileSafeArea": "center 70%",
+    "palette": ["deep navy", "charcoal", "white", "muted blue"],
+    "accentRule": "Use one warm accent only for the current PEG point or explicit risk marker.",
+    "textRule": "Prefer charts rendered from data. Generated hero images should contain no dense text, tick labels, fake logos, or fake source marks.",
+    "evidenceLabelRequired": true
+  },
+  "assets": [
+    {
+      "id": "hero-ep01",
+      "type": "hero",
+      "prompt": "16:9 premium financial research editorial visual. A clean institutional market-valuation scene combining a long historical valuation curve, subtle S&P 500 market context, and a single emphasized low current point near the lower edge of the chart. Deep navy, charcoal, white, restrained muted blue, one warm accent only on the current point. No company logos, no people, no decorative coins, no fake numbers, no dense text. The visual should communicate historical valuation compression versus strong earnings expectations, suitable for a serious investment research website.",
+      "alt": "S&P500 PEG가 과거 고점과 달리 낮은 구간에 위치한 상황을 표현한 JoyLab 투자 리서치 대표 이미지"
+    },
+    {
+      "id": "chart-01-peg-history",
+      "type": "data-chart",
+      "title": "S&P500 PEG Ratio | 1995–2026",
+      "render": "line",
+      "evidenceLevel": "SILVER until licensed/raw PEG series is attached",
+      "dataContract": {
+        "x": "observation_date",
+        "y": "peg_ratio",
+        "source": "Yardeni Research / I/B/E/S by Refinitiv",
+        "frequency": "monthly through 2005, weekly thereafter",
+        "highlight": "latest observation and selected historical peaks",
+        "prohibited": ["invent missing observations", "smooth across missing periods", "label chart-digitized values as GOLD"]
+      },
+      "alt": "1995년부터 2026년까지 S&P500 PEG Ratio의 역사적 위치를 보여주는 선형 차트"
+    },
+    {
+      "id": "chart-02-peg-sensitivity",
+      "type": "data-chart",
+      "title": "성장률 전망이 내려가면 PEG는 얼마나 빨리 올라갈까",
+      "render": "line",
+      "evidenceLevel": "GOLD deterministic formula",
+      "dataContract": {
+        "formula": "peg = forward_pe / expected_growth_pct",
+        "forwardPe": 19.2,
+        "growthPct": [30, 27, 24, 21, 18, 15, 12],
+        "expectedPeg": [0.64, 0.71, 0.8, 0.91, 1.07, 1.28, 1.6],
+        "rounding": 2
+      },
+      "callout": "27% growth → PEG 0.71 / 18% growth → PEG 1.07",
+      "alt": "Forward P/E 19.2배를 고정했을 때 예상 성장률 하락에 따라 PEG가 상승하는 민감도 차트"
+    },
+    {
+      "id": "chart-03-valuation-monitor",
+      "type": "scorecard",
+      "title": "JoyLab S&P500 Valuation Monitor",
+      "evidenceLevel": "MIXED",
+      "dataContract": {
+        "factors": [
+          {"name": "PEG", "weight": 25, "status": "strong-positive", "source": "Yardeni PEG chart"},
+          {"name": "Forward P/E", "weight": 20, "status": "positive", "source": "Yardeni / Reuters"},
+          {"name": "EPS Revision", "weight": 25, "status": "positive", "source": "Yardeni NERI"},
+          {"name": "US 10Y", "weight": 15, "status": "risk", "source": "FRED DGS10"},
+          {"name": "Earnings Breadth", "weight": 15, "status": "positive", "source": "Yardeni / Reuters"}
+        ],
+        "verdict": "BUY CANDIDATE",
+        "qualifier": "RATE RISK ACTIVE",
+        "hardRule": "Do not show STRONG BUY when any required factor is missing or when rate gate is active without an explicit override rule."
+      },
+      "alt": "PEG, Forward P/E, EPS Revision, 미국 10년물, Earnings Breadth를 함께 보는 JoyLab S&P500 밸류에이션 모니터"
+    }
+  ]
+}

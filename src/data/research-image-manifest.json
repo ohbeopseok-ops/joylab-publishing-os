@@ -2246,5 +2246,24 @@
         "caption": "Efficiency → Reinvestment → Moat → Duration 순서로 장기 복리 가능성을 점검합니다."
       }
     ]
+  },
+  "sp500-peg-valuation-2026": {
+    "hero": {
+      "src": "/images/research/sp500-peg-history-selected-2026.svg",
+      "alt": "2000·2007·2020·2022·2026 S&P500 PEG 주요 참고 지점을 비교한 JoyLab 밸류에이션 차트",
+      "caption": "공개 Yardeni 차트 기반 SILVER 참고값입니다. 연속 원시 시계열이 아닙니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/sp500-peg-sensitivity-2026.svg",
+        "alt": "Forward P/E 19.2배에서 예상 EPS 성장률 하락에 따라 PEG가 상승하는 민감도 차트",
+        "caption": "PEG = Forward P/E ÷ 예상 성장률의 결정론적 민감도 계산입니다."
+      },
+      {
+        "src": "/images/research/sp500-valuation-monitor-2026.svg",
+        "alt": "PEG, Forward P/E, EPS Revision, 미국 10년물, Earnings Breadth를 종합한 JoyLab 밸류에이션 모니터",
+        "caption": "현재 판정은 BUY CANDIDATE / RATE RISK ACTIVE입니다."
+      }
+    ]
   }
 }
