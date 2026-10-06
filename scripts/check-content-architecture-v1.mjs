@@ -1,0 +1,147 @@
+import fs from 'node:fs';
+import path from 'node:path';
+
+const root = process.cwd();
+const articlesRoot = path.join(root, 'src/data/articles');
+const outDir = path.join(root, 'artifacts');
+const allowedTypes = new Set(['investment-analysis','concept-explainer','comparison','industry-trend','practical-playbook']);
+const allowedActions = new Set(['KEEP','ENHANCE','REWRITE','MERGE','ARCHIVE']);
+
+function walk(dir) {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir,{withFileTypes:true}).flatMap((e) => {
+    const p = path.join(dir,e.name);
+    return e.isDirectory() ? walk(p) : [p];
+  });
+}
+
+function splitDoc(text) {
+  if (!text.startsWith('---')) return {fm:'',body:text};
+  const end = text.indexOf('\n---',3);
+  if (end < 0) return {fm:'',body:text};
+  return {fm:text.slice(3,end),body:text.slice(end+4)};
+}
+
+function value(fm,key) {
+  const line = fm.split('\n').find((x) => x.trim().startsWith(key + ':'));
+  if (!line) return '';
+  let v = line.trim().slice(key.length + 1).trim();
+  if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) v = v.slice(1,-1);
+  return v;
+}
+
+function section(fm,key) {
+  const lines = fm.split('\n');
+  const i = lines.findIndex((x) => x.trim() === key + ':');
+  if (i < 0) return '';
+  const out = [];
+  for (let n=i+1;n<lines.length;n++) {
+    if (lines[n] && !/^\s/.test(lines[n])) break;
+    out.push(lines[n]);
+  }
+  return out.join('\n');
+}
+
+function hasItems(block,key) {
+  const lines = block.split('\n');
+  const i = lines.findIndex((x) => x.trim().startsWith(key + ':'));
+  if (i < 0) return false;
+  if (/\[[^\]]+\]/.test(lines[i])) return true;
+  for (let n=i+1;n<lines.length;n++) {
+    const t = lines[n].trim();
+    if (!t) continue;
+    if (t.startsWith('- ')) return true;
+    if (!/^\s/.test(lines[n])) break;
+  }
+  return false;
+}
+
+function yes(block,key) { return block.split('\n').some((x) => x.trim() === key + ': true'); }
+
+function analyze(file) {
+  const raw = fs.readFileSync(file,'utf8');
+  const parts = splitDoc(raw);
+  const fm = parts.fm;
+  const title = value(fm,'title') || path.basename(file,'.md');
+  const type = value(fm,'contentType');
+  const action = value(fm,'migrationAction');
+  const trust = section(fm,'trust');
+  const checks = {
+    author: Boolean(value(fm,'author')),
+    researchDate: Boolean(value(trust,'researchedAt') || value(fm,'updatedAt')),
+    methodology: hasItems(trust,'methodology'),
+    primarySources: hasItems(trust,'primarySources'),
+    originalValue: hasItems(trust,'originalValue'),
+    counterEvidence: yes(trust,'hasCounterEvidence'),
+    conclusion: yes(trust,'hasConclusion'),
+    updateLog: yes(trust,'hasUpdateLog')
+  };
+  return {
+    file:path.relative(root,file).split(path.sep).join('/'),
+    title,
+    contentType:type || null,
+    migrationAction:action || null,
+    validContentType:!type || allowedTypes.has(type),
+    validMigrationAction:!action || allowedActions.has(action),
+    trustScore:Object.values(checks).filter(Boolean).length,
+    trustChecks:checks
+  };
+}
+
+function normalizeTitle(s) { return s.toLowerCase().replace(/[^0-9a-z가-힣]+/g,' ').trim(); }
+
+function makeReport(items) {
+  const map = new Map();
+  for (const row of items) {
+    const k = normalizeTitle(row.title);
+    if (!map.has(k)) map.set(k,[]);
+    map.get(k).push(row);
+  }
+  const duplicates = [...map.entries()].filter(([,v]) => v.length > 1).map(([normalizedTitle,v]) => ({normalizedTitle,articles:v.map((x)=>({file:x.file,title:x.title}))}));
+  return {
+    contract:'JoyLab Article Architecture Contract V1',
+    mode:'REPORT_ONLY',
+    checkedAt:new Date().toISOString(),
+    totals:{
+      articles:items.length,
+      classified:items.filter((x)=>x.contentType).length,
+      unclassified:items.filter((x)=>!x.contentType).length,
+      migrationTagged:items.filter((x)=>x.migrationAction).length,
+      invalidContentType:items.filter((x)=>!x.validContentType).length,
+      invalidMigrationAction:items.filter((x)=>!x.validMigrationAction).length,
+      trustScore7Plus:items.filter((x)=>x.trustScore>=7).length,
+      exactTitleDuplicateGroups:duplicates.length
+    },
+    duplicates,
+    articles:items
+  };
+}
+
+if (process.argv.includes('--self-test')) {
+  const fixture = path.join(root,'.tmp-content-architecture-self-test.md');
+  fs.writeFileSync(fixture,'---\ntitle: Fixture\nauthor: JoyLab Research\ncontentType: investment-analysis\nmigrationAction: ENHANCE\nupdatedAt: 2026-10-06\ntrust:\n  researchedAt: 2026-10-06\n  methodology:\n    - official-source-review\n  primarySources:\n    - https://example.com/report\n  originalValue:\n    - scenario-analysis\n  hasCounterEvidence: true\n  hasConclusion: true\n  hasUpdateLog: true\n---\n\nBody\n');
+  try {
+    const row = analyze(fixture);
+    if (!row.validContentType || !row.validMigrationAction || row.trustScore < 7) throw new Error('self-test failed');
+    console.log('Content Architecture V1 self-test PASS');
+  } finally { fs.unlinkSync(fixture); }
+  process.exit(0);
+}
+
+const articles = walk(articlesRoot).filter((p)=>p.endsWith('.md')).map(analyze);
+const report = makeReport(articles);
+fs.mkdirSync(outDir,{recursive:true});
+fs.writeFileSync(path.join(outDir,'content-architecture-audit.json'),JSON.stringify(report,null,2)+'\n');
+const lines = ['# JoyLab Content Architecture Audit V1','','Mode: **REPORT_ONLY**','','| Metric | Count |','|---|---:|'];
+for (const [k,v] of Object.entries(report.totals)) lines.push('| ' + k + ' | ' + v + ' |');
+lines.push('','## Duplicate title groups','');
+if (!report.duplicates.length) lines.push('None');
+for (const group of report.duplicates) {
+  lines.push('### ' + group.normalizedTitle);
+  for (const row of group.articles) lines.push('- ' + row.title + ' — `' + row.file + '`');
+  lines.push('');
+}
+lines.push('## Policy','','- V1 is report-only for the legacy corpus.','- Missing new metadata must not break the current production build.','- Archive, delete, redirect, and canonical merge require human approval.','');
+fs.writeFileSync(path.join(outDir,'content-architecture-audit.md'),lines.join('\n'));
+console.log(JSON.stringify({mode:report.mode,totals:report.totals,duplicateGroups:report.duplicates},null,2));
+if (process.argv.includes('--enforce') && (report.totals.invalidContentType || report.totals.invalidMigrationAction)) process.exit(2);
