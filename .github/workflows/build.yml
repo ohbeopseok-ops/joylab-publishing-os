@@ -131,6 +131,9 @@ jobs:
       - name: Research Graph Gate V1
         run: npm run research-graph:check
 
+      - name: Investing Foundations Expansion Gate V1
+        run: node scripts/check-investing-foundations-expansion-gate-v1.mjs
+
       - name: AdSense Monetization Gate V1 contract test
         shell: bash
         run: |
