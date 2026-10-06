@@ -2,6 +2,7 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { investmentIndustryIds, investmentThesisIds, investmentResearchTypes } from './lib/investment-taxonomy';
+import { contentTypes, articleTrustSchema } from './lib/article-architecture.mjs';
 
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/data/articles' }),
@@ -18,6 +19,10 @@ const articles = defineCollection({
     dateCorrectionReason: z.string().min(3).optional(),
     identityChangeReason: z.string().min(3).optional(),
     author: z.string().default('JoyLab'),
+    contentType: z.enum(contentTypes as [string, ...string[]]).optional(),
+    contentQuestion: z.string().min(1).optional(),
+    timeSensitive: z.boolean().optional(),
+    trust: articleTrustSchema.optional(),
     featured: z.boolean().default(false),
     homeFeatured: z.boolean().default(false),
     homePriority: z.number().int().min(1).max(999).optional(),

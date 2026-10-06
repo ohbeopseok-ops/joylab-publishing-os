@@ -1,7 +1,7 @@
 {
   "money-basics-7-economic-terms": {"category":"MONEY BASICS","title":"경제 용어는 연결해서 읽는다","concepts":["환율","기준금리","유동성","경기순환"],"checks":["원인과 결과를 구분","방향과 속도를 함께 확인","한 지표로 결론 내리지 않기"],"anchors":["7가지 용어를 한 번에 연결하면","나만의 경제지표 대시보드"]},
   "openai-data-agent-chatgpt-work": {"category":"DATA AGENT","title":"질문에서 실행까지의 데이터 흐름","concepts":["Connected Data","Semantic Context","Dashboard","Action"],"checks":["지표 정의를 먼저 통일","권한을 데이터 단위로 제한","분석 뒤 실행 로그 남기기"],"anchors":["CONNECTED DATA","PERMISSION"]},
-  "fairness-system-explainable-standards": {"category":"FAIRNESS","title":"공정성은 세 층으로 설계한다","concepts":["기회","기준","판정","설명"],"checks":["출발 조건을 기록","기준을 사전에 공개","판정 근거를 재현 가능하게"],"anchors":["FAIRNESS","LEARNING"],"hero":true},
+  "fairness-system-explainable-standards": {"category":"FAIRNESS","title":"공정성은 네 단계로 설계한다","concepts":["기회","기준","판정","재검토"],"checks":["출발 조건을 기록","기준을 사전에 공개","판정 근거를 재현 가능하게"],"anchors":["기준은 결과를 보기 전에 합의한다","효과는 만족도와 기록 품질을 함께 본다"],"hero":true},
   "hanwha-ocean-shipbuilding": {"category":"SHIPBUILDING","title":"한화오션의 상선·특수선 이중 축","concepts":["LNG선","잠수함","특수선","거제 생산성"],"checks":["수주잔고 믹스","방산 납기와 마진","생산 안정화 속도"],"anchors":["THEME EXPOSURE","MARGIN TRANSMISSION"]},
   "learning-system-reexecution-loop": {"category":"LEARNING LOOP","title":"실패를 재실행으로 닫는 루프","concepts":["관찰","가설","실험","재실행"],"checks":["문제를 행동 단위로 기록","다음 시도를 명시","재실행 결과까지 회고"],"anchors":["BEHAVIOR","LEARNING"],"hero":true},
   "samsung-heavy-industries-shipbuilding": {"category":"SHIPBUILDING","title":"삼성중공업의 LNG·FLNG 전문화","concepts":["LNG선","FLNG","해양플랜트","스마트야드"],"checks":["잔고의 프로젝트 구성","해양 공정 리스크","생산성의 마진 전환"],"anchors":["THEME EXPOSURE","CAPACITY & LEAD TIME"]},

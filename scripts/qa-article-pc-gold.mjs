@@ -40,6 +40,13 @@ for (const viewport of viewports) {
   });
 
   const response = await page.goto(`${baseURL}${articlePath}`, { waitUntil: 'networkidle' });
+  // Body-first articles keep supporting images below the fold; exercise lazy loading.
+  for (const image of await page.locator('img[loading="lazy"]').all()) {
+    await image.scrollIntoViewIfNeeded();
+    await image.evaluate(img => img.decode()).catch(() => {});
+  }
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+  await page.evaluate(() => document.fonts.ready);
   await page.waitForFunction(() => [...document.images].every((img) => img.complete), null, { timeout: 5000 }).catch(() => {});
   const health = await pageHealth(page);
 

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleTrust from '../../components/ArticleTrust.astro';
+import { visualTitles } from '../../lib/article-architecture.mjs';
 import ArticleGrowthPath from '../../components/ArticleGrowthPath.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import { AD_PLACEMENT } from '../../config/adPlacement';
@@ -187,29 +189,6 @@ const guideCta = isCustomerCenterAxSeries
           href: '/guides/semiconductor-investing',
           label: 'HBM부터 비교까지 한 번에 보기 →'
         };
-const takeaways = isCustomerCenterAxSeries
-  ? [
-      ['업무 경계', 'AI가 맡을 반복 업무와 사람이 확인할 판단·승인 영역을 분리합니다.'],
-      ['통제 기준', 'PII·SOP·환각·승인을 같은 업무 흐름 안에서 통제합니다.'],
-      ['운영 연결', '생산성 개선을 QA 코칭과 리더의 학습 루프까지 연결합니다.']
-    ]
-  : isGrowthResearch
-  ? [
-      ['핵심 질문', `${article.data.tags.slice(0, 2).join('·')}를 중심으로 삶과 조직의 문제를 다시 정의합니다.`],
-      ['해석 기준', '개념과 사례를 분리해 보고, 무엇이 구조적 원인인지 살펴봅니다.'],
-      ['실행 연결', '읽고 끝내지 않고 일상과 업무에서 바로 적용할 작은 행동으로 번역합니다.']
-    ]
-  : isSamsung
-  ? [
-      ['실적 추정치', '현재 실적보다 다음 분기와 연간 EPS 추정치의 방향을 먼저 봅니다.'],
-      ['HBM 실행력', '기술 발표보다 인증·양산·수율·공급 물량이 이익으로 연결되는지 확인합니다.'],
-      ['외국인 수급', '하루 순매수보다 5일·20일 지속성과 실제 가격 반응을 함께 봅니다.']
-    ]
-  : [
-      ['핵심 변수', `${article.data.tags.slice(0, 2).join('·')}를 중심으로 구조적 변화를 봅니다.`],
-      ['판단 순서', '사실과 해석을 분리하고 시나리오별로 조건을 확인합니다.'],
-      ['실행 기준', '한 줄 뉴스보다 데이터의 방향과 가격 반응을 함께 확인합니다.']
-    ];
 const scoreCriteria = [
   { label: 'AI 메모리 집중도', note: 'AI·HBM 성장 노출을 얼마나 중요하게 보는지', samsung: 3, hynix: 5 },
   { label: '사업 다각화', note: '메모리 외 사업 포트폴리오 분산을 얼마나 선호하는지', samsung: 5, hynix: 2 },
@@ -221,14 +200,15 @@ const scoreCriteria = [
 <BaseLayout title={`${title} | JoyLab`} description={article.data.description} canonical={article.data.canonical} type="article" bodyClass="research-article-page" image={articleImage}>
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
 
-  <article class:list={["research-v2-shell","article-shell",{"first-content-priority":isFirstContentPriority}]} data-asset-contract-version="4" data-asset-contract-kind="article" data-asset-contract-hero={heroImage ?? ''} data-asset-contract-og={articleImage ?? ''} data-asset-contract-supporting={String(supportingImages.length)}>
+  <article class:list={["research-v2-shell","article-shell",{"first-content-priority":isFirstContentPriority}]} data-content-type={article.data.contentType ?? undefined} data-article-architecture="1.1" data-asset-contract-version="4" data-asset-contract-kind="article" data-asset-contract-hero={heroImage ?? ''} data-asset-contract-og={articleImage ?? ''} data-asset-contract-supporting={String(supportingImages.length)}>
     <header class="research-cover" style={heroImage ? 'grid-template-columns:1fr' : undefined}>
       <div class="research-cover__copy">
         <div class="research-kicker">JOYLAB RESEARCH · {article.data.category}</div>
         <h1>{article.data.title}</h1>
         <p class="research-cover__desc">{article.data.description}</p>
         <div class="research-cover__meta">
-          <span>{article.data.author}</span>
+          <span>작성: {article.data.author}</span>
+          {article.data.trust?.researchedAt && <span>데이터 기준일: {article.data.trust.researchedAt}</span>}
           <span>{article.data.publishedAt.toLocaleDateString('ko-KR')}</span>
           <span>{article.data.readingTime ?? '약 6분'}</span>
           {article.data.series && <span>{article.data.series}</span>}
@@ -251,30 +231,21 @@ const scoreCriteria = [
       </figure>
     )}
 
-    <div class="research-quote">
-      <strong>좋은 정보보다, 더 나은 판단을 남깁니다.</strong>
-      <span>Fact → Interpretation → Scenario → Action</span>
-    </div>
-
     <div class="research-layout">
       <div class="research-main">
-        <section class="research-panel research-brief" aria-labelledby="brief-title">
-          <h2 class="research-panel__title" id="brief-title">Research Brief</h2>
-          <ul>
-            <li>{article.data.description}</li>
-            <li>{isCustomerCenterAxSeries ? 'JoyLab은 업무 범위, 근거, 승인, 기록을 하나의 AX 운영 흐름으로 연결해 봅니다.' : isGrowthResearch ? 'JoyLab은 개념, 경험, 행동을 하나의 흐름으로 연결해 해석합니다.' : 'JoyLab은 단일 뉴스보다 여러 변수를 한 흐름으로 연결해 판단합니다.'}</li>
-            <li>{isCustomerCenterAxSeries ? '이 글은 AI 사용을 늘리는 방법보다 실제 상담 업무에서 안전하게 적용하고 재점검할 기준을 남깁니다.' : isGrowthResearch ? '이 글은 정답을 제시하기보다 스스로 판단하고 적용할 기준을 남기는 리서치입니다.' : '이 글은 매수·매도 지시가 아니라 판단 기준과 재점검 조건을 제공하는 리서치입니다.'}</li>
-          </ul>
-        </section>
+        <div class="reader-toolbar research-reader" aria-label="읽기 설정">
+          <span class="reader-toolbar__label">읽기 설정</span>
+          <button class="reader-control" type="button" data-reader-size="small" aria-pressed="false" title="글자 작게">A−</button>
+          <button class="reader-control" type="button" data-reader-size="default" aria-pressed="true" title="기본 글자 크기">A</button>
+          <button class="reader-control" type="button" data-reader-size="large" aria-pressed="false" title="글자 크게">A+</button>
+          <button id="focus-reading" class="reader-control reader-focus" type="button" aria-pressed="false">집중 읽기</button>
+        </div>
 
-        <section class="research-panel research-takeaways" aria-labelledby="takeaways-title">
-          <h2 class="research-panel__title" id="takeaways-title">Key Takeaways</h2>
-          <div class="takeaway-grid">
-            {takeaways.map(([label, note], index) => (
-              <div class="takeaway"><b>0{index + 1}</b><strong>{label}</strong><p>{note}</p></div>
-            ))}
-          </div>
-        </section>
+        <div class="research-v2-content">
+          <div id="article-content" class="article-body"><Content /></div>
+        </div>
+
+        <ArticleTrust trust={article.data.trust} />
 
         {compactCompanyResearch && (
           <section class="research-panel company-compact-graph" aria-label="Company Compact Research Graph">
@@ -294,7 +265,7 @@ const scoreCriteria = [
 
         {supportingImages.length > 0 && (
           <section id="visual-research" class="research-panel research-visual-panel" aria-labelledby="visual-research-title">
-            <h2 class="research-panel__title" id="visual-research-title">Visual Research</h2>
+            <h2 class="research-panel__title" id="visual-research-title">{visualTitles[article.data.contentType] ?? '본문 참고 자료'}</h2>
             <div style="display:grid;gap:20px">
               {supportingImages.map((image) => (
                 <figure data-visual-anchor={image.afterHeading ?? undefined} style="margin:0;border:1px solid var(--research-line);border-radius:16px;overflow:hidden;background:#fff">
@@ -306,45 +277,6 @@ const scoreCriteria = [
           </section>
         )}
 
-        <section class="research-panel research-framework" aria-labelledby="framework-title">
-          <h2 class="research-panel__title" id="framework-title">{isCustomerCenterAxSeries ? 'JoyLab Customer Center AX 프레임워크' : isGrowthResearch ? 'JoyLab 성장·리더십 프레임워크' : 'JoyLab 투자 프레임워크'}</h2>
-          <div class="framework-grid">
-            {isCustomerCenterAxSeries ? (
-              <>
-                <div class="framework-step"><em>SCOPE</em><strong>AI가 어디까지 맡는가?</strong><p>반복 업무와 사람의 판단·승인 영역을 먼저 분리합니다.</p></div>
-                <div class="framework-step"><em>GROUND</em><strong>무엇을 근거로 답하는가?</strong><p>SOP·전산·공식 기준을 우선하고 모르는 내용은 확인 필요로 남깁니다.</p></div>
-                <div class="framework-step"><em>CONTROL</em><strong>어디에서 사람이 확인하는가?</strong><p>PII·금액·보상·예외 판단은 승인과 최종 확인 지점을 둡니다.</p></div>
-                <div class="framework-step"><em>LEARN</em><strong>무엇을 다음 표준으로 남기는가?</strong><p>오류·재작업·코칭 결과를 프롬프트와 팀 표준 업데이트로 연결합니다.</p></div>
-              </>
-            ) : isGrowthResearch ? (
-              <>
-                <div class="framework-step"><em>OBSERVE</em><strong>무엇이 일어나고 있는가?</strong><p>감정과 평가보다 먼저 실제 상황과 반복 패턴을 관찰합니다.</p></div>
-                <div class="framework-step"><em>INTERPRET</em><strong>왜 이런 일이 생기는가?</strong><p>개인 성향, 관계, 구조, 환경 요인을 나누어 해석합니다.</p></div>
-                <div class="framework-step"><em>CHOOSE</em><strong>무엇을 선택할 것인가?</strong><p>통제 가능한 범위와 우선순위를 정해 한 가지 행동을 선택합니다.</p></div>
-                <div class="framework-step"><em>REFLECT</em><strong>무엇을 다시 볼 것인가?</strong><p>결과뿐 아니라 판단 과정과 다음 수정점을 돌아봅니다.</p></div>
-              </>
-            ) : (
-              <>
-                <div class="framework-step"><em>FACT</em><strong>무엇이 사실인가?</strong><p>데이터와 공시, 확인 가능한 사건을 먼저 분리합니다.</p></div>
-                <div class="framework-step"><em>INTERPRETATION</em><strong>무엇을 의미하는가?</strong><p>변수의 방향과 구조적 의미를 연결합니다.</p></div>
-                <div class="framework-step"><em>SCENARIO</em><strong>어떤 가능성이 있는가?</strong><p>Bull·Base·Bear 조건을 나누어 봅니다.</p></div>
-                <div class="framework-step"><em>ACTION</em><strong>무엇을 확인할 것인가?</strong><p>다음 판단 전 반드시 확인할 체크포인트를 남깁니다.</p></div>
-              </>
-            )}
-          </div>
-        </section>
-
-        <div class="reader-toolbar research-reader" aria-label="읽기 설정">
-          <span class="reader-toolbar__label">읽기 설정</span>
-          <button class="reader-control" type="button" data-reader-size="small" aria-pressed="false" title="글자 작게">A−</button>
-          <button class="reader-control" type="button" data-reader-size="default" aria-pressed="true" title="기본 글자 크기">A</button>
-          <button class="reader-control" type="button" data-reader-size="large" aria-pressed="false" title="글자 크게">A+</button>
-          <button id="focus-reading" class="reader-control reader-focus" type="button" aria-pressed="false">집중 읽기</button>
-        </div>
-
-        <div class="research-v2-content">
-          <div id="article-content" class="article-body"><Content /></div>
-        </div>
 
         {isCompareHub && (
           <section id="compare-scorecard" class="compare-scorecard" aria-labelledby="compare-scorecard-title">

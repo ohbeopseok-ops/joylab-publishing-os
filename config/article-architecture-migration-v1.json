@@ -1,0 +1,625 @@
+{
+  "architecture": "1.1",
+  "articles": 123,
+  "published": 123,
+  "note": "Structural checks only. Candidate classifications are not final editorial judgments or AdSense approval evidence.",
+  "semanticReview": "pending",
+  "sourceVerification": "pending",
+  "records": [
+    {
+      "file": "ai-agent-governance.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "ai-agent-hbm-demand.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-agent-security-prompt-to-rce-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-agent-system-design-anthropic-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-api-key-compute-theft-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-bubble-vs-compute-supercycle-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-data-center-capacity-stack-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-data-center-cooling-bottleneck.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-data-center-interconnect-dci.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-database-security-data-layer-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-era-english-deep-inquiry.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-inference-hbm-earnings.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-infrastructure-hbm-mlcc-power-grid-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-network-800g-1-6t.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-power-beneficiaries-value-chain.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-power-gas-turbine-return.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-power-grid-transformer-distribution.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-power-ls-hd-eaton-ge-compare.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-power-next-bottleneck.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-power-valuation-eps-per-ev-ebitda.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-power-value-chain-compare.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-productivity-operating-model.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "ai-productivity-platforms-compare.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "ai-productivity-roi.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "ai-token-economics.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-transformer-bottleneck-backlog-leadtime-margin.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-translation-information-gatekeeper.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ai-workflow-automation.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "anthropic-ipo-ai-safety-2026.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "aside-ai-browser-benchmark.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "aside-vs-chatgpt-work-vs-playwright.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "aside-windows-launch.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "bach-counterpoint-order-in-chaos.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "bank-roe-cet1-guide.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "bess-ups-bbu-data-center.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "burnout-recovery-starts-with-pause.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "chatgpt-sponsored-agent-advertising.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "china-ai-token-ciyuan-discourse-power.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "china-memory-self-sufficiency.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "china-semiconductor-equipment-localization.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "china-semiconductor-risk-indicators.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "china-us-treasury-holdings-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "codex-automation-gold-cases-5.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "codex-build-your-own-plugin-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "codex-computer-use-guide-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "codex-goal-mode-guide-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "codex-guide-6-steps-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "codex-non-developer-automation-10.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "codex-plugin-guide-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "codex-skill-guide-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "compounder-roic-reinvestment-moat.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "customer-center-ai-security-guardrails.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "customer-center-ax-leadership.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "customer-center-ax-operating-model.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "customer-center-crm-productivity.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "customer-center-qa-coaching-loop.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "cxmt-dram-vs-samsung-sk-hynix.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "cxmt-ymtc-memory-oversupply.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "doosan-enerbility-ai-power.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "fairness-system-explainable-standards.md",
+      "contentType": "practical-playbook",
+      "classification": "STRUCTURALLY_VALID_REVIEW_REQUIRED"
+    },
+    {
+      "file": "feedback-system-behavior-change.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "financials-value-up-investing-guide.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "foreign-investor-flow.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "gpu-compute-economics-rubin-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "growth-leadership-operating-system.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "hanwha-ocean-shipbuilding.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "hbm-us-china-ai-chip-war.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "hbm3e-hbm4-zhbm.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "hd-hyundai-electric-ai-power.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "hd-hyundai-heavy-industries-shipbuilding.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "hd-ksoe-shipbuilding.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "how-submarine-cables-work.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "how-to-read-us-treasury-auctions-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "hyosung-heavy-industries-ai-power.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "kb-financial-shareholder-return.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "korea-ai-power-companies-compare.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "korea-financial-holdings-compare.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "korea-shipbuilding-companies-compare.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "learning-system-reexecution-loop.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "ls-electric-ai-power.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ls-hd-electric-2027-eps-per-scenario.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "mcp-security-tool-poisoning-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "money-basics-7-economic-terms.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "openai-anthropic-ipo-cash-burn-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "openai-data-agent-chatgpt-work.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "optical-dsp-lpo-lro-1-6t.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "performance-system-leading-indicators.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "recognition-system-fair-performance.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "samsung-daily-analysis-2026-09-28.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "samsung-electronics-outlook.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "samsung-hbm4-memory-outlook-2026-09-20.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "samsung-heavy-industries-shipbuilding.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "samsung-market-close-2026-09-28.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "samsung-vs-sk-hynix-ai-memory.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "samsung-xian-vs-sk-hynix-wuxi.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "satellite-vs-submarine-cable.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "semiconductor-cycle.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "semiconductor-giant-shoulder-flow.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "silicon-photonics-ai-network.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "sk-hynix-outlook.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "strong-retail-sales-nasdaq-rally-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "submarine-cable-failure-repair.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "submarine-cable-history.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "submarine-cables-ai-infrastructure.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "total-shareholder-return-buyback-cancellation-guide.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "treasury-5-percent-sp500-nasdaq-dividend.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "treasury-5-percent-utilities-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "us-30y-treasury-5-percent-risk-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "us-august-retail-sales-fed-nasdaq-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "us-china-chip-export-control-timeline.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "us-china-semiconductor-war.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "us-cpi-fed-nasdaq-guide.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "us-economic-indicators-guide.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "us-jobs-report-fed-nasdaq-guide.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "us-pce-fed-nasdaq-guide.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "us-ppi-fed-margin-guide.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "us-rates-korea-semiconductor-transmission-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "what-is-ai-agent.md",
+      "contentType": null,
+      "classification": "REWRITE_CANDIDATE"
+    },
+    {
+      "file": "what-is-co-packaged-optics.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "what-is-hbm.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "who-buys-us-treasuries-2026.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "why-we-cannot-stand-silence.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    },
+    {
+      "file": "ymtc-nand-vs-samsung-sk-hynix.md",
+      "contentType": null,
+      "classification": "ENHANCE_CANDIDATE"
+    }
+  ]
+}
