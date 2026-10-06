@@ -1,17 +1,6 @@
 name: AI CAPEX Master Map V2
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'config/ai-capex-master-map-v2.json'
-      - 'config/research-graph-*.json'
-      - 'src/components/AiCapexMasterMap.astro'
-      - 'src/styles/ai-capex-master-map-v2.css'
-      - 'src/pages/research-map.astro'
-      - 'scripts/check-ai-capex-master-map-v2.mjs'
-      - 'package.json'
-      - '.github/workflows/ai-capex-master-map-v2.yml'
   push:
     branches: [main]
     paths:
