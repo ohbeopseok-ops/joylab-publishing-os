@@ -1,0 +1,27 @@
+---
+const { trust } = Astro.props;
+---
+{trust && (
+  <details class="article-trust" id="article-trust">
+    <summary>조사 방법과 출처</summary>
+    <div class="article-trust__content">
+      <p><strong>분석 관점</strong> {trust.authorPerspective}</p>
+      <h2>조사 방법</h2>
+      <ul>{trust.methodology.map((method) => <li>{method}</li>)}</ul>
+      {trust.humanReviewed && trust.reviewedBy && trust.reviewedAt && trust.reviewScope.length > 0 && (
+        <p><strong>사람 검토</strong> {trust.reviewedBy} · {trust.reviewedAt} · {trust.reviewScope.join(' / ')}</p>
+      )}
+      {trust.primarySources.length > 0 && <><h2>원문 자료</h2><ul>{trust.primarySources.map((source) => (
+        <li><a href={source.url} rel="noopener noreferrer">{source.title}</a> — {source.publisher} · 확인일 {source.accessedAt}</li>
+      ))}</ul></>}
+      {trust.updateLog.length > 0 && <><h2>업데이트 기록</h2><ul>{trust.updateLog.map((entry) => <li><time datetime={entry.date}>{entry.date}</time>: {entry.change}</li>)}</ul></>}
+    </div>
+  </details>
+)}
+<style>
+  .article-trust{margin:16px 0;padding:16px 20px;border:1px solid var(--research-line);border-radius:14px;background:#fff;color:#34445c;overflow-wrap:anywhere}
+  summary{cursor:pointer;font-weight:700;min-height:28px}
+  .article-trust__content{font-size:.9rem;line-height:1.75}
+  h2{font-size:1rem;margin:18px 0 8px}
+  ul{padding-left:1.2rem}a{color:#1557bd;text-decoration:underline}
+</style>

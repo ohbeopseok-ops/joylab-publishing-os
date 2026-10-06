@@ -115,3 +115,12 @@ body.focus-reading .mobile-after-article-cta,body.focus-reading .mobile-after-ar
   .first-content-priority .research-takeaways .takeaway-grid::-webkit-scrollbar{display:none}
   .first-content-priority .research-takeaways .takeaway{min-height:0;padding:12px}
 }
+
+/* Article Architecture V1.1: meaningful body before evidence/navigation. */
+@media(max-width:640px){
+ .research-main{display:flex;flex-direction:column}
+ .research-main>*{order:5}
+ .research-main>.reader-toolbar.research-reader{order:1}
+ .research-main>.research-v2-content{order:2}
+ .research-main>.article-trust{order:3}
+}
