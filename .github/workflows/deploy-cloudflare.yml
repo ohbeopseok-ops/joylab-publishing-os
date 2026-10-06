@@ -369,6 +369,10 @@ jobs:
           grep -Fq 'https://www.acas.org.uk/performance-management' /tmp/body
           grep -Fq '업데이트 기록' /tmp/body
           grep -Fq '같은 20건도 기회가 다르면 다르게 읽힌다' /tmp/body
+          grep -Fq '평가 기록은 이 양식으로 남긴다' /tmp/body
+          grep -Fq '비율만 보정해도 공정해지지 않는 경우' /tmp/body
+          grep -Fq '효과는 만족도와 기록 품질을 함께 본다' /tmp/body
+          grep -Fq '오늘은 평가표 한 칸부터 바꾼다' /tmp/body
           ! grep -Fq 'id="research-brief"' /tmp/body
 
           check_200 "https://aijoylab.kr/images/books/weight-of-silence-cover.svg?deploy=${GITHUB_SHA}"
