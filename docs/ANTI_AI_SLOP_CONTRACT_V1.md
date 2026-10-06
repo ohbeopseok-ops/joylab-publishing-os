@@ -5,7 +5,7 @@ Parent: `docs/JOYLAB_DESIGN_SYSTEM_V3.md`
 Homepage companions:
 - `docs/HOMEPAGE_DESIGN_CONTRACT_V1.md`
 - `docs/HOMEPAGE_VERTICAL_BUDGET_CONTRACT_V2.md`
-Executable evidence:
+Executable evidence (Visual Gate V1.1):
 - `scripts/qa-responsive-visual-v2.mjs`
 - `scripts/qa-homepage-visual-evidence-v1.mjs`
 
