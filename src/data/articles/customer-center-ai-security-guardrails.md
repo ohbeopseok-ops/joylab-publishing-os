@@ -2,6 +2,7 @@
 title: "고객센터 AI 보안 가이드｜PII·SOP·환각을 동시에 통제하는 5단계"
 description: "고객센터에서 생성형 AI를 사용할 때 개인정보, 회사 규정, 환각, 승인, 기록을 하나의 5단계 가드레일로 관리하는 실무 구조를 정리합니다."
 category: "AI·생산성"
+contentType: "practical-playbook"
 tags: ["AI보안","개인정보","PII","환각","SOP"]
 publishedAt: 2026-09-30
 author: "JoyLab"
@@ -13,6 +14,17 @@ seriesOrder: 2
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "고객센터 AI 보안 가이드｜PII·SOP·환각을 동시에 통제하는 5단계 — JoyLab Research"
 readingTime: "약 7분"
+migrationAction: "ENHANCE"
+trust:
+  researchedAt: 2026-10-06
+  methodology:
+    - "고객센터 AI 사용을 입력 최소화, 비식별화, 근거 확인, 사람 승인, 기록의 운영 단계로 분해"
+  primarySources: []
+  originalValue:
+    - "Minimize → Mask → Ground → Approve → Record를 하나의 사전 점검 흐름으로 연결"
+  hasCounterEvidence: true
+  hasConclusion: true
+  hasUpdateLog: true
 ---
 
 고객센터 AI의 위험은 모델 자체보다 **입력·근거·권한·출력·기록이 섞일 때** 커집니다.
@@ -66,3 +78,13 @@ AI가 만든 결과가 고객 권리, 보상, 예외 처리, 법률 판단에 �
 - [AI·생산성 허브](/guides/ai-productivity)
 - [고객센터 AX 운영모델](/articles/customer-center-ax-operating-model)
 - [상담 생산성 설계법](/articles/customer-center-crm-productivity)
+
+
+## JoyLab 검증 노트
+
+이 글은 고객센터에서 생성형 AI를 사용할 때 필요한 **운영 통제 구조**를 설명합니다. 실제 적용에서는 회사의 보안 정책과 개인정보 처리 기준이 이 글보다 우선합니다.
+
+JoyLab의 고유 분석은 개인정보 보호를 하나의 마스킹 작업으로 끝내지 않고 **입력 → 근거 → 승인 → 기록**까지 연결했다는 점입니다. 반대로 모든 업무를 같은 강도로 통제하면 생산성이 떨어질 수 있으므로 고객 권리·금액·약관·예외 처리처럼 영향도가 큰 업무부터 승인 수준을 높이는 방식이 적절합니다.
+
+### Update Log
+- **2026-10-06**: Article Architecture V1에 맞춰 적용 범위, 고유 분석, 반대 조건과 검증 기준을 명시했습니다.
