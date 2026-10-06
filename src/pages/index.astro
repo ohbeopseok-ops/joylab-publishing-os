@@ -9,6 +9,7 @@ import '../styles/brand-system-v1-1.css';
 import '../styles/homepage-treasury-hub-card.css';
 import '../styles/homepage-books-v2.css';
 import '../styles/homepage-compact-v2.css';
+import '../styles/homepage-visual-engineering-v1.css';
 import researchImageManifest from '../data/research-image-manifest.json';
 import { getCollection } from 'astro:content';
 
@@ -69,10 +70,8 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
           <span>INVESTING</span><i aria-hidden="true">×</i><span>AI</span><i aria-hidden="true">×</i><span>LEADERSHIP</span>
         </div>
         <a class="home-hero__cta" href="#today-research">오늘의 리서치 보기 <span aria-hidden="true">→</span></a>
-        <div class="home-hero__stats" aria-label="JoyLab Research System">
-          <div class="home-stat"><strong>3</strong><span>Pillars</span></div>
-          <div class="home-stat"><strong>4</strong><span>Step Method</span></div>
-          <div class="home-stat"><strong>1</strong><span>Research System</span></div>
+        <div class="home-hero__method" aria-label="JoyLab Research Method">
+          <span>FACT</span><i aria-hidden="true">→</i><span>INTERPRETATION</span><i aria-hidden="true">→</i><span>SCENARIO</span><i aria-hidden="true">→</i><span>ACTION</span>
         </div>
       </div>
       <aside class="home-hero__today" aria-label="에디터 추천 3선">
@@ -91,9 +90,9 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
     <section class="home-section home-section--pillars" id="pillars">
       <div class="home-section-head">
         <div class="home-section-title"><div><h2>3개의 Pillar, 하나의 시선</h2><p>복잡한 정보를 실행 가능한 판단으로 연결합니다.</p></div></div>
-        <a class="home-section-link" href="#archive">전체 보기 →</a>
+        <a class="home-section-link" href="/research-map">리서치 맵 →</a>
       </div>
-      <div class="home-pillars">
+      <div class="home-pillars" aria-label="JoyLab Research Pillar Index">
         <a class="home-pillar" href="/guides/investing">
           <img class="home-pillar__visual" src="/images/home/pillar-investment.svg" alt="시장 데이터와 자본 흐름을 표현한 투자·경제 Pillar 비주얼" width="1200" height="700" loading="lazy" />
           <span class="home-pillar__copy"><small>INVESTMENT & ECONOMY</small><strong>투자·경제</strong><p>시장·기업·정책을 읽고 투자 판단으로 연결합니다.</p></span>

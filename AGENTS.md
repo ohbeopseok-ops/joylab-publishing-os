@@ -47,6 +47,7 @@ Use for:
 Read:
 - `docs/HOMEPAGE_DESIGN_CONTRACT_V1.md`
 - `docs/HOMEPAGE_VERTICAL_BUDGET_CONTRACT_V2.md` for desktop vertical budgets
+- `docs/ANTI_AI_SLOP_CONTRACT_V1.md` for visual differentiation and generic-AI pattern control
 
 Use for:
 - homepage section height
@@ -54,12 +55,16 @@ Use for:
 - Books → Latest spacing
 - homepage compact-rhythm changes
 - Hero / Pillars / Research Guide vertical height budgets
+- homepage card/gradient/pill/hover-pattern changes
+- visual differentiation work
 
 Hard rule:
 - Keep desktop Hero ≤ 530px, Pillars ≤ 370px, Research Guide ≤ 380px.
 - Keep desktop Books shelf ≤ 390px.
 - Keep Guide → Books and Books → Latest gaps within 0–48px.
 - Enforce through Responsive Visual Gate V2; do not weaken thresholds only to make CI green.
+- For homepage-facing visual changes, preserve 390 / 768 / 1280 before-vs-after evidence through `scripts/qa-homepage-visual-evidence-v1.mjs`.
+- Anti-Slop is a constraint layer under Design System V3; do not create a parallel color/token system.
 
 ### Brand identity and official channels
 Read:
