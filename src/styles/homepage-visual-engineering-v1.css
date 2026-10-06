@@ -1,0 +1,179 @@
+/* JoyLab Homepage Visual Engineering V1
+   Purpose: reduce generic AI/SaaS visual patterns while preserving Design System V3.
+   This is an override layer so rollback is one import removal.
+*/
+
+/* 1) Hero: editorial field, not glow/orb AI shorthand. */
+body.homepage-v2 .home-hero{
+  background:#071938;
+}
+body.homepage-v2 .home-hero__lead:before{
+  background:linear-gradient(90deg,rgba(22,119,255,.12),transparent 34%);
+}
+body.homepage-v2 .home-hero__lead:after{
+  display:none;
+}
+body.homepage-v2 .home-hero h1 span{
+  color:#78adff;
+}
+
+/* 2) Pillars are taxonomy/navigation: render as an editorial index, not 3 feature cards. */
+body.homepage-v2 .home-pillars{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+  border-top:1px solid #d9e3ef;
+}
+body.homepage-v2 .home-pillar{
+  display:grid;
+  grid-template-columns:180px minmax(0,1fr) 32px;
+  grid-template-rows:none;
+  align-items:center;
+  min-height:104px;
+  padding:0;
+  border:0;
+  border-bottom:1px solid #d9e3ef;
+  background:#fff;
+  color:#17345d;
+  box-shadow:none;
+  overflow:hidden;
+}
+body.homepage-v2 .home-pillar:after{
+  content:'→';
+  position:static;
+  display:block;
+  width:auto;
+  height:auto;
+  margin-right:4px;
+  border-radius:0;
+  background:none;
+  color:#1677ff;
+  font-size:1.1rem;
+  font-weight:900;
+  text-align:right;
+}
+body.homepage-v2 .home-pillar__visual{
+  width:156px;
+  height:82px;
+  margin:10px 0;
+  border:0;
+  object-fit:cover;
+  background:#071938;
+}
+body.homepage-v2 .home-pillar__copy{
+  padding:14px 20px 14px 0;
+}
+body.homepage-v2 .home-pillar__copy small{
+  color:#55779f;
+  font-size:.64rem;
+  letter-spacing:.12em;
+}
+body.homepage-v2 .home-pillar__copy strong{
+  margin-top:5px;
+  color:#102a54;
+  font-family:Georgia,'Noto Serif KR',serif;
+  font-size:1.2rem;
+  line-height:1.25;
+}
+body.homepage-v2 .home-pillar__copy p{
+  max-width:none;
+  margin-top:4px;
+  color:#6b7c91;
+  font-size:.8rem;
+  line-height:1.5;
+}
+body.homepage-v2 .home-pillar:hover{
+  background:#f8fbff;
+}
+
+/* 3) Real collections may repeat, but interaction should not be the generic card-lift pattern. */
+body.homepage-v2 .home-research-card,
+body.homepage-v2 .home-guide-step,
+body.homepage-v2 .home-archive .article-card{
+  transform:none;
+}
+body.homepage-v2 .home-research-card:hover,
+body.homepage-v2 .home-guide-step:hover,
+body.homepage-v2 .home-archive .article-card:hover{
+  transform:none;
+}
+
+/* 4) Research Guide is an index: remove decorative CORE/SPECIALIST labels and gradient tiles. */
+@media(min-width:1100px){
+  body.homepage-v2 .home-guide-step{
+    background:rgba(255,255,255,.035);
+    box-shadow:none;
+  }
+  body.homepage-v2 .home-guide-step:nth-child(n){
+    background:rgba(255,255,255,.035);
+  }
+  body.homepage-v2 .home-guide-step:nth-child(n)::after{
+    content:none;
+  }
+  body.homepage-v2 .home-guide-step.is-start{
+    border-color:#ffd83d;
+    background:rgba(255,216,61,.045);
+  }
+}
+
+/* 5) Archive cards: category identity comes from typography/rules, not gradient strips. */
+@media(min-width:1100px){
+  body.homepage-v2 .home-archive .article-card{
+    box-shadow:none;
+  }
+  body.homepage-v2 .home-archive .article-card:before{
+    height:2px;
+    background:#1677ff;
+  }
+  body.homepage-v2 .home-archive .article-card[data-category='투자·경제']:before{background:#1677ff}
+  body.homepage-v2 .home-archive .article-card[data-category='AI·생산성']:before{background:#0a66d8}
+  body.homepage-v2 .home-archive .article-card[data-category='성장·리더십']:before{background:#c88b16}
+  body.homepage-v2 .home-archive .article-card:hover{
+    border-color:#9fbce0;
+    box-shadow:none;
+  }
+}
+
+@media(max-width:900px){
+  body.homepage-v2 .home-pillar{
+    grid-template-columns:112px minmax(0,1fr) 24px;
+    min-height:96px;
+  }
+  body.homepage-v2 .home-pillar__visual{
+    width:96px;
+    height:72px;
+    margin:10px 0;
+  }
+}
+
+@media(max-width:640px){
+  body.homepage-v2 .home-pillars{
+    gap:0!important;
+  }
+  body.homepage-v2 .home-pillar{
+    grid-template-columns:78px minmax(0,1fr) 20px!important;
+    min-height:82px!important;
+    padding:0!important;
+  }
+  body.homepage-v2 .home-pillar__visual{
+    width:66px!important;
+    height:58px!important;
+    min-height:0!important;
+    margin:10px 0!important;
+  }
+  body.homepage-v2 .home-pillar__copy{
+    padding:10px 10px 10px 0;
+  }
+  body.homepage-v2 .home-pillar__copy small{
+    font-size:.56rem;
+  }
+  body.homepage-v2 .home-pillar__copy strong{
+    margin-top:3px!important;
+    font-size:.94rem!important;
+  }
+  body.homepage-v2 .home-pillar__copy p{
+    margin-top:2px!important;
+    font-size:.69rem!important;
+    -webkit-line-clamp:2;
+  }
+}
