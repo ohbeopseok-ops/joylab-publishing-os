@@ -10,6 +10,8 @@ on:
       - '.github/workflows/gsc-direct-api-sync.yml'
       - 'scripts/gsc-api-sync.mjs'
       - 'scripts/research-corpus-evidence-audit.mjs'
+
+permissions:
   contents: write
 
 concurrency:
