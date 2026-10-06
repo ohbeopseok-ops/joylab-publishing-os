@@ -16,6 +16,20 @@ tags:
 publishedAt: 2026-09-28
 updatedAt: 2026-09-28
 author: "JoyLab"
+updatedAt: 2026-10-06
+authorBio: "JoyLab Founder & Operator · 한국 반도체·기업 실적 리서치"
+researchMethod: "가격·외국인 수급·환율·금리와 기업 공시·실적 변수를 분리해 같은 기준일의 방향성을 비교했습니다."
+sourceList:
+  - label: "삼성전자 IR"
+    url: "https://www.samsung.com/global/ir/"
+  - label: "한국거래소 시장정보"
+    url: "https://global.krx.co.kr/"
+riskFactors:
+  - "단일 거래일의 급락은 장기 펀더멘털 변화와 다를 수 있습니다."
+  - "실적·HBM 전망은 공시와 실제 수율·인증 결과에 따라 바뀔 수 있습니다."
+counterScenarios:
+  - "수급 충격이 빠르게 해소되어 가격이 반등하는 경우"
+  - "HBM·메모리 실적이 예상보다 약해져 밸류에이션이 재평가되는 경우"
 featured: false
 draft: false
 seoTitle: "삼성전자 27만원 급락 분석｜외국인 매도·미국채 5.22%·3Q 실적"
