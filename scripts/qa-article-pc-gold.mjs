@@ -45,7 +45,7 @@ for (const viewport of viewports) {
     await image.scrollIntoViewIfNeeded();
     await image.evaluate(img => img.decode()).catch(() => {});
   }
-  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
   await page.evaluate(() => document.fonts.ready);
   await page.waitForFunction(() => [...document.images].every((img) => img.complete), null, { timeout: 5000 }).catch(() => {});
   const health = await pageHealth(page);

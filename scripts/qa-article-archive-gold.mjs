@@ -15,12 +15,12 @@ async function triggerLazy(page) {
   await page.evaluate(async () => {
     const step = Math.max(320, Math.floor(window.innerHeight * 0.75));
     for (let y = 0; y < document.documentElement.scrollHeight; y += step) {
-      window.scrollTo(0, y);
+      window.scrollTo({ top: y, behavior: 'instant' });
       await new Promise((resolve) => setTimeout(resolve, 30));
     }
-    window.scrollTo(0, document.documentElement.scrollHeight);
+    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' });
     await new Promise((resolve) => setTimeout(resolve, 100));
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   });
   await page.waitForFunction(() => [...document.images].every((img) => img.complete), null, { timeout: 5000 }).catch(() => {});
 }
@@ -62,7 +62,9 @@ async function runArticle(viewport) {
       cover: visible('.research-cover'),
       layout: visible('.research-layout'),
       content: visible('.research-v2-content'),
-      brief: visible('.research-brief'),
+      reader: visible('.reader-toolbar.research-reader'),
+      noInjectedBrief: !document.querySelector('.research-main > .research-brief'),
+      bodyBeforeSupporting: !document.querySelector('.research-visual-panel') || Boolean(document.querySelector('.research-v2-content')?.compareDocumentPosition(document.querySelector('.research-visual-panel')) & Node.DOCUMENT_POSITION_FOLLOWING),
       heroOk: Boolean(hero && hero.complete && hero.naturalWidth > 0),
     };
   });
@@ -75,8 +77,9 @@ async function runArticle(viewport) {
     noBrokenImages: health.brokenImages.length === 0,
     noErrors: errors.length === 0,
     h1Present: structure.h1.length > 10,
-    coreStructureVisible: structure.cover && structure.layout && structure.content && structure.brief,
+    coreStructureVisible: structure.cover && structure.layout && structure.content && structure.reader,
     heroOk: structure.heroOk,
+    bodyFirstArchitecture: structure.noInjectedBrief && structure.bodyBeforeSupporting,
   };
   const passed = Object.values(checks).every(Boolean);
   results.push({ kind: 'article', viewport, checks, health, structure, errors, passed, screenshot });
