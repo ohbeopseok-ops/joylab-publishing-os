@@ -10,6 +10,20 @@ tags:
   - AgentCommerce
 publishedAt: 2026-09-30
 author: "JoyLab"
+updatedAt: 2026-10-06
+authorBio: "JoyLab Founder & Operator · AI·생산성 및 AI 비즈니스 모델 연구"
+researchMethod: "OpenAI 공개 발표와 광고 플랫폼의 기존 구조를 비교하고, 확인된 사실과 JoyLab의 시나리오 해석을 분리했습니다."
+sourceList:
+  - label: "OpenAI 공식 블로그"
+    url: "https://openai.com/news/"
+  - label: "FTC 광고 가이드"
+    url: "https://www.ftc.gov/business-guidance/advertising-marketing"
+riskFactors:
+  - "Sponsored Agent 관련 공개 정보와 실제 제품 정책은 변경될 수 있습니다."
+  - "광고 구조의 수익화 속도와 사용자 수용도는 확인되지 않은 변수입니다."
+counterScenarios:
+  - "사용자 신뢰와 투명성 요구로 광고 노출이 제한되는 경우"
+  - "구매 전환보다 검색·추천 단계에 머물러 수익성이 낮아지는 경우"
 featured: false
 draft: false
 seoTitle: "ChatGPT 광고의 진짜 변화는 배너가 아니다｜Sponsored Agent란?"
