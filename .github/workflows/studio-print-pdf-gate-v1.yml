@@ -1,17 +1,6 @@
 name: JoyLab Studio Print PDF Gate V1
 
 on:
-  pull_request:
-    paths:
-      - 'scripts/generate-studio-print-pdf-v1.mjs'
-      - 'src/data/studio/series-02-epub-source.json'
-      - 'src/pages/studio/projects/series-02/export/index.astro'
-      - 'scripts/check-studio-production-smoke-v1.mjs'
-      - 'scripts/check-studio-mvp-v1.mjs'
-      - '.github/workflows/studio-print-pdf-gate-v1.yml'
-      - '.github/workflows/deploy-cloudflare.yml'
-      - 'package.json'
-      - 'package-lock.json'
   workflow_dispatch:
 
 permissions:

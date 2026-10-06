@@ -93,7 +93,9 @@
     "ai-capex-leader:update": "node scripts/update-ai-capex-leader-v1.mjs",
     "ai-capex-leader:self-test": "node scripts/update-ai-capex-leader-v1.mjs --self-test",
     "ai-capex-market:update": "node scripts/update-ai-capex-market-snapshot-v1.mjs",
-    "ai-capex-market:self-test": "node scripts/update-ai-capex-market-snapshot-v1.mjs --self-test"
+    "ai-capex-market:self-test": "node scripts/update-ai-capex-market-snapshot-v1.mjs --self-test",
+    "content-architecture:audit": "node scripts/check-content-architecture-v1.mjs",
+    "content-architecture:self-test": "node scripts/check-content-architecture-v1.mjs --self-test"
   },
   "devDependencies": {
     "astro": "^7.3.2",

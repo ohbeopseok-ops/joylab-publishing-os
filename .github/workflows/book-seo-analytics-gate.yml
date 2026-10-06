@@ -1,15 +1,6 @@
 name: Book SEO Analytics Gate
 
 on:
-  pull_request:
-    paths:
-      - 'src/components/BookSchema.astro'
-      - 'src/layouts/BaseLayout.astro'
-      - 'src/pages/books/**'
-      - 'src/data/books/**'
-      - 'src/components/AnalyticsEvents.astro'
-      - 'scripts/check-book-seo-analytics.mjs'
-      - '.github/workflows/book-seo-analytics-gate.yml'
   workflow_dispatch:
 
 permissions:

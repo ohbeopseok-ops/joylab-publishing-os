@@ -1,14 +1,6 @@
 name: Topic Cluster CI V2
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'src/data/articles/**'
-      - 'src/data/books/**'
-      - 'src/pages/guides/**'
-      - 'config/topic-clusters-v2.json'
-      - 'scripts/check-topic-clusters-v2.mjs'
   push:
     branches: [main]
     paths:

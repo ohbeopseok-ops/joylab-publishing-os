@@ -1,12 +1,6 @@
 name: AdSense Content Quality Audit V2
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'src/data/articles/**'
-      - 'scripts/audit-adsense-content-quality-v2.mjs'
-      - '.github/workflows/adsense-content-quality-audit-v2.yml'
   workflow_dispatch:
 
 permissions:

@@ -1,11 +1,6 @@
 name: AI Memory Production Smoke
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'scripts/check-ai-memory-production.mjs'
-      - '.github/workflows/ai-memory-production-smoke.yml'
   workflow_dispatch:
 
 permissions:

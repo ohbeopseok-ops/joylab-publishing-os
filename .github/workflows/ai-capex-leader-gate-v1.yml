@@ -1,19 +1,6 @@
 name: AI CAPEX Leader Gate V1
 
 on:
-  pull_request:
-    branches: [main]
-    paths:
-      - 'src/data/ai-capex-leader-*.json'
-      - 'src/data/ai-capex-market-snapshot-v1.json'
-      - 'src/data/ai-capex-regime-events-v1.json'
-      - 'src/pages/guides/ai-capex-map.astro'
-      - 'src/styles/ai-capex-map-v1.css'
-      - 'scripts/update-ai-capex-leader-v1.mjs'
-      - 'scripts/update-ai-capex-market-snapshot-v1.mjs'
-      - 'scripts/lib/ai-capex/**'
-      - 'package.json'
-      - '.github/workflows/ai-capex-leader-*.yml'
   push:
     branches: [main]
     paths:

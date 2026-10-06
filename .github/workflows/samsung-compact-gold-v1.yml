@@ -1,15 +1,6 @@
 name: Samsung Compact GOLD V1
 
 on:
-  pull_request:
-    paths:
-      - 'src/components/ResearchGraphMap.astro'
-      - 'src/styles/research-graph-map-v3.css'
-      - 'src/pages/articles/**'
-      - 'config/research-graph-samsung-compact-v1.json'
-      - 'scripts/check-samsung-compact-gold-v1.mjs'
-      - 'package.json'
-      - '.github/workflows/samsung-compact-gold-v1.yml'
   workflow_dispatch:
 
 jobs:
