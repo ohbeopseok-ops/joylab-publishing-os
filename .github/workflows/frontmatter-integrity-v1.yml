@@ -1,5 +1,7 @@
 name: Frontmatter Integrity Gate V1
 
+# Gate contract: scan all article frontmatter before Astro build.
+
 on:
   pull_request:
     paths:
