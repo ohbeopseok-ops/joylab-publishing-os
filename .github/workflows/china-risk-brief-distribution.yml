@@ -6,17 +6,6 @@ on:
     paths:
       - 'src/data/china-semiconductor-risk-brief.json'
       - 'public/data/china-semiconductor-risk-brief.json'
-  pull_request:
-    paths:
-      - 'scripts/build-china-risk-brief-distribution.mjs'
-      - 'scripts/sync-memory-earnings-impact.mjs'
-      - 'scripts/compose-china-risk-earnings-impact.mjs'
-      - 'src/data/memory-earnings-source-config.json'
-      - 'src/data/memory-earnings-snapshot.json'
-      - 'src/data/china-risk-brief-distribution.json'
-      - 'src/data/china-risk-earnings-impact-brief.json'
-      - '.github/workflows/china-risk-brief-distribution.yml'
-      - 'package.json'
   workflow_dispatch:
 
 permissions:
