@@ -1,15 +1,6 @@
 name: Research Graph Compact Mode V1
 
 on:
-  pull_request:
-    paths:
-      - 'src/components/ResearchGraphMap.astro'
-      - 'src/styles/research-graph-map-v3.css'
-      - 'config/research-graph-ui-contract-v2.json'
-      - 'config/research-graph-display-modes-v1.json'
-      - 'scripts/check-research-graph-compact-v1.mjs'
-      - '.github/workflows/research-graph-compact-v1.yml'
-      - 'package.json'
   workflow_dispatch:
 
 jobs:
