@@ -17,6 +17,24 @@ tags:
   - PBR
 publishedAt: 2026-09-27
 author: "JoyLab"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 국내 금융지주 비교 리서치"
+researchMethod: "KB·신한·하나·우리금융의 공식 실적·IR·공시를 같은 기준으로 맞춰 ROE·CET1·RWA·주주환원 정책과 실행 여부를 비교했습니다."
+sourceList:
+  - label: "KB금융 2026년 상반기 경영실적"
+    url: "https://kbfg.com/IR_new/2026_2/player/vod_kor.html"
+  - label: "신한금융 2026년 2분기 경영실적"
+    url: "https://www.shinhangroup.com/kr/ir/finance/investorPresentations/detail/33171"
+  - label: "하나금융 주요 재무지표"
+    url: "https://www.hanafn.com/ir/financial/summary/importantDetail.do"
+  - label: "우리금융 반기보고서"
+    url: "https://www.woorifg.com/kor/investor/disclosure/biz-report/list.do"
+riskFactors:
+  - "금융지주별 ROE와 CET1은 일회성 이익·RWA 증감·Credit Cost에 따라 단순 비교가 왜곡될 수 있습니다."
+  - "PBR은 시장가격 변수이므로 같은 기준일의 주가와 BPS를 사용하지 않으면 비교 의미가 약해집니다."
+counterScenarios:
+  - "수익성과 자본비율, 실제 환원 실행이 함께 개선되는 경우"
+  - "건전성 비용 상승이나 자본비율 하락으로 환원 확대가 지연되는 경우"
 featured: true
 draft: false
 seoTitle: "4대 금융지주 비교｜KB·신한·하나·우리 ROE·CET1·주주환원"
