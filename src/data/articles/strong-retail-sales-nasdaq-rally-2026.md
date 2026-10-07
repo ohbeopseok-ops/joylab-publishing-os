@@ -12,7 +12,7 @@ tags:
   - 반도체
   - AI 주식
 publishedAt: 2026-09-22
-updatedAt: 2026-09-22
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -23,6 +23,19 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "강한 미국 소비에도 나스닥이 오를 수 있는 이유를 금리와 EPS의 경쟁으로 설명하는 JoyLab 리서치 대표 이미지"
 heroCaption: "나스닥의 방향은 경제지표 자체보다 금리 상승폭과 이익 기대의 상대강도로 결정됩니다."
 ogImage: "/images/research/joylab-research-default-hero.svg"
+authorBio: "JoyLab Research · 미국 소비·금리·성장주 전송경로 리서치"
+researchMethod: "미국 Census 소매판매와 Federal Reserve FOMC 공식 발표를 기준으로 소비 강도, 정책금리, 할인율과 EPS 기대가 나스닥에 전달되는 경로를 분리해 검토했습니다."
+sourceList:
+  - label: "U.S. Census Monthly Retail Trade"
+    url: "https://www.census.gov/retail/sales.html"
+  - label: "Federal Reserve FOMC statement"
+    url: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+riskFactors:
+  - "강한 소매판매는 기업 매출 기대를 높이는 동시에 금리 상승 압력을 키울 수 있어 주가 반응이 한 방향으로 고정되지 않습니다."
+  - "발표 직후 시장 반응은 금리·달러·포지셔닝 영향으로 지표의 중기 의미와 다르게 움직일 수 있습니다."
+counterScenarios:
+  - "소비 강세가 EPS 상향으로 이어져 금리 부담보다 이익 기대가 더 강하게 작용하는 경우"
+  - "강한 지표가 긴축 기대와 장기금리 상승을 자극해 성장주 할인율 부담이 커지는 경우"
 ---
 
 강한 미국 소비지표가 나오면 흔히 이런 해석이 붙습니다.
