@@ -16,20 +16,20 @@ investmentTheses:
   - "korea-value-up"
 publishedAt: 2026-10-02
 author: "JoyLab"
-updatedAt: 2026-10-06
-authorBio: "JoyLab Founder & Operator · 투자·경제·AI 업무 시스템을 연구"
-researchMethod: "VOC·SEC·Hansard·Damodaran·Investor.gov 자료를 대조하고 ROIC·재투자율·해자 관계를 계산 예시로 검증했습니다."
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · ROIC·복리기업 자본배분 리서치"
+researchMethod: "Investor.gov의 주식 기본개념과 NYU Stern의 기업가치·자본수익률 정의를 기준으로 ROIC, 재투자율, 경제적 해자와 장기 가치복리의 연결을 검토했습니다."
 sourceList:
-  - label: "SEC Investor.gov 주식 안내"
+  - label: "Investor.gov Stocks"
     url: "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
-  - label: "NYU Stern Damodaran 재무 지표"
+  - label: "NYU Stern Definitions"
     url: "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/definitions.html"
 riskFactors:
-  - "과거 ROIC가 미래 추가 투자수익률을 보장하지 않습니다."
-  - "예시 계산은 실제 기업의 세금·자본비용·산업 변동성을 반영하지 않습니다."
+  - "높은 ROIC가 일시적 업황이나 낮은 자산기준에 의해 만들어졌다면 장기 복리기업으로 보기 어렵습니다."
+  - "높은 재투자율도 신규 투자처의 한계 ROIC가 낮아지면 주주가치 창출로 이어지지 않습니다."
 counterScenarios:
-  - "경쟁 심화로 해자가 약해지고 재투자수익률이 자본비용 아래로 떨어지는 경우"
-  - "성장은 유지되지만 증자와 낮은 수익성으로 주당가치가 늘지 않는 경우"
+  - "높은 ROIC와 긴 재투자 활주로가 유지돼 이익과 내재가치가 장기간 복리 성장하는 경우"
+  - "경쟁 심화로 해자가 약해져 신규투자 ROIC가 자본비용 아래로 떨어지는 경우"
 featured: false
 draft: false
 seoTitle: "복리기업은 어떻게 만들어지는가｜ROIC·재투자율·경제적 해자"
