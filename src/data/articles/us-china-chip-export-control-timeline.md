@@ -4,7 +4,7 @@ description: "미국의 대중 첨단칩·장비·HBM 수출통제가 어떻게 
 category: "투자·경제"
 tags: ["반도체수출규제", "BIS", "미중반도체", "HBM", "중국반도체"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -14,6 +14,23 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "us china chip export control timeline를 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
+authorBio: "JoyLab Research · 미중 반도체 수출통제 정책 리서치"
+researchMethod: "미 상무부 BIS의 2022~2026 수출통제 원문과 정책 변경 공지를 시간순으로 정리해 첨단연산·반도체 제조장비·중국 팹 라이선스 범위의 변화를 검토했습니다."
+sourceList:
+  - label: "U.S. BIS"
+    url: "https://www.bis.gov/"
+  - label: "BIS Advanced Semiconductor Controls"
+    url: "https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military"
+  - label: "BIS China Semiconductor Controls"
+    url: "https://www.bis.gov/node/20292"
+  - label: "BIS License Review Policy"
+    url: "https://www.bis.gov/press-release/department-commerce-revises-license-review-policy-semiconductors-exported-china"
+riskFactors:
+  - "수출통제는 규칙 개정·유예·라이선스 예외로 실제 적용범위가 바뀔 수 있습니다."
+  - "정책 발표일과 실제 기업 공급망 영향 시점 사이에는 상당한 시차가 생길 수 있습니다."
+counterScenarios:
+  - "규제가 단계적으로 강화돼 첨단연산·장비 접근이 더 제한되는 경우"
+  - "정책 완화나 개별 라이선스 확대가 진행돼 공급망 충격이 줄어드는 경우"
 ---
 
 ## 2022년: 첨단 칩과 제조능력 통제가 시작됐다
