@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-10-07",
+  "basis": "TOP20 actual frontmatter + existing article URLs + Investment Primary Source Gate V1",
+  "summary": {
+    "READY": 1,
+    "TRUST_METADATA_MISSING": 5,
+    "SOURCE_SHORTAGE": 14
+  },
+  "READY": [
+    "samsung-daily-analysis-2026-09-28"
+  ],
+  "TRUST_METADATA_MISSING": [
+    "kb-financial-shareholder-return",
+    "semiconductor-giant-shoulder-flow",
+    "financials-value-up-investing-guide",
+    "total-shareholder-return-buyback-cancellation-guide",
+    "korea-financial-holdings-compare"
+  ],
+  "SOURCE_SHORTAGE": [
+    "samsung-vs-sk-hynix-ai-memory",
+    "hd-hyundai-heavy-industries-shipbuilding",
+    "strong-retail-sales-nasdaq-rally-2026",
+    "samsung-market-close-2026-09-28",
+    "doosan-enerbility-ai-power",
+    "hd-hyundai-electric-ai-power",
+    "samsung-hbm4-memory-outlook-2026-09-20",
+    "hyosung-heavy-industries-ai-power",
+    "hd-ksoe-shipbuilding",
+    "samsung-heavy-industries-shipbuilding",
+    "samsung-electronics-outlook",
+    "sk-hynix-outlook",
+    "us-economic-indicators-guide",
+    "korea-ai-power-companies-compare"
+  ],
+  "rule": {
+    "READY": "article-specific Trust metadata complete and sourceList present",
+    "TRUST_METADATA_MISSING": "at least 2 accepted primary-source URLs already exist, but article-specific Trust metadata/sourceList is incomplete",
+    "SOURCE_SHORTAGE": "fewer than 2 accepted primary-source URLs are currently present; manual source research required before apply"
+  }
+}
