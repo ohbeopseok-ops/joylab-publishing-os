@@ -40,6 +40,22 @@ investmentKpis:
   - shareholder-payout-ratio
   - PBR
 investmentResearchType: company
+counterScenarios:
+  - "높은 ROE와 CET1 13.5% 초과 자본이 동시에 유지돼 추가 환원이 반복되는 경우"
+  - "건전성 비용 상승이나 자본비율 하락으로 추가 주주환원 규모가 축소되는 경우"
+riskFactors:
+  - "CET1 비율은 RWA 증가와 배당·자사주 집행 속도에 따라 낮아질 수 있습니다."
+  - "ROE가 높아도 Credit Cost 상승이나 NIM 둔화가 지속되면 주주환원 여력이 약해질 수 있습니다."
+sourceList:
+  - label: "KB금융 2026년 상반기 경영실적"
+    url: "https://kbfg.com/IR_new/2026_2/player/vod_kor.html"
+  - label: "KB금융 2026년 수시공시"
+    url: "https://www.kbfg.com/eng/ir/sec/current/kbfg/list.jsp?P=1&SEARCH_INPUT=2026&SEARCH_TP=TITLE"
+  - label: "KB금융 2026년 1분기 경영실적 발표"
+    url: "https://www.kbfg.com/kor/pr/press/view.htm?B=8&CONTENT=15039"
+researchMethod: "KB금융의 공식 실적발표·공시를 기준으로 ROE·CET1·RWA·NIM·Credit Cost와 배당·자사주 매입·소각을 같은 기준일에 연결해 검토했습니다."
+authorBio: "JoyLab Research · 금융지주·주주환원 구조 리서치"
+updatedAt: "2026-10-07"
 ---
 
 KB금융을 주주환원주로 볼 때 가장 중요한 질문은 **배당을 얼마나 주는가**가 아닙니다.
