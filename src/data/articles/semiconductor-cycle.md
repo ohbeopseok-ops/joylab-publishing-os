@@ -17,6 +17,22 @@ draft: false
 seoTitle: "반도체 사이클 보는 법｜D램·재고·CAPEX·HBM 핵심 지표"
 series: "반도체 투자 가이드"
 readingTime: "약 10분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 메모리 사이클·수급 리서치"
+researchMethod: "삼성전자·SK하이닉스 공식 실적자료와 KRX 시장자료를 기준으로 DRAM/NAND 가격, 재고, CAPEX, HBM 제품믹스와 주가·수급을 같은 사이클 프레임에서 검토했습니다."
+sourceList:
+  - label: "Samsung Earnings Releases"
+    url: "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+  - label: "SK hynix IR"
+    url: "https://www.skhynix.com/ir/UI-FR-IR99/"
+  - label: "KRX Data"
+    url: "https://data.krx.co.kr/"
+riskFactors:
+  - "반도체 사이클 지표는 가격·재고·CAPEX가 서로 다른 시차로 움직여 단일 숫자로 전환점을 판단하기 어렵습니다."
+  - "HBM 강세가 범용 DRAM·NAND 약세를 완전히 상쇄하지 못할 수 있습니다."
+counterScenarios:
+  - "재고 감소·가격 상승·HBM 믹스 개선·CAPEX 절제가 함께 나타나 업사이클이 강화되는 경우"
+  - "공급 확대와 재고 증가가 가격 하락으로 이어져 이익 추정치가 다시 낮아지는 경우"
 ---
 
 **반도체 사이클은 한 개의 지표로 판단하지 않습니다.** 실전에서는 **수요 → 재고 → 가격 → 가동률·CAPEX → 실적 추정치(EPS Revision) → 밸류에이션 → 외국인 수급**의 순서를 봐야 합니다.
