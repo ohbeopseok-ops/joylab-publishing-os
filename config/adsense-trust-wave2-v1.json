@@ -1,0 +1,71 @@
+{
+  "version": "1.0",
+  "status": "STARTED",
+  "scopeRule": "category == 투자·경제 AND not Wave1 TOP20",
+  "total": 48,
+  "batches": {
+    "A_US_MACRO": [
+      "us-august-retail-sales-fed-nasdaq-2026",
+      "us-cpi-fed-nasdaq-guide",
+      "us-ppi-fed-margin-guide",
+      "us-jobs-report-fed-nasdaq-guide",
+      "us-pce-fed-nasdaq-guide",
+      "how-to-read-us-treasury-auctions-2026",
+      "us-30y-treasury-5-percent-risk-2026",
+      "who-buys-us-treasuries-2026",
+      "treasury-5-percent-sp500-nasdaq-dividend",
+      "treasury-5-percent-utilities-2026",
+      "us-rates-korea-semiconductor-transmission-2026",
+      "china-us-treasury-holdings-2026"
+    ],
+    "B_SEMICONDUCTOR": [
+      "ai-agent-hbm-demand",
+      "ai-inference-hbm-earnings",
+      "china-memory-self-sufficiency",
+      "china-semiconductor-equipment-localization",
+      "china-semiconductor-risk-indicators",
+      "cxmt-dram-vs-samsung-sk-hynix",
+      "cxmt-ymtc-memory-oversupply",
+      "foreign-investor-flow",
+      "hbm-us-china-ai-chip-war",
+      "hbm3e-hbm4-zhbm",
+      "samsung-xian-vs-sk-hynix-wuxi",
+      "semiconductor-cycle",
+      "us-china-chip-export-control-timeline",
+      "us-china-semiconductor-war",
+      "what-is-hbm",
+      "ymtc-nand-vs-samsung-sk-hynix"
+    ],
+    "C_AI_POWER_INFRA": [
+      "ai-data-center-capacity-stack-2026",
+      "ai-data-center-cooling-bottleneck",
+      "ai-infrastructure-hbm-mlcc-power-grid-2026",
+      "ai-power-beneficiaries-value-chain",
+      "ai-power-gas-turbine-return",
+      "ai-power-grid-transformer-distribution",
+      "ai-power-ls-hd-eaton-ge-compare",
+      "ai-power-next-bottleneck",
+      "ai-power-valuation-eps-per-ev-ebitda",
+      "ai-power-value-chain-compare",
+      "ai-transformer-bottleneck-backlog-leadtime-margin",
+      "bess-ups-bbu-data-center",
+      "gpu-compute-economics-rubin-2026",
+      "ls-electric-ai-power",
+      "ls-hd-electric-2027-eps-per-scenario"
+    ],
+    "D_FINANCE_SHIPBUILDING_FOUNDATION": [
+      "bank-roe-cet1-guide",
+      "compounder-roic-reinvestment-moat",
+      "hanwha-ocean-shipbuilding",
+      "korea-shipbuilding-companies-compare",
+      "money-basics-7-economic-terms"
+    ]
+  },
+  "executionRule": [
+    "Claim → Evidence before sourceList apply",
+    "minimum 2 verified primary sources for investing articles where applicable",
+    "article-specific researchMethod/riskFactors/counterScenarios",
+    "use metadata UPSERT contract",
+    "CI is deferred until GitHub Actions quota resets"
+  ]
+}
