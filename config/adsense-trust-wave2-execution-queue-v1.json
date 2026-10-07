@@ -1,18 +1,16 @@
 {
   "version": "1.0",
   "total": 48,
-  "ready": 5,
-  "remaining": 43,
+  "ready": 12,
+  "remaining": 36,
   "status": "IN_PROGRESS",
-  "completedBatch": "A_US_MACRO_CORE_5",
+  "completedBatch": "A_US_MACRO_CORE_5 + US_TREASURY_RATES_7",
   "readySlugs": [
     "us-august-retail-sales-fed-nasdaq-2026",
     "us-cpi-fed-nasdaq-guide",
     "us-ppi-fed-margin-guide",
     "us-jobs-report-fed-nasdaq-guide",
-    "us-pce-fed-nasdaq-guide"
-  ],
-  "nextPriority": [
+    "us-pce-fed-nasdaq-guide",
     "how-to-read-us-treasury-auctions-2026",
     "us-30y-treasury-5-percent-risk-2026",
     "who-buys-us-treasuries-2026",
@@ -20,6 +18,24 @@
     "treasury-5-percent-utilities-2026",
     "us-rates-korea-semiconductor-transmission-2026",
     "china-us-treasury-holdings-2026"
+  ],
+  "nextPriority": [
+    "ai-agent-hbm-demand",
+    "ai-inference-hbm-earnings",
+    "china-memory-self-sufficiency",
+    "china-semiconductor-equipment-localization",
+    "china-semiconductor-risk-indicators",
+    "cxmt-dram-vs-samsung-sk-hynix",
+    "cxmt-ymtc-memory-oversupply",
+    "foreign-investor-flow",
+    "hbm-us-china-ai-chip-war",
+    "hbm3e-hbm4-zhbm",
+    "samsung-xian-vs-sk-hynix-wuxi",
+    "semiconductor-cycle",
+    "us-china-chip-export-control-timeline",
+    "us-china-semiconductor-war",
+    "what-is-hbm",
+    "ymtc-nand-vs-samsung-sk-hynix"
   ],
   "ciStatus": "CI-DEFERRED"
 }
