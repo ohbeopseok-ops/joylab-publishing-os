@@ -87,6 +87,7 @@ Read:
 - `docs/ADSENSE_APPROVAL_TO_REVENUE_RUNBOOK_V1.md`
 - `docs/ADSENSE_TRUST_LAYER_QA_V1.md` when article Trust Layer or content-quality rollout is involved
 - `docs/ADSENSE_ACTIVATION_GOLD_CHECKLIST.md` when activation/GOLD verification is involved
+- `docs/ADSENSE_PRE_GOLD_STATIC_AUDIT_V1.md` when Actions quota is exhausted and PRE-GOLD static verification is required
 
 Use for:
 - AdSense activation
