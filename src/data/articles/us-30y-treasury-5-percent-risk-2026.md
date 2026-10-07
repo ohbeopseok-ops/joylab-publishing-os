@@ -16,6 +16,20 @@ draft: false
 seoTitle: "미국 30년물 5%대가 더 위험한 이유｜10년물과 무엇이 다른가"
 series: "미국 금리 리서치"
 readingTime: "약 12분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 미국 초장기금리·재정 리스크 리서치"
+researchMethod: "미 재무부 Daily Treasury Rates를 기준으로 30년물과 10년물 금리 수준을 비교하고, 재정·국채 공급·기간 프리미엄·장기 자본비용의 전달 구조를 검토했습니다."
+sourceList:
+  - label: "U.S. Treasury Daily Treasury Rates"
+    url: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202609&type=daily_treasury_yield_curve"
+  - label: "U.S. Treasury fiscal data release"
+    url: "https://home.treasury.gov/news/press-releases/sb0606"
+riskFactors:
+  - "30년물 금리는 통화정책뿐 아니라 재정·공급·기간 프리미엄이 함께 반영돼 단일 원인으로 해석하기 어렵습니다."
+  - "초장기금리 상승은 주택·기업채·인프라 프로젝트의 자금조달비용을 오래 높일 수 있습니다."
+counterScenarios:
+  - "강한 장기채 수요와 인플레이션 안정으로 기간 프리미엄이 낮아지는 경우"
+  - "재정적자와 장기채 공급 부담이 커져 30년물 고금리가 장기화되는 경우"
 ---
 
 ## Research Brief
