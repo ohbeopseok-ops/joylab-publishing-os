@@ -1,7 +1,13 @@
 ---
+import wave3Policy from '../data/trust-wave3-policy-v1.json';
+
 const { article } = Astro.props;
 const data = article.data;
 const body = article.body ?? '';
+const articleKey = String(article.id ?? article.slug ?? '')
+  .replace(/\.md$/i, '')
+  .split('/')
+  .pop();
 
 const fallbackByCategory = {
   '투자·경제': {
@@ -49,27 +55,69 @@ const fallback = fallbackByCategory[data.category] ?? {
   counterScenarios: ['새로운 근거가 확인되면 현재 판단을 수정할 수 있습니다.']
 };
 
+const safeEditorial = new Set(wave3Policy.safeEditorialSlugs ?? []);
+const sourceOverrides = wave3Policy.sourceOverrides?.[articleKey] ?? [];
+const approved = wave3Policy.approvedDomains ?? { official: [], research: [] };
+const internalDomains = wave3Policy.internalDomains ?? [];
+
+const matchesDomain = (host, domain) => host === domain || host.endsWith('.' + domain);
+const sourceTypeFor = (url) => {
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, '').toLowerCase();
+    if (internalDomains.some((d) => matchesDomain(host, d))) return null;
+    if ((approved.official ?? []).some((d) => matchesDomain(host, d))) return 'official';
+    if ((approved.research ?? []).some((d) => matchesDomain(host, d))) return 'research';
+  } catch {}
+  return null;
+};
+
+const labelFor = (url) => {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return '원문 근거';
+  }
+};
+
 const evidenceUrls = [...body.matchAll(/<!--\s*evidence:\s*(https?:\/\/[^\s>]+)\s*-->/g)]
   .map((match) => match[1].replace(/[),.;]+$/g, ''));
 
-const evidenceSources = [...new Set(evidenceUrls)].slice(0, 8).map((url) => {
-  let label = '원문 근거';
-  try {
-    const host = new URL(url).hostname.replace(/^www\./, '');
-    label = host;
-  } catch {}
-  return { label, url };
-});
+const bodyUrls = [...new Set(
+  [...body.matchAll(/https?:\/\/[^\s)>"'\]]+/g)]
+    .map((match) => match[0].replace(/[),.;]+$/g, ''))
+)].filter((url) => sourceTypeFor(url));
 
-const explicitSources = data.sourceList ?? [];
+const discoveredSources = [...new Set([...evidenceUrls, ...bodyUrls])]
+  .slice(0, 8)
+  .map((url) => ({ label: labelFor(url), url, type: sourceTypeFor(url) ?? 'official' }));
+
+const explicitSources = (data.sourceList ?? []).map((source) => ({
+  ...source,
+  type: sourceTypeFor(source.url) ?? 'official'
+}));
+
 const sourceMap = new Map();
-for (const source of [...explicitSources, ...evidenceSources]) {
+for (const source of [...explicitSources, ...sourceOverrides, ...discoveredSources]) {
   if (source?.url && !sourceMap.has(source.url)) sourceMap.set(source.url, source);
 }
 const sources = [...sourceMap.values()].slice(0, 12);
 
+const sourceTypes = new Set(sources.map((source) => source.type).filter(Boolean));
+const evidenceTypeLabel = sources.length > 0
+  ? [
+      sourceTypes.has('official') ? '공식·제품 문서' : null,
+      sourceTypes.has('research') ? '연구·보도 원문' : null
+    ].filter(Boolean).join(' + ')
+  : safeEditorial.has(articleKey)
+    ? '편집 프레임워크'
+    : '공통 Trust 기준';
+
+const editorialMethod = data.category === '성장·리더십'
+  ? '실무 프레임워크형 콘텐츠로, 사례와 행동원칙을 적용 조건·한계와 함께 정리하며 개인 경험을 보편적 사실처럼 일반화하지 않습니다.'
+  : '실무 프레임워크형 콘텐츠로, 특정 제품 사양의 단정 대신 문제·워크플로·통제·측정·리스크를 중심으로 적용 조건을 정리합니다.';
+
 const authorBio = data.authorBio ?? fallback.authorBio;
-const researchMethod = data.researchMethod ?? fallback.researchMethod;
+const researchMethod = data.researchMethod ?? (safeEditorial.has(articleKey) ? editorialMethod : fallback.researchMethod);
 const risks = data.riskFactors?.length ? data.riskFactors : fallback.riskFactors;
 const counters = data.counterScenarios?.length ? data.counterScenarios : fallback.counterScenarios;
 ---
@@ -80,6 +128,7 @@ const counters = data.counterScenarios?.length ? data.counterScenarios : fallbac
   <div class="article-trust-panel__grid">
     <div><h3>작성자</h3><p>{data.author} · {authorBio}</p></div>
     <div><h3>조사 방법</h3><p>{researchMethod}</p></div>
+    <div><h3>근거 유형</h3><p>{evidenceTypeLabel}</p></div>
     <div><h3>기준일</h3><p>{(data.updatedAt ?? data.publishedAt).toLocaleDateString('ko-KR')} · 새 근거가 확인되면 판단을 업데이트합니다.</p></div>
     <div><h3>주의할 위험 요인</h3><ul>{risks.map((item) => <li>{item}</li>)}</ul></div>
     <div><h3>반대 시나리오</h3><ul>{counters.map((item) => <li>{item}</li>)}</ul></div>
@@ -87,8 +136,10 @@ const counters = data.counterScenarios?.length ? data.counterScenarios : fallbac
       <h3>원문 출처</h3>
       {sources.length > 0 ? (
         <ul>{sources.map((source) => <li><a href={source.url} rel="nofollow noopener" target="_blank">{source.label}</a></li>)}</ul>
+      ) : safeEditorial.has(articleKey) ? (
+        <p>실무·리더십 프레임워크형 글로 공통 Trust 기준과 적용 한계를 사용합니다.</p>
       ) : (
-        <p>본문에 확인 가능한 외부 원문 링크가 추가되면 이 영역에 자동으로 표시됩니다.</p>
+        <p>본문에 확인 가능한 공식·연구 원문이 있을 때만 출처로 표시합니다.</p>
       )}
     </div>
   </div>
