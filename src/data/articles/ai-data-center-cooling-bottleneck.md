@@ -15,6 +15,20 @@ draft: false
 seoTitle: "AI 데이터센터 냉각이 마지막 병목인 이유｜액체냉각 투자 가이드"
 series: "AI 전력 투자 가이드"
 readingTime: "약 9분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · AI 데이터센터 냉각·열관리 리서치"
+researchMethod: "IEA Energy and AI와 Vertiv의 고밀도 액체냉각 자료를 기준으로 랙 전력밀도 상승이 냉각 CAPEX·전력효율·가동 가능 용량에 미치는 영향을 검토했습니다."
+sourceList:
+  - label: "IEA Energy and AI"
+    url: "https://www.iea.org/reports/energy-and-ai"
+  - label: "Vertiv Modular Liquid Cooling"
+    url: "https://www.vertiv.com/en-emea/about/news-and-events/news-releases/vertiv-introduces-new-modular-liquid-cooling-infrastructure-solution-to-support-high-density-compute-requirements-in-north-america-and-emea/"
+riskFactors:
+  - "액체냉각 도입 확대가 곧바로 높은 마진이나 빠른 매출 인식으로 이어지는 것은 아닙니다."
+  - "냉각 효율 개선이 전력 사용 증가를 일부 상쇄해 관련 설비 수요 증가율을 낮출 수 있습니다."
+counterScenarios:
+  - "고밀도 GPU 랙 확산으로 액체냉각·열교환 인프라 수요가 구조적으로 확대되는 경우"
+  - "칩 효율과 랙 설계 개선으로 냉각 CAPEX 증가 속도가 예상보다 낮아지는 경우"
 ---
 
 AI 데이터센터에서 전력은 서버에 들어가는 순간 끝나지 않습니다.
