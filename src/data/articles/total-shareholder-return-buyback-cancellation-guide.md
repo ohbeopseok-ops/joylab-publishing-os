@@ -13,6 +13,20 @@ tags:
   - 배당
 publishedAt: 2026-09-27
 author: "JoyLab"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 기업 자본배분 리서치"
+researchMethod: "금융위원회 제도 자료와 금융지주 공식 공시를 바탕으로 현금배당, 자기주식 취득과 소각, 자본비율의 관계를 구분해 검토했습니다."
+sourceList:
+  - label: "금융위원회 자기주식 공시 강화"
+    url: "https://www.fsc.go.kr/po010101/87169"
+  - label: "KB금융 2026년 1분기 경영실적 발표"
+    url: "https://www.kbfg.com/kor/pr/press/view.htm?B=8&CONTENT=15039"
+riskFactors:
+  - "자기주식 취득과 실제 소각은 서로 다른 단계이므로 공시 이행 여부를 따로 확인해야 합니다."
+  - "환원 정책의 지속 가능성은 이익과 자본 여건 변화의 영향을 받습니다."
+counterScenarios:
+  - "공시한 자본배분 정책이 반복적으로 실행되는 경우"
+  - "이익이나 자본 여건 변화로 계획이 조정되는 경우"
 featured: true
 draft: false
 seoTitle: "총주주환원율 보는 법｜배당·자사주 매입·소각 차이"
