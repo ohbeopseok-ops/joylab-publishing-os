@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "verifiedAt": "2026-10-07",
+  "rows": [
+    [
+      "samsung-electronics-outlook",
+      [
+        "https://www.samsung.com/global/ir/",
+        "https://www.samsung.com/global/ir/reports-disclosures/public-disclosure-view.84745/"
+      ]
+    ],
+    [
+      "sk-hynix-outlook",
+      [
+        "https://news.skhynix.com/en/q2-2026-business-results/",
+        "https://news.skhynix.com/en/sk-hynix-ships-samples-of-12-layer-next-gen-hbm4e-2/"
+      ]
+    ],
+    [
+      "us-economic-indicators-guide",
+      [
+        "https://www.census.gov/retail/sales.html",
+        "https://www.bls.gov/news.release/cpi.nr0.htm",
+        "https://bea.gov/news/2026/personal-income-and-outlays-august-2026",
+        "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+      ]
+    ],
+    [
+      "korea-ai-power-companies-compare",
+      [
+        "https://www.ls-electric.com/ko/company/invest/ir/",
+        "https://www.doosanenerbility.com/en/investment/ir_data",
+        "https://www.hd-hyundaielectric.com/elect/en/IR/IRdata1.jsp",
+        "https://www.hyosungheavyindustries.com/en/company/ir/archive/annual-report"
+      ]
+    ]
+  ]
+}
