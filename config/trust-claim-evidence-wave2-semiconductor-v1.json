@@ -1,0 +1,303 @@
+{
+  "version": "1.0",
+  "wave": "2B_SEMICONDUCTOR_16",
+  "generatedAt": "2026-10-07",
+  "groups": {
+    "HBM_MEMORY": [
+      "ai-agent-hbm-demand",
+      "ai-inference-hbm-earnings",
+      "hbm3e-hbm4-zhbm",
+      "what-is-hbm",
+      "hbm-us-china-ai-chip-war"
+    ],
+    "CHINA_MEMORY": [
+      "china-memory-self-sufficiency",
+      "china-semiconductor-equipment-localization",
+      "china-semiconductor-risk-indicators",
+      "cxmt-dram-vs-samsung-sk-hynix",
+      "cxmt-ymtc-memory-oversupply",
+      "samsung-xian-vs-sk-hynix-wuxi",
+      "us-china-chip-export-control-timeline",
+      "us-china-semiconductor-war",
+      "ymtc-nand-vs-samsung-sk-hynix"
+    ],
+    "FLOW_CYCLE": [
+      "foreign-investor-flow",
+      "semiconductor-cycle"
+    ]
+  },
+  "rows": [
+    {
+      "slug": "ai-agent-hbm-demand",
+      "claims": [
+        {
+          "claim": "Agentic inference / KV Cache workload structure",
+          "evidence": "https://www.nvidia.com/en-us/use-cases/agentic-inference/"
+        },
+        {
+          "claim": "Samsung HBM product context",
+          "evidence": "https://semiconductor.samsung.com/dram/hbm/"
+        },
+        {
+          "claim": "SK hynix AI memory context",
+          "evidence": "https://news.skhynix.com/en/mwc-2026/"
+        }
+      ]
+    },
+    {
+      "slug": "ai-inference-hbm-earnings",
+      "claims": [
+        {
+          "claim": "Samsung 2Q26 memory earnings and HBM4 context",
+          "evidence": "https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results"
+        },
+        {
+          "claim": "SK hynix 2Q26 HBM4 and AI-memory earnings",
+          "evidence": "https://news.skhynix.com/en/q2-2026-business-results/"
+        },
+        {
+          "claim": "Agentic inference demand context",
+          "evidence": "https://www.nvidia.com/en-us/use-cases/agentic-inference/"
+        }
+      ]
+    },
+    {
+      "slug": "hbm3e-hbm4-zhbm",
+      "claims": [
+        {
+          "claim": "HBM generation evolution",
+          "evidence": "https://semiconductor.samsung.com/news-events/tech-blog/the-evolution-of-ai-era-memory-faster-denser-computing/"
+        },
+        {
+          "claim": "HBM4 commercial shipment",
+          "evidence": "https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing"
+        },
+        {
+          "claim": "SK hynix AI memory generation context",
+          "evidence": "https://news.skhynix.com/en/mwc-2026/"
+        }
+      ]
+    },
+    {
+      "slug": "what-is-hbm",
+      "claims": [
+        {
+          "claim": "HBM product structure",
+          "evidence": "https://semiconductor.samsung.com/dram/hbm/"
+        },
+        {
+          "claim": "HBM4 commercial shipment",
+          "evidence": "https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing"
+        },
+        {
+          "claim": "SK hynix AI memory context",
+          "evidence": "https://news.skhynix.com/en/mwc-2026/"
+        }
+      ]
+    },
+    {
+      "slug": "china-memory-self-sufficiency",
+      "claims": [
+        {
+          "claim": "CXMT DRAM product scope",
+          "evidence": "https://www.cxmt.com/en/product.html"
+        },
+        {
+          "claim": "YMTC NAND product scope",
+          "evidence": "https://www.ymtc.com/en/productlist.html?cat=33"
+        },
+        {
+          "claim": "U.S. export-control context",
+          "evidence": "https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military"
+        }
+      ]
+    },
+    {
+      "slug": "china-semiconductor-equipment-localization",
+      "claims": [
+        {
+          "claim": "Advanced semiconductor equipment controls",
+          "evidence": "https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military"
+        },
+        {
+          "claim": "China semiconductor control framework",
+          "evidence": "https://www.bis.gov/node/20292"
+        },
+        {
+          "claim": "Foreign-owned fab policy in China",
+          "evidence": "https://www.bis.gov/press-release/department-commerce-closes-export-controls-loophole-foreign-owned-semiconductor-fabs-china"
+        }
+      ]
+    },
+    {
+      "slug": "china-semiconductor-risk-indicators",
+      "claims": [
+        {
+          "claim": "CXMT official product/company progress",
+          "evidence": "https://www.cxmt.com/en/"
+        },
+        {
+          "claim": "YMTC official product/company progress",
+          "evidence": "https://www.ymtc.com/en/"
+        },
+        {
+          "claim": "BIS policy risk",
+          "evidence": "https://www.bis.gov/press-release/bis-updated-public-information-page-export-controls-imposed-advanced-computing-semiconductor"
+        }
+      ]
+    },
+    {
+      "slug": "cxmt-dram-vs-samsung-sk-hynix",
+      "claims": [
+        {
+          "claim": "CXMT DRAM products",
+          "evidence": "https://www.cxmt.com/en/product.html"
+        },
+        {
+          "claim": "Samsung memory earnings",
+          "evidence": "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+        },
+        {
+          "claim": "SK hynix memory earnings",
+          "evidence": "https://www.skhynix.com/ir/UI-FR-IR99/"
+        }
+      ]
+    },
+    {
+      "slug": "cxmt-ymtc-memory-oversupply",
+      "claims": [
+        {
+          "claim": "CXMT DRAM supply/product scope",
+          "evidence": "https://www.cxmt.com/en/product.html"
+        },
+        {
+          "claim": "YMTC NAND supply/product scope",
+          "evidence": "https://www.ymtc.com/en/productlist.html?cat=33"
+        },
+        {
+          "claim": "Samsung / SK hynix industry supply context",
+          "evidence": "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+        }
+      ]
+    },
+    {
+      "slug": "hbm-us-china-ai-chip-war",
+      "claims": [
+        {
+          "claim": "HBM/AI export-control policy",
+          "evidence": "https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military"
+        },
+        {
+          "claim": "Samsung memory exposure",
+          "evidence": "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+        },
+        {
+          "claim": "SK hynix memory exposure",
+          "evidence": "https://www.skhynix.com/ir/UI-FR-IR99/"
+        }
+      ]
+    },
+    {
+      "slug": "samsung-xian-vs-sk-hynix-wuxi",
+      "claims": [
+        {
+          "claim": "Samsung China fab / earnings context",
+          "evidence": "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+        },
+        {
+          "claim": "SK hynix China fab / earnings context",
+          "evidence": "https://www.skhynix.com/ir/UI-FR-IR99/"
+        },
+        {
+          "claim": "BIS China fab policy",
+          "evidence": "https://www.bis.gov/press-release/department-commerce-closes-export-controls-loophole-foreign-owned-semiconductor-fabs-china"
+        }
+      ]
+    },
+    {
+      "slug": "us-china-chip-export-control-timeline",
+      "claims": [
+        {
+          "claim": "BIS 2022-2026 control chronology",
+          "evidence": "https://www.bis.gov/"
+        },
+        {
+          "claim": "Advanced semiconductor controls",
+          "evidence": "https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military"
+        },
+        {
+          "claim": "License-review policy changes",
+          "evidence": "https://www.bis.gov/press-release/department-commerce-revises-license-review-policy-semiconductors-exported-china"
+        }
+      ]
+    },
+    {
+      "slug": "us-china-semiconductor-war",
+      "claims": [
+        {
+          "claim": "EAR 742 policy framework",
+          "evidence": "https://www.bis.gov/regulations/ear/742"
+        },
+        {
+          "claim": "CXMT DRAM capability",
+          "evidence": "https://www.cxmt.com/en/product.html"
+        },
+        {
+          "claim": "YMTC NAND capability",
+          "evidence": "https://www.ymtc.com/en/products.html"
+        },
+        {
+          "claim": "Samsung / SK hynix earnings context",
+          "evidence": "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+        }
+      ]
+    },
+    {
+      "slug": "ymtc-nand-vs-samsung-sk-hynix",
+      "claims": [
+        {
+          "claim": "YMTC NAND products",
+          "evidence": "https://www.ymtc.com/en/productlist.html?cat=33"
+        },
+        {
+          "claim": "Samsung NAND earnings context",
+          "evidence": "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+        },
+        {
+          "claim": "SK hynix / Solidigm earnings context",
+          "evidence": "https://www.skhynix.com/ir/UI-FR-IR99/"
+        }
+      ]
+    },
+    {
+      "slug": "foreign-investor-flow",
+      "claims": [
+        {
+          "claim": "KRX investor trading data",
+          "evidence": "https://data.krx.co.kr/contents/MDC/MDI/outerLoader/index.cmd?screenId=MDCSTAT022"
+        },
+        {
+          "claim": "KRX market data",
+          "evidence": "https://data.krx.co.kr/"
+        }
+      ]
+    },
+    {
+      "slug": "semiconductor-cycle",
+      "claims": [
+        {
+          "claim": "Samsung memory cycle / earnings",
+          "evidence": "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+        },
+        {
+          "claim": "SK hynix memory cycle / earnings",
+          "evidence": "https://www.skhynix.com/ir/UI-FR-IR99/"
+        },
+        {
+          "claim": "KRX price/flow confirmation",
+          "evidence": "https://data.krx.co.kr/"
+        }
+      ]
+    }
+  ]
+}
