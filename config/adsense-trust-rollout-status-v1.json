@@ -27,5 +27,23 @@
     "Mobile",
     "AdSense",
     "Visual"
-  ]
+  ],
+  "preGold": {
+    "state": "CI-DEFERRED",
+    "adPlacementEnabled": false,
+    "articleEndSlotRegistered": true,
+    "staticAudit": "scripts/check-adsense-pre-gold-static-v1.mjs",
+    "pendingAccountEvidence": [
+      "AdSense Ready/준비됨",
+      "ads.txt Authorized",
+      "CMP live consent",
+      "Auto Ads / Auto Optimize OFF"
+    ],
+    "pendingAutomatedEvidence": [
+      "Build",
+      "Mobile",
+      "AdSense",
+      "Visual"
+    ]
+  }
 }
