@@ -23,6 +23,24 @@ investmentTheses:
 investmentResearchType: "compare"
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "AI 전력 수혜주의 EPS Revision PER EV EBITDA 밸류에이션을 비교한 JoyLab 대표 이미지"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · AI 전력기업 밸류에이션 리서치"
+researchMethod: "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova의 공식 실적자료를 기준으로 EPS Revision, PER, EV/EBITDA를 수주·마진·CAPEX와 연결해 비교했습니다."
+sourceList:
+  - label: "LS ELECTRIC IR"
+    url: "https://www.ls-electric.com/ko/company/invest/ir/"
+  - label: "Eaton 2Q26 Results"
+    url: "https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-reports-record-second-quarter-2026-results.html"
+  - label: "GE Vernova 2Q26 Results"
+    url: "https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial"
+  - label: "HD Hyundai Electric official news"
+    url: "https://www.hd-hyundaielectric.com/elect/m/ko/PR/newsView.jsp?commBoardSeq=6175"
+riskFactors:
+  - "PER과 EV/EBITDA는 회계구조·순현금·CAPEX 강도 차이로 기업 간 단순 비교에 한계가 있습니다."
+  - "EPS Revision이 둔화되면 높은 멀티플이 빠르게 디레이팅될 수 있습니다."
+counterScenarios:
+  - "수주·마진·EPS 상향이 지속돼 높은 멀티플이 실적으로 정당화되는 경우"
+  - "수주 증가율과 EPS 상향이 둔화돼 밸류에이션 정상화가 먼저 나타나는 경우"
 ---
 
 좋은 산업과 좋은 가격은 같은 말이 아닙니다.
