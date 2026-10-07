@@ -16,6 +16,22 @@ draft: false
 seoTitle: "미 국채 입찰 읽는 법｜Bid-to-Cover보다 중요한 Tail·Indirect·Dealer"
 series: "미국 금리 리서치"
 readingTime: "약 12분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 미국 국채 입찰·채권시장 리서치"
+researchMethod: "TreasuryDirect 공식 입찰 결과와 재무부 발행 일정을 기준으로 Tail/Stop-through, Indirect Bidder, Dealer Take-down, Bid-to-Cover와 사후 금리 반응을 함께 검토했습니다."
+sourceList:
+  - label: "TreasuryDirect Auction Results"
+    url: "https://www.treasurydirect.gov/auctions/results/"
+  - label: "TreasuryDirect Auctions"
+    url: "https://www.treasurydirect.gov/auctions/"
+  - label: "U.S. Treasury Tentative Auction Schedule"
+    url: "https://home.treasury.gov/system/files/221/TentativeAuctionScheduleQ22026.pdf"
+riskFactors:
+  - "단일 입찰 결과는 재정적자·기간 프리미엄·향후 발행 규모 같은 구조적 장기금리 요인을 모두 설명하지 못합니다."
+  - "Bid-to-Cover가 높아도 Tail·Indirect·Dealer 배정이 약하면 수요의 질이 낮을 수 있습니다."
+counterScenarios:
+  - "Stop-through와 높은 Indirect 비중, 낮은 Dealer 배정이 반복돼 장기채 수요가 안정되는 경우"
+  - "Tail 확대와 Dealer 배정 증가가 반복돼 국채 공급 부담이 장기금리 상승으로 이어지는 경우"
 ---
 
 ## Research Brief
