@@ -22,6 +22,20 @@ investmentTheses:
 investmentResearchType: "macro"
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "미국 국채금리 5%와 S&P500 유틸리티 약세를 연결한 JoyLab AI Power Infrastructure 대표 이미지"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 미국 금리·유틸리티 자산배분 리서치"
+researchMethod: "미 재무부 장기금리와 S&P Utilities 공식 지수 자료를 기준으로 5%대 국채금리가 유틸리티의 배당매력, 자본비용, 밸류에이션에 미치는 영향을 검토했습니다."
+sourceList:
+  - label: "U.S. Treasury Daily Treasury Rates"
+    url: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve"
+  - label: "S&P 500 Utilities Sector"
+    url: "https://www.spglobal.com/spdji/en/indices/equity/sp-500-utilities-sector/"
+riskFactors:
+  - "유틸리티는 방어주 성격이 있어도 높은 금리와 차입비용 상승에 민감할 수 있습니다."
+  - "배당수익률만 비교하면 규제·CAPEX·부채구조와 이익성장 차이를 놓칠 수 있습니다."
+counterScenarios:
+  - "장기금리가 안정되고 이익·배당 성장이 유지돼 상대매력이 회복되는 경우"
+  - "국채금리 고점이 장기화돼 배당 매력과 밸류에이션이 동시에 압박받는 경우"
 ---
 
 2026년 9월 미국 장기금리는 다시 주식시장의 가장 중요한 변수 가운데 하나가 됐습니다. 미국 재무부 공식 수익률 곡선에서 9월 25일 **10년물은 5.17%, 30년물은 5.49%**를 기록했습니다. [U.S. Treasury](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve)
