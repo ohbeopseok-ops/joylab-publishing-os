@@ -14,7 +14,7 @@ tags:
   - PPI
   - 비농업고용
 publishedAt: 2026-09-22
-updatedAt: 2026-09-22
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -25,6 +25,19 @@ heroImage: "/images/research/us-august-retail-sales-fed-nasdaq-2026.svg"
 heroAlt: "미국 8월 소매판매 실제 +1.2%와 예상 +0.8%, Fed 정책금리 3.75~4.00%를 데이터 카드와 상승 그래프로 표현한 JoyLab 리서치 이미지"
 heroCaption: "예상보다 강한 미국 소비는 경기 회복력을 확인하는 동시에 높은 금리가 더 오래 유지될 가능성을 키운다."
 ogImage: "/images/research/us-august-retail-sales-fed-nasdaq-2026.svg"
+authorBio: "JoyLab Research · 미국 소비·Fed·시장전송경로 리서치"
+researchMethod: "U.S. Census의 소매판매 원문과 Federal Reserve 공식 FOMC 발표를 우선 확인하고 소비 강도, 정책금리, 국채금리와 성장주 할인율의 연결을 분리해 검토했습니다."
+sourceList:
+  - label: "U.S. Census Monthly Retail Trade"
+    url: "https://www.census.gov/retail/sales.html"
+  - label: "Federal Reserve FOMC"
+    url: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+riskFactors:
+  - "소매판매는 명목 금액이므로 가격 상승 효과와 실제 판매량 증가를 구분해야 합니다."
+  - "강한 소비는 EPS 기대에 긍정적일 수 있지만 동시에 금리 상승 압력을 키울 수 있습니다."
+counterScenarios:
+  - "소비 강세가 기업 이익 개선으로 연결되고 금리 부담이 제한되는 경우"
+  - "강한 소비가 추가 긴축 기대를 높여 성장주 할인율 부담이 커지는 경우"
 ---
 
 **미국 8월 소매판매는 전월 대비 1.2% 증가했습니다. 시장 예상치로 거론됐던 +0.8%를 웃돈 결과입니다.**
