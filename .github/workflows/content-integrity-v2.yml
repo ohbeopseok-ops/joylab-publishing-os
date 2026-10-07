@@ -31,5 +31,7 @@ jobs:
         run: node scripts/check-frontmatter-integrity-v1.mjs
       - name: Metadata UPSERT Contract V1 self-test
         run: node scripts/test-frontmatter-upsert-v1.mjs
+      - name: Safe sourceList enrichment dry-run
+        run: node scripts/enrich-investment-source-list-v1.mjs
       - name: Astro schema and URL validation
         run: npm run build
