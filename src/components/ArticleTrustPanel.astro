@@ -1,25 +1,98 @@
 ---
 const { article } = Astro.props;
 const data = article.data;
-const sources = data.sourceList ?? [];
-const risks = data.riskFactors ?? [];
-const counters = data.counterScenarios ?? [];
+const body = article.body ?? '';
+
+const fallbackByCategory = {
+  '투자·경제': {
+    authorBio: 'JoyLab Research · 투자·경제 리서치',
+    researchMethod: '공시·시장 데이터·1차 자료를 우선 확인하고, 사실·해석·시나리오를 분리해 검토합니다.',
+    riskFactors: [
+      '시장 가격과 수급은 기업 펀더멘털보다 빠르게 변할 수 있습니다.',
+      '추정치와 전망은 실적 발표·정책·금리·환율 변화에 따라 달라질 수 있습니다.'
+    ],
+    counterScenarios: [
+      '핵심 가정과 반대되는 데이터가 확인되는 경우',
+      '시장 기대가 이미 가격에 과도하게 반영된 경우'
+    ]
+  },
+  'AI·생산성': {
+    authorBio: 'JoyLab Research · AI·생산성 리서치',
+    researchMethod: '공식 문서·제품 문서·원문 자료를 우선 확인하고, 기능·제약·실무 적용 조건을 분리해 검토합니다.',
+    riskFactors: [
+      'AI 기능·가격·정책은 빠르게 변경될 수 있습니다.',
+      '데모 수준의 성능이 실제 운영 환경에서 동일하게 재현된다는 보장은 없습니다.'
+    ],
+    counterScenarios: [
+      '공식 사양이나 정책이 변경되어 현재 판단이 달라지는 경우',
+      '실제 업무 비용과 통제 비용이 기대 효율을 상쇄하는 경우'
+    ]
+  },
+  '성장·리더십': {
+    authorBio: 'JoyLab Research · 성장·리더십 리서치',
+    researchMethod: '개념·사례·행동을 분리해 보고, 개인 경험을 일반화하지 않도록 적용 조건과 한계를 함께 검토합니다.',
+    riskFactors: [
+      '개인과 조직의 상황에 따라 같은 방법의 효과가 다를 수 있습니다.',
+      '단일 사례를 보편적 원칙으로 일반화하면 판단 오류가 생길 수 있습니다.'
+    ],
+    counterScenarios: [
+      '다른 맥락에서는 반대 접근이 더 효과적인 경우',
+      '개인 문제가 아니라 구조·제도 요인이 더 큰 원인인 경우'
+    ]
+  }
+};
+
+const fallback = fallbackByCategory[data.category] ?? {
+  authorBio: 'JoyLab Research · 독립 리서치',
+  researchMethod: '확인 가능한 자료를 우선하고, 사실·해석·적용 조건을 분리해 검토합니다.',
+  riskFactors: ['정보의 시점과 맥락에 따라 해석이 달라질 수 있습니다.'],
+  counterScenarios: ['새로운 근거가 확인되면 현재 판단을 수정할 수 있습니다.']
+};
+
+const evidenceUrls = [...body.matchAll(/<!--\s*evidence:\s*(https?:\/\/[^\s>]+)\s*-->/g)]
+  .map((match) => match[1].replace(/[),.;]+$/g, ''));
+
+const evidenceSources = [...new Set(evidenceUrls)].slice(0, 8).map((url) => {
+  let label = '원문 근거';
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, '');
+    label = host;
+  } catch {}
+  return { label, url };
+});
+
+const explicitSources = data.sourceList ?? [];
+const sourceMap = new Map();
+for (const source of [...explicitSources, ...evidenceSources]) {
+  if (source?.url && !sourceMap.has(source.url)) sourceMap.set(source.url, source);
+}
+const sources = [...sourceMap.values()].slice(0, 12);
+
+const authorBio = data.authorBio ?? fallback.authorBio;
+const researchMethod = data.researchMethod ?? fallback.researchMethod;
+const risks = data.riskFactors?.length ? data.riskFactors : fallback.riskFactors;
+const counters = data.counterScenarios?.length ? data.counterScenarios : fallback.counterScenarios;
 ---
 
-{(data.authorBio || data.researchMethod || sources.length || risks.length || counters.length) && (
-  <section class="article-trust-panel" aria-labelledby="article-trust-title">
-    <div class="article-trust-panel__eyebrow">TRUST &amp; METHODOLOGY</div>
-    <h2 id="article-trust-title">작성 기준과 확인 자료</h2>
-    <div class="article-trust-panel__grid">
-      {data.authorBio && <div><h3>작성자</h3><p>{data.author} · {data.authorBio}</p></div>}
-      {data.researchMethod && <div><h3>조사 방법</h3><p>{data.researchMethod}</p></div>}
-      {data.updatedAt && <div><h3>업데이트</h3><p>{data.updatedAt.toLocaleDateString('ko-KR')} · 내용과 출처를 재확인했습니다.</p></div>}
-      {risks.length > 0 && <div><h3>주의할 위험 요인</h3><ul>{risks.map((item) => <li>{item}</li>)}</ul></div>}
-      {counters.length > 0 && <div><h3>반대 시나리오</h3><ul>{counters.map((item) => <li>{item}</li>)}</ul></div>}
-      {sources.length > 0 && <div><h3>원문 출처</h3><ul>{sources.map((source) => <li><a href={source.url} rel="nofollow noopener" target="_blank">{source.label}</a></li>)}</ul></div>}
+<section class="article-trust-panel" aria-labelledby="article-trust-title" data-trust-layer="v1">
+  <div class="article-trust-panel__eyebrow">TRUST &amp; METHODOLOGY</div>
+  <h2 id="article-trust-title">작성 기준과 확인 자료</h2>
+  <div class="article-trust-panel__grid">
+    <div><h3>작성자</h3><p>{data.author} · {authorBio}</p></div>
+    <div><h3>조사 방법</h3><p>{researchMethod}</p></div>
+    <div><h3>기준일</h3><p>{(data.updatedAt ?? data.publishedAt).toLocaleDateString('ko-KR')} · 새 근거가 확인되면 판단을 업데이트합니다.</p></div>
+    <div><h3>주의할 위험 요인</h3><ul>{risks.map((item) => <li>{item}</li>)}</ul></div>
+    <div><h3>반대 시나리오</h3><ul>{counters.map((item) => <li>{item}</li>)}</ul></div>
+    <div>
+      <h3>원문 출처</h3>
+      {sources.length > 0 ? (
+        <ul>{sources.map((source) => <li><a href={source.url} rel="nofollow noopener" target="_blank">{source.label}</a></li>)}</ul>
+      ) : (
+        <p>본문에 확인 가능한 외부 원문 링크가 추가되면 이 영역에 자동으로 표시됩니다.</p>
+      )}
     </div>
-  </section>
-)}
+  </div>
+</section>
 
 <style>
   .article-trust-panel{margin:28px 0;padding:22px;border:1px solid #dfe7f0;background:#f8fafc}
@@ -29,6 +102,6 @@ const counters = data.counterScenarios ?? [];
   .article-trust-panel h3{margin:0 0 .35rem;font-size:.88rem}
   .article-trust-panel p,.article-trust-panel li{font-size:.86rem;line-height:1.65;color:#41536a}
   .article-trust-panel ul{margin:.25rem 0 0;padding-left:1.1rem}
-  .article-trust-panel a{color:#1f5f9f;text-decoration:underline}
-  @media (max-width:700px){.article-trust-panel__grid{grid-template-columns:1fr}}
+  .article-trust-panel a{color:#1f5f9f;text-decoration:underline;overflow-wrap:anywhere}
+  @media (max-width:700px){.article-trust-panel{margin:18px 0;padding:18px}.article-trust-panel__grid{grid-template-columns:1fr;gap:14px}}
 </style>
