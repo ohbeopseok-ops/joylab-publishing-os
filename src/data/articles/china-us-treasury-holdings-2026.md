@@ -19,6 +19,22 @@ readingTime: "약 12분"
 heroImage: "/images/research/us-treasury-china-hero.svg"
 heroAlt: "중국의 미국 국채 보유 감소와 미국 10년물 5%를 함께 보여주는 JoyLab 리서치 이미지"
 heroCaption: "중국의 공식 미 국채 보유 감소보다 중요한 질문은 미국 국채의 매수자 구조가 어떻게 바뀌는가입니다."
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 미국 TIC·중국 국채보유 팩트체크 리서치"
+researchMethod: "미 재무부 TIC 국가별 보유액과 월간 자본흐름 자료를 분리해 중국의 미 국채 잔액 변화, 전체 외국인 보유, 공식기관 흐름과 장기 수요구조를 검토했습니다."
+sourceList:
+  - label: "U.S. Treasury Major Foreign Holders"
+    url: "https://ticdata.treasury.gov/Publish/slt_table5.html"
+  - label: "U.S. Treasury TIC June 2026 release"
+    url: "https://home.treasury.gov/news/press-releases/sb0606"
+  - label: "U.S. Treasury TIC release calendar"
+    url: "https://home.treasury.gov/data/treasury-international-capital-tic-system/release-dates-of-tic-data"
+riskFactors:
+  - "TIC 보유잔액 감소를 동일 금액의 시장 순매도로 해석하면 만기·수탁 위치·평가변화를 놓칠 수 있습니다."
+  - "중국 한 국가의 보유 감소보다 전체 해외 공식기관 수요와 국채 공급의 균형이 장기금리에 더 중요할 수 있습니다."
+counterScenarios:
+  - "중국 보유 감소를 다른 해외·민간 실수요가 충분히 흡수하는 경우"
+  - "안정적 장기 매수자 비중 감소와 국채 공급 확대가 겹쳐 더 높은 수익률이 요구되는 경우"
 ---
 
 ## Research Brief
