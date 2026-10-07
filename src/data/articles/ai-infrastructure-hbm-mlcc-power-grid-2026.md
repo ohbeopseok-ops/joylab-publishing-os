@@ -14,7 +14,7 @@ tags:
   - AI서버
   - AI Research Cluster
 publishedAt: 2026-09-20
-updatedAt: 2026-09-20
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: true
 homeFeatured: true
@@ -26,6 +26,21 @@ readingTime: "약 8분"
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "HBM에서 MLCC와 전력망으로 확장되는 AI 인프라 밸류체인을 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
+authorBio: "JoyLab Research · AI 인프라 공급망 리서치"
+researchMethod: "삼성전자·SK하이닉스 HBM 공식 자료와 IEA 전력수요 자료를 기준으로 HBM·수동부품·전력망이 AI 인프라 CAPEX에서 서로 다른 병목으로 나타나는 구조를 검토했습니다."
+sourceList:
+  - label: "Samsung HBM"
+    url: "https://semiconductor.samsung.com/dram/hbm/"
+  - label: "SK hynix AI Memory"
+    url: "https://news.skhynix.com/en/mwc-2026/"
+  - label: "IEA Energy and AI"
+    url: "https://www.iea.org/reports/energy-and-ai"
+riskFactors:
+  - "AI 인프라의 각 부품은 공급주기와 가격결정력이 달라 동일한 수혜 강도로 묶기 어렵습니다."
+  - "HBM·전력망 병목이 완화되면 수혜가 다른 부품·설비로 이동할 수 있습니다."
+counterScenarios:
+  - "AI CAPEX가 메모리·전력·수동부품 전반의 동시 증설로 이어지는 경우"
+  - "특정 병목이 빠르게 해소돼 공급망 수혜가 일부 품목에만 집중되는 경우"
 ---
 
 ## Research Brief
