@@ -6,7 +6,7 @@ canonical: "https://aijoylab.kr/articles/ymtc-nand-vs-samsung-sk-hynix"
 category: "투자·경제"
 tags: ["YMTC", "NAND", "삼성전자", "SK하이닉스", "EnterpriseSSD"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -16,6 +16,23 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "ymtc nand vs samsung sk hynix를 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
+authorBio: "JoyLab Research · NAND 경쟁구도·중국 메모리 리서치"
+researchMethod: "YMTC 공식 제품자료와 삼성전자·SK하이닉스 공식 실적자료를 기준으로 3D NAND 제품세대, SSD/UFS/eMMC 포트폴리오, 고객채택과 글로벌 NAND 경쟁구도를 비교했습니다."
+sourceList:
+  - label: "YMTC NAND Products"
+    url: "https://www.ymtc.com/en/productlist.html?cat=33"
+  - label: "YMTC Official"
+    url: "https://www.ymtc.com/en/"
+  - label: "Samsung Earnings Releases"
+    url: "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+  - label: "SK hynix IR"
+    url: "https://www.skhynix.com/ir/UI-FR-IR99/"
+riskFactors:
+  - "제품 세대와 적층수만으로 원가·수율·기업용 SSD 경쟁력이 동일하다고 볼 수 없습니다."
+  - "NAND는 재고와 가격 사이클 영향이 커 기술 격차보다 수급이 단기 이익을 더 크게 좌우할 수 있습니다."
+counterScenarios:
+  - "YMTC의 제품·고객·출하 확대가 이어져 범용 NAND 가격 경쟁이 심화되는 경우"
+  - "수율·고객인증·기업용 제품 격차가 유지돼 한국 업체의 고부가 믹스가 방어되는 경우"
 ---
 
 ## YMTC는 물량에서 주요 NAND 업체가 됐다
