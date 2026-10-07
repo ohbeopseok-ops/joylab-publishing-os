@@ -50,6 +50,20 @@ faqs:
     answer: "2026년 9월 말 JoyLab 스냅샷에서는 한미반도체와 DB하이텍이 80점 이상 확인 후보이며, HPSP는 다음 80점 돌파 여부를 감시하는 후보입니다."
   - question: "왜 하루 수급보다 20일 수급을 보나요?"
     answer: "하루 수급에는 프로그램·이벤트성 거래가 섞일 수 있습니다. 20거래일 누적으로 지속성을 보고 최근 5일로 방향 전환을 확인하면 신호의 질을 더 잘 구분할 수 있습니다."
+counterScenarios:
+  - "기관 선매집 이후 외국인 수급과 EPS 추정치가 함께 개선돼 추세가 강화되는 경우"
+  - "수급이 유지돼도 이익 추정치가 하향되거나 가격이 주요 지지선을 이탈하는 경우"
+riskFactors:
+  - "단기 기관·외국인 수급은 프로그램 거래나 리밸런싱 영향으로 기업 펀더멘털과 다르게 움직일 수 있습니다."
+  - "EPS Revision은 실적 발표·수주·업황 변화에 따라 빠르게 반전될 수 있습니다."
+sourceList:
+  - label: "한국거래소 정보데이터시스템"
+    url: "https://data.krx.co.kr/"
+  - label: "금융감독원 DART"
+    url: "https://dart.fss.or.kr/"
+researchMethod: "KRX 수급 원자료와 DART 공시를 우선 확인하고 ETF 중복 편입·기관/외국인 누적 수급·EPS Revision·가격 반응을 분리해 Giant Shoulder 후보를 평가했습니다."
+authorBio: "JoyLab Research · 한국 반도체 수급·이익추정 리서치"
+updatedAt: "2026-10-07"
 ---
 
 **큰손이 보유한 종목과 큰손이 지금 사고 있는 종목은 다릅니다.**
