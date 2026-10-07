@@ -15,7 +15,7 @@ tags:
   - 실적전망
   - AI Research Cluster
 publishedAt: 2026-09-28
-updatedAt: 2026-09-28
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: true
 draft: false
@@ -33,6 +33,21 @@ readingTime: "약 7분"
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "삼성전자 27만원 급락과 외국인 수급, 반도체 업황을 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
+authorBio: "JoyLab Research · 삼성전자 일일 시황·수급 리서치"
+researchMethod: "삼성전자 공식 IR·실적 자료와 KRX 시장데이터를 분리해, 당일 가격·수급 충격과 중기 HBM·메모리 펀더멘털을 서로 다른 시간축으로 검토했습니다."
+sourceList:
+  - label: "Samsung Electronics IR"
+    url: "https://www.samsung.com/global/ir/"
+  - label: "Samsung Electronics 2Q26 earnings disclosure"
+    url: "https://www.samsung.com/global/ir/reports-disclosures/public-disclosure-view.84745/"
+  - label: "KRX Data"
+    url: "https://data.krx.co.kr/"
+riskFactors:
+  - "단일 거래일의 급락과 외국인 순매도는 장기 펀더멘털 변화와 일치하지 않을 수 있습니다."
+  - "환율·미국 금리·글로벌 반도체 위험회피가 기업 실적과 무관하게 단기 가격 변동을 확대할 수 있습니다."
+counterScenarios:
+  - "수급 충격이 빠르게 진정되고 HBM·서버 메모리 실적 기대가 유지되는 경우"
+  - "거시 할인율 상승과 외국인 매도가 지속돼 실적 개선에도 주가 회복이 지연되는 경우"
 ---
 
 ## Research Brief
