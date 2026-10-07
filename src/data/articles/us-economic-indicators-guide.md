@@ -12,7 +12,7 @@ tags:
   - Fed 금리
   - 나스닥
 publishedAt: 2026-09-22
-updatedAt: 2026-09-22
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: true
 draft: false
@@ -22,6 +22,23 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "미국 소매판매 CPI PPI 비농업고용 PCE를 Fed 금리와 나스닥으로 연결한 JoyLab 경제지표 허브 대표 이미지"
 heroCaption: "경제지표는 따로 읽지 않습니다. 소비·물가·고용을 Fed와 국채금리, 나스닥까지 하나의 전송경로로 연결합니다."
 ogImage: "/images/research/joylab-research-default-hero.svg"
+authorBio: "JoyLab Research · 미국 거시경제·Fed 전송경로 리서치"
+researchMethod: "Census 소매판매, BLS CPI, BEA PCE·소득, Federal Reserve FOMC 원문을 우선 확인하고 소비·물가·정책금리·국채금리·주식의 연결을 같은 순서로 해석합니다."
+sourceList:
+  - label: "U.S. Census Monthly Retail Trade"
+    url: "https://www.census.gov/retail/sales.html"
+  - label: "BLS CPI"
+    url: "https://www.bls.gov/news.release/cpi.nr0.htm"
+  - label: "BEA Personal Income and Outlays"
+    url: "https://bea.gov/news/2026/personal-income-and-outlays-august-2026"
+  - label: "Federal Reserve FOMC statement"
+    url: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+riskFactors:
+  - "경제지표는 이전월 수정치와 구성항목에 따라 헤드라인 숫자와 실제 모멘텀이 다르게 해석될 수 있습니다."
+  - "한 개 지표만으로 Fed의 다음 결정을 단정하면 고용·물가·금융여건의 상충 신호를 놓칠 수 있습니다."
+counterScenarios:
+  - "소비와 고용이 견조하지만 물가가 둔화돼 성장과 금리 부담이 함께 완화되는 경우"
+  - "강한 소비와 물가가 긴축 기대를 높여 장기금리와 성장주 할인율을 다시 끌어올리는 경우"
 ---
 
 미국 경제지표는 매달 수십 개가 발표됩니다. 하지만 투자자가 모든 지표를 똑같이 볼 필요는 없습니다.
