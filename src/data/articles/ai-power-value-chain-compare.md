@@ -15,6 +15,22 @@ draft: false
 seoTitle: "AI 전력 밸류체인 비교｜발전·전력기기·BESS·냉각 투자 가이드"
 series: "AI 전력 투자 가이드"
 readingTime: "약 11분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · AI 전력 밸류체인 비교 리서치"
+researchMethod: "IEA 전력수요 자료와 주요 전력기업 공식 IR을 기준으로 발전→송전→변압→배전→백업→냉각 각 레이어의 병목, 수주주기, 마진과 CAPA를 비교했습니다."
+sourceList:
+  - label: "IEA Energy and AI"
+    url: "https://www.iea.org/reports/energy-and-ai"
+  - label: "LS ELECTRIC IR"
+    url: "https://www.ls-electric.com/ko/company/invest/ir/"
+  - label: "GE Vernova 2Q26 Results"
+    url: "https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial"
+riskFactors:
+  - "AI 전력 밸류체인은 레이어별 병목 시점이 달라 동일 테마 안에서도 수혜 강도가 크게 갈릴 수 있습니다."
+  - "증설 완료 후에는 수주잔고보다 신규수주 성장률과 마진 정상화가 더 중요한 지표가 될 수 있습니다."
+counterScenarios:
+  - "여러 레이어의 병목이 동시에 지속돼 밸류체인 전반의 실적이 개선되는 경우"
+  - "특정 레이어의 공급확대가 빨라져 병목이 다른 구간으로 이동하는 경우"
 ---
 
 AI 전력 투자에서 가장 흔한 실수는 관련 종목을 한꺼번에 "AI 전력주"로 묶는 것입니다.
