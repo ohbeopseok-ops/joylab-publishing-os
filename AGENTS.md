@@ -85,6 +85,7 @@ Read:
 - `docs/ADSENSE_ACTIVATION_CONTRACT_V1.md`
 - `docs/ADSENSE_AD_PLACEMENT_CONTRACT_V1.md`
 - `docs/ADSENSE_APPROVAL_TO_REVENUE_RUNBOOK_V1.md`
+- `docs/ADSENSE_TRUST_LAYER_QA_V1.md` when article Trust Layer or content-quality rollout is involved
 - `docs/ADSENSE_ACTIVATION_GOLD_CHECKLIST.md` when activation/GOLD verification is involved
 
 Use for:
