@@ -13,7 +13,7 @@ tags:
   - 반도체
   - 미국 경제지표
 publishedAt: 2026-09-22
-updatedAt: 2026-09-22
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -24,6 +24,19 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "2026년 8월 미국 CPI 3.4%와 근원 CPI 2.4%, Fed 금리와 나스닥 연결 구조를 표현한 JoyLab 리서치 대표 이미지"
 heroCaption: "CPI는 숫자 하나가 아니라 헤드라인·근원·주거비·에너지·시장금리 반응을 함께 봐야 합니다."
 ogImage: "/images/research/joylab-research-default-hero.svg"
+authorBio: "JoyLab Research · 미국 물가·Fed 리서치"
+researchMethod: "BLS CPI 원문과 Federal Reserve 공식 자료를 기준으로 헤드라인·근원 CPI, 주거비·에너지, 정책금리와 나스닥 할인율의 연결을 검토했습니다."
+sourceList:
+  - label: "U.S. BLS CPI August 2026"
+    url: "https://www.bls.gov/news.release/archives/cpi_09112026.htm"
+  - label: "Federal Reserve FOMC"
+    url: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+riskFactors:
+  - "한 달의 CPI 상승은 에너지·주거비 등 구성요인에 따라 기초 물가 추세와 다르게 보일 수 있습니다."
+  - "CPI 하나만으로 Fed의 다음 결정을 단정하면 고용·PCE·금융여건을 놓칠 수 있습니다."
+counterScenarios:
+  - "근원 물가가 둔화되고 2년물 금리가 안정돼 성장주 부담이 완화되는 경우"
+  - "서비스·주거비 압력이 이어져 추가 긴축 기대가 높아지는 경우"
 ---
 
 2026년 8월 미국 소비자물가지수(CPI)는 전월 대비 **+0.4%**, 전년 동월 대비 **+3.4%**를 기록했습니다. 근원 CPI는 전월 대비 **+0.3%**, 전년 대비 **+2.4%**였습니다. [미국 노동통계국(BLS) 공식 발표](https://www.bls.gov/news.release/archives/cpi_09112026.htm)
