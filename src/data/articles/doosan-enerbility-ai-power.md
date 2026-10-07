@@ -15,6 +15,20 @@ draft: false
 seoTitle: "두산에너빌리티 AI 전력 분석｜가스터빈·원전·수주잔고"
 series: "AI 전력 기업 분석"
 readingTime: "약 10분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 발전설비·AI 전력 인프라 리서치"
+researchMethod: "두산에너빌리티 공식 IR과 사업보고서를 기준으로 가스터빈·원전·서비스 수주, 에너빌리티 부문 실적, 수주잔고와 장기 서비스 매출의 연결을 검토했습니다."
+sourceList:
+  - label: "Doosan Enerbility IR"
+    url: "https://www.doosanenerbility.com/en/investment/ir_data"
+  - label: "Doosan Enerbility business reports"
+    url: "https://www.doosanenerbility.com/kr/investment/ir_business"
+riskFactors:
+  - "대형 발전 프로젝트는 납기·원가·운전자본 변동으로 수주 증가와 이익 증가의 시차가 커질 수 있습니다."
+  - "AI 전력 수요가 강해도 생산 슬롯과 서비스 역량이 병목이 되면 매출 전환 속도가 제한될 수 있습니다."
+counterScenarios:
+  - "가스터빈 신규수주와 장기 서비스 매출이 함께 늘어 본체 마진이 구조적으로 개선되는 경우"
+  - "프로젝트 지연이나 원가 상승으로 수주잔고가 이익으로 전환되는 속도가 기대보다 늦어지는 경우"
 ---
 
 두산에너빌리티를 AI 전력주로 볼 때 가장 중요한 질문은 <strong>“AI 데이터센터 전력 수요가 실제 장비 주문과 반복 서비스 매출로 얼마나 연결되고 있는가”</strong>입니다.
