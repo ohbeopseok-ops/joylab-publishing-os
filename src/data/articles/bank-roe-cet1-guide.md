@@ -35,6 +35,20 @@ investmentKpis:
   - NIM
   - credit-cost
 investmentResearchType: explainer
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 은행 수익성·자본적정성 리서치"
+researchMethod: "KB금융 공식 경영실적 자료를 기준으로 ROE와 CET1을 이익·RWA·배당·자사주 등 자본배분 구조와 연결해 검토했습니다."
+sourceList:
+  - label: "KB금융 2026년 1분기 경영실적"
+    url: "https://www.kbfg.com/IR_new/2026_1/player/vod_kor.html"
+  - label: "KB금융 2026년 상반기 경영실적"
+    url: "https://kbfg.com/IR_new/2026_2/player/vod_kor.html"
+riskFactors:
+  - "ROE 개선이 일회성 이익이나 낮은 충당금에 의존하면 지속성이 떨어질 수 있습니다."
+  - "CET1이 높아도 RWA 급증이나 대규모 환원정책으로 자본여력이 빠르게 줄 수 있습니다."
+counterScenarios:
+  - "높은 ROE와 안정적 CET1이 함께 유지돼 자본환원 여력이 확대되는 경우"
+  - "건전성 비용과 RWA 증가로 ROE·CET1이 동시에 약화되는 경우"
 ---
 
 은행·금융지주를 볼 때 자주 생기는 혼란이 있습니다.
