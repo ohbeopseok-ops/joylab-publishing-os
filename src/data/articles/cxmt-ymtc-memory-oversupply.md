@@ -4,7 +4,7 @@ description: "중국 DRAM·NAND 증설이 글로벌 공급과잉과 가격 하�
 category: "투자·경제"
 tags: ["CXMT", "YMTC", "메모리공급과잉", "DRAM가격", "NAND가격"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -14,6 +14,23 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "cxmt ymtc memory oversupply를 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
+authorBio: "JoyLab Research · 메모리 공급·중국 CAPA 리서치"
+researchMethod: "CXMT·YMTC 공식 제품자료와 삼성전자·SK하이닉스 공식 실적자료를 기준으로 생산능력보다 실제 유효출하·수율·고객채택·DRAM/NAND 가격을 중심으로 공급과잉 조건을 검토했습니다."
+sourceList:
+  - label: "CXMT Products"
+    url: "https://www.cxmt.com/en/product.html"
+  - label: "YMTC Products"
+    url: "https://www.ymtc.com/en/productlist.html?cat=33"
+  - label: "Samsung Earnings Releases"
+    url: "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+  - label: "SK hynix IR"
+    url: "https://www.skhynix.com/ir/UI-FR-IR99/"
+riskFactors:
+  - "신규 팹과 제품 발표가 곧바로 유효 비트 공급 증가로 이어지는 것은 아닙니다."
+  - "DRAM과 NAND는 수요·재고·가격 사이클이 다르므로 하나의 공급과잉 지표로 합치면 왜곡될 수 있습니다."
+counterScenarios:
+  - "중국 업체의 가동률·수율·고객채택이 동시에 개선돼 범용 메모리 가격 압력이 커지는 경우"
+  - "AI·서버 수요가 신규 공급을 흡수해 증설에도 가격과 재고가 안정되는 경우"
 ---
 
 ## 중국 증설이 곧바로 공급과잉은 아니다
