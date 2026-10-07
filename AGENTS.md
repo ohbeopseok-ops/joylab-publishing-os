@@ -245,4 +245,8 @@ Hard rules:
 13. Trust Layer Wave 1-3 rollout follows `config/adsense-trust-rollout-waves-v1.json` and `scripts/generate-trust-rollout-waves-v1.mjs`.
 14. Wave 1 = TOP20 priority, Wave 2 = remaining 투자·경제, Wave 3 = remaining published articles.
 15. Do not advance a wave merely because metadata was written; use the wave exit criteria and latest-head evidence.
+16. Wave 3 evidence policy is defined by `src/data/trust-wave3-policy-v1.json`, `config/adsense-trust-wave3-execution-queue-v1.json`, and `docs/TRUST_WAVE3_EVIDENCE_POLICY_V1.md`.
+17. Wave 3 technical/product/current-claim articles must use approved official, product, research, or verified override evidence. Do not count JoyLab internal links as evidence.
+18. Wave 3 leadership/framework articles may use the transparent safe editorial fallback. Never fabricate citations solely to satisfy a source count.
+19. Trust rendering precedence is article frontmatter > verified Wave 3 source override > approved body evidence > category/editorial fallback.
 
