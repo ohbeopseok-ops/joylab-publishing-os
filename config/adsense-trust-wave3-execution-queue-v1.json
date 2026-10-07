@@ -1,0 +1,89 @@
+{
+  "version": "1.0",
+  "status": "READY_55_OF_55",
+  "total": 55,
+  "ready": 55,
+  "remaining": 0,
+  "ciStatus": "CI-DEFERRED",
+  "evidenceModes": {
+    "OFFICIAL_OR_RESEARCH_FROM_BODY": {
+      "count": 23,
+      "slugs": [
+        "ai-agent-security-prompt-to-rce-2026",
+        "ai-agent-system-design-anthropic-2026",
+        "ai-data-center-interconnect-dci",
+        "ai-database-security-data-layer-2026",
+        "ai-era-english-deep-inquiry",
+        "ai-network-800g-1-6t",
+        "ai-productivity-platforms-compare",
+        "ai-token-economics",
+        "ai-translation-information-gatekeeper",
+        "chatgpt-sponsored-agent-advertising",
+        "china-ai-token-ciyuan-discourse-power",
+        "codex-guide-6-steps-2026",
+        "customer-center-ai-security-guardrails",
+        "how-submarine-cables-work",
+        "mcp-security-tool-poisoning-2026",
+        "openai-data-agent-chatgpt-work",
+        "optical-dsp-lpo-lro-1-6t",
+        "satellite-vs-submarine-cable",
+        "silicon-photonics-ai-network",
+        "submarine-cable-failure-repair",
+        "submarine-cable-history",
+        "submarine-cables-ai-infrastructure",
+        "what-is-co-packaged-optics"
+      ]
+    },
+    "VERIFIED_SOURCE_OVERRIDE": {
+      "count": 16,
+      "slugs": [
+        "ai-agent-governance",
+        "ai-api-key-compute-theft-2026",
+        "ai-bubble-vs-compute-supercycle-2026",
+        "anthropic-ipo-ai-safety-2026",
+        "aside-ai-browser-benchmark",
+        "aside-vs-chatgpt-work-vs-playwright",
+        "aside-windows-launch",
+        "openai-anthropic-ipo-cash-burn-2026",
+        "codex-automation-gold-cases-5",
+        "codex-build-your-own-plugin-2026",
+        "codex-computer-use-guide-2026",
+        "codex-goal-mode-guide-2026",
+        "codex-non-developer-automation-10",
+        "codex-plugin-guide-2026",
+        "codex-skill-guide-2026",
+        "what-is-ai-agent"
+      ]
+    },
+    "SAFE_EDITORIAL_FALLBACK": {
+      "count": 16,
+      "slugs": [
+        "ai-productivity-operating-model",
+        "ai-productivity-roi",
+        "ai-workflow-automation",
+        "bach-counterpoint-order-in-chaos",
+        "burnout-recovery-starts-with-pause",
+        "customer-center-ax-leadership",
+        "customer-center-ax-operating-model",
+        "customer-center-crm-productivity",
+        "customer-center-qa-coaching-loop",
+        "fairness-system-explainable-standards",
+        "feedback-system-behavior-change",
+        "growth-leadership-operating-system",
+        "learning-system-reexecution-loop",
+        "performance-system-leading-indicators",
+        "recognition-system-fair-performance",
+        "why-we-cannot-stand-silence"
+      ]
+    }
+  },
+  "rules": [
+    "Wave 3 does not force two primary sources on every article.",
+    "Technical/product/current-claim articles use approved official, product, research, or verified override sources.",
+    "Editorial/framework/leadership articles may use transparent safe fallback without fabricated source links.",
+    "ArticleTrustPanel auto-discovers only approved external domains from article body; internal links are excluded.",
+    "Frontmatter article-specific metadata continues to override Wave 3 policy and category fallback.",
+    "Final Build/Mobile/AdSense/Visual automation remains deferred until GitHub Actions quota resets."
+  ],
+  "exitNote": "Wave 3 Trust evidence policy is applied to all remaining published articles. Automated CI evidence is deferred due to Actions quota."
+}
