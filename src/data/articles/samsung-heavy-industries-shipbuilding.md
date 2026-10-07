@@ -15,6 +15,20 @@ draft: false
 seoTitle: "삼성중공업 조선 분석｜LNG선·해양플랜트·생산성"
 series: "조선 기업 분석"
 readingTime: "약 10분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · LNG선·해양플랜트 조선 리서치"
+researchMethod: "삼성중공업 공식 IR 자료를 기준으로 LNG선·FLNG·해양 프로젝트의 수주, 공정률, 생산성, 영업이익률과 스마트야드 전환을 검토했습니다."
+sourceList:
+  - label: "Samsung Heavy Industries IR"
+    url: "https://www.samsungshi.com/En/Ir_data.aspx"
+  - label: "Samsung Heavy Industries 2026 IR presentation"
+    url: "https://www.samsungshi.com/En/Ir_data_view.aspx?no=160&page=1"
+riskFactors:
+  - "해양 프로젝트는 공정 지연과 원가 재산정이 발생하면 손익 변동성이 크게 확대될 수 있습니다."
+  - "LNG선·FLNG 기대가 이미 높은 경우 신규수주 둔화가 밸류에이션 압력으로 연결될 수 있습니다."
+counterScenarios:
+  - "고부가 LNG선·해양 매출과 자동화 생산성 개선이 함께 이어져 두 자릿수 마진이 유지되는 경우"
+  - "대형 해양 프로젝트 원가 상승이나 신규수주 둔화로 마진 정상화가 지연되는 경우"
 ---
 
 삼성중공업을 볼 때 핵심 질문은 **LNG선·FLNG 중심 고부가 수주가 스마트야드 생산성 개선과 만나 얼마나 높은 마진으로 전환되는가**입니다.
