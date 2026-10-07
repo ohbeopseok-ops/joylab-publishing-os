@@ -9,13 +9,26 @@ tags:
   - 반도체
   - AI메모리
 publishedAt: 2026-09-09
-updatedAt: 2026-09-11
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: true
 draft: false
 seoTitle: "삼성전자 vs SK하이닉스｜AI 메모리 투자 비교 핵심 정리"
 series: "AI 메모리 투자 가이드"
 readingTime: "약 12분"
+authorBio: "JoyLab Research · AI 메모리·반도체 비교 리서치"
+researchMethod: "삼성전자와 SK하이닉스의 공식 HBM·실적 자료를 같은 기준으로 맞춰 HBM4 실행력, AI 메모리 노출도, 수요 가시성, CAPEX와 마진 전달 구조를 비교했습니다."
+sourceList:
+  - label: "Samsung HBM4 mass production"
+    url: "https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing"
+  - label: "SK hynix 2Q26 business results"
+    url: "https://news.skhynix.com/en/q2-2026-business-results/"
+riskFactors:
+  - "HBM 세대 전환과 고객 인증 속도는 계획과 실제 양산 사이에 차이가 생길 수 있습니다."
+  - "높은 AI 메모리 기대가 주가와 밸류에이션에 이미 반영돼 있을 수 있습니다."
+counterScenarios:
+  - "삼성의 HBM4 확대와 SK하이닉스의 리더십이 함께 지속돼 AI 메모리 시장 전체가 성장하는 경우"
+  - "공급 증가나 고객 CAPEX 둔화로 HBM 프리미엄과 이익 추정치가 동시에 낮아지는 경우"
 ---
 
 삼성전자와 SK하이닉스는 모두 AI 메모리 수혜주이지만 같은 방식으로 보면 안 됩니다.
