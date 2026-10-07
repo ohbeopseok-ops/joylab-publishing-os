@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "name": "AdSense GOLD Sample V1",
+  "samples": [
+    {
+      "slug": "samsung-electronics-outlook",
+      "type": "Company Research",
+      "reason": "대표 기업 리서치 · 반도체/YMYL"
+    },
+    {
+      "slug": "samsung-vs-sk-hynix-ai-memory",
+      "type": "Compare Hub",
+      "reason": "동종 기업 비교형 리서치"
+    },
+    {
+      "slug": "korea-ai-power-companies-compare",
+      "type": "Industry Compare",
+      "reason": "산업 밸류체인 비교"
+    },
+    {
+      "slug": "us-economic-indicators-guide",
+      "type": "Macro Hub",
+      "reason": "거시경제 허브"
+    },
+    {
+      "slug": "kb-financial-shareholder-return",
+      "type": "Financial/YMYL",
+      "reason": "금융·주주환원 대표 글"
+    }
+  ],
+  "qa": [
+    "Trust Layer visible and article-specific",
+    "At least 2 primary-source links in sourceList",
+    "Claim → Evidence mapping exists",
+    "No duplicate top-level frontmatter keys",
+    "Research Brief remains above Trust Layer on mobile",
+    "No fabricated source URL",
+    "No direct buy/sell instruction language",
+    "Build/Mobile/AdSense/Visual final checks deferred until GitHub Actions quota resets"
+  ],
+  "releaseState": "PRE-GOLD / CI-DEFERRED"
+}
