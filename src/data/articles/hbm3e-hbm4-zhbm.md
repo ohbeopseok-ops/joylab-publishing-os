@@ -6,7 +6,7 @@ canonical: "https://aijoylab.kr/articles/hbm3e-hbm4-zhbm"
 category: "투자·경제"
 tags: ["HBM3E", "HBM4", "zHBM", "AI메모리", "삼성전자", "반도체"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -16,6 +16,21 @@ heroImage: "/images/research/hbm3e-hbm4-zhbm-vector.svg"
 heroAlt: "HBM3E에서 HBM4와 zHBM으로 이어지는 AI 메모리 기술 진화"
 ogImage: "/images/research/hbm3e-hbm4-zhbm-vector.svg"
 readingTime: "약 8분"
+authorBio: "JoyLab Research · HBM 세대전환·패키징 리서치"
+researchMethod: "삼성전자 공식 HBM 기술자료와 SK하이닉스 AI Memory 자료를 기준으로 HBM3E→HBM4→차세대 적층메모리의 I/O, 대역폭, 적층·패키징 구조와 양산 리스크를 비교했습니다."
+sourceList:
+  - label: "Samsung AI-era memory evolution"
+    url: "https://semiconductor.samsung.com/news-events/tech-blog/the-evolution-of-ai-era-memory-faster-denser-computing/"
+  - label: "Samsung HBM4 commercial shipment"
+    url: "https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing"
+  - label: "SK hynix MWC 2026 AI Memory"
+    url: "https://news.skhynix.com/en/mwc-2026/"
+riskFactors:
+  - "기술 사양 개선이 고객 인증·수율·원가 안정화보다 앞서면 상업적 기여 시점이 늦어질 수 있습니다."
+  - "차세대 HBM 세대전환은 로직 베이스 다이와 첨단 패키징 병목의 영향을 크게 받을 수 있습니다."
+counterScenarios:
+  - "HBM4 양산·고객 채택이 빠르게 확대돼 세대전환 프리미엄이 실적에 반영되는 경우"
+  - "수율·패키징 병목 또는 경쟁 심화로 차세대 제품의 마진 기여가 지연되는 경우"
 ---
 
 ## 먼저 구분해야 한다: HBM3E → HBM4와 zHBM은 같은 종류의 세대 표기가 아니다
