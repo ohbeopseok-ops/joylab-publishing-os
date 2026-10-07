@@ -9,13 +9,30 @@ tags:
   - HD현대일렉트릭
   - LSELECTRIC
 publishedAt: 2026-09-11
-updatedAt: 2026-09-11
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: true
 draft: false
 seoTitle: "AI 전력 4사 비교｜두산·효성중공업·HD현대일렉트릭·LS ELECTRIC"
 series: "AI 전력 기업 분석"
 readingTime: "약 14분"
+authorBio: "JoyLab Research · AI 전력 밸류체인 비교 리서치"
+researchMethod: "LS ELECTRIC·두산에너빌리티·HD현대일렉트릭·효성중공업의 공식 IR 자료를 같은 Lens로 맞춰 발전·송전·변압·배전 위치, 수주 가시성, 생산능력과 마진 전달 구조를 비교했습니다."
+sourceList:
+  - label: "LS ELECTRIC IR"
+    url: "https://www.ls-electric.com/ko/company/invest/ir/"
+  - label: "Doosan Enerbility IR"
+    url: "https://www.doosanenerbility.com/en/investment/ir_data"
+  - label: "HD Hyundai Electric IR"
+    url: "https://www.hd-hyundaielectric.com/elect/en/IR/IRdata1.jsp"
+  - label: "Hyosung Heavy Industries annual reports"
+    url: "https://www.hyosungheavyindustries.com/en/company/ir/archive/annual-report"
+riskFactors:
+  - "네 회사는 발전·송전·배전 등 밸류체인 위치가 달라 단순 PER·수주잔고 순위 비교가 왜곡을 만들 수 있습니다."
+  - "업계 전반의 증설이 수요 증가보다 빨라지면 현재의 가격결정력과 높은 수익성이 정상화될 수 있습니다."
+counterScenarios:
+  - "AI 데이터센터 전력 병목이 장기화돼 발전부터 배전까지 여러 레이어의 수주가 동시에 확대되는 경우"
+  - "전력기기 증설과 AI CAPEX 둔화가 겹쳐 수주 증가율과 마진이 함께 낮아지는 경우"
 ---
 
 AI 전력주를 한 묶음으로 보면 투자 판단이 흐려집니다.
