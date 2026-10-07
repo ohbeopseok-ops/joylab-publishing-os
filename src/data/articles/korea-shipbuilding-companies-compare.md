@@ -15,6 +15,24 @@ draft: false
 seoTitle: "조선 4사 비교｜수주잔고·마진·선종 믹스·밸류에이션"
 series: "조선 기업 분석"
 readingTime: "약 12분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 한국 조선업 비교 리서치"
+researchMethod: "HD현대중공업·HD한국조선해양·삼성중공업·한화오션의 공식 IR·회사자료를 같은 기준으로 맞춰 수주잔고, 선종 믹스, 생산성, 마진과 특수선 노출을 비교했습니다."
+sourceList:
+  - label: "HD현대중공업 실적발표"
+    url: "https://hd-hhi.com/kr/investors/ir-data/earnings-release"
+  - label: "HD한국조선해양"
+    url: "https://www.hdksoe.co.kr/"
+  - label: "삼성중공업 IR"
+    url: "https://www.samsungshi.com/En/Ir_data.aspx"
+  - label: "한화오션 회사자료"
+    url: "https://www.hanwhaocean.com/pdf/Hanwha_Ocean_Brochure_KR_2025.pdf"
+riskFactors:
+  - "회사별 수주잔고 정의와 연결 범위가 달라 절대금액을 단순 비교하면 왜곡될 수 있습니다."
+  - "조선업의 높은 수익성은 선가·후판·환율·생산성·공정률 변화에 따라 빠르게 달라질 수 있습니다."
+counterScenarios:
+  - "고선가 선박과 특수선 믹스가 유지돼 업계 전반의 마진이 장기간 개선되는 경우"
+  - "신조선가 둔화와 원가 상승으로 수주잔고의 이익 전환 속도가 낮아지는 경우"
 ---
 
 조선주는 모두 같은 업황을 타지만 **돈을 버는 방식은 다릅니다.**
