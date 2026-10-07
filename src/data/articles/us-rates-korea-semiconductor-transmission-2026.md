@@ -14,13 +14,26 @@ tags:
   - SK하이닉스
   - 밸류에이션
 publishedAt: 2026-09-16
-updatedAt: 2026-09-16
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: true
 draft: false
 seoTitle: "미국채 5% 시대 AI·반도체 밸류에이션｜삼성전자·SK하이닉스 영향"
 series: "미국채 리서치"
 readingTime: "약 13분"
+authorBio: "JoyLab Research · 미국 금리·한국 반도체 전염경로 리서치"
+researchMethod: "미 재무부 장기금리와 Treasury 차입 계획을 기준으로 미국 금리 → 달러 → 원달러 → 외국인 수급 → 삼성전자·SK하이닉스의 전달 경로를 EPS와 할인율로 나눠 검토했습니다."
+sourceList:
+  - label: "U.S. Treasury Daily Treasury Rates"
+    url: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202609&type=daily_treasury_yield_curve"
+  - label: "U.S. Treasury borrowing estimate"
+    url: "https://home.treasury.gov/news/press-releases/sb0584"
+riskFactors:
+  - "미국 금리와 한국 반도체 주가는 EPS·환율·외국인 수급이 동시에 작용해 단순 역상관으로 설명하기 어렵습니다."
+  - "미 국채금리 상승보다 HBM·메모리 이익 추정치 개선이 더 빠르면 주가 충격이 제한될 수 있습니다."
+counterScenarios:
+  - "EPS 상향과 외국인 순매수가 금리 부담을 상쇄하는 경우"
+  - "미 장기금리·달러·원달러가 함께 상승해 외국인 수급과 밸류에이션 압박이 커지는 경우"
 ---
 
 ![미국 금리 상승이 원달러와 외국인 수급을 거쳐 삼성전자와 SK하이닉스에 전달되는 구조](/images/research/us-rates-korea-transmission-hero.svg)
