@@ -15,6 +15,22 @@ draft: false
 seoTitle: "GPU 다음 병목은 발전소다｜AI 데이터센터 전력 투자 지도"
 series: "AI 전력 투자 가이드"
 readingTime: "약 10분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · AI 데이터센터 전력병목 리서치"
+researchMethod: "IEA Energy and AI와 전력기기 기업 공식 자료를 기준으로 GPU 이후 발전·송전·변압·배전·냉각 중 어디에서 물리적 병목이 나타나는지 리드타임과 CAPA 중심으로 검토했습니다."
+sourceList:
+  - label: "IEA Energy and AI"
+    url: "https://www.iea.org/reports/energy-and-ai"
+  - label: "LS ELECTRIC IR"
+    url: "https://www.ls-electric.com/ko/company/invest/ir/"
+  - label: "HD Hyundai Electric IR"
+    url: "https://www.hd-hyundaielectric.com/elect/en/IR/IRdata1.jsp"
+riskFactors:
+  - "현재의 전력 병목이 기술혁신·계통투자·분산형 전원 확대에 따라 다른 레이어로 이동할 수 있습니다."
+  - "병목이 강해도 인허가와 프로젝트 지연으로 기업 실적 인식에는 시차가 생길 수 있습니다."
+counterScenarios:
+  - "전력수요가 공급망 증설보다 빨라 발전·변압·배전 병목이 장기화되는 경우"
+  - "계통과 전력기기 증설이 가속돼 병목 프리미엄이 빠르게 완화되는 경우"
 ---
 
 AI 투자에서 가장 익숙한 병목은 GPU와 HBM입니다. 그런데 데이터센터가 실제로 돌아가려면 칩보다 먼저 해결해야 하는 물리적 조건이 하나 있습니다. **전력입니다.**
