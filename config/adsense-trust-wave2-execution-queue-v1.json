@@ -1,10 +1,10 @@
 {
   "version": "1.0",
   "total": 48,
-  "ready": 28,
-  "remaining": 20,
+  "ready": 43,
+  "remaining": 5,
   "status": "IN_PROGRESS",
-  "completedBatch": "A_US_MACRO_CORE_5 + US_TREASURY_RATES_7 + SEMICONDUCTOR_16",
+  "completedBatch": "A_US_MACRO_CORE_5 + US_TREASURY_RATES_7 + SEMICONDUCTOR_16 + AI_POWER_INFRA_15",
   "readySlugs": [
     "us-august-retail-sales-fed-nasdaq-2026",
     "us-cpi-fed-nasdaq-guide",
@@ -33,9 +33,7 @@
     "us-china-semiconductor-war",
     "ymtc-nand-vs-samsung-sk-hynix",
     "foreign-investor-flow",
-    "semiconductor-cycle"
-  ],
-  "nextPriority": [
+    "semiconductor-cycle",
     "ai-data-center-capacity-stack-2026",
     "ai-data-center-cooling-bottleneck",
     "ai-infrastructure-hbm-mlcc-power-grid-2026",
@@ -50,7 +48,9 @@
     "bess-ups-bbu-data-center",
     "gpu-compute-economics-rubin-2026",
     "ls-electric-ai-power",
-    "ls-hd-electric-2027-eps-per-scenario",
+    "ls-hd-electric-2027-eps-per-scenario"
+  ],
+  "nextPriority": [
     "bank-roe-cet1-guide",
     "compounder-roic-reinvestment-moat",
     "hanwha-ocean-shipbuilding",
