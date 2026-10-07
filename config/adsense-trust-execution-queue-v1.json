@@ -3,8 +3,8 @@
   "generatedAt": "2026-10-07",
   "basis": "TOP20 actual frontmatter + existing article URLs + Investment Primary Source Gate V1",
   "summary": {
-    "READY": 6,
-    "SOURCE_VERIFIED_METADATA_PENDING": 14,
+    "READY": 20,
+    "SOURCE_VERIFIED_METADATA_PENDING": 0,
     "SOURCE_SHORTAGE": 0
   },
   "READY": [
@@ -13,23 +13,7 @@
     "semiconductor-giant-shoulder-flow",
     "financials-value-up-investing-guide",
     "total-shareholder-return-buyback-cancellation-guide",
-    "korea-financial-holdings-compare"
-  ],
-  "TRUST_METADATA_MISSING": [
-    "kb-financial-shareholder-return",
-    "semiconductor-giant-shoulder-flow",
-    "financials-value-up-investing-guide",
-    "total-shareholder-return-buyback-cancellation-guide",
-    "korea-financial-holdings-compare"
-  ],
-  "SOURCE_SHORTAGE": [],
-  "rule": {
-    "READY": "article-specific Trust metadata complete and sourceList present",
-    "TRUST_METADATA_MISSING": "at least 2 accepted primary-source URLs already exist, but article-specific Trust metadata/sourceList is incomplete",
-    "SOURCE_SHORTAGE": "fewer than 2 accepted primary-source URLs are currently present; manual source research required before apply",
-    "SOURCE_VERIFIED_METADATA_PENDING": "At least 2 official primary-source URLs were verified on the public web; claim-level matching and article-specific Trust metadata remain before READY."
-  },
-  "SOURCE_VERIFIED_METADATA_PENDING": [
+    "korea-financial-holdings-compare",
     "samsung-vs-sk-hynix-ai-memory",
     "hd-hyundai-heavy-industries-shipbuilding",
     "strong-retail-sales-nasdaq-rally-2026",
@@ -44,5 +28,16 @@
     "sk-hynix-outlook",
     "us-economic-indicators-guide",
     "korea-ai-power-companies-compare"
-  ]
+  ],
+  "TRUST_METADATA_MISSING": [],
+  "SOURCE_SHORTAGE": [],
+  "rule": {
+    "READY": "article-specific Trust metadata complete and sourceList present",
+    "TRUST_METADATA_MISSING": "at least 2 accepted primary-source URLs already exist, but article-specific Trust metadata/sourceList is incomplete",
+    "SOURCE_SHORTAGE": "fewer than 2 accepted primary-source URLs are currently present; manual source research required before apply",
+    "SOURCE_VERIFIED_METADATA_PENDING": "At least 2 official primary-source URLs were verified on the public web; claim-level matching and article-specific Trust metadata remain before READY."
+  },
+  "SOURCE_VERIFIED_METADATA_PENDING": [],
+  "wave1Status": "READY_20_OF_20",
+  "wave1ExitNote": "Trust metadata and sourceList applied to all TOP20. GOLD still requires latest-head Build / Mobile / AdSense / Visual evidence."
 }
