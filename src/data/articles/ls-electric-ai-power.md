@@ -15,6 +15,20 @@ draft: false
 seoTitle: "LS ELECTRIC AI 전력 분석｜배전·데이터센터 전력 인프라"
 series: "AI 전력 기업 분석"
 readingTime: "약 10분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 배전·데이터센터 전력인프라 기업 리서치"
+researchMethod: "LS ELECTRIC 공식 IR과 그룹 공식 자료를 기준으로 배전기기·초고압 변압기·데이터센터 전력설비 수주, 생산능력과 전력사업 수익성을 검토했습니다."
+sourceList:
+  - label: "LS ELECTRIC IR"
+    url: "https://www.ls-electric.com/ko/company/invest/ir/"
+  - label: "LS Group official news"
+    url: "https://lsholdings.co.kr/ko/media/news/61564b62656e354c446b79766e44394176764c4144566c6e6e77584733564b35"
+riskFactors:
+  - "데이터센터 수주 확대가 전체 전력사업 마진 개선으로 같은 속도로 연결되지 않을 수 있습니다."
+  - "변압기·배전기기 증설이 빨라지면 현재의 가격 프리미엄과 수주가시성이 낮아질 수 있습니다."
+counterScenarios:
+  - "데이터센터·초고압 전력설비 수주가 생산능력 확대와 함께 고마진 매출로 전환되는 경우"
+  - "업계 공급증가와 발주 둔화로 신규수주와 마진이 동시에 정상화되는 경우"
 ---
 
 LS ELECTRIC을 AI 전력에서 봐야 하는 이유는 다른 전력기기 기업과 조금 다릅니다.
