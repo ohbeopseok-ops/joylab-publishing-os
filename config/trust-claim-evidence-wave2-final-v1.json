@@ -1,0 +1,76 @@
+{
+  "version": "1.0",
+  "wave": "2D_FINANCE_SHIPBUILDING_FOUNDATION_5",
+  "generatedAt": "2026-10-07",
+  "rows": [
+    {
+      "slug": "bank-roe-cet1-guide",
+      "claims": [
+        {
+          "claim": "ROE/CET1 and capital-return structure",
+          "evidence": "https://kbfg.com/IR_new/2026_2/player/vod_kor.html"
+        },
+        {
+          "claim": "Quarterly bank profitability/capital context",
+          "evidence": "https://www.kbfg.com/IR_new/2026_1/player/vod_kor.html"
+        }
+      ]
+    },
+    {
+      "slug": "compounder-roic-reinvestment-moat",
+      "claims": [
+        {
+          "claim": "Stock ownership and equity-investing basics",
+          "evidence": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks"
+        },
+        {
+          "claim": "ROIC/value-definition framework",
+          "evidence": "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/definitions.html"
+        }
+      ]
+    },
+    {
+      "slug": "hanwha-ocean-shipbuilding",
+      "claims": [
+        {
+          "claim": "Hanwha Ocean business/product/shipbuilding context",
+          "evidence": "https://www.hanwhaocean.com/pdf/Hanwha_Ocean_Brochure_KR_2025.pdf"
+        },
+        {
+          "claim": "Regulatory filings and financial verification",
+          "evidence": "https://dart.fss.or.kr/"
+        }
+      ]
+    },
+    {
+      "slug": "korea-shipbuilding-companies-compare",
+      "claims": [
+        {
+          "claim": "HD Hyundai Heavy Industries results",
+          "evidence": "https://hd-hhi.com/kr/investors/ir-data/earnings-release"
+        },
+        {
+          "claim": "Samsung Heavy Industries IR",
+          "evidence": "https://www.samsungshi.com/En/Ir_data.aspx"
+        },
+        {
+          "claim": "Hanwha Ocean company context",
+          "evidence": "https://www.hanwhaocean.com/pdf/Hanwha_Ocean_Brochure_KR_2025.pdf"
+        }
+      ]
+    },
+    {
+      "slug": "money-basics-7-economic-terms",
+      "claims": [
+        {
+          "claim": "Core economics/finance terminology",
+          "evidence": "https://www.bok.or.kr/portal/bbs/B0000249/view.do?menuNo=200765&nttId=10096081"
+        },
+        {
+          "claim": "General economic-education context",
+          "evidence": "https://www.bok.or.kr/portal/main/contents.do?menuNo=201041"
+        }
+      ]
+    }
+  ]
+}
