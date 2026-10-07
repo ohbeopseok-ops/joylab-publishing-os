@@ -10,20 +10,24 @@ tags:
   - AI전력
 publishedAt: 2026-09-27
 author: "JoyLab"
-updatedAt: 2026-10-06
-authorBio: "JoyLab Founder & Operator · AI 전력 인프라·기업 비교 리서치"
-researchMethod: "기업 공시와 IR 자료를 기준으로 주문·수주잔고·마진·EPS·FCF를 같은 비교 프레임에 놓고 차이를 확인했습니다."
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 글로벌 AI 전력기업 비교 리서치"
+researchMethod: "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova의 공식 IR·실적자료를 같은 Lens로 맞춰 전력 밸류체인 위치, 수주, 생산능력, 마진과 밸류에이션을 비교했습니다."
 sourceList:
   - label: "LS ELECTRIC IR"
     url: "https://www.ls-electric.com/ko/ir"
   - label: "Eaton Investor Relations"
     url: "https://www.eaton.com/us/en-us/company/investor-relations.html"
+  - label: "HD Hyundai Electric official news"
+    url: "https://www.hd-hyundaielectric.com/elect/m/ko/PR/newsView.jsp?commBoardSeq=6175"
+  - label: "GE Vernova 2Q26 Results"
+    url: "https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial"
 riskFactors:
-  - "기업별 회계 기준·사업 믹스·통화가 달라 단순 배수 비교에 한계가 있습니다."
-  - "AI 전력 수요가 실제 주문과 현금흐름으로 전환된다는 보장은 없습니다."
+  - "각 회사는 발전·송배전·데이터센터 노출도가 달라 단순 PER·마진 순위 비교가 왜곡될 수 있습니다."
+  - "높은 수주와 AI 노출 기대가 이미 밸류에이션에 반영된 기업은 실적 미스에 민감할 수 있습니다."
 counterScenarios:
-  - "데이터센터 투자가 지연되어 주문잔고 증가가 매출로 이어지지 않는 경우"
-  - "금리와 원자재 비용 상승으로 마진과 FCF가 악화되는 경우"
+  - "AI 전력 CAPEX가 장기화돼 여러 기업의 수주와 마진이 동반 개선되는 경우"
+  - "공급증설·발주 정상화로 고평가 기업의 멀티플이 먼저 압축되는 경우"
 featured: false
 draft: false
 seoTitle: "LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova 비교"
