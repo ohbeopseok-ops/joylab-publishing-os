@@ -15,6 +15,20 @@ draft: false
 seoTitle: "외국인 수급 보는 법｜순매수보다 중요한 5가지 체크포인트"
 series: "한국 주식시장 투자 가이드"
 readingTime: "약 9분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 한국 증시 외국인 수급 리서치"
+researchMethod: "KRX 투자자별 거래·종목별 수급 원자료를 기준으로 시장→업종→종목→환율→현물·선물→가격반응 순으로 외국인 수급의 질과 지속성을 검토했습니다."
+sourceList:
+  - label: "KRX 투자자별 거래"
+    url: "https://data.krx.co.kr/contents/MDC/MDI/outerLoader/index.cmd?screenId=MDCSTAT022"
+  - label: "KRX Data"
+    url: "https://data.krx.co.kr/"
+riskFactors:
+  - "외국인 하루 순매수는 지수 리밸런싱·차익거래·특정 대형주 집중매수로 왜곡될 수 있습니다."
+  - "현물 순매수와 선물·환율 방향이 엇갈리면 위험선호 신호로 해석하기 어렵습니다."
+counterScenarios:
+  - "현물·선물 동반매수와 원화 강세, 업종·종목 확산이 함께 나타나는 경우"
+  - "대형주 단기 매수만 나타나고 환율·선물이 반대 방향으로 움직이는 경우"
 ---
 
 외국인이 오늘 몇 천억 원을 샀다는 뉴스는 매일 나옵니다. 하지만 **외국인 순매수 금액 하나만으로 시장 방향을 판단하면 자주 틀립니다.** 같은 5,000억 원 순매수라도 무엇을 샀는지, 며칠째 사고 있는지, 원화가 강해지고 있는지, 지수가 실제로 반응하는지에 따라 의미가 달라지기 때문입니다.
