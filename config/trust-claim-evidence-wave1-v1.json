@@ -1,0 +1,209 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-10-07",
+  "rule": "Each claim theme maps only to an official primary-source URL already verified for Wave 1. Metadata apply must not broaden a source beyond the claim theme it supports.",
+  "rows": [
+    {
+      "slug": "samsung-vs-sk-hynix-ai-memory",
+      "claims": [
+        {
+          "claim": "Samsung HBM4 mass production/commercial shipment and HBM4 roadmap",
+          "evidence": "https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing"
+        },
+        {
+          "claim": "SK hynix 2Q26 HBM4 shipment, AI-memory demand and earnings context",
+          "evidence": "https://news.skhynix.com/en/q2-2026-business-results/"
+        }
+      ]
+    },
+    {
+      "slug": "hd-hyundai-heavy-industries-shipbuilding",
+      "claims": [
+        {
+          "claim": "2Q26 consolidated earnings and margin context",
+          "evidence": "https://hd-hhi.com/en/investors/ir-data/earnings-release"
+        },
+        {
+          "claim": "monthly order/IR updates and order-mix tracking",
+          "evidence": "https://hd-hhi.com/en/investors/ir-data/monthly"
+        }
+      ]
+    },
+    {
+      "slug": "strong-retail-sales-nasdaq-rally-2026",
+      "claims": [
+        {
+          "claim": "August 2026 U.S. retail-sales strength",
+          "evidence": "https://www.census.gov/retail/sales.html"
+        },
+        {
+          "claim": "September 2026 FOMC policy-rate decision and policy stance",
+          "evidence": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+        }
+      ]
+    },
+    {
+      "slug": "samsung-market-close-2026-09-28",
+      "claims": [
+        {
+          "claim": "Samsung earnings/fundamental context",
+          "evidence": "https://www.samsung.com/global/ir/reports-disclosures/public-disclosure-view.84745/"
+        },
+        {
+          "claim": "Samsung official IR context",
+          "evidence": "https://www.samsung.com/global/ir/"
+        },
+        {
+          "claim": "market-price and trading-flow verification",
+          "evidence": "https://data.krx.co.kr/"
+        }
+      ]
+    },
+    {
+      "slug": "doosan-enerbility-ai-power",
+      "claims": [
+        {
+          "claim": "company IR, turbine/nuclear/order backlog and segment results",
+          "evidence": "https://www.doosanenerbility.com/en/investment/ir_data"
+        },
+        {
+          "claim": "business-report verification",
+          "evidence": "https://www.doosanenerbility.com/kr/investment/ir_business"
+        }
+      ]
+    },
+    {
+      "slug": "hd-hyundai-electric-ai-power",
+      "claims": [
+        {
+          "claim": "IR results, backlog, transformer and margin context",
+          "evidence": "https://www.hd-hyundaielectric.com/elect/en/IR/IRdata1.jsp"
+        },
+        {
+          "claim": "market-price verification",
+          "evidence": "https://data.krx.co.kr/"
+        }
+      ]
+    },
+    {
+      "slug": "samsung-hbm4-memory-outlook-2026-09-20",
+      "claims": [
+        {
+          "claim": "HBM4 mass production/commercial shipment and 2026 HBM roadmap",
+          "evidence": "https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing"
+        },
+        {
+          "claim": "Samsung IR/earnings context",
+          "evidence": "https://www.samsung.com/global/ir/"
+        }
+      ]
+    },
+    {
+      "slug": "hyosung-heavy-industries-ai-power",
+      "claims": [
+        {
+          "claim": "company business/transformer exposure and annual-report context",
+          "evidence": "https://www.hyosungheavyindustries.com/en/company/ir/archive/annual-report"
+        },
+        {
+          "claim": "financial statement verification",
+          "evidence": "https://www.hyosungheavyindustries.com/kr/company/ir/archive/financial-statements"
+        }
+      ]
+    },
+    {
+      "slug": "hd-ksoe-shipbuilding",
+      "claims": [
+        {
+          "claim": "group financial statements and profitability context",
+          "evidence": "https://www.hdksoe.co.kr/en/investors/financial-info/financial-statements/contents"
+        },
+        {
+          "claim": "IR presentation for order backlog, portfolio and strategy",
+          "evidence": "https://www.hdksoe.co.kr/en/investors/ir-dataroom/ir-presentation/list"
+        }
+      ]
+    },
+    {
+      "slug": "samsung-heavy-industries-shipbuilding",
+      "claims": [
+        {
+          "claim": "company IR data and shipbuilding/offshore results",
+          "evidence": "https://www.samsungshi.com/En/Ir_data.aspx"
+        },
+        {
+          "claim": "2026 IR presentation detail",
+          "evidence": "https://www.samsungshi.com/En/Ir_data_view.aspx?no=160&page=1"
+        }
+      ]
+    },
+    {
+      "slug": "samsung-electronics-outlook",
+      "claims": [
+        {
+          "claim": "Samsung company earnings and investment context",
+          "evidence": "https://www.samsung.com/global/ir/"
+        },
+        {
+          "claim": "2Q26 official earnings disclosure",
+          "evidence": "https://www.samsung.com/global/ir/reports-disclosures/public-disclosure-view.84745/"
+        }
+      ]
+    },
+    {
+      "slug": "sk-hynix-outlook",
+      "claims": [
+        {
+          "claim": "2Q26 earnings, HBM4 production and AI-memory demand",
+          "evidence": "https://news.skhynix.com/en/q2-2026-business-results/"
+        },
+        {
+          "claim": "HBM4E sample shipment and next-generation roadmap",
+          "evidence": "https://news.skhynix.com/en/sk-hynix-ships-samples-of-12-layer-next-gen-hbm4e-2/"
+        }
+      ]
+    },
+    {
+      "slug": "us-economic-indicators-guide",
+      "claims": [
+        {
+          "claim": "retail-sales data",
+          "evidence": "https://www.census.gov/retail/sales.html"
+        },
+        {
+          "claim": "CPI data",
+          "evidence": "https://www.bls.gov/news.release/cpi.nr0.htm"
+        },
+        {
+          "claim": "PCE/income/outlays data",
+          "evidence": "https://bea.gov/news/2026/personal-income-and-outlays-august-2026"
+        },
+        {
+          "claim": "FOMC policy stance",
+          "evidence": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+        }
+      ]
+    },
+    {
+      "slug": "korea-ai-power-companies-compare",
+      "claims": [
+        {
+          "claim": "LS ELECTRIC IR/company power-business context",
+          "evidence": "https://www.ls-electric.com/ko/company/invest/ir/"
+        },
+        {
+          "claim": "Doosan Enerbility IR/order/segment context",
+          "evidence": "https://www.doosanenerbility.com/en/investment/ir_data"
+        },
+        {
+          "claim": "HD Hyundai Electric IR/backlog/margin context",
+          "evidence": "https://www.hd-hyundaielectric.com/elect/en/IR/IRdata1.jsp"
+        },
+        {
+          "claim": "Hyosung Heavy Industries annual-report context",
+          "evidence": "https://www.hyosungheavyindustries.com/en/company/ir/archive/annual-report"
+        }
+      ]
+    }
+  ]
+}
