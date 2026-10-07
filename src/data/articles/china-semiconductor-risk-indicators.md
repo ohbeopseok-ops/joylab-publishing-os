@@ -4,7 +4,7 @@ description: "CXMT·YMTC 점유율, 중국 장비·HBM 자립, DRAM·NAND ASP와
 category: "투자·경제"
 tags: ["중국반도체자립", "리스크스코어", "CXMT", "YMTC", "HBM", "삼성전자", "SK하이닉스"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -14,6 +14,21 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "china semiconductor risk indicators를 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
+authorBio: "JoyLab Research · 중국 반도체 리스크 지표 리서치"
+researchMethod: "CXMT·YMTC 공식 제품자료와 BIS 규제 원문을 기준으로 제품세대·생산능력·고객채택·수출통제를 묶어 삼성전자·SK하이닉스 투자자가 확인할 중국 반도체 리스크 지표를 정리했습니다."
+sourceList:
+  - label: "CXMT Official"
+    url: "https://www.cxmt.com/en/"
+  - label: "YMTC Official"
+    url: "https://www.ymtc.com/en/"
+  - label: "BIS Advanced Computing and Semiconductor Controls"
+    url: "https://www.bis.gov/press-release/bis-updated-public-information-page-export-controls-imposed-advanced-computing-semiconductor"
+riskFactors:
+  - "중국 업체의 공식 제품세대가 올라가도 출하량·수율·고객 비중이 확인되지 않으면 경쟁강도를 과대평가할 수 있습니다."
+  - "규제 강화가 오히려 국산화 투자를 가속해 중장기 경쟁을 높일 가능성도 있습니다."
+counterScenarios:
+  - "중국 업체의 제품·장비·고객 지표가 동시에 개선돼 한국 메모리 업체의 범용 제품 경쟁압력이 커지는 경우"
+  - "기술·수율·장비 제약이 유지돼 고부가 HBM·선단제품 격차가 계속되는 경우"
 ---
 
 ## 중국 반도체 자립은 하나의 숫자가 아니다
