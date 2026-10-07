@@ -15,6 +15,22 @@ draft: false
 seoTitle: "BESS·UPS·BBU 차이｜AI 데이터센터 전력 백업 구조"
 series: "AI 전력 투자 가이드"
 readingTime: "약 9분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 데이터센터 백업전력·전력품질 리서치"
+researchMethod: "IEA 데이터센터 전력수요와 Eaton·Vertiv 공식 전력·냉각 인프라 자료를 기준으로 BESS·UPS·BBU의 역할을 계통보조, 무정전 전원, 랙 단위 백업으로 구분해 검토했습니다."
+sourceList:
+  - label: "IEA Energy and AI"
+    url: "https://www.iea.org/reports/energy-and-ai"
+  - label: "Eaton Investor Relations"
+    url: "https://www.eaton.com/us/en-us/company/investor-relations.html"
+  - label: "Vertiv high-density infrastructure"
+    url: "https://www.vertiv.com/en-emea/about/news-and-events/news-releases/vertiv-introduces-new-modular-liquid-cooling-infrastructure-solution-to-support-high-density-compute-requirements-in-north-america-and-emea/"
+riskFactors:
+  - "BESS·UPS·BBU는 사용시간·응답속도·설치위치가 달라 같은 시장으로 단순 합산하면 수요를 과대평가할 수 있습니다."
+  - "배터리 가격 하락과 전력설계 효율 개선은 매출 성장과 별개로 장비 단가를 낮출 수 있습니다."
+counterScenarios:
+  - "AI 랙 밀도와 전력품질 요구가 높아져 다층 백업전력 투자가 확대되는 경우"
+  - "계통 안정화와 시스템 효율 개선으로 중복 백업설비 투자가 줄어드는 경우"
 ---
 
 AI 데이터센터의 전력 문제는 "얼마나 많이 쓰는가"만으로 끝나지 않습니다.
