@@ -4,7 +4,14 @@
 Wave 1 TOP20 Trust Layer rollout.
 
 ## Current head
-`73895413a52d53b6100aa9b6591d71b86e0ee2e6`
+Current branch head changes as Wave 2 work continues. Wave 1 readiness is frozen by the 20/20 execution queue and Claim → Evidence map.
+
+## CI availability
+**CI-DEFERRED**
+
+Reason: GitHub Actions Free Tier quota is exhausted, so current-head Build / Mobile / AdSense / Visual runs cannot execute.
+
+This is an infrastructure/quota condition, not a code-failure verdict.
 
 ## Wave 1 readiness
 - READY: 20 / 20
@@ -17,10 +24,10 @@ Wave 1 TOP20 Trust Layer rollout.
 
 | Gate | Latest-head status | Evidence |
 | --- | --- | --- |
-| Build | BLOCKED | No Actions run exists for current head |
-| Mobile | BLOCKED | No Actions run exists for current head |
-| AdSense | BLOCKED | No Actions run exists for current head |
-| Visual | BLOCKED | No Actions run exists for current head |
+| Build | CI-DEFERRED | Actions quota exhausted; rerun after quota reset |
+| Mobile | CI-DEFERRED | Actions quota exhausted; rerun after quota reset |
+| AdSense | CI-DEFERRED | Actions quota exhausted; rerun after quota reset |
+| Visual | CI-DEFERRED | Actions quota exhausted; rerun after quota reset |
 
 ## Last known prior-head evidence
 Prior head: `47985579be33a1780436051ba61f9e752917258e`
@@ -33,9 +40,11 @@ Prior head: `47985579be33a1780436051ba61f9e752917258e`
 These results must not be reused as current-head GOLD evidence.
 
 ## Final verdict
-**BLOCKED**
+**PRE-GOLD / CI-DEFERRED**
 
-Reason: current-head GitHub Actions evidence is missing. Implementation readiness is complete, but GOLD requires actual Build / Mobile / AdSense / Visual execution on the exact current head.
+Wave 1 content readiness is complete. Final GOLD certification is deferred only because GitHub Actions quota is exhausted.
+
+Do not label this as a code failure. Do not reuse prior-head workflow results as current-head evidence.
 
 ## Promotion rule
-Promote PR #480 from Draft only when all four gates run on the exact current head and conclude GREEN.
+Keep PR #480 Draft while CI is unavailable. After the GitHub Actions quota resets, run Build / Mobile / AdSense / Visual on the exact then-current head. Promote only when all four conclude GREEN.
