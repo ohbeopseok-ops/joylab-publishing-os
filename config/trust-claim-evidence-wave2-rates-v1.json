@@ -1,0 +1,102 @@
+{
+  "version": "1.0",
+  "wave": "2A_US_TREASURY_RATES_7",
+  "generatedAt": "2026-10-07",
+  "rows": [
+    {
+      "slug": "how-to-read-us-treasury-auctions-2026",
+      "claims": [
+        {
+          "claim": "Auction result metrics and bidder allocation",
+          "evidence": "https://www.treasurydirect.gov/auctions/results/"
+        },
+        {
+          "claim": "Treasury auction mechanics and schedule",
+          "evidence": "https://www.treasurydirect.gov/auctions/"
+        }
+      ]
+    },
+    {
+      "slug": "us-30y-treasury-5-percent-risk-2026",
+      "claims": [
+        {
+          "claim": "September 2026 10Y/30Y Treasury yield levels",
+          "evidence": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202609&type=daily_treasury_yield_curve"
+        },
+        {
+          "claim": "Treasury fiscal/TIC context",
+          "evidence": "https://home.treasury.gov/news/press-releases/sb0606"
+        }
+      ]
+    },
+    {
+      "slug": "who-buys-us-treasuries-2026",
+      "claims": [
+        {
+          "claim": "Major foreign holders by country",
+          "evidence": "https://ticdata.treasury.gov/Publish/slt_table5.html"
+        },
+        {
+          "claim": "June 2026 TIC capital-flow context",
+          "evidence": "https://home.treasury.gov/news/press-releases/sb0606"
+        }
+      ]
+    },
+    {
+      "slug": "treasury-5-percent-sp500-nasdaq-dividend",
+      "claims": [
+        {
+          "claim": "2026 Treasury yield-curve levels",
+          "evidence": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve"
+        },
+        {
+          "claim": "S&P 500 index reference",
+          "evidence": "https://www.spglobal.com/spdji/en/indices/equity/sp-500/"
+        }
+      ]
+    },
+    {
+      "slug": "treasury-5-percent-utilities-2026",
+      "claims": [
+        {
+          "claim": "2026 Treasury yield-curve levels",
+          "evidence": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve"
+        },
+        {
+          "claim": "S&P 500 Utilities index reference",
+          "evidence": "https://www.spglobal.com/spdji/en/indices/equity/sp-500-utilities-sector/"
+        }
+      ]
+    },
+    {
+      "slug": "us-rates-korea-semiconductor-transmission-2026",
+      "claims": [
+        {
+          "claim": "September 2026 U.S. Treasury yield levels",
+          "evidence": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value_month=202609&type=daily_treasury_yield_curve"
+        },
+        {
+          "claim": "Treasury borrowing estimate and supply context",
+          "evidence": "https://home.treasury.gov/news/press-releases/sb0584"
+        }
+      ]
+    },
+    {
+      "slug": "china-us-treasury-holdings-2026",
+      "claims": [
+        {
+          "claim": "China and other foreign Treasury holdings",
+          "evidence": "https://ticdata.treasury.gov/Publish/slt_table5.html"
+        },
+        {
+          "claim": "June 2026 TIC flows",
+          "evidence": "https://home.treasury.gov/news/press-releases/sb0606"
+        },
+        {
+          "claim": "TIC release timing",
+          "evidence": "https://home.treasury.gov/data/treasury-international-capital-tic-system/release-dates-of-tic-data"
+        }
+      ]
+    }
+  ]
+}
