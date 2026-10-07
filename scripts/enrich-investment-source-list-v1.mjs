@@ -79,4 +79,4 @@ const outDir=path.join(root,"qa-artifacts","source-list-enrichment-v1");
 fs.mkdirSync(outDir,{recursive:true});
 fs.writeFileSync(path.join(outDir,"report.json"),JSON.stringify({mode:apply?"apply":"dry-run",scope:onlyTop20?"top20":"all",report},null,2)+"\n");
 console.log(JSON.stringify({mode:apply?"apply":"dry-run",scope:onlyTop20?"top20":"all",report},null,2));
-if(report.some(x=>x.status==="BLOCKED_NOT_ENOUGH_PRIMARY_SOURCES")) process.exitCode=2;
+if(apply && report.some(x=>x.status==="BLOCKED_NOT_ENOUGH_PRIMARY_SOURCES")) process.exitCode=2;
