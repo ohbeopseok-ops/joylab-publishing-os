@@ -217,3 +217,26 @@ Hard rules:
 
 Merge sequence:
 feature branch → targeted local checks → Draft PR → required checks GREEN → Ready → merge with verified head SHA → main/post-deploy verification.
+
+## 9. Article metadata and Trust Layer
+
+Use this section for any change under `src/data/articles/*.md` that touches:
+- `updatedAt`
+- `authorBio`
+- `researchMethod`
+- `sourceList`
+- `riskFactors`
+- `counterScenarios`
+
+Hard rules:
+1. Never append a metadata key blindly.
+2. Existing metadata keys must be updated in place; new keys may be inserted only when absent.
+3. For automated metadata edits, use `scripts/upsert-article-metadata-v1.mjs` or the shared `scripts/lib/frontmatter-upsert-v1.mjs` helper.
+4. Do not use ad-hoc string concatenation to add frontmatter fields.
+5. If duplicate top-level frontmatter keys already exist, BLOCK and repair them before applying metadata changes.
+6. Run `node scripts/test-frontmatter-upsert-v1.mjs` after changing the UPSERT helper or metadata automation.
+7. Run Frontmatter Integrity Gate V1 and Content Integrity Gate V2 for article metadata changes.
+8. Trust Layer rendering is site-wide. Article-specific metadata overrides the safe category fallback; never fabricate a source URL to make the panel look complete.
+9. Source links must come from explicit `sourceList` entries or verifiable evidence URLs already present in the article source.
+10. Do not weaken mobile entry budgets, Astro schema validation, source-quality gates, or Trust Layer requirements merely to make CI green.
+
