@@ -26,6 +26,20 @@ investmentCompanies:
 investmentResearchType: "compare"
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "LS ELECTRIC과 HD현대일렉트릭의 2027 EPS와 PER 20·25·30·40배를 비교하는 JoyLab 밸류에이션 이미지"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 전력기기 EPS·밸류에이션 시나리오 리서치"
+researchMethod: "LS ELECTRIC·HD현대일렉트릭 공식 실적·IR 자료를 기준으로 2027 EPS 시나리오와 PER 민감도를 수주·마진·CAPA 가정과 연결해 검토했습니다."
+sourceList:
+  - label: "LS power-equipment official news"
+    url: "https://www.lsholdings.com/ko/media/news/61564b62656e354c446b79766e44394176764c4144566c6e6e77584733564b35"
+  - label: "HD Hyundai Electric official news"
+    url: "https://www.hd-hyundaielectric.com/elect/m/ko/PR/newsView.jsp?commBoardSeq=6175"
+riskFactors:
+  - "EPS와 PER 조합은 실적 가정과 시장 할인율 변화에 매우 민감해 목표주가처럼 고정해 해석하면 안 됩니다."
+  - "현재 고마진과 수주성장이 2027년까지 동일하게 유지된다는 가정은 공급증설과 사이클 변화를 과소평가할 수 있습니다."
+counterScenarios:
+  - "수주·마진·EPS 상향이 이어져 높은 멀티플이 유지되는 경우"
+  - "마진 정상화나 할인율 상승으로 EPS 성장에도 적용 PER이 낮아지는 경우"
 ---
 
 AI 전력 기업의 주가를 볼 때 가장 중요한 질문은 단순히 "수주가 늘어나는가"가 아닙니다.
