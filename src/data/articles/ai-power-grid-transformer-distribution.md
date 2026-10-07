@@ -15,6 +15,22 @@ draft: false
 seoTitle: "AI 전력기기 투자 가이드｜송전·변압·배전 병목 읽는 법"
 series: "AI 전력 투자 가이드"
 readingTime: "약 9분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 송전·변압·배전 전력기기 리서치"
+researchMethod: "IEA 전력수요 자료와 LS ELECTRIC·HD현대일렉트릭 공식 IR을 기준으로 송전·변압·배전의 병목, 수주잔고, 생산능력과 마진 전달 구조를 검토했습니다."
+sourceList:
+  - label: "IEA Energy and AI"
+    url: "https://www.iea.org/reports/energy-and-ai"
+  - label: "LS ELECTRIC IR"
+    url: "https://www.ls-electric.com/ko/company/invest/ir/"
+  - label: "HD Hyundai Electric IR"
+    url: "https://www.hd-hyundaielectric.com/elect/en/IR/IRdata1.jsp"
+riskFactors:
+  - "전력기기 증설이 빨라지면 현재의 긴 리드타임과 가격결정력이 정상화될 수 있습니다."
+  - "송전·변압·배전은 발주 주기와 고객구성이 달라 같은 수주잔고 지표로 비교하기 어렵습니다."
+counterScenarios:
+  - "AI 전력수요와 계통투자가 공급증설보다 빨라 병목과 높은 마진이 지속되는 경우"
+  - "업계 CAPA 확대가 수요를 앞서 리드타임과 가격 프리미엄이 빠르게 줄어드는 경우"
 ---
 
 AI 데이터센터 전력 투자에서 발전소만 보면 절반만 보는 것입니다.
