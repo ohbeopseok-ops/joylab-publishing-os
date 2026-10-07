@@ -15,6 +15,20 @@ draft: false
 seoTitle: "한화오션 조선 분석｜LNG선·특수선·수주잔고"
 series: "조선 기업 분석"
 readingTime: "약 10분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · LNG선·특수선·조선 리서치"
+researchMethod: "한화오션 공식 회사자료와 DART 공시를 기준으로 LNG선·특수선·해양 수주, 수주잔고의 질, 생산성, 원가와 마진 전환을 검토했습니다."
+sourceList:
+  - label: "Hanwha Ocean Company Brochure"
+    url: "https://www.hanwhaocean.com/pdf/Hanwha_Ocean_Brochure_KR_2025.pdf"
+  - label: "금융감독원 DART"
+    url: "https://dart.fss.or.kr/"
+riskFactors:
+  - "대형 조선·해양 프로젝트는 공정 지연과 원가 재산정이 손익 변동성을 크게 만들 수 있습니다."
+  - "방산·특수선 기대는 계약 시점과 수익성 확정까지 긴 시간이 필요할 수 있습니다."
+counterScenarios:
+  - "고선가 LNG선과 특수선 수주가 생산성 개선과 함께 높은 마진으로 전환되는 경우"
+  - "프로젝트 원가 상승이나 신규수주 둔화로 이익 정상화가 지연되는 경우"
 ---
 
 한화오션을 볼 때 가장 중요한 질문은 **높아진 수익성이 일회성 해양 매출을 넘어 상선·특수선의 구조적 이익으로 이어지는가**입니다.
