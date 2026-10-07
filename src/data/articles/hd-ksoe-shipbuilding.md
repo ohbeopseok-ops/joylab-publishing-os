@@ -15,6 +15,20 @@ draft: false
 seoTitle: "HD한국조선해양 분석｜포트폴리오·수주잔고·지주 할인"
 series: "조선 기업 분석"
 readingTime: "약 10분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 조선 포트폴리오·자본배분 리서치"
+researchMethod: "HD한국조선해양 공식 재무제표와 IR 자료를 기준으로 자회사 실적, 수주잔고, 선종 믹스, 해외야드와 지주 할인 요인을 분리해 검토했습니다."
+sourceList:
+  - label: "HD KSOE financial statements"
+    url: "https://www.hdksoe.co.kr/en/investors/financial-info/financial-statements/contents"
+  - label: "HD KSOE IR presentations"
+    url: "https://www.hdksoe.co.kr/en/investors/ir-dataroom/ir-presentation/list"
+riskFactors:
+  - "그룹 합산 수주잔고는 개별 조선사 수주잔고와 직접 비교하기 어렵고 자회사 중복가치가 포함될 수 있습니다."
+  - "해외야드 투자와 지주회사 할인은 자회사 실적 개선이 모회사 가치로 전달되는 속도를 늦출 수 있습니다."
+counterScenarios:
+  - "고선가 선박·엔진 믹스와 자회사 마진 개선이 지속되며 지주 할인까지 축소되는 경우"
+  - "자회사 실적은 견조하지만 지주 할인과 해외 투자비용이 유지되는 경우"
 ---
 
 HD한국조선해양을 볼 때 가장 중요한 질문은 **개별 조선소의 호황이 그룹 포트폴리오 가치와 지주사 할인 축소로 얼마나 연결되는가**입니다.
