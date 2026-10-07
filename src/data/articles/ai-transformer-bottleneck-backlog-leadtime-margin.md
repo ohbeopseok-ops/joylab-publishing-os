@@ -23,6 +23,20 @@ investmentTheses:
 investmentResearchType: "explainer"
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "AI 전력 변압기 병목을 Backlog Lead Time Margin으로 설명하는 JoyLab 대표 이미지"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 변압기 병목·수주잔고 리서치"
+researchMethod: "LS 계열과 HD현대일렉트릭 공식 자료를 기준으로 변압기 수주잔고, 리드타임, 생산능력과 마진의 연결을 검토했습니다."
+sourceList:
+  - label: "LS power-equipment official news"
+    url: "https://www.lsholdings.com/ko/media/news/61564b62656e354c446b79766e44394176764c4144566c6e6e77584733564b35"
+  - label: "HD Hyundai Electric official news"
+    url: "https://www.hd-hyundaielectric.com/elect/m/ko/PR/newsView.jsp?commBoardSeq=6175"
+riskFactors:
+  - "긴 리드타임과 높은 수주잔고는 공급증설이 빨라지면 가격 프리미엄과 함께 정상화될 수 있습니다."
+  - "수주잔고 절대액보다 실제 출하·원가·고마진 지역 믹스가 이익 전환을 좌우합니다."
+counterScenarios:
+  - "수요가 CAPA 증가보다 빨라 긴 리드타임과 높은 마진이 지속되는 경우"
+  - "업계 증설과 발주 둔화가 겹쳐 리드타임과 마진이 동시에 정상화되는 경우"
 ---
 
 AI 데이터센터 전력 수요가 늘면 가장 먼저 주목받는 장비 가운데 하나가 변압기입니다.
