@@ -240,4 +240,6 @@ Hard rules:
 8. Trust Layer rendering is site-wide. Article-specific metadata overrides the safe category fallback; never fabricate a source URL to make the panel look complete.
 9. Source links must come from explicit `sourceList` entries or verifiable evidence URLs already present in the article source.
 10. Do not weaken mobile entry budgets, Astro schema validation, source-quality gates, or Trust Layer requirements merely to make CI green.
+11. For investing articles, use `scripts/enrich-investment-source-list-v1.mjs` to propose `sourceList` from primary-source URLs already present in the article. Dry-run is the default; `--apply` is allowed only when at least the configured minimum primary sources are detected.
+12. The source enrichment tool must never invent, search for, or fabricate source URLs. Missing primary sources remain BLOCKED for manual research.
 
