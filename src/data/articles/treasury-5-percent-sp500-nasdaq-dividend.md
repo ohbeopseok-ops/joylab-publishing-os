@@ -22,6 +22,20 @@ investmentTheses:
 investmentResearchType: "macro"
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "미국 국채금리 5% 환경에서 S&P500 나스닥 고배당주의 차이를 비교한 JoyLab 대표 이미지"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 미국 국채금리·주식 자산배분 리서치"
+researchMethod: "미 재무부 장기금리 자료와 S&P DJI 공식 지수 자료를 기준으로 5%대 무위험수익률이 S&P500·Nasdaq·배당주 요구수익률과 밸류에이션에 미치는 영향을 비교했습니다."
+sourceList:
+  - label: "U.S. Treasury Daily Treasury Rates"
+    url: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve"
+  - label: "S&P 500 Index"
+    url: "https://www.spglobal.com/spdji/en/indices/equity/sp-500/"
+riskFactors:
+  - "국채금리 5% 자체가 주식 약세를 보장하지 않으며 EPS 성장률과 리스크 프리미엄 변화를 함께 봐야 합니다."
+  - "배당수익률 비교는 배당성장·주가변동·세금 차이를 포함하지 않으면 단순화될 수 있습니다."
+counterScenarios:
+  - "이익 성장률이 금리 상승을 압도해 주식 밸류에이션이 유지되는 경우"
+  - "무위험수익률 상승으로 주식 요구수익률이 높아져 멀티플이 압축되는 경우"
 ---
 
 미국 10년물 국채금리가 5%를 넘는 환경에서는 모든 주식이 같은 방식으로 움직이지 않습니다. [U.S. Treasury](https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?field_tdr_date_value=2026&type=daily_treasury_yield_curve)
