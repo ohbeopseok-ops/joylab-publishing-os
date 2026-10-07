@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "updatedAt": "2026-10-07",
+  "totalArticles": 123,
+  "waves": {
+    "wave1": {
+      "scope": 20,
+      "status": "READY_20_OF_20",
+      "mode": "article-specific Trust metadata + verified sources"
+    },
+    "wave2": {
+      "scope": 48,
+      "status": "READY_48_OF_48",
+      "mode": "article-specific Trust metadata + Claim→Evidence"
+    },
+    "wave3": {
+      "scope": 55,
+      "status": "READY_55_OF_55",
+      "mode": "approved evidence / verified override / safe editorial fallback"
+    }
+  },
+  "contentReady": 123,
+  "automatedReleaseState": "CI-DEFERRED",
+  "reason": "GitHub Actions free-tier quota exhausted",
+  "pendingAfterQuotaReset": [
+    "Build",
+    "Mobile",
+    "AdSense",
+    "Visual"
+  ]
+}
