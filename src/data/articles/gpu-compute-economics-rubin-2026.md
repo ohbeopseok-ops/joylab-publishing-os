@@ -13,7 +13,7 @@ tags:
   - 데이터센터
   - AI Infrastructure Cluster
 publishedAt: 2026-09-20
-updatedAt: 2026-09-20
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: true
 draft: false
@@ -23,6 +23,21 @@ readingTime: "약 8분"
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "NVIDIA Rubin GPU와 랙 스케일 AI 인프라 경제성을 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
+authorBio: "JoyLab Research · GPU 컴퓨트 경제성·AI 시스템 리서치"
+researchMethod: "NVIDIA Rubin 공식 제품·아키텍처·생산자료를 기준으로 칩 수량보다 토큰당 비용, 랙당 처리량, 전력효율과 시스템 수준 경제성을 중심으로 검토했습니다."
+sourceList:
+  - label: "NVIDIA Rubin"
+    url: "https://www.nvidia.com/en-us/data-center/technologies/rubin/"
+  - label: "NVIDIA Rubin Architecture"
+    url: "https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai/"
+  - label: "NVIDIA Vera Rubin Production"
+    url: "https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory"
+riskFactors:
+  - "벤더가 제시하는 성능·효율 개선은 실제 모델·워크로드·전력비·가동률에 따라 체감 경제성이 달라질 수 있습니다."
+  - "칩 성능 향상이 데이터센터 전력·냉각·네트워크 병목을 자동으로 해결하지는 않습니다."
+counterScenarios:
+  - "토큰당 비용과 랙당 처리량이 크게 개선돼 AI 서비스 경제성이 빠르게 좋아지는 경우"
+  - "전력·냉각·네트워크 비용이 시스템 효율 개선을 상쇄해 총소유비용 절감이 제한되는 경우"
 ---
 
 ## Research Brief
