@@ -1,0 +1,128 @@
+{
+  "version": "1.0",
+  "principle": "Candidate hosts only. Human verifies the exact page and evidence before adding any URL.",
+  "mappings": [
+    {
+      "match": [
+        "samsung-vs-sk-hynix-ai-memory",
+        "samsung-hbm4-memory-outlook-2026-09-20"
+      ],
+      "candidates": [
+        "samsung.com",
+        "skhynix.com",
+        "news.skhynix.com",
+        "dart.fss.or.kr",
+        "data.krx.co.kr"
+      ]
+    },
+    {
+      "match": [
+        "samsung-electronics-outlook",
+        "samsung-market-close-2026-09-28"
+      ],
+      "candidates": [
+        "samsung.com",
+        "dart.fss.or.kr",
+        "data.krx.co.kr"
+      ]
+    },
+    {
+      "match": [
+        "sk-hynix-outlook"
+      ],
+      "candidates": [
+        "skhynix.com",
+        "news.skhynix.com",
+        "dart.fss.or.kr",
+        "data.krx.co.kr"
+      ]
+    },
+    {
+      "match": [
+        "hd-hyundai-heavy-industries-shipbuilding"
+      ],
+      "candidates": [
+        "hd-hhi.com",
+        "hdksoe.co.kr",
+        "dart.fss.or.kr",
+        "data.krx.co.kr"
+      ]
+    },
+    {
+      "match": [
+        "hd-ksoe-shipbuilding"
+      ],
+      "candidates": [
+        "hdksoe.co.kr",
+        "dart.fss.or.kr",
+        "data.krx.co.kr"
+      ]
+    },
+    {
+      "match": [
+        "samsung-heavy-industries-shipbuilding"
+      ],
+      "candidates": [
+        "samsungshi.com",
+        "dart.fss.or.kr",
+        "data.krx.co.kr"
+      ]
+    },
+    {
+      "match": [
+        "doosan-enerbility-ai-power"
+      ],
+      "candidates": [
+        "doosanenerbility.com",
+        "dart.fss.or.kr",
+        "data.krx.co.kr"
+      ]
+    },
+    {
+      "match": [
+        "hd-hyundai-electric-ai-power"
+      ],
+      "candidates": [
+        "hd-hyundaielectric.com",
+        "dart.fss.or.kr",
+        "data.krx.co.kr"
+      ]
+    },
+    {
+      "match": [
+        "hyosung-heavy-industries-ai-power"
+      ],
+      "candidates": [
+        "hyosungheavyindustries.com",
+        "dart.fss.or.kr",
+        "data.krx.co.kr"
+      ]
+    },
+    {
+      "match": [
+        "korea-ai-power-companies-compare"
+      ],
+      "candidates": [
+        "ls-electric.com",
+        "hd-hyundaielectric.com",
+        "hyosungheavyindustries.com",
+        "doosanenerbility.com",
+        "dart.fss.or.kr",
+        "data.krx.co.kr"
+      ]
+    },
+    {
+      "match": [
+        "strong-retail-sales-nasdaq-rally-2026",
+        "us-economic-indicators-guide"
+      ],
+      "candidates": [
+        "census.gov",
+        "bls.gov",
+        "bea.gov",
+        "federalreserve.gov",
+        "treasury.gov"
+      ]
+    }
+  ]
+}
