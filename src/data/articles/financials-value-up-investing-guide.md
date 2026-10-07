@@ -38,6 +38,20 @@ investmentKpis:
   - shareholder-payout-ratio
   - PBR
 investmentResearchType: pillar
+counterScenarios:
+  - "ROE 개선·CET1 안정·자사주 소각이 반복돼 할인율 축소가 이어지는 경우"
+  - "이익 둔화나 건전성 악화로 초과자본이 줄어 환원 정책이 약해지는 경우"
+riskFactors:
+  - "정책 방향이 우호적이어도 개별 금융지주의 ROE·CET1·건전성은 서로 다르게 움직일 수 있습니다."
+  - "낮은 PBR 자체는 재평가를 보장하지 않으며 자본효율성 개선과 실제 환원 실행이 동반돼야 합니다."
+sourceList:
+  - label: "금융위원회 자기주식 공시 강화"
+    url: "https://www.fsc.go.kr/po010101/87169"
+  - label: "KB금융 2026년 상반기 경영실적"
+    url: "https://kbfg.com/IR_new/2026_2/player/vod_kor.html"
+researchMethod: "금융당국의 자기주식·밸류업 제도와 금융지주의 공식 실적·IR 자료를 바탕으로 ROE·CET1·주주환원·PBR 재평가의 연결 구조를 비교했습니다."
+authorBio: "JoyLab Research · 금융주 밸류업·자본배분 리서치"
+updatedAt: "2026-10-07"
 ---
 
 금융주는 단순히 **배당을 많이 주는 주식**으로 보면 핵심을 놓치기 쉽습니다.
