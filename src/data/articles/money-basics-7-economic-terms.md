@@ -22,6 +22,20 @@ heroImage: "/images/articles/money-basics-7-economic-terms/hero.webp"
 heroAlt: "GDP와 경기순환, 기준금리와 환율, 유동성과 신용, 레버리지로 이어지는 4단계 경제지표 대시보드"
 heroCaption: "이미지 속 수치는 개념 설명을 위한 예시이며 현재 시장 데이터가 아닙니다."
 ogImage: "/images/articles/money-basics-7-economic-terms/hero.webp"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 경제기초·금융교육 리서치"
+researchMethod: "한국은행 경제금융용어 800선과 일반인 경제교육 자료를 기준으로 환율·금리·GDP·인플레이션·채권·주식·레버리지의 기본 개념을 초보자 관점에서 정리했습니다."
+sourceList:
+  - label: "한국은행 경제금융용어 800선"
+    url: "https://www.bok.or.kr/portal/bbs/B0000249/view.do?menuNo=200765&nttId=10096081"
+  - label: "한국은행 일반인 경제교육"
+    url: "https://www.bok.or.kr/portal/main/contents.do?menuNo=201041"
+riskFactors:
+  - "기초 용어는 실제 투자상품·세금·위험구조에 적용할 때 정의보다 더 많은 조건을 확인해야 합니다."
+  - "레버리지와 금리 개념을 단순한 수익 확대 도구로 이해하면 손실 위험을 과소평가할 수 있습니다."
+counterScenarios:
+  - "기본 개념을 금리·환율·기업이익·자산가격의 연결 구조로 학습해 실제 판단력이 높아지는 경우"
+  - "용어 정의만 암기하고 시장 맥락을 연결하지 못해 실제 투자 판단에서 오해가 커지는 경우"
 ---
 
 경제 뉴스를 보기 시작하면 낯선 단어가 한꺼번에 쏟아집니다.
