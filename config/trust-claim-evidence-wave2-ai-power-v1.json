@@ -1,0 +1,206 @@
+{
+  "version": "1.0",
+  "wave": "2C_AI_POWER_INFRA_15",
+  "generatedAt": "2026-10-07",
+  "rows": [
+    {
+      "slug": "ai-data-center-capacity-stack-2026",
+      "claims": [
+        {
+          "claim": "AI/data-center power demand and infrastructure constraints",
+          "evidence": "https://www.iea.org/reports/energy-and-ai"
+        },
+        {
+          "claim": "Rubin system-level compute architecture",
+          "evidence": "https://www.nvidia.com/en-us/data-center/technologies/rubin/"
+        }
+      ]
+    },
+    {
+      "slug": "ai-data-center-cooling-bottleneck",
+      "claims": [
+        {
+          "claim": "Data-center electricity demand context",
+          "evidence": "https://www.iea.org/reports/energy-and-ai"
+        },
+        {
+          "claim": "High-density liquid cooling infrastructure",
+          "evidence": "https://www.vertiv.com/en-emea/about/news-and-events/news-releases/vertiv-introduces-new-modular-liquid-cooling-infrastructure-solution-to-support-high-density-compute-requirements-in-north-america-and-emea/"
+        }
+      ]
+    },
+    {
+      "slug": "ai-infrastructure-hbm-mlcc-power-grid-2026",
+      "claims": [
+        {
+          "claim": "HBM product role",
+          "evidence": "https://semiconductor.samsung.com/dram/hbm/"
+        },
+        {
+          "claim": "AI-memory product context",
+          "evidence": "https://news.skhynix.com/en/mwc-2026/"
+        },
+        {
+          "claim": "Power-system demand context",
+          "evidence": "https://www.iea.org/reports/energy-and-ai"
+        }
+      ]
+    },
+    {
+      "slug": "ai-power-beneficiaries-value-chain",
+      "claims": [
+        {
+          "claim": "AI power demand",
+          "evidence": "https://www.iea.org/reports/energy-and-ai"
+        },
+        {
+          "claim": "LS power-business context",
+          "evidence": "https://www.ls-electric.com/ko/company/invest/ir/"
+        },
+        {
+          "claim": "Eaton and GE Vernova execution context",
+          "evidence": "https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-reports-record-second-quarter-2026-results.html"
+        }
+      ]
+    },
+    {
+      "slug": "ai-power-gas-turbine-return",
+      "claims": [
+        {
+          "claim": "Data-center power demand",
+          "evidence": "https://www.iea.org/reports/energy-and-ai"
+        },
+        {
+          "claim": "GE Vernova power-equipment execution",
+          "evidence": "https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial"
+        }
+      ]
+    },
+    {
+      "slug": "ai-power-grid-transformer-distribution",
+      "claims": [
+        {
+          "claim": "Power-demand context",
+          "evidence": "https://www.iea.org/reports/energy-and-ai"
+        },
+        {
+          "claim": "LS and HD Hyundai Electric grid-equipment context",
+          "evidence": "https://www.ls-electric.com/ko/company/invest/ir/"
+        }
+      ]
+    },
+    {
+      "slug": "ai-power-ls-hd-eaton-ge-compare",
+      "claims": [
+        {
+          "claim": "LS/Eaton/GE/HD Hyundai Electric operating context",
+          "evidence": "https://www.eaton.com/us/en-us/company/investor-relations.html"
+        }
+      ]
+    },
+    {
+      "slug": "ai-power-next-bottleneck",
+      "claims": [
+        {
+          "claim": "AI power-system demand",
+          "evidence": "https://www.iea.org/reports/energy-and-ai"
+        },
+        {
+          "claim": "Grid-equipment capacity context",
+          "evidence": "https://www.ls-electric.com/ko/company/invest/ir/"
+        }
+      ]
+    },
+    {
+      "slug": "ai-power-valuation-eps-per-ev-ebitda",
+      "claims": [
+        {
+          "claim": "Company earnings used in valuation comparison",
+          "evidence": "https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-reports-record-second-quarter-2026-results.html"
+        },
+        {
+          "claim": "LS official IR",
+          "evidence": "https://www.ls-electric.com/ko/company/invest/ir/"
+        }
+      ]
+    },
+    {
+      "slug": "ai-power-value-chain-compare",
+      "claims": [
+        {
+          "claim": "Power-demand and value-chain context",
+          "evidence": "https://www.iea.org/reports/energy-and-ai"
+        },
+        {
+          "claim": "Power-equipment execution context",
+          "evidence": "https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial"
+        }
+      ]
+    },
+    {
+      "slug": "ai-transformer-bottleneck-backlog-leadtime-margin",
+      "claims": [
+        {
+          "claim": "Transformer backlog/capacity context",
+          "evidence": "https://www.lsholdings.com/ko/media/news/61564b62656e354c446b79766e44394176764c4144566c6e6e77584733564b35"
+        },
+        {
+          "claim": "HD Hyundai Electric transformer context",
+          "evidence": "https://www.hd-hyundaielectric.com/elect/m/ko/PR/newsView.jsp?commBoardSeq=6175"
+        }
+      ]
+    },
+    {
+      "slug": "bess-ups-bbu-data-center",
+      "claims": [
+        {
+          "claim": "Data-center power requirement context",
+          "evidence": "https://www.iea.org/reports/energy-and-ai"
+        },
+        {
+          "claim": "Power infrastructure supplier context",
+          "evidence": "https://www.eaton.com/us/en-us/company/investor-relations.html"
+        }
+      ]
+    },
+    {
+      "slug": "gpu-compute-economics-rubin-2026",
+      "claims": [
+        {
+          "claim": "Rubin platform architecture and economics context",
+          "evidence": "https://developer.nvidia.com/blog/inside-nvidia-rubin-gpu-architecture-powering-the-era-of-agentic-ai/"
+        },
+        {
+          "claim": "Vera Rubin production context",
+          "evidence": "https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory"
+        }
+      ]
+    },
+    {
+      "slug": "ls-electric-ai-power",
+      "claims": [
+        {
+          "claim": "LS ELECTRIC operating and IR context",
+          "evidence": "https://www.ls-electric.com/ko/company/invest/ir/"
+        },
+        {
+          "claim": "LS group power-equipment context",
+          "evidence": "https://lsholdings.co.kr/ko/media/news/61564b62656e354c446b79766e44394176764c4144566c6e6e77584733564b35"
+        }
+      ]
+    },
+    {
+      "slug": "ls-hd-electric-2027-eps-per-scenario",
+      "claims": [
+        {
+          "claim": "LS/HD Hyundai Electric earnings and operating assumptions",
+          "evidence": "https://www.lsholdings.com/ko/media/news/61564b62656e354c446b79766e44394176764c4144566c6e6e77584733564b35"
+        },
+        {
+          "claim": "HD Hyundai Electric operating context",
+          "evidence": "https://www.hd-hyundaielectric.com/elect/m/ko/PR/newsView.jsp?commBoardSeq=6175"
+        }
+      ]
+    }
+  ]
+}
