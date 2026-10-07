@@ -6,7 +6,7 @@ canonical: "https://aijoylab.kr/articles/ai-agent-hbm-demand"
 category: "투자·경제"
 tags: ["AI에이전트", "HBM", "AI추론", "KVCache", "AI메모리", "반도체"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -16,6 +16,21 @@ heroImage: "/images/research/ai-agent-hbm-demand-vector.svg"
 heroAlt: "AI 에이전트 반복 추론과 KV Cache가 HBM 수요로 이어지는 구조"
 ogImage: "/images/research/ai-agent-hbm-demand-vector.svg"
 readingTime: "약 8분"
+authorBio: "JoyLab Research · AI 추론·메모리 인프라 리서치"
+researchMethod: "NVIDIA의 agentic inference·KV Cache 자료와 삼성전자·SK하이닉스 공식 HBM 자료를 기준으로 Agent workload가 HBM·DRAM·eSSD 수요로 전달되는 경로를 검토했습니다."
+sourceList:
+  - label: "NVIDIA Agentic Inference"
+    url: "https://www.nvidia.com/en-us/use-cases/agentic-inference/"
+  - label: "Samsung HBM"
+    url: "https://semiconductor.samsung.com/dram/hbm/"
+  - label: "SK hynix MWC 2026 AI Memory"
+    url: "https://news.skhynix.com/en/mwc-2026/"
+riskFactors:
+  - "KV Cache 압축·오프로딩·양자화 개선은 Agent 사용 증가 대비 HBM 수요 증가율을 낮출 수 있습니다."
+  - "AI 서비스 사용량 증가가 메모리 업체 출하·ASP·마진으로 자동 연결되는 것은 아닙니다."
+counterScenarios:
+  - "Agent 호출·컨텍스트 길이 증가가 메모리 효율 개선을 압도해 서버당 Memory Content가 계속 늘어나는 경우"
+  - "추론 최적화와 계층형 메모리 사용이 빨라져 HBM 증가율이 기대보다 낮아지는 경우"
 ---
 
 ## 핵심부터: Agent는 한 번 묻고 한 번 답하는 워크로드가 아니다
