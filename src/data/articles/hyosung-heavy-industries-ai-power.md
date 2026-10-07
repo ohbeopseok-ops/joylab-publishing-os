@@ -15,6 +15,20 @@ draft: false
 seoTitle: "효성중공업 AI 전력 분석｜초고압 변압기·미국 전력망·수주잔고"
 series: "AI 전력 기업 분석"
 readingTime: "약 10분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 초고압 전력기기·북미 전력망 리서치"
+researchMethod: "효성중공업 공식 연차보고서와 재무제표를 기준으로 초고압 변압기·차단기, 북미 노출, 수주·생산능력, 중공업 부문 수익성을 분리해 검토했습니다."
+sourceList:
+  - label: "Hyosung Heavy Industries annual reports"
+    url: "https://www.hyosungheavyindustries.com/en/company/ir/archive/annual-report"
+  - label: "Hyosung Heavy Industries financial statements"
+    url: "https://www.hyosungheavyindustries.com/kr/company/ir/archive/financial-statements"
+riskFactors:
+  - "전력기기 수주 확대와 동시에 증설·운전자본 부담이 커질 수 있습니다."
+  - "건설부문 변동성과 북미 관세·환율이 중공업 부문의 강한 실적을 일부 상쇄할 수 있습니다."
+counterScenarios:
+  - "북미 고수익 전력기기 매출이 지속되고 증설분이 높은 가동률로 흡수되는 경우"
+  - "증설 경쟁과 원가 상승으로 수주 증가 대비 이익 증가 속도가 둔화되는 경우"
 ---
 
 효성중공업의 AI 전력 투자 논리는 비교적 선명합니다. **데이터센터와 전력망 투자가 늘수록 초고압 변압기·차단기 같은 병목 장비의 가치가 커지는 구조**입니다.
