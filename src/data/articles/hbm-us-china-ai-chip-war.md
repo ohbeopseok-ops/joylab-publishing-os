@@ -4,7 +4,7 @@ description: "AI 가속기의 메모리 병목, 미국의 HBM 수출통제, 중�
 category: "투자·경제"
 tags: ["HBM", "HBM4", "AI반도체", "삼성전자", "SK하이닉스", "중국HBM"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -14,6 +14,23 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "hbm us china ai chip war를 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
+authorBio: "JoyLab Research · HBM·미중 수출통제 리서치"
+researchMethod: "BIS 수출통제 원문과 삼성전자·SK하이닉스 공식 실적자료를 기준으로 HBM이 AI 가속기 성능·수출규제·메모리 공급망에서 차지하는 위치를 검토했습니다."
+sourceList:
+  - label: "BIS Semiconductor Export Controls"
+    url: "https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military"
+  - label: "BIS China Controls"
+    url: "https://www.bis.gov/node/20292"
+  - label: "Samsung Earnings Releases"
+    url: "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+  - label: "SK hynix IR"
+    url: "https://www.skhynix.com/ir/UI-FR-IR99/"
+riskFactors:
+  - "수출통제 범위와 라이선스 정책은 바뀔 수 있어 특정 시점의 규제를 장기 고정 조건으로 보면 안 됩니다."
+  - "HBM 규제가 강화돼도 중국의 자체 대체기술·우회조달·내수 AI 투자 변화가 실제 수요에 영향을 줄 수 있습니다."
+counterScenarios:
+  - "수출통제 강화가 첨단 AI 메모리 접근을 제한해 공급망 분절이 심화되는 경우"
+  - "규제 조정과 중국 내 대체공급 확대가 병행돼 시장 분절 효과가 완화되는 경우"
 ---
 
 ## GPU만큼 HBM이 중요한 이유
