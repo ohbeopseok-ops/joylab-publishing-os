@@ -9,13 +9,26 @@ tags:
   - 반도체
   - 주가전망
 publishedAt: 2026-09-09
-updatedAt: 2026-09-11
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
 seoTitle: "SK하이닉스 AI 메모리 분석｜HBM4·장기계약·CAPEX 핵심 체크"
 series: "SK하이닉스 투자 가이드"
 readingTime: "약 12분"
+authorBio: "JoyLab Research · HBM·AI 메모리 기업 리서치"
+researchMethod: "SK하이닉스 공식 실적발표와 HBM4E 자료를 기준으로 HBM4 출하, HBM4E 세대전환, 장기수요, 마진·CAPEX·FCF의 연결을 검토했습니다."
+sourceList:
+  - label: "SK hynix 2Q26 business results"
+    url: "https://news.skhynix.com/en/q2-2026-business-results/"
+  - label: "SK hynix HBM4E sample shipment"
+    url: "https://news.skhynix.com/en/sk-hynix-ships-samples-of-12-layer-next-gen-hbm4e-2/"
+riskFactors:
+  - "HBM 수요가 강해도 대규모 CAPEX가 향후 공급 증가와 가격 정상화로 이어질 수 있습니다."
+  - "높은 성장 프리미엄은 HBM 세대전환·수율·고객 확대 속도가 둔화될 때 빠르게 축소될 수 있습니다."
+counterScenarios:
+  - "HBM4 출하 확대와 HBM4E 전환이 순조롭게 이어져 이익 추정치가 계속 상향되는 경우"
+  - "경쟁사 공급 확대와 AI CAPEX 둔화로 HBM 성장 프리미엄이 낮아지는 경우"
 ---
 
 SK하이닉스를 AI 메모리 관점에서 볼 때 가장 중요한 질문은 **HBM 리더십이 실제 장기 수요·생산능력·현금흐름으로 얼마나 오래 연결되는가**입니다.
