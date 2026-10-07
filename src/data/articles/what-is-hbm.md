@@ -17,6 +17,22 @@ draft: false
 seoTitle: "HBM이란? 뜻·HBM3E·HBM4 차이와 삼성전자·SK하이닉스 핵심 정리"
 series: "반도체 투자 가이드"
 readingTime: "약 9분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · HBM 기초·투자 프레임 리서치"
+researchMethod: "삼성전자와 SK하이닉스의 공식 HBM 제품·기술 자료를 기준으로 HBM의 구조, 세대별 차이, 고객 인증·수율·양산이 투자 판단에 어떤 의미인지 정리했습니다."
+sourceList:
+  - label: "Samsung HBM"
+    url: "https://semiconductor.samsung.com/dram/hbm/"
+  - label: "Samsung HBM4 commercial shipment"
+    url: "https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing"
+  - label: "SK hynix AI Memory"
+    url: "https://news.skhynix.com/en/mwc-2026/"
+riskFactors:
+  - "HBM 기술 우위는 실제 고객 인증·양산수율·출하량으로 확인되기 전까지 기업 실적과 동일하게 볼 수 없습니다."
+  - "AI 수요 둔화나 경쟁사 공급 확대는 HBM 가격 프리미엄과 제품 믹스를 약화시킬 수 있습니다."
+counterScenarios:
+  - "AI 가속기당 HBM 탑재량 증가와 세대전환이 이어져 HBM 비트 수요가 구조적으로 늘어나는 경우"
+  - "메모리 최적화와 공급 증가가 겹쳐 HBM 가격과 수익성이 예상보다 빠르게 정상화되는 경우"
 ---
 
 HBM은 **High Bandwidth Memory**, 우리말로는 **고대역폭 메모리**입니다. 검색에서 가장 많이 궁금해하는 핵심부터 한 문장으로 정리하면 이렇습니다.
