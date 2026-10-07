@@ -24,6 +24,24 @@ investmentTheses:
 investmentResearchType: "explainer"
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "유틸리티 발전 송전 변압기 전력기기 데이터센터를 연결한 AI 전력 밸류체인 JoyLab 대표 이미지"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · AI 전력 밸류체인 리서치"
+researchMethod: "IEA 전력수요 자료와 LS ELECTRIC·HD현대일렉트릭·Eaton·GE Vernova 공식 자료를 기준으로 발전→송전→변압→배전→데이터센터 전력설비의 수혜 위치와 수익성 전달을 비교했습니다."
+sourceList:
+  - label: "IEA Energy and AI"
+    url: "https://www.iea.org/reports/energy-and-ai"
+  - label: "LS ELECTRIC IR"
+    url: "https://www.ls-electric.com/ko/company/invest/ir/"
+  - label: "Eaton 2Q26 Results"
+    url: "https://www.eaton.com/us/en-us/company/news-insights/news-releases/2026/eaton-reports-record-second-quarter-2026-results.html"
+  - label: "GE Vernova 2Q26 Results"
+    url: "https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial"
+riskFactors:
+  - "같은 AI 전력 테마라도 발전·송전·배전은 수주주기·마진·CAPEX 요구가 크게 다릅니다."
+  - "밸류체인 수혜 기대가 실적보다 먼저 반영되면 높은 밸류에이션이 조정될 수 있습니다."
+counterScenarios:
+  - "전력 병목이 장기화돼 여러 레이어의 수주와 마진이 동시에 개선되는 경우"
+  - "발주 정상화와 공급증설로 일부 전력기기 가격·마진이 빠르게 정상화되는 경우"
 ---
 
 AI 데이터센터가 늘어난다고 모든 전력 관련 기업이 같은 방식으로 수혜를 받는 것은 아닙니다.
