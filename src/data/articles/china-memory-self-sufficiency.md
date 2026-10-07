@@ -4,7 +4,7 @@ description: "중국의 DRAM·NAND 자립이 한국 메모리 업체의 점유�
 category: "투자·경제"
 tags: ["중국메모리자립", "CXMT", "YMTC", "삼성전자", "SK하이닉스"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -14,6 +14,21 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "china memory self sufficiency를 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
+authorBio: "JoyLab Research · 중국 메모리 자립·공급구조 리서치"
+researchMethod: "CXMT·YMTC 공식 제품자료와 BIS 수출통제 원문을 기준으로 중국 DRAM·NAND 자립이 수입대체, 제품세대, 생산능력과 글로벌 가격에 미치는 구조적 영향을 검토했습니다."
+sourceList:
+  - label: "CXMT Products"
+    url: "https://www.cxmt.com/en/product.html"
+  - label: "YMTC Products"
+    url: "https://www.ymtc.com/en/productlist.html?cat=33"
+  - label: "U.S. BIS semiconductor export controls"
+    url: "https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military"
+riskFactors:
+  - "제품 발표와 실제 대량양산·수율 안정·고객 채택 사이에는 시차가 있을 수 있습니다."
+  - "중국 내수 수요가 신규 공급을 흡수하면 글로벌 DRAM·NAND 가격 충격은 예상보다 제한될 수 있습니다."
+counterScenarios:
+  - "CXMT·YMTC의 제품세대와 고객 채택이 빠르게 올라가 수입대체와 해외 판매가 동시에 확대되는 경우"
+  - "수율·장비·고객 인증 제약으로 생산능력 증가가 실제 유효공급으로 이어지지 않는 경우"
 ---
 
 ## 정책보다 생산능력이 더 오래 남는다
