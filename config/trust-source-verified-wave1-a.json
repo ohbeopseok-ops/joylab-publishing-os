@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "verifiedAt": "2026-10-07",
+  "rows": [
+    [
+      "samsung-vs-sk-hynix-ai-memory",
+      [
+        "https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing",
+        "https://news.skhynix.com/en/q2-2026-business-results/"
+      ]
+    ],
+    [
+      "hd-hyundai-heavy-industries-shipbuilding",
+      [
+        "https://hd-hhi.com/en/investors/ir-data/earnings-release",
+        "https://hd-hhi.com/en/investors/ir-data/monthly"
+      ]
+    ],
+    [
+      "strong-retail-sales-nasdaq-rally-2026",
+      [
+        "https://www.census.gov/retail/sales.html",
+        "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+      ]
+    ],
+    [
+      "samsung-market-close-2026-09-28",
+      [
+        "https://www.samsung.com/global/ir/",
+        "https://www.samsung.com/global/ir/reports-disclosures/public-disclosure-view.84745/",
+        "https://data.krx.co.kr/"
+      ]
+    ],
+    [
+      "doosan-enerbility-ai-power",
+      [
+        "https://www.doosanenerbility.com/en/investment/ir_data",
+        "https://www.doosanenerbility.com/kr/investment/ir_business"
+      ]
+    ],
+    [
+      "hd-hyundai-electric-ai-power",
+      [
+        "https://www.hd-hyundaielectric.com/elect/en/IR/IRdata1.jsp",
+        "https://data.krx.co.kr/"
+      ]
+    ],
+    [
+      "samsung-hbm4-memory-outlook-2026-09-20",
+      [
+        "https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing",
+        "https://www.samsung.com/global/ir/"
+      ]
+    ]
+  ]
+}
