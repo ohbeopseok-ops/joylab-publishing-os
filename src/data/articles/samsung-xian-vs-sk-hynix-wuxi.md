@@ -4,7 +4,7 @@ description: "삼성전자 시안 NAND와 SK하이닉스 우시 DRAM 공장의 �
 category: "투자·경제"
 tags: ["삼성전자시안", "SK하이닉스우시", "NAND", "DRAM", "중국팹"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -14,6 +14,23 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "samsung xian vs sk hynix wuxi를 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
+authorBio: "JoyLab Research · 중국 반도체 생산거점 리스크 리서치"
+researchMethod: "삼성전자·SK하이닉스 공식 IR과 BIS 중국 팹 규제 원문을 기준으로 시안 NAND와 우시 DRAM의 제품 역할, 장비 접근, 증설·공정전환 리스크를 비교했습니다."
+sourceList:
+  - label: "Samsung Earnings Releases"
+    url: "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+  - label: "Samsung IR"
+    url: "https://www.samsung.com/sec/ir/"
+  - label: "SK hynix IR"
+    url: "https://www.skhynix.com/ir/UI-FR-IR99/"
+  - label: "BIS China Semiconductor Controls"
+    url: "https://www.bis.gov/press-release/department-commerce-closes-export-controls-loophole-foreign-owned-semiconductor-fabs-china"
+riskFactors:
+  - "중국 팹의 규제 리스크는 생산중단 여부보다 장비 업그레이드·공정전환·장기 경쟁력에 먼저 나타날 수 있습니다."
+  - "회사별 중국 공장의 제품 믹스와 글로벌 생산 재배치 속도가 달라 동일한 규제 충격으로 비교하기 어렵습니다."
+counterScenarios:
+  - "장비 라이선스 제약이 커져 중국 팹의 선단공정 전환이 늦어지는 경우"
+  - "라이선스·생산 재배치가 안정돼 중국 거점의 현금창출과 공급 역할이 유지되는 경우"
 ---
 
 ## 두 공장의 가장 큰 차이는 제품이다
