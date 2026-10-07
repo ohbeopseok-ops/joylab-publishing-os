@@ -15,6 +15,20 @@ draft: false
 seoTitle: "가스터빈이 다시 중요해진 이유｜AI 데이터센터 전력 투자 핵심"
 series: "AI 전력 투자 가이드"
 readingTime: "약 9분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 가스터빈·AI 전력공급 리서치"
+researchMethod: "IEA의 데이터센터 전력수요 전망과 GE Vernova 공식 실적자료를 기준으로 가스터빈·복합화력의 빠른 전력공급 역할, 프로젝트 리드타임과 서비스 매출 구조를 검토했습니다."
+sourceList:
+  - label: "IEA Energy and AI"
+    url: "https://www.iea.org/reports/energy-and-ai"
+  - label: "GE Vernova 2Q26 Results"
+    url: "https://www.gevernova.com/news/press-releases/ge-vernova-reports-second-quarter-2026-financial-results-raises-2026-financial"
+riskFactors:
+  - "가스터빈 수요 확대는 연료가격·환경규제·계통연계·프로젝트 금융 조건의 영향을 받습니다."
+  - "AI 전력 수요가 강해도 터빈 생산 슬롯과 건설 리드타임이 매출 인식을 늦출 수 있습니다."
+counterScenarios:
+  - "빠른 전력공급 수단으로 가스터빈 발주와 장기서비스 계약이 동시에 늘어나는 경우"
+  - "재생에너지·저장장치·계통증설이 빨라져 신규 가스발전 필요성이 낮아지는 경우"
 ---
 
 AI 데이터센터 투자가 커질수록 시장의 관심은 GPU와 HBM을 넘어 **전력을 실제로 만들어내는 설비**로 이동합니다.
