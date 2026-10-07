@@ -19,6 +19,20 @@ readingTime: "약 11분"
 heroImage: "/images/research/us-treasury-major-holders-jun-2026.svg"
 heroAlt: "2026년 6월 미국 국채 주요 해외 보유국 일본 영국 중국 비교 차트"
 heroCaption: "일본 1.1167조 달러, 영국 9,399억 달러, 중국 6,334억 달러. Source: U.S. Treasury TIC, June 2026."
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 미국 국채 해외수요·TIC 리서치"
+researchMethod: "미 재무부 TIC의 국가별 보유액과 자본흐름 자료를 기준으로 중앙은행·공식기관·민간 투자자의 미국 국채 수요 구조를 구분해 검토했습니다."
+sourceList:
+  - label: "U.S. Treasury Major Foreign Holders"
+    url: "https://ticdata.treasury.gov/Publish/slt_table5.html"
+  - label: "U.S. Treasury TIC June 2026 release"
+    url: "https://home.treasury.gov/news/press-releases/sb0606"
+riskFactors:
+  - "TIC 국가별 보유액은 수탁 위치와 월말 평가액의 영향을 받으므로 실제 순매도와 동일하게 해석하면 안 됩니다."
+  - "해외 공식기관 비중이 줄고 가격민감한 민간자금 비중이 커지면 국채 수요의 변동성이 높아질 수 있습니다."
+counterScenarios:
+  - "해외 공식기관과 장기 실수요가 공급 증가를 충분히 흡수하는 경우"
+  - "안정적 매수자 비중이 줄어 더 높은 수익률을 요구하는 구조가 강화되는 경우"
 ---
 
 ## Research Brief
