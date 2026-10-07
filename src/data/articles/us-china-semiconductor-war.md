@@ -4,7 +4,7 @@ description: "미국의 대중 반도체 규제부터 중국의 DRAM·NAND·장�
 category: "투자·경제"
 tags: ["미중반도체전쟁", "삼성전자", "SK하이닉스", "HBM", "CXMT", "YMTC"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -14,6 +14,25 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "us china semiconductor war를 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 10분"
+authorBio: "JoyLab Research · 미중 반도체 공급망 리서치"
+researchMethod: "BIS 수출통제 원문과 CXMT·YMTC·삼성전자·SK하이닉스 공식 자료를 기준으로 첨단연산·메모리·제조장비·중국 생산거점의 규제와 경쟁구도를 함께 검토했습니다."
+sourceList:
+  - label: "U.S. BIS EAR 742"
+    url: "https://www.bis.gov/regulations/ear/742"
+  - label: "CXMT Products"
+    url: "https://www.cxmt.com/en/product.html"
+  - label: "YMTC Products"
+    url: "https://www.ymtc.com/en/products.html"
+  - label: "Samsung Earnings Releases"
+    url: "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+  - label: "SK hynix IR"
+    url: "https://www.skhynix.com/ir/UI-FR-IR99/"
+riskFactors:
+  - "미중 규제는 정책 변화와 개별 라이선스에 따라 실제 기업 영향이 달라질 수 있습니다."
+  - "중국 업체의 제품 확대와 한국 업체의 고부가 제품 전환이 동시에 진행돼 단순 점유율 비교만으로 경쟁강도를 판단하기 어렵습니다."
+counterScenarios:
+  - "수출통제 강화와 중국 자립 투자가 동시에 확대돼 공급망 분절이 심화되는 경우"
+  - "규제 완화와 글로벌 수요 회복으로 경쟁보다 시장 성장 효과가 더 크게 나타나는 경우"
 ---
 
 ## 미·중 반도체 전쟁의 본질은 무엇인가
