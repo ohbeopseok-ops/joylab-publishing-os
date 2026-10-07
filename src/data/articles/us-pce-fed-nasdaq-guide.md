@@ -11,7 +11,7 @@ tags:
   - 나스닥
   - 미국 경제지표
 publishedAt: 2026-09-22
-updatedAt: 2026-09-22
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -22,6 +22,19 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "2026년 7월 미국 PCE 3.7%와 근원 PCE 3.3%, 개인소득·소비와 Fed를 연결한 JoyLab 리서치 대표 이미지"
 heroCaption: "PCE는 물가만 보는 지표가 아니라 소득·소비와 함께 Fed의 정책 판단을 읽는 핵심 데이터입니다."
 ogImage: "/images/research/joylab-research-default-hero.svg"
+authorBio: "JoyLab Research · 미국 PCE·소득·소비 리서치"
+researchMethod: "BEA Personal Income and Outlays 원문과 Federal Reserve 자료를 기준으로 PCE 물가·근원 PCE·개인소득·소비·저축률을 정책금리와 시장에 연결해 검토했습니다."
+sourceList:
+  - label: "U.S. BEA Personal Income and Outlays July 2026"
+    url: "https://www.bea.gov/news/2026/personal-income-and-outlays-july-2026"
+  - label: "Federal Reserve FOMC calendar"
+    url: "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+riskFactors:
+  - "PCE는 발표 시점과 기준월이 CPI와 다를 수 있으므로 서로 다른 월 데이터를 직접 비교하면 해석이 왜곡될 수 있습니다."
+  - "명목 소득·소비 증가만 보고 실질 구매력과 저축률 변화를 놓치면 소비 지속성을 과대평가할 수 있습니다."
+counterScenarios:
+  - "근원 PCE가 둔화되고 실질소비가 유지돼 연착륙 기대가 강화되는 경우"
+  - "소비가 강한 가운데 PCE가 다시 가속해 정책금리 부담이 커지는 경우"
 ---
 
 현재 확인 가능한 최신 확정 PCE는 **2026년 7월 데이터**입니다.
