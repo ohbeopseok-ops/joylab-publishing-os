@@ -15,6 +15,20 @@ draft: false
 seoTitle: "HD현대일렉트릭 AI 전력 분석｜북미 수주·변압기·마진"
 series: "AI 전력 기업 분석"
 readingTime: "약 10분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 초고압 변압기·전력망 리서치"
+researchMethod: "HD현대일렉트릭 공식 IR과 KRX 시장자료를 기준으로 북미 변압기 수주잔고, 제품 믹스, 증설, 영업이익률과 밸류에이션을 연결해 검토했습니다."
+sourceList:
+  - label: "HD Hyundai Electric IR"
+    url: "https://www.hd-hyundaielectric.com/elect/en/IR/IRdata1.jsp"
+  - label: "KRX Data"
+    url: "https://data.krx.co.kr/"
+riskFactors:
+  - "북미 전력기기 증설 경쟁이 빨라지면 현재의 가격결정력과 높은 마진이 정상화될 수 있습니다."
+  - "높은 수주잔고가 있어도 신규 공장 초기비용과 납기 지연이 실적에 영향을 줄 수 있습니다."
+counterScenarios:
+  - "북미 전력망·데이터센터 수요가 증설보다 빠르게 늘어 고마진 제품 믹스가 유지되는 경우"
+  - "업계 공급능력 증가가 수요를 앞서며 가격과 마진이 동시에 정상화되는 경우"
 ---
 
 HD현대일렉트릭의 강점은 **수주잔고가 크다는 사실보다 그 수주가 이미 높은 영업이익률로 전환되고 있다는 점**입니다.
