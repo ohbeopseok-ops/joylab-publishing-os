@@ -12,7 +12,7 @@ tags:
   - 미국 PCE
   - 나스닥
 publishedAt: 2026-09-22
-updatedAt: 2026-09-22
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -23,6 +23,19 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "2026년 8월 미국 PPI 5.4%와 기업 원가, Fed 금리, 나스닥 연결 구조를 표현한 JoyLab 리서치 대표 이미지"
 heroCaption: "PPI는 소비자물가보다 앞단에서 기업의 원가와 마진 압력을 보여주는 지표입니다."
 ogImage: "/images/research/joylab-research-default-hero.svg"
+authorBio: "JoyLab Research · 미국 생산자물가·기업마진 리서치"
+researchMethod: "BLS PPI 원문과 Federal Reserve 자료를 기준으로 상품·서비스·에너지·운송 비용이 기업 마진, CPI/PCE, 금리와 주식시장에 전달되는 경로를 검토했습니다."
+sourceList:
+  - label: "U.S. BLS PPI August 2026"
+    url: "https://www.bls.gov/news.release/archives/ppi_09102026.htm"
+  - label: "Federal Reserve FOMC calendar"
+    url: "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+riskFactors:
+  - "PPI 상승이 모든 기업의 마진 악화로 동일하게 이어지는 것은 아니며 가격 전가력 차이를 봐야 합니다."
+  - "에너지·운송비 중심의 단기 상승을 기초 인플레이션 재가속으로 과대해석할 수 있습니다."
+counterScenarios:
+  - "원가 상승이 일시적이고 기업의 가격 전가력으로 마진 영향이 제한되는 경우"
+  - "에너지·운송비 상승이 CPI/PCE까지 전가돼 긴축 부담이 커지는 경우"
 ---
 
 2026년 8월 미국 생산자물가지수(PPI)는 전월 대비 **+0.4%**, 전년 동월 대비 **+5.4%** 상승했습니다.
