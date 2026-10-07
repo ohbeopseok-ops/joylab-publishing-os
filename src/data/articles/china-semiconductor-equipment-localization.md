@@ -4,7 +4,7 @@ description: "중국 반도체 장비 국산화의 실제 수준을 식각·증�
 category: "투자·경제"
 tags: ["중국반도체장비", "NAURA", "AMEC", "SMEE", "장비국산화"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -14,6 +14,21 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "china semiconductor equipment localization를 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
+authorBio: "JoyLab Research · 중국 반도체 장비 국산화 리서치"
+researchMethod: "미 상무부 BIS 수출통제 원문을 기준으로 중국 선단공정 장비 접근 제한과 국산화 압력을 정리하고, 장비 국산화는 공정 커버리지·수율·고객 채택 관점에서 해석했습니다."
+sourceList:
+  - label: "BIS Advanced Semiconductor Controls"
+    url: "https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military"
+  - label: "BIS China Semiconductor Controls"
+    url: "https://www.bis.gov/node/20292"
+  - label: "BIS Foreign-owned fabs China policy"
+    url: "https://www.bis.gov/press-release/department-commerce-closes-export-controls-loophole-foreign-owned-semiconductor-fabs-china"
+riskFactors:
+  - "장비 국산화율 상승만으로 선단공정 생산성·수율이 글로벌 수준에 도달했다고 판단하기 어렵습니다."
+  - "수출통제 강도와 라이선스 정책 변화는 중국 팹의 장비 조달 경로와 투자 속도를 크게 바꿀 수 있습니다."
+counterScenarios:
+  - "국산 장비의 공정 커버리지와 고객 인증이 빠르게 확대돼 수입대체가 구조적으로 진행되는 경우"
+  - "핵심 공정 장비와 부품 제약으로 선단공정 확장이 예상보다 느려지는 경우"
 ---
 
 ## 중국 장비 국산화는 공정마다 다르다
