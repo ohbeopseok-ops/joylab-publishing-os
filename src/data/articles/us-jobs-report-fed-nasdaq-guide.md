@@ -11,7 +11,7 @@ tags:
   - 미국 경제지표
   - 미국 고용지표
 publishedAt: 2026-09-22
-updatedAt: 2026-09-22
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -22,6 +22,19 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "2026년 8월 미국 비농업고용 16만2천 명과 실업률 4.1%, 임금과 Fed를 연결한 JoyLab 리서치 대표 이미지"
 heroCaption: "고용지표는 신규고용 하나가 아니라 실업률·임금·참가율을 함께 봐야 소비와 Fed의 방향을 읽을 수 있습니다."
 ogImage: "/images/research/joylab-research-default-hero.svg"
+authorBio: "JoyLab Research · 미국 고용·임금·Fed 리서치"
+researchMethod: "BLS Employment Situation 원문과 Federal Reserve 자료를 기준으로 신규고용·실업률·임금·참가율을 소비, 물가와 정책금리의 흐름에 연결해 검토했습니다."
+sourceList:
+  - label: "U.S. BLS Employment Situation"
+    url: "https://www.bls.gov/news.release/empsit.htm"
+  - label: "Federal Reserve FOMC calendar"
+    url: "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+riskFactors:
+  - "비농업고용 헤드라인은 이전월 수정치와 가계조사 지표를 함께 보지 않으면 노동시장 강도를 왜곡할 수 있습니다."
+  - "강한 고용은 소비와 EPS에 긍정적이지만 긴축 지속 가능성을 높여 성장주에 부담이 될 수 있습니다."
+counterScenarios:
+  - "고용은 견조하지만 임금 압력이 완화돼 연착륙 기대가 강화되는 경우"
+  - "고용과 임금이 동시에 강해져 추가 긴축과 금리 상승 부담이 커지는 경우"
 ---
 
 2026년 8월 미국 비농업고용은 **16만2천 명 증가**했습니다. 실업률은 **4.1%**로 유지됐고, 평균 시간당임금 상승률은 전년 대비 **3.1%**였습니다.
