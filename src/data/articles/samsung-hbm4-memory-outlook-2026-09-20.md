@@ -14,7 +14,7 @@ tags:
   - AI인프라
   - AI Research Cluster
 publishedAt: 2026-09-20
-updatedAt: 2026-09-20
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: true
 draft: false
@@ -32,6 +32,19 @@ readingTime: "약 8분"
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "삼성전자 HBM4와 HBM4E, AI 메모리 업황을 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
+authorBio: "JoyLab Research · HBM4·AI 메모리 리서치"
+researchMethod: "삼성전자 공식 HBM4 발표와 IR 자료를 기준으로 HBM4 양산·상업 출하, HBM4E 전환, 생산능력과 AI 메모리 수요의 연결을 검토했습니다."
+sourceList:
+  - label: "Samsung HBM4 mass production"
+    url: "https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing"
+  - label: "Samsung Electronics IR"
+    url: "https://www.samsung.com/global/ir/"
+riskFactors:
+  - "HBM4 양산 개시는 고객별 인증·수율·실제 출하량과 동일한 의미가 아닐 수 있습니다."
+  - "AI 인프라 CAPEX 둔화나 경쟁사 공급 확대는 HBM 가격과 제품 믹스 개선 속도를 낮출 수 있습니다."
+counterScenarios:
+  - "HBM4 상업 출하 확대와 HBM4E 샘플 전환이 순조롭게 이어지는 경우"
+  - "고객 인증 지연이나 경쟁 심화로 HBM 매출 기여 속도가 기대보다 늦어지는 경우"
 ---
 
 ## Research Brief
