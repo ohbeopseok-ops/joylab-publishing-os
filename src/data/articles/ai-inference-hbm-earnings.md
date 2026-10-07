@@ -6,7 +6,7 @@ canonical: "https://aijoylab.kr/articles/ai-inference-hbm-earnings"
 category: "투자·경제"
 tags: ["AI추론", "HBM", "삼성전자", "SK하이닉스", "AI메모리", "반도체"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -16,6 +16,21 @@ heroImage: "/images/research/ai-inference-hbm-earnings-vector.svg"
 heroAlt: "AI 추론 수요가 HBM과 ASP·수율·마진·EPS로 연결되는 구조"
 ogImage: "/images/research/ai-inference-hbm-earnings-vector.svg"
 readingTime: "약 9분"
+authorBio: "JoyLab Research · AI 메모리 실적전달 리서치"
+researchMethod: "삼성전자·SK하이닉스 공식 실적자료와 NVIDIA 추론 자료를 기준으로 Inference → Memory Content → Shipment → ASP → Yield → Margin → EPS의 연결을 검토했습니다."
+sourceList:
+  - label: "Samsung Electronics 2Q26 Results"
+    url: "https://news.samsung.com/global/samsung-electronics-announces-second-quarter-2026-results"
+  - label: "SK hynix 2Q26 Business Results"
+    url: "https://news.skhynix.com/en/q2-2026-business-results/"
+  - label: "NVIDIA Agentic Inference"
+    url: "https://www.nvidia.com/en-us/use-cases/agentic-inference/"
+riskFactors:
+  - "AI 수요가 강해도 공급 확대·ASP 하락·수율 부진이 겹치면 이익 레버리지가 약해질 수 있습니다."
+  - "HBM 공급 증가가 범용 DRAM·NAND 가격과 제품 믹스에 미치는 영향은 별도로 확인해야 합니다."
+counterScenarios:
+  - "HBM4 출하·ASP·수율이 동시에 개선돼 메모리 마진과 EPS가 계속 상향되는 경우"
+  - "공급 증가와 가격 정상화가 수요 증가를 앞서 EPS 상향 속도가 둔화되는 경우"
 ---
 
 ## AI가 성장한다고 메모리 기업 이익이 자동으로 늘어나는 것은 아니다
