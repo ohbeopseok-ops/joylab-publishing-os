@@ -6,7 +6,7 @@ canonical: "https://aijoylab.kr/articles/cxmt-dram-vs-samsung-sk-hynix"
 category: "투자·경제"
 tags: ["CXMT", "DRAM", "삼성전자", "SK하이닉스", "중국메모리"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: false
 draft: false
@@ -16,6 +16,23 @@ heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "cxmt dram vs samsung sk hynix를 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
 readingTime: "약 7분"
+authorBio: "JoyLab Research · DRAM 경쟁구도·중국 메모리 리서치"
+researchMethod: "CXMT 공식 제품·뉴스와 삼성전자·SK하이닉스 공식 실적자료를 기준으로 제품세대, DDR5·LPDDR, 생산능력, 고객 채택과 고부가 DRAM 격차를 비교했습니다."
+sourceList:
+  - label: "CXMT Products"
+    url: "https://www.cxmt.com/en/product.html"
+  - label: "CXMT News"
+    url: "https://www.cxmt.com/en/news/info_22.html"
+  - label: "Samsung Earnings Releases"
+    url: "https://www.samsung.com/global/ir/financial-information/earnings-release/"
+  - label: "SK hynix IR"
+    url: "https://www.skhynix.com/ir/UI-FR-IR99/"
+riskFactors:
+  - "제품 스펙 유사성만으로 원가·수율·대량양산 경쟁력이 같다고 판단하기 어렵습니다."
+  - "범용 DRAM 경쟁 심화가 HBM 중심의 고부가 제품 수익성에 미치는 영향은 별도로 봐야 합니다."
+counterScenarios:
+  - "CXMT의 DDR5·LPDDR5X 양산과 고객 확대가 빨라져 범용 DRAM 가격 경쟁이 심화되는 경우"
+  - "선단공정·수율·고부가 제품 격차가 유지돼 한국 업체의 프리미엄이 지속되는 경우"
 ---
 
 ## CXMT는 더 이상 작은 중국 로컬 업체가 아니다
