@@ -1,0 +1,72 @@
+{
+  "version": "1.0",
+  "wave": "2A_US_MACRO",
+  "generatedAt": "2026-10-07",
+  "rows": [
+    {
+      "slug": "us-august-retail-sales-fed-nasdaq-2026",
+      "claims": [
+        {
+          "claim": "August 2026 retail sales level and monthly change",
+          "evidence": "https://www.census.gov/retail/sales.html"
+        },
+        {
+          "claim": "September 2026 FOMC policy decision",
+          "evidence": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+        }
+      ]
+    },
+    {
+      "slug": "us-cpi-fed-nasdaq-guide",
+      "claims": [
+        {
+          "claim": "August 2026 CPI and core CPI details",
+          "evidence": "https://www.bls.gov/news.release/archives/cpi_09112026.htm"
+        },
+        {
+          "claim": "September 2026 FOMC policy decision",
+          "evidence": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm"
+        }
+      ]
+    },
+    {
+      "slug": "us-ppi-fed-margin-guide",
+      "claims": [
+        {
+          "claim": "August 2026 PPI composition and energy/transport details",
+          "evidence": "https://www.bls.gov/news.release/archives/ppi_09102026.htm"
+        },
+        {
+          "claim": "FOMC policy context",
+          "evidence": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+        }
+      ]
+    },
+    {
+      "slug": "us-jobs-report-fed-nasdaq-guide",
+      "claims": [
+        {
+          "claim": "Employment Situation, payrolls, unemployment and wage context",
+          "evidence": "https://www.bls.gov/news.release/empsit.htm"
+        },
+        {
+          "claim": "FOMC policy context",
+          "evidence": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+        }
+      ]
+    },
+    {
+      "slug": "us-pce-fed-nasdaq-guide",
+      "claims": [
+        {
+          "claim": "July 2026 PCE, income, spending and saving-rate data",
+          "evidence": "https://www.bea.gov/news/2026/personal-income-and-outlays-july-2026"
+        },
+        {
+          "claim": "FOMC policy context",
+          "evidence": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+        }
+      ]
+    }
+  ]
+}
