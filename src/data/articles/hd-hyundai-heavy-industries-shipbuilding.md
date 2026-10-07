@@ -15,6 +15,20 @@ draft: false
 seoTitle: "HD현대중공업 조선 분석｜LNG선·함정·엔진·수주 가시성"
 series: "조선 기업 분석"
 readingTime: "약 11분"
+updatedAt: "2026-10-07"
+authorBio: "JoyLab Research · 조선·엔진·특수선 리서치"
+researchMethod: "HD현대중공업 공식 실적발표와 월간 IR을 기준으로 고선가 선종, 함정·엔진 노출, 수주 믹스, 통합 생산성과 마진의 지속성을 검토했습니다."
+sourceList:
+  - label: "HD현대중공업 실적발표"
+    url: "https://hd-hhi.com/en/investors/ir-data/earnings-release"
+  - label: "HD현대중공업 월간 IR"
+    url: "https://hd-hhi.com/en/investors/ir-data/monthly"
+riskFactors:
+  - "신조 발주 둔화와 후판·인건비 상승은 높은 마진의 지속성을 약화시킬 수 있습니다."
+  - "함정·MRO 같은 장기 프로젝트는 정책과 계약 일정에 따라 매출화가 지연될 수 있습니다."
+counterScenarios:
+  - "고선가 선박과 엔진·특수선 믹스가 유지돼 두 자릿수 마진이 지속되는 경우"
+  - "신규수주 둔화와 비용 상승이 겹쳐 수주잔고의 이익 전환 속도가 낮아지는 경우"
 ---
 
 HD현대중공업을 볼 때 가장 중요한 질문은 **수주가 많으냐가 아니라, 고선가 선박·함정·엔진이 높은 마진으로 얼마나 오래 매출에 전환될 수 있느냐**입니다.
