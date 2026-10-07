@@ -242,4 +242,7 @@ Hard rules:
 10. Do not weaken mobile entry budgets, Astro schema validation, source-quality gates, or Trust Layer requirements merely to make CI green.
 11. For investing articles, use `scripts/enrich-investment-source-list-v1.mjs` to propose `sourceList` from primary-source URLs already present in the article. Dry-run is the default; `--apply` is allowed only when at least the configured minimum primary sources are detected.
 12. The source enrichment tool must never invent, search for, or fabricate source URLs. Missing primary sources remain BLOCKED for manual research.
+13. Trust Layer Wave 1-3 rollout follows `config/adsense-trust-rollout-waves-v1.json` and `scripts/generate-trust-rollout-waves-v1.mjs`.
+14. Wave 1 = TOP20 priority, Wave 2 = remaining 투자·경제, Wave 3 = remaining published articles.
+15. Do not advance a wave merely because metadata was written; use the wave exit criteria and latest-head evidence.
 
