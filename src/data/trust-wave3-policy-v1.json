@@ -1,0 +1,265 @@
+{
+  "version": "1.0",
+  "purpose": "Wave 3 Trust policy for non-investing published articles. Prefer official/product/research evidence; allow transparent editorial fallback for framework/leadership essays.",
+  "internalDomains": [
+    "aijoylab.kr"
+  ],
+  "approvedDomains": {
+    "official": [
+      "openai.com",
+      "help.openai.com",
+      "developers.openai.com",
+      "anthropic.com",
+      "microsoft.com",
+      "oracle.com",
+      "docs.oracle.com",
+      "nist.gov",
+      "pipc.go.kr",
+      "ftc.gov",
+      "nvidia.com",
+      "docs.nvidia.com",
+      "developer.nvidia.com",
+      "nvidianews.nvidia.com",
+      "marvell.com",
+      "broadcom.com",
+      "investors.broadcom.com",
+      "google.com",
+      "blog.google",
+      "cloud.google.com",
+      "ai.google.dev",
+      "ai.meta.com",
+      "itu.int",
+      "iscpc.org",
+      "subcom.com",
+      "starlink.com",
+      "iea.org",
+      "nda.gov.cn",
+      "samr.gov.cn",
+      "cac.gov.cn",
+      "moe.gov.cn",
+      "aside.com"
+    ],
+    "research": [
+      "aclanthology.org",
+      "nature.com",
+      "reuters.com"
+    ]
+  },
+  "safeEditorialSlugs": [
+    "ai-productivity-operating-model",
+    "ai-productivity-roi",
+    "ai-workflow-automation",
+    "bach-counterpoint-order-in-chaos",
+    "burnout-recovery-starts-with-pause",
+    "customer-center-ax-leadership",
+    "customer-center-ax-operating-model",
+    "customer-center-crm-productivity",
+    "customer-center-qa-coaching-loop",
+    "fairness-system-explainable-standards",
+    "feedback-system-behavior-change",
+    "growth-leadership-operating-system",
+    "learning-system-reexecution-loop",
+    "performance-system-leading-indicators",
+    "recognition-system-fair-performance",
+    "why-we-cannot-stand-silence"
+  ],
+  "sourceOverrides": {
+    "ai-agent-governance": [
+      {
+        "label": "NIST AI Risk Management Framework",
+        "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+        "type": "official"
+      },
+      {
+        "label": "Microsoft — Securing AI agents",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/06/30/securing-ai-agents-ai-tools-move-from-reading-acting/",
+        "type": "official"
+      }
+    ],
+    "ai-api-key-compute-theft-2026": [
+      {
+        "label": "OpenAI — API Key Safety",
+        "url": "https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety",
+        "type": "official"
+      },
+      {
+        "label": "OpenAI — Account and API security",
+        "url": "https://help.openai.com/en/articles/8304786-keeping-your-openai-account-secure",
+        "type": "official"
+      }
+    ],
+    "ai-bubble-vs-compute-supercycle-2026": [
+      {
+        "label": "Anthropic Series H funding",
+        "url": "https://www.anthropic.com/news/series-h",
+        "type": "official"
+      },
+      {
+        "label": "Reuters — AI lab profitability analysis",
+        "url": "https://www.reuters.com/commentary/reuters-open-interest/can-ai-labs-ever-turn-profit-joachim-klement-2026-10-07/",
+        "type": "research"
+      }
+    ],
+    "anthropic-ipo-ai-safety-2026": [
+      {
+        "label": "Reuters — Anthropic IPO and AI-risk disclosure",
+        "url": "https://www.reuters.com/business/anthropics-ipo-pitch-embraces-ais-promise-peril-2026-09-30/",
+        "type": "research"
+      },
+      {
+        "label": "Anthropic Series H funding",
+        "url": "https://www.anthropic.com/news/series-h",
+        "type": "official"
+      }
+    ],
+    "aside-ai-browser-benchmark": [
+      {
+        "label": "Aside — Browser-agent benchmark methodology",
+        "url": "https://aside.com/blog/how-we-built-the-sota-browser-agent-that-outperforms-fable",
+        "type": "official"
+      },
+      {
+        "label": "Aside product",
+        "url": "https://aside.com/",
+        "type": "official"
+      }
+    ],
+    "aside-vs-chatgpt-work-vs-playwright": [
+      {
+        "label": "Aside product",
+        "url": "https://aside.com/",
+        "type": "official"
+      },
+      {
+        "label": "OpenAI — Introducing the Codex app",
+        "url": "https://openai.com/index/introducing-the-codex-app/",
+        "type": "official"
+      },
+      {
+        "label": "Aside benchmark methodology",
+        "url": "https://aside.com/blog/how-we-built-the-sota-browser-agent-that-outperforms-fable",
+        "type": "official"
+      }
+    ],
+    "aside-windows-launch": [
+      {
+        "label": "Aside product",
+        "url": "https://aside.com/",
+        "type": "official"
+      },
+      {
+        "label": "Aside blog",
+        "url": "https://aside.com/blog",
+        "type": "official"
+      }
+    ],
+    "openai-anthropic-ipo-cash-burn-2026": [
+      {
+        "label": "Reuters — AI lab profitability analysis",
+        "url": "https://www.reuters.com/commentary/reuters-open-interest/can-ai-labs-ever-turn-profit-joachim-klement-2026-10-07/",
+        "type": "research"
+      },
+      {
+        "label": "Anthropic Series H funding",
+        "url": "https://www.anthropic.com/news/series-h",
+        "type": "official"
+      }
+    ],
+    "codex-automation-gold-cases-5": [
+      {
+        "label": "OpenAI — Codex for every role",
+        "url": "https://openai.com/index/codex-for-every-role-tool-workflow/",
+        "type": "official"
+      },
+      {
+        "label": "OpenAI — Introducing the Codex app",
+        "url": "https://openai.com/index/introducing-the-codex-app/",
+        "type": "official"
+      }
+    ],
+    "codex-build-your-own-plugin-2026": [
+      {
+        "label": "OpenAI Developers — Plugin development",
+        "url": "https://developers.openai.com/plugins",
+        "type": "official"
+      },
+      {
+        "label": "OpenAI Developers — Build skills",
+        "url": "https://developers.openai.com/plugins/build/skills",
+        "type": "official"
+      }
+    ],
+    "codex-computer-use-guide-2026": [
+      {
+        "label": "OpenAI — Introducing the Codex app",
+        "url": "https://openai.com/index/introducing-the-codex-app/",
+        "type": "official"
+      },
+      {
+        "label": "OpenAI — Codex for every role",
+        "url": "https://openai.com/index/codex-for-every-role-tool-workflow/",
+        "type": "official"
+      }
+    ],
+    "codex-goal-mode-guide-2026": [
+      {
+        "label": "OpenAI — Introducing the Codex app",
+        "url": "https://openai.com/index/introducing-the-codex-app/",
+        "type": "official"
+      },
+      {
+        "label": "OpenAI — Codex for every role",
+        "url": "https://openai.com/index/codex-for-every-role-tool-workflow/",
+        "type": "official"
+      }
+    ],
+    "codex-non-developer-automation-10": [
+      {
+        "label": "OpenAI — Codex for every role",
+        "url": "https://openai.com/index/codex-for-every-role-tool-workflow/",
+        "type": "official"
+      },
+      {
+        "label": "OpenAI — Introducing the Codex app",
+        "url": "https://openai.com/index/introducing-the-codex-app/",
+        "type": "official"
+      }
+    ],
+    "codex-plugin-guide-2026": [
+      {
+        "label": "OpenAI Help — Plugins in ChatGPT and Codex",
+        "url": "https://help.openai.com/en/articles/20001256-plugins-in-codexOpenAI",
+        "type": "official"
+      },
+      {
+        "label": "OpenAI Developers — Plugin architecture",
+        "url": "https://developers.openai.com/plugins/concepts/plugins",
+        "type": "official"
+      }
+    ],
+    "codex-skill-guide-2026": [
+      {
+        "label": "OpenAI Developers — Skills",
+        "url": "https://developers.openai.com/plugins/concepts/skills",
+        "type": "official"
+      },
+      {
+        "label": "OpenAI Developers — Build skills",
+        "url": "https://developers.openai.com/plugins/build/skills",
+        "type": "official"
+      }
+    ],
+    "what-is-ai-agent": [
+      {
+        "label": "Anthropic — Building effective agents",
+        "url": "https://www.anthropic.com/engineering/building-effective-agents",
+        "type": "official"
+      },
+      {
+        "label": "OpenAI — Introducing the Codex app",
+        "url": "https://openai.com/index/introducing-the-codex-app/",
+        "type": "official"
+      }
+    ]
+  }
+}
