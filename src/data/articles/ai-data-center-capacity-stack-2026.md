@@ -13,7 +13,7 @@ tags:
   - GPU
   - AI Infrastructure Cluster
 publishedAt: 2026-09-20
-updatedAt: 2026-09-20
+updatedAt: "2026-10-07"
 author: "JoyLab"
 featured: true
 draft: false
@@ -23,6 +23,19 @@ readingTime: "약 8분"
 heroImage: "/images/research/joylab-research-default-hero.svg"
 heroAlt: "AI 데이터센터의 GPU·전력·계통·냉각 Capacity Stack을 분석한 JoyLab Research 대표 이미지"
 ogImage: "/images/research/joylab-research-default-hero.svg"
+authorBio: "JoyLab Research · AI 데이터센터 용량·병목 리서치"
+researchMethod: "IEA의 Energy and AI 자료와 NVIDIA의 Rubin 시스템 자료를 기준으로 GPU 조달 이후 전력·냉각·랙·네트워크·메모리 용량이 실제 가동능력을 제한하는 구조를 검토했습니다."
+sourceList:
+  - label: "IEA Energy and AI"
+    url: "https://www.iea.org/reports/energy-and-ai"
+  - label: "NVIDIA Rubin"
+    url: "https://www.nvidia.com/en-us/data-center/technologies/rubin/"
+riskFactors:
+  - "GPU 공급이 늘어도 전력계통·냉각·랙밀도·네트워크 병목 때문에 실제 가동 시점이 늦어질 수 있습니다."
+  - "데이터센터 CAPEX 발표액과 실제 전력 인가·상업운전 용량은 다를 수 있습니다."
+counterScenarios:
+  - "전력·냉각·네트워크 증설이 GPU 공급과 보조를 맞춰 가동률이 빠르게 올라가는 경우"
+  - "전력 인허가와 냉각 병목이 장기화돼 서버 확보에도 상업가동이 지연되는 경우"
 ---
 
 ## Research Brief
