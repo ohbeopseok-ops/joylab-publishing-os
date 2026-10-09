@@ -36,7 +36,14 @@ for (const item of liveEpisodes) {
   try {
     await fs.access(assetPath);
     const meta = await sharp(assetPath).metadata();
-    if (meta.width !== 1200 || meta.height !== 675) issue(`image must be 1200x675, got ${meta.width}x${meta.height}`);
+    const ratio = (meta.width || 0) / (meta.height || 1);
+    if (Math.abs(ratio - 16 / 9) > 0.01) issue(`image must be 16:9, got ${meta.width}x${meta.height}`);
+    if (item.number >= 3 && (meta.width !== 1200 || meta.height !== 675)) {
+      issue(`EP03+ image must be 1200x675, got ${meta.width}x${meta.height}`);
+    }
+    if (item.number <= 2 && ((meta.width || 0) < 800 || (meta.height || 0) < 450)) {
+      issue(`legacy EP01-EP02 image must be at least 800x450, got ${meta.width}x${meta.height}`);
+    }
     if (meta.format !== 'webp') issue('image must be WebP');
   } catch {
     issue(`hero image missing: ${item.image}`);
