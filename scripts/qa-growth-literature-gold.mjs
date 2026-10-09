@@ -177,15 +177,29 @@ for (const target of targets) {
       const hero01 = document.querySelector('.le-visual--ep01');
       const hero02 = document.querySelector('.le-visual--ep02');
       const hero03 = document.querySelector('.le-visual--ep03');
+      const hero04 = document.querySelector('.le-visual--ep04');
+      const hero05 = document.querySelector('.le-visual--ep05');
+      const hero06 = document.querySelector('.le-visual--ep06');
+      const hero07 = document.querySelector('.le-visual--ep07');
       const hero01Bg = hero01 ? getComputedStyle(hero01).backgroundImage : '';
       const hero02Bg = hero02 ? getComputedStyle(hero02).backgroundImage : '';
       const hero03Bg = hero03 ? getComputedStyle(hero03).backgroundImage : '';
+      const hero04Bg = hero04 ? getComputedStyle(hero04).backgroundImage : '';
+      const hero05Bg = hero05 ? getComputedStyle(hero05).backgroundImage : '';
+      const hero06Bg = hero06 ? getComputedStyle(hero06).backgroundImage : '';
+      const hero07Bg = hero07 ? getComputedStyle(hero07).backgroundImage : '';
+      const ogImage = document.querySelector('meta[property="og:image"]')?.getAttribute('content') || '';
       return {
         overflow: Math.max(bodyWidth, docWidth) - viewportWidth,
         requiredVisible: Object.fromEntries(required.map((selector) => [selector, visible(selector)])),
         hero01BackgroundConnected: hero01 ? hero01Bg.includes('ep01-old-man-and-the-sea.webp') : null,
         hero02BackgroundConnected: hero02 ? hero02Bg.includes('ep02-little-prince.webp') : null,
         hero03BackgroundConnected: hero03 ? hero03Bg.includes('ep03-demian-v7.webp') : null,
+        hero04BackgroundConnected: hero04 ? hero04Bg.includes('ep04-metamorphosis.webp') : null,
+        hero05BackgroundConnected: hero05 ? hero05Bg.includes('ep05-animal-farm.webp') : null,
+        hero06BackgroundConnected: hero06 ? hero06Bg.includes('ep06-1984.webp') : null,
+        hero07BackgroundConnected: hero07 ? hero07Bg.includes('ep07-the-stranger.webp') : null,
+        ogImage,
         title: document.title,
       };
     }, target.required);
@@ -242,7 +256,16 @@ for (const target of targets) {
       heroConnected:
         target.name === 'ep01' ? metrics.hero01BackgroundConnected === true :
         target.name === 'ep02' ? metrics.hero02BackgroundConnected === true :
-        target.name === 'ep03' ? metrics.hero03BackgroundConnected === true : true,
+        target.name === 'ep03' ? metrics.hero03BackgroundConnected === true :
+        target.name === 'ep04' ? metrics.hero04BackgroundConnected === true :
+        target.name === 'ep05' ? metrics.hero05BackgroundConnected === true :
+        target.name === 'ep06' ? metrics.hero06BackgroundConnected === true :
+        target.name === 'ep07' ? metrics.hero07BackgroundConnected === true : true,
+      ogImageConnected:
+        target.name === 'ep04' ? metrics.ogImage.includes('ep04-metamorphosis.webp') :
+        target.name === 'ep05' ? metrics.ogImage.includes('ep05-animal-farm.webp') :
+        target.name === 'ep06' ? metrics.ogImage.includes('ep06-1984.webp') :
+        target.name === 'ep07' ? metrics.ogImage.includes('ep07-the-stranger.webp') : true,
       titlePresent: Boolean(metrics.title),
       frameworkInteraction:
         target.name !== 'framework-v2' ||
