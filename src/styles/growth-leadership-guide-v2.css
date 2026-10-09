@@ -463,3 +463,52 @@
 /* Shared Research Graph containment: prevent intrinsic graph width from expanding the guide grid. */
 .growth-leadership-guide-v2 .sg-layout > section{min-width:0}
 .growth-leadership-guide-v2 .rg{min-width:0;max-width:100%}
+
+
+/* Literature real-image rollout EP04-EP07 */
+.literature-essay-page .le-visual--ep04,
+.literature-essay-page .le-visual--ep05,
+.literature-essay-page .le-visual--ep06,
+.literature-essay-page .le-visual--ep07{
+  min-height:430px;
+  position:relative;
+  overflow:hidden;
+}
+.literature-essay-page .le-visual--ep04{
+  background:linear-gradient(90deg,rgba(7,23,47,.78) 0%,rgba(7,23,47,.42) 38%,rgba(7,23,47,.08) 72%),url('/images/leadership/literature/ep04-metamorphosis.webp') center/cover no-repeat;
+}
+.literature-essay-page .le-visual--ep05{
+  background:linear-gradient(90deg,rgba(7,23,47,.80) 0%,rgba(7,23,47,.44) 38%,rgba(7,23,47,.10) 72%),url('/images/leadership/literature/ep05-animal-farm.webp') center/cover no-repeat;
+}
+.literature-essay-page .le-visual--ep06{
+  background:linear-gradient(90deg,rgba(7,23,47,.82) 0%,rgba(7,23,47,.46) 38%,rgba(7,23,47,.10) 72%),url('/images/leadership/literature/ep06-1984.webp') center/cover no-repeat;
+}
+.literature-essay-page .le-visual--ep07{
+  background:linear-gradient(90deg,rgba(7,23,47,.76) 0%,rgba(7,23,47,.40) 38%,rgba(7,23,47,.08) 72%),url('/images/leadership/literature/ep07-the-stranger.webp') center/cover no-repeat;
+}
+.literature-essay-page .le-visual--ep04:before,
+.literature-essay-page .le-visual--ep04:after,
+.literature-essay-page .le-visual--ep05:before,
+.literature-essay-page .le-visual--ep05:after,
+.literature-essay-page .le-visual--ep06:before,
+.literature-essay-page .le-visual--ep06:after,
+.literature-essay-page .le-visual--ep07:before,
+.literature-essay-page .le-visual--ep07:after{display:none}
+.literature-essay-page .le-visual--ep04 i,
+.literature-essay-page .le-visual--ep05 i,
+.literature-essay-page .le-visual--ep06 i,
+.literature-essay-page .le-visual--ep07 i{display:none}
+.literature-leadership-page .ll-episode__image{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  margin:16px 0 12px;
+  border-radius:12px;
+}
+@media(max-width:760px){
+  .literature-essay-page .le-visual--ep04,
+  .literature-essay-page .le-visual--ep05,
+  .literature-essay-page .le-visual--ep06,
+  .literature-essay-page .le-visual--ep07{min-height:300px;background-position:center}
+}
