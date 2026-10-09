@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import '../../styles/homepage-v2.css';
 import '../../styles/homepage-v2-fidelity.css';
+import '../../styles/brand-surfaces-v1-1.css';
 
 const articles = (await getCollection('articles'))
   .filter((item) => !item.data.draft)
