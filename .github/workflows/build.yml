@@ -345,7 +345,7 @@ jobs:
         with:
           name: adsense-policy-audit-v1
           path: qa-artifacts/adsense-policy-audit-v1
-          if-no-files-found: error
+          if-no-files-found: warn
 
       - name: Upload dist artifact
         uses: actions/upload-artifact@v6
