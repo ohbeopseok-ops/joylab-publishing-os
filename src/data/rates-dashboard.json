@@ -1,16 +1,71 @@
 {
-  "asOf": "2026-09-11",
-  "updatedAt": "2026-09-13T20:18:00+09:00",
+  "asOf": "2026-10-09",
+  "updatedAt": "2026-10-09T22:29:33.958Z",
   "series": {
-    "us10y": { "label": "미국 10년물", "value": 4.93, "unit": "%", "status": "warning", "source": "Reuters / U.S. Treasury" },
-    "us30y": { "label": "미국 30년물", "value": 5.38, "unit": "%", "status": "danger", "source": "U.S. Treasury Daily Rates" },
-    "spread30y10y": { "label": "30Y-10Y 스프레드", "value": 45, "unit": "bp", "status": "warning", "source": "Derived from US30Y - US10Y" },
-    "foreignTreasuryHoldings": { "label": "외국인 미 국채 보유", "value": 9.299, "unit": "조달러", "status": "neutral", "source": "U.S. Treasury TIC, June 2026", "period": "2026-06" },
-    "usdkrw": { "label": "원·달러", "value": 1345.9, "unit": "원", "status": "warning", "source": "서울 외환시장 종가, 2026-09-11" }
+    "us10y": {
+      "label": "미국 10년물",
+      "value": 5.22,
+      "unit": "%",
+      "status": "danger",
+      "source": "FRED DGS10",
+      "observedAt": "2026-10-08"
+    },
+    "us30y": {
+      "label": "미국 30년물",
+      "value": 5.6,
+      "unit": "%",
+      "status": "danger",
+      "source": "FRED DGS30",
+      "observedAt": "2026-10-08"
+    },
+    "spread30y10y": {
+      "label": "30Y-10Y 스프레드",
+      "value": 38,
+      "unit": "bp",
+      "status": "warning",
+      "source": "Derived from FRED DGS30 - DGS10"
+    },
+    "foreignTreasuryHoldings": {
+      "label": "외국인 미 국채 보유",
+      "value": 9.299,
+      "unit": "조달러",
+      "status": "neutral",
+      "source": "U.S. Treasury TIC, June 2026",
+      "period": "2026-06"
+    },
+    "usdkrw": {
+      "label": "원·달러",
+      "value": 1342.18,
+      "unit": "원",
+      "status": "warning",
+      "source": "Frankfurter official-source blend",
+      "observedAt": "2026-10-09"
+    }
   },
   "auctions": {
-    "us10y": { "date": "2026-09-09", "offeringBillionUsd": 39, "highYield": 4.834, "bidToCover": 2.71, "indirectPct": 79.2, "dealerPct": 4.3, "quality": "STRONG", "score": 85, "source": "TreasuryDirect / Barron's" },
-    "us30y": { "date": "2026-09-10", "offeringBillionUsd": 22, "highYield": 5.308, "tailBp": -2.7, "bidToCover": 2.61, "indirectPct": 79.5, "dealerPct": 2.2, "quality": "STRONG", "score": 100, "source": "TreasuryDirect / Helious" }
+    "us10y": {
+      "date": "2026-09-09",
+      "offeringBillionUsd": 39,
+      "highYield": 4.834,
+      "bidToCover": 2.71,
+      "indirectPct": 79.2,
+      "dealerPct": 4.3,
+      "quality": "STRONG",
+      "score": 85,
+      "source": "TreasuryDirect / Barron's"
+    },
+    "us30y": {
+      "date": "2026-09-10",
+      "offeringBillionUsd": 22,
+      "highYield": 5.308,
+      "tailBp": -2.7,
+      "bidToCover": 2.61,
+      "indirectPct": 79.5,
+      "dealerPct": 2.2,
+      "quality": "STRONG",
+      "score": 100,
+      "source": "TreasuryDirect / Helious"
+    }
   },
   "scores": {
     "auction": {
@@ -33,15 +88,53 @@
       "grade": "YELLOW",
       "higherIsWorse": true,
       "method": "Rates 45% + Auction weakness 20% + TIC stress 20% + FX stress 15%",
-      "rules": { "GREEN": "0-34", "YELLOW": "35-64", "RED": "65-100" }
+      "rules": {
+        "GREEN": "0-34",
+        "YELLOW": "35-64",
+        "RED": "65-100"
+      }
+    },
+    "marketRiskV11": {
+      "value": 74,
+      "grade": "RED",
+      "higherIsWorse": true,
+      "method": "US10Y 40% + US30Y 40% + USD/KRW 20%; each stress=max(Level,30D Momentum), GREEN=20/YELLOW=50/RED=80",
+      "period": "2026-08-28~2026-10-09"
+    },
+    "treasuryRiskV11": {
+      "value": 44,
+      "grade": "YELLOW",
+      "higherIsWorse": true,
+      "method": "Market Risk 50% + Auction Weakness 30% + TIC Stress 20%",
+      "version": "1.1",
+      "contributions": {
+        "marketRisk": 37,
+        "auctionWeakness": 2,
+        "ticStress": 5
+      },
+      "dominantDriver": {
+        "key": "marketRisk",
+        "label": "Market Risk",
+        "points": 37
+      },
+      "deltaAttribution": null
     }
   },
   "risk": {
     "score": 3,
     "grade": "YELLOW",
     "summary": "장기금리와 30Y-10Y 스프레드는 경계 구간이지만 최근 10년물·30년물 입찰 실수요는 강합니다.",
-    "rules": { "GREEN": "0-1", "YELLOW": "2-3", "RED": "4+" }
+    "rules": {
+      "GREEN": "0-1",
+      "YELLOW": "2-3",
+      "RED": "4+"
+    }
   },
-  "thresholds": { "us10yWarning": 5.0, "us30yWarning": 5.3, "spread30y10yWarningBp": 35, "usdkrwWarning": 1350 },
+  "thresholds": {
+    "us10yWarning": 5,
+    "us30yWarning": 5.3,
+    "spread30y10yWarningBp": 35,
+    "usdkrwWarning": 1350
+  },
   "nextTicRelease": "2026-09-16T16:00:00-04:00"
 }
