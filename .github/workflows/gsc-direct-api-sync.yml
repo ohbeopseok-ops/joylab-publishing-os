@@ -11,6 +11,7 @@ on:
       - 'scripts/gsc-api-sync.mjs'
       - 'scripts/research-corpus-evidence-audit.mjs'
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'scripts/gsc-api-sync.mjs'

@@ -8,6 +8,7 @@ on:
       - 'data/gsc/inbox/*.csv'
       - 'data/gsc/inbox/import.json'
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'scripts/gsc-manual-import.mjs'

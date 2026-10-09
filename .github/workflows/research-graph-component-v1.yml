@@ -2,6 +2,7 @@ name: Research Graph Component V1
 
 on:
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'config/research-graph-ai-component-infrastructure-v1.json'

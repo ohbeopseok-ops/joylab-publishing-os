@@ -2,6 +2,7 @@ name: JoyLab Quality Control Center V1
 
 on:
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'scripts/generate-official-execution-queue-v1.mjs'

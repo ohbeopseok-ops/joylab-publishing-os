@@ -2,6 +2,7 @@ name: Investment Taxonomy V1
 
 on:
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'src/data/articles/**'

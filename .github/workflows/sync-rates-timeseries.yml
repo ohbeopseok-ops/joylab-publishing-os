@@ -7,6 +7,11 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
+  actions: write
+
+env:
+  GH_TOKEN: ${{ github.token }}
 
 concurrency:
   group: sync-rates-timeseries
@@ -63,4 +68,12 @@ jobs:
           git config user.email 'actions@users.noreply.github.com'
           git add src/data/rates-timeseries.json src/data/rates-dashboard.json src/data/treasury-risk-history.json
           git commit -m 'data: refresh 30d Treasury signals and delta history'
-          git push origin HEAD:main
+          BRANCH="bot/sync-rates-timeseries"
+          git checkout -B "$BRANCH"
+          git push --force origin "HEAD:refs/heads/$BRANCH"
+          PR_NUMBER="$(gh pr list --base main --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
+          if [ -z "$PR_NUMBER" ]; then
+            gh pr create --base main --head "$BRANCH" --title "data: refresh 30d Treasury signals" --body "Automated rates refresh. Auto-merges after the build check passes."
+          fi
+          gh pr merge "$BRANCH" --auto --squash || echo "Auto-merge could not be enabled; check the PR."
+          gh workflow run build.yml --ref "$BRANCH"

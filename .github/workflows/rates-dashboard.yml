@@ -8,6 +8,11 @@ on:
 permissions:
   contents: write
   issues: write
+  pull-requests: write
+  actions: write
+
+env:
+  GH_TOKEN: ${{ github.token }}
 
 concurrency:
   group: rates-dashboard-refresh
@@ -87,7 +92,15 @@ jobs:
           git config user.email "joylab-rates-bot@users.noreply.github.com"
           git add src/data/rates-dashboard.json src/data/rates-timeseries.json src/data/treasury-risk-history.json src/data/market-transmission.json
           git commit -m "data: refresh Treasury and market transmission inputs"
-          git push origin HEAD:main
+          BRANCH="bot/rates-dashboard"
+          git checkout -B "$BRANCH"
+          git push --force origin "HEAD:refs/heads/$BRANCH"
+          PR_NUMBER="$(gh pr list --base main --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
+          if [ -z "$PR_NUMBER" ]; then
+            gh pr create --base main --head "$BRANCH" --title "data: refresh Treasury and market transmission inputs" --body "Automated rates dashboard refresh. Auto-merges after the build check passes."
+          fi
+          gh pr merge "$BRANCH" --auto --squash || echo "Auto-merge could not be enabled; check the PR."
+          gh workflow run build.yml --ref "$BRANCH"
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Open Treasury Risk Delta ALERT issue

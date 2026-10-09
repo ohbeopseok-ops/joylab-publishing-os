@@ -2,6 +2,7 @@ name: China Semiconductor Risk Data Adapter V1
 
 on:
   pull_request:
+    types: [labeled]
     paths:
       - 'scripts/sync-china-risk-data.mjs'
       - 'src/data/china-risk-adapter-config.json'
@@ -20,6 +21,11 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
+  actions: write
+
+env:
+  GH_TOKEN: ${{ github.token }}
 
 concurrency:
   group: china-risk-data-adapter
@@ -88,4 +94,12 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add src/data/china-semiconductor-risk-snapshot.json src/data/china-semiconductor-risk-history.json src/data/china-semiconductor-risk-brief.json public/data/china-semiconductor-risk-brief.json
           git commit -m "data: refresh China semiconductor risk snapshot, history and brief"
-          git push origin HEAD:main
+          BRANCH="bot/china-risk-data"
+          git checkout -B "$BRANCH"
+          git push --force origin "HEAD:refs/heads/$BRANCH"
+          PR_NUMBER="$(gh pr list --base main --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
+          if [ -z "$PR_NUMBER" ]; then
+            gh pr create --base main --head "$BRANCH" --title "data: refresh China semiconductor risk snapshot" --body "Automated China risk data refresh. Auto-merges after the build check passes."
+          fi
+          gh pr merge "$BRANCH" --auto --squash || echo "Auto-merge could not be enabled; check the PR."
+          gh workflow run build.yml --ref "$BRANCH"

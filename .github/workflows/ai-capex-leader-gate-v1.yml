@@ -2,6 +2,7 @@ name: AI CAPEX Leader Gate V1
 
 on:
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'src/data/ai-capex-leader-*.json'

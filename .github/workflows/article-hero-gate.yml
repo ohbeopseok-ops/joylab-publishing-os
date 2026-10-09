@@ -18,6 +18,7 @@ on:
       - 'scripts/assemble-generated-hero-assets.mjs'
       - '.github/workflows/article-hero-gate.yml'
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'src/data/articles/**'

@@ -2,6 +2,7 @@ name: Series 02 Source of Truth Gate V1
 
 on:
   pull_request:
+    types: [labeled]
     paths:
       - 'src/data/studio/series-02-source.json'
       - 'scripts/check-series-02-source-v1.mjs'

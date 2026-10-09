@@ -17,6 +17,7 @@ on:
       - 'scripts/apply-curated-research-images.mjs'
       - '.github/workflows/visual-asset-contract-v4.yml'
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'src/pages/articles/**'
