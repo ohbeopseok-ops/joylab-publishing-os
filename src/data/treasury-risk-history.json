@@ -1,4 +1,24 @@
 {
   "version": "1.0",
-  "snapshots": []
+  "updatedAt": "2026-10-09T22:29:33.958Z",
+  "maxSnapshots": 60,
+  "latestDelta": null,
+  "snapshots": [
+    {
+      "asOf": "2026-10-09",
+      "capturedAt": "2026-10-09T22:29:33.958Z",
+      "index": 44,
+      "grade": "YELLOW",
+      "contributions": {
+        "marketRisk": 37,
+        "auctionWeakness": 2,
+        "ticStress": 5
+      },
+      "components": {
+        "marketRisk": 74,
+        "auctionWeakness": 7,
+        "ticStress": 25
+      }
+    }
+  ]
 }
