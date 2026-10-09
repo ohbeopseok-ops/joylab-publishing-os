@@ -3,21 +3,32 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const root = process.cwd();
-const items = [
-  { ep:'EP04', page:'src/pages/guides/growth-leadership/literature/metamorphosis.astro', asset:'public/images/leadership/literature/ep04-metamorphosis.webp' },
-  { ep:'EP05', page:'src/pages/guides/growth-leadership/literature/animal-farm.astro', asset:'public/images/leadership/literature/ep05-animal-farm.webp' },
-  { ep:'EP06', page:'src/pages/guides/growth-leadership/literature/1984.astro', asset:'public/images/leadership/literature/ep06-1984.webp' },
-  { ep:'EP07', page:'src/pages/guides/growth-leadership/literature/the-stranger.astro', asset:'public/images/leadership/literature/ep07-the-stranger.webp' },
-];
+const indexPath = path.join(root, 'src/pages/guides/growth-leadership/literature/index.astro');
+const indexSource = await fs.readFile(indexPath, 'utf8');
+
+const episodePattern = /\{ ep: '(EP\d+)'[^\n]*href: '([^']+)'[^\n]*image: '([^']+)'[^\n]*live: true \}/g;
+const episodes = [...indexSource.matchAll(episodePattern)].map((m) => ({
+  ep: m[1],
+  href: m[2],
+  image: m[3],
+}));
 
 const failures = [];
-for (const item of items) {
-  const pagePath = path.join(root, item.page);
-  const assetPath = path.join(root, item.asset);
-  const publicRef = '/' + item.asset.replace(/^public\//, '');
+if (!episodes.length) failures.push('No live literature episodes with image contracts were found in index.astro');
+
+for (const item of episodes) {
+  const slug = item.href.split('/').filter(Boolean).at(-1);
+  const pagePath = path.join(root, 'src/pages/guides/growth-leadership/literature', `${slug}.astro`);
+  const assetPath = path.join(root, 'public', item.image.replace(/^\//, ''));
+  const absoluteRef = 'https://aijoylab.kr' + item.image;
+
   let page = '';
-  try { page = await fs.readFile(pagePath, 'utf8'); }
-  catch { failures.push(`${item.ep}: page missing: ${item.page}`); continue; }
+  try {
+    page = await fs.readFile(pagePath, 'utf8');
+  } catch {
+    failures.push(`${item.ep}: page missing: ${pagePath}`);
+    continue;
+  }
 
   try {
     await fs.access(assetPath);
@@ -27,12 +38,23 @@ for (const item of items) {
     }
     if (meta.format !== 'webp') failures.push(`${item.ep}: image must be WebP`);
   } catch {
-    failures.push(`${item.ep}: hero image missing: ${item.asset}`);
+    failures.push(`${item.ep}: hero image missing: ${item.image}`);
   }
 
-  const absoluteRef = 'https://aijoylab.kr' + publicRef;
-  if (!page.includes(`image="${publicRef}"`)) failures.push(`${item.ep}: BaseLayout image prop missing`);
-  if (!page.includes(absoluteRef)) failures.push(`${item.ep}: Article schema image missing`);
+  if (!page.includes(`image="${item.image}"`)) {
+    failures.push(`${item.ep}: BaseLayout image prop missing or mismatched: ${item.image}`);
+  }
+  if (!page.includes(absoluteRef)) {
+    failures.push(`${item.ep}: Article schema image missing or mismatched: ${absoluteRef}`);
+  }
+  if (!page.includes(`le-visual--${item.ep.toLowerCase()}`)) {
+    failures.push(`${item.ep}: episode hero visual selector missing`);
+  }
+}
+
+const expectedLiveCount = (indexSource.match(/live: true/g) || []).length;
+if (episodes.length !== expectedLiveCount) {
+  failures.push(`Image contract coverage mismatch: live=${expectedLiveCount}, contracted=${episodes.length}`);
 }
 
 if (failures.length) {
@@ -40,4 +62,5 @@ if (failures.length) {
   for (const failure of failures) console.error('- ' + failure);
   process.exit(1);
 }
-console.log('Literature Image Gate PASSED: EP04-EP07 hero/OG/schema assets are complete.');
+
+console.log(`Literature Image Gate PASSED: ${episodes.length} live episodes have 1200x675 WebP + Hero/OG/Schema wiring.`);
