@@ -2,6 +2,7 @@ name: AI CAPEX Master Map V2
 
 on:
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'config/ai-capex-master-map-v2.json'
@@ -29,6 +30,7 @@ permissions:
 
 jobs:
   ai-capex-master-map:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

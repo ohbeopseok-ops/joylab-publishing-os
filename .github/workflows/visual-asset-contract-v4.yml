@@ -17,6 +17,7 @@ on:
       - 'scripts/apply-curated-research-images.mjs'
       - '.github/workflows/visual-asset-contract-v4.yml'
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'src/pages/articles/**'
@@ -38,6 +39,7 @@ permissions:
 
 jobs:
   visual-asset-contract-v4:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

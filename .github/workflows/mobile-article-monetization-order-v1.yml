@@ -2,6 +2,7 @@ name: Mobile Article Monetization Order V1
 
 on:
   pull_request:
+    types: [labeled]
     paths:
       - 'src/pages/articles/**'
       - 'src/styles/research-v2.css'
@@ -13,6 +14,7 @@ on:
 
 jobs:
   mobile-order:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

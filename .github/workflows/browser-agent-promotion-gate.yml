@@ -2,6 +2,7 @@ name: Browser Agent Promotion Gate
 
 on:
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'config/browser-agent-benchmark-policy.json'
@@ -15,6 +16,7 @@ permissions:
 
 jobs:
   validate:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,7 +32,7 @@ jobs:
         run: node scripts/evaluate-browser-agent-benchmark.mjs
 
   promotion:
-    if: github.event_name == 'workflow_dispatch'
+    if: (github.event_name == 'workflow_dispatch') && (github.event.action != 'labeled' || github.event.label.name == 'run-gates')
     needs: validate
     runs-on: ubuntu-latest
     steps:

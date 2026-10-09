@@ -21,6 +21,7 @@ on:
       - 'src/data/research-image-quality-rules-v1.json'
       - '.github/workflows/research-image-quality-v1.yml'
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'src/data/research-image-manifest.json'
@@ -46,6 +47,7 @@ permissions:
 
 jobs:
   research-image-quality:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

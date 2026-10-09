@@ -2,6 +2,7 @@ name: Studio Export Quality Gate V1
 
 on:
   pull_request:
+    types: [labeled]
     paths:
       - 'src/data/studio/series-02-source.json'
       - 'scripts/generate-studio-epub-v1.mjs'
@@ -19,6 +20,7 @@ permissions:
 
 jobs:
   export-quality:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

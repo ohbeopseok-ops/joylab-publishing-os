@@ -2,6 +2,7 @@ name: Mobile Experience Contract V1
 
 on:
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'src/pages/**'
@@ -44,6 +45,7 @@ permissions:
 
 jobs:
   mobile-experience:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     steps:

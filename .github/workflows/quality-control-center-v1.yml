@@ -2,6 +2,7 @@ name: JoyLab Quality Control Center V1
 
 on:
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'scripts/generate-official-execution-queue-v1.mjs'
@@ -31,6 +32,7 @@ permissions:
 
 jobs:
   quality-control-center:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:

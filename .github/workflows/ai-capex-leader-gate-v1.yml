@@ -2,6 +2,7 @@ name: AI CAPEX Leader Gate V1
 
 on:
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'src/data/ai-capex-leader-*.json'
@@ -28,6 +29,7 @@ permissions:
 
 jobs:
   leader-contract:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

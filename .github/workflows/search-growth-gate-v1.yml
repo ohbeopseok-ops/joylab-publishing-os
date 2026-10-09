@@ -1,6 +1,7 @@
 name: Search Growth Gate V1
 on:
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'src/data/articles/**'
@@ -27,6 +28,7 @@ permissions:
 
 jobs:
   search-growth:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

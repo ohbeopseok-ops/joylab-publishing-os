@@ -8,6 +8,11 @@ on:
 permissions:
   contents: write
   issues: write
+  pull-requests: write
+  actions: write
+
+env:
+  GH_TOKEN: ${{ github.token }}
 
 jobs:
   visual-upgrade:
@@ -52,7 +57,15 @@ jobs:
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git add src/data/visual-upgrade-input.json
             git commit -m 'data: refresh visual upgrade metrics'
-            git push origin HEAD:main
+            BRANCH="bot/visual-upgrade-metrics"
+            git checkout -B "$BRANCH"
+            git push --force origin "HEAD:refs/heads/$BRANCH"
+            PR_NUMBER="$(gh pr list --base main --head "$BRANCH" --state open --json number --jq '.[0].number // empty')"
+            if [ -z "$PR_NUMBER" ]; then
+              gh pr create --base main --head "$BRANCH" --title "data: refresh visual upgrade metrics" --body "Automated visual upgrade metrics refresh. Auto-merges after the build check passes."
+            fi
+            gh pr merge "$BRANCH" --auto --squash || echo "Auto-merge could not be enabled; check the PR."
+            gh workflow run build.yml --ref "$BRANCH"
           fi
 
       - name: Create CURATE_NOW issues

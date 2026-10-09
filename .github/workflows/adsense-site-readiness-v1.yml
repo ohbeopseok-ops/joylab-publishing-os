@@ -2,6 +2,7 @@ name: AdSense Site Readiness Gate V1
 
 on:
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'src/**'
@@ -26,6 +27,7 @@ permissions:
 
 jobs:
   adsense-site-readiness:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

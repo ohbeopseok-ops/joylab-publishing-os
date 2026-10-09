@@ -2,6 +2,7 @@ name: JoyLab Studio Print PDF Gate V1
 
 on:
   pull_request:
+    types: [labeled]
     paths:
       - 'scripts/generate-studio-print-pdf-v1.mjs'
       - 'src/data/studio/series-02-epub-source.json'
@@ -19,6 +20,7 @@ permissions:
 
 jobs:
   studio-print-pdf:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

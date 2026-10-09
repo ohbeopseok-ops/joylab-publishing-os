@@ -18,6 +18,7 @@ on:
       - 'scripts/assemble-generated-hero-assets.mjs'
       - '.github/workflows/article-hero-gate.yml'
   pull_request:
+    types: [labeled]
     branches: [main]
     paths:
       - 'src/data/articles/**'
@@ -40,6 +41,7 @@ permissions:
 
 jobs:
   article-hero-gate:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

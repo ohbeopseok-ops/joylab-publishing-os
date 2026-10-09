@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 
 concurrency:
   group: ai-capex-leader-runtime-v1
@@ -102,3 +103,5 @@ jobs:
           else
             gh pr comment "$PR_NUMBER" --body "Runtime refreshed on the existing bot branch; history and regime events were carried forward."
           fi
+          gh pr merge "$BRANCH" --auto --squash || echo "Auto-merge could not be enabled; check the PR."
+          gh workflow run build.yml --ref "$BRANCH" || echo "Build dispatch failed; check the Actions log."
