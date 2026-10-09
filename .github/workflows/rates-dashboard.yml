@@ -33,7 +33,7 @@ jobs:
 
       - name: Capture previous TIC period
         id: before
-        run: echo "tic_period=$(node -e \"const d=require('./src/data/rates-dashboard.json'); console.log(d.series.foreignTreasuryHoldings.period)\")" >> "$GITHUB_OUTPUT"
+        run: echo "tic_period=$(node -p "require('./src/data/rates-dashboard.json').series.foreignTreasuryHoldings.period")" >> "$GITHUB_OUTPUT"
 
       - name: Official Treasury structure self-test
         run: npm run treasury:self-test
@@ -63,7 +63,7 @@ jobs:
 
       - name: Capture refreshed TIC period
         id: after
-        run: echo "tic_period=$(node -e \"const d=require('./src/data/rates-dashboard.json'); console.log(d.series.foreignTreasuryHoldings.period)\")" >> "$GITHUB_OUTPUT"
+        run: echo "tic_period=$(node -p "require('./src/data/rates-dashboard.json').series.foreignTreasuryHoldings.period")" >> "$GITHUB_OUTPUT"
 
       - name: Capture Risk Delta alert
         id: delta
