@@ -41,6 +41,7 @@ permissions:
 
 jobs:
   article-hero-gate:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

@@ -26,6 +26,7 @@ concurrency:
 
 jobs:
   adapter-self-test:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -60,7 +61,7 @@ jobs:
           '
 
   import-main:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: (github.event_name != 'pull_request' && github.ref == 'refs/heads/main') && (github.event.action != 'labeled' || github.event.label.name == 'run-gates')
     needs: adapter-self-test
     runs-on: ubuntu-latest
     timeout-minutes: 10

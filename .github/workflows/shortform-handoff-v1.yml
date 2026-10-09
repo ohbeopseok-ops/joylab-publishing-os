@@ -22,6 +22,7 @@ on:
 
 jobs:
   build-handoff:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     permissions:
       contents: read

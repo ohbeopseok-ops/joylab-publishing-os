@@ -22,6 +22,7 @@ on:
 
 jobs:
   compact-rollout-preview:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

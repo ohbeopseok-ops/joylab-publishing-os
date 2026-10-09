@@ -35,6 +35,7 @@ permissions:
 
 jobs:
   taxonomy:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7

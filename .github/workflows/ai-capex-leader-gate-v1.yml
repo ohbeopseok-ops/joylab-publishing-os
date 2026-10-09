@@ -29,6 +29,7 @@ permissions:
 
 jobs:
   leader-contract:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

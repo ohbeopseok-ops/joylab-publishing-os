@@ -34,6 +34,7 @@ concurrency:
 
 jobs:
   validate:
+    if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -52,7 +53,7 @@ jobs:
         run: npm run china-risk-earnings:self-test
 
   distribute:
-    if: github.event_name != 'pull_request'
+    if: (github.event_name != 'pull_request') && (github.event.action != 'labeled' || github.event.label.name == 'run-gates')
     needs: validate
     runs-on: ubuntu-latest
     timeout-minutes: 10
