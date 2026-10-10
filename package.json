@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "node scripts/materialize-giant-shoulder-og-v2.mjs && node scripts/sync-company-compact-scaffolds-v1.mjs && node scripts/check-company-research-auto-enrollment-v1.mjs && node scripts/materialize-weight-of-silence-reader.mjs && node scripts/build-book-assets.mjs && node scripts/apply-curated-research-images.mjs && astro dev",
     "check:heroes": "node scripts/check-hero-quality.mjs",
+    "literature:image-gate": "node scripts/check-literature-image-gate.mjs",
     "treasury:sync": "node scripts/sync-treasury-structure.mjs",
     "treasury:self-test": "node scripts/sync-treasury-structure.mjs --self-test",
     "rates:sync": "node scripts/sync-rates-timeseries.mjs",
@@ -18,7 +19,7 @@
     "market-transmission:sync": "node scripts/sync-market-transmission.mjs",
     "market-transmission:self-test": "node scripts/sync-market-transmission.mjs --self-test",
     "learn-mode:self-test": "node scripts/check-treasury-learn-mode.mjs",
-    "prebuild": "node scripts/test-article-architecture-v1.mjs && node scripts/check-article-architecture-v1.mjs && node scripts/materialize-giant-shoulder-og-v2.mjs && node scripts/sync-company-compact-scaffolds-v1.mjs && node scripts/check-company-research-auto-enrollment-v1.mjs && node scripts/check-build-log-v1.mjs && node scripts/materialize-weight-of-silence-reader.mjs && node scripts/build-book-assets.mjs && node scripts/sync-treasury-structure.mjs && node scripts/sync-rates-timeseries.mjs && node scripts/update-treasury-risk-history.mjs && node scripts/sync-market-transmission.mjs && node scripts/check-treasury-learn-mode.mjs && node scripts/apply-curated-research-images.mjs && node scripts/generate-studio-epub-v1.mjs",
+    "prebuild": "node scripts/test-article-architecture-v1.mjs && node scripts/check-article-architecture-v1.mjs && node scripts/materialize-ep03-demian-v5.mjs && node scripts/materialize-literature-ep04-07.mjs && node scripts/check-literature-image-gate.mjs && node scripts/materialize-giant-shoulder-og-v2.mjs && node scripts/sync-company-compact-scaffolds-v1.mjs && node scripts/check-company-research-auto-enrollment-v1.mjs && node scripts/check-build-log-v1.mjs && node scripts/materialize-weight-of-silence-reader.mjs && node scripts/build-book-assets.mjs && node scripts/sync-treasury-structure.mjs && node scripts/sync-rates-timeseries.mjs && node scripts/update-treasury-risk-history.mjs && node scripts/sync-market-transmission.mjs && node scripts/check-treasury-learn-mode.mjs && node scripts/apply-curated-research-images.mjs && node scripts/generate-studio-epub-v1.mjs",
     "build": "astro build",
     "postbuild": "node scripts/build-distribution-mobile-pages.mjs",
     "preview": "astro preview",
