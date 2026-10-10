@@ -9,7 +9,7 @@ const hasEvidence=Boolean(authorBio||researchMethod||sourceList.length||riskFact
   <h2 id="trust-evidence-title">리서치 작성 기준 및 근거</h2>
   {authorBio && <p><strong>작성자 소개:</strong> {authorBio}</p>}
   {researchMethod && <p><strong>조사 방법:</strong> {researchMethod}</p>}
-  {sourceList.length>0 && <div><h3>확인 자료</h3><ul>{sourceList.map(s=><li><a href={s.url} rel="noopener noreferrer" target="_blank">{s.label}</a></li>)}</ul></div>}
+  {sourceList.length>0 && <div><h3>확인 자료</h3><ul>{sourceList.map(s=><li><a href={s.url} rel="noopener noreferrer" referrerpolicy="no-referrer" target="_blank">{s.label}</a></li>)}</ul></div>}
   {riskFactors.length>0 && <div><h3>주요 위험요인</h3><ul>{riskFactors.map(x=><li>{x}</li>)}</ul></div>}
   {counterScenarios.length>0 && <div><h3>반대 시나리오</h3><ul>{counterScenarios.map(x=><li>{x}</li>)}</ul></div>}
 </section>
