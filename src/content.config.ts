@@ -23,6 +23,12 @@ const articles = defineCollection({
     contentQuestion: z.string().min(1).optional(),
     timeSensitive: z.boolean().optional(),
     trust: articleTrustSchema.optional(),
+    // AdSense Trust V1: optional evidence metadata, preserve Article Architecture V1.1.
+    authorBio: z.string().min(1).optional(),
+    researchMethod: z.string().min(1).optional(),
+    sourceList: z.array(z.object({label:z.string().min(1),url:z.string().url()})).max(30).optional(),
+    riskFactors: z.array(z.string().min(1)).max(12).optional(),
+    counterScenarios: z.array(z.string().min(1)).max(12).optional(),
     featured: z.boolean().default(false),
     homeFeatured: z.boolean().default(false),
     homePriority: z.number().int().min(1).max(999).optional(),
