@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleTrust from '../../components/ArticleTrust.astro';
+import ArticleTrustEvidence from '../../components/ArticleTrustEvidence.astro';
 import { visualTitles } from '../../lib/article-architecture.mjs';
 import ArticleGrowthPath from '../../components/ArticleGrowthPath.astro';
 import AdSlot from '../../components/AdSlot.astro';
@@ -246,6 +247,7 @@ const scoreCriteria = [
         </div>
 
         <ArticleTrust trust={article.data.trust} />
+        <ArticleTrustEvidence authorBio={article.data.authorBio} researchMethod={article.data.researchMethod} sourceList={article.data.sourceList} riskFactors={article.data.riskFactors} counterScenarios={article.data.counterScenarios} />
 
         {compactCompanyResearch && (
           <section class="research-panel company-compact-graph" aria-label="Company Compact Research Graph">
