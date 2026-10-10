@@ -2,14 +2,14 @@
   "version": "1.1",
   "ready": true,
   "asOf": "2026-10-09",
-  "generatedAt": "2026-10-09T22:29:33.958Z",
+  "generatedAt": "2026-10-10T02:18:22.665Z",
   "windowTradingDays": 30,
   "series": {
     "us10y": {
       "label": "미국 10년물",
       "unit": "%",
       "source": "Federal Reserve Board via FRED · DGS10",
-      "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=2026-07-26",
+      "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=2026-07-27",
       "observedAt": "2026-10-08",
       "points": [
         {
@@ -144,7 +144,7 @@
       "label": "미국 30년물",
       "unit": "%",
       "source": "Federal Reserve Board via FRED · DGS30",
-      "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS30&cosd=2026-07-26",
+      "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS30&cosd=2026-07-27",
       "observedAt": "2026-10-08",
       "points": [
         {
@@ -279,7 +279,7 @@
       "label": "원·달러",
       "unit": "원",
       "source": "Frankfurter · official-source blend",
-      "sourceUrl": "https://api.frankfurter.dev/v2/rates?base=USD&quotes=KRW&from=2026-07-26",
+      "sourceUrl": "https://api.frankfurter.dev/v2/rates?base=USD&quotes=KRW&from=2026-07-27",
       "observedAt": "2026-10-09",
       "points": [
         {
