@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-09-25T09:32:50.145Z",
+  "generatedAt": "2026-10-10T05:53:29.230Z",
   "ready": true,
   "coverage": {
-    "metricsReady": 5,
+    "metricsReady": 6,
     "metricsStale": 0,
     "metricsTotal": 6
   },
@@ -17,14 +17,21 @@
       "source": "trendforce",
       "sourceUrl": "https://www.trendforce.com/news/2026/09/24/news-cxmt-ymtc-ramp-memory-capacity-but-chinas-ai-cloud-boom-could-soak-up-new-supply-through-2027/",
       "observedAt": "2026-09-24",
-      "fetchedAt": "2026-09-25T09:32:45.349Z",
-      "evidence": "CXMT global DRAM revenue share rose to 9.5% in 2Q26 from 7.6% in 1Q26."
+      "fetchedAt": "2026-10-10T05:53:18.906Z",
+      "evidence": "According to TrendForce , CXMT’s global DRAM revenue share rose to 9.5% in 2Q26 from 7.6% in 1Q26, placing it fourth behind Samsung at 39.4%, SK hynix at 24.9%, and Micron at 23.3%."
     },
     "ymtcShare": {
-      "status": "UNKNOWN",
+      "status": "OK",
       "id": "ymtcShare",
-      "fetchedAt": "2026-09-25T09:32:50.145Z",
-      "note": "Counterpoint public article confirms 14%, but the GitHub Runner HTML does not expose the numeric body reliably. Dashboard retains the verified model seed instead of guessing."
+      "value": 14,
+      "unit": "% bit shipments",
+      "score": 75,
+      "source": "counterpoint",
+      "sourceUrl": "https://counterpointresearch.com/en/insights/sandisk-investor-day-caching-out-the-nand-cycle-with-contracts",
+      "observedAt": "2026-08-14",
+      "fetchedAt": "2026-10-10T05:53:21.136Z",
+      "evidence": "p> The competitive variable SanDisk said least about is the one we flagged in our Q2 analysis. YMTC entered the global top three by shipments at 14%, narrowly edging Kioxia, while mass-producing 267-layer 3D NAND and advancing 300+ layer te",
+      "extraction": "raw-html"
     },
     "dramAsp": {
       "status": "OK",
@@ -35,8 +42,8 @@
       "source": "trendforce",
       "sourceUrl": "https://www.trendforce.com/presscenter/news/20260703-13134.html",
       "observedAt": "2026-07-03",
-      "fetchedAt": "2026-09-25T09:32:45.349Z",
-      "evidence": "TrendForce 3Q26 public outlook: conventional DRAM contract prices forecast to rise 13–18% QoQ."
+      "fetchedAt": "2026-10-10T05:53:18.906Z",
+      "evidence": "AI Server Demand Continues to Support Memory Prices in 3Q26, but Gains Moderate as Consumer Demand Weakens and High Base Effects Take Hold, Says TrendForce Research Report Back Research Report AI & Smart Terminals AI Server / Data Center Co"
     },
     "nandAsp": {
       "status": "OK",
@@ -47,8 +54,8 @@
       "source": "trendforce",
       "sourceUrl": "https://www.trendforce.com/presscenter/news/20260703-13134.html",
       "observedAt": "2026-07-03",
-      "fetchedAt": "2026-09-25T09:32:45.349Z",
-      "evidence": "TrendForce 3Q26 public outlook: NAND Flash contract prices expected to increase 10–15% QoQ."
+      "fetchedAt": "2026-10-10T05:53:18.906Z",
+      "evidence": "AI Server Demand Continues to Support Memory Prices in 3Q26, but Gains Moderate as Consumer Demand Weakens and High Base Effects Take Hold, Says TrendForce Research Report Back Research Report AI & Smart Terminals AI Server / Data Center Co"
     },
     "equipment": {
       "status": "OK",
@@ -59,8 +66,8 @@
       "source": "trendforce",
       "sourceUrl": "https://www.trendforce.com/news/2026/01/12/news-chinas-domestic-chip-equipment-adoption-beats-2025-target-at-35-led-by-naura-amec/",
       "observedAt": "2026-01-12",
-      "fetchedAt": "2026-09-25T09:32:45.349Z",
-      "evidence": "China domestic semiconductor equipment adoption reached about 35% in 2025."
+      "fetchedAt": "2026-10-10T05:53:18.906Z",
+      "evidence": "[News] China’s Domestic Chip Equipment Adoption Beats 2025 Target at 35%, Led by NAURA, AMEC --> --> --> --> --> --> --> Popular Keywords #DRAM #Foundry #AI Server #HBM #FOPLP #CoWoS #NAND Flash #Automotive #MLCC #Server #Micro LED #IC Desi"
     },
     "cxmtCapa": {
       "status": "OK",
@@ -71,8 +78,8 @@
       "source": "trendforce",
       "sourceUrl": "https://www.trendforce.com/news/2026/09/24/news-cxmt-ymtc-ramp-memory-capacity-but-chinas-ai-cloud-boom-could-soak-up-new-supply-through-2027/",
       "observedAt": "2026-09-24",
-      "fetchedAt": "2026-09-25T09:32:45.349Z",
-      "evidence": "CXMT monthly DRAM capacity expected to rise from about 320,000 wafers to 420,000 wafers by 2027.",
+      "fetchedAt": "2026-10-10T05:53:18.906Z",
+      "evidence": "According to Commercial Times , CXMT’s monthly DRAM capacity is expected to rise from around 320,000 wafers currently to 420,000 wafers by 2027, while YMTC’s third Wuhan fab is set to begin operations by the end of 2026 and gradually ramp p",
       "fromWpm": 320000,
       "toWpm": 420000
     }
@@ -83,29 +90,58 @@
       "value": 48,
       "unit": "% NAND bit shipments",
       "source": "counterpoint",
-      "sourceUrl": "https://counterpointresearch.com/en/insights/server-led-essds-hit-48-percent-of-nand-shipments",
-      "observedAt": "2026-08-12",
-      "fetchedAt": "2026-09-25T09:32:48.000Z",
-      "evidence": "Enterprise SSDs reached 48% of global NAND bit shipments in Q2 2026."
+      "sourceUrl": "https://counterpointresearch.com/en/insights/sandisk-investor-day-caching-out-the-nand-cycle-with-contracts",
+      "observedAt": "2026-08-14",
+      "fetchedAt": "2026-10-10T05:53:21.136Z",
+      "evidence": "Counterpoint raw HTML/JSON metadata extraction",
+      "extraction": "raw-html"
     },
     "bisEvents": [
       {
-        "title": "Commerce Revises License Review Policy for Semiconductors Exported to China",
+        "title": "BIS for Illegally Exporting Semiconductor Manufacturing Equipment Download as PDF WASHINGTON, D",
+        "observedAt": "2026-02-12",
+        "sourceUrl": "https://www.bis.gov/press-release/applied-materials-pay-252-million-penalty-bis-illegally-exporting-semiconductor-manufacturing-equipment",
+        "hbmMention": false,
+        "fetchedAt": "2026-10-10T05:53:23.117Z"
+      },
+      {
+        "title": "Commerce Revises License Review Policy for Semiconductors Exported to China Download as PDF WASHINGTON, D",
         "observedAt": "2026-01-13",
         "sourceUrl": "https://www.bis.gov/press-release/department-commerce-revises-license-review-policy-semiconductors-exported-china",
-        "hbmMention": false
+        "hbmMention": false,
+        "fetchedAt": "2026-10-10T05:53:23.117Z"
       },
       {
-        "title": "Commerce Closes Export Controls Loophole for Foreign-Owned Semiconductor Fabs in China",
+        "title": "Commerce Closes Export Controls Loophole for Foreign-Owned Semiconductor Fabs in China Download as PDF WASHINGTON, D",
         "observedAt": "2025-08-29",
         "sourceUrl": "https://www.bis.gov/press-release/department-commerce-closes-export-controls-loophole-foreign-owned-semiconductor-fabs-china",
-        "hbmMention": false
+        "hbmMention": false,
+        "fetchedAt": "2026-10-10T05:53:23.117Z"
       },
       {
-        "title": "Commerce Strengthens Export Controls to Restrict China’s Capability to Produce Advanced Semiconductors",
+        "title": "BIS Bureau of Industry & Security Office of Congressional and Public Affairs FOR IMMEDIATE RELEASE | December 2, 2024 | Media Contact: [email&#160;protected] Commerce Strengthens E",
         "observedAt": "2024-12-02",
         "sourceUrl": "https://www.bis.gov/press-release/commerce-strengthens-export-controls-restrict-chinas-capability-produce-advanced-semiconductors-military",
-        "hbmMention": true
+        "hbmMention": true,
+        "fetchedAt": "2026-10-10T05:53:23.117Z"
+      }
+    ],
+    "bisCurrentRules": [
+      {
+        "title": "EAR 742 HBM license requirement",
+        "observedAt": "2026-10-10",
+        "sourceUrl": "https://www.bis.gov/regulations/ear/742",
+        "hbmLicenseRequired": true,
+        "licenseExceptionHbm": false,
+        "fetchedAt": "2026-10-10T05:53:23.117Z"
+      },
+      {
+        "title": "EAR 740 License Exception HBM",
+        "observedAt": "2026-10-10",
+        "sourceUrl": "https://media.bis.gov/regulations/ear/740",
+        "hbmLicenseRequired": false,
+        "licenseExceptionHbm": true,
+        "fetchedAt": "2026-10-10T05:53:23.117Z"
       }
     ]
   },
@@ -117,7 +153,7 @@
     },
     {
       "source": "counterpoint",
-      "documentsFetched": 8,
+      "documentsFetched": 4,
       "errors": []
     },
     {

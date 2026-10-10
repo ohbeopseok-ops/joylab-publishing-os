@@ -1,8 +1,252 @@
 {
   "version": "1.0",
-  "updatedAt": null,
-  "liveHistoryStartsAt": null,
+  "updatedAt": "2026-10-10T05:53:29.230Z",
+  "liveHistoryStartsAt": "2026Q4",
   "maxQuarters": 24,
   "latestDelta": null,
-  "quarters": []
+  "quarters": [
+    {
+      "period": "2026Q4",
+      "firstCapturedAt": "2026-10-10T05:53:29.230Z",
+      "lastCapturedAt": "2026-10-10T05:53:29.230Z",
+      "latest": {
+        "capturedAt": "2026-10-10T05:53:29.230Z",
+        "quarter": "2026Q4",
+        "totalScore": 38,
+        "totalBand": "YELLOW",
+        "structuralScore": 68,
+        "structuralBand": "ORANGE",
+        "earningsScore": 0,
+        "earningsBand": "GREEN",
+        "coveredWeight": 64,
+        "knownCount": 6,
+        "metrics": {
+          "cxmtShare": {
+            "name": "CXMT DRAM 점유율",
+            "dimension": "structural",
+            "weight": 10,
+            "value": 9.5,
+            "unit": "%",
+            "score": 50,
+            "asOf": "2026-09-24",
+            "source": "trendforce",
+            "freshness": "LIVE"
+          },
+          "ymtcShare": {
+            "name": "YMTC NAND 점유율",
+            "dimension": "structural",
+            "weight": 8,
+            "value": 14,
+            "unit": "% bit shipments",
+            "score": 75,
+            "asOf": "2026-08-14",
+            "source": "counterpoint",
+            "freshness": "LIVE"
+          },
+          "cxmtCapa": {
+            "name": "CXMT CAPA·생산성",
+            "dimension": "structural",
+            "weight": 10,
+            "value": 31.3,
+            "unit": "% capacity growth",
+            "score": 75,
+            "asOf": "2026-09-24",
+            "source": "trendforce",
+            "freshness": "LIVE"
+          },
+          "ymtcEssd": {
+            "name": "YMTC eSSD 침투",
+            "dimension": "structural",
+            "weight": 8,
+            "value": null,
+            "score": null,
+            "freshness": "UNKNOWN"
+          },
+          "equipment": {
+            "name": "중국 장비 국산화",
+            "dimension": "structural",
+            "weight": 8,
+            "value": 35,
+            "unit": "% adoption",
+            "score": 75,
+            "asOf": "2026-01-12",
+            "source": "trendforce",
+            "freshness": "LIVE"
+          },
+          "lithography": {
+            "name": "노광·계측 국산화",
+            "dimension": "structural",
+            "weight": 6,
+            "value": null,
+            "score": null,
+            "freshness": "UNKNOWN"
+          },
+          "hbm": {
+            "name": "중국 HBM 자립",
+            "dimension": "structural",
+            "weight": 10,
+            "value": null,
+            "score": null,
+            "freshness": "UNKNOWN"
+          },
+          "dramAsp": {
+            "name": "DRAM ASP 압력",
+            "dimension": "earnings",
+            "weight": 16,
+            "value": 15.5,
+            "unit": "% QoQ forecast midpoint",
+            "score": 0,
+            "asOf": "2026-07-03",
+            "source": "trendforce",
+            "freshness": "LIVE"
+          },
+          "nandAsp": {
+            "name": "NAND ASP 압력",
+            "dimension": "earnings",
+            "weight": 12,
+            "value": 12.5,
+            "unit": "% QoQ forecast midpoint",
+            "score": 0,
+            "asOf": "2026-07-03",
+            "source": "trendforce",
+            "freshness": "LIVE"
+          },
+          "overseas": {
+            "name": "해외 고객·수입대체",
+            "dimension": "structural",
+            "weight": 12,
+            "value": null,
+            "score": null,
+            "freshness": "UNKNOWN"
+          }
+        },
+        "adapterCoverage": {
+          "metricsReady": 6,
+          "metricsStale": 0,
+          "metricsTotal": 6
+        },
+        "fingerprint": "d10f136bb7fe87a5"
+      },
+      "revisions": [
+        {
+          "capturedAt": "2026-10-10T05:53:29.230Z",
+          "quarter": "2026Q4",
+          "totalScore": 38,
+          "totalBand": "YELLOW",
+          "structuralScore": 68,
+          "structuralBand": "ORANGE",
+          "earningsScore": 0,
+          "earningsBand": "GREEN",
+          "coveredWeight": 64,
+          "knownCount": 6,
+          "metrics": {
+            "cxmtShare": {
+              "name": "CXMT DRAM 점유율",
+              "dimension": "structural",
+              "weight": 10,
+              "value": 9.5,
+              "unit": "%",
+              "score": 50,
+              "asOf": "2026-09-24",
+              "source": "trendforce",
+              "freshness": "LIVE"
+            },
+            "ymtcShare": {
+              "name": "YMTC NAND 점유율",
+              "dimension": "structural",
+              "weight": 8,
+              "value": 14,
+              "unit": "% bit shipments",
+              "score": 75,
+              "asOf": "2026-08-14",
+              "source": "counterpoint",
+              "freshness": "LIVE"
+            },
+            "cxmtCapa": {
+              "name": "CXMT CAPA·생산성",
+              "dimension": "structural",
+              "weight": 10,
+              "value": 31.3,
+              "unit": "% capacity growth",
+              "score": 75,
+              "asOf": "2026-09-24",
+              "source": "trendforce",
+              "freshness": "LIVE"
+            },
+            "ymtcEssd": {
+              "name": "YMTC eSSD 침투",
+              "dimension": "structural",
+              "weight": 8,
+              "value": null,
+              "score": null,
+              "freshness": "UNKNOWN"
+            },
+            "equipment": {
+              "name": "중국 장비 국산화",
+              "dimension": "structural",
+              "weight": 8,
+              "value": 35,
+              "unit": "% adoption",
+              "score": 75,
+              "asOf": "2026-01-12",
+              "source": "trendforce",
+              "freshness": "LIVE"
+            },
+            "lithography": {
+              "name": "노광·계측 국산화",
+              "dimension": "structural",
+              "weight": 6,
+              "value": null,
+              "score": null,
+              "freshness": "UNKNOWN"
+            },
+            "hbm": {
+              "name": "중국 HBM 자립",
+              "dimension": "structural",
+              "weight": 10,
+              "value": null,
+              "score": null,
+              "freshness": "UNKNOWN"
+            },
+            "dramAsp": {
+              "name": "DRAM ASP 압력",
+              "dimension": "earnings",
+              "weight": 16,
+              "value": 15.5,
+              "unit": "% QoQ forecast midpoint",
+              "score": 0,
+              "asOf": "2026-07-03",
+              "source": "trendforce",
+              "freshness": "LIVE"
+            },
+            "nandAsp": {
+              "name": "NAND ASP 압력",
+              "dimension": "earnings",
+              "weight": 12,
+              "value": 12.5,
+              "unit": "% QoQ forecast midpoint",
+              "score": 0,
+              "asOf": "2026-07-03",
+              "source": "trendforce",
+              "freshness": "LIVE"
+            },
+            "overseas": {
+              "name": "해외 고객·수입대체",
+              "dimension": "structural",
+              "weight": 12,
+              "value": null,
+              "score": null,
+              "freshness": "UNKNOWN"
+            }
+          },
+          "adapterCoverage": {
+            "metricsReady": 6,
+            "metricsStale": 0,
+            "metricsTotal": 6
+          },
+          "fingerprint": "d10f136bb7fe87a5"
+        }
+      ]
+    }
+  ]
 }
