@@ -1,0 +1,26 @@
+---
+interface Source { label: string; url: string; }
+interface Props { authorBio?:string; researchMethod?:string; sourceList?:Source[]; riskFactors?:string[]; counterScenarios?:string[]; }
+const {authorBio,researchMethod,sourceList=[],riskFactors=[],counterScenarios=[]}=Astro.props;
+const hasEvidence=Boolean(authorBio||researchMethod||sourceList.length||riskFactors.length||counterScenarios.length);
+---
+{hasEvidence && (
+<section class="trust-evidence-v1" aria-labelledby="trust-evidence-title" data-trust-evidence="explicit-only">
+  <h2 id="trust-evidence-title">리서치 작성 기준 및 근거</h2>
+  {authorBio && <p><strong>작성자 소개:</strong> {authorBio}</p>}
+  {researchMethod && <p><strong>조사 방법:</strong> {researchMethod}</p>}
+  {sourceList.length>0 && <div><h3>확인 자료</h3><ul>{sourceList.map(s=><li><a href={s.url} rel="noopener noreferrer" referrerpolicy="no-referrer" target="_blank">{s.label}</a></li>)}</ul></div>}
+  {riskFactors.length>0 && <div><h3>주요 위험요인</h3><ul>{riskFactors.map(x=><li>{x}</li>)}</ul></div>}
+  {counterScenarios.length>0 && <div><h3>반대 시나리오</h3><ul>{counterScenarios.map(x=><li>{x}</li>)}</ul></div>}
+</section>
+<style>
+.trust-evidence-v1{border:1px solid #dce5ef;border-radius:16px;padding:clamp(18px,4vw,28px);margin:24px 0;background:#f8fbff;color:#17324b}
+.trust-evidence-v1 h2{font-size:clamp(1.1rem,3vw,1.4rem);margin:0 0 14px}
+.trust-evidence-v1 h3{font-size:1rem;margin:14px 0 8px}
+.trust-evidence-v1 p{margin:10px 0;line-height:1.7}
+.trust-evidence-v1 ul{margin:8px 0;padding-left:1.25rem}
+.trust-evidence-v1 li{margin:6px 0;overflow-wrap:anywhere;line-height:1.65}
+.trust-evidence-v1 a{color:#135eab;text-decoration:underline;text-underline-offset:3px}
+.trust-evidence-v1 a:focus-visible{outline:3px solid #0e81e3;outline-offset:3px}
+</style>
+)}
