@@ -1,8 +1,7 @@
 name: GSC 7-Day Visibility
 
 on:
-  schedule:
-    - cron: '5 1 * * 1'
+  # Scheduled report paused for October cost control; manual/push remain.
   push:
     branches: [main]
     paths:
