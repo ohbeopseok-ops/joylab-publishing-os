@@ -10,6 +10,11 @@ on:
 permissions:
   contents: read
 
+# Cancel only superseded builds for the same PR or branch.
+concurrency:
+  group: build-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,6 +29,15 @@ jobs:
         with:
           node-version: 24
           package-manager-cache: false
+
+      - name: Verify Actions Ops tooling (offline)
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check scripts/actions-ops-digest.mjs
+          node scripts/actions-ops-digest.mjs --self-test
+          node --check scripts/actions-workflow-audit.mjs
+          node scripts/actions-workflow-audit.mjs
 
       - name: Install Korean font for book artwork
         timeout-minutes: 4

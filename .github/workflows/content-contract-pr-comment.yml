@@ -2,9 +2,8 @@ name: Content Contract PR Comment
 
 on:
   pull_request:
-    types: [labeled]
+    types: [opened, synchronize, reopened, labeled]
     branches: [main]
-    types: [opened, synchronize, reopened]
     paths:
       - 'src/data/articles/**'
       - 'src/data/books/**'

@@ -108,3 +108,4 @@ jobs:
             artifacts/research-corpus-evidence-audit.json
             artifacts/research-corpus-evidence-audit.md
           if-no-files-found: error
+          retention-days: 7
