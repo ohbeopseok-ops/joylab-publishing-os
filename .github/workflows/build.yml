@@ -30,6 +30,15 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
+      - name: Verify Actions Ops tooling (offline)
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check scripts/actions-ops-digest.mjs
+          node scripts/actions-ops-digest.mjs --self-test
+          node --check scripts/actions-workflow-audit.mjs
+          node scripts/actions-workflow-audit.mjs
+
       - name: Install Korean font for book artwork
         timeout-minutes: 4
         run: bash scripts/install-pinned-korean-fonts.sh
