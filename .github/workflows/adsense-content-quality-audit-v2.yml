@@ -2,11 +2,12 @@ name: AdSense Content Quality Audit V2
 
 on:
   pull_request:
-    types: [labeled]
+    types: [opened, synchronize, reopened, labeled]
     branches: [main]
     paths:
       - 'src/data/articles/**'
       - 'scripts/audit-adsense-content-quality-v2.mjs'
+      - 'scripts/audit-adsense-content-value-v3.mjs'
       - '.github/workflows/adsense-content-quality-audit-v2.yml'
   workflow_dispatch:
 
@@ -25,6 +26,15 @@ jobs:
           package-manager-cache: false
       - name: Run full content audit
         run: node scripts/audit-adsense-content-quality-v2.mjs
+      - name: Run full-body reader value triage V3
+        run: node scripts/audit-adsense-content-value-v3.mjs
+      - name: Upload 123-article reader value evidence
+        uses: actions/upload-artifact@v6
+        with:
+          name: adsense-content-value-audit-v3
+          path: qa-artifacts/adsense-content-value-v3
+          if-no-files-found: error
+          retention-days: 14
       - name: Upload audit
         uses: actions/upload-artifact@v6
         with:
