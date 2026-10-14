@@ -4,7 +4,7 @@ description: "미국의 대중 첨단칩·장비·HBM 수출통제가 어떻게 
 category: "투자·경제"
 tags: ["반도체수출규제", "BIS", "미중반도체", "HBM", "중국반도체"]
 publishedAt: 2026-09-25
-updatedAt: 2026-09-25
+updatedAt: 2026-10-14
 author: "JoyLab"
 featured: false
 draft: false
@@ -88,6 +88,31 @@ JoyLab에서는 타임라인을 네 단계로 읽습니다.
 
 - [BIS, 2025-08-29 중국 내 외국계 팹 VEU 정책 변경](https://www.bis.gov/press-release/department-commerce-closes-export-controls-loophole-foreign-owned-semiconductor-fabs-china)
 - [BIS, 2026-01-13 반도체 라이선스 심사정책 수정](https://www.bis.gov/press-release/department-commerce-revises-license-review-policy-semiconductors-exported-china)
+
+## 규제 뉴스의 투자 영향을 판정하는 4열 근거표
+
+반도체 수출규제 기사를 읽을 때는 규제 강화냐 완화냐보다 **품목, 거래 상대방, 라이선스 조건, 시행 시점**을 분리해야 합니다.
+
+| 확인 항목 | 검증할 원문 | 기업 실적에 연결할 질문 |
+| --- | --- | --- |
+| 품목 | BIS 발표·Federal Register의 제품 범위 | 특정 GPU·HBM·제조장비에 해당하는가 |
+| 최종 사용자 | 허가 대상·사용 목적 조건 | 중국 전체에 일괄 적용되는가, 특정 대상인가 |
+| 허가 정책 | 거절 추정·case-by-case 등 | 확정 판매 금지인가 심사 조건 변경인가 |
+| 시점 | 게시일·시행일·전환 규정 | 현재 분기 출하에 반영되는가, 후속 분기인가 |
+
+**교육용 가상 비교:** 같은 '허가 필요' 보도라도 A안은 첨단 장비 신규 증설에 적용되고, B안은 기존 장비 유지보수에만 해당한다고 가정하면 해당 메모리 팹의 CAPEX 영향은 같지 않습니다. 문장 하나로 모든 중국 공급망이 중단됐다고 결론내리면 과장될 수 있습니다.
+
+### 사건별 검증 순서
+
+1. 기사보다 먼저 [미국 상무부 BIS](https://www.bis.gov/)와 [Federal Register](https://www.federalregister.gov/)에 해당 규정의 실제 문서가 있는지 찾습니다.
+2. 보도일과 시행일을 구분하고 규정 개정본·정정문을 대조합니다.
+3. 품목 범위와 라이선스 조건을 해당 기업의 실제 제품·사업장에 연결합니다.
+4. 매출·생산·장비 교체가 어느 분기에 달라지는지는 기업의 공식 자료와 비교합니다.
+5. 연결 근거가 없으면 '실적 영향 미확인'으로 남깁니다.
+
+**반대 시나리오:** 일부 라이선스 심사가 완화돼도 고객의 자체 조달이나 대체 공급 확대 때문에 한국 기업의 실제 수익이 증가하지 않을 수 있습니다. 규정 변화와 실적 변화는 다른 관측치입니다.
+
+*검토 기준: 2026-10-14. 이 표는 규정 읽기 방법이며 개별 거래에 대한 법률 자문이 아닙니다.*
 
 ## Research Hub
 
