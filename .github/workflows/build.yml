@@ -10,6 +10,11 @@ on:
 permissions:
   contents: read
 
+# Cancel only superseded builds for the same PR or branch.
+concurrency:
+  group: build-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
