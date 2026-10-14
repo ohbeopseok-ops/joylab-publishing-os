@@ -176,6 +176,10 @@ HD한국조선해양은 그룹 연결 기준이라 단일 조선사와 직접 �
 
 따라서 `최고의 조선사`를 하나 고르는 것보다 **내가 어떤 변수에 베팅하는지** 먼저 정하는 것이 맞습니다.
 
+### 조선업 투자 클러스터
+
+- [JoyLab 조선업 투자 가이드](/guides/shipbuilding) — 조선업의 수주·실적·밸류에이션을 같은 기준으로 비교하는 허브입니다.
+
 ### Related Research
 
 - [HD현대중공업 Company Research V1](/articles/hd-hyundai-heavy-industries-shipbuilding)
