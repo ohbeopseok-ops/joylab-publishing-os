@@ -15,6 +15,53 @@ tags:
   - 투자전략
 publishedAt: 2026-10-15
 author: "JoyLab Research"
+contentType: "investment-analysis"
+contentQuestion: "코어위브 신용위험은 SK하이닉스 HBM 실적에 어떻게 전달되며 언제 매수 판단이 가능한가?"
+timeSensitive: true
+trust:
+  author: "JoyLab Research"
+  authorPerspective: "공개 금융·기업 공시에서 신용위험의 전달 경로를 분석하고 매매 판단의 불확실성을 명시하는 투자 리서치 관점"
+  humanReviewed: false
+  researchedAt: "2026-10-15"
+  methodology:
+    - "금융시장 보도와 기업 IR, 미국 노동통계국 원문을 대조"
+    - "사실·가능한 전파 경로·미확인 주문변경·투자 시나리오를 구분"
+    - "동시점 확인이 어려운 실시간 시세로 확정 매수가격을 도출하지 않음"
+  primarySources:
+    - id: "bls-cpi-sep2026"
+      title: "Consumer Price Index September 2026"
+      publisher: "U.S. Bureau of Labor Statistics"
+      url: "https://www.bls.gov/news.release/cpi.toc.htm"
+      publishedAt: "2026-10-14"
+      accessedAt: "2026-10-15"
+      supports: ["credit-event"]
+    - id: "coreweave-ir"
+      title: "CoreWeave Investor Relations"
+      publisher: "CoreWeave"
+      url: "https://investors.coreweave.com/"
+      accessedAt: "2026-10-15"
+      supports: ["credit-event"]
+    - id: "sk-hynix-ir"
+      title: "SK hynix Investor Relations"
+      publisher: "SK hynix"
+      url: "https://www.skhynix.com/ir/UI-FR-IR99/"
+      accessedAt: "2026-10-15"
+      supports: ["hynix-review"]
+  originalValue:
+    - kind: "framework"
+      sectionId: "supply-chain-transmission"
+      description: "데이터센터 금융비용에서 GPU·HBM·이익추정으로 이어지는 5단계 위험 전달 경로"
+    - kind: "checklist"
+      sectionId: "hynix-review"
+      description: "HBM 기업 매수 전 수요·이익·수급을 분리해 확인하는 체크리스트"
+    - kind: "scenario"
+      sectionId: "three-scenarios"
+      description: "Bull/Base/Bear 위험 실현 확인 지표를 비교하는 조건부 시나리오"
+  counterEvidenceSections: ["three-scenarios"]
+  conclusionSection: "joylab-conclusion"
+  updateLog:
+    - date: "2026-10-15"
+      change: "코어위브 신용위험과 SK하이닉스 HBM 투자판단에 대한 신규 근거 검토"
 authorBio: "JoyLab Research는 투자·경제와 기술 산업을 공개된 공시·기업자료·시장 데이터를 기준으로 분석합니다."
 researchMethod: "2026년 10월 14~15일 공개된 금융·시장 보도를 교차 대조하고 사실, 해석, 미확인 정보 및 조건부 시나리오를 구분했습니다. 실시간 호가와 체결 자료는 별도 검증 대상으로 취급합니다."
 sourceList:
@@ -26,6 +73,10 @@ sourceList:
     url: "https://www.marketwatch.com/story/coreweave-sparks-worry-about-broader-credit-market-stress-as-its-bonds-tumble-887458e4"
   - label: "AP | South Korean and Asian equity selloff (2026-10-15)"
     url: "https://apnews.com/article/e889ad7dee2b7dd959f1b8bc87366914"
+  - label: "US Bureau of Labor Statistics | September 2026 CPI"
+    url: "https://www.bls.gov/news.release/cpi.toc.htm"
+  - label: "CoreWeave Investor Relations"
+    url: "https://investors.coreweave.com/"
   - label: "SK hynix Investor Relations"
     url: "https://www.skhynix.com/ir/UI-FR-IR99/"
 riskFactors:
@@ -67,6 +118,8 @@ faqs:
 - **해석:** HBM 수요 둔화 위험은 커졌지만 코어위브 신용불안만으로 SK하이닉스의 확정 주문 취소나 실적 훼손을 단정할 수 없다.
 - **실행:** 급락률보다 신용 스프레드, 실제 AI CAPEX, HBM 수주·출하, 외국인 수급, 가격 회복을 순서대로 확인한다.
 
+<span id="credit-event"></span>
+
 ## 1. 사건의 본질: AI 수요가 아니라 자금조달 비용에 대한 질문
 
 코어위브(CoreWeave)는 GPU 컴퓨팅 자원을 임대하는 AI 클라우드 인프라 사업자다. 대규모 GPU 및 데이터센터를 조달·운영하려면 막대한 선행 투자가 필요하다. 사용량과 매출이 빠르게 증가하더라도 투자금 회수와 차입금 상환 시점 사이에는 차이가 생길 수 있다.
@@ -75,7 +128,9 @@ faqs:
 
 자금조달비용 상승은 신규 데이터센터 프로젝트의 기대수익률을 낮추고, 증설 일정과 자금조달 규모를 재검토하도록 만들 수 있다. 한편 대형 고객과의 계약, 장기 자금조달 구조, 이미 확정된 투자는 이 충격의 전달 속도를 완화할 수도 있다. 두 효과를 함께 봐야 한다.
 
-**근거:** [Reuters, 2026-10-14](https://www.reuters.com/business/red-hot-cpi-report-fuels-ai-rout-2026-10-14/), [MarketWatch, 회사채시장 보도](https://www.marketwatch.com/story/coreweave-sparks-worry-about-broader-credit-market-stress-as-its-bonds-tumble-887458e4).
+**1차 근거:** [미국 노동통계국 CPI 원문](https://www.bls.gov/news.release/cpi.toc.htm), [코어위브 IR·재무자료](https://investors.coreweave.com/). 코어위브의 회사채 시장가격은 기업 자체 발표가 아닌 시장 보도 수치이며 별도 분류한다.\n\n**보도 근거:** [Reuters, 2026-10-14](https://www.reuters.com/business/red-hot-cpi-report-fuels-ai-rout-2026-10-14/), [MarketWatch, 회사채시장 보도](https://www.marketwatch.com/story/coreweave-sparks-worry-about-broader-credit-market-stress-as-its-bonds-tumble-887458e4).
+
+<span id="supply-chain-transmission"></span>
 
 ## 2. 코어위브 → GPU → HBM → SK하이닉스: 위험은 어떻게 전파되나
 
@@ -105,6 +160,8 @@ faqs:
 두 번째가 실현됐는지 여부를 분리해야 저가매수와 구조적 하락을 구별할 수 있다.
 
 **근거:** [Reuters, AI 인프라 주식 매도](https://www.investing.com/news/economy-news/ai-infrastructure-firms-slump-as-us-rate-hike-bets-rise-4949759), [AP, 10월 15일 아시아 증시](https://apnews.com/article/e889ad7dee2b7dd959f1b8bc87366914).
+
+<span id="hynix-review"></span>
 
 ## 4. SK하이닉스 분석: HBM 경쟁력과 주가 진입 시점은 별개
 
@@ -139,6 +196,8 @@ SK하이닉스에 대한 장기 투자 논리는 HBM 수율·공급능력·고�
 ### 왜 한 개의 가격 숫자로 답하지 않는가
 
 ‘125만 원 지지’처럼 특정 장중 저가를 기준으로 제시하려면 **정확한 일시·거래소 시세·수정주가 여부·시장 운영 상태**가 함께 표시돼야 한다. 본문은 가격을 고정하지 않고 검증 절차를 공개한다. 신규 가격은 데이터 출처를 확인한 후 별도 시장 업데이트로 추가한다.
+
+<span id="three-scenarios"></span>
 
 ## 6. Bull / Base / Bear 시나리오
 
@@ -190,6 +249,8 @@ AI 사용량과 GPU·HBM 수요가 증가해도 조달금리가 높아져 일부
 ### AI 거품이 터졌다고 볼 수 있나?
 
 현재 증거는 AI 인프라의 높은 차입 의존성과 금리 위험이 주가에 반영되고 있음을 보여준다. 이것만으로 AI 사용량의 장기 성장 종료나 HBM 산업 전반의 수요 붕괴를 입증하지는 못한다.
+
+<span id="joylab-conclusion"></span>
 
 ## JoyLab 결론
 
