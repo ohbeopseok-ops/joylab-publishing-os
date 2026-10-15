@@ -2246,5 +2246,575 @@
         "caption": "Efficiency → Reinvestment → Moat → Duration 순서로 장기 복리 가능성을 점검합니다."
       }
     ]
+  },
+  "investing-macro-basics": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "매크로를 왜 투자에 쓰는가 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "매크로를 왜 투자에 쓰는가 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "매크로를 왜 투자에 쓰는가 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-policy-rate": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "기준금리와 시장금리 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "기준금리와 시장금리 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "기준금리와 시장금리 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-yield-curve": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "수익률곡선과 장단기금리 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "수익률곡선과 장단기금리 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "수익률곡선과 장단기금리 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-inflation-real-rate": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "인플레이션과 실질금리 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "인플레이션과 실질금리 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "인플레이션과 실질금리 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-usdkrw-fx": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "원달러 환율과 한국 자산 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "원달러 환율과 한국 자산 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "원달러 환율과 한국 자산 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-bond-duration-macro": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "듀레이션과 채권 가격 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "듀레이션과 채권 가격 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "듀레이션과 채권 가격 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-trade-cycle": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "수출과 기업이익 사이클 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "수출과 기업이익 사이클 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "수출과 기업이익 사이클 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-semiconductor-trade-pulse": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "반도체 수출과 주가 신호 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "반도체 수출과 주가 신호 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "반도체 수출과 주가 신호 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-macro-to-asset-allocation": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "매크로를 자산배분에 연결하기 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "매크로를 자산배분에 연결하기 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "매크로를 자산배분에 연결하기 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-macro-dashboard": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "JoyLab Macro Dashboard — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "JoyLab Macro Dashboard — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "JoyLab Macro Dashboard — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-stocks-basics": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "개별주 투자의 출발점 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "개별주 투자의 출발점 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "개별주 투자의 출발점 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-samsung-electronics-case": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "삼성전자 분석 프레임 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "삼성전자 분석 프레임 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "삼성전자 분석 프레임 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-sk-hynix-case": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "SK하이닉스 분석 프레임 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "SK하이닉스 분석 프레임 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "SK하이닉스 분석 프레임 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-earnings-cycle": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "실적 사이클 읽기 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "실적 사이클 읽기 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "실적 사이클 읽기 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-eps-revision": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "EPS Revision — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "EPS Revision — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "EPS Revision — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-valuation-4v": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Valuation 4V — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Valuation 4V — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Valuation 4V — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-foreign-flow": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "외국인 Flow와 수급 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "외국인 Flow와 수급 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "외국인 Flow와 수급 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-relative-strength": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "상대강도와 주도주 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "상대강도와 주도주 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "상대강도와 주도주 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-leader-engine": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "JoyLab Leader Engine — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "JoyLab Leader Engine — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "JoyLab Leader Engine — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-stock-decision-gate": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Stock Decision Gate — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Stock Decision Gate — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Stock Decision Gate — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-etf-what-is": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "ETF란 무엇인가 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "ETF란 무엇인가 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "ETF란 무엇인가 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-mmf": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "MMF — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "MMF — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "MMF — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-tdf": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "TDF — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "TDF — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "TDF — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-portfolio-60-40": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "60/40 자산배분 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "60/40 자산배분 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "60/40 자산배분 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-sp500": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "S&P500 ETF — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "S&P500 ETF — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "S&P500 ETF — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-nasdaq100": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Nasdaq100 ETF — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Nasdaq100 ETF — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Nasdaq100 ETF — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-dividend-etf": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "Dividend ETF — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "Dividend ETF — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "Dividend ETF — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-bond-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "미국10년·국고채3년·종합채권 ETF — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "미국10년·국고채3년·종합채권 ETF — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "미국10년·국고채3년·종합채권 ETF — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-rebalancing": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "리밸런싱 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "리밸런싱 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "리밸런싱 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
+  },
+  "investing-model-portfolio": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "실전 모델 포트폴리오 — JoyLab Investing Foundations Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 개념과 판단 구조는 본문과 Research Graph에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "실전 모델 포트폴리오 — 핵심 변화와 투자 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 변화와 확인해야 할 신호를 한 화면에서 정리합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "실전 모델 포트폴리오 — 개념에서 판단과 실행으로 연결하는 JoyLab Research Framework 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 구조를 정리합니다."
+      }
+    ]
   }
 }
