@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="t d">
+<title id="t">S&amp;P500 PEG selected historical reference points</title>
+<desc id="d">2000, 2007, 2020, 2022 and 2026 selected S&amp;P500 PEG reference points. Values are approximate chart-derived observations and not a continuous raw series.</desc>
+<rect width="1600" height="900" fill="#0b1220"/>
+<text x="90" y="90" fill="#ffffff" font-size="44" font-family="Arial, sans-serif" font-weight="700">S&amp;P500 PEG — Selected Historical Reference Points</text>
+<text x="90" y="132" fill="#9fb0c7" font-size="24" font-family="Arial, sans-serif">SILVER evidence · chart-derived approximations · not a continuous raw series</text>
+<line x1="130" y1="700" x2="1500" y2="700" stroke="#50627a" stroke-width="2"/>
+<line x1="130" y1="210" x2="130" y2="700" stroke="#50627a" stroke-width="2"/>
+<g fill="#9fb0c7" font-family="Arial, sans-serif" font-size="20">
+<text x="72" y="706">0.5</text><text x="72" y="584">1.0</text><text x="72" y="462">1.5</text><text x="72" y="340">2.0</text><text x="72" y="218">2.5</text>
+</g>
+<g stroke="#263449" stroke-width="1">
+<line x1="130" y1="578" x2="1500" y2="578"/><line x1="130" y1="456" x2="1500" y2="456"/><line x1="130" y1="334" x2="1500" y2="334"/><line x1="130" y1="212" x2="1500" y2="212"/>
+</g>
+<polyline points="250,334 520,432 900,236 1120,334 1430,651" fill="none" stroke="#6f8fb8" stroke-width="5" stroke-dasharray="12 10"/>
+<g font-family="Arial, sans-serif" text-anchor="middle">
+<circle cx="250" cy="334" r="12" fill="#d6dee8"/><text x="250" y="315" fill="#ffffff" font-size="28" font-weight="700">2.0</text><text x="250" y="748" fill="#9fb0c7" font-size="22">2000</text>
+<circle cx="520" cy="432" r="12" fill="#d6dee8"/><text x="520" y="413" fill="#ffffff" font-size="28" font-weight="700">1.6</text><text x="520" y="748" fill="#9fb0c7" font-size="22">2007</text>
+<circle cx="900" cy="236" r="12" fill="#d6dee8"/><text x="900" y="217" fill="#ffffff" font-size="28" font-weight="700">2.4</text><text x="900" y="748" fill="#9fb0c7" font-size="22">2020</text>
+<circle cx="1120" cy="334" r="12" fill="#d6dee8"/><text x="1120" y="315" fill="#ffffff" font-size="28" font-weight="700">2.0</text><text x="1120" y="748" fill="#9fb0c7" font-size="22">2022</text>
+<circle cx="1430" cy="651" r="18" fill="#f59e0b"/><text x="1430" y="620" fill="#f59e0b" font-size="36" font-weight="700">≈0.70</text><text x="1430" y="748" fill="#f59e0b" font-size="22" font-weight="700">2026</text>
+</g>
+<rect x="1010" y="785" width="490" height="66" rx="12" fill="#111d2e" stroke="#334760"/>
+<text x="1035" y="827" fill="#c8d4e3" font-size="20" font-family="Arial, sans-serif">Source: Yardeni PEG chart / I/B/E/S methodology</text>
+</svg>

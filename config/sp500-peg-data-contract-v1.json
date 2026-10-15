@@ -1,0 +1,36 @@
+{
+  "contract": "S&P500 PEG Data Contract",
+  "version": "1.0",
+  "seriesId": "sp500-peg",
+  "formula": "peg = forward_pe / lteg_pct",
+  "requiredColumns": ["date","source_provider","source_tier","source_ref"],
+  "numericColumns": ["peg","forward_pe","lteg_pct"],
+  "tiers": {
+    "GOLD": {
+      "allowedSourceTiers": ["licensed_numeric"],
+      "requirements": [
+        "reproducible numeric observations",
+        "source_ref preserved",
+        "date preserved",
+        "peg provided directly or derivable from forward_pe and lteg_pct",
+        "no chart digitization"
+      ]
+    },
+    "SILVER": {
+      "allowedSourceTiers": ["chart_digitized","secondary_numeric"],
+      "requirements": [
+        "source_ref preserved",
+        "observation marked non-GOLD",
+        "no automatic promotion to GOLD"
+      ]
+    }
+  },
+  "goldProviderHints": ["refinitiv_ibes"],
+  "hardRules": [
+    "Never synthesize missing observations.",
+    "Never interpolate across missing dates for signal generation.",
+    "Never label chart-digitized observations GOLD.",
+    "When both peg and components exist, formula difference must be <= 0.02.",
+    "A missing source_ref blocks the row."
+  ]
+}
