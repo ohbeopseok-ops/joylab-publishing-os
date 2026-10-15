@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 123,
+  "articleCount": 124,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -73,6 +73,48 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "ai-capex-peakout-foxconn-micron-tsmc-2026",
+      "route": "/articles/ai-capex-peakout-foxconn-micron-tsmc-2026",
+      "industries": [
+        "semiconductor",
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex",
+        "memory-supercycle",
+        "power-supercycle"
+      ],
+      "companies": [
+        "NVIDIA",
+        "Foxconn",
+        "Micron",
+        "TSMC",
+        "SK hynix",
+        "Samsung Electronics",
+        "LS ELECTRIC"
+      ],
+      "valueChains": [
+        "GPU / Accelerator",
+        "Foundry",
+        "HBM / Memory",
+        "AI Server / Rack",
+        "Networking",
+        "Power / Grid",
+        "Cooling"
+      ],
+      "kpis": [
+        "Foxconn AI server revenue growth",
+        "Micron long-term customer commitments",
+        "HBM supply-demand balance",
+        "TSMC monthly revenue growth",
+        "TSMC CAPEX guidance",
+        "Hyperscaler AI CAPEX",
+        "AI infrastructure ROI",
+        "Data center power capacity"
+      ],
+      "researchType": "scenario"
     },
     {
       "slug": "ai-data-center-capacity-stack-2026",
