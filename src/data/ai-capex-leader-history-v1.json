@@ -66,6 +66,26 @@
         },
         {
           "ticker": "353200",
+          "score": 86,
+          "status": "LEADER"
+        },
+        {
+          "ticker": "005930",
+          "score": 86,
+          "status": "LEADER"
+        },
+        {
+          "ticker": "042700",
+          "score": 86,
+          "status": "LEADER"
+        },
+        {
+          "ticker": "222800",
+          "score": 84,
+          "status": "LEADER"
+        },
+        {
+          "ticker": "103590",
           "score": 84,
           "status": "LEADER"
         },
@@ -75,38 +95,18 @@
           "status": "LEADER"
         },
         {
-          "ticker": "298040",
-          "score": 82,
-          "status": "LEADER"
-        },
-        {
-          "ticker": "222800",
-          "score": 82,
-          "status": "LEADER"
-        },
-        {
-          "ticker": "103590",
-          "score": 81,
-          "status": "LEADER"
-        },
-        {
           "ticker": "010120",
-          "score": 80,
-          "status": "LEADER"
-        },
-        {
-          "ticker": "005930",
-          "score": 79,
-          "status": "STRONG-CANDIDATE"
-        },
-        {
-          "ticker": "042700",
-          "score": 79,
+          "score": 78,
           "status": "STRONG-CANDIDATE"
         },
         {
           "ticker": "267260",
-          "score": 78,
+          "score": 71,
+          "status": "STRONG-CANDIDATE"
+        },
+        {
+          "ticker": "298040",
+          "score": 70,
           "status": "STRONG-CANDIDATE"
         }
       ]
