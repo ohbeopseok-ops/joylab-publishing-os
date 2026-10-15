@@ -2246,5 +2246,24 @@
         "caption": "Efficiency → Reinvestment → Moat → Duration 순서로 장기 복리 가능성을 점검합니다."
       }
     ]
+  },
+  "coreweave-ai-credit-risk-sk-hynix-2026-10-15": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "코어위브 채권 신용위험과 SK하이닉스 HBM 전망에 대한 JoyLab 리서치",
+      "caption": "AI 인프라의 자금조달 위기는 실제 GPU·HBM 주문 감소와 분리해 판단해야 합니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "코어위브 신용 스프레드, 데이터센터 CAPEX, GPU 발주, HBM 주문 변화를 확인하는 리서치 신호",
+        "caption": "핵심 신호: 자금조달비용 → CAPEX → GPU → HBM 실적."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "AI 신용위험 관련 사실, 해석, Bull Base Bear 시나리오와 매수 조건 구분",
+        "caption": "FACT → TRANSMISSION → SCENARIO → ACTION: 확인된 사실과 조건부 가설을 분리합니다."
+      }
+    ]
   }
 }
