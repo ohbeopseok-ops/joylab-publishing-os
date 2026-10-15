@@ -8,7 +8,7 @@ const files=fs.readdirSync(root).filter(f=>f.endsWith('.md')).sort();
 if(files.length!==123||excluded.length!==10||excluded.some(f=>!files.includes(f)))throw Error('Corpus not 123, or PR508 exclusions are missing.');
 const fmval=(fm,k)=>(fm.match(new RegExp('^'+k+':\\s*(.*)$','m'))?.[1]||'').trim().replace(/^['"]|['"]$/g,'');
 const domain=url=>{try{return new URL(url).hostname.replace(/^www\./,'')}catch{return''}};
-const official=['.gov','.go.kr','.ac.kr','.edu','sec.gov','federalreserve.gov','bls.gov','bea.gov','bis.org','bok.or.kr','krx.co.kr','dart.fss.or.kr','iea.org','jedec.org','nvidia.com','samsung.com','skhynix.com','openai.com','anthropic.com','oecd.org','imf.org','worldbank.org','hanwhaocean.com','samsungshi.com','ls-electric.com'];
+const official=['.gov','.go.kr','.ac.kr','.edu','sec.gov','federalreserve.gov','bls.gov','bea.gov','bis.org','bok.or.kr','krx.co.kr','dart.fss.or.kr','iea.org','jedec.org','nvidia.com','samsung.com','skhynix.com','openai.com','anthropic.com','oecd.org','imf.org','worldbank.org','hanwhaocean.com','samsungshi.com','ls-electric.com','microsoft.com','oracle.com','itu.int','iscpc.org','owasp.org','ecb.europa.eu','energy.gov','hdksoe.co.kr','hd-hhi.com','gevernova.com'];
 const isOfficial=d=>official.some(x=>x.startsWith('.')?d.endsWith(x):d===x||d.endsWith('.'+x));
 const stop=new Set('ai 투자 주가 전망 가이드 비교 분석 방법 한국 시장 2026 2025 이야기 무엇인가'.split(' '));
 const tokens=s=>[...new Set(String(s).toLowerCase().normalize('NFKC').replace(/[^a-z0-9가-힣]+/g,' ').split(/\s+/).filter(x=>x.length>1&&!stop.has(x)))];
