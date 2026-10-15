@@ -2246,5 +2246,575 @@
         "caption": "Efficiency → Reinvestment → Moat → Duration 순서로 장기 복리 가능성을 점검합니다."
       }
     ]
+  },
+  "60-40-asset-allocation-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "60 40 asset allocation guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "60 40 asset allocation guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "60 40 asset allocation guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "bond-duration-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "bond duration guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "bond duration guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "bond duration guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "bond-etf-core-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "bond etf core guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "bond etf core guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "bond etf core guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "dividend-etf-income-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "dividend etf income guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "dividend etf income guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "dividend etf income guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "earnings-cycle-analysis-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "earnings cycle analysis guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "earnings cycle analysis guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "earnings cycle analysis guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "eps-revision-analysis-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "eps revision analysis guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "eps revision analysis guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "eps revision analysis guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "etf-basics-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "etf basics guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "etf basics guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "etf basics guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "etf-model-portfolio-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "etf model portfolio guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "etf model portfolio guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "etf model portfolio guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "export-earnings-cycle-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "export earnings cycle guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "export earnings cycle guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "export earnings cycle guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "foreign-flow-analysis-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "foreign flow analysis guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "foreign flow analysis guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "foreign flow analysis guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "inflation-real-rate-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "inflation real rate guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "inflation real rate guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "inflation real rate guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "joylab-leader-engine-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "joylab leader engine guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "joylab leader engine guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "joylab leader engine guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "joylab-macro-dashboard-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "joylab macro dashboard guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "joylab macro dashboard guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "joylab macro dashboard guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "macro-investing-basics": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "macro investing basics — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "macro investing basics — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "macro investing basics — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "macro-to-asset-allocation-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "macro to asset allocation guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "macro to asset allocation guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "macro to asset allocation guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "mmf-cash-management-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "mmf cash management guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "mmf cash management guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "mmf cash management guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "nasdaq100-etf-growth-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "nasdaq100 etf growth guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "nasdaq100 etf growth guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "nasdaq100 etf growth guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "policy-rate-vs-market-rate": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "policy rate vs market rate — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "policy rate vs market rate — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "policy rate vs market rate — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "portfolio-rebalancing-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "portfolio rebalancing guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "portfolio rebalancing guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "portfolio rebalancing guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "relative-strength-leadership-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "relative strength leadership guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "relative strength leadership guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "relative strength leadership guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "samsung-electronics-analysis-framework": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "samsung electronics analysis framework — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "samsung electronics analysis framework — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "samsung electronics analysis framework — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "semiconductor-trade-pulse-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "semiconductor trade pulse guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "semiconductor trade pulse guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "semiconductor trade pulse guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "sk-hynix-analysis-framework": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "sk hynix analysis framework — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "sk hynix analysis framework — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "sk hynix analysis framework — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "sp500-etf-core-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "sp500 etf core guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "sp500 etf core guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "sp500 etf core guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "stock-decision-gate-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "stock decision gate guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "stock decision gate guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "stock decision gate guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "stock-investing-basics-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "stock investing basics guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "stock investing basics guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "stock investing basics guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "tdf-target-date-fund-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "tdf target date fund guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "tdf target date fund guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "tdf target date fund guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "usdkrw-investing-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "usdkrw investing guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "usdkrw investing guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "usdkrw investing guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "valuation-4v-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "valuation 4v guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "valuation 4v guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "valuation 4v guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
+  },
+  "yield-curve-guide": {
+    "hero": {
+      "src": "/images/research/joylab-research-default-hero.svg",
+      "alt": "yield curve guide — JoyLab Research Standard 대표 이미지",
+      "caption": "JoyLab Research Standard 공통 Hero. 핵심 논지와 데이터는 본문과 Visual Research에서 이어집니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/joylab-research-signal.svg",
+        "alt": "yield curve guide — 핵심 신호를 정리한 JoyLab Visual Research 이미지",
+        "caption": "핵심 데이터와 변화 신호를 한 화면에서 확인합니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "yield curve guide — Fact Interpretation Scenario Action 프레임워크 이미지",
+        "caption": "Fact → Interpretation → Scenario → Action 순서로 판단 기준을 정리합니다."
+      }
+    ]
   }
 }

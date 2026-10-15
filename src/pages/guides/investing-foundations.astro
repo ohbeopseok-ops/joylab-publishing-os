@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const all = await getCollection('articles', ({ data }) => !data.draft);
+const seriesNames = ['ETF 초보자 완전정복','매크로 초보자 완전정복','주식 분석 초보자 완전정복'];
+const groups = seriesNames.map((series) => ({
+  series,
+  items: all
+    .filter((entry) => entry.data.series === series)
+    .sort((a,b) => (a.data.seriesOrder ?? 999) - (b.data.seriesOrder ?? 999))
+}));
+
+const meta = {
+  'ETF 초보자 완전정복': {
+    eyebrow: 'ETF · ASSET ALLOCATION',
+    title: 'ETF에서 자산배분까지',
+    flow: 'ETF → MMF → TDF → 60/40 → Equity → Bond → Rebalancing'
+  },
+  '매크로 초보자 완전정복': {
+    eyebrow: 'MACRO · RATES · FX',
+    title: '금리·환율·수출을 투자와 연결하기',
+    flow: 'Policy Rate → Yield Curve → Inflation → FX → Duration → Trade Pulse'
+  },
+  '주식 분석 초보자 완전정복': {
+    eyebrow: 'STOCKS · EARNINGS · VALUATION',
+    title: '기업 분석에서 Decision Gate까지',
+    flow: 'Company → Earnings → EPS Revision → Valuation → Flow → Leader → Decision'
+  }
+};
+---
+<BaseLayout
+  title="JoyLab 투자 기초 Research Path｜ETF·Macro·Stocks 30편"
+  description="ETF, 자산배분, 금리·환율·수출, 삼성전자·SK하이닉스, EPS Revision, Valuation, Leader Engine까지 30편으로 연결한 JoyLab 투자 기초 Research Path입니다."
+  bodyClass="investing-foundations-v3"
+>
+  <main class="if-shell">
+    <section class="if-hero">
+      <div class="if-eyebrow">JOYLAB INVESTING · RESEARCH PATH V3</div>
+      <h1>종목보다 먼저,<br/>판단 구조를 배웁니다.</h1>
+      <p>ETF·Macro·Stocks를 따로 외우지 않고 <strong>자산의 역할 → 시장 환경 → 기업 이익 → 가격 → 행동 Gate</strong>의 순서로 연결합니다.</p>
+      <div class="if-flow">Stocks → Macro → ETF → Asset Allocation → Retirement</div>
+      <a class="if-back" href="/guides/investing">투자 리서치 메인으로 돌아가기 →</a>
+    </section>
+
+    <section class="if-summary" aria-label="30편 구성">
+      <div><strong>30</strong><span>Published Guides</span></div>
+      <div><strong>3</strong><span>Learning Clusters</span></div>
+      <div><strong>1</strong><span>Decision System</span></div>
+    </section>
+
+    {groups.map((group, groupIndex) => (
+      <section class="if-cluster" id={groupIndex === 0 ? 'etf' : groupIndex === 1 ? 'macro' : 'stocks'}>
+        <header>
+          <div class="if-eyebrow">{meta[group.series].eyebrow}</div>
+          <h2>{meta[group.series].title}</h2>
+          <p>{meta[group.series].flow}</p>
+        </header>
+        <div class="if-grid">
+          {group.items.map((entry, index) => (
+            <a class="if-card" href={`/articles/${entry.id}`}>
+              <em>{String(index + 1).padStart(2,'0')}</em>
+              <div>
+                <h3>{entry.data.title}</h3>
+                <p>{entry.data.description}</p>
+                <span>읽기 →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <section class="if-next">
+      <div class="if-eyebrow">RELEASE FLOW</div>
+      <h2>정적 교과서에서 실시간 Research System으로</h2>
+      <p>이번 30편의 Production GOLD가 먼저입니다. 이후에 Live Evidence Layer를 연결하고, 그 다음 Retirement 10부작을 추가합니다.</p>
+      <div class="if-flow">30 Guides GOLD → Live Evidence → Retirement → Portfolio OS</div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+.if-shell{max-width:1120px;margin:0 auto;padding:54px 22px 90px;color:#10213c}.if-hero{padding:34px 0 42px}.if-eyebrow{font-size:.76rem;letter-spacing:.11em;font-weight:800;color:#1677ff}.if-hero h1{font-size:clamp(2.4rem,6vw,5rem);line-height:1.03;letter-spacing:-.055em;margin:14px 0 20px}.if-hero p{max-width:760px;font-size:1.08rem;line-height:1.75;color:#52627a}.if-flow{display:inline-block;margin-top:18px;padding:11px 15px;border-radius:12px;background:#07152f;color:#dfe9f7;font-weight:700}.if-back{display:block;margin-top:18px;color:#1677ff;font-weight:700;text-decoration:none}.if-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 54px}.if-summary>div{border:1px solid #dce4ef;border-radius:16px;padding:20px;background:#fff}.if-summary strong{display:block;font-size:2rem}.if-summary span{font-size:.82rem;color:#6d7b8f}.if-cluster{margin-top:56px}.if-cluster header{margin-bottom:20px}.if-cluster h2,.if-next h2{font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.035em;margin:8px 0}.if-cluster header p,.if-next p{color:#64748b}.if-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.if-card{display:flex;gap:16px;padding:19px;border:1px solid #dbe3ef;border-radius:16px;text-decoration:none;background:#fff;transition:.16s ease}.if-card:hover{transform:translateY(-2px);border-color:#1677ff}.if-card em{font-style:normal;font-weight:800;color:#1677ff}.if-card h3{margin:0 0 8px;font-size:1.02rem;line-height:1.45}.if-card p{margin:0;color:#64748b;font-size:.88rem;line-height:1.6}.if-card span{display:inline-block;margin-top:10px;color:#1677ff;font-size:.82rem;font-weight:700}.if-next{margin-top:64px;padding:30px;border-radius:22px;background:#f4f8ff;border:1px solid #d7e6ff}@media(max-width:640px){.if-shell{padding:40px 20px 70px}.if-summary{grid-template-columns:1fr 1fr}.if-summary>div:first-child{grid-column:1/-1}.if-grid{grid-template-columns:1fr}.if-card{padding:16px}.if-hero h1{font-size:2.65rem}.if-flow{font-size:.78rem;line-height:1.5}}
+</style>
