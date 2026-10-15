@@ -1,0 +1,1425 @@
+{
+  "contract": "JoyLab.ResearchGraph",
+  "version": "1.0.0",
+  "pillar": {
+    "id": "investing-foundations",
+    "title": "Investing Foundations",
+    "url": "/guides/investing-foundations",
+    "domain": "investing",
+    "status": "published"
+  },
+  "nodes": [
+    {
+      "id": "investing-foundations",
+      "type": "pillar",
+      "label": "Investing Foundations",
+      "articleUrl": "/guides/investing-foundations",
+      "stage": "pillar"
+    },
+    {
+      "id": "stocks",
+      "type": "sector",
+      "label": "Stocks",
+      "stage": "sector"
+    },
+    {
+      "id": "macro-cluster",
+      "type": "macro",
+      "label": "Macro",
+      "stage": "macro"
+    },
+    {
+      "id": "etf",
+      "type": "sector",
+      "label": "ETF",
+      "stage": "sector"
+    },
+    {
+      "id": "asset-allocation",
+      "type": "sector",
+      "label": "Asset Allocation",
+      "stage": "sector"
+    },
+    {
+      "id": "retirement",
+      "type": "sector",
+      "label": "Retirement",
+      "stage": "sector"
+    },
+    {
+      "id": "etf-etf-what-is",
+      "type": "article",
+      "label": "ETF란 무엇인가",
+      "articleUrl": "/articles/etf-etf-what-is",
+      "stage": "sector"
+    },
+    {
+      "id": "etf-mmf",
+      "type": "article",
+      "label": "MMF",
+      "articleUrl": "/articles/etf-mmf",
+      "stage": "sector"
+    },
+    {
+      "id": "etf-tdf",
+      "type": "article",
+      "label": "TDF",
+      "articleUrl": "/articles/etf-tdf",
+      "stage": "sector"
+    },
+    {
+      "id": "etf-portfolio-60-40",
+      "type": "article",
+      "label": "60/40 자산배분",
+      "articleUrl": "/articles/etf-portfolio-60-40",
+      "stage": "sector"
+    },
+    {
+      "id": "etf-sp500",
+      "type": "article",
+      "label": "S&P500 ETF",
+      "articleUrl": "/articles/etf-sp500",
+      "stage": "sector"
+    },
+    {
+      "id": "etf-nasdaq100",
+      "type": "article",
+      "label": "Nasdaq100 ETF",
+      "articleUrl": "/articles/etf-nasdaq100",
+      "stage": "sector"
+    },
+    {
+      "id": "etf-dividend-etf",
+      "type": "article",
+      "label": "Dividend ETF",
+      "articleUrl": "/articles/etf-dividend-etf",
+      "stage": "sector"
+    },
+    {
+      "id": "etf-bond-guide",
+      "type": "article",
+      "label": "미국10년·국고채3년·종합채권 ETF",
+      "articleUrl": "/articles/etf-bond-guide",
+      "stage": "sector"
+    },
+    {
+      "id": "etf-rebalancing",
+      "type": "article",
+      "label": "리밸런싱",
+      "articleUrl": "/articles/etf-rebalancing",
+      "stage": "sector"
+    },
+    {
+      "id": "etf-model-portfolio",
+      "type": "article",
+      "label": "실전 모델 포트폴리오",
+      "articleUrl": "/articles/etf-model-portfolio",
+      "stage": "sector"
+    },
+    {
+      "id": "macro-why-macro-matters",
+      "type": "article",
+      "label": "매크로를 왜 투자에 쓰는가",
+      "articleUrl": "/articles/macro-why-macro-matters",
+      "stage": "macro"
+    },
+    {
+      "id": "macro-policy-rate-market-rate",
+      "type": "article",
+      "label": "기준금리와 시장금리",
+      "articleUrl": "/articles/macro-policy-rate-market-rate",
+      "stage": "macro"
+    },
+    {
+      "id": "macro-yield-curve",
+      "type": "article",
+      "label": "수익률곡선과 장단기금리",
+      "articleUrl": "/articles/macro-yield-curve",
+      "stage": "macro"
+    },
+    {
+      "id": "macro-inflation-real-rate",
+      "type": "article",
+      "label": "인플레이션과 실질금리",
+      "articleUrl": "/articles/macro-inflation-real-rate",
+      "stage": "macro"
+    },
+    {
+      "id": "macro-usdkrw",
+      "type": "article",
+      "label": "원달러 환율과 한국 자산",
+      "articleUrl": "/articles/macro-usdkrw",
+      "stage": "macro"
+    },
+    {
+      "id": "macro-bond-duration",
+      "type": "article",
+      "label": "듀레이션과 채권 가격",
+      "articleUrl": "/articles/macro-bond-duration",
+      "stage": "macro"
+    },
+    {
+      "id": "macro-export-earnings-cycle",
+      "type": "article",
+      "label": "수출과 기업이익 사이클",
+      "articleUrl": "/articles/macro-export-earnings-cycle",
+      "stage": "macro"
+    },
+    {
+      "id": "macro-semiconductor-trade-pulse",
+      "type": "article",
+      "label": "반도체 수출과 주가 신호",
+      "articleUrl": "/articles/macro-semiconductor-trade-pulse",
+      "stage": "macro"
+    },
+    {
+      "id": "macro-macro-to-asset-allocation",
+      "type": "article",
+      "label": "매크로를 자산배분에 연결하기",
+      "articleUrl": "/articles/macro-macro-to-asset-allocation",
+      "stage": "macro"
+    },
+    {
+      "id": "macro-macro-dashboard",
+      "type": "article",
+      "label": "JoyLab Macro Dashboard",
+      "articleUrl": "/articles/macro-macro-dashboard",
+      "stage": "macro"
+    },
+    {
+      "id": "stocks-stock-investing-basics",
+      "type": "article",
+      "label": "개별주 투자의 출발점",
+      "articleUrl": "/articles/stocks-stock-investing-basics",
+      "stage": "company"
+    },
+    {
+      "id": "stocks-samsung-electronics",
+      "type": "article",
+      "label": "삼성전자 분석 프레임",
+      "articleUrl": "/articles/stocks-samsung-electronics",
+      "stage": "company"
+    },
+    {
+      "id": "stocks-sk-hynix",
+      "type": "article",
+      "label": "SK하이닉스 분석 프레임",
+      "articleUrl": "/articles/stocks-sk-hynix",
+      "stage": "company"
+    },
+    {
+      "id": "stocks-earnings-cycle",
+      "type": "article",
+      "label": "실적 사이클 읽기",
+      "articleUrl": "/articles/stocks-earnings-cycle",
+      "stage": "company"
+    },
+    {
+      "id": "stocks-eps-revision",
+      "type": "article",
+      "label": "EPS Revision",
+      "articleUrl": "/articles/stocks-eps-revision",
+      "stage": "company"
+    },
+    {
+      "id": "stocks-valuation-4v",
+      "type": "article",
+      "label": "Valuation 4V",
+      "articleUrl": "/articles/stocks-valuation-4v",
+      "stage": "company"
+    },
+    {
+      "id": "stocks-foreign-flow",
+      "type": "article",
+      "label": "외국인 Flow와 수급",
+      "articleUrl": "/articles/stocks-foreign-flow",
+      "stage": "company"
+    },
+    {
+      "id": "stocks-relative-strength",
+      "type": "article",
+      "label": "상대강도와 주도주",
+      "articleUrl": "/articles/stocks-relative-strength",
+      "stage": "company"
+    },
+    {
+      "id": "stocks-leader-engine",
+      "type": "article",
+      "label": "JoyLab Leader Engine",
+      "articleUrl": "/articles/stocks-leader-engine",
+      "stage": "company"
+    },
+    {
+      "id": "stocks-stock-decision-gate",
+      "type": "article",
+      "label": "Stock Decision Gate",
+      "articleUrl": "/articles/stocks-stock-decision-gate",
+      "stage": "company"
+    },
+    {
+      "id": "mmf-concept",
+      "type": "metric",
+      "label": "MMF",
+      "stage": "metric"
+    },
+    {
+      "id": "tdf-concept",
+      "type": "workflow",
+      "label": "TDF",
+      "stage": "workflow"
+    },
+    {
+      "id": "allocation-60-40",
+      "type": "workflow",
+      "label": "60/40",
+      "stage": "workflow"
+    },
+    {
+      "id": "sp500-concept",
+      "type": "sector",
+      "label": "S&P500",
+      "stage": "sector"
+    },
+    {
+      "id": "nasdaq100-concept",
+      "type": "sector",
+      "label": "Nasdaq100",
+      "stage": "sector"
+    },
+    {
+      "id": "dividend-concept",
+      "type": "sector",
+      "label": "Dividend",
+      "stage": "sector"
+    },
+    {
+      "id": "bond-concept",
+      "type": "macro",
+      "label": "Bond",
+      "stage": "macro"
+    },
+    {
+      "id": "rebalancing-concept",
+      "type": "workflow",
+      "label": "Rebalancing",
+      "stage": "workflow"
+    },
+    {
+      "id": "policy-rate",
+      "type": "macro",
+      "label": "Policy Rate",
+      "stage": "macro"
+    },
+    {
+      "id": "yield-curve",
+      "type": "macro",
+      "label": "Yield Curve",
+      "stage": "macro"
+    },
+    {
+      "id": "inflation",
+      "type": "macro",
+      "label": "Inflation",
+      "stage": "macro"
+    },
+    {
+      "id": "fx",
+      "type": "macro",
+      "label": "FX",
+      "stage": "macro"
+    },
+    {
+      "id": "duration",
+      "type": "macro",
+      "label": "Duration",
+      "stage": "macro"
+    },
+    {
+      "id": "trade-pulse",
+      "type": "macro",
+      "label": "Trade Pulse",
+      "stage": "macro"
+    },
+    {
+      "id": "eps-revision",
+      "type": "kpi",
+      "label": "EPS Revision",
+      "stage": "kpi"
+    },
+    {
+      "id": "valuation-4v",
+      "type": "valuation",
+      "label": "Valuation 4V",
+      "stage": "valuation"
+    },
+    {
+      "id": "leader-engine",
+      "type": "workflow",
+      "label": "Leader Engine",
+      "stage": "workflow"
+    }
+  ],
+  "edges": [
+    {
+      "from": "investing-foundations",
+      "to": "stocks",
+      "type": "maps_to"
+    },
+    {
+      "from": "investing-foundations",
+      "to": "macro-cluster",
+      "type": "maps_to"
+    },
+    {
+      "from": "investing-foundations",
+      "to": "etf",
+      "type": "maps_to"
+    },
+    {
+      "from": "investing-foundations",
+      "to": "asset-allocation",
+      "type": "maps_to"
+    },
+    {
+      "from": "investing-foundations",
+      "to": "retirement",
+      "type": "maps_to"
+    },
+    {
+      "from": "etf-etf-what-is",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "etf-mmf",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "etf-tdf",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "etf-portfolio-60-40",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "etf-sp500",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "etf-nasdaq100",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "etf-dividend-etf",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "etf-bond-guide",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "etf-rebalancing",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "etf-model-portfolio",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "macro-why-macro-matters",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "macro-policy-rate-market-rate",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "macro-yield-curve",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "macro-inflation-real-rate",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "macro-usdkrw",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "macro-bond-duration",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "macro-export-earnings-cycle",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "macro-semiconductor-trade-pulse",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "macro-macro-to-asset-allocation",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "macro-macro-dashboard",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "stocks-stock-investing-basics",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "stocks-samsung-electronics",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "stocks-sk-hynix",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "stocks-earnings-cycle",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "stocks-eps-revision",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "stocks-valuation-4v",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "stocks-foreign-flow",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "stocks-relative-strength",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "stocks-leader-engine",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "stocks-stock-decision-gate",
+      "to": "investing-foundations",
+      "type": "belongs_to"
+    },
+    {
+      "from": "etf-etf-what-is",
+      "to": "etf-mmf",
+      "type": "next"
+    },
+    {
+      "from": "etf-mmf",
+      "to": "etf-etf-what-is",
+      "type": "previous"
+    },
+    {
+      "from": "etf-mmf",
+      "to": "etf-tdf",
+      "type": "next"
+    },
+    {
+      "from": "etf-tdf",
+      "to": "etf-mmf",
+      "type": "previous"
+    },
+    {
+      "from": "etf-tdf",
+      "to": "etf-portfolio-60-40",
+      "type": "next"
+    },
+    {
+      "from": "etf-portfolio-60-40",
+      "to": "etf-tdf",
+      "type": "previous"
+    },
+    {
+      "from": "etf-portfolio-60-40",
+      "to": "etf-sp500",
+      "type": "next"
+    },
+    {
+      "from": "etf-sp500",
+      "to": "etf-portfolio-60-40",
+      "type": "previous"
+    },
+    {
+      "from": "etf-sp500",
+      "to": "etf-nasdaq100",
+      "type": "next"
+    },
+    {
+      "from": "etf-nasdaq100",
+      "to": "etf-sp500",
+      "type": "previous"
+    },
+    {
+      "from": "etf-nasdaq100",
+      "to": "etf-dividend-etf",
+      "type": "next"
+    },
+    {
+      "from": "etf-dividend-etf",
+      "to": "etf-nasdaq100",
+      "type": "previous"
+    },
+    {
+      "from": "etf-dividend-etf",
+      "to": "etf-bond-guide",
+      "type": "next"
+    },
+    {
+      "from": "etf-bond-guide",
+      "to": "etf-dividend-etf",
+      "type": "previous"
+    },
+    {
+      "from": "etf-bond-guide",
+      "to": "etf-rebalancing",
+      "type": "next"
+    },
+    {
+      "from": "etf-rebalancing",
+      "to": "etf-bond-guide",
+      "type": "previous"
+    },
+    {
+      "from": "etf-rebalancing",
+      "to": "etf-model-portfolio",
+      "type": "next"
+    },
+    {
+      "from": "etf-model-portfolio",
+      "to": "etf-rebalancing",
+      "type": "previous"
+    },
+    {
+      "from": "etf-model-portfolio",
+      "to": "macro-why-macro-matters",
+      "type": "next"
+    },
+    {
+      "from": "macro-why-macro-matters",
+      "to": "etf-model-portfolio",
+      "type": "previous"
+    },
+    {
+      "from": "macro-why-macro-matters",
+      "to": "macro-policy-rate-market-rate",
+      "type": "next"
+    },
+    {
+      "from": "macro-policy-rate-market-rate",
+      "to": "macro-why-macro-matters",
+      "type": "previous"
+    },
+    {
+      "from": "macro-policy-rate-market-rate",
+      "to": "macro-yield-curve",
+      "type": "next"
+    },
+    {
+      "from": "macro-yield-curve",
+      "to": "macro-policy-rate-market-rate",
+      "type": "previous"
+    },
+    {
+      "from": "macro-yield-curve",
+      "to": "macro-inflation-real-rate",
+      "type": "next"
+    },
+    {
+      "from": "macro-inflation-real-rate",
+      "to": "macro-yield-curve",
+      "type": "previous"
+    },
+    {
+      "from": "macro-inflation-real-rate",
+      "to": "macro-usdkrw",
+      "type": "next"
+    },
+    {
+      "from": "macro-usdkrw",
+      "to": "macro-inflation-real-rate",
+      "type": "previous"
+    },
+    {
+      "from": "macro-usdkrw",
+      "to": "macro-bond-duration",
+      "type": "next"
+    },
+    {
+      "from": "macro-bond-duration",
+      "to": "macro-usdkrw",
+      "type": "previous"
+    },
+    {
+      "from": "macro-bond-duration",
+      "to": "macro-export-earnings-cycle",
+      "type": "next"
+    },
+    {
+      "from": "macro-export-earnings-cycle",
+      "to": "macro-bond-duration",
+      "type": "previous"
+    },
+    {
+      "from": "macro-export-earnings-cycle",
+      "to": "macro-semiconductor-trade-pulse",
+      "type": "next"
+    },
+    {
+      "from": "macro-semiconductor-trade-pulse",
+      "to": "macro-export-earnings-cycle",
+      "type": "previous"
+    },
+    {
+      "from": "macro-semiconductor-trade-pulse",
+      "to": "macro-macro-to-asset-allocation",
+      "type": "next"
+    },
+    {
+      "from": "macro-macro-to-asset-allocation",
+      "to": "macro-semiconductor-trade-pulse",
+      "type": "previous"
+    },
+    {
+      "from": "macro-macro-to-asset-allocation",
+      "to": "macro-macro-dashboard",
+      "type": "next"
+    },
+    {
+      "from": "macro-macro-dashboard",
+      "to": "macro-macro-to-asset-allocation",
+      "type": "previous"
+    },
+    {
+      "from": "macro-macro-dashboard",
+      "to": "stocks-stock-investing-basics",
+      "type": "next"
+    },
+    {
+      "from": "stocks-stock-investing-basics",
+      "to": "macro-macro-dashboard",
+      "type": "previous"
+    },
+    {
+      "from": "stocks-stock-investing-basics",
+      "to": "stocks-samsung-electronics",
+      "type": "next"
+    },
+    {
+      "from": "stocks-samsung-electronics",
+      "to": "stocks-stock-investing-basics",
+      "type": "previous"
+    },
+    {
+      "from": "stocks-samsung-electronics",
+      "to": "stocks-sk-hynix",
+      "type": "next"
+    },
+    {
+      "from": "stocks-sk-hynix",
+      "to": "stocks-samsung-electronics",
+      "type": "previous"
+    },
+    {
+      "from": "stocks-sk-hynix",
+      "to": "stocks-earnings-cycle",
+      "type": "next"
+    },
+    {
+      "from": "stocks-earnings-cycle",
+      "to": "stocks-sk-hynix",
+      "type": "previous"
+    },
+    {
+      "from": "stocks-earnings-cycle",
+      "to": "stocks-eps-revision",
+      "type": "next"
+    },
+    {
+      "from": "stocks-eps-revision",
+      "to": "stocks-earnings-cycle",
+      "type": "previous"
+    },
+    {
+      "from": "stocks-eps-revision",
+      "to": "stocks-valuation-4v",
+      "type": "next"
+    },
+    {
+      "from": "stocks-valuation-4v",
+      "to": "stocks-eps-revision",
+      "type": "previous"
+    },
+    {
+      "from": "stocks-valuation-4v",
+      "to": "stocks-foreign-flow",
+      "type": "next"
+    },
+    {
+      "from": "stocks-foreign-flow",
+      "to": "stocks-valuation-4v",
+      "type": "previous"
+    },
+    {
+      "from": "stocks-foreign-flow",
+      "to": "stocks-relative-strength",
+      "type": "next"
+    },
+    {
+      "from": "stocks-relative-strength",
+      "to": "stocks-foreign-flow",
+      "type": "previous"
+    },
+    {
+      "from": "stocks-relative-strength",
+      "to": "stocks-leader-engine",
+      "type": "next"
+    },
+    {
+      "from": "stocks-leader-engine",
+      "to": "stocks-relative-strength",
+      "type": "previous"
+    },
+    {
+      "from": "stocks-leader-engine",
+      "to": "stocks-stock-decision-gate",
+      "type": "next"
+    },
+    {
+      "from": "stocks-stock-decision-gate",
+      "to": "stocks-leader-engine",
+      "type": "previous"
+    },
+    {
+      "from": "mmf-concept",
+      "to": "etf",
+      "type": "maps_to"
+    },
+    {
+      "from": "tdf-concept",
+      "to": "retirement",
+      "type": "maps_to"
+    },
+    {
+      "from": "allocation-60-40",
+      "to": "asset-allocation",
+      "type": "maps_to"
+    },
+    {
+      "from": "sp500-concept",
+      "to": "etf",
+      "type": "maps_to"
+    },
+    {
+      "from": "nasdaq100-concept",
+      "to": "etf",
+      "type": "maps_to"
+    },
+    {
+      "from": "dividend-concept",
+      "to": "etf",
+      "type": "maps_to"
+    },
+    {
+      "from": "bond-concept",
+      "to": "etf",
+      "type": "maps_to"
+    },
+    {
+      "from": "rebalancing-concept",
+      "to": "asset-allocation",
+      "type": "maps_to"
+    },
+    {
+      "from": "policy-rate",
+      "to": "macro-cluster",
+      "type": "maps_to"
+    },
+    {
+      "from": "yield-curve",
+      "to": "macro-cluster",
+      "type": "maps_to"
+    },
+    {
+      "from": "inflation",
+      "to": "macro-cluster",
+      "type": "maps_to"
+    },
+    {
+      "from": "fx",
+      "to": "macro-cluster",
+      "type": "maps_to"
+    },
+    {
+      "from": "duration",
+      "to": "macro-cluster",
+      "type": "maps_to"
+    },
+    {
+      "from": "trade-pulse",
+      "to": "macro-cluster",
+      "type": "maps_to"
+    },
+    {
+      "from": "eps-revision",
+      "to": "stocks",
+      "type": "maps_to"
+    },
+    {
+      "from": "valuation-4v",
+      "to": "stocks",
+      "type": "maps_to"
+    },
+    {
+      "from": "leader-engine",
+      "to": "stocks",
+      "type": "maps_to"
+    },
+    {
+      "from": "etf-mmf",
+      "to": "mmf-concept",
+      "type": "informs"
+    },
+    {
+      "from": "etf-tdf",
+      "to": "tdf-concept",
+      "type": "informs"
+    },
+    {
+      "from": "etf-portfolio-60-40",
+      "to": "allocation-60-40",
+      "type": "informs"
+    },
+    {
+      "from": "etf-sp500",
+      "to": "sp500-concept",
+      "type": "informs"
+    },
+    {
+      "from": "etf-nasdaq100",
+      "to": "nasdaq100-concept",
+      "type": "informs"
+    },
+    {
+      "from": "macro-yield-curve",
+      "to": "yield-curve",
+      "type": "informs"
+    },
+    {
+      "from": "macro-usdkrw",
+      "to": "fx",
+      "type": "informs"
+    },
+    {
+      "from": "macro-semiconductor-trade-pulse",
+      "to": "trade-pulse",
+      "type": "informs"
+    },
+    {
+      "from": "stocks-eps-revision",
+      "to": "eps-revision",
+      "type": "informs"
+    },
+    {
+      "from": "stocks-valuation-4v",
+      "to": "valuation-4v",
+      "type": "informs"
+    },
+    {
+      "from": "stocks-leader-engine",
+      "to": "leader-engine",
+      "type": "informs"
+    }
+  ],
+  "articles": [
+    {
+      "id": "etf-etf-what-is",
+      "title": "ETF란 무엇인가",
+      "url": "/articles/etf-etf-what-is",
+      "order": 1,
+      "pillar": "investing-foundations",
+      "topics": [
+        "etf"
+      ],
+      "stage": "sector",
+      "previous": null,
+      "next": "etf-mmf",
+      "status": "published"
+    },
+    {
+      "id": "etf-mmf",
+      "title": "MMF",
+      "url": "/articles/etf-mmf",
+      "order": 2,
+      "pillar": "investing-foundations",
+      "topics": [
+        "etf"
+      ],
+      "stage": "sector",
+      "previous": "etf-etf-what-is",
+      "next": "etf-tdf",
+      "status": "published"
+    },
+    {
+      "id": "etf-tdf",
+      "title": "TDF",
+      "url": "/articles/etf-tdf",
+      "order": 3,
+      "pillar": "investing-foundations",
+      "topics": [
+        "etf"
+      ],
+      "stage": "sector",
+      "previous": "etf-mmf",
+      "next": "etf-portfolio-60-40",
+      "status": "published"
+    },
+    {
+      "id": "etf-portfolio-60-40",
+      "title": "60/40 자산배분",
+      "url": "/articles/etf-portfolio-60-40",
+      "order": 4,
+      "pillar": "investing-foundations",
+      "topics": [
+        "etf"
+      ],
+      "stage": "sector",
+      "previous": "etf-tdf",
+      "next": "etf-sp500",
+      "status": "published"
+    },
+    {
+      "id": "etf-sp500",
+      "title": "S&P500 ETF",
+      "url": "/articles/etf-sp500",
+      "order": 5,
+      "pillar": "investing-foundations",
+      "topics": [
+        "etf"
+      ],
+      "stage": "sector",
+      "previous": "etf-portfolio-60-40",
+      "next": "etf-nasdaq100",
+      "status": "published"
+    },
+    {
+      "id": "etf-nasdaq100",
+      "title": "Nasdaq100 ETF",
+      "url": "/articles/etf-nasdaq100",
+      "order": 6,
+      "pillar": "investing-foundations",
+      "topics": [
+        "etf"
+      ],
+      "stage": "sector",
+      "previous": "etf-sp500",
+      "next": "etf-dividend-etf",
+      "status": "published"
+    },
+    {
+      "id": "etf-dividend-etf",
+      "title": "Dividend ETF",
+      "url": "/articles/etf-dividend-etf",
+      "order": 7,
+      "pillar": "investing-foundations",
+      "topics": [
+        "etf"
+      ],
+      "stage": "sector",
+      "previous": "etf-nasdaq100",
+      "next": "etf-bond-guide",
+      "status": "published"
+    },
+    {
+      "id": "etf-bond-guide",
+      "title": "미국10년·국고채3년·종합채권 ETF",
+      "url": "/articles/etf-bond-guide",
+      "order": 8,
+      "pillar": "investing-foundations",
+      "topics": [
+        "etf"
+      ],
+      "stage": "sector",
+      "previous": "etf-dividend-etf",
+      "next": "etf-rebalancing",
+      "status": "published"
+    },
+    {
+      "id": "etf-rebalancing",
+      "title": "리밸런싱",
+      "url": "/articles/etf-rebalancing",
+      "order": 9,
+      "pillar": "investing-foundations",
+      "topics": [
+        "etf"
+      ],
+      "stage": "sector",
+      "previous": "etf-bond-guide",
+      "next": "etf-model-portfolio",
+      "status": "published"
+    },
+    {
+      "id": "etf-model-portfolio",
+      "title": "실전 모델 포트폴리오",
+      "url": "/articles/etf-model-portfolio",
+      "order": 10,
+      "pillar": "investing-foundations",
+      "topics": [
+        "etf"
+      ],
+      "stage": "sector",
+      "previous": "etf-rebalancing",
+      "next": "macro-why-macro-matters",
+      "status": "published"
+    },
+    {
+      "id": "macro-why-macro-matters",
+      "title": "매크로를 왜 투자에 쓰는가",
+      "url": "/articles/macro-why-macro-matters",
+      "order": 11,
+      "pillar": "investing-foundations",
+      "topics": [
+        "macro-cluster"
+      ],
+      "stage": "macro",
+      "previous": "etf-model-portfolio",
+      "next": "macro-policy-rate-market-rate",
+      "status": "published"
+    },
+    {
+      "id": "macro-policy-rate-market-rate",
+      "title": "기준금리와 시장금리",
+      "url": "/articles/macro-policy-rate-market-rate",
+      "order": 12,
+      "pillar": "investing-foundations",
+      "topics": [
+        "macro-cluster"
+      ],
+      "stage": "macro",
+      "previous": "macro-why-macro-matters",
+      "next": "macro-yield-curve",
+      "status": "published"
+    },
+    {
+      "id": "macro-yield-curve",
+      "title": "수익률곡선과 장단기금리",
+      "url": "/articles/macro-yield-curve",
+      "order": 13,
+      "pillar": "investing-foundations",
+      "topics": [
+        "macro-cluster"
+      ],
+      "stage": "macro",
+      "previous": "macro-policy-rate-market-rate",
+      "next": "macro-inflation-real-rate",
+      "status": "published"
+    },
+    {
+      "id": "macro-inflation-real-rate",
+      "title": "인플레이션과 실질금리",
+      "url": "/articles/macro-inflation-real-rate",
+      "order": 14,
+      "pillar": "investing-foundations",
+      "topics": [
+        "macro-cluster"
+      ],
+      "stage": "macro",
+      "previous": "macro-yield-curve",
+      "next": "macro-usdkrw",
+      "status": "published"
+    },
+    {
+      "id": "macro-usdkrw",
+      "title": "원달러 환율과 한국 자산",
+      "url": "/articles/macro-usdkrw",
+      "order": 15,
+      "pillar": "investing-foundations",
+      "topics": [
+        "macro-cluster"
+      ],
+      "stage": "macro",
+      "previous": "macro-inflation-real-rate",
+      "next": "macro-bond-duration",
+      "status": "published"
+    },
+    {
+      "id": "macro-bond-duration",
+      "title": "듀레이션과 채권 가격",
+      "url": "/articles/macro-bond-duration",
+      "order": 16,
+      "pillar": "investing-foundations",
+      "topics": [
+        "macro-cluster"
+      ],
+      "stage": "macro",
+      "previous": "macro-usdkrw",
+      "next": "macro-export-earnings-cycle",
+      "status": "published"
+    },
+    {
+      "id": "macro-export-earnings-cycle",
+      "title": "수출과 기업이익 사이클",
+      "url": "/articles/macro-export-earnings-cycle",
+      "order": 17,
+      "pillar": "investing-foundations",
+      "topics": [
+        "macro-cluster"
+      ],
+      "stage": "macro",
+      "previous": "macro-bond-duration",
+      "next": "macro-semiconductor-trade-pulse",
+      "status": "published"
+    },
+    {
+      "id": "macro-semiconductor-trade-pulse",
+      "title": "반도체 수출과 주가 신호",
+      "url": "/articles/macro-semiconductor-trade-pulse",
+      "order": 18,
+      "pillar": "investing-foundations",
+      "topics": [
+        "macro-cluster"
+      ],
+      "stage": "macro",
+      "previous": "macro-export-earnings-cycle",
+      "next": "macro-macro-to-asset-allocation",
+      "status": "published"
+    },
+    {
+      "id": "macro-macro-to-asset-allocation",
+      "title": "매크로를 자산배분에 연결하기",
+      "url": "/articles/macro-macro-to-asset-allocation",
+      "order": 19,
+      "pillar": "investing-foundations",
+      "topics": [
+        "macro-cluster"
+      ],
+      "stage": "macro",
+      "previous": "macro-semiconductor-trade-pulse",
+      "next": "macro-macro-dashboard",
+      "status": "published"
+    },
+    {
+      "id": "macro-macro-dashboard",
+      "title": "JoyLab Macro Dashboard",
+      "url": "/articles/macro-macro-dashboard",
+      "order": 20,
+      "pillar": "investing-foundations",
+      "topics": [
+        "macro-cluster"
+      ],
+      "stage": "macro",
+      "previous": "macro-macro-to-asset-allocation",
+      "next": "stocks-stock-investing-basics",
+      "status": "published"
+    },
+    {
+      "id": "stocks-stock-investing-basics",
+      "title": "개별주 투자의 출발점",
+      "url": "/articles/stocks-stock-investing-basics",
+      "order": 21,
+      "pillar": "investing-foundations",
+      "topics": [
+        "stocks"
+      ],
+      "stage": "company",
+      "previous": "macro-macro-dashboard",
+      "next": "stocks-samsung-electronics",
+      "status": "published"
+    },
+    {
+      "id": "stocks-samsung-electronics",
+      "title": "삼성전자 분석 프레임",
+      "url": "/articles/stocks-samsung-electronics",
+      "order": 22,
+      "pillar": "investing-foundations",
+      "topics": [
+        "stocks"
+      ],
+      "stage": "company",
+      "previous": "stocks-stock-investing-basics",
+      "next": "stocks-sk-hynix",
+      "status": "published"
+    },
+    {
+      "id": "stocks-sk-hynix",
+      "title": "SK하이닉스 분석 프레임",
+      "url": "/articles/stocks-sk-hynix",
+      "order": 23,
+      "pillar": "investing-foundations",
+      "topics": [
+        "stocks"
+      ],
+      "stage": "company",
+      "previous": "stocks-samsung-electronics",
+      "next": "stocks-earnings-cycle",
+      "status": "published"
+    },
+    {
+      "id": "stocks-earnings-cycle",
+      "title": "실적 사이클 읽기",
+      "url": "/articles/stocks-earnings-cycle",
+      "order": 24,
+      "pillar": "investing-foundations",
+      "topics": [
+        "stocks"
+      ],
+      "stage": "company",
+      "previous": "stocks-sk-hynix",
+      "next": "stocks-eps-revision",
+      "status": "published"
+    },
+    {
+      "id": "stocks-eps-revision",
+      "title": "EPS Revision",
+      "url": "/articles/stocks-eps-revision",
+      "order": 25,
+      "pillar": "investing-foundations",
+      "topics": [
+        "stocks"
+      ],
+      "stage": "company",
+      "previous": "stocks-earnings-cycle",
+      "next": "stocks-valuation-4v",
+      "status": "published"
+    },
+    {
+      "id": "stocks-valuation-4v",
+      "title": "Valuation 4V",
+      "url": "/articles/stocks-valuation-4v",
+      "order": 26,
+      "pillar": "investing-foundations",
+      "topics": [
+        "stocks"
+      ],
+      "stage": "company",
+      "previous": "stocks-eps-revision",
+      "next": "stocks-foreign-flow",
+      "status": "published"
+    },
+    {
+      "id": "stocks-foreign-flow",
+      "title": "외국인 Flow와 수급",
+      "url": "/articles/stocks-foreign-flow",
+      "order": 27,
+      "pillar": "investing-foundations",
+      "topics": [
+        "stocks"
+      ],
+      "stage": "company",
+      "previous": "stocks-valuation-4v",
+      "next": "stocks-relative-strength",
+      "status": "published"
+    },
+    {
+      "id": "stocks-relative-strength",
+      "title": "상대강도와 주도주",
+      "url": "/articles/stocks-relative-strength",
+      "order": 28,
+      "pillar": "investing-foundations",
+      "topics": [
+        "stocks"
+      ],
+      "stage": "company",
+      "previous": "stocks-foreign-flow",
+      "next": "stocks-leader-engine",
+      "status": "published"
+    },
+    {
+      "id": "stocks-leader-engine",
+      "title": "JoyLab Leader Engine",
+      "url": "/articles/stocks-leader-engine",
+      "order": 29,
+      "pillar": "investing-foundations",
+      "topics": [
+        "stocks"
+      ],
+      "stage": "company",
+      "previous": "stocks-relative-strength",
+      "next": "stocks-stock-decision-gate",
+      "status": "published"
+    },
+    {
+      "id": "stocks-stock-decision-gate",
+      "title": "Stock Decision Gate",
+      "url": "/articles/stocks-stock-decision-gate",
+      "order": 30,
+      "pillar": "investing-foundations",
+      "topics": [
+        "stocks"
+      ],
+      "stage": "company",
+      "previous": "stocks-leader-engine",
+      "next": null,
+      "status": "published"
+    }
+  ],
+  "lanes": [
+    {
+      "key": "macro",
+      "label": "MACRO / MARKET",
+      "types": [
+        "macro",
+        "sector"
+      ]
+    },
+    {
+      "key": "company",
+      "label": "STOCKS / COMPANY",
+      "types": [
+        "company",
+        "article"
+      ]
+    },
+    {
+      "key": "kpi",
+      "label": "KPI / METRIC",
+      "types": [
+        "kpi",
+        "metric"
+      ]
+    },
+    {
+      "key": "valuation",
+      "label": "VALUATION / DECISION",
+      "types": [
+        "valuation",
+        "workflow"
+      ]
+    }
+  ]
+}

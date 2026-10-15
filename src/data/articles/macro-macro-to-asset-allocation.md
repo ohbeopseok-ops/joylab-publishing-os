@@ -1,0 +1,76 @@
+---
+title: "매크로를 자산배분에 연결하기"
+description: "금리·물가·환율 신호를 시장예측이 아니라 자산배분 점검과 리밸런싱에 활용하는 방법을 설명합니다."
+cardTitle: "매크로를 자산배분에 연결하기"
+cardDescription: "금리·물가·환율 신호를 시장예측이 아니라 자산배분 점검과 리밸런싱에 활용하는 방법을 설명합니다."
+category: "투자·경제"
+tags:
+  - 매크로
+  - 금리
+  - 투자기초
+publishedAt: 2026-10-03
+author: "JoyLab"
+featured: false
+homeFeatured: false
+excludeFromLatest: true
+draft: false
+seoTitle: "매크로를 자산배분에 연결하기"
+canonical: "https://aijoylab.kr/articles/macro-macro-to-asset-allocation"
+series: "Macro 투자 기초 10부작"
+seriesOrder: 9
+readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "macro macro to asset allocation — JoyLab Investing Foundations 대표 이미지"
+investmentIndustries: []
+investmentTheses:
+  - macro-liquidity
+---
+
+## 3줄 요약
+
+- 매크로는 포트폴리오를 매달 갈아엎는 도구가 아닙니다.
+- 핵심은 현재 보유자산이 어떤 매크로 위험에 과도하게 노출됐는지 확인하는 것입니다.
+- 자산배분에서는 예측보다 **위험 예산과 리밸런싱 규칙**이 우선합니다.
+
+## 매크로와 자산 역할
+
+주식은 성장과 기업이익, 장기채는 금리와 디스인플레이션, 현금성 자산은 유동성, 해외자산은 환율에도 노출됩니다. 매크로를 보면 각 자산의 위험원이 무엇인지 확인할 수 있습니다.
+
+## 금리가 오를 때
+
+장기채와 성장주가 동시에 압박받을 수 있습니다. 이때 포트폴리오가 장기 듀레이션과 성장주에 과도하게 집중돼 있는지 확인합니다.
+
+## 인플레이션이 높을 때
+
+주식과 채권이 동시에 흔들릴 수 있습니다. 현금흐름, 가격전가력, 듀레이션, 실질금리를 점검합니다.
+
+## 환율이 급변할 때
+
+해외ETF의 원화 수익률과 국내 외국인 수급에 영향을 줄 수 있습니다. 환노출 비중이 의도한 수준인지 확인합니다.
+
+## FAQ
+
+### 매크로 신호에 따라 매달 비중을 바꿔야 하나요?
+그럴 필요는 없습니다. 전략적 자산배분을 우선하고 큰 환경 변화는 점검 신호로 활용할 수 있습니다.
+
+### 60/40도 매크로에 따라 바꿔야 하나요?
+60/40은 기준점입니다. 투자목적과 위험감내 수준이 바뀌지 않았다면 단기 전망만으로 자주 변경할 이유는 적습니다.
+
+### 가장 중요한 지표 하나를 고르면 무엇인가요?
+하나만 고르기 어렵습니다. 금리·물가·환율은 서로 연결되어 있습니다.
+
+## JoyLab 한 줄 답
+
+**매크로는 포트폴리오를 예언하는 도구가 아니라, 내가 어떤 위험을 얼마나 들고 있는지 점검하는 렌즈입니다.**
+
+## Primary Sources
+
+- [Federal Reserve — Monetary Policy](https://www.federalreserve.gov/monetarypolicy.htm)
+- [U.S. Treasury — Interest Rate Statistics](https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics)
+
+## Related Research
+
+- [JoyLab 투자 리서치 클러스터](/guides/investing)
+- [ETF·Macro·Stocks 30부작](/guides/investing-foundations)
+- [이전/연결 리서치](/articles/macro-semiconductor-trade-pulse)
+- [다음/연결 리서치](/articles/macro-macro-dashboard)

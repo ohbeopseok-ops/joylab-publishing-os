@@ -1,0 +1,72 @@
+---
+title: "듀레이션과 채권 가격"
+description: "듀레이션을 통해 금리 변화가 단기채와 장기채 가격에 다르게 작용하는 원리를 설명합니다."
+cardTitle: "듀레이션과 채권 가격"
+cardDescription: "듀레이션을 통해 금리 변화가 단기채와 장기채 가격에 다르게 작용하는 원리를 설명합니다."
+category: "투자·경제"
+tags:
+  - 매크로
+  - 금리
+  - 투자기초
+publishedAt: 2026-10-03
+author: "JoyLab"
+featured: false
+homeFeatured: false
+excludeFromLatest: true
+draft: false
+seoTitle: "듀레이션과 채권 가격"
+canonical: "https://aijoylab.kr/articles/macro-bond-duration"
+series: "Macro 투자 기초 10부작"
+seriesOrder: 6
+readingTime: "약 7분"
+heroImage: "/images/research/joylab-research-default-hero.svg"
+heroAlt: "macro bond duration — JoyLab Investing Foundations 대표 이미지"
+investmentIndustries: []
+investmentTheses:
+  - macro-liquidity
+---
+
+## 3줄 요약
+
+- 듀레이션은 채권이 금리 변화에 얼마나 민감한지 보여주는 핵심 지표입니다.
+- 일반적으로 만기가 길고 쿠폰이 낮을수록 금리 변화에 대한 가격 민감도가 커집니다.
+- 따라서 ‘채권=안전’이 아니라 **어떤 듀레이션의 채권인지**를 먼저 봐야 합니다.
+
+## 금리와 채권가격
+
+새로 발행되는 채권 금리가 오르면 기존 낮은 금리 채권의 매력은 떨어져 가격이 내려가는 방향으로 조정됩니다. 반대로 시장금리가 내리면 기존 고정금리 채권 가격은 올라갈 수 있습니다.
+
+## 장기채가 더 크게 움직이는 이유
+
+오랫동안 고정된 현금흐름을 받는 장기채는 할인율 변화의 영향을 더 오래 받습니다. 같은 금리 변화라도 10년채가 3년채보다 크게 움직일 수 있는 이유입니다.
+
+## ETF에서 확인할 것
+
+평균 듀레이션, 만기구조, 신용등급, 환율 노출을 함께 봅니다. 장기국채 ETF는 주식 방어 역할을 할 때도 있지만 금리 급등기에는 큰 가격하락이 발생할 수 있습니다.
+
+## FAQ
+
+### 듀레이션 10이면 금리가 1% 오를 때 정확히 10% 떨어지나요?
+근사치로 이해할 수 있지만 실제 가격변화는 볼록성 등 다른 요인 때문에 정확히 일치하지 않습니다.
+
+### 단기채는 손실이 없나요?
+아닙니다. 변동폭이 상대적으로 작을 뿐 가격과 신용위험이 존재할 수 있습니다.
+
+### 미국 10년 국채 ETF를 살 때 듀레이션만 보면 되나요?
+환율과 상품 구조, 선물형인지 현물형인지도 확인해야 합니다.
+
+## JoyLab 한 줄 답
+
+**채권의 위험은 ‘채권인가 아닌가’가 아니라 금리 변화에 얼마나 오래 노출되는가에서 시작합니다.**
+
+## Primary Sources
+
+- [Federal Reserve — Monetary Policy](https://www.federalreserve.gov/monetarypolicy.htm)
+- [U.S. Treasury — Interest Rate Statistics](https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics)
+
+## Related Research
+
+- [JoyLab 투자 리서치 클러스터](/guides/investing)
+- [ETF·Macro·Stocks 30부작](/guides/investing-foundations)
+- [이전/연결 리서치](/articles/macro-usdkrw)
+- [다음/연결 리서치](/articles/macro-export-earnings-cycle)

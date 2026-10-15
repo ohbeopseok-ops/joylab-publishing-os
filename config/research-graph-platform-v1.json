@@ -1,6 +1,6 @@
 {
   "contract": "JoyLab.ResearchGraphPlatform",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "mapComponent": "src/components/ResearchGraphMap.astro",
   "graphContract": "JoyLab.ResearchGraph",
   "verticals": [
@@ -67,6 +67,14 @@
       "graph": "config/research-graph-customer-center-ax-v1.json",
       "pillar": "/guides/customer-center-ax",
       "domain": "ai"
+    },
+    {
+      "id": "investing-foundations",
+      "label": "Investing Foundations",
+      "status": "active",
+      "graph": "config/research-graph-investing-foundations-v1.json",
+      "pillar": "/guides/investing-foundations",
+      "domain": "investing"
     }
   ]
 }

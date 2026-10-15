@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/semiconductor-guide-v2.css';
+import { getCollection } from 'astro:content';
+import ResearchGraphMap from '../../components/ResearchGraphMap.astro';
+import learningGraph from '../../../config/research-graph-investing-foundations-v1.json';
+
+const series = [
+  {
+    label: 'ETF · ASSET ALLOCATION',
+    title: 'ETF와 자산배분 10부작',
+    description: 'MMF와 TDF부터 60/40, S&P500, Nasdaq100, 채권 ETF, 리밸런싱까지 투자 포트폴리오의 기본 구조를 연결합니다.',
+    prefix: 'etf-'
+  },
+  {
+    label: 'MACRO',
+    title: 'Macro 투자 기초 10부작',
+    description: '기준금리, 수익률곡선, 실질금리, 환율, 듀레이션, 수출과 Trade Pulse를 자산배분까지 연결합니다.',
+    prefix: 'macro-'
+  },
+  {
+    label: 'STOCKS',
+    title: 'Stocks 분석 기초 10부작',
+    description: '삼성전자·SK하이닉스에서 EPS Revision, Valuation 4V, 수급, 상대강도, Leader Engine까지 분석 순서를 만듭니다.',
+    prefix: 'stocks-'
+  }
+];
+
+const articles = (await getCollection('articles')).filter((item) => !item.data.draft);
+const byPrefix = (prefix) => articles
+  .filter((item) => item.id.startsWith(prefix) && ['ETF·자산배분 기초 10부작','Macro 투자 기초 10부작','Stocks 분석 기초 10부작'].includes(item.data.series ?? ''))
+  .sort((a,b) => (a.data.seriesOrder ?? 999) - (b.data.seriesOrder ?? 999));
+---
+<BaseLayout
+  title="투자 기초 Research Graph｜ETF · Macro · Stocks 30부작 | JoyLab"
+  description="ETF·자산배분, Macro, Stocks 분석을 30편의 연결된 학습 경로와 Research Graph로 탐색합니다."
+  bodyClass="semiconductor-guide-v2"
+>
+  <section class="sg-hero">
+    <div class="sg-wrap sg-hero__inner">
+      <div class="sg-hero__top">
+        <div class="sg-hero__copy">
+          <div class="sg-eyebrow">INVESTING FOUNDATIONS · JOYLAB</div>
+          <h1>ETF · Macro · Stocks,<br /><span>한 흐름으로 연결합니다.</span></h1>
+          <p class="sg-hero__lead">상품 이름을 외우기보다 <strong>현금 → 자산배분 → 금리 → 기업이익 → 밸류에이션 → 의사결정</strong>의 연결 구조를 익히는 30편 학습 경로입니다.</p>
+          <div class="sg-hero__chips"><span>#ETF</span><span>#AssetAllocation</span><span>#Macro</span><span>#Stocks</span><span>#ResearchGraph</span></div>
+          <div class="sg-hero__meta">
+            <span><strong>30</strong> Research</span>
+            <span><strong>53</strong> Nodes</span>
+            <span><strong>121</strong> Edges</span>
+          </div>
+        </div>
+        <aside class="sg-lens">
+          <div class="sg-lens__brand">JOYLAB<br /><b>FOUNDATIONS</b></div>
+          <div class="sg-lens__item"><em>01</em><div><b>ETF</b><span>현금과 자산배분 역할부터 이해합니다.</span></div></div>
+          <div class="sg-lens__item"><em>02</em><div><b>MACRO</b><span>금리·환율·수출로 환경을 읽습니다.</span></div></div>
+          <div class="sg-lens__item"><em>03</em><div><b>STOCKS</b><span>실적·밸류에이션·수급을 연결합니다.</span></div></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <main class="sg-main">
+    <div class="sg-wrap">
+      <ResearchGraphMap
+        graph={learningGraph}
+        eyebrow="JOYLAB RESEARCH GRAPH · INVESTING FOUNDATIONS"
+        title="ETF → Macro → Stocks → Asset Allocation → Decision"
+        description="30편의 리서치를 개념·환경·기업·의사결정 노드로 연결합니다."
+        primaryFlow={['etf-etf-what-is','etf-portfolio-60-40','macro-yield-curve','macro-semiconductor-trade-pulse','stocks-eps-revision','stocks-valuation-4v','stocks-leader-engine','stocks-stock-decision-gate']}
+      />
+
+      {series.map((group, groupIndex) => {
+        const items = byPrefix(group.prefix);
+        return (
+          <section class="sg-content" style={groupIndex === 0 ? 'margin-top:48px' : 'margin-top:72px'}>
+            <div class="sg-section-head">
+              <div><div class="sg-eyebrow">{group.label}</div><h2>{group.title}</h2></div>
+              <p>{group.description}</p>
+            </div>
+            <div class="sg-path">
+              {items.map((article) => (
+                <article class="sg-card">
+                  <div class="sg-card__no">{String(article.data.seriesOrder ?? 0).padStart(2,'0')}</div>
+                  <div>
+                    <div class="sg-card__role">{group.label}</div>
+                    <h3><a href={`/articles/${article.id}`}>{article.data.title}</a></h3>
+                    <p>{article.data.description}</p>
+                    <div class="sg-card__foot">
+                      <span>{article.data.readingTime ?? '약 7분'}</span>
+                      <a class="sg-card__cta" href={`/articles/${article.id}`}>리서치 읽기 →</a>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </div>
+  </main>
+</BaseLayout>
