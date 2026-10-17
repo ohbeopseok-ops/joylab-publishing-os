@@ -1,87 +1,124 @@
 {
-  "asOf": "2026-10-09",
-  "updatedAt": "2026-10-09T22:29:33.958Z",
+  "asOf": "2026-10-16",
+  "updatedAt": "2026-10-17T00:28:12.354Z",
   "series": {
     "us10y": {
       "label": "미국 10년물",
-      "value": 5.22,
+      "value": 5.1,
       "unit": "%",
       "status": "danger",
       "source": "FRED DGS10",
-      "observedAt": "2026-10-08"
+      "observedAt": "2026-10-15"
     },
     "us30y": {
       "label": "미국 30년물",
-      "value": 5.6,
+      "value": 5.43,
       "unit": "%",
       "status": "danger",
       "source": "FRED DGS30",
-      "observedAt": "2026-10-08"
+      "observedAt": "2026-10-15"
     },
     "spread30y10y": {
       "label": "30Y-10Y 스프레드",
-      "value": 38,
+      "value": 33,
       "unit": "bp",
       "status": "warning",
       "source": "Derived from FRED DGS30 - DGS10"
     },
     "foreignTreasuryHoldings": {
       "label": "외국인 미 국채 보유",
-      "value": 9.299,
+      "value": 9.332,
       "unit": "조달러",
       "status": "neutral",
-      "source": "U.S. Treasury TIC, June 2026",
-      "period": "2026-06"
+      "source": "U.S. Treasury TIC SLT Table 5, 2026-08",
+      "period": "2026-08",
+      "observedAt": "2026-08"
     },
     "usdkrw": {
       "label": "원·달러",
-      "value": 1342.18,
+      "value": 1340.4,
       "unit": "원",
       "status": "warning",
       "source": "Frankfurter official-source blend",
-      "observedAt": "2026-10-09"
+      "observedAt": "2026-10-16"
     }
   },
   "auctions": {
     "us10y": {
-      "date": "2026-09-09",
+      "label": "10-Year Note",
+      "date": "2026-10-07",
+      "cusip": "91282CRF0",
+      "securityTerm": "9-Year 10-Month",
+      "originalSecurityTerm": "10-Year",
       "offeringBillionUsd": 39,
-      "highYield": 4.834,
-      "bidToCover": 2.71,
-      "indirectPct": 79.2,
-      "dealerPct": 4.3,
-      "quality": "STRONG",
-      "score": 85,
-      "source": "TreasuryDirect / Barron's"
+      "highYield": 5.3,
+      "bidToCover": 2.77,
+      "indirectPct": 80.3,
+      "dealerPct": 2.5,
+      "tailBp": null,
+      "source": "U.S. TreasuryDirect TA_WS",
+      "sourceUrl": "https://www.treasurydirect.gov/TA_WS/securities/auctioned",
+      "score": 100,
+      "quality": "STRONG"
     },
     "us30y": {
-      "date": "2026-09-10",
+      "label": "30-Year Bond",
+      "date": "2026-10-08",
+      "cusip": "912810UW6",
+      "securityTerm": "29-Year 10-Month",
+      "originalSecurityTerm": "30-Year",
       "offeringBillionUsd": 22,
-      "highYield": 5.308,
-      "tailBp": -2.7,
-      "bidToCover": 2.61,
-      "indirectPct": 79.5,
-      "dealerPct": 2.2,
-      "quality": "STRONG",
+      "highYield": 5.618,
+      "bidToCover": 2.54,
+      "indirectPct": 72.3,
+      "dealerPct": 6.8,
+      "tailBp": null,
+      "source": "U.S. TreasuryDirect TA_WS",
+      "sourceUrl": "https://www.treasurydirect.gov/TA_WS/securities/auctioned",
       "score": 100,
-      "source": "TreasuryDirect / Helious"
+      "quality": "STRONG"
     }
   },
   "scores": {
     "auction": {
-      "value": 93,
+      "value": 100,
       "grade": "STRONG",
       "higherIsBetter": true,
-      "method": "Tail/Stop-through 40 + Indirect 25 + Dealer 20 + Bid-to-Cover 15; 10Y missing tail uses neutral 25/40",
-      "period": "2026-09-09~10"
+      "method": "Official-only Auction Score V1.1: Bid-to-Cover 35 + Indirect accepted share 35 + Primary Dealer accepted share 30; latest 10Y and 30Y averaged. Tail/stop-through excluded because WI yield is not part of TreasuryDirect official auction data.",
+      "period": "2026-10-07~2026-10-08",
+      "auto": true,
+      "source": "U.S. TreasuryDirect TA_WS"
     },
     "tic": {
       "value": 75,
-      "grade": "STABLE_WATCH",
+      "grade": "STABLE",
       "higherIsBetter": true,
-      "method": "Foreign total 25 + official holdings trend 20 + official transaction flow 20 + private transaction flow 20 + China trend 15",
-      "period": "2026-06",
-      "note": "전체 해외 수요와 거래흐름은 견조하지만 외국 공식기관 보유 감소와 중국 장기 감소는 경계 요소"
+      "method": "Official TIC: foreign total holdings trend 25 + official holdings trend 20 + official Treasury net flow 20 + private Treasury net flow 20 + China holdings trend 15",
+      "period": "2026-08",
+      "auto": true,
+      "components": {
+        "totalHoldingsTrend": 20,
+        "officialHoldingsTrend": 16,
+        "officialTreasuryFlow": 16,
+        "privateTreasuryFlow": 20,
+        "chinaHoldingsTrend": 3
+      },
+      "observations": {
+        "totalHoldingsBillionUsd": 9331.7,
+        "totalHoldings3mPct": -0.39,
+        "officialHoldingsBillionUsd": 3755.6,
+        "officialHoldings3mPct": -2.35,
+        "chinaHoldingsBillionUsd": 590.7,
+        "chinaHoldings3mPct": -10.4,
+        "officialTreasuryNetSalesBillionUsd": 18.1,
+        "privateTreasuryNetSalesBillionUsd": 90.9,
+        "flowPeriod": "2026-08"
+      },
+      "source": "U.S. Treasury TIC SLT Table 5 + SLT Table 1",
+      "sourceUrls": [
+        "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt",
+        "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table1.txt"
+      ]
     },
     "compositeRatesRisk": {
       "value": 41,
@@ -99,17 +136,17 @@
       "grade": "RED",
       "higherIsWorse": true,
       "method": "US10Y 40% + US30Y 40% + USD/KRW 20%; each stress=max(Level,30D Momentum), GREEN=20/YELLOW=50/RED=80",
-      "period": "2026-08-28~2026-10-09"
+      "period": "2026-09-04~2026-10-16"
     },
     "treasuryRiskV11": {
-      "value": 44,
+      "value": 42,
       "grade": "YELLOW",
       "higherIsWorse": true,
       "method": "Market Risk 50% + Auction Weakness 30% + TIC Stress 20%",
       "version": "1.1",
       "contributions": {
         "marketRisk": 37,
-        "auctionWeakness": 2,
+        "auctionWeakness": 0,
         "ticStress": 5
       },
       "dominantDriver": {
@@ -117,7 +154,29 @@
         "label": "Market Risk",
         "points": 37
       },
-      "deltaAttribution": null
+      "deltaAttribution": {
+        "from": 44,
+        "to": 42,
+        "delta": -2,
+        "gradeFrom": "YELLOW",
+        "gradeTo": "YELLOW",
+        "components": {
+          "marketRisk": 0,
+          "auctionWeakness": -2,
+          "ticStress": 0
+        },
+        "primaryDriver": {
+          "key": "auctionWeakness",
+          "label": "Auction",
+          "delta": -2
+        },
+        "alert": {
+          "level": "STABLE",
+          "direction": "FALLING"
+        },
+        "interpretation": "전일 대비 위험 변화에서 가장 큰 완화 요인은 Auction -2점입니다.",
+        "formula": "44 → 42 (-2): Market 0 / Auction -2 / TIC 0"
+      }
     }
   },
   "risk": {
