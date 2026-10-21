@@ -8,6 +8,7 @@ Purpose: Publish a verified research article without letting unrelated scheduled
 Input: "이 주제를 조사하고 JoyLab에 게시해 줘."
 
 1. Research and verify using dated, attributable primary sources. Separate verified facts from interpretation and future scenarios. Identify stale, conflicting, or unverified numerical claims; never release as fact without confirmation.
+1a. Editorialize the verified draft under `docs/EDITORIAL_VOICE_CONTRACT_V1.md`: use a natural professional column voice, select the appropriate existing content type, and preserve tables/numbers when needed for investment, comparisons, or reproducibility. Do not invent personal experience or erase source uncertainty. For a material rewrite of an existing article, preserve its publishedAt and canonical URL and update updatedAt only when appropriate.
 2. Produce an original Markdown article under `src/data/articles/<slug>.md` with valid `src/content.config.ts` frontmatter, source links, appropriate author/research/trust metadata, correct `publishedAt`, a real canonical URL, and appropriate hero/OG asset paths (only when actual files exist).
 3. For investment company research, satisfy the Company Research auto-enrollment contract in `AGENTS.md`: article + `config/company-compact-specs/<articleId>.json` and relevant checks in the same PR. Do not bypass source or financial-content gates.
 4. Create a scoped GitHub PR using the connected GitHub API. Article generation, evidence review, diff review, and opening the PR do not need an Actions run or a Cloudflare deploy.
