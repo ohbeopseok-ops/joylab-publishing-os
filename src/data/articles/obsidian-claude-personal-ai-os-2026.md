@@ -110,7 +110,7 @@ JoyLab의 답은 **아니다**. 개인 AI OS의 성과를 가르는 것은 앱�
 <a id="session"></a>
 ## 1. 서울메타위크 세션이 던진 질문
 
-서울메타위크의 [Day 2 공식 소개](https://seoulmetaweek.com/ko/metacon/day2)와 행사 **공동주관사 토큰포스트가 2026년 6월 29일 공개한 [주요 프로그램 안내](https://www.tokenpost.kr/news/insights/373629)**에 따르면, 7월 4일 METACON Day 2의 세션에 **브라이언(브레인 트리니티)**의 ‘Obsidian + AI: 나를 아는 AI OS’ 발표가 포함돼 있었다. 이후의 논지는 JoyLab의 별도 분석이다.
+서울메타위크의 [Day 2 공식 소개](https://seoulmetaweek.com/ko/metacon/day2)와 행사 공동주관사 토큰포스트가 2026년 6월 29일 공개한 [주요 프로그램 안내](https://www.tokenpost.kr/news/insights/373629)에 따르면, 7월 4일 METACON Day 2의 세션에 브라이언(브레인 트리니티)의 ‘Obsidian + AI: 나를 아는 AI OS’ 발표가 포함돼 있었다. 이후의 논지는 JoyLab의 별도 분석이다.
 
 그렇다고 이 행사에서 나온 모든 문구를 정확한 직접 인용으로 사용할 수 있는 것은 아니다. 제공된 HTML 속 “프롬프트의 시대가 저물었다”, “AI가 사고 밀도를 100배 증폭한다”와 같은 표현은 이번 편집에서 **강연자의 검증된 발언으로 취급하지 않았다**.
 
@@ -160,6 +160,8 @@ JoyLab의 답은 **아니다**. 개인 AI OS의 성과를 가르는 것은 앱�
 
 <a id="judgment"></a>
 ## 5. 결론: 도구의 소유자가 아니라 판단의 설계자가 되어야 한다
+
+이 관점을 AI 도구 선택과 실제 업무 루틴으로 넓혀 보고 싶다면 [AI 생산성 가이드](/guides/ai-productivity)의 활용·검증 사례를 함께 살펴볼 수 있다. 더 구체적인 실행 기준은 [AI 생산성 운영 모델](/articles/ai-productivity-operating-model)과 [AI 에이전트 거버넌스](/articles/ai-agent-governance) 분석에서 비교할 수 있다.
 
 좋은 개인 AI OS는 모든 일을 혼자 하는 AI가 아니다. **내 기록을 근거 있게 불러오고, 지정된 범위에서 실행하고, 문제가 있을 때 멈출 수 있는 시스템**에 가깝다.
 
