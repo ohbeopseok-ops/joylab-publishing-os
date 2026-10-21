@@ -9,6 +9,7 @@ import '../styles/brand-system-v1-1.css';
 import '../styles/homepage-treasury-hub-card.css';
 import '../styles/homepage-compact-v2.css';
 import '../styles/homepage-visual-engineering-v1.css';
+import '../styles/homepage-editorial-v2.css';
 import researchImageManifest from '../data/research-image-manifest.json';
 import { getCollection } from 'astro:content';
 
@@ -32,6 +33,17 @@ const majorResearch = homeSlotContractActive
   ? [...configuredMajor, ...articles.filter((item) => !majorSeedIds.has(item.id))].slice(0, 4)
   : articles.slice(0, 4);
 const majorIds = new Set(majorResearch.map((item) => item.id));
+
+const editorialHero = majorResearch.find((item) => Boolean(
+  researchImageManifest[item.id as keyof typeof researchImageManifest]?.hero?.src ?? item.data.heroImage
+)) ?? editorialPicks[0] ?? articles[0];
+const editorialSecondary = [
+  ...editorialPicks.filter((item) => item.id !== editorialHero?.id && item.data.category !== editorialHero?.data.category),
+  ...articles.filter((item) => item.id !== editorialHero?.id && item.data.category !== editorialHero?.data.category)
+].filter((item, index, all) => all.findIndex((candidate) => candidate.id === item.id) === index).slice(0, 2);
+const editorialVisibleIds = new Set([editorialHero, ...editorialSecondary].filter(Boolean).map((item) => item.id));
+const editorialRemainingMajor = majorResearch.filter((item) => !editorialVisibleIds.has(item.id));
+
 // LATEST is an article-only surface. Books are intentionally isolated in the dedicated Books slot.
 const latestResearch = homeSlotContractActive
   ? articles
@@ -45,39 +57,95 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
   title="JoyLab｜투자·경제, AI·생산성, 성장·리더십 리서치"
   description="JoyLab은 투자·경제, AI·생산성, 성장·리더십을 연결해 복잡한 정보를 실행 가능한 판단으로 바꾸는 독립 리서치 미디어입니다."
   canonical="https://aijoylab.kr/"
-  bodyClass="homepage-v2"
+  bodyClass="homepage-v2 editorial-v2"
 >
   <div class="home-v2">
-    <section class="home-hero" aria-labelledby="home-title">
+    <section class="home-hero editorial-hero" aria-labelledby="home-title">
       <div class="home-hero__lead">
-        <img class="home-hero__signature" src="/images/home/joylab-signature-visual.svg" alt="" aria-hidden="true" width="1600" height="900" fetchpriority="high" />
-        <div class="home-eyebrow">JOYLAB RESEARCH · SIGNAL / EVIDENCE / DECISION</div>
+        <div class="home-eyebrow">INDEPENDENT RESEARCH / JOYLAB</div>
         <h1 id="home-title">생각을 분석하고,<br /><span>분석을 실행으로.</span></h1>
+        <nav class="home-hero__pillars editorial-hero__topics" aria-label="3대 리서치 분야">
+          <a href="/guides/investing"><small>01</small> 투자·경제 <span aria-hidden="true">↗</span></a>
+          <a href="/guides/ai-productivity"><small>02</small> AI·생산성 <span aria-hidden="true">↗</span></a>
+          <a href="/guides/growth-leadership"><small>03</small> 성장·리더십 <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+      <aside class="home-hero__today editorial-hero__aside" aria-label="JoyLab Research 소개">
         <p class="home-hero__desc">투자·경제, AI·생산성, 성장·리더십을 연결해 복잡한 정보를 실행 가능한 판단으로 바꾸는 독립 리서치 미디어입니다.</p>
-        <div class="home-hero__pillars" aria-label="JoyLab 핵심 영역">
-          <span>INVESTING</span><i aria-hidden="true">×</i><span>AI</span><i aria-hidden="true">×</i><span>LEADERSHIP</span>
-        </div>
-        <a class="home-hero__cta" href="#today-research">오늘의 리서치 보기 <span aria-hidden="true">→</span></a>
+        <a class="home-hero__cta" href="#today-research">대표 리서치 읽기 <span aria-hidden="true">↗</span></a>
+        <a class="editorial-hero__secondary-cta" href="#archive">전체 분석 찾아보기 <span aria-hidden="true">↗</span></a>
         <div class="home-hero__method" aria-label="JoyLab Research Method">
           <span>FACT</span><i aria-hidden="true">→</i><span>INTERPRETATION</span><i aria-hidden="true">→</i><span>SCENARIO</span><i aria-hidden="true">→</i><span>ACTION</span>
-        </div>
-      </div>
-      <aside class="home-hero__today" aria-label="에디터 추천 3선">
-        <div class="home-today-head"><h2>에디터 추천 3선</h2><span>EDITORIAL TOP 3</span></div>
-        <div class="home-today-list">
-          {today.map((article, index) => (
-            <a class="home-today-item" href={`/articles/${article.id}`}>
-              <span class="home-today-no">{index + 1}</span>
-              <span><b>{article.data.cardTitle ?? article.data.title}</b><small>{article.data.category} · {article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</small></span>
-            </a>
-          ))}
         </div>
       </aside>
     </section>
 
+    <section class="home-section home-section--major" id="today-research" aria-labelledby="feature-section-title">
+      <div class="home-section-head">
+        <div class="home-section-title"><div>
+          <div class="editorial-section-eyebrow">EDITOR'S FOCUS / FEATURED RESEARCH</div>
+          <h2 id="feature-section-title">주요 리서치</h2>
+          <p>한 편의 깊은 분석부터, 더 넓은 판단으로.</p>
+        </div></div>
+        <a class="home-section-link" href="#archive">전체 리서치 보기 ↗</a>
+      </div>
+      <div class="home-research-grid editorial-feature-grid" aria-label="대표 리서치 1편과 보조 리서치 2편">
+        {editorialHero && (() => {
+          const visual = researchImageManifest[editorialHero.id as keyof typeof researchImageManifest];
+          const cardHero = visual?.hero?.src ?? editorialHero.data.heroImage;
+          const cardAlt = visual?.hero?.alt ?? editorialHero.data.heroAlt ?? editorialHero.data.title;
+          return (
+            <a class="home-research-card editorial-main-feature" href={`/articles/${editorialHero.id}`}>
+              <div class="editorial-main-feature__copy">
+                <span class="editorial-feature-kicker">FEATURED STORY · {editorialHero.data.category}</span>
+                <h3>{editorialHero.data.cardTitle ?? editorialHero.data.title}</h3>
+                <p>{editorialHero.data.cardDescription ?? editorialHero.data.description}</p>
+                <span class="editorial-feature-meta">{editorialHero.data.publishedAt.toLocaleDateString('ko-KR')} · {editorialHero.data.readingTime ?? '약 6분'}</span>
+                <span class="editorial-feature-read">분석 읽기 <span aria-hidden="true">↗</span></span>
+              </div>
+              <div class="editorial-main-feature__visual">
+                {cardHero ? <img src={cardHero} alt={cardAlt} width="1600" height="900" loading="eager" fetchpriority="high" /> : <span aria-hidden="true">JOYLAB RESEARCH</span>}
+              </div>
+            </a>
+          );
+        })()}
+        <div class="editorial-side-features" aria-label="보조 리서치 2편">
+          {editorialSecondary.map((article, index) => {
+            const visual = researchImageManifest[article.id as keyof typeof researchImageManifest];
+            const thumb = visual?.hero?.src ?? article.data.heroImage;
+            return (
+              <a class="editorial-side-feature" href={`/articles/${article.id}`}>
+                <div class="editorial-side-feature__copy">
+                  <span class="editorial-side-feature__eyebrow">0{index + 1} / {article.data.category}</span>
+                  <h3>{article.data.cardTitle ?? article.data.title}</h3>
+                  <small>{article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</small>
+                  <span class="editorial-side-feature__link">리서치 읽기 ↗</span>
+                </div>
+                {thumb && <img src={thumb} alt="" width="480" height="300" loading="lazy" />}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+      {editorialRemainingMajor.length > 0 && (
+        <div class="editorial-curated-major" aria-label="더 읽을 주요 리서치">
+          <div class="editorial-curated-major__head"><h3>이어 읽을 심층 리서치</h3><span>MORE RESEARCH</span></div>
+          <div class="editorial-curated-major__list">
+            {editorialRemainingMajor.map((article) => (
+              <a href={`/articles/${article.id}`} class="editorial-curated-major__item">
+                <small>{article.data.category}</small>
+                <strong>{article.data.cardTitle ?? article.data.title}</strong>
+                <span>↗</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+
     <section class="home-section home-section--pillars" id="pillars">
       <div class="home-section-head">
-        <div class="home-section-title"><div><h2>3개의 Pillar, 하나의 시선</h2><p>복잡한 정보를 실행 가능한 판단으로 연결합니다.</p></div></div>
+        <div class="home-section-title"><div><h2>분야별 리서치 탐색</h2><p>복잡한 정보를 실행 가능한 판단으로 연결합니다.</p></div></div>
         <a class="home-section-link" href="/research-map">리서치 맵 →</a>
       </div>
       <div class="home-pillars" aria-label="JoyLab Research Pillar Index">
@@ -121,35 +189,6 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
             <span class="home-treasury-card__cta">미국채 허브 바로가기 →</span>
           </div>
         </a>
-      </div>
-    </section>
-
-    <section class="home-section home-section--major" id="today-research">
-      <div class="home-section-head">
-        <div class="home-section-title"><div><h2>주요 리서치</h2><p>지금 가장 주목해야 할 분석입니다.</p></div></div>
-        <a class="home-section-link" href="#archive">전체 보기 →</a>
-      </div>
-      <div class="home-research-grid">
-        {majorResearch.map((article) => {
-          const visual = researchImageManifest[article.id as keyof typeof researchImageManifest];
-          const cardHero = visual?.hero?.src ?? article.data.heroImage;
-          const cardAlt = visual?.hero?.alt ?? article.data.heroAlt ?? article.data.title;
-          return (
-            <a class="home-research-card" href={`/articles/${article.id}`}>
-              {cardHero ? (
-                <div class="home-research-thumb"><img src={cardHero} alt={cardAlt} width="1600" height="900" loading="lazy" style="display:block;width:100%;height:100%;object-fit:cover" /></div>
-              ) : (
-                <div class="home-research-thumb" aria-hidden="true"></div>
-              )}
-              <div class="home-research-copy">
-                <small>{article.data.category}</small>
-                <h3>{article.data.cardTitle ?? article.data.title}</h3>
-                <p>{article.data.cardDescription ?? article.data.description}</p>
-                <div class="home-research-meta">{article.data.publishedAt.toLocaleDateString('ko-KR')} · {article.data.readingTime ?? '약 6분'}</div>
-              </div>
-            </a>
-          );
-        })}
       </div>
     </section>
 

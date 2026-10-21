@@ -48,8 +48,8 @@
 
     const homeSections = isHome
       ? [
-          ['editorial', document.querySelector('.home-hero__today')],
-          ['major', document.getElementById('today-research')],
+          ['editorial', document.querySelector('.editorial-feature-grid') ?? document.querySelector('.home-hero__today')],
+          ['major', document.querySelector('.editorial-curated-major') ?? document.getElementById('today-research')],
           ['latest', document.querySelector('.home-list-card')],
           ['books', document.querySelector('.home-books-v2')],
           ['guide', document.querySelector('.home-guide')]
