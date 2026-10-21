@@ -1,8 +1,6 @@
 name: AI CAPEX Leader Runtime V1
 
 on:
-  schedule:
-    - cron: '10 7 * * 1-5'
   workflow_dispatch:
 
 permissions:
