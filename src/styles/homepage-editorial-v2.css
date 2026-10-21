@@ -276,7 +276,7 @@ body.homepage-v2.editorial-v2 .editorial-main-feature__visual img{
   display:block;
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   aspect-ratio:4/5;
 }
 body.homepage-v2.editorial-v2 .editorial-main-feature__visual span{
@@ -502,7 +502,7 @@ body.homepage-v2.editorial-v2 button:focus-visible{
     height:185px;
   }
   body.homepage-v2.editorial-v2 .editorial-main-feature__visual img{
-    width:100%;height:100%;aspect-ratio:16/9;object-fit:cover
+    width:100%;height:100%;aspect-ratio:16/9;object-fit:contain
   }
   body.homepage-v2.editorial-v2 .editorial-main-feature__copy{
     grid-row:2;padding:19px 17px 22px
