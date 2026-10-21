@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Personal AI OS · Context, Execution, Review</title>
+  <desc id="desc">Three connected layers show a personal knowledge vault, AI execution agent, and human review, as a JoyLab Research editorial illustration.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07162f"/><stop offset=".55" stop-color="#0d2143"/><stop offset="1" stop-color="#10182e"/></linearGradient>
+    <linearGradient id="node1" x1="0" x2="1"><stop stop-color="#6e50d8"/><stop offset="1" stop-color="#a78bfa"/></linearGradient>
+    <linearGradient id="node2" x1="0" x2="1"><stop stop-color="#007bb5"/><stop offset="1" stop-color="#67e8f9"/></linearGradient>
+    <linearGradient id="node3" x1="0" x2="1"><stop stop-color="#ab6011"/><stop offset="1" stop-color="#ffc176"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#9fb8d7" opacity=".07"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="1010" cy="90" r="130" fill="#0ea5e9" opacity=".08" filter="url(#glow)"/>
+  <circle cx="220" cy="550" r="180" fill="#8252ff" opacity=".12" filter="url(#glow)"/>
+  <g font-family="'Noto Sans KR',Arial,sans-serif">
+    <text x="73" y="83" fill="#79d8ef" font-size="22" font-weight="800" letter-spacing="3">JOYLAB RESEARCH / AI SYSTEMS</text>
+    <text x="73" y="175" fill="#f6fbff" font-size="56" font-weight="800">나를 아는 AI OS</text>
+    <text x="73" y="219" fill="#a8bfdc" font-size="24" font-weight="500">기억을 연결하고, 실행을 통제하고, 결과를 검증한다</text>
+    <text x="74" y="567" fill="#a5b6cb" font-size="20">Obsidian × Claude Code</text>
+    <text x="1090" y="568" fill="#6ccbe9" text-anchor="end" font-size="20" font-weight="800">2026</text>
+  </g>
+  <g fill="none" stroke-width="3" opacity=".85" stroke-linecap="round">
+    <path d="M363 384 C443 340 474 340 544 384" stroke="#887cf1"/>
+    <path d="M655 384 C738 334 776 334 846 384" stroke="#29bfe2"/>
+    <path d="M357 436 C520 504 695 504 846 436" stroke="#d7aa65" stroke-dasharray="5 10" opacity=".75"/>
+  </g>
+  <g transform="translate(216 390)">
+    <circle r="78" fill="#8a61ff" opacity=".13" filter="url(#glow)"/>
+    <circle r="73" fill="#101d3d" stroke="url(#node1)" stroke-width="3"/>
+    <g stroke="#b9a0ff" stroke-width="2" fill="none"><path d="M-33-17L2-39L36-16L22 28L-20 34L-33-17Z"/><path d="M-33-17L22 28M2-39L-20 34M36-16L-20 34"/></g>
+    <g fill="#c4b5fd"><circle cx="-33" cy="-17" r="6"/><circle cx="2" cy="-39" r="6"/><circle cx="36" cy="-16" r="6"/><circle cx="22" cy="28" r="6"/><circle cx="-20" cy="34" r="6"/></g>
+  </g>
+  <g transform="translate(600 390)">
+    <circle r="78" fill="#16b9f4" opacity=".12" filter="url(#glow)"/>
+    <circle r="73" fill="#101d3d" stroke="url(#node2)" stroke-width="3"/>
+    <g stroke="#89e6ff" stroke-width="3" fill="none" stroke-linejoin="round" stroke-linecap="round"><rect x="-34" y="-28" width="67" height="55" rx="8"/><path d="M-19-10l14 12-14 12M6 14h13"/></g>
+  </g>
+  <g transform="translate(983 390)">
+    <circle r="78" fill="#e7a040" opacity=".11" filter="url(#glow)"/>
+    <circle r="73" fill="#101d3d" stroke="url(#node3)" stroke-width="3"/>
+    <g stroke="#ffd08b" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="0" cy="-19" r="19"/><path d="M-40 33c2-31 78-31 80 0"/><path d="M-12-18l9 9 19-22"/></g>
+  </g>
+  <g fill="#eaf4ff" font-size="20" font-family="'Noto Sans KR',Arial,sans-serif" font-weight="700" text-anchor="middle">
+    <text x="216" y="503">KNOWLEDGE</text><text x="600" y="503">EXECUTION</text><text x="983" y="503">REVIEW</text>
+  </g>
+</svg>
