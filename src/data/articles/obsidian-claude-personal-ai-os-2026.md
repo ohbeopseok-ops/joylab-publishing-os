@@ -31,12 +31,14 @@ researchMethod: "서울메타위크 2026 공식 세션 일정과 Obsidian·Anthr
 sourceList:
   - label: "서울메타위크 2026 METACON Day 2 공식 프로그램"
     url: "https://seoulmetaweek.com/ko/metacon/day2"
+  - label: "공동주관사 토큰포스트 행사 프로그램 발표"
+    url: "https://www.tokenpost.kr/news/insights/373629"
   - label: "Obsidian 공식 웹사이트"
     url: "https://obsidian.md/"
   - label: "Anthropic Claude Code 공식 시작 안내"
     url: "https://docs.anthropic.com/en/docs/claude-code/getting-started"
   - label: "Anthropic Claude Code 권한 안내"
-    url: "https://docs.anthropic.com/ko/docs/claude-code/iam"
+    url: "https://code.claude.com/docs/ko/permissions"
 trust:
   author: "JoyLab"
   authorPerspective: "로컬 지식 관리와 AI 에이전트 실행의 설계·검증 조건을 분석하는 관점"
@@ -52,6 +54,13 @@ trust:
       publisher: "Seoul Meta Week"
       url: "https://seoulmetaweek.com/ko/metacon/day2"
       publishedAt: null
+      accessedAt: "2026-10-22"
+      supports: ["session"]
+    - id: "coorganizer-schedule"
+      title: "서울메타위크 2026 주요 프로그램"
+      publisher: "TokenPost · 행사 공동 주관사"
+      url: "https://www.tokenpost.kr/news/insights/373629"
+      publishedAt: "2026-06-29"
       accessedAt: "2026-10-22"
       supports: ["session"]
     - id: "obsidian-official"
@@ -71,7 +80,7 @@ trust:
     - id: "claude-permissions"
       title: "Claude Code 권한 시스템"
       publisher: "Anthropic"
-      url: "https://docs.anthropic.com/ko/docs/claude-code/iam"
+      url: "https://code.claude.com/docs/ko/permissions"
       publishedAt: null
       accessedAt: "2026-10-22"
       supports: ["limits"]
@@ -101,7 +110,7 @@ JoyLab의 답은 **아니다**. 개인 AI OS의 성과를 가르는 것은 앱�
 <a id="session"></a>
 ## 1. 서울메타위크 세션이 던진 질문
 
-서울메타위크 공식 프로그램에 따르면, 2026년 7월 4일 METACON Day 2에서 **브라이언(브레인 트리니티)**이 'Obsidian + AI'를 주제로 발표했다. 행사 프로그램에 세션 제목과 발표자가 확인된다.
+서울메타위크의 [Day 2 공식 소개](https://seoulmetaweek.com/ko/metacon/day2)와 행사 **공동주관사 토큰포스트가 2026년 6월 29일 공개한 [주요 프로그램 안내](https://www.tokenpost.kr/news/insights/373629)**에 따르면, 7월 4일 METACON Day 2의 세션에 **브라이언(브레인 트리니티)**의 ‘Obsidian + AI: 나를 아는 AI OS’ 발표가 포함돼 있었다. 이후의 논지는 JoyLab의 별도 분석이다.
 
 그렇다고 이 행사에서 나온 모든 문구를 정확한 직접 인용으로 사용할 수 있는 것은 아니다. 제공된 HTML 속 “프롬프트의 시대가 저물었다”, “AI가 사고 밀도를 100배 증폭한다”와 같은 표현은 이번 편집에서 **강연자의 검증된 발언으로 취급하지 않았다**.
 
@@ -143,7 +152,7 @@ JoyLab의 답은 **아니다**. 개인 AI OS의 성과를 가르는 것은 앱�
 개인 AI OS에 관한 담론은 때로 복잡성을 지나치게 낙관한다. 최소한 다음 네 가지는 별도로 점검해야 한다.
 
 1. **개인정보와 조직 기밀:** 고객 대화·인사 기록·상담 로그를 원문 그대로 외부 AI 서비스에 입력하지 않는다. 마스킹과 접근 권한을 먼저 설계한다.
-2. **도구 권한:** 파일 읽기, 수정, 삭제, 네트워크 전송, 게시를 같은 승인 수준으로 묶지 않는다. [Claude Code 권한 안내](https://docs.anthropic.com/ko/docs/claude-code/iam)는 권한 종류와 설정 방법을 구분한다.
+2. **도구 권한:** 파일 읽기, 수정, 삭제, 네트워크 전송, 게시를 같은 승인 수준으로 묶지 않는다. [Claude Code 권한 안내](https://code.claude.com/docs/ko/permissions)는 권한 종류와 설정 방법을 구분한다.
 3. **지식 최신성:** 예전 메모의 주장이나 가격·정책 정보는 날짜와 원본 출처 없이 재활용하지 않는다.
 4. **자동 배포의 검증:** 콘텐츠나 코드를 생성했다는 사실과 사이트가 정확히 배포됐다는 사실은 다르다. 빌드, 공개 URL, 화면, 원자료 대조가 필요하다.
 
@@ -162,9 +171,9 @@ JoyLab의 답은 **아니다**. 개인 AI OS의 성과를 가르는 것은 앱�
 
 ### 자료와 작성 범위
 
-- 행사 프로그램: [Seoul Meta Week 2026 METACON Day 2](https://seoulmetaweek.com/ko/metacon/day2)
+- 행사 프로그램: [Seoul Meta Week 2026 METACON Day 2](https://seoulmetaweek.com/ko/metacon/day2), [공동주관사 토큰포스트의 연사별 프로그램](https://www.tokenpost.kr/news/insights/373629)
 - 지식 관리 도구: [Obsidian 공식 사이트](https://obsidian.md/)
 - 실행 환경: [Anthropic Claude Code 공식 안내](https://docs.anthropic.com/en/docs/claude-code/getting-started)
-- 실행 권한: [Claude Code 권한·승인 시스템](https://docs.anthropic.com/ko/docs/claude-code/iam)
+- 실행 권한: [Claude Code 권한·승인 시스템](https://code.claude.com/docs/ko/permissions)
 
 **기준일:** 2026년 10월 22일. **작성 방식:** 공식 안내와 첨부 HTML을 대조해 JoyLab 관점의 독립 칼럼으로 편집. **제한:** 유튜브 강연 전체 녹취를 검증하지 않았으므로, 원문 속 직접 인용처럼 보이는 문장은 발표자 발언으로 확정하지 않았다.
