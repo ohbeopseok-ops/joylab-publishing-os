@@ -7,8 +7,6 @@ on:
       - '.github/workflows/homepage-funnel-report.yml'
       - 'scripts/report-homepage-funnel.mjs'
       - 'scripts/report-books-funnel.mjs'
-  schedule:
-    - cron: '45 0 * * 1'
   workflow_dispatch:
 
 permissions:

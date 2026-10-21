@@ -22,12 +22,6 @@ jobs:
           node-version: 24
           package-manager-cache: false
 
-      - name: Setup Java for EPUBCheck
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '21'
-
       - name: Install Korean font for book artwork
         run: |
           sudo apt-get update
@@ -46,22 +40,28 @@ jobs:
         id: build_site
         run: npm run build
 
-      - name: Install Studio Print PDF runtime
+      # Keep the published PDF available on every deploy. Generate it only on a cold cache
+      # or when its source/generator/font/dependency input changes.
+      # The lightweight EPUB generator still runs in npm prebuild; EPUBCheck is release-only.
+      - name: Restore cached Studio Print PDF
+        id: studio_pdf_cache
+        uses: actions/cache@v4
+        with:
+          path: dist/studio/exports/series-02-memory-debt-print.pdf
+          key: studio-print-pdf-v1-${{ runner.os }}-${{ hashFiles('src/data/studio/series-02-source.json', 'scripts/generate-studio-print-pdf-v1.mjs', 'scripts/install-pinned-korean-fonts.sh', 'package-lock.json') }}
+
+      - name: Install Studio Print PDF runtime (cache miss)
+        if: steps.studio_pdf_cache.outputs.cache-hit != 'true'
         run: |
           npm install --no-save --package-lock=false playwright@1.55.0
           npx playwright install --with-deps chromium
 
-      - name: Generate Studio Print PDF V1
+      - name: Generate Studio Print PDF V1 (cache miss)
+        if: steps.studio_pdf_cache.outputs.cache-hit != 'true'
         run: npm run studio:print
 
       - name: Studio PDF Preflight V1
         run: npm run studio:pdf:preflight
-
-      - name: EPUBCheck 5.4.0
-        run: |
-          curl -fL --retry 3 -o /tmp/epubcheck.zip https://github.com/w3c/epubcheck/releases/download/v5.4.0/epubcheck-5.4.0.zip
-          unzip -q /tmp/epubcheck.zip -d /tmp/epubcheck
-          java -jar /tmp/epubcheck/epubcheck-5.4.0/epubcheck.jar dist/studio/exports/series-02-memory-debt.epub
 
       - name: Generate Export Provenance Manifest V1
         run: npm run studio:provenance

@@ -1,8 +1,6 @@
 name: Rates Dashboard Refresh
 
 on:
-  schedule:
-    - cron: '15 22 * * 1-5'
   workflow_dispatch:
 
 permissions:
