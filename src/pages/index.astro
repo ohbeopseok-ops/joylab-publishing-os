@@ -41,6 +41,8 @@ const editorialSecondary = [
   ...editorialPicks.filter((item) => item.id !== editorialHero?.id && item.data.category !== editorialHero?.data.category),
   ...articles.filter((item) => item.id !== editorialHero?.id && item.data.category !== editorialHero?.data.category)
 ].filter((item, index, all) => all.findIndex((candidate) => candidate.id === item.id) === index).slice(0, 2);
+const editorialVisibleIds = new Set([editorialHero, ...editorialSecondary].filter(Boolean).map((item) => item.id));
+const editorialRemainingMajor = majorResearch.filter((item) => !editorialVisibleIds.has(item.id));
 
 // LATEST is an article-only surface. Books are intentionally isolated in the dedicated Books slot.
 const latestResearch = homeSlotContractActive
@@ -125,6 +127,20 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
           })}
         </div>
       </div>
+      {editorialRemainingMajor.length > 0 && (
+        <div class="editorial-curated-major" aria-label="더 읽을 주요 리서치">
+          <div class="editorial-curated-major__head"><h3>이어 읽을 심층 리서치</h3><span>MORE RESEARCH</span></div>
+          <div class="editorial-curated-major__list">
+            {editorialRemainingMajor.map((article) => (
+              <a href={`/articles/${article.id}`} class="editorial-curated-major__item">
+                <small>{article.data.category}</small>
+                <strong>{article.data.cardTitle ?? article.data.title}</strong>
+                <span>↗</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
 
     <section class="home-section home-section--pillars" id="pillars">
