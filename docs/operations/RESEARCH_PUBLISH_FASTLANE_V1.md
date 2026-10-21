@@ -30,3 +30,8 @@ Scheduled GSC/report/market/visual data jobs are manual-first; when a research a
 ## Cloudflare-native cutover
 
 A migration to Workers Builds is conditional, not assumed. Verify isolated preview, Workers binding/custom domains, Studio EPUB/PDF/provenance binary parity, dry-run, and rollback. Switch to exactly one production deploy owner only after these pass. Cloudflare account/dashboard configuration is a separately authorized operational action.
+
+
+## Research presentation (2026-10-21)
+- Keep Books/Studio compatibility URLs for inbound links without promoting them on the homepage or primary navigation.
+- WorkLab /library is now the future-facing archive catalog. Binary transfer has not happened; see docs/operations/RESEARCH_WORKLAB_BOUNDARY_V1.md.

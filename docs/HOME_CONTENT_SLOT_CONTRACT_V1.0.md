@@ -106,3 +106,7 @@ Relative CTR Index는 전체 Home section의 가중 CTR을 100으로 두고 계�
 - `homeFeatured`는 SEO, Article Detail, Archive 노출 여부를 바꾸지 않는다.
 - Analytics V3는 쿠키·사용자 ID 없이 집계 이벤트만 기록한다.
 - 7일 데이터가 모이기 전에는 기존 GOLD 배치를 유지한다.
+
+
+## 2026-10-21 Research-only homepage boundary
+- Research landing and main navigation no longer promote Books. Historical Books pages remain directly reachable for old inbound links until WorkLab verified migration.

@@ -6,8 +6,9 @@ const baseURL = process.env.QA_BASE_URL || 'http://127.0.0.1:4321';
 const out = path.join(process.cwd(), 'qa-artifacts', 'mobile-ui-v1');
 await fs.mkdir(out, { recursive: true });
 
+// Legacy Books routes remain reachable for existing links but no longer occupy Research primary navigation.
 const cases = [
-  { name: 'books', path: '/books', active: 'Books' },
+  { name: 'books', path: '/books', active: null },
   { name: 'about', path: '/about', active: 'About' },
   { name: 'investing', path: '/guides/investing', active: '투자·경제' },
   { name: 'ai-productivity', path: '/guides/ai-productivity', active: 'AI·생산성' },
