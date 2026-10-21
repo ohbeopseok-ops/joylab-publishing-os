@@ -111,8 +111,8 @@ const sourceRules = [
     ok: /getCollection\('articles'\)/.test(homepage)
   },
   {
-    rule: 'books-collection-source',
-    ok: /getCollection\('books'\)/.test(homepage)
+    rule: 'books-shelf-absent-from-research-home',
+    ok: !/getCollection\('books'\)/.test(homepage) && !homepage.includes('home-books-v2')
   },
   {
     rule: 'latest-built-from-articles',
@@ -123,10 +123,9 @@ const sourceRules = [
     ok: /latestResearch\.map\([\s\S]*?href=\{\`\/articles\/\$\{article\.id\}\`\}/.test(homepage)
   },
   {
-    rule: 'books-slot-renders-book-links',
-    ok: /featuredBook[\s\S]*?href=\{\`\/books\/\$\{featuredBook\.id\}\`\}/.test(homepage)
-  }
-];
+    rule: 'research-home-no-book-promotion',
+    ok: !homepage.includes('home-books-v2') && !homepage.includes('featuredBook')
+  }];
 for (const check of sourceRules) {
   if (!check.ok) failures.push({ rule: check.rule, file: 'src/pages/index.astro' });
 }
