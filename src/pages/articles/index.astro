@@ -107,6 +107,17 @@ const pillars = [
 <style is:global>
   .research-map-entry{display:inline-flex;margin-top:18px;padding:10px 14px;border:1px solid #cbd8e8;border-radius:999px;color:#0d63ce;font-size:.82rem;font-weight:900;text-decoration:none;background:#fff}
   .research-map-entry:hover{border-color:#1677ff}
+  /* 3-column archive: tighter spacing for 1280px desktop without hiding any articles. */
+  @media (min-width: 901px) and (max-width: 1350px) {
+    body.research-hub-page .home-archive .grid {
+      row-gap: 16px;
+      column-gap: 16px;
+    }
+    body.research-hub-page .home-archive .article-card {
+      min-height: 238px;
+      padding: 20px;
+    }
+  }
   @media (max-width: 900px) {
     body.research-hub-page .home-archive .article-card {
       min-height: 0;
