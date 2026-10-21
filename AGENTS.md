@@ -19,6 +19,22 @@ Use this file only to route Publishing OS work to the correct local contracts an
 
 Load only the contracts relevant to the task.
 
+### Research writing, rewrite, and editorial voice
+Read:
+- `docs/EDITORIAL_VOICE_CONTRACT_V1.md`
+- `docs/ARTICLE_ARCHITECTURE_V1_1.md` when selecting/validating the content type or Trust Layer
+- `docs/operations/RESEARCH_PUBLISH_FASTLANE_V1.md` when publishing the article
+
+Use for:
+- every new `src/data/articles/*.md` Research article
+- material article rewrites, polishing, and SEO/AEO editorial revisions
+- preserving genre-specific data tables and evidence when rewriting into natural prose
+
+Hard rule:
+- Default to a readable professional column voice, but preserve investment/finance data rigor and comparison tables where they help readers.
+- Editorial voice cannot override source verification, Content Date, Trust, or publication/release gates.
+- Pure typo/CSS fixes do not require an editorial rewrite.
+
 ### Content date, freshness, archive ordering
 Read:
 - `docs/CONTENT_DATE_CONTRACT_V1.md`
