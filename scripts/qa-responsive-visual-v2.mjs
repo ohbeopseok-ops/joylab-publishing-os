@@ -246,9 +246,10 @@ for (const viewport of viewports) {
         const booksRect = books?.getBoundingClientRect();
         const latestRect = latest?.getBoundingClientRect();
         homepageCompact = {
-          booksHeight: booksRect ? Math.round(booksRect.height) : null,
-          guideToBooks: guideRect && booksRect ? Math.round(booksRect.top - guideRect.bottom) : null,
-          booksToLatest: booksRect && latestRect ? Math.round(latestRect.top - booksRect.bottom) : null
+          // Research-only home: ensure Books shelf is absent AND the remaining
+          // Guide → Latest rhythm stays as compact as the retired two-gap layout.
+          booksAbsent: booksRect == null,
+          guideToLatest: guideRect && latestRect ? Math.round(latestRect.top - guideRect.bottom) : null
         };
       }
 
@@ -284,19 +285,11 @@ for (const viewport of viewports) {
       footerWithinContract: metrics.footerHeight === null || metrics.footerHeight <= footerBudget,
       footerTouchTarget: !viewport.touch || metrics.socialMinHeight === null || metrics.socialMinHeight >= 48,
       criticalTouchTargets: metrics.tinyTargets.length === 0,
-      homepageBooksHeight: !desktopHomepageCompact || (
-        metrics.homepageCompact?.booksHeight != null &&
-        metrics.homepageCompact.booksHeight <= 390
-      ),
-      homepageGuideToBooksGap: !desktopHomepageCompact || (
-        metrics.homepageCompact?.guideToBooks != null &&
-        metrics.homepageCompact.guideToBooks >= 0 &&
-        metrics.homepageCompact.guideToBooks <= 48
-      ),
-      homepageBooksToLatestGap: !desktopHomepageCompact || (
-        metrics.homepageCompact?.booksToLatest != null &&
-        metrics.homepageCompact.booksToLatest >= 0 &&
-        metrics.homepageCompact.booksToLatest <= 48
+      homepageResearchOnly: !desktopHomepageCompact || metrics.homepageCompact?.booksAbsent === true,
+      homepageGuideToLatestGap: !desktopHomepageCompact || (
+        metrics.homepageCompact?.guideToLatest != null &&
+        metrics.homepageCompact.guideToLatest >= 0 &&
+        metrics.homepageCompact.guideToLatest <= 48
       ),
       homepageHeroHeight: !desktopHomepageCompact || (
         metrics.selectorMetrics['.home-hero']?.height != null &&
