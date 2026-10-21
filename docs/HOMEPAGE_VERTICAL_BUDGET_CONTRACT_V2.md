@@ -8,7 +8,7 @@ Executable gate: `scripts/qa-responsive-visual-v2.mjs`
 
 Keep the JoyLab homepage from gradually turning into a sequence of oversized landing-page sections.
 
-V1 fixed the Guide → Books → Latest rhythm. V2 adds height budgets for the major homepage surfaces above that sequence.
+V1 previously fixed the Guide → Books → Latest rhythm. Since the Research-only separation (2026-10-21), the Books shelf is no longer a Research homepage section. V2 continues to enforce a tighter direct Guide → Latest content gap while retaining the original section height limits.
 
 ## Desktop budgets
 
@@ -19,11 +19,10 @@ Applies at **1280px and above**.
 | Hero height | **530px** |
 | Pillars height | **370px** |
 | Research Guide height | **380px** |
-| Books editorial shelf height | **390px** |
-| Research Guide → Books gap | **48px** |
-| Books → Latest gap | **48px** |
+| Books editorial shelf on Research home | **Absent** |
+| Research Guide → visible Latest content gap | **48px** |
 
-Current Production baseline after Homepage Compact Redesign V2:
+Historical Production baseline before the Research-only homepage separation (for comparison, not a current requirement):
 
 | Metric | 1280px | 1440px |
 | --- | ---: | ---: |
@@ -34,7 +33,7 @@ Current Production baseline after Homepage Compact Redesign V2:
 | Guide → Books | 26px | 26px |
 | Books → Latest | 0px | 0px |
 
-These limits preserve a small editorial margin without allowing large vertical drift.
+The current Research-only 0–48px Guide → **visible Latest content** requirement is measured to `.home-latest-row`, including padding before content. The old Books baseline is historical, not a required surface.
 
 ## Enforcement
 

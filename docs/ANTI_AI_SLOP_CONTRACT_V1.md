@@ -89,9 +89,10 @@ The homepage is a research index, not a template landing page.
 2. Pillar navigation as an editorial index
 3. Featured research signals/hubs
 4. Major research
-5. Start-here guide
-6. Books
-7. Latest / archive
+5. Start-here research guide
+6. Latest / research archive
+
+Legacy Books and Studio routes remain accessible for existing readers, but must not be promoted as an active Research homepage section. WorkLab owns future learning/download catalogs.
 
 ### Pillars
 The three Pillars are taxonomy/navigation, not “features”.

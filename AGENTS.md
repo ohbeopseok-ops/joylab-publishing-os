@@ -40,7 +40,7 @@ Use for:
 - Editor picks
 - major research
 - latest updates
-- Books slot
+- historical Books compatibility routes (not a Research homepage slot)
 - homepage content duplication/exclusion
 
 ### Homepage visual rhythm
@@ -51,8 +51,8 @@ Read:
 
 Use for:
 - homepage section height
-- Guide → Books spacing
-- Books → Latest spacing
+- Research Guide → visible Latest content spacing (including Latest section padding)
+- prevent Books shelf reintroduction on Research homepage
 - homepage compact-rhythm changes
 - Hero / Pillars / Research Guide vertical height budgets
 - homepage card/gradient/pill/hover-pattern changes
@@ -60,8 +60,8 @@ Use for:
 
 Hard rule:
 - Keep desktop Hero ≤ 530px, Pillars ≤ 370px, Research Guide ≤ 380px.
-- Keep desktop Books shelf ≤ 390px.
-- Keep Guide → Books and Books → Latest gaps within 0–48px.
+- Do not render the historical Books shelf on the Research homepage.
+- Keep Research Guide → visible Latest content gap within 0–48px (include section padding).
 - Enforce through Responsive Visual Gate V2; do not weaken thresholds only to make CI green.
 - For homepage-facing visual changes, preserve 390 / 768 / 1280 before-vs-after evidence through `scripts/qa-homepage-visual-evidence-v1.mjs`.
 - Anti-Slop is a constraint layer under Design System V3; do not create a parallel color/token system.

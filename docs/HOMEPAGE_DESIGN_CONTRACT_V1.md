@@ -16,7 +16,7 @@ Applies to desktop viewports at **1280px and above**.
 | Metric | Contract |
 | --- | ---: |
 | Books editorial shelf on Research home | **Absent** |
-| Research Guide → Latest vertical gap | **0–48px** |
+| Research Guide → visible Latest content gap | **0–48px** |
 
 Measured elements:
 

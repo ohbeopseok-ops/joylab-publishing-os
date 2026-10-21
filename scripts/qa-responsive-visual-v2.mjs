@@ -244,7 +244,10 @@ for (const viewport of viewports) {
         const latest = document.querySelector('.home-section--latest');
         const guideRect = guide?.getBoundingClientRect();
         const booksRect = books?.getBoundingClientRect();
-        const latestRect = latest?.getBoundingClientRect();
+        // Measure visible latest content, not the outer section border: CSS
+        // padding-top creates real whitespace before the first content row.
+        const latestContent = latest?.querySelector('.home-latest-row') ?? latest;
+        const latestRect = latestContent?.getBoundingClientRect();
         homepageCompact = {
           // Research-only home: ensure Books shelf is absent AND the remaining
           // Guide → Latest rhythm stays as compact as the retired two-gap layout.
