@@ -1,0 +1,626 @@
+{
+  "contract": "JoyLab GSC Direct API V1",
+  "importedAt": "2026-10-18T23:25:17.717Z",
+  "source": "GOOGLE_SEARCH_CONSOLE_API",
+  "siteUrl": "sc-domain:aijoylab.kr",
+  "sourceHash": "add8786bfa4aa5d7090cbecbbdcdac0fe94a20f2312d5cf94e15b3e4d10d179b",
+  "sourceFiles": [],
+  "rejectedFiles": [],
+  "range": {
+    "startDate": "2026-09-18",
+    "endDate": "2026-10-15",
+    "status": "FINAL_MINUS_3D"
+  },
+  "scoring": {
+    "version": "traffic-v2",
+    "formula": "positive-click percentile × 6 + impression percentile × 4; zero clicks = zero click points",
+    "maxScore": 10
+  },
+  "totals": {
+    "pages": 75,
+    "clicks": 40,
+    "impressions": 1511
+  },
+  "pages": [
+    {
+      "url": "https://aijoylab.kr/articles/us-china-chip-export-control-timeline",
+      "clicks": 6,
+      "impressions": 114,
+      "ctr": 0.05263157894736842,
+      "position": 5.956140350877193,
+      "trafficScore": 9.9
+    },
+    {
+      "url": "https://aijoylab.kr/articles/what-is-hbm",
+      "clicks": 3,
+      "impressions": 234,
+      "ctr": 0.01282051282051282,
+      "position": 16.98717948717949,
+      "trafficScore": 9.4
+    },
+    {
+      "url": "https://aijoylab.kr/articles/korea-shipbuilding-companies-compare",
+      "clicks": 3,
+      "impressions": 89,
+      "ctr": 0.033707865168539325,
+      "position": 7.303370786516854,
+      "trafficScore": 9.2
+    },
+    {
+      "url": "https://aijoylab.kr/articles/optical-dsp-lpo-lro-1-6t",
+      "clicks": 3,
+      "impressions": 49,
+      "ctr": 0.061224489795918366,
+      "position": 4.755102040816327,
+      "trafficScore": 9
+    },
+    {
+      "url": "https://aijoylab.kr/articles/china-semiconductor-equipment-localization",
+      "clicks": 4,
+      "impressions": 28,
+      "ctr": 0.14285714285714285,
+      "position": 5.964285714285714,
+      "trafficScore": 8.8
+    },
+    {
+      "url": "https://aijoylab.kr/articles/codex-skill-guide-2026",
+      "clicks": 3,
+      "impressions": 18,
+      "ctr": 0.16666666666666666,
+      "position": 5.444444444444445,
+      "trafficScore": 8.4
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-agent-system-design-anthropic-2026",
+      "clicks": 3,
+      "impressions": 13,
+      "ctr": 0.23076923076923078,
+      "position": 6.615384615384615,
+      "trafficScore": 8.2
+    },
+    {
+      "url": "https://aijoylab.kr/articles/foreign-investor-flow",
+      "clicks": 1,
+      "impressions": 90,
+      "ctr": 0.011111111111111112,
+      "position": 8.077777777777778,
+      "trafficScore": 7.5
+    },
+    {
+      "url": "https://aijoylab.kr/articles/codex-guide-6-steps-2026",
+      "clicks": 1,
+      "impressions": 84,
+      "ctr": 0.011904761904761904,
+      "position": 12.083333333333334,
+      "trafficScore": 7.4
+    },
+    {
+      "url": "https://aijoylab.kr/articles/hd-ksoe-shipbuilding",
+      "clicks": 1,
+      "impressions": 78,
+      "ctr": 0.01282051282051282,
+      "position": 9.205128205128204,
+      "trafficScore": 7.3
+    },
+    {
+      "url": "https://aijoylab.kr/articles/semiconductor-cycle",
+      "clicks": 1,
+      "impressions": 50,
+      "ctr": 0.02,
+      "position": 6.42,
+      "trafficScore": 7.2
+    },
+    {
+      "url": "https://aijoylab.kr/",
+      "clicks": 2,
+      "impressions": 32,
+      "ctr": 0.0625,
+      "position": 6.34375,
+      "trafficScore": 7.1
+    },
+    {
+      "url": "https://aijoylab.kr/articles/submarine-cable-failure-repair",
+      "clicks": 1,
+      "impressions": 48,
+      "ctr": 0.020833333333333332,
+      "position": 7.291666666666667,
+      "trafficScore": 7.1
+    },
+    {
+      "url": "https://aijoylab.kr/articles/silicon-photonics-ai-network",
+      "clicks": 1,
+      "impressions": 46,
+      "ctr": 0.021739130434782608,
+      "position": 10.456521739130435,
+      "trafficScore": 7.1
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-inference-hbm-earnings",
+      "clicks": 1,
+      "impressions": 34,
+      "ctr": 0.029411764705882353,
+      "position": 10.323529411764707,
+      "trafficScore": 6.9
+    },
+    {
+      "url": "https://aijoylab.kr/articles/codex-non-developer-automation-10",
+      "clicks": 1,
+      "impressions": 30,
+      "ctr": 0.03333333333333333,
+      "position": 10.133333333333333,
+      "trafficScore": 6.7
+    },
+    {
+      "url": "https://aijoylab.kr/articles/aside-vs-chatgpt-work-vs-playwright",
+      "clicks": 1,
+      "impressions": 13,
+      "ctr": 0.07692307692307693,
+      "position": 6.538461538461538,
+      "trafficScore": 6.4
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-agent-hbm-demand",
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 3.8333333333333335,
+      "trafficScore": 5.7
+    },
+    {
+      "url": "https://aijoylab.kr/guides/ai-productivity",
+      "clicks": 1,
+      "impressions": 5,
+      "ctr": 0.2,
+      "position": 12.8,
+      "trafficScore": 5.4
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-database-security-data-layer-2026",
+      "clicks": 1,
+      "impressions": 2,
+      "ctr": 0.5,
+      "position": 5.5,
+      "trafficScore": 4.7
+    },
+    {
+      "url": "https://aijoylab.kr/guides/growth-leadership/literature/jonathan-livingston-seagull",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 3,
+      "trafficScore": 4.2
+    },
+    {
+      "url": "https://aijoylab.kr/articles/hanwha-ocean-shipbuilding",
+      "clicks": 0,
+      "impressions": 84,
+      "ctr": 0,
+      "position": 7.0476190476190474,
+      "trafficScore": 3.8
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-network-800g-1-6t",
+      "clicks": 0,
+      "impressions": 45,
+      "ctr": 0,
+      "position": 5.066666666666666,
+      "trafficScore": 3.4
+    },
+    {
+      "url": "https://aijoylab.kr/articles/satellite-vs-submarine-cable",
+      "clicks": 0,
+      "impressions": 42,
+      "ctr": 0,
+      "position": 6.809523809523809,
+      "trafficScore": 3.4
+    },
+    {
+      "url": "https://aijoylab.kr/articles",
+      "clicks": 0,
+      "impressions": 31,
+      "ctr": 0,
+      "position": 18.258064516129032,
+      "trafficScore": 3.2
+    },
+    {
+      "url": "https://aijoylab.kr/guides/ai-inference-memory",
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0,
+      "position": 7.619047619047619,
+      "trafficScore": 3
+    },
+    {
+      "url": "https://aijoylab.kr/articles/us-pce-fed-nasdaq-guide",
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 7.066666666666666,
+      "trafficScore": 2.9
+    },
+    {
+      "url": "https://aijoylab.kr/terms",
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 9,
+      "trafficScore": 2.9
+    },
+    {
+      "url": "https://aijoylab.kr/articles/samsung-vs-sk-hynix-ai-memory",
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 7.7272727272727275,
+      "trafficScore": 2.7
+    },
+    {
+      "url": "https://aijoylab.kr/articles/anthropic-ipo-ai-safety-2026",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 5.7,
+      "trafficScore": 2.6
+    },
+    {
+      "url": "https://aijoylab.kr/articles/china-us-treasury-holdings-2026",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 7.8,
+      "trafficScore": 2.6
+    },
+    {
+      "url": "https://aijoylab.kr/articles/what-is-ai-agent",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 48.8,
+      "trafficScore": 2.6
+    },
+    {
+      "url": "https://aijoylab.kr/articles/china-semiconductor-risk-indicators",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 5.555555555555555,
+      "trafficScore": 2.5
+    },
+    {
+      "url": "https://aijoylab.kr/articles/openai-data-agent-chatgpt-work",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 9.666666666666666,
+      "trafficScore": 2.5
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-power-grid-transformer-distribution",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 5.125,
+      "trafficScore": 2.4
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-productivity-operating-model",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 19.875,
+      "trafficScore": 2.4
+    },
+    {
+      "url": "https://aijoylab.kr/articles/hbm3e-hbm4-zhbm",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 6,
+      "trafficScore": 2.4
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-bubble-vs-compute-supercycle-2026",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 10.857142857142858,
+      "trafficScore": 2.2
+    },
+    {
+      "url": "https://aijoylab.kr/articles/samsung-electronics-outlook",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 6.428571428571429,
+      "trafficScore": 2.2
+    },
+    {
+      "url": "https://aijoylab.kr/articles/sk-hynix-outlook",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 7,
+      "trafficScore": 2.2
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-power-gas-turbine-return",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 32.5,
+      "trafficScore": 2.1
+    },
+    {
+      "url": "https://aijoylab.kr/articles/bank-roe-cet1-guide",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 8.5,
+      "trafficScore": 2.1
+    },
+    {
+      "url": "https://aijoylab.kr/articles/cxmt-ymtc-memory-oversupply",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 7.833333333333333,
+      "trafficScore": 2.1
+    },
+    {
+      "url": "https://aijoylab.kr/articles/treasury-5-percent-sp500-nasdaq-dividend",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 5.833333333333333,
+      "trafficScore": 2.1
+    },
+    {
+      "url": "https://aijoylab.kr/guides/investing",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 6.8,
+      "trafficScore": 1.8
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-power-next-bottleneck",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 4.75,
+      "trafficScore": 1.7
+    },
+    {
+      "url": "https://aijoylab.kr/articles/fairness-system-explainable-standards",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 6.5,
+      "trafficScore": 1.7
+    },
+    {
+      "url": "https://aijoylab.kr/articles/us-cpi-fed-nasdaq-guide",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 9.25,
+      "trafficScore": 1.7
+    },
+    {
+      "url": "https://aijoylab.kr/about",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 8.666666666666668,
+      "trafficScore": 1.5
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-data-center-cooling-bottleneck",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 9,
+      "trafficScore": 1.5
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-power-value-chain-compare",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 3,
+      "trafficScore": 1.5
+    },
+    {
+      "url": "https://aijoylab.kr/books/senior-mom-gemini",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 6,
+      "trafficScore": 1.5
+    },
+    {
+      "url": "https://aijoylab.kr/guides/ai-data-center-network",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7.666666666666667,
+      "trafficScore": 1.5
+    },
+    {
+      "url": "https://aijoylab.kr/guides/growth-leadership",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 4.333333333333334,
+      "trafficScore": 1.5
+    },
+    {
+      "url": "https://aijoylab.kr/guides/us-rates",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 13.333333333333334,
+      "trafficScore": 1.5
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-power-beneficiaries-value-chain",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 45.5,
+      "trafficScore": 1.1
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-power-ls-hd-eaton-ge-compare",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5,
+      "trafficScore": 1.1
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-power-valuation-eps-per-ev-ebitda",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6,
+      "trafficScore": 1.1
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-productivity-roi",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 77,
+      "trafficScore": 1.1
+    },
+    {
+      "url": "https://aijoylab.kr/articles/codex-automation-gold-cases-5",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7,
+      "trafficScore": 1.1
+    },
+    {
+      "url": "https://aijoylab.kr/articles/mcp-security-tool-poisoning-2026",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6,
+      "trafficScore": 1.1
+    },
+    {
+      "url": "https://aijoylab.kr/books/ax-customer-center",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6.5,
+      "trafficScore": 1.1
+    },
+    {
+      "url": "https://aijoylab.kr/books/problem-to-service",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 10,
+      "trafficScore": 1.1
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-agent-security-prompt-to-rce-2026",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10,
+      "trafficScore": 0.6
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-era-english-deep-inquiry",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5,
+      "trafficScore": 0.6
+    },
+    {
+      "url": "https://aijoylab.kr/articles/ai-translation-information-gatekeeper",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7,
+      "trafficScore": 0.6
+    },
+    {
+      "url": "https://aijoylab.kr/articles/aside-ai-browser-benchmark",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11,
+      "trafficScore": 0.6
+    },
+    {
+      "url": "https://aijoylab.kr/articles/chatgpt-sponsored-agent-advertising",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5,
+      "trafficScore": 0.6
+    },
+    {
+      "url": "https://aijoylab.kr/articles/treasury-5-percent-utilities-2026",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 88,
+      "trafficScore": 0.6
+    },
+    {
+      "url": "https://aijoylab.kr/articles/us-30y-treasury-5-percent-risk-2026",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2,
+      "trafficScore": 0.6
+    },
+    {
+      "url": "https://aijoylab.kr/articles/us-august-retail-sales-fed-nasdaq-2026",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3,
+      "trafficScore": 0.6
+    },
+    {
+      "url": "https://aijoylab.kr/articles/us-jobs-report-fed-nasdaq-guide",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6,
+      "trafficScore": 0.6
+    },
+    {
+      "url": "https://aijoylab.kr/guides/growth-leadership/literature/little-prince",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11,
+      "trafficScore": 0.6
+    },
+    {
+      "url": "https://aijoylab.kr/guides/growth-leadership/literature/old-man-and-the-sea",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6,
+      "trafficScore": 0.6
+    },
+    {
+      "url": "https://toilet.aijoylab.kr/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6,
+      "trafficScore": 0.6
+    }
+  ]
+}
