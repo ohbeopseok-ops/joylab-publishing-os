@@ -87,23 +87,32 @@ for (const viewport of viewports) {
     const guide = rect('.home-guide');
     const navShell = rect('#site-nav-shell');
     const homeShell = rect('.home-v2');
-    const signature = document.querySelector('.home-hero__signature');
+    const leadArticle = document.querySelector('.editorial-main-feature');
+    const leadRect = rect('.editorial-main-feature');
+    const leadImage = leadArticle?.querySelector('img');
+    const companionArticles = [...document.querySelectorAll('.editorial-side-feature')];
+    const leadHref = leadArticle?.getAttribute('href') || '';
+    const companionHrefs = companionArticles.map((el) => el.getAttribute('href') || '');
+    const topicHrefs = [...document.querySelectorAll('.editorial-hero__topics a')].map((el) => el.getAttribute('href'));
+    const featureIsNavy = Boolean(leadArticle && getComputedStyle(leadArticle).backgroundColor === 'rgb(7, 25, 56)');
+    const featuredStructureValid = Boolean(
+      leadArticle && leadRect && leadRect.top < window.innerHeight &&
+      leadHref.startsWith('/articles/') &&
+      leadImage?.naturalWidth > 0 &&
+      companionArticles.length === 2 &&
+      companionHrefs.every((href) => href.startsWith('/articles/')) &&
+      new Set([leadHref, ...companionHrefs]).size === 3 &&
+      new Set(topicHrefs).size === 3 &&
+      topicHrefs.includes('/guides/investing') &&
+      topicHrefs.includes('/guides/ai-productivity') &&
+      topicHrefs.includes('/guides/growth-leadership')
+    );
     const archiveDescription = document.querySelector('.home-archive .article-card p');
     const search = document.querySelector('#content-search');
     const tag = document.querySelector('#tag-filter');
     const majorHeading = [...document.querySelectorAll('.home-section-title h2')].find((el) => el.textContent?.trim() === '주요 리서치');
     const latestHeading = [...document.querySelectorAll('.home-section-title h2')].find((el) => el.textContent?.trim() === '최신 업데이트');
     const archiveHeading = document.querySelector('.home-archive .home-section-title h2');
-    const editorialItemStates = [...document.querySelectorAll('.home-today-item')].map((el) => {
-      const r = el.getBoundingClientRect();
-      const style = getComputedStyle(el);
-      return {
-        top: r.top,
-        bottom: r.bottom,
-        visible: r.width > 0 && r.height > 0 && style.visibility !== 'hidden' && style.display !== 'none',
-      };
-    });
-    const editorialItemsAboveFold = editorialItemStates.length === 3 && editorialItemStates.every((item) => item.visible && item.top >= 0 && item.bottom <= window.innerHeight);
     const heroCta = document.querySelector('.home-hero__cta');
 
     const identityCue = Boolean(
@@ -116,8 +125,8 @@ for (const viewport of viewports) {
     );
     const whatToReadCue = Boolean(
       editorial && editorial.top >= 0 && editorial.top < window.innerHeight &&
-      text('.home-today-head h2') === '에디터 추천 3선' &&
-      editorialItemsAboveFold &&
+      featuredStructureValid &&
+      featureIsNavy &&
       heroCta?.getAttribute('href') === '#today-research'
     );
     const whereToStartCue = Boolean(
@@ -144,12 +153,16 @@ for (const viewport of viewports) {
       fidelity: {
         navHomeLeftDelta: navShell && homeShell ? Math.abs(navShell.left - homeShell.left) : null,
         navHomeRightDelta: navShell && homeShell ? Math.abs(navShell.right - homeShell.right) : null,
-        signatureOpacity: signature ? Number.parseFloat(getComputedStyle(signature).opacity) : null,
+        featureIsNavy,
+        featuredStructureValid,
+        featuredArticleCount: Number(Boolean(leadArticle)) + companionArticles.length,
+        featuredHrefs: [leadHref, ...companionHrefs],
+        topicHrefs,
         archiveDescriptionClamp: archiveDescription ? getComputedStyle(archiveDescription).webkitLineClamp : null,
         searchPlaceholder: search?.getAttribute('placeholder') || '',
         tagDefaultLabel: tag?.querySelector('option')?.textContent?.trim() || '',
         sectionLabels: {
-          editorial: text('.home-today-head h2'),
+          editorial: text('#feature-section-title'),
           major: majorHeading?.textContent?.trim() || '',
           latest: latestHeading?.textContent?.trim() || '',
           archive: archiveHeading?.textContent?.trim() || '',
@@ -159,8 +172,9 @@ for (const viewport of viewports) {
         identityCue,
         whatToReadCue,
         whereToStartCue,
-        editorialItemsAboveFold,
-        editorialItemStates,
+        featuredStructureValid,
+        featureIsNavy,
+        featureTop: leadRect?.top ?? null,
         guideTop: guide?.top ?? null,
       },
     };
@@ -179,11 +193,12 @@ for (const viewport of viewports) {
 
   if (pcFidelityWidths.has(viewport.width)) {
     checks.pcShellAligned = (metrics.fidelity.navHomeLeftDelta ?? 999) <= 1 && (metrics.fidelity.navHomeRightDelta ?? 999) <= 1;
-    checks.heroGraphicContrast = (metrics.fidelity.signatureOpacity ?? 0) >= 0.66 && (metrics.fidelity.signatureOpacity ?? 1) <= 0.68;
+    checks.featureVisualIdentity = metrics.fidelity.featureIsNavy === true; 
+    checks.featuredContentIntegrity = metrics.fidelity.featuredStructureValid === true && metrics.fidelity.featuredArticleCount === 3;
     checks.archiveDescriptionThreeLines = metrics.fidelity.archiveDescriptionClamp === '3';
     checks.archiveSearchGeneralized = metrics.fidelity.searchPlaceholder === '기업·기술·시장·업무·리더십 키워드 검색' && metrics.fidelity.tagDefaultLabel === '전체 주제';
-    checks.researchHierarchyClear = metrics.fidelity.sectionLabels.editorial === '에디터 추천 3선' && metrics.fidelity.sectionLabels.major === '주요 리서치' && metrics.fidelity.sectionLabels.latest === '최신 업데이트' && metrics.fidelity.sectionLabels.archive === '전체 리서치';
-    checks.tenSecondComprehension = metrics.tenSecondFlow.identityCue === true && metrics.tenSecondFlow.whatToReadCue === true && metrics.tenSecondFlow.whereToStartCue === true && metrics.tenSecondFlow.editorialItemsAboveFold === true;
+    checks.researchHierarchyClear = metrics.fidelity.sectionLabels.editorial === '주요 리서치' && metrics.fidelity.sectionLabels.major === '주요 리서치' && metrics.fidelity.sectionLabels.latest === '최신 업데이트' && metrics.fidelity.sectionLabels.archive === '전체 리서치';
+    checks.tenSecondComprehension = metrics.tenSecondFlow.identityCue === true && metrics.tenSecondFlow.whatToReadCue === true && metrics.tenSecondFlow.whereToStartCue === true && metrics.tenSecondFlow.featuredStructureValid === true;
   }
 
   const passed = Object.values(checks).every(Boolean);
