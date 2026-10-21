@@ -40,8 +40,32 @@ jobs:
         id: build_site
         run: npm run build
 
-      # PDF/EPUB validation moved out of this workflow; npm prebuild still generates EPUB.
-      # Release and production smoke checks remain unchanged.
+      # Keep the published PDF available on every deploy. Generate it only on a cold cache
+      # or when its source/generator/font/dependency input changes.
+      # The lightweight EPUB generator still runs in npm prebuild; EPUBCheck is release-only.
+      - name: Restore cached Studio Print PDF
+        id: studio_pdf_cache
+        uses: actions/cache@v4
+        with:
+          path: dist/studio/exports/series-02-memory-debt-print.pdf
+          key: studio-print-pdf-v1-${{ runner.os }}-${{ hashFiles('src/data/studio/series-02-source.json', 'scripts/generate-studio-print-pdf-v1.mjs', 'scripts/install-pinned-korean-fonts.sh', 'package-lock.json') }}
+
+      - name: Install Studio Print PDF runtime (cache miss)
+        if: steps.studio_pdf_cache.outputs.cache-hit != 'true'
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Generate Studio Print PDF V1 (cache miss)
+        if: steps.studio_pdf_cache.outputs.cache-hit != 'true'
+        run: npm run studio:print
+
+      - name: Studio PDF Preflight V1
+        run: npm run studio:pdf:preflight
+
+      - name: Generate Export Provenance Manifest V1
+        run: npm run studio:provenance
+
       - name: Legacy Public Email Gate
         run: node scripts/check-legacy-public-email.mjs
 
