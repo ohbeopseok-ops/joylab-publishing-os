@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 124,
+  "articleCount": 125,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -715,6 +715,16 @@
         "CXMT",
         "YMTC"
       ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "dental-clinic-ax-domain-system-2026",
+      "route": "/articles/dental-clinic-ax-domain-system-2026",
+      "industries": [],
+      "theses": [],
+      "companies": [],
       "valueChains": [],
       "kpis": [],
       "researchType": null
