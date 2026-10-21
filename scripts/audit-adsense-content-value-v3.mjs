@@ -61,4 +61,6 @@ fs.writeFileSync(path.join(out,"report.md"),lines.join("\n"));
 console.log("AUDIT_V3_SUMMARY="+JSON.stringify(stats));
 console.log("AUDIT_V3_TOP_OVERLAP="+JSON.stringify(overlaps.slice(0,25)));
 console.log("AUDIT_V3_PRIORITY="+JSON.stringify(records.filter(x=>!x.draft).sort((a,b)=>a.score-b.score).slice(0,20).map(x=>({slug:x.slug,score:x.score,chars:x.bodyChars,external:x.externalLinks,flags:x.flags}))));
-if(records.length!==123) {console.error("Unexpected article count: "+records.length+" expected 123.");process.exitCode=1;}
+// The 123-article launch corpus is a minimum retention floor, not a fixed ceiling for new publications.
+const MIN_RETAINED_ARTICLES = 123;
+if (records.length < MIN_RETAINED_ARTICLES) { console.error("Article corpus below baseline: "+records.length+" < "+MIN_RETAINED_ARTICLES); process.exitCode=1; }
