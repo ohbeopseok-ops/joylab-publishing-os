@@ -161,7 +161,7 @@ JoyLab의 답은 **아니다**. 개인 AI OS의 성과를 가르는 것은 앱�
 <a id="judgment"></a>
 ## 5. 결론: 도구의 소유자가 아니라 판단의 설계자가 되어야 한다
 
-이 관점을 AI 도구 선택과 실제 업무 루틴으로 넓혀 보고 싶다면 [AI 생산성 가이드](/guides/ai-productivity)의 활용·검증 사례를 함께 살펴볼 수 있다.
+이 관점을 AI 도구 선택과 실제 업무 루틴으로 넓혀 보고 싶다면 [AI 생산성 가이드](/guides/ai-productivity)의 활용·검증 사례를 함께 살펴볼 수 있다. 더 구체적인 실행 기준은 [AI 생산성 운영 모델](/articles/ai-productivity-operating-model)과 [AI 에이전트 거버넌스](/articles/ai-agent-governance) 분석에서 비교할 수 있다.
 
 좋은 개인 AI OS는 모든 일을 혼자 하는 AI가 아니다. **내 기록을 근거 있게 불러오고, 지정된 범위에서 실행하고, 문제가 있을 때 멈출 수 있는 시스템**에 가깝다.
 
