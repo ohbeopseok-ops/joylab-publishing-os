@@ -40,8 +40,8 @@ jobs:
         id: build_site
         run: npm run build
 
-      # Studio PDF/EPUB exports are prepared separately; deployment uses checked-in or prebuilt assets.
-      # Do not remove required release/production smoke verification without proving parity.
+      # PDF/EPUB validation moved out of this workflow; npm prebuild still generates EPUB.
+      # Release and production smoke checks remain unchanged.
       - name: Legacy Public Email Gate
         run: node scripts/check-legacy-public-email.mjs
 
