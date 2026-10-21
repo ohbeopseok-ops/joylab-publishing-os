@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 123,
+  "articleCount": 124,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -1106,6 +1106,16 @@
       "theses": [
         "macro-liquidity"
       ],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "obsidian-claude-personal-ai-os-2026",
+      "route": "/articles/obsidian-claude-personal-ai-os-2026",
+      "industries": [],
+      "theses": [],
       "companies": [],
       "valueChains": [],
       "kpis": [],
