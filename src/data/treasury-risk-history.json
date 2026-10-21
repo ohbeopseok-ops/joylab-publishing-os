@@ -1,8 +1,30 @@
 {
   "version": "1.0",
-  "updatedAt": "2026-10-09T22:29:33.958Z",
+  "updatedAt": "2026-10-21T00:36:56.546Z",
   "maxSnapshots": 60,
-  "latestDelta": null,
+  "latestDelta": {
+    "from": 44,
+    "to": 62,
+    "delta": 18,
+    "gradeFrom": "YELLOW",
+    "gradeTo": "YELLOW",
+    "components": {
+      "marketRisk": 0,
+      "auctionWeakness": 18,
+      "ticStress": 0
+    },
+    "primaryDriver": {
+      "key": "auctionWeakness",
+      "label": "Auction",
+      "delta": 18
+    },
+    "alert": {
+      "level": "ALERT",
+      "direction": "RISING"
+    },
+    "interpretation": "전일 대비 위험 변화의 가장 큰 상승 요인은 Auction +18점입니다.",
+    "formula": "44 → 62 (+18): Market 0 / Auction +18 / TIC 0"
+  },
   "snapshots": [
     {
       "asOf": "2026-10-09",
@@ -17,6 +39,22 @@
       "components": {
         "marketRisk": 74,
         "auctionWeakness": 7,
+        "ticStress": 25
+      }
+    },
+    {
+      "asOf": "2026-10-20",
+      "capturedAt": "2026-10-21T00:36:56.546Z",
+      "index": 62,
+      "grade": "YELLOW",
+      "contributions": {
+        "marketRisk": 37,
+        "auctionWeakness": 20,
+        "ticStress": 5
+      },
+      "components": {
+        "marketRisk": 74,
+        "auctionWeakness": 65,
         "ticStress": 25
       }
     }
