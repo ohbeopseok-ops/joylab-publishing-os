@@ -1,0 +1,66 @@
+name: Cloudflare Direct Deploy Readiness (isolated)
+
+# On relevant PR changes, only PACKAGE the Worker. Never touch Cloudflare production.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/cloudflare-direct-readiness.yml'
+      - 'scripts/check-cloudflare-direct-readiness.mjs'
+      - 'wrangler.jsonc'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-direct-readiness-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  dry-run:
+    # Avoid spending runner time on external fork PRs.
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      - name: Install pinned Korean font and PDF tools
+        run: bash scripts/install-pinned-korean-fonts.sh
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Build site and EPUB
+        run: npm run build
+
+      - name: Install Playwright Chromium (ephemeral dry run)
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Generate and validate Studio Print PDF
+        run: |
+          npm run studio:print
+          npm run studio:pdf:preflight
+          npm run studio:provenance
+
+      - name: Verify direct deploy asset parity
+        run: npm run cloudflare:readiness
+
+      - name: Package Cloudflare Worker without deploying
+        run: npx wrangler deploy --dry-run --outdir qa-artifacts/cloudflare-direct-dry-run
+
+      - name: Record dry-run proof
+        run: |
+          echo 'Cloudflare dry-run bundle OK; no preview/production deployment performed' >> "${GITHUB_STEP_SUMMARY}"
+          echo "Commit ${GITHUB_SHA}" >> "${GITHUB_STEP_SUMMARY}"
+          echo 'Production remains on existing GitHub Actions deploy-cloudflare.yml.' >> "${GITHUB_STEP_SUMMARY}"
