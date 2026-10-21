@@ -9,7 +9,9 @@ Do not adjust Ruleset `Protect main`, skip smoke checks, delete existing artifac
 - AI CAPEX Leader Runtime: manual `workflow_dispatch` only (no weekdays cron).
 - AdSense Monetization Gate: manual `workflow_dispatch` only (no Monday cron).
 - Existing required `build` (PR/main), production deploy (main push), and independent `production-health` monitoring remain active.
-- The remaining scheduled workflows are **out of scope** until individually inspected.
+- Additional audit: the eight nonessential scheduled workflows for GSC visibility, research evidence, homepage funnel, rates timeseries, GSC API sync, China risk data, visual metrics, and rates dashboard are now `workflow_dispatch` (any existing narrowly scoped `push`/PR triggers are preserved).
+- Keep `Production Health` (4/day) and weekly `Configuration Drift` scheduled. Never pause these solely to reduce Actions runs.
+- Data refresh is now a deliberate prepublication action; articles that require current rates, search performance, or sector metrics must refresh and re-check their source timestamps before release. Otherwise mark the data as historical and state its as-of date.
 
 ## Stage 2 — retain Studio downloads and avoid unnecessary heavy builds
 - `npm run build` still creates Series 02 EPUB via the lightweight Node prebuild generator. Do not remove this without an immutable artifact supply.

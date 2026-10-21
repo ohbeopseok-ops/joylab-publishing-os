@@ -1,8 +1,6 @@
 name: Sync Rates 30D
 
 on:
-  schedule:
-    - cron: '15 23 * * 1-5'
   workflow_dispatch:
 
 permissions:
