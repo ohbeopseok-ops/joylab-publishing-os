@@ -1,0 +1,129 @@
+/* Homepage Discovery Pass 01 — Supahero-informed navigation, not a template clone.
+   Editorial index > ornamental marketing hero. This layer is removable with one import.
+   Preserve current hero/pillar/guide budgets, content slots and existing analytics.
+*/
+
+body.homepage-v2 .home-hero__topics{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:5px 18px;
+  margin-top:14px;
+  font-size:.78rem;
+  letter-spacing:0;
+}
+body.homepage-v2 .home-hero__topics a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  min-height:32px;
+  border-bottom:1px solid rgba(149,187,235,.46);
+  color:#e1ebf8;
+  font-weight:750;
+  white-space:nowrap;
+  transition:color .15s ease,border-color .15s ease;
+}
+body.homepage-v2 .home-hero__topics a span{
+  color:#82b5ff;
+  font-size:.84rem;
+}
+body.homepage-v2 .home-hero__topics a:hover,
+body.homepage-v2 .home-hero__topics a:focus-visible{
+  border-bottom-color:#ffd83d;
+  color:#fff;
+}
+body.homepage-v2 .home-hero__topics a:focus-visible,
+body.homepage-v2 .home-hero__archive-link:focus-visible,
+body.homepage-v2 .home-hero__cta:focus-visible,
+body.homepage-v2 .home-today-item:focus-visible{
+  outline:2px solid #ffd83d;
+  outline-offset:4px;
+}
+
+body.homepage-v2 .home-hero__actions{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px 18px;
+  margin-top:20px;
+}
+body.homepage-v2 .home-hero__actions .home-hero__cta{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  margin-top:0;
+}
+body.homepage-v2 .home-hero__archive-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:44px;
+  padding:0 2px;
+  border-bottom:1px solid transparent;
+  color:#d5e4f6;
+  font-size:.84rem;
+  font-weight:750;
+  white-space:nowrap;
+  transition:color .15s ease,border-color .15s ease;
+}
+body.homepage-v2 .home-hero__archive-link:hover{
+  color:#fff;
+  border-bottom-color:#9ec6ff;
+}
+/* Recover the small navigation-row height so the desktop hero stays compact. */
+body.homepage-v2 .home-hero__method{
+  margin-top:18px;
+}
+body.homepage-v2 .home-today-head h2{
+  font-size:1.06rem;
+  letter-spacing:-.025em;
+}
+body.homepage-v2 .home-today-item:hover b,
+body.homepage-v2 .home-today-item:focus-visible b{
+  color:#c6deff;
+}
+body.homepage-v2 .home-today-no{
+  background:transparent;
+  border:1px solid rgba(154,190,242,.45);
+  border-radius:3px;
+  color:#a6c7f2;
+}
+@media(max-width:900px){
+  body.homepage-v2 .home-hero__actions{
+    margin-top:16px;
+  }
+}
+@media(max-width:640px){
+  body.homepage-v2 .home-hero__topics{
+    gap:2px 12px;
+    margin-top:10px;
+    font-size:.7rem;
+  }
+  body.homepage-v2 .home-hero__topics a{
+    min-height:30px;
+    gap:4px;
+  }
+  body.homepage-v2 .home-hero__actions{
+    gap:4px 12px;
+    margin-top:12px;
+  }
+  body.homepage-v2 .home-hero__actions .home-hero__cta{
+    min-height:44px;
+    margin-top:0!important;
+  }
+  body.homepage-v2 .home-hero__archive-link{
+    font-size:.76rem;
+  }
+  body.homepage-v2 .home-hero__method{
+    margin-top:14px;
+  }
+  body.homepage-v2 .home-today-head h2{
+    font-size:.96rem;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  body.homepage-v2 .home-hero__topics a,
+  body.homepage-v2 .home-hero__archive-link{
+    transition:none;
+  }
+}

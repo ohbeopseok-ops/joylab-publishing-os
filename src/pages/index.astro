@@ -9,6 +9,7 @@ import '../styles/brand-system-v1-1.css';
 import '../styles/homepage-treasury-hub-card.css';
 import '../styles/homepage-compact-v2.css';
 import '../styles/homepage-visual-engineering-v1.css';
+import '../styles/homepage-discovery-pass-01.css';
 import researchImageManifest from '../data/research-image-manifest.json';
 import { getCollection } from 'astro:content';
 
@@ -54,10 +55,15 @@ const categories = ['전체', '투자·경제', 'AI·생산성', '성장·리더
         <div class="home-eyebrow">JOYLAB RESEARCH · SIGNAL / EVIDENCE / DECISION</div>
         <h1 id="home-title">생각을 분석하고,<br /><span>분석을 실행으로.</span></h1>
         <p class="home-hero__desc">투자·경제, AI·생산성, 성장·리더십을 연결해 복잡한 정보를 실행 가능한 판단으로 바꾸는 독립 리서치 미디어입니다.</p>
-        <div class="home-hero__pillars" aria-label="JoyLab 핵심 영역">
-          <span>INVESTING</span><i aria-hidden="true">×</i><span>AI</span><i aria-hidden="true">×</i><span>LEADERSHIP</span>
+        <nav class="home-hero__pillars home-hero__topics" aria-label="관심 분야별 리서치 탐색">
+          <a href="/guides/investing">투자·경제 <span aria-hidden="true">↗</span></a>
+          <a href="/guides/ai-productivity">AI·생산성 <span aria-hidden="true">↗</span></a>
+          <a href="/guides/growth-leadership">성장·리더십 <span aria-hidden="true">↗</span></a>
+        </nav>
+        <div class="home-hero__actions">
+          <a class="home-hero__cta" href="#today-research">주요 리서치 읽기 <span aria-hidden="true">→</span></a>
+          <a class="home-hero__archive-link" href="#archive">전체 리서치 찾기 <span aria-hidden="true">↗</span></a>
         </div>
-        <a class="home-hero__cta" href="#today-research">오늘의 리서치 보기 <span aria-hidden="true">→</span></a>
         <div class="home-hero__method" aria-label="JoyLab Research Method">
           <span>FACT</span><i aria-hidden="true">→</i><span>INTERPRETATION</span><i aria-hidden="true">→</i><span>SCENARIO</span><i aria-hidden="true">→</i><span>ACTION</span>
         </div>
