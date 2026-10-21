@@ -95,7 +95,8 @@
     "ai-capex-market:update": "node scripts/update-ai-capex-market-snapshot-v1.mjs",
     "ai-capex-market:self-test": "node scripts/update-ai-capex-market-snapshot-v1.mjs --self-test",
     "architecture:check": "node scripts/check-article-architecture-v1.mjs",
-    "architecture:test": "node scripts/test-article-architecture-v1.mjs"
+    "architecture:test": "node scripts/test-article-architecture-v1.mjs",
+    "cloudflare:readiness": "node scripts/check-cloudflare-direct-readiness.mjs"
   },
   "devDependencies": {
     "astro": "^7.3.2",
