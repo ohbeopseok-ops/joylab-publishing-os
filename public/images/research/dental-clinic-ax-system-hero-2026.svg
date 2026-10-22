@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">치과 전문의가 AI 운영 대시보드를 검토하는 장면</title>
+<desc id="desc">동네 치과의 AI 전환에서 전화·보험·검색·업무 승인 과정을 연결하는 시스템 설계를 상징하는 에디토리얼 일러스트레이션</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071325"/><stop offset=".56" stop-color="#142a49"/><stop offset="1" stop-color="#0a1325"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#184c8c" stop-opacity=".8"/><stop offset="1" stop-color="#10294d" stop-opacity=".13"/></linearGradient>
+<linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fafdff"/><stop offset="1" stop-color="#d5ebfd"/></linearGradient>
+<linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1b9bfc"/><stop offset="1" stop-color="#55e3dc"/></linearGradient>
+<linearGradient id="coat" x1="0" x2="1"><stop stop-color="#eff9ff"/><stop offset=".56" stop-color="#b4dcf2"/><stop offset="1" stop-color="#e8f7ff"/></linearGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="23"/></filter>
+<filter id="soft"><feDropShadow dx="0" dy="12" stdDeviation="22" flood-color="#010912" flood-opacity=".62"/></filter>
+<pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#7ea9d4" opacity=".24"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect x="0" y="0" width="1600" height="900" fill="url(#dots)" opacity=".34"/>
+<circle cx="995" cy="305" r="335" fill="#1c80d6" opacity=".14" filter="url(#glow)"/>
+<circle cx="1412" cy="85" r="280" fill="#0dbabf" opacity=".08" filter="url(#glow)"/>
+<rect x="80" y="76" width="530" height="580" rx="24" fill="#d2e9fb" opacity=".035" stroke="#92b7dc" stroke-opacity=".18"/>
+<path d="M130 600V310h61v290M214 600V230h74v370M305 600V345h73v255M406 600V198h81v402M504 600V285h56v315" stroke="#6294c4" stroke-width="16" opacity=".12"/>
+<rect x="107" y="116" width="130" height="11" rx="5" fill="#a8bcd0" opacity=".4"/>
+<rect x="107" y="144" width="230" height="8" rx="4" fill="#8aacc6" opacity=".22"/>
+<g opacity=".9">
+<rect x="96" y="432" width="320" height="12" rx="6" fill="#243c57"/>
+<rect x="127" y="373" width="80" height="57" rx="12" fill="#e1eff6"/>
+<path d="M159 386q-22-7-21 11t13 21q3-2 8-9 5 8 9 10 17-13 15-25-1-11-24-8z" fill="#7a9bbb"/>
+<rect x="236" y="396" width="28" height="35" rx="4" fill="#687e96"/>
+<rect x="271" y="385" width="28" height="46" rx="4" fill="#587392"/>
+<rect x="306" y="377" width="28" height="54" rx="4" fill="#8ba5b7"/>
+</g>
+<path d="M0 731Q386 696 644 729T1600 727V900H0Z" fill="#081524"/>
+<path d="M0 768H1600" stroke="#1d4466" stroke-width="9"/>
+<g filter="url(#soft)">
+<rect x="700" y="180" width="756" height="501" rx="32" fill="#050f23" stroke="#4b83b5" stroke-width="7"/>
+<rect x="722" y="203" width="712" height="451" rx="18" fill="url(#screen)"/>
+<rect x="722" y="203" width="145" height="451" rx="18" fill="#12345a"/>
+<rect x="734" y="216" width="116" height="44" rx="12" fill="#204c79"/>
+<circle cx="757" cy="237" r="9" fill="#39c7f8"/><rect x="778" y="233" width="54" height="7" rx="4" fill="#b5dafa"/>
+<g fill="#6c9dbf"><rect x="746" y="297" width="92" height="10" rx="5"/><rect x="746" y="344" width="78" height="10" rx="5"/><rect x="746" y="391" width="87" height="10" rx="5"/><rect x="746" y="438" width="83" height="10" rx="5"/><rect x="746" y="485" width="73" height="10" rx="5"/></g>
+<rect x="895" y="236" width="502" height="32" rx="9" fill="#d4e6f3"/>
+<rect x="913" y="248" width="179" height="8" rx="4" fill="#7da3bf"/>
+<rect x="897" y="286" width="319" height="168" rx="18" fill="#fff"/>
+<text x="922" y="315" font-size="18" font-weight="700" fill="#29476d" font-family="Arial,sans-serif">CLINIC OPERATIONS</text>
+<path d="M925 425h259" stroke="#e0ebf4" stroke-width="2"/>
+<path d="M925 391h259" stroke="#e0ebf4" stroke-width="2"/>
+<path d="M925 355h259" stroke="#e0ebf4" stroke-width="2"/>
+<path d="M924 410L964 392 1003 400 1042 369 1082 377 1127 337 1184 320" stroke="#287ce8" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g fill="#51c7d9"><circle cx="924" cy="410" r="6"/><circle cx="1042" cy="369" r="6"/><circle cx="1127" cy="337" r="6"/><circle cx="1184" cy="320" r="6"/></g>
+<rect x="1235" y="286" width="162" height="168" rx="18" fill="#fff"/>
+<text x="1252" y="315" font-size="15" font-weight="700" fill="#314d70" font-family="Arial,sans-serif">WORKFLOW</text>
+<circle cx="1317" cy="375" r="44" stroke="#e8f1f8" stroke-width="19" fill="none"/>
+<path d="M1317 331A44 44 0 1 1 1273 375" stroke="#27a8f0" stroke-width="19" fill="none"/>
+<rect x="900" y="473" width="497" height="147" rx="16" fill="#fff"/>
+<text x="923" y="500" font-size="15" font-weight="700" fill="#29476d" font-family="Arial,sans-serif">HUMAN REVIEW</text>
+<g fill="#d2e8fa"><rect x="924" y="518" width="448" height="21" rx="6"/><rect x="924" y="551" width="448" height="21" rx="6"/><rect x="924" y="584" width="448" height="21" rx="6"/></g>
+<g fill="#279ef4"><rect x="924" y="518" width="170" height="21" rx="6"/><rect x="924" y="551" width="282" height="21" rx="6"/></g>
+<rect x="1361" y="551" width="11" height="21" rx="4" fill="#2dccba"/>
+<rect x="1048" y="681" width="66" height="67" rx="9" fill="#23334a"/>
+<path d="M933 761h295l85 18H852Z" fill="#33465a"/>
+</g>
+<g opacity=".96" filter="url(#soft)">
+<rect x="577" y="90" width="289" height="85" rx="20" fill="url(#glass)" stroke="#52b0f8" stroke-opacity=".9" stroke-width="2"/>
+<circle cx="621" cy="132" r="21" fill="#1a93ee"/>
+<path d="M615 121q-8 11 1 20l7 4 7-7" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+<path d="M664 127h26l11-14 13 26 12-19 13 10h83" fill="none" stroke="#7fe8ef" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="664" y="154" fill="#deefff" font-size="13" font-family="Arial,sans-serif" letter-spacing="1">CALL TRANSCRIPT</text>
+<rect x="1007" y="63" width="292" height="103" rx="20" fill="url(#glass)" stroke="#52b0f8" stroke-opacity=".9" stroke-width="2"/>
+<rect x="1034" y="90" width="57" height="58" rx="8" fill="#e9f7ff" opacity=".96"/>
+<path d="M1050 104h25M1050 114h22M1050 124h24" stroke="#7aaad2" stroke-width="5" stroke-linecap="round"/>
+<text x="1110" y="110" fill="#eaf8ff" font-size="18" font-weight="700" font-family="Arial,sans-serif">DOCUMENTS</text>
+<text x="1110" y="135" fill="#9fdcff" font-size="13" font-family="Arial,sans-serif">INSURANCE  /  AI</text>
+<rect x="1319" y="92" width="212" height="76" rx="18" fill="url(#glass)" stroke="#52b0f8" stroke-opacity=".9" stroke-width="2"/>
+<circle cx="1360" cy="130" r="14" stroke="#b5edff" stroke-width="5" fill="none"/>
+<path d="M1370 141l14 12" stroke="#b5edff" stroke-width="5" stroke-linecap="round"/>
+<rect x="1400" y="118" width="103" height="8" rx="4" fill="#cde9ff" opacity=".8"/>
+<rect x="1400" y="137" width="75" height="7" rx="4" fill="#8bbfe3" opacity=".7"/>
+<path d="M855 172L925 199M1142 167v33M1420 169l-70 31" stroke="#6ad1f1" stroke-opacity=".8" stroke-width="3" stroke-dasharray="6 9"/>
+</g>
+<g filter="url(#soft)">
+<ellipse cx="361" cy="816" rx="293" ry="37" fill="#020a11" opacity=".7"/>
+<path d="M191 811l30-224 217-7 121 231z" fill="url(#coat)" stroke="#d9f4ff" stroke-width="5"/>
+<path d="M300 565l48 90 57-91 31 248H261z" fill="#234365"/>
+<path d="M239 603l60 209h-99l-63-170q16-34 102-39Z" fill="#dceefa"/>
+<path d="M448 607l91 205h-113l-43-135z" fill="#b9dff5"/>
+<path d="M347 563q-76-2-93-78l-5-74q4-94 87-105 100-14 119 86l-2 88q-10 90-106 83Z" fill="#c89476"/>
+<path d="M252 460q-34-61-4-114 17-33 68-55 93-32 155 38 21 35 7 101-8-36-33-53-26 21-57 13-60-15-109 18l-9 65Z" fill="#101d2d"/>
+<path d="M254 474q-23-15-21 20 5 25 30 27" fill="#c89476"/>
+<path d="M409 453l13-4M414 465l11 2" stroke="#7b5043" stroke-width="4" stroke-linecap="round"/>
+<path d="M389 503q20 8 33-6" stroke="#9d6554" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M286 556l53 68 43-60" stroke="#e8f7ff" stroke-width="9" fill="none"/>
+<path d="M423 703q75 5 160-50" stroke="#b8d7e6" stroke-width="33" fill="none" stroke-linecap="round"/>
+<path d="M556 664l42-36" stroke="#c89476" stroke-width="22" stroke-linecap="round"/>
+<path d="M575 640l44-52" stroke="#d4ad91" stroke-width="12" stroke-linecap="round"/>
+</g>
+<rect x="60" y="52" width="260" height="40" rx="20" fill="#102a45" stroke="#2c719b" stroke-opacity=".8"/>
+<circle cx="83" cy="72" r="7" fill="#56e8df"/>
+<text x="101" y="79" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#dbf8ff" letter-spacing="1.2">JOYLAB RESEARCH</text>
+<text x="77" y="843" font-family="Arial,sans-serif" font-size="16" fill="#b6d2e9" letter-spacing="1.5">DOMAIN EXPERTISE  ×  AI SYSTEM DESIGN  ×  HUMAN OVERSIGHT</text>
+<text x="1510" y="845" font-family="Arial,sans-serif" font-size="13" fill="#79a2c5" text-anchor="end">CONCEPT ILLUSTRATION</text>
+</svg>
