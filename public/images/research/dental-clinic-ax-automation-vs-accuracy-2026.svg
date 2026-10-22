@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="공개 사례의 대조 항목 6,928개 중 5,319개 자동 확정은 76.8퍼센트이며 정확도와 다르다는 설명"><title>자동 확정률과 정확도의 차이</title><defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#07182d"/><stop offset="1" stop-color="#16375b"/></linearGradient><linearGradient id="teal" x2="1"><stop stop-color="#208ff5"/><stop offset="1" stop-color="#4be0d8"/></linearGradient><filter id="sh"><feDropShadow dx="0" dy="14" stdDeviation="13" flood-color="#000b1b" flood-opacity=".36"/></filter><pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#bde0ff" opacity=".2"/></pattern></defs><rect width="1600" height="900" fill="url(#bg)"/><rect width="1600" height="900" fill="url(#dots)"/><rect x="38" y="33" width="235" height="34" rx="17" fill="#13466f"/><text x="60" y="56" fill="#b9f9f5" font-size="16" font-family="Arial,sans-serif" font-weight="700">JOYLAB  /  VISUAL RESEARCH</text>
+<text x="80" y="163" fill="#f3fbff" font-size="55" font-family="Arial,sans-serif" font-weight="800">AUTOMATION IS NOT ACCURACY</text>
+<text x="80" y="214" fill="#bbd9ef" font-size="25" font-family="Arial,sans-serif">자동 확정된 비율과 실제 정답률은 서로 다른 지표입니다.</text>
+<rect x="78" y="275" width="935" height="418" rx="28" fill="#122d4b" stroke="#3b789f" stroke-width="2"/>
+<text x="114" y="335" font-size="24" font-family="Arial,sans-serif" fill="#b5d7ec">SELF-REPORTED AUTO-CONFIRMED</text>
+<text x="112" y="455" font-size="108" font-weight="800" fill="#f7fcff" font-family="Arial,sans-serif">76.8<tspan font-size="65">%</tspan></text>
+<rect x="115" y="505" width="844" height="53" rx="24" fill="#385774"/>
+<rect x="115" y="505" width="648" height="53" rx="24" fill="url(#teal)"/>
+<text x="114" y="625" font-size="32" fill="#d9f0ff" font-family="Arial,sans-serif" font-weight="600">5,319 / 6,928 ITEMS</text>
+<text x="114" y="659" font-size="19" fill="#94c2df" font-family="Arial,sans-serif">당사자 공개 수치 · 원본 로그와 정답 데이터 독립 검증 미실시</text>
+<rect x="1048" y="275" width="474" height="418" rx="28" fill="#092238" stroke="#3f9bb4" stroke-width="2"/>
+<text x="1086" y="335" font-size="23" font-family="Arial,sans-serif" fill="#b1dceb">VERIFIED ACCURACY</text>
+<text x="1080" y="464" font-size="96" font-weight="800" fill="#65e4d6" font-family="Arial,sans-serif">?</text>
+<text x="1086" y="536" font-size="23" font-family="Arial,sans-serif" fill="#edf8ff" font-weight="700">정답 표본 검토 필요</text>
+<text x="1086" y="586" font-size="20" font-family="Arial,sans-serif" fill="#a8cade">자동 확정 ≠ 정답률</text>
+<text x="1086" y="625" font-size="20" font-family="Arial,sans-serif" fill="#a8cade">기존 작업시간·검수비용도 별도</text>
+<rect x="78" y="729" width="1444" height="85" rx="20" fill="#0a4960" fill-opacity=".75" stroke="#2b9ab1"/>
+<text x="107" y="779" font-size="24" font-weight="700" font-family="Arial,sans-serif" fill="#e3faff">VERIFY: 정답 일치율   ·   순절감 시간   ·   재작업률   ·   운영비용</text>
+<text x="1523" y="859" font-size="15" font-family="Arial,sans-serif" fill="#83b3ce" text-anchor="end">ILLUSTRATIVE CALCULATION FROM THE PUBLISHED CLAIM</text></svg>
