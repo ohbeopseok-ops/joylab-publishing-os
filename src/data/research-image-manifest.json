@@ -2249,20 +2249,20 @@
   },
   "dental-clinic-ax-domain-system-2026": {
     "hero": {
-      "src": "/images/research/joylab-research-default-hero.svg",
-      "alt": "동네 치과의 AI 전환 사례를 분석한 JoyLab Research 대표 비주얼",
-      "caption": "도메인 전문성, AI 시스템 설계, 운영 검증의 경계를 분석합니다."
+      "src": "/images/research/dental-clinic-ax-system-hero-2026.svg",
+      "alt": "치과 운영자가 AI 업무 대시보드를 검토하는 JoyLab 제작 AX 전환 개념 일러스트",
+      "caption": "치과 운영과 AI 시스템 설계의 결합을 표현한 개념도이며 실제 운영 화면이 아닙니다."
     },
     "supporting": [
       {
-        "src": "/images/research/joylab-research-signal.svg",
-        "alt": "동네 치과 AX 업무 자동화에서 기능 구축과 실제 성과 검증을 구분하는 참고 시각자료",
-        "caption": "공개된 처리량·자동 확정률과 독립 검증이 필요한 정확도·비용을 구분합니다."
+        "src": "/images/research/dental-clinic-ax-review-loop-2026.svg",
+        "alt": "치과 업무 신호 감지부터 AI 보조, 담당자 승인, 개선 기록까지 이어지는 AX 검수 흐름도",
+        "caption": "AI 보조 → 담당자 검토·승인 → 결과 기록을 하나의 책임 있는 운영 흐름으로 연결합니다."
       },
       {
-        "src": "/images/research/joylab-research-framework.svg",
-        "alt": "도메인 전문가의 목표 정의부터 AI 구현, 사람 검증과 운영 평가까지의 AX 단계",
-        "caption": "목표 정의 → 역할·권한 → 위험관리 → AI 보조 → 결과 측정의 실행 흐름입니다."
+        "src": "/images/research/dental-clinic-ax-automation-vs-accuracy-2026.svg",
+        "alt": "공개 사례의 자동 확정 5319건 나누기 대조 6928건 약 76.8퍼센트와 실제 정확도의 차이를 나타내는 설명 도표",
+        "caption": "약 76.8%는 작성자 공개 수치로 계산한 자동 확정 비중입니다. 실제 정답률은 별도 검증이 필요합니다."
       }
     ]
   }
