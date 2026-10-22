@@ -12,7 +12,7 @@ tags:
   - "업무 자동화"
   - "시스템 설계"
 publishedAt: 2026-10-21
-updatedAt: 2026-10-21
+updatedAt: 2026-10-22
 author: "JoyLab"
 featured: false
 homeFeatured: false
@@ -22,9 +22,10 @@ seoTitle: "동네 치과 AX 전환기｜AI 코딩보다 중요한 도메인 지�
 canonical: "https://aijoylab.kr/articles/dental-clinic-ax-domain-system-2026"
 series: "AI·생산성"
 readingTime: "약 7분"
-heroImage: "/images/research/joylab-research-default-hero.svg"
-heroAlt: "동네 치과의 AX 전환과 AI 시스템 설계의 핵심을 다룬 JoyLab 리서치"
-ogImage: "/images/research/joylab-research-default-hero.svg"
+heroImage: "/images/research/dental-clinic-ax-system-hero-2026.svg"
+heroAlt: "치과 운영자가 전화 응대·보험 서류·사내 검색을 통합한 AI 업무 대시보드를 검토하는 개념 일러스트"
+heroCaption: "치과 업무의 AI 전환을 표현한 JoyLab 제작 개념 일러스트입니다. 실제 치과 운영 화면이나 검증 사진은 아닙니다."
+ogImage: "/images/research/dental-clinic-ax-system-hero-2026.svg"
 contentType: "practical-playbook"
 contentQuestion: "동네 치과의 AX 전환 사례에서 실제 경쟁력은 AI 코딩인가, 도메인 전문성과 운영 설계인가?"
 timeSensitive: true
@@ -94,6 +95,8 @@ trust:
       change: "동네 치과 공개 AX 사례의 주장과 검증 범위를 분리하고 JoyLab 실행 기준을 처음 작성했습니다."
     - date: "2026-10-21"
       change: "표·목록 중심의 설명을 자연스러운 칼럼 문체로 윤문하고 근거·숫자·FAQ를 유지했습니다."
+    - date: "2026-10-22"
+      change: "대표 개념 일러스트와 AX 검수 흐름·자동 확정률 해석 시각자료 3종을 추가했습니다."
 ---
 'AI가 코드를 짜주니 비전공자도 혼자서 병원 시스템을 만들었다.'
 
