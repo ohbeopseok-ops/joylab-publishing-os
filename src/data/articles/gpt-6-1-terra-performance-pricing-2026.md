@@ -8,6 +8,38 @@ author: "JoyLab Research"
 contentType: "comparison"
 contentQuestion: "GPT-6.1 Terra는 어떤 업무에 유리하고 성능·비용·안전성을 어떻게 검증해야 하는가?"
 timeSensitive: true
+trust:
+  author: "JoyLab Research"
+  authorPerspective: "AI 모델 성능과 업무 자동화의 비용·통제 조건을 비교하는 독립 편집 관점"
+  humanReviewed: false
+  researchedAt: 2026-10-27
+  methodology:
+    - "공개 공식 발표와 API 명세에 표시된 수치·비교 기준을 원고와 대조하고 테스트 미실시를 고지한다."
+  primarySources:
+    - id: "openai-announcement"
+      title: "Introducing GPT-6.1 Terra"
+      publisher: "OpenAI"
+      url: "https://openai.com/index/introducing-gpt-6-1-terra/"
+      accessedAt: 2026-10-27
+      supports: ["terra-performance"]
+    - id: "openai-model"
+      title: "GPT-6.1 Terra API model"
+      publisher: "OpenAI"
+      url: "https://developers.openai.com/api/docs/models/gpt-6.1-terra"
+      accessedAt: 2026-10-27
+      supports: ["terra-cost"]
+  originalValue:
+    - kind: "comparison"
+      sectionId: "terra-cost"
+      description: "검증된 작업 1건당 총비용 기준으로 모델 단가와 검수·재시도를 구분"
+    - kind: "framework"
+      sectionId: "terra-pilot"
+      description: "고객 업무 권한 및 실패 비용을 고려한 파일럿 평가 항목 제안"
+  counterEvidenceSections: ["terra-risk"]
+  conclusionSection: "terra-conclusion"
+  updateLog:
+    - date: 2026-10-27
+      change: "공식 발표 기준 신규 원고 구성 및 검증 범위 고지"
 researchMethod: "2026년 10월 27일 OpenAI 발표문, API 모델 명세, 시스템 카드의 수치와 적용 조건을 대조했다. 직접 실행 테스트나 독립 재현 벤치마크는 수행하지 않았다."
 sourceList:
   - label: "OpenAI — Introducing GPT-6.1 Terra"
@@ -54,6 +86,8 @@ OpenAI는 모델 ID를 `gpt-6.1-terra`로 안내하며 API, ChatGPT Work, Codex�
 
 핵심 변화는 **정확도 하나의 개선보다, 일정 수준의 정확도를 내는 데 필요한 비용과 시간의 조합**에 있습니다. 화면 기반 반복작업을 하루 수백 번 수행하는 조직에서는 이런 조합이 모델 선택에 직접적인 영향을 줍니다.
 
+<div id="terra-performance"></div>
+
 ## 공개된 성능 수치는 무엇을 증명하나
 
 | 평가·기준 | OpenAI 공개 수치 | 해석할 때의 조건 |
@@ -69,6 +103,8 @@ OpenAI는 모델 ID를 `gpt-6.1-terra`로 안내하며 API, ChatGPT Work, Codex�
 눈여겨볼 것은 **50.3%라는 성능과 비용을 함께 읽어야 한다는 점**입니다. 어려운 터미널 문제의 거의 절반을 해결했다는 결과는 주목할 만하지만, 반대로 약 절반은 해결하지 못한 테스트 조건이기도 합니다. 성공률이 올라갔다고 검토자를 바로 제거할 수는 없습니다.
 
 또한 OpenAI는 고난도 코딩 작업에서는 **GPT-6.1 Sol이나 GPT-6 Astra가 더 나은 선택**이라고 설명합니다. 따라서 'Terra가 모든 상위 모델을 대체한다'는 결론은 공식 발표 자체와도 맞지 않습니다.
+
+<div id="terra-cost"></div>
 
 ## 실제 비용은 토큰 단가보다 무엇을 봐야 하나
 
@@ -90,6 +126,8 @@ Terra는 **캐시된 입력 $0.05/100만 토큰**, **30분 캐시 쓰기 $1.25/1
 
 예를 들어 화면 양식을 1,000건 채우는 테스트에서 토큰 비용이 절반으로 줄어도, 오류 수정과 재시도로 사람이 붙는 시간이 늘면 전체 비용은 오를 수 있습니다. 이런 가상 시나리오를 실제 절감 실적처럼 제시해서는 안 됩니다.
 
+<div id="terra-pilot"></div>
+
 ## JoyLab 관점에서 어디에 먼저 써볼 수 있을까
 
 JoyLab의 적용 우선순위는 **실패 비용이 낮고 결과를 비교하기 쉬운 작업**입니다. 다음 표는 제품의 검증된 효율을 나타내는 것이 아니라 파일럿 설계 제안입니다.
@@ -107,6 +145,8 @@ JoyLab의 적용 우선순위는 **실패 비용이 낮고 결과를 비교하�
 
 이런 운영 판단은 기존 JoyLab 글인 [OpenAI Data agent 분석](/articles/openai-data-agent-chatgpt-work), [AI 에이전트 거버넌스](/articles/ai-agent-governance), [AI 에이전트 보안 위험](/articles/ai-agent-security-prompt-to-rce-2026)과 연결해서 볼 수 있습니다. 분석을 도와주는 AI와 실제로 시스템을 변경하는 AI는 필요한 승인 수준이 다르기 때문입니다.
 
+<div id="terra-risk"></div>
+
 ## 정확성과 안전성에서 무엇을 경계해야 하나
 
 OpenAI 시스템 카드 부록은 GPT-6.1 Terra를 자사 Preparedness Framework의 사이버보안 **Critical**, 생물·화학 역량 **High**로 평가해 관련 보호체계를 적용한다고 설명합니다. 이는 제품이 모든 상황에서 안전하다는 인증이나 고객 시스템에 대한 무조건적 실행 허가가 아닙니다.
@@ -114,6 +154,8 @@ OpenAI 시스템 카드 부록은 GPT-6.1 Terra를 자사 Preparedness Framework
 특히 화면 조작은 문서 작성보다 실패가 되돌리기 어렵습니다. 다른 고객의 계정을 수정하거나 결제 정보를 잘못 입력하는 식의 문제를 막기 위해서는 **읽기 전용 → 초안 생성 → 제한된 수정 → 승인 후 실행** 순서로 권한을 넓혀야 합니다.
 
 도입 전 확인할 질문은 세 가지입니다. 첫째, 데이터와 앱 접근권한을 최소화했는가. 둘째, 잘못된 결과를 감지할 수 있는 검증 데이터와 로그가 있는가. 셋째, 실패 시 즉시 중단하고 이전 상태로 복원할 수 있는가.
+
+<div id="terra-conclusion"></div>
 
 Terra가 보여주는 방향은 분명합니다. 화면을 읽고 행동하는 AI의 단위 비용은 내려가고 있습니다. 그러나 그것이 곧 검증이나 통제가 불필요해졌다는 뜻은 아닙니다. **어떤 모델이 더 똑똑한가보다 어떤 업무를 더 적은 총비용으로 안전하게 끝내는가**가 기업의 다음 비교 기준이 될 것입니다.
 
