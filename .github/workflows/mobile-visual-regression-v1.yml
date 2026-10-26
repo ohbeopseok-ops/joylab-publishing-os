@@ -30,7 +30,7 @@ permissions:
 jobs:
   mobile-visual-regression:
     if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
 
     steps:
