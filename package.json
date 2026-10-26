@@ -96,7 +96,9 @@
     "ai-capex-market:self-test": "node scripts/update-ai-capex-market-snapshot-v1.mjs --self-test",
     "architecture:check": "node scripts/check-article-architecture-v1.mjs",
     "architecture:test": "node scripts/test-article-architecture-v1.mjs",
-    "cloudflare:readiness": "node scripts/check-cloudflare-direct-readiness.mjs"
+    "cloudflare:readiness": "node scripts/check-cloudflare-direct-readiness.mjs",
+    "ci": "npm run architecture:test && npm run content-date:audit && npm run architecture:check && node scripts/check-research-images.mjs && npm run build && node scripts/check-indexability.mjs",
+    "ci:assets-parity": "npm run studio:print && npm run studio:pdf:preflight && npm run studio:provenance && npm run cloudflare:readiness"
   },
   "devDependencies": {
     "astro": "^7.3.2",
