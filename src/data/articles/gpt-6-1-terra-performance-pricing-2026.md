@@ -12,7 +12,7 @@ trust:
   author: "JoyLab Research"
   authorPerspective: "AI 모델 성능과 업무 자동화의 비용·통제 조건을 비교하는 독립 편집 관점"
   humanReviewed: false
-  researchedAt: 2026-10-27
+  researchedAt: "2026-10-27"
   methodology:
     - "공개 공식 발표와 API 명세에 표시된 수치·비교 기준을 원고와 대조하고 테스트 미실시를 고지한다."
   primarySources:
@@ -20,13 +20,13 @@ trust:
       title: "Introducing GPT-6.1 Terra"
       publisher: "OpenAI"
       url: "https://openai.com/index/introducing-gpt-6-1-terra/"
-      accessedAt: 2026-10-27
+      accessedAt: "2026-10-27"
       supports: ["terra-performance"]
     - id: "openai-model"
       title: "GPT-6.1 Terra API model"
       publisher: "OpenAI"
       url: "https://developers.openai.com/api/docs/models/gpt-6.1-terra"
-      accessedAt: 2026-10-27
+      accessedAt: "2026-10-27"
       supports: ["terra-cost"]
   originalValue:
     - kind: "comparison"
@@ -38,7 +38,7 @@ trust:
   counterEvidenceSections: ["terra-risk"]
   conclusionSection: "terra-conclusion"
   updateLog:
-    - date: 2026-10-27
+    - date: "2026-10-27"
       change: "공식 발표 기준 신규 원고 구성 및 검증 범위 고지"
 researchMethod: "2026년 10월 27일 OpenAI 발표문, API 모델 명세, 시스템 카드의 수치와 적용 조건을 대조했다. 직접 실행 테스트나 독립 재현 벤치마크는 수행하지 않았다."
 sourceList:
@@ -61,6 +61,9 @@ seoTitle: "GPT-6.1 Terra 분석｜API 가격·성능·AI 에이전트 활용"
 canonical: "https://aijoylab.kr/articles/gpt-6-1-terra-performance-pricing-2026"
 series: "AI·생산성 가이드"
 readingTime: "약 8분"
+heroImage: "/images/research/gpt-6-1-terra-editorial-hero.svg"
+heroAlt: "GPT-6.1 Terra의 화면 이해와 작업 실행을 시각화한 JoyLab Research 자체 제작 개념도"
+ogImage: "/images/research/gpt-6-1-terra-editorial-hero.svg"
 faqs:
   - question: "GPT-6.1 Terra의 표준 API 요금은 얼마인가요?"
     answer: "OpenAI 모델 명세 기준 입력 100만 토큰당 1달러, 출력 100만 토큰당 5달러, 캐시된 입력 100만 토큰당 0.05달러입니다. 긴 컨텍스트와 도구 호출 등에는 별도 조건이 적용될 수 있습니다."
