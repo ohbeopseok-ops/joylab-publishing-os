@@ -2265,5 +2265,24 @@
         "caption": "약 76.8%는 작성자 공개 수치로 계산한 자동 확정 비중입니다. 실제 정답률은 별도 검증이 필요합니다."
       }
     ]
+  },
+  "gpt-6-1-terra-performance-pricing-2026": {
+    "hero": {
+      "src": "/images/research/gpt-6-1-terra-editorial-hero.svg",
+      "alt": "화면 인식과 Terra 추론, 사람 승인 후 실행으로 이어지는 AI 에이전트 개념도",
+      "caption": "컴퓨터 사용 AI의 관찰·판단·승인된 실행 흐름을 도식화한 JoyLab 자체 제작 개념 이미지"
+    },
+    "supporting": [
+      {
+        "src": "/images/research/gpt-6-1-terra-api-pricing.svg",
+        "alt": "GPT-6.1 Terra Sol Astra의 100만 토큰당 표준 입력 출력 API 가격 비교표",
+        "caption": "OpenAI 공식 API 표준 요금 기준. 추가 도구·캐시·장문 컨텍스트 요금과 작업 검수비는 제외"
+      },
+      {
+        "src": "/images/research/gpt-6-1-terra-agent-control.svg",
+        "alt": "읽기 초안 검증 사람 승인 실행으로 이어지는 안전한 AI 자동화 운영 단계",
+        "caption": "AI 에이전트의 업무 자동화에 사람 승인과 감사·복구 단계를 결합한 JoyLab 제안 모델"
+      }
+    ]
   }
 }
