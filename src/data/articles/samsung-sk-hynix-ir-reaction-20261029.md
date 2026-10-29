@@ -12,6 +12,14 @@ tags:
 publishedAt: 2026-10-29
 author: "JoyLab"
 contentType: investment-analysis
+investmentIndustries:
+  - semiconductor
+investmentTheses:
+  - memory-supercycle
+investmentCompanies:
+  - "Samsung Electronics"
+  - "SK hynix"
+investmentResearchType: "compare"
 contentQuestion: "두 회사의 2026년 3분기 IR에서 투자자들은 무엇을 다르게 평가했고, 그 평가는 어떻게 검증할 수 있는가?"
 timeSensitive: true
 featured: false
@@ -209,7 +217,7 @@ SK하이닉스는 미래 수요를 더 구체적인 계약 숫자로 설명했�
 
 그렇다고 오늘 오른 종목이 내일도 반드시 유리하다는 뜻은 아니다. **IR에서 좋은 이야기를 한 기업보다, 그 이야기를 다음 분기 실적·현금흐름·실제 주주환원으로 증명하는 기업이 장기적으로 중요하다.**
 
-경쟁 구도를 더 깊게 보려면 [삼성전자 vs SK하이닉스 AI 메모리 비교](/articles/samsung-vs-sk-hynix-ai-memory), 기업별 근거는 [삼성전자 분석](/articles/samsung-electronics-outlook)과 [SK하이닉스 분석](/articles/sk-hynix-outlook), 시장 자금의 확인법은 [외국인 수급 보는 법](/articles/foreign-investor-flow)에서 이어서 읽을 수 있다.
+반도체 산업 구조부터 짚으려면 [JoyLab 반도체 투자 가이드](/guides/semiconductor-investing)에서 시작할 수 있다. 경쟁 구도를 더 깊게 보려면 [삼성전자 vs SK하이닉스 AI 메모리 비교](/articles/samsung-vs-sk-hynix-ai-memory), 기업별 근거는 [삼성전자 분석](/articles/samsung-electronics-outlook)과 [SK하이닉스 분석](/articles/sk-hynix-outlook), 시장 자금의 확인법은 [외국인 수급 보는 법](/articles/foreign-investor-flow)에서 이어서 읽을 수 있다.
 
 ### 조사 방법과 출처
 
