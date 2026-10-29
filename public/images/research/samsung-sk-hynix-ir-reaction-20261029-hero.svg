@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">삼성전자와 SK하이닉스, 다른 IR 반응</title>
+<desc id="desc">2026년 10월 29일 정규장 삼성전자 마이너스 4.13퍼센트, SK하이닉스 플러스 2.62퍼센트 비교</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071628"/><stop offset="1" stop-color="#142c48"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b3552"/><stop offset="1" stop-color="#0b1b30"/></linearGradient>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0L0 0 0 40" fill="none" stroke="#2d4964" stroke-width="1" opacity=".26"/></pattern>
+</defs>
+<rect width="1200" height="675" fill="url(#bg)"/>
+<rect width="1200" height="675" fill="url(#grid)"/>
+<circle cx="1045" cy="20" r="270" fill="#2b73b1" opacity=".09"/>
+<circle cx="90" cy="640" r="250" fill="#c25d66" opacity=".07"/>
+<text x="78" y="72" fill="#86c0df" font-family="Arial,sans-serif" font-size="21" font-weight="700" letter-spacing="4">JOYLAB RESEARCH / IR EVENT</text>
+<text x="78" y="140" fill="#ffffff" font-family="'Noto Sans KR',Arial,sans-serif" font-size="47" font-weight="800">같은 최대 실적, 다른 주가 반응</text>
+<text x="79" y="179" fill="#b5cbe0" font-family="'Noto Sans KR',Arial,sans-serif" font-size="23">2026.10.29  |  정규장 종가  |  등락률</text>
+<rect x="78" y="230" width="501" height="272" rx="22" fill="url(#glass)" stroke="#41617b" stroke-width="1.5"/>
+<rect x="621" y="230" width="501" height="272" rx="22" fill="url(#glass)" stroke="#41617b" stroke-width="1.5"/>
+<rect x="104" y="258" width="9" height="28" rx="4" fill="#ff838a"/>
+<text x="131" y="282" fill="#e8f1fa" font-family="'Noto Sans KR',Arial,sans-serif" font-size="32" font-weight="700">삼성전자</text>
+<text x="130" y="313" fill="#a9c1d6" font-family="Arial,sans-serif" font-size="18" letter-spacing="2">005930</text>
+<text x="118" y="414" fill="#ff8c96" font-family="Arial,sans-serif" font-size="91" font-weight="700">-4.13%</text>
+<text x="125" y="468" fill="#c9d9e7" font-family="'Noto Sans KR',Arial,sans-serif" font-size="23">232,000원</text>
+<rect x="647" y="258" width="9" height="28" rx="4" fill="#66d7bd"/>
+<text x="674" y="282" fill="#e8f1fa" font-family="'Noto Sans KR',Arial,sans-serif" font-size="32" font-weight="700">SK하이닉스</text>
+<text x="673" y="313" fill="#a9c1d6" font-family="Arial,sans-serif" font-size="18" letter-spacing="2">000660</text>
+<text x="660" y="414" fill="#69e0c4" font-family="Arial,sans-serif" font-size="91" font-weight="700">+2.62%</text>
+<text x="667" y="468" fill="#c9d9e7" font-family="'Noto Sans KR',Arial,sans-serif" font-size="23">1,526,000원</text>
+<rect x="77" y="533" width="1046" height="75" rx="15" fill="#102a44" stroke="#30536f"/>
+<text x="108" y="578" fill="#f1f6fb" font-family="'Noto Sans KR',Arial,sans-serif" font-size="25" font-weight="700">IR의 핵심</text>
+<text x="300" y="578" fill="#c4d9e9" font-family="'Noto Sans KR',Arial,sans-serif" font-size="23">실적 · 미래 수요 · 주주환원 실행력 · 기대 대비 새 정보</text>
+<text x="80" y="645" fill="#9ab7cd" font-family="Arial,sans-serif" font-size="17">Sources: company IR and 2026-10-29 regular-session reports | JoyLab Research</text>
+</svg>
