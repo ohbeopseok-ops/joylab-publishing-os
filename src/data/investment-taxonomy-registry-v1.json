@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 125,
+  "articleCount": 127,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -807,6 +807,16 @@
       "researchType": null
     },
     {
+      "slug": "gpt-6-1-terra-performance-pricing-2026",
+      "route": "/articles/gpt-6-1-terra-performance-pricing-2026",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
       "slug": "gpu-compute-economics-rubin-2026",
       "route": "/articles/gpu-compute-economics-rubin-2026",
       "industries": [
@@ -1271,6 +1281,23 @@
       "valueChains": [],
       "kpis": [],
       "researchType": "company"
+    },
+    {
+      "slug": "samsung-sk-hynix-ir-reaction-20261029",
+      "route": "/articles/samsung-sk-hynix-ir-reaction-20261029",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "memory-supercycle"
+      ],
+      "companies": [
+        "Samsung Electronics",
+        "SK hynix"
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "compare"
     },
     {
       "slug": "samsung-vs-sk-hynix-ai-memory",
