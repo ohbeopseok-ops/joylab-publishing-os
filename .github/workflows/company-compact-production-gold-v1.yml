@@ -8,7 +8,7 @@ on:
 jobs:
   production-gold:
     if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
       DEPLOYED_SHA: ${{ github.event.workflow_run.head_sha }}
