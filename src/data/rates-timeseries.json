@@ -1,45 +1,17 @@
 {
   "version": "1.1",
   "ready": true,
-  "asOf": "2026-10-09",
-  "generatedAt": "2026-10-09T22:29:33.958Z",
+  "asOf": "2026-10-20",
+  "generatedAt": "2026-10-21T00:36:56.546Z",
   "windowTradingDays": 30,
   "series": {
     "us10y": {
       "label": "미국 10년물",
       "unit": "%",
       "source": "Federal Reserve Board via FRED · DGS10",
-      "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=2026-07-26",
-      "observedAt": "2026-10-08",
+      "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=2026-08-07",
+      "observedAt": "2026-10-19",
       "points": [
-        {
-          "date": "2026-08-28",
-          "value": 4.73
-        },
-        {
-          "date": "2026-08-31",
-          "value": 4.75
-        },
-        {
-          "date": "2026-09-01",
-          "value": 4.79
-        },
-        {
-          "date": "2026-09-02",
-          "value": 4.79
-        },
-        {
-          "date": "2026-09-03",
-          "value": 4.77
-        },
-        {
-          "date": "2026-09-04",
-          "value": 4.78
-        },
-        {
-          "date": "2026-09-07",
-          "value": 0
-        },
         {
           "date": "2026-09-08",
           "value": 4.8
@@ -131,10 +103,38 @@
         {
           "date": "2026-10-08",
           "value": 5.22
+        },
+        {
+          "date": "2026-10-09",
+          "value": 5.24
+        },
+        {
+          "date": "2026-10-12",
+          "value": 0
+        },
+        {
+          "date": "2026-10-13",
+          "value": 5.21
+        },
+        {
+          "date": "2026-10-14",
+          "value": 5.19
+        },
+        {
+          "date": "2026-10-15",
+          "value": 5.1
+        },
+        {
+          "date": "2026-10-16",
+          "value": 5.09
+        },
+        {
+          "date": "2026-10-19",
+          "value": 5.15
         }
       ],
-      "current": 5.22,
-      "momentum30dBp": 49,
+      "current": 5.15,
+      "momentum30dBp": 35,
       "levelStatus": "RED",
       "momentumStatus": "RED",
       "combinedStatus": "RED",
@@ -144,37 +144,9 @@
       "label": "미국 30년물",
       "unit": "%",
       "source": "Federal Reserve Board via FRED · DGS30",
-      "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS30&cosd=2026-07-26",
-      "observedAt": "2026-10-08",
+      "sourceUrl": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS30&cosd=2026-08-07",
+      "observedAt": "2026-10-19",
       "points": [
-        {
-          "date": "2026-08-28",
-          "value": 5.22
-        },
-        {
-          "date": "2026-08-31",
-          "value": 5.25
-        },
-        {
-          "date": "2026-09-01",
-          "value": 5.27
-        },
-        {
-          "date": "2026-09-02",
-          "value": 5.27
-        },
-        {
-          "date": "2026-09-03",
-          "value": 5.25
-        },
-        {
-          "date": "2026-09-04",
-          "value": 5.24
-        },
-        {
-          "date": "2026-09-07",
-          "value": 0
-        },
         {
           "date": "2026-09-08",
           "value": 5.25
@@ -266,12 +238,40 @@
         {
           "date": "2026-10-08",
           "value": 5.6
+        },
+        {
+          "date": "2026-10-09",
+          "value": 5.6
+        },
+        {
+          "date": "2026-10-12",
+          "value": 0
+        },
+        {
+          "date": "2026-10-13",
+          "value": 5.56
+        },
+        {
+          "date": "2026-10-14",
+          "value": 5.52
+        },
+        {
+          "date": "2026-10-15",
+          "value": 5.43
+        },
+        {
+          "date": "2026-10-16",
+          "value": 5.43
+        },
+        {
+          "date": "2026-10-19",
+          "value": 5.48
         }
       ],
-      "current": 5.6,
-      "momentum30dBp": 38,
+      "current": 5.48,
+      "momentum30dBp": 23,
       "levelStatus": "RED",
-      "momentumStatus": "RED",
+      "momentumStatus": "YELLOW",
       "combinedStatus": "RED",
       "stressScore": 80
     },
@@ -279,132 +279,132 @@
       "label": "원·달러",
       "unit": "원",
       "source": "Frankfurter · official-source blend",
-      "sourceUrl": "https://api.frankfurter.dev/v2/rates?base=USD&quotes=KRW&from=2026-07-26",
-      "observedAt": "2026-10-09",
+      "sourceUrl": "https://api.frankfurter.dev/v2/rates?base=USD&quotes=KRW&from=2026-08-07",
+      "observedAt": "2026-10-20",
       "points": [
         {
-          "date": "2026-09-10",
-          "value": 1341.12
-        },
-        {
-          "date": "2026-09-11",
-          "value": 1343.2
-        },
-        {
-          "date": "2026-09-12",
-          "value": 1343.29
-        },
-        {
-          "date": "2026-09-13",
-          "value": 1343.26
-        },
-        {
-          "date": "2026-09-14",
-          "value": 1344.9
-        },
-        {
-          "date": "2026-09-15",
-          "value": 1353.64
-        },
-        {
-          "date": "2026-09-16",
-          "value": 1363.2
-        },
-        {
-          "date": "2026-09-17",
-          "value": 1376.44
-        },
-        {
-          "date": "2026-09-18",
-          "value": 1384.15
-        },
-        {
-          "date": "2026-09-19",
-          "value": 1384.87
-        },
-        {
-          "date": "2026-09-20",
-          "value": 1385.43
-        },
-        {
           "date": "2026-09-21",
-          "value": 1379.51
+          "value": 1379.49
         },
         {
           "date": "2026-09-22",
-          "value": 1365.07
+          "value": 1364.94
         },
         {
           "date": "2026-09-23",
-          "value": 1361.07
+          "value": 1361.05
         },
         {
           "date": "2026-09-24",
-          "value": 1367.55
+          "value": 1367.59
         },
         {
           "date": "2026-09-25",
-          "value": 1362.28
+          "value": 1362.18
         },
         {
           "date": "2026-09-26",
-          "value": 1360.48
+          "value": 1360.42
         },
         {
           "date": "2026-09-27",
-          "value": 1359.45
+          "value": 1359.41
         },
         {
           "date": "2026-09-28",
-          "value": 1357.97
+          "value": 1358.09
         },
         {
           "date": "2026-09-29",
-          "value": 1357
+          "value": 1357.01
         },
         {
           "date": "2026-09-30",
-          "value": 1354.68
+          "value": 1354.65
         },
         {
           "date": "2026-10-01",
-          "value": 1357.92
+          "value": 1357.82
         },
         {
           "date": "2026-10-02",
-          "value": 1354.87
+          "value": 1354.5
         },
         {
           "date": "2026-10-03",
-          "value": 1353.44
+          "value": 1353.11
         },
         {
           "date": "2026-10-04",
-          "value": 1352.36
+          "value": 1352.04
         },
         {
           "date": "2026-10-05",
-          "value": 1346.06
+          "value": 1345.83
         },
         {
           "date": "2026-10-06",
-          "value": 1342.61
+          "value": 1342.33
         },
         {
           "date": "2026-10-07",
-          "value": 1339.97
+          "value": 1339.76
         },
         {
           "date": "2026-10-08",
-          "value": 1340.56
+          "value": 1340.58
         },
         {
           "date": "2026-10-09",
-          "value": 1342.18
+          "value": 1342.04
+        },
+        {
+          "date": "2026-10-10",
+          "value": 1341.72
+        },
+        {
+          "date": "2026-10-11",
+          "value": 1341.78
+        },
+        {
+          "date": "2026-10-12",
+          "value": 1336.79
+        },
+        {
+          "date": "2026-10-13",
+          "value": 1339.11
+        },
+        {
+          "date": "2026-10-14",
+          "value": 1338.52
+        },
+        {
+          "date": "2026-10-15",
+          "value": 1343.14
+        },
+        {
+          "date": "2026-10-16",
+          "value": 1338.49
+        },
+        {
+          "date": "2026-10-17",
+          "value": 1336.91
+        },
+        {
+          "date": "2026-10-18",
+          "value": 1335.98
+        },
+        {
+          "date": "2026-10-19",
+          "value": 1332.44
+        },
+        {
+          "date": "2026-10-20",
+          "value": 1329.43
         }
       ],
-      "current": 1342.18,
-      "momentum30dWon": 1.1,
+      "current": 1329.43,
+      "momentum30dWon": -50.1,
       "levelStatus": "YELLOW",
       "momentumStatus": "GREEN",
       "combinedStatus": "YELLOW",
@@ -417,16 +417,16 @@
   },
   "treasuryRiskIndex": {
     "version": "1.1",
-    "value": 44,
+    "value": 62,
     "grade": "YELLOW",
     "components": {
       "marketRisk": 74,
-      "auctionWeakness": 7,
+      "auctionWeakness": 65,
       "ticStress": 25
     },
     "contributions": {
       "marketRisk": 37,
-      "auctionWeakness": 2,
+      "auctionWeakness": 20,
       "ticStress": 5
     },
     "dominantDriver": {
@@ -439,7 +439,29 @@
       "auctionWeakness": 0.3,
       "ticStress": 0.2
     },
-    "deltaAttribution": null
+    "deltaAttribution": {
+      "from": 44,
+      "to": 62,
+      "delta": 18,
+      "gradeFrom": "YELLOW",
+      "gradeTo": "YELLOW",
+      "components": {
+        "marketRisk": 0,
+        "auctionWeakness": 18,
+        "ticStress": 0
+      },
+      "primaryDriver": {
+        "key": "auctionWeakness",
+        "label": "Auction",
+        "delta": 18
+      },
+      "alert": {
+        "level": "ALERT",
+        "direction": "RISING"
+      },
+      "interpretation": "전일 대비 위험 변화의 가장 큰 상승 요인은 Auction +18점입니다.",
+      "formula": "44 → 62 (+18): Market 0 / Auction +18 / TIC 0"
+    }
   },
   "sourceHealth": {
     "usdkrw": "LIVE"
