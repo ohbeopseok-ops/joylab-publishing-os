@@ -20,24 +20,7 @@ on:
       - 'scripts/check-mobile-experience-contract-v1.mjs'
       - 'scripts/check-mobile-lighthouse-v1.mjs'
       - '.github/workflows/mobile-experience-contract-v1.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'src/pages/**'
-      - 'src/components/**'
-      - 'src/layouts/**'
-      - 'src/styles/**'
-      - 'src/data/articles/**'
-      - 'src/data/research-image-manifest.json'
-      - 'src/data/article-image-overrides.json'
-      - 'public/images/**'
-      - 'src/data/mobile-experience-contract-v1.json'
-      - 'scripts/check-first-content-entry-budget-v1.mjs'
-      - 'scripts/rank-first-content-entry-v1.mjs'
-      - 'src/data/first-content-priority-v1.json'
-      - 'scripts/check-mobile-experience-contract-v1.mjs'
-      - 'scripts/check-mobile-lighthouse-v1.mjs'
-      - '.github/workflows/mobile-experience-contract-v1.yml'
+  # Explicit operator or run-gates PR label only; main push QA is covered by deploy-cloudflare.yml.
   workflow_dispatch:
 
 permissions:
@@ -46,7 +29,7 @@ permissions:
 jobs:
   mobile-experience:
     if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 35
     steps:
       - name: Checkout

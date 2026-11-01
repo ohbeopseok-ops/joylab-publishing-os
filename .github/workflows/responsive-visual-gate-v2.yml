@@ -16,20 +16,7 @@ on:
       - 'docs/ANTI_AI_SLOP_CONTRACT_V1.md'
       - 'docs/VISUAL_QUALITY_SCORE_V1.md'
       - '.github/workflows/responsive-visual-gate-v2.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'src/pages/**'
-      - 'src/components/**'
-      - 'src/layouts/**'
-      - 'src/styles/**'
-      - 'src/data/**'
-      - 'scripts/qa-responsive-visual-v2.mjs'
-      - 'scripts/qa-homepage-visual-evidence-v1.mjs'
-      - 'scripts/qa-visual-quality-score-v1.mjs'
-      - 'docs/ANTI_AI_SLOP_CONTRACT_V1.md'
-      - 'docs/VISUAL_QUALITY_SCORE_V1.md'
-      - '.github/workflows/responsive-visual-gate-v2.yml'
+  # Explicit operator or run-gates PR label only; main push QA is covered by deploy-cloudflare.yml.
   workflow_dispatch:
 
 permissions:
@@ -38,7 +25,7 @@ permissions:
 jobs:
   responsive-visual:
     if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
 
     steps:

@@ -12,16 +12,7 @@ on:
       - 'src/data/**'
       - 'scripts/qa-mobile-visual-regression-v1.mjs'
       - '.github/workflows/mobile-visual-regression-v1.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'src/pages/**'
-      - 'src/components/**'
-      - 'src/layouts/**'
-      - 'src/styles/**'
-      - 'src/data/**'
-      - 'scripts/qa-mobile-visual-regression-v1.mjs'
-      - '.github/workflows/mobile-visual-regression-v1.yml'
+  # Explicit operator or run-gates PR label only; main push QA is covered by deploy-cloudflare.yml.
   workflow_dispatch:
 
 permissions:
@@ -30,7 +21,7 @@ permissions:
 jobs:
   mobile-visual-regression:
     if: github.event.action != 'labeled' || github.event.label.name == 'run-gates'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
 
     steps:
