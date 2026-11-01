@@ -23,6 +23,10 @@ seoTitle: "Hypit 오픈소스 분석｜AI 영상 리버스 엔지니어링·Code
 canonical: "https://aijoylab.kr/articles/hypit-video-reverse-engineering-2026"
 series: "오픈소스 리버스 엔지니어링"
 readingTime: "약 8분"
+heroImage: "/images/research/hypit-video-reverse-engineering-2026.svg"
+ogImage: "/images/research/hypit-video-reverse-engineering-2026.svg"
+heroAlt: "레퍼런스 영상의 장면과 자막을 AI 에이전트가 분석해 편집 가능한 워크플로로 재구성하는 Hypit 개념도"
+heroCaption: "Hypit은 영상 결과를 참고해 새로운 편집 작업 흐름을 구성하는 도구입니다."
 authorBio: "JoyLab Research는 AI 도구의 공개 코드·공식 문서를 확인하고 실제 현장에 적용하기 전 필요한 검수 기준을 설계합니다."
 researchMethod: "2026년 11월 1일 Hypit의 공식 GitHub README, 패키지 메타데이터, Quickstart 및 LICENSE를 대조했습니다. 실제 설치·한국어 영상 렌더링·비용 벤치마크는 수행하지 않았습니다."
 sourceList:
@@ -128,6 +132,8 @@ trust:
 <span id="architecture"></span>
 ## 실제 공개 코드에는 어떤 계층이 있을까
 
+![영상 참조 분석에서 SVML 구조화, 렌더링, 사람 검토로 이어지는 제작 단계](/images/research/hypit-architecture-workflow-2026.svg)
+
 2026년 11월 1일에 확인한 공식 [package.json](https://github.com/hypit-ai/hypit/blob/main/package.json)은 `@hypit/hypit` 패키지를 중심으로 Compiler, Runtime, Executor, Source, Markup, Project, Workspace 등의 모듈을 노출한다. CLI 구성에는 영상 처리, 로컬 미디어, WhisperX, Studio 등의 확장 요소가 연결되어 있다.
 
 이를 제작 흐름으로 해석하면 다음과 같다.
@@ -150,6 +156,8 @@ JoyLab이 자체 연구 영상 제작에 쓰는 것과, 외부 이용자에게 �
 
 <span id="limits"></span>
 ## 도입 전에 확인할 네 가지 위험
+
+![실행환경, 영상 재구성, 한국어 품질, 재현성·비용과 라이선스 점검을 나타낸 검수 지도](/images/research/hypit-license-adoption-gates-2026.svg)
 
 **첫째는 품질이다.** 개발사의 사례 영상은 기능 가능성을 보여주지만 한국어 자막, 숫자 표현, 복잡한 인물 장면을 얼마나 정확히 재구성하는지는 별도의 시험이 필요하다. 투자·뉴스 영상에서는 숫자 한 자리의 오류도 의미를 바꾼다.
 
