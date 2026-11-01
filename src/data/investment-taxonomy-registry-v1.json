@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 127,
+  "articleCount": 128,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -1185,6 +1185,20 @@
       "route": "/articles/performance-system-leading-indicators",
       "industries": [],
       "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
+      "slug": "python-vs-rust-ai-infrastructure-2026",
+      "route": "/articles/python-vs-rust-ai-infrastructure-2026",
+      "industries": [
+        "ai-infrastructure"
+      ],
+      "theses": [
+        "ai-capex"
+      ],
       "companies": [],
       "valueChains": [],
       "kpis": [],
