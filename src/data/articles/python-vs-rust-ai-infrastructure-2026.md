@@ -214,7 +214,7 @@ AI 인프라의 미래를 두 언어 중 승자를 고르는 문제로 이해할
 
 따라서 중요한 질문은 '우리도 Rust로 갈아타야 하나'가 아니다. **우리 시스템에서 실제 비용을 만드는 병목이 무엇이고, Rust를 적용하면 그 병목이 줄어드는가**다. 답이 측정으로 확인될 때 언어 변경은 유행이 아니라 합리적인 엔지니어링 결정이 된다.
 
-AI를 도구 하나가 아닌 운영 구조로 설계하는 문제는 [AI 에이전트란 무엇인가](/articles/what-is-ai-agent)와 [AI 업무자동화 구조](/articles/ai-workflow-automation)에서 이어서 살펴볼 수 있다.
+AI 시스템 전반의 연결 구조는 [AI 인프라 가이드](/guides/ai-infrastructure)에서 확인할 수 있다. AI를 도구 하나가 아닌 운영 구조로 설계하는 문제는 [AI 에이전트란 무엇인가](/articles/what-is-ai-agent)와 [AI 업무자동화 구조](/articles/ai-workflow-automation)에서 이어서 살펴볼 수 있다.
 
 ### 조사 범위와 출처
 
