@@ -72,7 +72,7 @@ trust:
       accessedAt: "2026-11-01"
       supports:
         - "mechanism"
-        - "features"
+        - "mechanism"
     - id: "HYPIT-PACKAGE"
       title: "Hypit package.json"
       publisher: "Hypit.AI"
@@ -86,7 +86,7 @@ trust:
       url: "https://github.com/hypit-ai/hypit/blob/main/docs/quickstart.md"
       accessedAt: "2026-11-01"
       supports:
-        - "workflow"
+        - "pilot"
     - id: "HYPIT-LICENSE"
       title: "Hypit Open Source License"
       publisher: "Hypit.AI"
@@ -96,7 +96,7 @@ trust:
         - "license"
   originalValue:
     - kind: "framework"
-      sectionId: "adoption"
+      sectionId: "pilot"
       description: "공개 영상 분석 도구의 도입 여부를 판단하기 위한 4개 게이트와 실제 결과물 기준을 제시했습니다."
     - kind: "template"
       sectionId: "pilot"
