@@ -18,7 +18,6 @@ featured: false
 draft: false
 seoTitle: "Python vs Rust 차이｜AI 인프라가 러스트를 쓰는 이유와 실제 사례"
 canonical: "https://aijoylab.kr/articles/python-vs-rust-ai-infrastructure-2026"
-series: "AI·생산성 가이드"
 readingTime: "약 9분"
 heroImage: "/images/research/python-vs-rust-ai-infrastructure-2026.svg"
 ogImage: "/images/research/python-vs-rust-ai-infrastructure-2026.svg"
