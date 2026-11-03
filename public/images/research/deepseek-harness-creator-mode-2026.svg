@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">DeepSeek Harness Creator Mode</title>
+<desc id="desc">자연어 요청이 에이전트 개발 흐름을 거쳐 설치·검증된 플러그인으로 연결되는 개념도</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071A3A"/><stop offset="1" stop-color="#123A77"/></linearGradient>
+  <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#36B6FF"/><stop offset="1" stop-color="#1677FF"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#020D26" flood-opacity=".35"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<circle cx="1370" cy="110" r="400" fill="#1677FF" opacity=".12"/><circle cx="160" cy="870" r="380" fill="#36B6FF" opacity=".07"/>
+<g fill="none" stroke="#3E70AB" opacity=".23"><path d="M0 220H1600M0 400H1600M0 580H1600M0 760H1600"/><path d="M220 0V900M500 0V900M780 0V900M1060 0V900M1340 0V900"/></g>
+<text x="100" y="117" font-family="Arial,sans-serif" font-size="28" font-weight="700" letter-spacing="4" fill="#76CCFF">JOYLAB RESEARCH · AI AGENTS</text>
+<text x="100" y="215" font-family="Arial,sans-serif" font-size="75" font-weight="800" fill="#FFFFFF">DeepSeek Harness</text>
+<text x="100" y="293" font-family="Arial,sans-serif" font-size="59" font-weight="700" fill="#A7DCFF">CREATOR MODE</text>
+<text x="100" y="346" font-family="Arial,sans-serif" font-size="26" fill="#B7CAE3">From natural-language intent to a working plugin</text>
+<g filter="url(#shadow)">
+<rect x="95" y="440" width="400" height="245" rx="24" fill="#FFFFFF"/>
+<rect x="600" y="440" width="400" height="245" rx="24" fill="#E9F4FF"/>
+<rect x="1105" y="440" width="400" height="245" rx="24" fill="#FFFFFF"/>
+</g>
+<g font-family="Arial,sans-serif">
+<rect x="127" y="473" width="115" height="34" rx="17" fill="#E8F2FF"/><text x="147" y="496" font-size="16" font-weight="700" fill="#1464B9">01 · INTENT</text>
+<text x="130" y="560" font-size="36" font-weight="800" fill="#0B1F4D">Describe</text><text x="130" y="602" font-size="36" font-weight="800" fill="#0B1F4D">a feature</text>
+<text x="130" y="650" font-size="19" fill="#53657B">Prompt · requirements</text>
+<rect x="632" y="473" width="121" height="34" rx="17" fill="#D1E9FF"/><text x="652" y="496" font-size="16" font-weight="700" fill="#1464B9">02 · BUILD</text>
+<text x="635" y="560" font-size="36" font-weight="800" fill="#0B1F4D">Agent writes</text><text x="635" y="602" font-size="36" font-weight="800" fill="#0B1F4D">plugin code</text>
+<text x="635" y="650" font-size="19" fill="#53657B">Runtime · API · files</text>
+<rect x="1137" y="473" width="131" height="34" rx="17" fill="#E8F2FF"/><text x="1157" y="496" font-size="16" font-weight="700" fill="#1464B9">03 · VERIFY</text>
+<text x="1140" y="560" font-size="36" font-weight="800" fill="#0B1F4D">Install</text><text x="1140" y="602" font-size="36" font-weight="800" fill="#0B1F4D">&amp; validate</text>
+<text x="1140" y="650" font-size="19" fill="#53657B">Permissions · tests</text>
+</g>
+<g fill="url(#blue)"><circle cx="545" cy="565" r="33"/><circle cx="1050" cy="565" r="33"/></g>
+<g fill="none" stroke="#FFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M535 554l13 11-13 11M1040 554l13 11-13 11"/></g>
+<text x="100" y="806" font-family="Arial,sans-serif" font-size="28" fill="#D1E6FF">CREATE SMALL · REVIEW CODE · LIMIT PERMISSIONS</text>
+<rect x="100" y="832" width="1400" height="2" fill="#4E79AC" opacity=".4"/>
+</svg>
