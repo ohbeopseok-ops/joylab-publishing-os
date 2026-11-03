@@ -19,6 +19,10 @@ draft: false
 seoTitle: "DeepSeek Creator Mode 사용법｜Harness AI 플러그인 생성 원리와 주의사항"
 canonical: "https://aijoylab.kr/articles/deepseek-harness-creator-mode-2026"
 readingTime: "약 8분"
+heroImage: "/images/research/deepseek-harness-creator-mode-2026.svg"
+ogImage: "/images/research/deepseek-harness-creator-mode-2026.svg"
+heroAlt: "자연어 기능 요청이 AI 에이전트의 플러그인 코드 생성과 설치 및 검증으로 연결되는 세 단계 개념도"
+heroCaption: "DeepSeek Harness Creator Mode의 개념을 재구성한 JoyLab 도식. 제품 실제 화면이 아닙니다."
 authorBio: "JoyLab Research는 AI 도구의 공개 기능과 실제 업무 적용 조건을 공식 문서 및 오픈소스 자료로 검토합니다."
 researchMethod: "DeepSeek Harness 공식 소개 페이지와 공개 GitHub 저장소를 대조했습니다. 공식 시연의 단계 및 표시 시간을 확인했으며 생성 플러그인을 직접 실행하거나 별도 보안 감사를 수행하지는 않았습니다."
 sourceList:
