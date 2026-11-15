@@ -2284,5 +2284,62 @@
         "caption": "AI 에이전트의 업무 자동화에 사람 승인과 감사·복구 단계를 결합한 JoyLab 제안 모델"
       }
     ]
+  },
+  "peter-thiel-spacex-ai-bubble-2026": {
+    "hero": {
+      "src": "/images/research/peter-thiel-spacex-13g-hero.svg",
+      "alt": "SEC 13G/A로 확인된 스페이스X 지분 감소와 확인되지 않은 전량 매각 주장을 나눠 보여주는 JoyLab 팩트체크 대표 이미지",
+      "caption": "공시로 확인되는 것은 보고 수량과 지분율 변화입니다. 매각 동기와 체결 대금은 이 공시만으로 확인되지 않습니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/peter-thiel-spacex-13g-holdings-chart.svg",
+        "alt": "2026년 6월 말 4억 2731만 주에서 9월 말 3억 1436만 주로 줄어든 스페이스X 클래스A 보고 보유 주식과 지분율 5.5퍼센트에서 3.8퍼센트 변화를 비교한 차트",
+        "caption": "서로 다른 기준일의 보고 스냅샷입니다. 170억 달러는 감소분에 평가가격을 적용한 추산치입니다."
+      },
+      {
+        "src": "/images/research/thiel-macro-13f-power-weight-v1.svg",
+        "alt": "틸 매크로 2026년 2분기 13F 신고 포지션 약 4억 1870만 달러 중 에너지 전력 관련 비중 71.8퍼센트와 13F 분모에서 빠지는 자산을 설명한 도식",
+        "caption": "71.8%는 13F에 공개된 미국 상장주식 포지션의 비중입니다. 현금·채권·비상장·파생 포지션은 포함되지 않습니다."
+      }
+    ]
+  },
+  "ai-bubble-warning-signs-2026": {
+    "hero": {
+      "src": "/images/research/ai-bubble-five-signals-hero.svg",
+      "alt": "빅테크 CAPEX, GPU와 HBM, 데이터센터 금융, 전력 병목, 밸류에이션 다섯 지표를 순서대로 배치한 JoyLab AI 버블 리서치 대표 이미지",
+      "caption": "버블의 날짜를 맞히는 대신 투자금과 현금흐름의 간격을 확인하는 다섯 지표입니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/ai-bubble-five-signals-checklist.svg",
+        "alt": "CAPEX와 FCF, GPU와 HBM, 금융구조, 전력 인프라, 밸류에이션 다섯 지표를 과열 위험 신호와 반대 확인 신호로 나눈 점검표",
+        "caption": "같은 지표라도 어느 방향으로 움직일 때 위험인지 미리 정해 두고 관찰합니다."
+      },
+      {
+        "src": "/images/research/ai-bubble-capex-cashflow-chain.svg",
+        "alt": "설비투자에서 GPU와 HBM 출하, 데이터센터 가동, 유료 AI 사용량, 현금흐름 회수로 이어지는 다섯 단계와 주문 및 전력 병목 지점을 표시한 도식",
+        "caption": "각 단계는 다음 단계의 전제조건입니다. 어느 단계에서 끊기는지가 판단의 출발점입니다."
+      }
+    ]
+  },
+  "ai-power-infrastructure-korea-stocks-2026": {
+    "hero": {
+      "src": "/images/research/ai-power-korea-semi-vs-grid-hero.svg",
+      "alt": "반도체 연산 장비 공급망의 삼성전자와 SK하이닉스, 전력 공급 인프라의 LS ELECTRIC을 서로 다른 위치로 나눠 보여주는 JoyLab 리서치 대표 이미지",
+      "caption": "같은 AI 전력 수요라도 반도체와 전력기기는 수익이 실현되는 지점과 위험 요소가 다릅니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/samsung-vs-sk-hynix-ai-logic-v1.svg",
+        "alt": "AI 연결고리, 우선 확인 지표, 주요 부담, 현금흐름 네 축으로 삼성전자와 SK하이닉스의 사업 구성을 비교한 카드형 도식",
+        "caption": "사업부 구성이 다른 두 회사를 동일한 PER 하나로 비교하면 설명력이 떨어질 수 있습니다."
+      },
+      {
+        "src": "/images/research/ai-power-value-chain-stages-2026.svg",
+        "alt": "수요 전망부터 프로젝트 확정, 발주, 생산, 납품, 매출 인식, 이익과 현금 회수까지 일곱 단계에서 삼성전자와 SK하이닉스, LS ELECTRIC이 수혜를 받는 구간을 표시한 단계표",
+        "caption": "수주잔고와 GPU 판매는 결과가 아닙니다. 매출·이익·현금흐름으로 확인되는 단계를 봅니다."
+      }
+    ]
   }
 }

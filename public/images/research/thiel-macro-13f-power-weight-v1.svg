@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="f-title f-desc">
+<title id="f-title">틸 매크로 13F 포지션에서 에너지·전력 비중</title>
+<desc id="f-desc">2026년 2분기 말 미국 상장주식 13F 신고 포지션 약 4억 1,870만 달러 중 에너지·전력 관련 비중 71.8퍼센트를 보여주고, 13F 분모의 범위를 설명하는 도식</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06162b"/><stop offset="1" stop-color="#123252"/></linearGradient>
+<linearGradient id="power" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1b8bff"/><stop offset="1" stop-color="#55e3dc"/></linearGradient>
+<pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#bde0ff" opacity=".18"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<rect x="38" y="33" width="235" height="34" rx="17" fill="#13466f"/>
+<text x="60" y="56" fill="#b9f9f5" font-size="16" font-family="Arial,'Noto Sans KR',sans-serif" font-weight="700">JOYLAB  /  VISUAL RESEARCH</text>
+<text x="48" y="150" font-family="Arial,'Noto Sans KR',sans-serif" font-size="44" font-weight="800" fill="#ffffff">13F가 보여주는 것: 에너지·전력 71.8%</text>
+<text x="48" y="196" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" fill="#a9cce8">2026년 2분기 말 미국 상장주식 신고 포지션 약 4억 1,870만 달러 기준</text>
+<rect x="48" y="240" width="1320" height="120" rx="16" fill="#0e2444" stroke="#2d6ba8"/>
+<rect x="48" y="240" width="947" height="120" rx="16" fill="url(#power)"/>
+<rect x="995" y="240" width="373" height="120" rx="16" fill="#24405f"/>
+<text x="80" y="298" font-family="Arial,'Noto Sans KR',sans-serif" font-size="27" font-weight="800" fill="#04202a">에너지·전력 관련 71.8%</text>
+<text x="80" y="334" font-family="Arial,'Noto Sans KR',sans-serif" font-size="19" fill="#0b3a46">Vista Energy · Vistra · AEP · DTE · FirstEnergy · CMS Energy</text>
+<text x="1182" y="298" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" font-weight="700" fill="#dceaf7">기타 28.2%</text>
+<text x="1182" y="332" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="18" fill="#9fc0dc">아마존 등</text>
+<text x="48" y="404" font-family="Arial,'Noto Sans KR',sans-serif" font-size="17" fill="#6d92b8" letter-spacing="1">같은 비중을 읽는 두 가지 방식</text>
+<rect x="48" y="426" width="650" height="126" rx="18" fill="#102a45" stroke="#2d6ba8"/>
+<text x="78" y="470" font-family="Arial,'Noto Sans KR',sans-serif" font-size="19" font-weight="700" fill="#9fd0ff">맞는 읽기</text>
+<text x="78" y="508" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" fill="#eaf5ff">13F에 공개된 미국 상장주식 포지션의 71.8%</text>
+<text x="78" y="536" font-family="Arial,'Noto Sans KR',sans-serif" font-size="18" fill="#9fc0dc">기준일: 2026년 6월 30일</text>
+<rect x="718" y="426" width="650" height="126" rx="18" fill="#2a1c23" stroke="#d96b52"/>
+<text x="748" y="470" font-family="Arial,'Noto Sans KR',sans-serif" font-size="19" font-weight="700" fill="#ffcbb8">틀린 읽기</text>
+<text x="748" y="508" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" fill="#f7d9cd">전체 재산의 72%를 전력에 투자했다</text>
+<text x="748" y="536" font-family="Arial,'Noto Sans KR',sans-serif" font-size="18" fill="#d7a795">13F는 모든 자산을 표시하지 않습니다.</text>
+<rect x="48" y="576" width="1320" height="112" rx="18" fill="#0b1d33" stroke="#25486b"/>
+<text x="78" y="618" font-family="Arial,'Noto Sans KR',sans-serif" font-size="19" font-weight="700" fill="#8fb7ff" letter-spacing="1">13F 분모에서 빠지는 것</text>
+<text x="78" y="658" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" fill="#dbe9f6">현금 · 일부 채권 · 비상장 투자 · 공매도 · 여러 파생 포지션</text>
+<text x="1340" y="658" text-anchor="end" font-family="Arial,'Noto Sans KR',sans-serif" font-size="18" fill="#8aa9c9">에너지 업종 안에서도 석유·가스와 전력 유틸리티는 사업구조가 다릅니다</text>
+<text x="48" y="736" font-family="Arial,'Noto Sans KR',sans-serif" font-size="19" fill="#8aa9c9">6월 말 포지션입니다. 11월 현재 같은 종목과 비중이 유지됐다는 보장은 없습니다.</text>
+<text x="48" y="768" font-family="Arial,'Noto Sans KR',sans-serif" font-size="19" fill="#8aa9c9">엔비디아에서 빠진 자금이 그대로 전력주로 옮겨졌다는 거래 연결도 별도 검증 대상입니다.</text>
+<text x="1504" y="866" text-anchor="end" font-family="Arial,'Noto Sans KR',sans-serif" font-size="14" fill="#6d92b8">자료: Thiel Macro 2026 Q2 13F · JOYLAB RESEARCH · NOT INVESTMENT ADVICE</text>
+</svg>

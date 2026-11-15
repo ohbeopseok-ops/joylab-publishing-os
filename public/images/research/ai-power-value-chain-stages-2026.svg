@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="v-title v-desc">
+<title id="v-title">AI 전력 수요가 매출이 되는 7단계와 기업별 수혜 구간</title>
+<desc id="v-desc">수요 전망부터 이익·현금 회수까지 일곱 단계를 두고 삼성전자·SK하이닉스는 생산 이후 구간, LS ELECTRIC은 발주에서 납품 구간에 위치한다는 것을 보여주는 단계표</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06162b"/><stop offset="1" stop-color="#123252"/></linearGradient>
+<linearGradient id="semi" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1d6fe0"/><stop offset="1" stop-color="#3f9bff"/></linearGradient>
+<linearGradient id="grid" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17858f"/><stop offset="1" stop-color="#31b8b0"/></linearGradient>
+<pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#bde0ff" opacity=".18"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<rect x="38" y="33" width="235" height="34" rx="17" fill="#13466f"/>
+<text x="60" y="56" fill="#b9f9f5" font-size="16" font-family="Arial,'Noto Sans KR',sans-serif" font-weight="700">JOYLAB  /  VISUAL RESEARCH</text>
+<text x="48" y="150" font-family="Arial,'Noto Sans KR',sans-serif" font-size="40" font-weight="800" fill="#ffffff">AI 전력 수요는 어느 단계에서 매출이 되나</text>
+<text x="48" y="192" font-family="Arial,'Noto Sans KR',sans-serif" font-size="20" fill="#a9cce8">수요 전망에서 이익·현금 회수까지 7단계. 기업마다 수혜를 받는 구간이 다릅니다.</text>
+<g font-family="Arial,'Noto Sans KR',sans-serif">
+<text x="60" y="268" font-size="16" fill="#7fa3c4" letter-spacing="1">기업 / 단계</text>
+<text x="459" y="268" text-anchor="middle" font-size="16" fill="#8fb7ff">수요 전망</text>
+<text x="623" y="268" text-anchor="middle" font-size="15" fill="#8fb7ff">프로젝트 확정</text>
+<text x="787" y="268" text-anchor="middle" font-size="16" fill="#8fb7ff">발주</text>
+<text x="951" y="268" text-anchor="middle" font-size="16" fill="#8fb7ff">생산</text>
+<text x="1115" y="268" text-anchor="middle" font-size="16" fill="#8fb7ff">납품</text>
+<text x="1279" y="268" text-anchor="middle" font-size="16" fill="#8fb7ff">매출 인식</text>
+<text x="1443" y="268" text-anchor="middle" font-size="15" fill="#8fb7ff">이익·현금 회수</text>
+<text x="60" y="342" font-size="25" font-weight="700" fill="#ffffff">삼성전자</text>
+<text x="60" y="366" font-size="14" fill="#7fa3c4">메모리 · 파운드리</text>
+<rect x="380" y="290" width="158" height="86" rx="12" fill="#0e2444" stroke="#25486b"/>
+<rect x="544" y="290" width="158" height="86" rx="12" fill="#0e2444" stroke="#25486b"/>
+<rect x="708" y="290" width="158" height="86" rx="12" fill="#0e2444" stroke="#25486b"/>
+<rect x="872" y="290" width="158" height="86" rx="12" fill="url(#semi)"/>
+<rect x="1036" y="290" width="158" height="86" rx="12" fill="url(#semi)"/>
+<rect x="1200" y="290" width="158" height="86" rx="12" fill="url(#semi)"/>
+<rect x="1364" y="290" width="158" height="86" rx="12" fill="#0e2444" stroke="#25486b" stroke-dasharray="7 7"/>
+<text x="951" y="342" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">수혜</text>
+<text x="1115" y="342" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">수혜</text>
+<text x="1279" y="342" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">수혜</text>
+<text x="60" y="444" font-size="25" font-weight="700" fill="#ffffff">SK하이닉스</text>
+<text x="60" y="468" font-size="14" fill="#7fa3c4">메모리 · HBM</text>
+<rect x="380" y="392" width="158" height="86" rx="12" fill="#0e2444" stroke="#25486b"/>
+<rect x="544" y="392" width="158" height="86" rx="12" fill="#0e2444" stroke="#25486b"/>
+<rect x="708" y="392" width="158" height="86" rx="12" fill="#0e2444" stroke="#25486b"/>
+<rect x="872" y="392" width="158" height="86" rx="12" fill="url(#semi)"/>
+<rect x="1036" y="392" width="158" height="86" rx="12" fill="url(#semi)"/>
+<rect x="1200" y="392" width="158" height="86" rx="12" fill="url(#semi)"/>
+<rect x="1364" y="392" width="158" height="86" rx="12" fill="#0e2444" stroke="#25486b" stroke-dasharray="7 7"/>
+<text x="951" y="444" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">수혜</text>
+<text x="1115" y="444" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">수혜</text>
+<text x="1279" y="444" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">수혜</text>
+<text x="60" y="546" font-size="25" font-weight="700" fill="#ffffff">LS ELECTRIC</text>
+<text x="60" y="570" font-size="14" fill="#7fa3c4">전력기기 · 자동화</text>
+<rect x="380" y="494" width="158" height="86" rx="12" fill="#0e2444" stroke="#25486b"/>
+<rect x="544" y="494" width="158" height="86" rx="12" fill="#0e2444" stroke="#25486b"/>
+<rect x="708" y="494" width="158" height="86" rx="12" fill="url(#grid)"/>
+<rect x="872" y="494" width="158" height="86" rx="12" fill="url(#grid)"/>
+<rect x="1036" y="494" width="158" height="86" rx="12" fill="url(#grid)"/>
+<rect x="1200" y="494" width="158" height="86" rx="12" fill="#0e2444" stroke="#25486b"/>
+<rect x="1364" y="494" width="158" height="86" rx="12" fill="#0e2444" stroke="#25486b" stroke-dasharray="7 7"/>
+<text x="787" y="546" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">수혜</text>
+<text x="951" y="546" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">수혜</text>
+<text x="1115" y="546" text-anchor="middle" font-size="19" font-weight="700" fill="#ffffff">수혜</text>
+<text x="48" y="610" font-size="16" fill="#6d92b8">채운 칸 = 해당 기업의 수주·실적이 확인되는 구간 · 점선 칸 = 모든 기업이 함께 도달해야 하는 결과 단계</text>
+<rect x="48" y="632" width="1462" height="64" rx="14" fill="#0b1d33" stroke="#25486b"/>
+<text x="76" y="672" font-size="21" fill="#dbe9f6">일곱 번째 단계인 이익·현금 회수는 수요가 아니라 결과입니다. 매출 인식 이후에 확인됩니다.</text>
+<rect x="48" y="716" width="716" height="106" rx="16" fill="#2a1c23" stroke="#d96b52"/>
+<text x="76" y="754" font-size="18" font-weight="700" fill="#ffcbb8">수주잔고 ≠ 확정 이익</text>
+<text x="76" y="786" font-size="18" fill="#f7d9cd">잔고는 앞으로 수행할 계약 규모입니다. 납기·원재료비·계약 변경이 남습니다.</text>
+<rect x="792" y="716" width="718" height="106" rx="16" fill="#2a1c23" stroke="#d96b52"/>
+<text x="820" y="754" font-size="18" font-weight="700" fill="#ffcbb8">GPU 판매 ≠ 실사용</text>
+<text x="820" y="786" font-size="18" fill="#f7d9cd">출하와 재고, 가격과 수익성이 함께 확인돼야 매출이 이익으로 남습니다.</text>
+<text x="60" y="866" font-size="14" fill="#6d92b8">JOYLAB RESEARCH · 업종 특성에 대한 질적 판단이며 특정 기업의 목표주가나 수익률 전망이 아닙니다.</text>
+<text x="1510" y="866" text-anchor="end" font-size="14" fill="#6d92b8">NOT INVESTMENT ADVICE</text>
+</g>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="p-title p-desc">
+<title id="p-title">AI 전력 인프라 한국 기업 비교</title>
+<desc id="p-desc">반도체 연산 장비 공급망의 삼성전자·SK하이닉스와 전력 공급 인프라의 LS ELECTRIC을 서로 다른 위치로 나눠 보여주는 JoyLab 리서치 대표 이미지</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#05122a"/><stop offset=".5" stop-color="#0e2b52"/><stop offset="1" stop-color="#07182b"/></linearGradient>
+<linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1b8bff"/><stop offset="1" stop-color="#55e3dc"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#1677ff" stop-opacity=".45"/><stop offset="1" stop-color="#1677ff" stop-opacity="0"/></radialGradient>
+<pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#8fb7ff" opacity=".17"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<circle cx="1280" cy="180" r="330" fill="url(#glow)"/>
+<rect x="96" y="86" width="392" height="44" rx="22" fill="#102a54" stroke="#2d80ff" stroke-opacity=".8"/>
+<circle cx="122" cy="108" r="7" fill="#55e3dc"/>
+<text x="142" y="115" font-family="Arial,'Noto Sans KR',sans-serif" font-size="17" font-weight="700" fill="#cfe6ff" letter-spacing="1.4">JOYLAB RESEARCH · AI POWER SERIES 03</text>
+<text x="96" y="240" font-family="Arial,'Noto Sans KR',sans-serif" font-size="58" font-weight="800" fill="#ffffff">AI 다음 수혜는</text>
+<text x="96" y="314" font-family="Arial,'Noto Sans KR',sans-serif" font-size="58" font-weight="800" fill="#7fd7f7">어느 단계에 있나</text>
+<rect x="96" y="344" width="180" height="8" rx="4" fill="url(#accent)"/>
+<text x="96" y="404" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" fill="#a9cce8">같은 전력 수요라도 반도체와 전력기기는 수익이 실현되는 지점이 다릅니다.</text>
+<g font-family="Arial,'Noto Sans KR',sans-serif">
+<rect x="96" y="460" width="700" height="248" rx="26" fill="#0f2a4a" stroke="#1677ff" stroke-width="2"/>
+<text x="130" y="508" font-size="17" font-weight="700" fill="#8fb7ff" letter-spacing="1.2">SEMICONDUCTOR · 연산 장비 공급망</text>
+<text x="130" y="570" font-size="36" font-weight="800" fill="#ffffff">삼성전자 · SK하이닉스</text>
+<text x="130" y="614" font-size="21" fill="#b7d6ef">HBM · 메모리 · 파운드리 · 시스템반도체</text>
+<text x="130" y="664" font-size="21" fill="#9fd0ff">확인: 제품별 실적 · HBM 공급 · 투자 회수</text>
+<rect x="820" y="460" width="684" height="248" rx="26" fill="#123a4c" stroke="#55e3dc" stroke-width="2"/>
+<text x="854" y="508" font-size="17" font-weight="700" fill="#7ff0e8" letter-spacing="1.2">POWER EQUIPMENT · 전기 공급 인프라</text>
+<text x="854" y="570" font-size="36" font-weight="800" fill="#ffffff">LS ELECTRIC</text>
+<text x="854" y="614" font-size="21" fill="#c3eade">변압기 · 배전반 · 차단기 · 자동화</text>
+<text x="854" y="664" font-size="21" fill="#9ff2ea">확인: 신규 수주 · 납기 · 수주잔고</text>
+<text x="96" y="782" font-size="24" font-weight="700" fill="#ffffff">수익 실현 시점과 위험 요소가 달라, 같은 숫자 하나로 순위를 정할 수 없습니다.</text>
+<text x="96" y="822" font-size="19" fill="#8aa9c9">반도체는 메모리 사이클과 CAPEX, 전력기기는 원재료·증설·프로젝트 지연에 노출됩니다.</text>
+<text x="1504" y="866" text-anchor="end" font-size="14" fill="#6d92b8">JOYLAB RESEARCH · NOT INVESTMENT ADVICE</text>
+</g>
+</svg>
