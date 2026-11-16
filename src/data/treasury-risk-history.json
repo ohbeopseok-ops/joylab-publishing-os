@@ -1,12 +1,50 @@
 {
   "version": "1.0",
-  "updatedAt": "2026-10-09T22:29:33.958Z",
+  "updatedAt": "2026-10-20T01:47:33.402Z",
   "maxSnapshots": 60,
-  "latestDelta": null,
+  "latestDelta": {
+    "from": 44,
+    "to": 44,
+    "delta": 0,
+    "gradeFrom": "YELLOW",
+    "gradeTo": "YELLOW",
+    "components": {
+      "marketRisk": 0,
+      "auctionWeakness": 0,
+      "ticStress": 0
+    },
+    "primaryDriver": {
+      "key": "marketRisk",
+      "label": "Market",
+      "delta": 0
+    },
+    "alert": {
+      "level": "STABLE",
+      "direction": "FLAT"
+    },
+    "interpretation": "전일 대비 Treasury Risk Index는 변하지 않았습니다.",
+    "formula": "44 → 44 (0): Market 0 / Auction 0 / TIC 0"
+  },
   "snapshots": [
     {
       "asOf": "2026-10-09",
       "capturedAt": "2026-10-09T22:29:33.958Z",
+      "index": 44,
+      "grade": "YELLOW",
+      "contributions": {
+        "marketRisk": 37,
+        "auctionWeakness": 2,
+        "ticStress": 5
+      },
+      "components": {
+        "marketRisk": 74,
+        "auctionWeakness": 7,
+        "ticStress": 25
+      }
+    },
+    {
+      "asOf": "2026-10-20",
+      "capturedAt": "2026-10-20T01:47:33.402Z",
       "index": 44,
       "grade": "YELLOW",
       "contributions": {
