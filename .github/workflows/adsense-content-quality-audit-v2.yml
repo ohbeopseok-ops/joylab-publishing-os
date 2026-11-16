@@ -8,6 +8,7 @@ on:
       - 'src/data/articles/**'
       - 'scripts/audit-adsense-content-quality-v2.mjs'
       - 'scripts/audit-adsense-content-value-v3.mjs'
+      - 'scripts/audit-adsense-remaining-113-v1.mjs'
       - '.github/workflows/adsense-content-quality-audit-v2.yml'
   workflow_dispatch:
 
@@ -28,6 +29,15 @@ jobs:
         run: node scripts/audit-adsense-content-quality-v2.mjs
       - name: Run full-body reader value triage V3
         run: node scripts/audit-adsense-content-value-v3.mjs
+      - name: Audit 113 remaining article originals (screening, not fact verification)
+        run: node scripts/audit-adsense-remaining-113-v1.mjs
+      - name: Upload 113 article-by-article evidence queue
+        uses: actions/upload-artifact@v6
+        with:
+          name: adsense-remaining-113-evidence-v1
+          path: qa-artifacts/adsense-remaining-113-v1
+          if-no-files-found: error
+          retention-days: 30
       - name: Upload 123-article reader value evidence
         uses: actions/upload-artifact@v6
         with:
