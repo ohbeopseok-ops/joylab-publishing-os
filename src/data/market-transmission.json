@@ -10,16 +10,19 @@
     "market": "KOSPI",
     "netBuyBillionKrw": null,
     "status": null,
-    "note": "Requires an approved KRX Open API authentication key and endpoint configuration."
+    "note": "KRX adapter configured in code; KRX_FOREIGN_FLOW_URL / KRX_AUTH_KEY are not connected in this runtime."
   },
   "epsRevision": {
     "ready": false,
     "provider": "AUTHORIZED_EPS_FEED",
     "source": null,
     "observedAt": null,
-    "universe": ["005930", "000660"],
+    "universe": [
+      "005930",
+      "000660"
+    ],
     "revision30dPct": null,
     "status": null,
-    "note": "Requires an authorized consensus/EPS revision feed. Unlicensed scraping is not used."
+    "note": "Authorized EPS revision adapter is ready; EPS_REVISION_FEED_URL is not connected in this runtime."
   }
 }
