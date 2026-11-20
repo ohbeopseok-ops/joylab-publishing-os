@@ -1,0 +1,51 @@
+{
+  "key": "sk-hynix-earnings-20261120",
+  "articleId": "sk-hynix-earnings-valuation-20261120",
+  "companyName": "SK하이닉스",
+  "eyebrow": "SK HYNIX · EARNINGS DIVERGENCE",
+  "description": "수요에서 평가배수까지 연결하는 조건부 투자 판단",
+  "hubHref": "/guides/ai-inference-memory",
+  "hubLabel": "AI 메모리 전체 리서치",
+  "reason": "company research 4-node thesis",
+  "signalNode": "execution-node",
+  "signalId": "shipment",
+  "nodes": [
+    {
+      "id": "demand-node",
+      "type": "demand",
+      "label": "AI 메모리 수요"
+    },
+    {
+      "id": "execution-node",
+      "type": "value_chain",
+      "label": "공급 실행력",
+      "signals": [
+        {
+          "id": "shipment",
+          "label": "HBM 출하",
+          "note": "실제 양산 출하 확인"
+        },
+        {
+          "id": "pricing",
+          "label": "계약 가격",
+          "note": "판매가격과 계약 조건 확인"
+        },
+        {
+          "id": "yield",
+          "label": "수율",
+          "note": "원가 및 생산성 확인"
+        }
+      ]
+    },
+    {
+      "id": "earnings-node",
+      "type": "earnings",
+      "label": "마진·EPS"
+    },
+    {
+      "id": "valuation-node",
+      "type": "valuation",
+      "label": "평가배수"
+    }
+  ]
+}
