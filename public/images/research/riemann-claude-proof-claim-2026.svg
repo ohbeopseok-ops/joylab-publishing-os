@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+<title id="t">리만 가설과 AI 증명 주장</title>
+<desc id="d">어두운 남색 배경 위에 복소평면 임계선과 영점, 리만 가설 검증 중이라는 한국어 제목을 배치한 JoyLab Research 대표 이미지</desc>
+<defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#07142D"/><stop offset="1" stop-color="#123363"/></linearGradient><linearGradient id="line" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#83D9FF"/><stop offset="1" stop-color="#2E75FF"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<g opacity=".13" stroke="#BBD8FF" stroke-width="1"><path d="M630 95V550M710 95V550M790 95V550M870 95V550M950 95V550M1030 95V550M1110 95V550M605 145H1145M605 225H1145M605 305H1145M605 385H1145M605 465H1145"/></g>
+<line x1="865" y1="102" x2="865" y2="545" stroke="url(#line)" stroke-width="3" stroke-dasharray="10 9"/>
+<g fill="#84D8FF"><circle cx="865" cy="155" r="6"/><circle cx="865" cy="225" r="7"/><circle cx="865" cy="290" r="5"/><circle cx="865" cy="366" r="7"/><circle cx="865" cy="438" r="5"/><circle cx="865" cy="512" r="7"/></g>
+<path d="M615 338C665 218 715 468 765 322S865 204 925 320S1012 446 1134 310" fill="none" stroke="#477BD0" stroke-width="4" opacity=".6"/>
+<g fill="#FFFFFF" font-family="Noto Sans CJK KR, Noto Sans KR, Arial, sans-serif">
+<text x="70" y="84" font-size="21" font-weight="700" fill="#75BCFF" letter-spacing="2">JOYLAB RESEARCH / AI &amp; SCIENCE</text>
+<text x="70" y="215" font-size="60" font-weight="800">리만 가설</text>
+<text x="70" y="295" font-size="58" font-weight="800">AI가 증명했나?</text>
+<text x="74" y="370" font-size="27" fill="#D5E6FF">Claude와 수학자의 주장</text>
+<text x="74" y="411" font-size="27" fill="#D5E6FF">검증은 아직 끝나지 않았다</text>
+<text x="72" y="556" font-size="19" fill="#9FBEE5">2026.11.21  |  검증 진행 중</text>
+<text x="880" y="111" font-size="21" font-weight="700" fill="#9EDBFF">Re(s) = 1/2</text>
+<text x="1112" y="577" font-size="25" font-weight="800" fill="#FFFFFF" text-anchor="end">JL</text>
+</g></svg>
