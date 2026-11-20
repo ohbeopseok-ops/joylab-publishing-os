@@ -13,7 +13,13 @@ timeSensitive: true
 canonical: "https://aijoylab.kr/articles/sk-hynix-earnings-valuation-20261120"
 researchMethod: "기업 잠정 실적 발표와 SEC 공시, 국내 시세 보도를 비교하고 조건부 투자 시나리오를 구성했다."
 investmentResearchType: company
-investmentCompanies: ["SK하이닉스"]
+investmentCompanies:
+  - SK하이닉스
+investmentIndustries:
+  - semiconductor
+investmentTheses:
+  - memory-supercycle
+  - ai-capex
 sourceList:
   - label: "SK하이닉스 2026년 3분기 실적 발표"
     url: "https://news.skhynix.com/en/q3-2026-business-results/"
@@ -191,6 +197,6 @@ SK하이닉스의 3분기 실적은 AI 메모리 수요가 기업 성과로 연�
 
 가격이 내려갔다고 기업가치가 반드시 낮아진 것은 아니지만, 반대로 실적이 좋다고 주가가 반드시 반등하는 것도 아니다. 투자자는 자신이 어떤 가정을 믿고 있으며 어떤 관측값이 그 가정을 무효화하는지 기록해야 한다. 다음 분기 실적, 장기계약의 실제 매출 전환, 메모리 가격 및 경쟁 공급, FCF 변화를 점검하는 것이 핵심이다.
 
-관련 자료: [반도체 사이클 보는 법](/articles/semiconductor-cycle), [SK하이닉스 장기 투자 가이드](/articles/sk-hynix-outlook).
+관련 자료: [AI 메모리 투자 가이드](/guides/ai-inference-memory), [반도체 사이클 보는 법](/articles/semiconductor-cycle), [SK하이닉스 장기 투자 가이드](/articles/sk-hynix-outlook).
 
 작성: JoyLab Research. 데이터 기준일 2026-11-20. 조사 방법: 회사 발표와 SEC 공시 및 복수 시세 자료 대조, 가정 기반 EPS/PER 민감도와 평균단가 산식 분석. 업데이트 이력: 2026-11-20 원고 확대 및 불일치 수치 분리. 인간 검토 및 배포 QA 미완료. 본 글은 투자 참고 자료이며 투자 결과를 보장하지 않는다.
