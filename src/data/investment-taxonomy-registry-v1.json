@@ -1,7 +1,7 @@
 {
   "version": 1,
   "generatedFrom": "src/data/articles + config/investment-taxonomy-v1.json",
-  "articleCount": 128,
+  "articleCount": 130,
   "records": [
     {
       "slug": "ai-agent-governance",
@@ -1215,6 +1215,16 @@
       "researchType": null
     },
     {
+      "slug": "riemann-claude-proof-claim-2026",
+      "route": "/articles/riemann-claude-proof-claim-2026",
+      "industries": [],
+      "theses": [],
+      "companies": [],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": null
+    },
+    {
       "slug": "samsung-daily-analysis-2026-09-28",
       "route": "/articles/samsung-daily-analysis-2026-09-28",
       "industries": [
@@ -1418,6 +1428,23 @@
       "valueChains": [],
       "kpis": [],
       "researchType": null
+    },
+    {
+      "slug": "sk-hynix-earnings-valuation-20261120",
+      "route": "/articles/sk-hynix-earnings-valuation-20261120",
+      "industries": [
+        "semiconductor"
+      ],
+      "theses": [
+        "memory-supercycle",
+        "ai-capex"
+      ],
+      "companies": [
+        "SK하이닉스"
+      ],
+      "valueChains": [],
+      "kpis": [],
+      "researchType": "company"
     },
     {
       "slug": "sk-hynix-outlook",
