@@ -4,9 +4,9 @@ description: "2026년 3분기 잠정 실적과 11월 20일 종가를 비교하�
 seoTitle: "SK하이닉스 주가 전망｜영업이익 83조와 주가 하락의 괴리"
 category: "투자·경제"
 tags: ["SK하이닉스", "HBM4", "반도체"]
-publishedAt: 2026-11-20
+publishedAt: 2026-11-21
 author: "JoyLab Research"
-draft: true
+draft: false
 contentType: investment-analysis
 contentQuestion: "사상 최대 실적에도 주가가 하락하는 이유와 확인해야 할 투자 조건은 무엇인가?"
 timeSensitive: true
@@ -20,6 +20,40 @@ investmentIndustries:
 investmentTheses:
   - memory-supercycle
   - ai-capex
+trust:
+  author: "JoyLab Research"
+  authorPerspective: "공개 기업 공시 및 시세의 조건부 투자 분석"
+  humanReviewed: false
+  researchedAt: "2026-11-21"
+  methodology:
+    - "기업 공식 실적 발표와 SEC 분기보고서를 비교해 재무 수치를 검증했다."
+    - "시장 시세와 원고 수치의 차이를 분리하고 가상 EPS/PER 및 평단가 시나리오를 계산했다."
+  primarySources:
+    - id: skhynix-q3
+      title: "SK hynix Announces 3Q26 Financial Results"
+      publisher: "SK hynix"
+      url: "https://news.skhynix.com/en/q3-2026-business-results/"
+      publishedAt: "2026-10-28"
+      accessedAt: "2026-11-21"
+      supports: ["financial-evidence"]
+    - id: sec-6k
+      title: "SK hynix Form 6-K Quarterly Business Report"
+      publisher: "US SEC"
+      url: "https://www.sec.gov/Archives/edgar/data/2120882/000119312526461909/d166755d6k.htm"
+      accessedAt: "2026-11-21"
+      supports: ["financial-evidence"]
+  originalValue:
+    - kind: scenario
+      sectionId: "valuation-risk"
+      description: "EPS와 PER에 따른 조건부 주가 민감도 분석"
+    - kind: calculation
+      sectionId: "average-cost-calculation"
+      description: "추가 매수 전후 투자금과 절대 손실 비교"
+  counterEvidenceSections: ["valuation-risk"]
+  conclusionSection: "conclusion-evidence"
+  updateLog:
+    - date: "2026-11-21"
+      change: "Company Research 검증 및 정식 발행 준비, 근거·계산과 투자가정 분리"
 sourceList:
   - label: "SK하이닉스 2026년 3분기 실적 발표"
     url: "https://news.skhynix.com/en/q3-2026-business-results/"
@@ -47,6 +81,8 @@ faqs:
 결론부터 말하면 기업의 당기 실적과 앞으로 벌어들일 이익에 대한 시장의 기대는 서로 다른 변수다. 높은 이익이 지속될 것이라는 확신이 약해지거나 시장 전체의 위험 프리미엄이 상승하면 사상 최대 실적 속에서도 주가는 하락할 수 있다. 다만 이러한 설명은 가능한 인과 경로이지, 당일 하락의 원인을 모두 입증하는 것은 아니다.
 
 자료 기준: 2026년 11월 20일 정규장 시세, 10월 28일 회사 실적 발표 및 11월 SEC 제출 분기 재무제표. 시세 출처는 [한국경제](https://markets.hankyung.com/stock/000660), [Investing.com 과거 가격](https://kr.investing.com/equities/sk-hynix-inc-historical-data)이다.
+
+<span id="financial-evidence"></span>
 
 ## 펀더멘털: 83조 원 영업이익의 의미
 
@@ -80,6 +116,8 @@ SK하이닉스의 투자 논리는 이 수요가 고객 인증, 실제 출하, �
 ### 영업이익과 현금흐름은 다르다
 
 영업이익은 매출에서 매출원가와 영업비용을 차감한 회계상 성과다. 실제 현금창출력은 영업활동 현금흐름, 설비투자, 재고 및 매출채권 변화까지 살펴야 한다. 단순화한 잉여현금흐름은 영업활동 현금흐름에서 자본적 지출을 차감한 값이다. 80%에 가까운 이익률을 앞으로도 유지할 수 있다고 가정하기 전에 투자 부담과 정상화 시점을 먼저 분석해야 한다.
+
+<span id="valuation-risk"></span>
 
 ## 주가는 왜 실적과 반대로 움직이는가
 
@@ -151,6 +189,8 @@ SK하이닉스의 투자 논리는 이 수요가 고객 인증, 실제 출하, �
 
 이 시나리오는 확률 또는 목표주가를 제시하지 않는다. 확인할 지표와 의사결정 조건을 구분하기 위한 분석 틀이다.
 
+<span id="average-cost-calculation"></span>
+
 ## 실전 평균단가 계산기: 물타기의 숨은 비용
 
 원문의 인터랙티브 계산기 기능을 유지했다. 기존 평균단가와 보유 수량, 추가 매수 가격과 수량, 평가 가격을 변경할 수 있다.
@@ -191,6 +231,8 @@ SK하이닉스의 투자 논리는 이 수요가 고객 인증, 실제 출하, �
 
 투자 가설이 유지되는지와 추가 자금의 위험을 먼저 점검해야 한다. 평균단가가 낮아져도 절대 손실은 증가할 수 있다.
 
+<span id="conclusion-evidence"></span>
+
 ## 결론: 좋은 기업과 좋은 가격은 다르다
 
 SK하이닉스의 3분기 실적은 AI 메모리 수요가 기업 성과로 연결되는 모습을 보여준다. 하지만 현재의 수익성이 미래에도 그대로 유지된다는 보장은 없다. 높은 영업이익과 주가 하락의 괴리를 이해하려면 이익 증가율, 시장의 평가배수, 설비투자와 현금흐름을 함께 보아야 한다.
@@ -199,4 +241,4 @@ SK하이닉스의 3분기 실적은 AI 메모리 수요가 기업 성과로 연�
 
 관련 자료: [AI 메모리 투자 가이드](/guides/ai-inference-memory), [반도체 사이클 보는 법](/articles/semiconductor-cycle), [SK하이닉스 장기 투자 가이드](/articles/sk-hynix-outlook).
 
-작성: JoyLab Research. 데이터 기준일 2026-11-20. 조사 방법: 회사 발표와 SEC 공시 및 복수 시세 자료 대조, 가정 기반 EPS/PER 민감도와 평균단가 산식 분석. 업데이트 이력: 2026-11-20 원고 확대 및 불일치 수치 분리. 인간 검토 및 배포 QA 미완료. 본 글은 투자 참고 자료이며 투자 결과를 보장하지 않는다.
+작성: JoyLab Research. 데이터 기준일 2026-11-20. 조사 방법: 회사 발표와 SEC 공시 및 복수 시세 자료 대조, 가정 기반 EPS/PER 민감도와 평균단가 산식 분석. 업데이트 이력: 2026-11-20 원고 확대 및 불일치 수치 분리. 인간 검토는 별도 완료 표시하지 않았으며 투자 판단은 독자 책임이다. 본 글은 투자 참고 자료이며 투자 결과를 보장하지 않는다.
