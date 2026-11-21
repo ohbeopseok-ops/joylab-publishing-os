@@ -10,6 +10,36 @@ author: "JoyLab"
 contentType: "industry-trend"
 contentQuestion: "미국 금리 인상 전망은 KB금융 이익 증가를 보장하는가?"
 timeSensitive: true
+trust:
+  author: "JoyLab"
+  authorPerspective: "공식 금리 결정과 기업 실적·위험지표를 분리해 평가하는 금융 리서치"
+  humanReviewed: false
+  researchedAt: "2026-11-21"
+  methodology:
+    - "공개된 정책 발표와 기업 분기 공시·전망 보도를 구분해 정성적 시나리오를 비교함."
+    - "검증되지 않은 금리민감도와 투자수익률의 직접 환산은 배제함."
+  primarySources:
+    - id: "kb"
+      title: "KB Financial Group Third Quarter 2026 IR"
+      publisher: "KB Financial Group"
+      url: "https://www.kbfg.com/IR_new/2026_3/player/vod_eng.html"
+      accessedAt: "2026-11-21"
+      supports: ["financial-evidence"]
+    - id: "fed"
+      title: "2026 October FOMC"
+      publisher: "Federal Reserve"
+      url: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"
+      accessedAt: "2026-11-21"
+      supports: ["financial-evidence"]
+  originalValue:
+    - kind: "framework"
+      sectionId: "financial-evidence"
+      description: "금리·마진·신용비용을 구분해 기업 실적을 해석하는 프레임워크"
+  counterEvidenceSections: ["counter-case"]
+  conclusionSection: "conclusion-evidence"
+  updateLog:
+    - date: "2026-11-21"
+      change: "공식 자료를 바탕으로 금융주 3부작 작성 및 출고 계약 메타데이터 추가"
 researchMethod: "연준·금융사 공식 문서의 확정 자료와 전망 보도를 분리하고 금융주 실적 및 조건부 시나리오를 비교함"
 sourceList:
   - label: "미국 연준 FOMC 2026-10-28"
@@ -29,6 +59,8 @@ draft: false
 ---
 금리 인상이 시작될 때 국내 은행주를 자동으로 매수 대상으로 분류하기 쉽다. 그러나 한국 은행의 순이자마진은 미국의 정책금리 숫자만으로 결정되지 않는다. **국내 대출 재산정 속도와 예금 조달비용, 자산 규모, 대손비용**을 함께 확인해야 비로소 실적 변화를 설명할 수 있다.
 
+<span id="financial-evidence"></span>
+
 ## 2026년 3분기: 순이자이익은 늘고 NIM은 줄었다
 
 KB금융의 공식 2026년 3분기 IR 자료에서 그룹 순이자이익은 **3조 5,070억 원**으로 전분기보다 **11.6% 증가**했다. 하지만 그룹 NIM은 **1.92%**로 **2bp 하락**했다. 분기 순이익은 **1조 9,075억 원**이다.
@@ -40,6 +72,8 @@ NII와 NIM의 방향이 엇갈린 것은 금리 하나로 이익을 설명해서
 2026년 11월 보도된 JP모건 경제분석팀의 세 차례 인상 전망은 **미국 연준**에 관한 예측이다. 한국은행은 국내 물가·경기·금융안정과 외환시장을 함께 평가한다. 한미 금리차가 원화 약세 압력으로 작용할 가능성은 있어도, 이를 근거로 한국은행이 반드시 같은 폭으로 인상한다고 단정할 수는 없다.
 
 KB금융 투자자는 연준의 횟수 예측보다 국내 예금금리·대출금리 변화, 저원가성 예금 비중과 자산 성장, 실제 신용비용 공시를 우선해야 한다.
+
+<span id="counter-case"></span>
 
 ## 대손비용이 성장의 결과를 바꾼다
 
@@ -58,6 +92,8 @@ KB금융의 배당·소각은 주주에게 중요한 변수지만 지속 여부�
 | 밸류에이션 | 현재 가격이 미래 이익 기대를 반영했는가 | 가정 대비 지나친 낙관 |
 
 실제 주가·예상 이익·PBR의 관측일과 산식이 없는 상태에서 목표주가를 제시하지 않는다. 다음 분기 자료에서 위 변수들이 어떻게 달라지는지 확인한 뒤 판단을 갱신해야 한다.
+
+<span id="conclusion-evidence"></span>
 
 ## 결론: ‘금리 수혜’가 아닌 ‘이익이 남는 구조’로 평가한다
 
