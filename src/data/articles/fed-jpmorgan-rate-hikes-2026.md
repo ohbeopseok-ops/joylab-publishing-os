@@ -10,6 +10,48 @@ author: "JoyLab"
 contentType: "industry-trend"
 contentQuestion: "JP모건이 전망한 미국 금리 인상은 은행주 실적 개선을 보장하는가?"
 timeSensitive: true
+trust:
+  author: "JoyLab"
+  authorPerspective: "공식 금리 결정과 기업 실적·위험지표를 분리해 평가하는 금융 리서치"
+  humanReviewed: false
+  researchedAt: "2026-11-21"
+  methodology:
+    - "공개된 정책 발표와 기업 분기 공시·전망 보도를 구분해 정성적 시나리오를 비교함."
+    - "검증되지 않은 금리민감도와 투자수익률의 직접 환산은 배제함."
+  primarySources:
+    - id: "fed"
+      title: "2026 October FOMC"
+      publisher: "Federal Reserve"
+      url: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"
+      accessedAt: "2026-11-21"
+      supports: ["financial-evidence"]
+    - id: "forecast"
+      title: "JPMorgan interest-rate forecast reporting"
+      publisher: "Yonhap Infomax"
+      url: "https://en.infomaxai.com/news/articleView.html?idxno=149384"
+      accessedAt: "2026-11-21"
+      supports: ["financial-evidence"]
+    - id: "kb"
+      title: "KB Financial Group Third Quarter 2026 IR"
+      publisher: "KB Financial Group"
+      url: "https://www.kbfg.com/IR_new/2026_3/player/vod_eng.html"
+      accessedAt: "2026-11-21"
+      supports: ["financial-evidence"]
+    - id: "jpm"
+      title: "2026 third quarter Form 10-Q"
+      publisher: "JPMorgan Chase / US SEC"
+      url: "https://www.sec.gov/Archives/edgar/data/19617/000162828026069523/jpm-20260930.htm"
+      accessedAt: "2026-11-21"
+      supports: ["financial-evidence"]
+  originalValue:
+    - kind: "framework"
+      sectionId: "financial-evidence"
+      description: "금리·마진·신용비용을 구분해 기업 실적을 해석하는 프레임워크"
+  counterEvidenceSections: ["counter-case"]
+  conclusionSection: "conclusion-evidence"
+  updateLog:
+    - date: "2026-11-21"
+      change: "공식 자료를 바탕으로 금융주 3부작 작성 및 출고 계약 메타데이터 추가"
 researchMethod: "연준·금융사 공식 문서의 확정 자료와 전망 보도를 분리하고 금융주 실적 및 조건부 시나리오를 비교함"
 sourceList:
   - label: "미국 연준 FOMC 2026-10-28"
@@ -40,6 +82,8 @@ JP모건 경제분석팀이 미국 연방준비제도(Fed)의 연속 금리 인�
 2026년 11월 19일 보도된 JP모건 측 전망은 2026년 12월과 2027년 1월·3월에 각각 25bp를 올리는 시나리오다. 연준이 2026년 10월 28일 발표한 정책금리 범위 **3.75~4.00%**를 출발점으로 하면 가정상 2027년 3월 목표 범위는 **4.50~4.75%**에 도달한다. 4.75%는 범위의 **상단**이며, 어떤 결정도 확정된 것은 아니다.
 
 같은 JP모건 그룹이라도 전망의 기준은 다를 수 있다. JP모건 자산운용의 2027년 전망은 12월 인상과, 물가 압력이 지속될 경우 2027년 3월 추가 인상의 가능성을 별도로 설명했다. ‘JP모건이 인상 횟수를 확정했다’고 읽으면 경제분석팀 전망과 자산운용 시각, 연준의 실제 결정을 혼동하게 된다.
+
+<span id="financial-evidence"></span>
 
 ## 금리 인상이 은행 실적으로 전달되는 경로
 
@@ -72,6 +116,8 @@ JP모건의 2026년 3분기 SEC 10-Q에는 순이익 **153억 달러**, 순이�
 
 한미 금리차는 환율에 영향을 줄 수 있지만 미국의 인상이 한국은행의 같은 폭 인상을 강제하지는 않는다. 양국의 물가·경기·금융안정 목표와 시장 구조도 다르다. 통화가 다른 NII 금액을 직접 비교해 어느 은행이 더 좋다고 판단할 수도 없다.
 
+<span id="counter-case"></span>
+
 ## 2027년 3월까지의 세 가지 경로
 
 **인상 3회:** 미국 정책금리 범위 4.50~4.75%에 도달한다는 가정이다. 운용 수익 개선 가능성과 예금 조달비용·연체 위험을 함께 검토한다.
@@ -79,6 +125,8 @@ JP모건의 2026년 3분기 SEC 10-Q에는 순이익 **153억 달러**, 순이�
 **한 차례 인상 뒤 동결:** 조달비용 상승 압력이 둔화할 수 있지만 이자수익 확대 기대도 낮아질 수 있다.
 
 **경기 악화:** 금리가 어떻게 결정되든 차주 건전성이 나빠지면 충당금과 위험 프리미엄이 확대될 수 있다.
+
+<span id="conclusion-evidence"></span>
 
 ## 결론: 정책금리보다 이익의 질이 먼저다
 
