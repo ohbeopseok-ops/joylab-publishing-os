@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="c-title c-desc">
+<title id="c-title">AI 버블 다섯 지표의 과열 위험 신호와 확인 신호</title>
+<desc id="c-desc">CAPEX와 FCF, GPU와 HBM, 금융구조, 전력 인프라, 밸류에이션 다섯 지표를 과열 위험 신호와 반대 확인 신호로 나눠 정리한 점검표</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07182d"/><stop offset="1" stop-color="#16375b"/></linearGradient>
+<pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#bde0ff" opacity=".18"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<rect x="38" y="33" width="235" height="34" rx="17" fill="#13466f"/>
+<text x="60" y="56" fill="#b9f9f5" font-size="16" font-family="Arial,'Noto Sans KR',sans-serif" font-weight="700">JOYLAB  /  VISUAL RESEARCH</text>
+<text x="48" y="140" font-family="Arial,'Noto Sans KR',sans-serif" font-size="42" font-weight="800" fill="#ffffff">다섯 지표 점검표: 위험 신호와 확인 신호</text>
+<text x="48" y="184" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#a9cce8">같은 지표라도 어느 방향으로 움직일 때 위험인지 미리 정해 두고 봅니다.</text>
+<g font-family="Arial,'Noto Sans KR',sans-serif">
+<text x="60" y="252" font-size="18" font-weight="700" fill="#8fb7ff" letter-spacing="1.5">관찰 지표</text>
+<text x="400" y="252" font-size="18" font-weight="700" fill="#f0a58c" letter-spacing="1.5">과열 위험 신호</text>
+<text x="980" y="252" font-size="18" font-weight="700" fill="#7fe6d6" letter-spacing="1.5">반대로 확인할 신호</text>
+<rect x="48" y="270" width="1504" height="112" rx="14" fill="#0e2444" stroke="#25486b"/>
+<text x="76" y="336" font-size="23" font-weight="700" fill="#ffffff">CAPEX / FCF</text>
+<text x="400" y="336" font-size="21" fill="#f7d9cd">투자만 늘고 현금창출 둔화</text>
+<text x="980" y="336" font-size="21" fill="#c9f5ec">서비스 매출과 현금흐름 동반 증가</text>
+<rect x="48" y="394" width="1504" height="112" rx="14" fill="#0b1d33" stroke="#25486b"/>
+<text x="76" y="460" font-size="23" font-weight="700" fill="#ffffff">GPU · HBM</text>
+<text x="400" y="460" font-size="21" fill="#f7d9cd">주문 둔화, 재고 확대</text>
+<text x="980" y="460" font-size="21" fill="#c9f5ec">출하와 실사용량 동반 증가</text>
+<rect x="48" y="518" width="1504" height="112" rx="14" fill="#0e2444" stroke="#25486b"/>
+<text x="76" y="584" font-size="23" font-weight="700" fill="#ffffff">금융구조</text>
+<text x="400" y="584" font-size="21" fill="#f7d9cd">차환비용·부채 부담 증가</text>
+<text x="980" y="584" font-size="21" fill="#c9f5ec">장기 계약과 안정적 유동성</text>
+<rect x="48" y="642" width="1504" height="112" rx="14" fill="#0b1d33" stroke="#25486b"/>
+<text x="76" y="708" font-size="23" font-weight="700" fill="#ffffff">전력 인프라</text>
+<text x="400" y="708" font-size="21" fill="#f7d9cd">접속 지연·건설비 급등</text>
+<text x="980" y="708" font-size="21" fill="#c9f5ec">허가·전력계약·설비 가동 진전</text>
+<rect x="48" y="766" width="1504" height="92" rx="14" fill="#0e2444" stroke="#25486b"/>
+<text x="76" y="822" font-size="23" font-weight="700" fill="#ffffff">밸류에이션</text>
+<text x="400" y="822" font-size="21" fill="#f7d9cd">실적보다 주가가 과속</text>
+<text x="980" y="822" font-size="21" fill="#c9f5ec">이익 추정치와 현금흐름 개선</text>
+<text x="1504" y="886" text-anchor="end" font-size="14" fill="#6d92b8">JOYLAB RESEARCH · 지표는 위기 날짜를 알려주는 신호등이 아니라 가설 검증 도구입니다</text>
+</g>
+</svg>

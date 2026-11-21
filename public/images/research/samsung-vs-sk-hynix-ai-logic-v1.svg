@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="s-title s-desc">
+<title id="s-title">삼성전자와 SK하이닉스의 AI 투자 논리 비교</title>
+<desc id="s-desc">AI 연결고리, 우선 확인 지표, 주요 부담, 현금흐름 네 축으로 삼성전자와 SK하이닉스의 사업 구성을 비교한 카드형 도식</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06162b"/><stop offset="1" stop-color="#123252"/></linearGradient>
+<pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#bde0ff" opacity=".18"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<rect x="38" y="33" width="235" height="34" rx="17" fill="#13466f"/>
+<text x="60" y="56" fill="#b9f9f5" font-size="16" font-family="Arial,'Noto Sans KR',sans-serif" font-weight="700">JOYLAB  /  VISUAL RESEARCH</text>
+<text x="48" y="150" font-family="Arial,'Noto Sans KR',sans-serif" font-size="42" font-weight="800" fill="#ffffff">같은 AI 메모리 수요, 다른 사업 구성</text>
+<text x="48" y="194" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#a9cce8">HBM 매출과 일반 D램 구성을 먼저 확인하고, 그다음 가격·수율·투자 부담·FCF를 봅니다.</text>
+<g font-family="Arial,'Noto Sans KR',sans-serif">
+<rect x="48" y="240" width="730" height="512" rx="26" fill="#0f2a4a" stroke="#1677ff" stroke-width="2"/>
+<text x="84" y="300" font-size="34" font-weight="800" fill="#ffffff">삼성전자</text>
+<text x="84" y="336" font-size="18" fill="#8fb7ff" letter-spacing="1">메모리 · 파운드리 · 시스템반도체 · 모바일</text>
+<rect x="84" y="368" width="658" height="1" fill="#2d6ba8"/>
+<text x="84" y="412" font-size="17" fill="#8fb7ff" letter-spacing="1">AI 연결고리</text>
+<text x="84" y="446" font-size="22" fill="#eaf5ff">메모리·반도체 생태계, 다각화 사업</text>
+<text x="84" y="508" font-size="17" fill="#8fb7ff" letter-spacing="1">우선 확인</text>
+<text x="84" y="542" font-size="22" fill="#eaf5ff">제품별 실적과 파운드리 손익</text>
+<text x="84" y="604" font-size="17" fill="#8fb7ff" letter-spacing="1">주요 부담</text>
+<text x="84" y="638" font-size="22" fill="#eaf5ff">다각화 사업의 손익 변동</text>
+<text x="84" y="700" font-size="17" fill="#8fb7ff" letter-spacing="1">현금흐름</text>
+<text x="84" y="734" font-size="22" fill="#eaf5ff">전사 투자와 현금창출의 균형</text>
+<rect x="822" y="240" width="730" height="512" rx="26" fill="#123a4c" stroke="#55e3dc" stroke-width="2"/>
+<text x="858" y="300" font-size="34" font-weight="800" fill="#ffffff">SK하이닉스</text>
+<text x="858" y="336" font-size="18" fill="#7ff0e8" letter-spacing="1">메모리 중심 · AI용 HBM 공급</text>
+<rect x="858" y="368" width="658" height="1" fill="#2f7d84"/>
+<text x="858" y="412" font-size="17" fill="#7ff0e8" letter-spacing="1">AI 연결고리</text>
+<text x="858" y="446" font-size="22" fill="#eafcf8">HBM · 메모리 업황 직결</text>
+<text x="858" y="508" font-size="17" fill="#7ff0e8" letter-spacing="1">우선 확인</text>
+<text x="858" y="542" font-size="22" fill="#eafcf8">HBM 공급 규모와 수익성</text>
+<text x="858" y="604" font-size="17" fill="#7ff0e8" letter-spacing="1">주요 부담</text>
+<text x="858" y="638" font-size="22" fill="#eafcf8">메모리 사이클과 CAPEX</text>
+<text x="858" y="700" font-size="17" fill="#7ff0e8" letter-spacing="1">현금흐름</text>
+<text x="858" y="734" font-size="22" fill="#eafcf8">메모리 투자 회수</text>
+<text x="48" y="806" font-size="22" font-weight="700" fill="#ffffff">사업부 구성이 다른 두 회사를 동일한 PER 하나로 비교하면 설명력이 떨어질 수 있습니다.</text>
+<text x="48" y="842" font-size="18" fill="#8aa9c9">고객사 발표로 확인되지 않은 추정 공급량은 사실로 단정하지 않습니다. · JoyLab Research 도식</text>
+<text x="1504" y="886" text-anchor="end" font-size="14" fill="#6d92b8">NOT INVESTMENT ADVICE</text>
+</g>
+</svg>

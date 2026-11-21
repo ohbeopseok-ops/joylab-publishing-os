@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="g-title g-desc">
+<title id="g-title">스페이스X 클래스A 보고 보유 주식 변화</title>
+<desc id="g-desc">2026년 6월 말 4억 2,731만 주에서 9월 말 3억 1,436만 주로 줄어든 SEC 13G/A 보고 수량과 지분율 변화를 비교한 막대 차트</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07182d"/><stop offset="1" stop-color="#16375b"/></linearGradient>
+<linearGradient id="bar1" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1d6fe0"/><stop offset="1" stop-color="#4aa8ff"/></linearGradient>
+<linearGradient id="bar2" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1a8f9e"/><stop offset="1" stop-color="#55e3dc"/></linearGradient>
+<pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#bde0ff" opacity=".18"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<rect x="38" y="33" width="235" height="34" rx="17" fill="#13466f"/>
+<text x="60" y="56" fill="#b9f9f5" font-size="16" font-family="Arial,'Noto Sans KR',sans-serif" font-weight="700">JOYLAB  /  VISUAL RESEARCH</text>
+<text x="48" y="150" font-family="Arial,'Noto Sans KR',sans-serif" font-size="44" font-weight="800" fill="#ffffff">13G/A가 보여주는 지분 변동</text>
+<text x="48" y="196" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" fill="#a9cce8">기준일이 다른 두 보고 스냅샷입니다. 잔여 지분이 남아 있어 전량 매각은 아닙니다.</text>
+<text x="220" y="272" font-family="Arial,'Noto Sans KR',sans-serif" font-size="18" fill="#7fa3c4" letter-spacing="1">보고 보유 주식 (스페이스X 클래스 A)</text>
+<text x="220" y="312" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" font-weight="700" fill="#cfe3f7">2026년 6월 말</text>
+<rect x="220" y="326" width="1100" height="92" rx="12" fill="url(#bar1)"/>
+<text x="1296" y="383" text-anchor="end" font-family="Arial,'Noto Sans KR',sans-serif" font-size="26" font-weight="700" fill="#ffffff">약 4억 2,731만 주 · 5.5%</text>
+<text x="220" y="504" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" font-weight="700" fill="#cfe3f7">2026년 9월 말</text>
+<rect x="220" y="518" width="809" height="92" rx="12" fill="url(#bar2)"/>
+<text x="1005" y="575" text-anchor="end" font-family="Arial,'Noto Sans KR',sans-serif" font-size="26" font-weight="700" fill="#04202a">약 3억 1,436만 주 · 3.8%</text>
+<rect x="1029" y="518" width="291" height="92" rx="12" fill="#f0a58c" fill-opacity=".12" stroke="#f0a58c" stroke-width="2" stroke-dasharray="9 8"/>
+<text x="1174" y="573" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="20" font-weight="700" fill="#ffd9c9">감소분</text>
+<path d="M220 636H1340" stroke="#2d4a6b" stroke-width="2"/>
+<text x="48" y="672" font-family="Arial,'Noto Sans KR',sans-serif" font-size="17" fill="#6d92b8">자료: SEC Founders Fund 관련 13G/A(2026-11-13 제출) · 2026년 9월 30일 기준 보고와 직전 6월 말 보고 비교</text>
+<rect x="48" y="700" width="1408" height="92" rx="18" fill="#2a1c23" stroke="#d96b52"/>
+<text x="80" y="757" font-family="Arial,'Noto Sans KR',sans-serif" font-size="30" font-weight="800" fill="#ffffff">차이 약 1억 1,295만 주</text>
+<text x="1424" y="757" text-anchor="end" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" fill="#ffcbb8">지분율 5.5% → 3.8% (1.7%p 감소)</text>
+<text x="48" y="836" font-family="Arial,'Noto Sans KR',sans-serif" font-size="19" fill="#8aa9c9">170억 달러는 감소 주식 수에 평가가격을 적용한 추산치이며, 실제 체결 대금으로 확인된 값이 아닙니다.</text>
+<text x="1504" y="866" text-anchor="end" font-family="Arial,'Noto Sans KR',sans-serif" font-size="14" fill="#6d92b8">JOYLAB RESEARCH · NOT INVESTMENT ADVICE</text>
+</svg>

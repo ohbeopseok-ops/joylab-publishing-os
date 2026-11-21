@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="t-title t-desc">
+<title id="t-title">AI 투자가 현금흐름으로 이어지는 다섯 단계</title>
+<desc id="t-desc">설비투자에서 GPU 출하, 데이터센터 가동, 유료 AI 사용량, 현금흐름 회수로 이어지는 경로와 주문·전력 단계의 병목을 표시한 도식</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06162b"/><stop offset="1" stop-color="#123252"/></linearGradient>
+<linearGradient id="step" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#12395f"/><stop offset="1" stop-color="#0e2846"/></linearGradient>
+<linearGradient id="last" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#1c6f7b"/><stop offset="1" stop-color="#134a58"/></linearGradient>
+<pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#bde0ff" opacity=".18"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<rect x="38" y="33" width="235" height="34" rx="17" fill="#13466f"/>
+<text x="60" y="56" fill="#b9f9f5" font-size="16" font-family="Arial,'Noto Sans KR',sans-serif" font-weight="700">JOYLAB  /  VISUAL RESEARCH</text>
+<text x="48" y="150" font-family="Arial,'Noto Sans KR',sans-serif" font-size="44" font-weight="800" fill="#ffffff">투자금이 현금으로 돌아오는 다섯 단계</text>
+<text x="48" y="196" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" fill="#a9cce8">AI 버블 논쟁의 핵심은 어느 단계에서 끊기는지입니다. 각 단계는 다음 단계의 전제조건입니다.</text>
+<g font-family="Arial,'Noto Sans KR',sans-serif">
+<rect x="100" y="290" width="250" height="180" rx="22" fill="url(#step)" stroke="#2d80ff"/>
+<text x="126" y="330" font-size="16" fill="#8fb7ff" letter-spacing="1">STAGE 01</text>
+<text x="126" y="382" font-size="27" font-weight="800" fill="#ffffff">설비투자</text>
+<text x="126" y="420" font-size="18" fill="#a9cce8">빅테크 CAPEX</text>
+<text x="126" y="448" font-size="18" fill="#a9cce8">매출·FCF와 비교</text>
+<rect x="400" y="290" width="250" height="180" rx="22" fill="url(#step)" stroke="#2d80ff"/>
+<text x="426" y="330" font-size="16" fill="#8fb7ff" letter-spacing="1">STAGE 02</text>
+<text x="426" y="382" font-size="27" font-weight="800" fill="#ffffff">GPU · HBM</text>
+<text x="426" y="420" font-size="18" fill="#a9cce8">출하·수율·믹스</text>
+<text x="426" y="448" font-size="18" fill="#a9cce8">가격과 재고</text>
+<rect x="700" y="290" width="250" height="180" rx="22" fill="url(#step)" stroke="#2d80ff"/>
+<text x="726" y="330" font-size="16" fill="#8fb7ff" letter-spacing="1">STAGE 03</text>
+<text x="726" y="382" font-size="27" font-weight="800" fill="#ffffff">가동</text>
+<text x="726" y="420" font-size="18" fill="#a9cce8">데이터센터</text>
+<text x="726" y="448" font-size="18" fill="#a9cce8">전력·냉각·허가</text>
+<rect x="1000" y="290" width="250" height="180" rx="22" fill="url(#step)" stroke="#2d80ff"/>
+<text x="1026" y="330" font-size="16" fill="#8fb7ff" letter-spacing="1">STAGE 04</text>
+<text x="1026" y="382" font-size="27" font-weight="800" fill="#ffffff">사용량</text>
+<text x="1026" y="420" font-size="18" fill="#a9cce8">유료 AI 서비스</text>
+<text x="1026" y="448" font-size="18" fill="#a9cce8">단가와 체류</text>
+<rect x="1300" y="290" width="250" height="180" rx="22" fill="url(#last)" stroke="#55e3dc" stroke-width="2"/>
+<text x="1326" y="330" font-size="16" fill="#9ff2ea" letter-spacing="1">STAGE 05</text>
+<text x="1326" y="382" font-size="27" font-weight="800" fill="#ffffff">현금흐름</text>
+<text x="1326" y="420" font-size="18" fill="#c9f5ec">이익·FCF 회수</text>
+<text x="1326" y="448" font-size="18" fill="#c9f5ec">감가상각 반영</text>
+<path d="M356 380h32" stroke="#55e3dc" stroke-width="5" stroke-linecap="round"/><path d="M378 369l14 11-14 11" fill="none" stroke="#55e3dc" stroke-width="5" stroke-linejoin="round"/>
+<path d="M656 380h32" stroke="#55e3dc" stroke-width="5" stroke-linecap="round"/><path d="M678 369l14 11-14 11" fill="none" stroke="#55e3dc" stroke-width="5" stroke-linejoin="round"/>
+<path d="M956 380h32" stroke="#55e3dc" stroke-width="5" stroke-linecap="round"/><path d="M978 369l14 11-14 11" fill="none" stroke="#55e3dc" stroke-width="5" stroke-linejoin="round"/>
+<path d="M1256 380h32" stroke="#55e3dc" stroke-width="5" stroke-linecap="round"/><path d="M1278 369l14 11-14 11" fill="none" stroke="#55e3dc" stroke-width="5" stroke-linejoin="round"/>
+<path d="M525 476v56" stroke="#f0a58c" stroke-width="3" stroke-dasharray="8 8"/>
+<path d="M825 476v56" stroke="#f0a58c" stroke-width="3" stroke-dasharray="8 8"/>
+<rect x="330" y="536" width="392" height="132" rx="18" fill="#2a1c23" stroke="#d96b52"/>
+<text x="356" y="576" font-size="19" font-weight="700" fill="#ffcbb8">주문 ≠ 실제 사용</text>
+<text x="356" y="610" font-size="18" fill="#f7d9cd">주문이 재고로 쌓이는 구간인지,</text>
+<text x="356" y="638" font-size="18" fill="#f7d9cd">취소·납기·실사용으로 이어지는지 봅니다.</text>
+<rect x="748" y="536" width="802" height="132" rx="18" fill="#2a1c23" stroke="#d96b52"/>
+<text x="774" y="576" font-size="19" font-weight="700" fill="#ffcbb8">전력 병목은 일정과 비용을 함께 밀어낸다</text>
+<text x="774" y="610" font-size="18" fill="#f7d9cd">송전 접속·변압기·냉각·허가가 늦어지면 설치가 밀리고, 고객의 투자 회수 시점도 늦어집니다.</text>
+<text x="774" y="638" font-size="18" fill="#f7d9cd">반대로 송배전 투자가 늘면 전력기기 기업에는 수주 기회가 생깁니다.</text>
+<text x="48" y="754" font-size="24" font-weight="700" fill="#ffffff">균열은 한 단계에서만 나타나지 않습니다. 여러 단계가 동시에 어긋날 때 위험이 커집니다.</text>
+<text x="48" y="792" font-size="19" fill="#8aa9c9">설비투자 → GPU·HBM 출하 → 데이터센터 가동 → 유료 AI 사용량 → 현금흐름 회수</text>
+<text x="1504" y="866" text-anchor="end" font-size="14" fill="#6d92b8">JOYLAB RESEARCH · NOT INVESTMENT ADVICE</text>
+</g>
+</svg>

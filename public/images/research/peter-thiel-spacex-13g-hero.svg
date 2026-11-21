@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="pt-title pt-desc">
+<title id="pt-title">피터 틸 스페이스X 지분 공시 팩트체크</title>
+<desc id="pt-desc">SEC 13G/A로 확인된 스페이스X 지분 감소와 확인되지 않은 전량 매각·AI 버블 동기 주장을 나눠 보여주는 JoyLab 리서치 도식</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06142d"/><stop offset=".55" stop-color="#0d2450"/><stop offset="1" stop-color="#081226"/></linearGradient>
+<linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1b8bff"/><stop offset="1" stop-color="#55e3dc"/></linearGradient>
+<linearGradient id="warn" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#d96b52"/><stop offset="1" stop-color="#f0a58c"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#1677ff" stop-opacity=".5"/><stop offset="1" stop-color="#1677ff" stop-opacity="0"/></radialGradient>
+<pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#8fb7ff" opacity=".18"/></pattern>
+<filter id="soft"><feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#010912" flood-opacity=".55"/></filter>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<circle cx="1420" cy="120" r="330" fill="url(#glow)"/>
+<rect x="96" y="86" width="372" height="44" rx="22" fill="#102a54" stroke="#2d80ff" stroke-opacity=".8"/>
+<circle cx="122" cy="108" r="7" fill="#55e3dc"/>
+<text x="142" y="115" font-family="Arial,'Noto Sans KR',sans-serif" font-size="17" font-weight="700" fill="#cfe6ff" letter-spacing="1.4">JOYLAB RESEARCH · SEC FACT CHECK</text>
+<text x="96" y="248" font-family="Arial,'Noto Sans KR',sans-serif" font-size="56" font-weight="800" fill="#ffffff">피터 틸 스페이스X</text>
+<text x="96" y="322" font-family="Arial,'Noto Sans KR',sans-serif" font-size="56" font-weight="800" fill="#ffffff">지분 축소의 진실</text>
+<rect x="96" y="352" width="180" height="8" rx="4" fill="url(#accent)"/>
+<text x="96" y="418" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" fill="#a9cce8">13G/A(2026-09-30 기준)와 13F(2026 Q2 말)를 대조해</text>
+<text x="96" y="456" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" fill="#a9cce8">확인된 공시 사실과 확인되지 않은 주장을 분리했습니다.</text>
+<g filter="url(#soft)">
+<rect x="900" y="96" width="600" height="266" rx="26" fill="#0f2a4a" stroke="#1677ff" stroke-width="2"/>
+<rect x="930" y="126" width="126" height="36" rx="18" fill="#173f74"/>
+<text x="993" y="151" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="17" font-weight="700" fill="#9fd0ff">확인된 사실</text>
+<text x="930" y="234" font-family="Arial,'Noto Sans KR',sans-serif" font-size="46" font-weight="800" fill="#ffffff">5.5% → 3.8%</text>
+<text x="930" y="276" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#b7d6ef">보고 지분율 (6월 말 → 9월 말)</text>
+<text x="930" y="318" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#8fb7ff">약 4억 2,731만 주 → 약 3억 1,436만 주</text>
+<rect x="900" y="386" width="600" height="266" rx="26" fill="#2a1c23" stroke="#d96b52" stroke-width="2"/>
+<rect x="930" y="416" width="176" height="36" rx="18" fill="#4a2a2c"/>
+<text x="1018" y="441" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="17" font-weight="700" fill="#ffcbb8">확인되지 않은 주장</text>
+<text x="930" y="520" font-family="Arial,'Noto Sans KR',sans-serif" font-size="42" font-weight="800" fill="#ffffff">전량 매각 · AI 붕괴</text>
+<text x="930" y="564" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#f3c7b8">공시에는 잔여 지분이 남아 있고,</text>
+<text x="930" y="598" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#f3c7b8">현금화 동기를 기록한 문서는 없습니다.</text>
+</g>
+<g font-family="Arial,'Noto Sans KR',sans-serif">
+<rect x="96" y="668" width="336" height="118" rx="20" fill="#0e2444" stroke="#2d6ba8"/>
+<text x="126" y="712" font-size="17" fill="#8fb7ff" letter-spacing="1">STEP 01</text>
+<text x="126" y="754" font-size="25" font-weight="700" fill="#ffffff">보유 수량과 기준일</text>
+<rect x="458" y="668" width="336" height="118" rx="20" fill="#0e2444" stroke="#2d6ba8"/>
+<text x="488" y="712" font-size="17" fill="#8fb7ff" letter-spacing="1">STEP 02</text>
+<text x="488" y="754" font-size="25" font-weight="700" fill="#ffffff">지분율 변화</text>
+<rect x="820" y="668" width="336" height="118" rx="20" fill="#0e2444" stroke="#2d6ba8"/>
+<text x="850" y="712" font-size="17" fill="#8fb7ff" letter-spacing="1">STEP 03</text>
+<text x="850" y="754" font-size="25" font-weight="700" fill="#ffffff">13F의 자산 범위</text>
+<rect x="1182" y="668" width="322" height="118" rx="20" fill="#0e2444" stroke="#2d6ba8"/>
+<text x="1212" y="712" font-size="17" fill="#8fb7ff" letter-spacing="1">STEP 04</text>
+<text x="1212" y="754" font-size="25" font-weight="700" fill="#ffffff">발언자와 동기</text>
+<path d="M432 727h18M794 727h18M1156 727h18" stroke="#55e3dc" stroke-width="4" stroke-linecap="round"/>
+<text x="96" y="852" font-size="19" fill="#8aa9c9">170억 달러는 감소 주식 수에 평가가격을 적용한 추산치이며, 확인된 매각 대금이 아닙니다.</text>
+<text x="1504" y="852" text-anchor="end" font-size="15" fill="#6d92b8">JOYLAB RESEARCH · NOT INVESTMENT ADVICE</text>
+</g>
+</svg>

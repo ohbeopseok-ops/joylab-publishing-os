@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="b-title b-desc">
+<title id="b-title">AI 버블을 판단하는 다섯 가지 경고 신호</title>
+<desc id="b-desc">빅테크 CAPEX, GPU·HBM, 데이터센터 금융, 전력 병목, 밸류에이션 다섯 지표를 순서대로 배치한 JoyLab 리서치 대표 이미지</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#05122a"/><stop offset=".55" stop-color="#0d2a53"/><stop offset="1" stop-color="#071426"/></linearGradient>
+<linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1b8bff"/><stop offset="1" stop-color="#55e3dc"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#1677ff" stop-opacity=".45"/><stop offset="1" stop-color="#1677ff" stop-opacity="0"/></radialGradient>
+<pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1" fill="#8fb7ff" opacity=".16"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<circle cx="1330" cy="220" r="340" fill="url(#glow)"/>
+<rect x="96" y="86" width="404" height="44" rx="22" fill="#102a54" stroke="#2d80ff" stroke-opacity=".8"/>
+<circle cx="122" cy="108" r="7" fill="#55e3dc"/>
+<text x="142" y="115" font-family="Arial,'Noto Sans KR',sans-serif" font-size="17" font-weight="700" fill="#cfe6ff" letter-spacing="1.4">JOYLAB RESEARCH · AI BUBBLE SERIES 02</text>
+<text x="96" y="238" font-family="Arial,'Noto Sans KR',sans-serif" font-size="58" font-weight="800" fill="#ffffff">AI 버블은 언제 터질까?</text>
+<text x="96" y="312" font-family="Arial,'Noto Sans KR',sans-serif" font-size="58" font-weight="800" fill="#7fd7f7">다섯 개의 경고 신호</text>
+<rect x="96" y="342" width="180" height="8" rx="4" fill="url(#accent)"/>
+<text x="96" y="404" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" fill="#a9cce8">날짜를 맞히는 대신, 투자금이 늘어나는 속도와 현금흐름이 벌어지는 폭을 봅니다.</text>
+<path d="M230 580H1370" stroke="#2d6ba8" stroke-width="3" stroke-dasharray="10 12"/>
+<g font-family="Arial,'Noto Sans KR',sans-serif">
+<circle cx="230" cy="570" r="76" fill="#0f2a4a" stroke="#1677ff" stroke-width="2"/>
+<text x="230" y="581" text-anchor="middle" font-size="30" font-weight="800" fill="#9fd0ff">01</text>
+<circle cx="515" cy="570" r="76" fill="#0f2a4a" stroke="#1677ff" stroke-width="2"/>
+<text x="515" y="581" text-anchor="middle" font-size="30" font-weight="800" fill="#9fd0ff">02</text>
+<circle cx="800" cy="570" r="76" fill="#123a52" stroke="#55e3dc" stroke-width="2"/>
+<text x="800" y="581" text-anchor="middle" font-size="30" font-weight="800" fill="#7ff0e8">03</text>
+<circle cx="1085" cy="570" r="76" fill="#0f2a4a" stroke="#1677ff" stroke-width="2"/>
+<text x="1085" y="581" text-anchor="middle" font-size="30" font-weight="800" fill="#9fd0ff">04</text>
+<circle cx="1370" cy="570" r="76" fill="#0f2a4a" stroke="#1677ff" stroke-width="2"/>
+<text x="1370" y="581" text-anchor="middle" font-size="30" font-weight="800" fill="#9fd0ff">05</text>
+<text x="230" y="704" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">빅테크 CAPEX</text>
+<text x="515" y="704" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">GPU · HBM</text>
+<text x="800" y="704" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">데이터센터 금융</text>
+<text x="1085" y="704" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">전력 · 병목</text>
+<text x="1370" y="704" text-anchor="middle" font-size="26" font-weight="700" fill="#ffffff">밸류에이션</text>
+<text x="230" y="740" text-anchor="middle" font-size="16" fill="#8fb7ff" letter-spacing="1">CAPEX / FCF</text>
+<text x="515" y="740" text-anchor="middle" font-size="16" fill="#8fb7ff" letter-spacing="1">ORDERS · INVENTORY</text>
+<text x="800" y="740" text-anchor="middle" font-size="16" fill="#8fb7ff" letter-spacing="1">DEBT · MATURITY</text>
+<text x="1085" y="740" text-anchor="middle" font-size="16" fill="#8fb7ff" letter-spacing="1">GRID · COOLING</text>
+<text x="1370" y="740" text-anchor="middle" font-size="16" fill="#8fb7ff" letter-spacing="1">PRICE · EXPECTATION</text>
+<text x="96" y="822" font-size="23" fill="#cfe3f7">한 지표가 아니라 여러 단계에서 동시에 균열이 생기는지 확인합니다.</text>
+<text x="1504" y="866" text-anchor="end" font-size="14" fill="#6d92b8">JOYLAB RESEARCH · 지표는 신호등이 아니라 가설 검증 도구</text>
+</g>
+</svg>
