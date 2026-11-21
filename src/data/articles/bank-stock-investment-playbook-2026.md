@@ -10,6 +10,42 @@ author: "JoyLab"
 contentType: "practical-playbook"
 contentQuestion: "금리 변동기에는 어떤 지표로 은행주 투자를 재평가해야 하는가?"
 timeSensitive: true
+trust:
+  author: "JoyLab"
+  authorPerspective: "공식 금리 결정과 기업 실적·위험지표를 분리해 평가하는 금융 리서치"
+  humanReviewed: false
+  researchedAt: "2026-11-21"
+  methodology:
+    - "공개된 정책 발표와 기업 분기 공시·전망 보도를 구분해 정성적 시나리오를 비교함."
+    - "검증되지 않은 금리민감도와 투자수익률의 직접 환산은 배제함."
+  primarySources:
+    - id: "fed"
+      title: "2026 October FOMC"
+      publisher: "Federal Reserve"
+      url: "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"
+      accessedAt: "2026-11-21"
+      supports: ["financial-evidence"]
+    - id: "kb"
+      title: "KB Financial Group Third Quarter 2026 IR"
+      publisher: "KB Financial Group"
+      url: "https://www.kbfg.com/IR_new/2026_3/player/vod_eng.html"
+      accessedAt: "2026-11-21"
+      supports: ["financial-evidence"]
+    - id: "jpm"
+      title: "2026 third quarter Form 10-Q"
+      publisher: "JPMorgan Chase / US SEC"
+      url: "https://www.sec.gov/Archives/edgar/data/19617/000162828026069523/jpm-20260930.htm"
+      accessedAt: "2026-11-21"
+      supports: ["financial-evidence"]
+  originalValue:
+    - kind: "framework"
+      sectionId: "financial-evidence"
+      description: "금리·마진·신용비용을 구분해 기업 실적을 해석하는 프레임워크"
+  counterEvidenceSections: ["counter-case"]
+  conclusionSection: "conclusion-evidence"
+  updateLog:
+    - date: "2026-11-21"
+      change: "공식 자료를 바탕으로 금융주 3부작 작성 및 출고 계약 메타데이터 추가"
 researchMethod: "연준·금융사 공식 문서의 확정 자료와 전망 보도를 분리하고 금융주 실적 및 조건부 시나리오를 비교함"
 sourceList:
   - label: "미국 연준 FOMC 2026-10-28"
@@ -39,6 +75,8 @@ draft: false
 
 **정책금리 → 시장금리 → 대출·예금 재산정 → NIM/NII → 대손비용 → 순이익 → 자본·주주환원**의 경로 중 어느 단계가 바뀌었는지 살핀다. KB금융은 원화와 국내 신용시장, JP모건은 달러 예금·대출·카드·시장부문에 노출된다. 둘의 실적 민감도가 같다고 가정하지 않는다.
 
+<span id="financial-evidence"></span>
+
 ## 3단계: 분기 공시에서 검증할 숫자
 
 | 지표 | 확인 문서 | 판단 기준 |
@@ -50,6 +88,8 @@ draft: false
 | PBR·ROE·EPS | 주가와 실적 전망 | 현재 가격이 어떤 미래 수익성을 가정하는지 |
 
 주가와 예상 EPS를 같은 시점의 자료로 확보하지 않았다면 목표주가·기대수익률을 제시하지 않는다. 배당수익률도 당장 높은 숫자가 아니라 자본을 훼손하지 않고 지속 가능한지가 중요하다.
+
+<span id="counter-case"></span>
 
 ## 4단계: 반대 시나리오를 쓴다
 
@@ -64,6 +104,8 @@ draft: false
 ## 5단계: 매 분기 재평가 규칙
 
 분기 실적 발표마다 NII, NIM, 연체율, 충당금, CET1, 자사주·배당 정책과 최신 주가·밸류에이션을 같은 기준일로 정리한다. 투자 가설과 반대되는 결과가 반복될 경우 금리 전망보다 실적 가설을 우선 수정한다. 원화·달러 자산 배분, 환율 민감도, 종목 집중 위험도 별도로 점검한다.
+
+<span id="conclusion-evidence"></span>
 
 ## 실전 적용: 확인하기 전에는 계산하지 않는다
 
