@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">연준 금리 전망과 금융주 분석</title><desc id="desc">딥네이비 금융 리서치 이미지, 금리 정책 흐름과 은행 실적 비교</desc>
+<defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#06132f"/><stop offset="1" stop-color="#14315f"/></linearGradient><linearGradient id="gold" x1="0" x2="1"><stop stop-color="#f8d57c"/><stop offset="1" stop-color="#dca52a"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<g opacity=".18" stroke="#80aeec" stroke-width="2"><path d="M920 120V795M1060 120V795M1200 120V795M1340 120V795M1480 120V795"/><path d="M885 230H1510M885 370H1510M885 510H1510M885 650H1510"/></g>
+<g transform="translate(960 255)" fill="none" stroke="#78c2ff" stroke-width="12"><path d="M0 60 70 25 140 60 210 16 280 55 350 -15" stroke-linecap="round" stroke-linejoin="round"/><path d="m312 -15 38 0 0 38"/></g>
+<g transform="translate(975 440)" fill="#3b72bc"><rect x="0" y="185" width="65" height="155" rx="5"/><rect x="102" y="126" width="65" height="214" rx="5"/><rect x="204" y="65" width="65" height="275" rx="5"/><rect x="306" y="0" width="65" height="340" rx="5"/></g>
+<text x="92" y="115" fill="#8bc7fa" font-family="Arial, Noto Sans KR, sans-serif" font-weight="700" font-size="45">JoyLab Research</text>
+<path d="M92 154H780" stroke="#358ce4" stroke-width="5"/>
+<text x="88" y="324" fill="#fff" font-family="Arial, Noto Sans KR, sans-serif" font-weight="800" font-size="94">연준 3연속 인상</text>
+<text x="88" y="455" fill="url(#gold)" font-family="Arial, Noto Sans KR, sans-serif" font-weight="800" font-size="108">전망과 실적</text>
+<text x="93" y="552" fill="#ebf4ff" font-family="Arial, Noto Sans KR, sans-serif" font-weight="500" font-size="45">KB금융 · JP모건 · 금융주 투자전략</text>
+<rect x="92" y="664" width="592" height="78" rx="10" fill="#144579"/>
+<text x="119" y="716" fill="#fff" font-family="Arial, Noto Sans KR, sans-serif" font-weight="700" font-size="34">금리의 방향보다 이익의 질</text>
+<text x="92" y="830" fill="#a7bddb" font-family="Arial, Noto Sans KR, sans-serif" font-size="30">2026.11.21  |  MARKET RESEARCH</text>
+</svg>

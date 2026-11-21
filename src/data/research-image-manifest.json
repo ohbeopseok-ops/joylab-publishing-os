@@ -2284,5 +2284,62 @@
         "caption": "AI 에이전트의 업무 자동화에 사람 승인과 감사·복구 단계를 결합한 JoyLab 제안 모델"
       }
     ]
+  },
+  "fed-jpmorgan-rate-hikes-2026": {
+    "hero": {
+      "src": "/images/research/fed-bank-rate-series-20261121.svg",
+      "alt": "연준 인상 전망과 한국·미국 금융주 핵심 질문을 표현한 16대9 금융 리서치 표지",
+      "caption": "JoyLab 자체 제작 개념 이미지이며 실제 금리·주가 차트가 아닙니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/bank-earnings-2026-q3-comparison.svg",
+        "alt": "2026년 3분기 KB금융과 JP모건 순이자이익 및 핵심 지표 비교",
+        "caption": "각 금융사 2026년 3분기 공식 자료 기준. 통화와 기업 구조가 달라 직접 비교하지 않습니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "금리 변화의 사실과 해석, 시나리오, 투자 판단을 분리하는 JoyLab 리서치 프레임워크",
+        "caption": "정책금리 변화와 은행별 이익·신용비용은 일대일로 대응하지 않습니다."
+      }
+    ]
+  },
+  "kb-financial-rate-sensitivity-2026": {
+    "hero": {
+      "src": "/images/research/fed-bank-rate-series-20261121.svg",
+      "alt": "KB금융 순이자마진과 신용비용 핵심 질문을 표현한 16대9 금융 리서치 표지",
+      "caption": "JoyLab 자체 제작 개념 이미지이며 실제 금리·주가 차트가 아닙니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/bank-earnings-2026-q3-comparison.svg",
+        "alt": "2026년 3분기 KB금융과 JP모건 순이자이익 및 핵심 지표 비교",
+        "caption": "각 금융사 2026년 3분기 공식 자료 기준. 통화와 기업 구조가 달라 직접 비교하지 않습니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "금리 변화의 사실과 해석, 시나리오, 투자 판단을 분리하는 JoyLab 리서치 프레임워크",
+        "caption": "정책금리 변화와 은행별 이익·신용비용은 일대일로 대응하지 않습니다."
+      }
+    ]
+  },
+  "bank-stock-investment-playbook-2026": {
+    "hero": {
+      "src": "/images/research/fed-bank-rate-series-20261121.svg",
+      "alt": "금리 변동기 금융주 투자 기준 핵심 질문을 표현한 16대9 금융 리서치 표지",
+      "caption": "JoyLab 자체 제작 개념 이미지이며 실제 금리·주가 차트가 아닙니다."
+    },
+    "supporting": [
+      {
+        "src": "/images/research/bank-earnings-2026-q3-comparison.svg",
+        "alt": "2026년 3분기 KB금융과 JP모건 순이자이익 및 핵심 지표 비교",
+        "caption": "각 금융사 2026년 3분기 공식 자료 기준. 통화와 기업 구조가 달라 직접 비교하지 않습니다."
+      },
+      {
+        "src": "/images/research/joylab-research-framework.svg",
+        "alt": "금리 변화의 사실과 해석, 시나리오, 투자 판단을 분리하는 JoyLab 리서치 프레임워크",
+        "caption": "정책금리 변화와 은행별 이익·신용비용은 일대일로 대응하지 않습니다."
+      }
+    ]
   }
 }
