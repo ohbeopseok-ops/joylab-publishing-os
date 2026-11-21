@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700" role="img" aria-labelledby="t d">
+<title id="t">KB금융과 JP모건 2026년 3분기 실적 핵심 변수 비교</title>
+<desc id="d">KB금융 NII 3조 5070억 원 그룹 NIM 1.92퍼센트, JP모건 NII 270억 달러 평균 예금 약 2조 7000억 달러. 통화와 사업구조가 달라 직접 우열 비교는 불가</desc>
+<rect width="1600" height="700" fill="#f4f7fd"/><rect x="40" y="42" width="1520" height="616" rx="28" fill="white" stroke="#dbe5f6" stroke-width="3"/>
+<text x="85" y="123" font-family="Arial,Noto Sans KR,sans-serif" font-weight="700" font-size="47" fill="#0b1f4d">2026년 3분기 은행 실적 비교</text><text x="85" y="178" font-family="Arial,Noto Sans KR,sans-serif" font-size="27" fill="#53647e">절대금액의 대소 비교가 아닌, 각 기업의 수익구조 확인</text>
+<rect x="80" y="215" width="688" height="328" rx="22" fill="#eaf2ff"/><rect x="830" y="215" width="688" height="328" rx="22" fill="#eaf8f6"/>
+<text x="118" y="288" font-family="Arial,Noto Sans KR,sans-serif" font-weight="700" font-size="36" fill="#194c9c">KB금융 (105560)</text><text x="870" y="288" font-family="Arial,Noto Sans KR,sans-serif" font-weight="700" font-size="36" fill="#116e6c">JP모건 체이스 (JPM)</text>
+<text x="118" y="350" font-family="Arial,Noto Sans KR,sans-serif" font-size="29" fill="#425775">순이자이익 NII</text><text x="118" y="415" font-family="Arial,Noto Sans KR,sans-serif" font-weight="800" font-size="60" fill="#0b1f4d">3조 5,070억 원</text>
+<text x="118" y="472" font-family="Arial,Noto Sans KR,sans-serif" font-size="30" fill="#3e5b85">그룹 NIM 1.92% · 전분기 -2bp</text>
+<text x="870" y="350" font-family="Arial,Noto Sans KR,sans-serif" font-size="29" fill="#425775">순이자이익 NII</text><text x="870" y="415" font-family="Arial,Noto Sans KR,sans-serif" font-weight="800" font-size="64" fill="#0b1f4d">270억 달러</text>
+<text x="870" y="472" font-family="Arial,Noto Sans KR,sans-serif" font-size="29" fill="#366a6a">평균 예금 약 2.7조 달러</text>
+<text x="88" y="602" font-family="Arial,Noto Sans KR,sans-serif" font-size="25" fill="#53647e">자료: KB금융 3Q26 IR / JP모건 3Q26 SEC 10-Q · 통화·사업구조·지표 분모가 서로 다름</text>
+</svg>
