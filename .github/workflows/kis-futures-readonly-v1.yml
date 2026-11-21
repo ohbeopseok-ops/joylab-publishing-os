@@ -1,0 +1,33 @@
+name: KIS Futures Read-only Probe V1
+
+on:
+  workflow_dispatch:
+    inputs:
+      acknowledge_one_token_request:
+        description: 'I acknowledge one KIS OAuth request and one futures quote GET; no orders.'
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kis-futures-probe-v1
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    if: ${{ inputs.acknowledge_one_token_request == true }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test no-order and fail-closed behavior
+        run: python3 -m unittest discover -s scripts -p 'test_kis_futures_readonly_v1.py' -v
+      - name: Fetch one KIS futures board snapshot (read-only)
+        env:
+          KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
+          KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
+          KIS_FUTURES_PROBE_ACK: 'true'
+        run: python3 scripts/kis_futures_readonly_v1.py
