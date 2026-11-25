@@ -9,7 +9,7 @@ Scope: Website, Research, Books, YouTube, Instagram, Threads, Naver Blog, Blogge
 - Brand: `JoyLab`
 - Canonical domain: `https://aijoylab.kr`
 - Public contact: `contact@aijoylab.kr`
-- Official YouTube: `https://www.youtube.com/@JoyLabResearch`
+- Official YouTube: `https://www.youtube.com/@JoyLabResearchKR`
 - Primary message: **분석에서 실행까지**
 - Extended positioning: **생각을 분석하고, 분석을 실행으로.**
 - Pillars: **투자·경제 / AI·생산성 / 성장·리더십**
@@ -34,7 +34,7 @@ Where the platform allows it:
 - Display name: `JoyLab`
 - Website: `https://aijoylab.kr`
 - Public email: `contact@aijoylab.kr`
-- Official YouTube: `https://www.youtube.com/@JoyLabResearch`
+- Official YouTube: `https://www.youtube.com/@JoyLabResearchKR`
 - Profile image: current official JoyLab 1:1 brand image
 - Bio: one of the approved JoyLab bios
 - Preferred handle for new accounts: `@aijoylab`
@@ -69,7 +69,7 @@ Canonical official channels:
 
 | Channel | Canonical URL |
 | --- | --- |
-| YouTube | https://www.youtube.com/@JoyLabResearch |
+| YouTube | https://www.youtube.com/@JoyLabResearchKR |
 | Naver Blog | https://blog.naver.com/joy014 |
 | Threads | https://www.threads.com/@ohbeopseok |
 | Instagram | https://www.instagram.com/aijoylab/ |
@@ -88,7 +88,7 @@ Organization `sameAs` must contain only channels that are actively operated and 
 
 The canonical YouTube entity is:
 
-`https://www.youtube.com/@JoyLabResearch`
+`https://www.youtube.com/@JoyLabResearchKR`
 
 ## 7. Public identity exclusions
 
@@ -108,7 +108,7 @@ A new or refreshed channel is complete when these seven items are consistent:
 2. Profile image: official JoyLab image
 3. Website: aijoylab.kr
 4. Public email: contact@aijoylab.kr
-5. Official YouTube: https://www.youtube.com/@JoyLabResearch
+5. Official YouTube: https://www.youtube.com/@JoyLabResearchKR
 6. Bio: approved JoyLab positioning
 7. Pillars: 투자·경제 / AI·생산성 / 성장·리더십
 
@@ -138,7 +138,7 @@ Recommended periodic review: once per quarter.
 | Brand | JoyLab |
 | Domain | https://aijoylab.kr |
 | Public contact | contact@aijoylab.kr |
-| Official YouTube | https://www.youtube.com/@JoyLabResearch |
+| Official YouTube | https://www.youtube.com/@JoyLabResearchKR |
 | Primary message | 분석에서 실행까지 |
 | Extended positioning | 생각을 분석하고, 분석을 실행으로. |
 | Pillars | 투자·경제 / AI·생산성 / 성장·리더십 |

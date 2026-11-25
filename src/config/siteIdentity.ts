@@ -8,7 +8,7 @@ export const SITE_IDENTITY = {
     adsTxtRecord: 'google.com, pub-6938956176929357, DIRECT, f08c47fec0942fa0'
   },
   channels: {
-    youtube: 'https://www.youtube.com/@JoyLabResearch',
+    youtube: 'https://www.youtube.com/@JoyLabResearchKR',
     naver: 'https://blog.naver.com/joy014',
     threads: 'https://www.threads.com/@ohbeopseok',
     instagram: 'https://www.instagram.com/aijoylab/',

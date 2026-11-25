@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 
 const legacyHandle = ['@super', 'halabe100'].join('');
-const canonicalYouTube = 'https://www.youtube.com/@JoyLabResearch';
+const canonicalYouTube = 'https://www.youtube.com/@JoyLabResearchKR';
 const canonicalSource = 'src/config/siteIdentity.ts';
 
 const tracked = execFileSync('git', ['ls-files'], { encoding: 'utf8' })
