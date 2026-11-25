@@ -40,7 +40,7 @@ for(const file of pages){
     growthPath: html.includes('data-search-growth-path="v1"'),
     relatedLinks: internal>=2,
     booksLink: html.includes('href="/books"'),
-    youtubeLink: html.includes('https://www.youtube.com/@JoyLabResearch'),
+    youtubeLink: html.includes('https://www.youtube.com/@JoyLabResearchKR'),
     contactLink: html.includes('/contact#contact-form'),
     canonicalPresent: /rel=["']canonical["']/.test(html),
     indexable: !meta(html,'robots').toLowerCase().includes('noindex')
